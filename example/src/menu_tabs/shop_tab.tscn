@@ -1,0 +1,151 @@
+[gd_scene load_steps=21 format=3 uid="uid://t1f7781n680v"]
+
+[ext_resource type="Resource" uid="uid://ddeg8trd3hwno" path="res://example/wyvernbox/item_generators/enchant_item.tres" id="1"]
+[ext_resource type="Theme" uid="uid://75b71yv7xu1e" path="res://example/theme/default.tres" id="1_kfwxf"]
+[ext_resource type="Resource" uid="uid://bd1ddeel6achx" path="res://example/wyvernbox/item_types/consumable/potion_blue.tres" id="2"]
+[ext_resource type="Script" path="res://addons/wyvernbox/inventories/grid_inventory.gd" id="2_aqjqv"]
+[ext_resource type="PackedScene" uid="uid://dk2b3ordhblc2" path="res://addons/wyvernbox_prefabs/inventories/grid_inventory.tscn" id="19"]
+[ext_resource type="FontFile" path="res://example/theme/font/font_title.tres" id="20"]
+[ext_resource type="Resource" uid="uid://cdmceeucy4oik" path="res://example/wyvernbox/item_types/equipment/wand_purple.tres" id="22"]
+[ext_resource type="Script" path="res://example/src/menu_tabs/vendor_response.gd" id="32"]
+[ext_resource type="Script" path="res://addons/wyvernbox/crafting/vendor.gd" id="33"]
+[ext_resource type="Resource" uid="uid://c7o8imyt2lakx" path="res://example/wyvernbox/item_types/equipment/ring_1.tres" id="36"]
+[ext_resource type="Resource" uid="uid://cdffrl8qjklra" path="res://example/wyvernbox/item_types/equipment/melee_battleaxe.tres" id="37"]
+[ext_resource type="Resource" uid="uid://dwr5x0eblj1sl" path="res://example/wyvernbox/item_types/equipment/ring_2.tres" id="38"]
+[ext_resource type="Resource" uid="uid://crjng8nnwitif" path="res://example/wyvernbox/item_types/equipment/belt_1.tres" id="39"]
+[ext_resource type="Resource" uid="uid://cvnb78ahj2by1" path="res://example/wyvernbox/item_types/equipment/belt_2.tres" id="40"]
+[ext_resource type="Resource" uid="uid://3gct1jhvdrp0" path="res://example/wyvernbox/item_types/equipment/head_wizardhat.tres" id="41"]
+[ext_resource type="Resource" uid="uid://c7m3wh35aweno" path="res://example/wyvernbox/item_types/equipment/head_helmet.tres" id="42"]
+[ext_resource type="Resource" uid="uid://b554u70ufbdta" path="res://example/wyvernbox/item_types/equipment/chestplate_2.tres" id="43"]
+[ext_resource type="Resource" uid="uid://dicob0lf8eun4" path="res://example/wyvernbox/item_types/equipment/chestplate_1.tres" id="44"]
+
+[sub_resource type="Resource" id="Resource_wcc28"]
+script = ExtResource("2_aqjqv")
+height = 8
+width = 12
+
+[sub_resource type="Resource" id="Resource_r866f"]
+resource_name = "GridInventory"
+script = ExtResource("2_aqjqv")
+height = 8
+width = 12
+
+[node name="Shop" type="CenterContainer"]
+offset_right = 170.0
+offset_bottom = 114.0
+theme = ExtResource("1_kfwxf")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 2
+tab_focus_mode = 0
+
+[node name="Equipment" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
+
+[node name="Inventory" parent="TabContainer/Equipment" instance=ExtResource("19")]
+custom_minimum_size = Vector2(168, 112)
+layout_mode = 2
+inventory = SubResource("Resource_wcc28")
+interaction_mode = 7
+
+[node name="ShopManager" type="Node" parent="TabContainer/Equipment"]
+script = ExtResource("33")
+vendor_inventory = NodePath("../Inventory")
+sell_reward_into_inventory = NodePath("../../../../../../Inventory")
+price_markup = 2.0
+apply_to_all_stock = ExtResource("1")
+stock = Array[Resource("res://addons/wyvernbox/crafting/item_like.gd")]([ExtResource("37"), ExtResource("22"), ExtResource("39"), ExtResource("40"), ExtResource("44"), ExtResource("43"), ExtResource("42"), ExtResource("41"), ExtResource("36"), ExtResource("38")])
+stock_counts = Array[int]([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+stock_restocks = Array[int]([3, 3, 3, 3, 3, 3, 3, 3, 3, 3])
+infinite_restocks = false
+remove_price_on_buy = false
+clear_sold_items_when_hidden = true
+free_buyback = true
+
+[node name="Consumables" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Inventory" parent="TabContainer/Consumables" instance=ExtResource("19")]
+custom_minimum_size = Vector2(168, 112)
+layout_mode = 2
+inventory = SubResource("Resource_r866f")
+interaction_mode = 7
+
+[node name="ShopManager" type="Node" parent="TabContainer/Consumables"]
+script = ExtResource("33")
+vendor_inventory = NodePath("../Inventory")
+sell_reward_into_inventory = NodePath("../../../../../../Inventory")
+price_markup = 2.0
+apply_to_all_stock = null
+stock = Array[Resource("res://addons/wyvernbox/crafting/item_like.gd")]([ExtResource("2"), null])
+stock_counts = Array[int]([1, 0])
+stock_restocks = Array[int]([3, 0])
+infinite_restocks = true
+remove_price_on_buy = false
+clear_sold_items_when_hidden = true
+free_buyback = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = 66.0
+offset_right = 239.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("20")
+text = "Welcome! Check out my wares!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("32")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 87.0
+offset_top = 42.0
+offset_right = 105.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+text = "?"
+
+[node name="Popup" type="AcceptDialog" parent="Control"]
+dialog_text = "Welcome to my humble Shop! I am an InventoryVendor.
+
+All inventories allow vendor functionality, but I'm special - I
+give extra options for configuration, as well as restocking!
+
+All my wares are enchanted! Not without help of an
+ItemGeneratorEquipmentBonus.
+
+Unlike Conversions, I apply ItemGenerators
+*before* the cost is consumed! Nothing shady, you get
+what you see."
+
+[connection signal="grab_attempted" from="TabContainer/Equipment/Inventory" to="TabContainer/Equipment/ShopManager" method="_on_Inventory_grab_attempted"]
+[connection signal="item_stack_added" from="TabContainer/Equipment/Inventory" to="TabContainer/Equipment/ShopManager" method="_on_Inventory_item_stack_added"]
+[connection signal="item_cant_afford" from="TabContainer/Equipment/ShopManager" to="Control/Label" method="_on_ShopManager_item_cant_afford"]
+[connection signal="item_given" from="TabContainer/Equipment/ShopManager" to="Control/Label" method="_on_ShopManager_item_given"]
+[connection signal="item_received" from="TabContainer/Equipment/ShopManager" to="Control/Label" method="_on_ShopManager_item_received"]
+[connection signal="grab_attempted" from="TabContainer/Consumables/Inventory" to="TabContainer/Consumables/ShopManager" method="_on_Inventory_grab_attempted"]
+[connection signal="item_stack_added" from="TabContainer/Consumables/Inventory" to="TabContainer/Consumables/ShopManager" method="_on_Inventory_item_stack_added"]
+[connection signal="item_cant_afford" from="TabContainer/Consumables/ShopManager" to="Control/Label" method="_on_ShopManager_item_cant_afford"]
+[connection signal="item_given" from="TabContainer/Consumables/ShopManager" to="Control/Label" method="_on_ShopManager_item_given"]
+[connection signal="item_received" from="TabContainer/Consumables/ShopManager" to="Control/Label" method="_on_ShopManager_item_received"]
+[connection signal="pressed" from="Control/Button" to="Control/Popup" method="popup_centered"]

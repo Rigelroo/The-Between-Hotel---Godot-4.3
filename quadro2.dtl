@@ -1,0 +1,7 @@
+[signal arg="deactivate_movement"]
+join Persian 1
+Persian (Persian_neutral): Esse quadro é...
+Persian (Persian_neutral): desconfortável?
+Persian (Persian_embarassed): Ele me lembra de meus anos na escola
+[signal arg="reactivate_movement"]
+[end_timeline]

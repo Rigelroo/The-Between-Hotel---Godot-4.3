@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItemb" load_steps=3 format=3 uid="uid://x27hiyflu1v"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItemb.gd" id="1_hi7vy"]
+[ext_resource type="Texture2D" uid="uid://dop427ltmk23j" path="res://inventory/Chaves/inkfruits.png" id="2_dk7tw"]
+
+[resource]
+script = ExtResource("1_hi7vy")
+name = "inkfruits"
+texture = ExtResource("2_dk7tw")
+maxAmountInStack = 15
+max_amount = 0
+showname = "Roma noturna"
+description = "Uma estranha fruta cheia de um liquido negro, os Shadowfolks parecem gostar bastante delas."
+color = Color(0.782122, 0.375717, 0.126703, 1)
+color_x = 0.78
+color_y = 0.37
+color_z = 0.12
+first_item = 0

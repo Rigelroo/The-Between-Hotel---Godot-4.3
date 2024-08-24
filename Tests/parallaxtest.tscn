@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://87j1vtqmnvmj"]
+
+[ext_resource type="PackedScene" uid="uid://cxoajdx05inhy" path="res://Tests/parallaxtest1.tscn" id="1_sh1tr"]
+
+[node name="Node2D" type="Window"]
+transparent_bg = true
+initial_position = 1
+size = Vector2i(1152, 648)
+
+[node name="world" parent="." instance=ExtResource("1_sh1tr")]

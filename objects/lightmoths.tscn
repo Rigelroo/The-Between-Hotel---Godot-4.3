@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1gwbm7ogm5ol"]
+
+[ext_resource type="Texture2D" uid="uid://bwr11lq0ei6nj" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0000.png" id="1_hel12"]
+[ext_resource type="Texture2D" uid="uid://bxhpuidos0a61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0001.png" id="2_lmxc0"]
+[ext_resource type="Texture2D" uid="uid://bm73kn18iqyrn" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0002.png" id="3_4q070"]
+[ext_resource type="Texture2D" uid="uid://db66x10pmb632" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0003.png" id="4_romt1"]
+[ext_resource type="Texture2D" uid="uid://br4xjdpfr3od2" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0004.png" id="5_u0sd6"]
+[ext_resource type="Texture2D" uid="uid://b2su4ijpi25dr" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0005.png" id="6_casce"]
+[ext_resource type="Texture2D" uid="uid://dabqxtr5g2u61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0006.png" id="7_ajivw"]
+[ext_resource type="Texture2D" uid="uid://bxml7dtd3yxm6" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0007.png" id="8_8uu3e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d23d7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hel12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lmxc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4q070")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_romt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u0sd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_casce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ajivw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8uu3e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lightmoths2" type="AnimatedSprite2D"]
+position = Vector2(612, 515)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_d23d7")
+autoplay = "default"
+frame_progress = 0.63364

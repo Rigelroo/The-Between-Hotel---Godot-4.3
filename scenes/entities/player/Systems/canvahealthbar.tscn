@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://c44xqs2w5caa1"]
+
+[ext_resource type="Texture2D" uid="uid://vncfqutpqm55" path="res://Sprites/EntryHall/preto.png" id="1_g3vow"]
+[ext_resource type="Script" path="res://scenes/entities/player/Systems/Healthbar.gd" id="1_gwffl"]
+[ext_resource type="Script" path="res://scenes/entities/player/Systems/Statsbar.gd" id="1_pispc"]
+[ext_resource type="Texture2D" uid="uid://djrt8ukwlecr7" path="res://Sprites/Hud/Inkbar_bottom.png" id="3_0b6hv"]
+[ext_resource type="Texture2D" uid="uid://kenrbb40ur7d" path="res://Tests/pretoverde.png" id="3_sxnl2"]
+[ext_resource type="Texture2D" uid="uid://cs8p815gy6y2y" path="res://Sprites/Hud/Inkbar_over.png" id="4_mom3q"]
+[ext_resource type="Texture2D" uid="uid://bmg4s2ja6rbi8" path="res://Sprites/Hud/Inkbar_progress.png" id="5_lhvye"]
+[ext_resource type="Script" path="res://scenes/entities/player/Systems/Inkbar.gd" id="6_1ncav"]
+
+[node name="Statsbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pispc")
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109
+anchor_top = 0.13
+anchor_right = 0.765
+anchor_bottom = 0.239
+offset_left = 0.431992
+offset_top = -0.240005
+offset_right = -0.488037
+offset_bottom = -0.0640106
+grow_horizontal = 2
+grow_vertical = 2
+nine_patch_stretch = true
+texture_under = ExtResource("1_g3vow")
+texture_progress = ExtResource("3_sxnl2")
+script = ExtResource("1_gwffl")
+
+[node name="Inkbar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.207
+anchor_bottom = 0.369
+offset_right = 483.536
+offset_bottom = 484.888
+scale = Vector2(0.33, 0.33)
+min_value = 5.0
+value = 5.0
+fill_mode = 3
+texture_under = ExtResource("3_0b6hv")
+texture_over = ExtResource("4_mom3q")
+texture_progress = ExtResource("5_lhvye")
+script = ExtResource("6_1ncav")

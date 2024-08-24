@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cyox1uv6sr7m7"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_77l23"]
+[ext_resource type="Texture2D" uid="uid://di4qwpy3expct" path="res://inventory/Selos/selo_shadowdiver.png" id="2_ea1yk"]
+
+[resource]
+script = ExtResource("1_77l23")
+name = "selo_shadowdiver"
+texture = ExtResource("2_ea1yk")
+equipedtexture = ""
+textureaux = ""
+maxAmountInStack = 2
+max_amount = 0
+showname = "Mergulhador Sombrio"
+description = "Ele pulsa com energia sombria. Permite mergulhar nas sombras ao apertar Y no ar."
+color = Color(0.529412, 0.470588, 0.898039, 1)
+color_x = 0.52
+color_y = 0.47
+color_z = 0.89
+first_item = 0
+itemactivate = 0
+scriptstr = "res://inventory/Selos/selo_shadowdiver.gd"

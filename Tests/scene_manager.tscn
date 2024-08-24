@@ -1,0 +1,282 @@
+[gd_scene load_steps=16 format=3 uid="uid://bgy0idsyaaxgi"]
+
+[ext_resource type="Script" path="res://Tests/scene_managermod.gd" id="1_dk6u8"]
+[ext_resource type="Shader" path="res://diamondtransition.gdshader" id="1_wl3by"]
+[ext_resource type="FontFile" uid="uid://dbf30jmb03jwh" path="res://Fonts/Typewriter215FP-Heavyhanded.otf" id="3_38cqb"]
+[ext_resource type="Texture2D" uid="uid://crq2jcj5uidtc" path="res://Sprites/Bettlebourough/npcs/pulg_walk0000.png" id="4_naj7b"]
+[ext_resource type="Texture2D" uid="uid://b716dktklkfvs" path="res://Sprites/Bettlebourough/npcs/pulg_walk0001.png" id="5_l8n2e"]
+[ext_resource type="Texture2D" uid="uid://cimhuri8qd512" path="res://Sprites/Bettlebourough/npcs/pulg_walk0002.png" id="6_rw2np"]
+[ext_resource type="Texture2D" uid="uid://bqntcc5eeeeia" path="res://Sprites/Bettlebourough/npcs/pulg_walk0003.png" id="7_63k6e"]
+[ext_resource type="Texture2D" uid="uid://cdhu1pm2egnyx" path="res://Sprites/Bettlebourough/npcs/pulg_walk0004.png" id="8_70i27"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htqbf"]
+shader = ExtResource("1_wl3by")
+shader_parameter/progress = 1.0
+shader_parameter/size = 40.0
+shader_parameter/fill = true
+
+[sub_resource type="Animation" id="Animation_1i7qj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:material:shader_parameter/fill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_e4oby"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay:material:shader_parameter/fill")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:visible_characters")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.433333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 10]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.433333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bt68n"]
+resource_name = "nada"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ypvq7"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlay:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlay:material:shader_parameter/fill")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:visible_characters")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ebu1w"]
+_data = {
+"RESET": SubResource("Animation_1i7qj"),
+"in": SubResource("Animation_e4oby"),
+"nada": SubResource("Animation_bt68n"),
+"out": SubResource("Animation_ypvq7")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bq1cn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_naj7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l8n2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rw2np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_63k6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_70i27")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SceneManager" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_dk6u8")
+
+[node name="Overlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_htqbf")
+anchors_preset = -1
+anchor_right = 1.003
+anchor_bottom = 1.002
+offset_right = 0.543945
+offset_bottom = -0.296082
+color = Color(0.0823529, 0.0705882, 0.176471, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+callback_mode_discrete = 2
+libraries = {
+"": SubResource("AnimationLibrary_ebu1w")
+}
+autoplay = "nada"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(919, 454)
+scale = Vector2(0.700647, 0.700758)
+sprite_frames = SubResource("SpriteFrames_bq1cn")
+autoplay = "default"
+frame_progress = 0.757438
+speed_scale = 1.5
+
+[node name="Label" type="Label" parent="."]
+offset_left = 745.0
+offset_top = 548.0
+offset_right = 1115.0
+offset_bottom = 617.0
+theme_override_fonts/font = ExtResource("3_38cqb")
+theme_override_font_sizes/font_size = 61
+text = "Carregando"
+visible_characters = 0
+visible_ratio = 0.0
+
+[connection signal="vai" from="." to="." method="_on_vai"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

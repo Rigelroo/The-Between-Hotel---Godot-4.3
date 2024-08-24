@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://example/wyvernbox/item_generators/enchant_item.tres" type="Resource" id=1]
+[ext_resource path="res://addons/wyvernbox/crafting/item_conversion.gd" type="Script" id=33]
+[ext_resource path="res://example/wyvernbox/item_types/equipment/wand_red.tres" type="Resource" id=36]
+[ext_resource path="res://example/wyvernbox/item_types/materials/scroll_enchant.tres" type="Resource" id=37]
+
+[resource]
+script = ExtResource( 33 )
+name = "craft_enchant_wand_red"
+input_types = [ ExtResource( 36 ), ExtResource( 37 ) ]
+input_counts = [ 1, 4 ]
+output_types = [ ExtResource( 1 ) ]
+output_ranges = [ Vector2( 1, 1 ) ]

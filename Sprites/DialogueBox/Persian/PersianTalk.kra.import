@@ -1,0 +1,16 @@
+[remap]
+
+importer="godot-krita-importer"
+type="PackedScene"
+uid="uid://dc864xbu0soxy"
+path="res://.godot/imported/PersianTalk.kra-a24de037abb141fc326abb9f53f7d8ed.scn"
+
+[deps]
+
+source_file="res://Sprites/DialogueBox/Persian/PersianTalk.kra"
+dest_files=["res://.godot/imported/PersianTalk.kra-a24de037abb141fc326abb9f53f7d8ed.scn"]
+
+[params]
+
+ignore_invisible_layers=false
+texture_filter=0

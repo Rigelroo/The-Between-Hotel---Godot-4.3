@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4l8kktw7hnyv"]
+
+[ext_resource type="Script" path="res://scenes/entities/player/HERCULESLEAF.gd" id="1_eauuv"]
+
+[node name="HLEAF" type="Node"]
+script = ExtResource("1_eauuv")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

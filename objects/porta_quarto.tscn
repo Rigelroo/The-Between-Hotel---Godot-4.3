@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://wu27ixe1fu82"]
+
+[ext_resource type="Script" path="res://scenes/porta1.gd" id="1_ke2cg"]
+[ext_resource type="Texture2D" uid="uid://bpmntlvrs40m6" path="res://Sprites/EntryHall - Reworked/Porta_comum.png" id="2_amh4c"]
+[ext_resource type="PackedScene" uid="uid://dljh86hnlaoch" path="res://npcs/Quarto 1 - bettleborough/ballondoor_1.tscn" id="3_y1v16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik3ee"]
+size = Vector2(272, 316)
+
+[node name="Porta3" type="Node2D"]
+position = Vector2(30, 0)
+script = ExtResource("1_ke2cg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-31, -20)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_amh4c")
+offset = Vector2(23.3334, 6.66673)
+
+[node name="Ballondoor1" parent="." instance=ExtResource("3_y1v16")]
+position = Vector2(-45, -231)
+scale = Vector2(0.3, 0.3)
+animation = &"interaction"
+
+[node name="AreaD2D1" type="Area2D" parent="."]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="AreaD2D1"]
+position = Vector2(-35, 22)
+shape = SubResource("RectangleShape2D_ik3ee")
+
+[connection signal="body_entered" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_entered"]
+[connection signal="body_exited" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_exited"]

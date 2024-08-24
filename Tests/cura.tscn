@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://t6vpd744x7h4"]
+
+[ext_resource type="Script" path="res://scenes/curar.gd" id="1_qpi36"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="2_t3rbe"]
+[ext_resource type="Texture2D" uid="uid://dop427ltmk23j" path="res://inventory/Chaves/inkfruits.png" id="2_u5iu8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3oce"]
+size = Vector2(103, 109)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(754, 612)
+script = ExtResource("1_qpi36")
+manager = ExtResource("2_t3rbe")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_y3oce")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_u5iu8")

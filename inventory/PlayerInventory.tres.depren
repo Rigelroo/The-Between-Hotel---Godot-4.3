@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=6 format=3 uid="uid://cd5dhen5bx51f"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_vid83"]
+[ext_resource type="Script" path="res://inventory/inventorya.gd" id="1_x8qfe"]
+[ext_resource type="Resource" uid="uid://cbaiq41qcxvjf" path="res://inventory/Selos/selo_greed.tres" id="2_qtmi4"]
+[ext_resource type="Resource" uid="uid://cyox1uv6sr7m7" path="res://inventory/Selos/selo_shadowdiver.tres" id="3_b4j24"]
+[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://inventory/Selos/selo_herculesleaf.tres" id="4_ebhaj"]
+
+[resource]
+script = ExtResource("1_x8qfe")
+items = Array[ExtResource("1_vid83")]([ExtResource("2_qtmi4"), ExtResource("3_b4j24"), ExtResource("4_ebhaj"), null])

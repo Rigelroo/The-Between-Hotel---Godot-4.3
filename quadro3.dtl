@@ -1,0 +1,9 @@
+[signal arg="deactivate_movement"]
+join Persian 1
+Persian (Persian_talk): Gostei desse quadro
+Persian (Persian_happy): sempre quis ver neve de verdade
+Persian (Persian_happy): Não consigo imaginar o quão legal deve ser
+Persian (Persian_happy): Espero que um dos quartos tenha.
+Persian (Persian_excited): Eu ia ficar super feliz
+[signal arg="reactivate_movement"]
+[end_timeline]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://btkw5onhopwc8"]
+
+[ext_resource type="FontFile" uid="uid://b8qv8h7lkxiux" path="res://Fonts/NoirLullabyStamp.otf" id="1_kmnxs"]
+[ext_resource type="Script" path="res://Fonts/pivot.gd" id="2_mfl40"]
+[ext_resource type="Script" path="res://Fonts/slinky.gd" id="3_7nejo"]
+[ext_resource type="Script" path="res://scenes/showlabel.gd" id="4_kbeu4"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_2kpu7"]
+script = ExtResource("2_mfl40")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ke5is"]
+script = ExtResource("3_7nejo")
+
+[node name="Label" type="RichTextLabel"]
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = -831.0
+offset_top = -612.0
+offset_right = 819.0
+offset_bottom = -353.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_kmnxs")
+theme_override_font_sizes/normal_font_size = 271
+bbcode_enabled = true
+text = "Novo Item!"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_2kpu7"), SubResource("RichTextEffect_ke5is")]
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("4_kbeu4")

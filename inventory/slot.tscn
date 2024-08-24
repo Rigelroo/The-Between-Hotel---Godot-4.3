@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cve3o3l3hjcop"]
+
+[ext_resource type="Script" path="res://inventory/slot_gui.gd" id="1_mmdib"]
+[ext_resource type="Texture2D" uid="uid://0idb0w68gov1" path="res://Sprites/slot.png" id="1_ng37s"]
+
+[node name="Panel" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(80, 80)
+anchors_preset = -1
+anchor_right = 0.069
+anchor_bottom = 0.123
+offset_right = 0.511993
+offset_bottom = 0.295998
+action_mode = 0
+script = ExtResource("1_mmdib")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ng37s")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

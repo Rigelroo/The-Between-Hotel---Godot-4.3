@@ -1,0 +1,111 @@
+[gd_scene load_steps=18 format=3 uid="uid://dk150e1tdwwcb"]
+
+[ext_resource type="Script" path="res://npc_recep.gd" id="1_bbjbk"]
+[ext_resource type="Texture2D" uid="uid://c8cina7yoj3s5" path="res://Sprites/NPCs/Recepcionista/Kori e Trice0000.png" id="1_na23w"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="2_37gll"]
+[ext_resource type="Texture2D" uid="uid://cpm3wend3dpxq" path="res://Sprites/NPCs/Recepcionista/Kori e Trice0001.png" id="2_mi4n5"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="3_78yus"]
+[ext_resource type="Texture2D" uid="uid://diubupcu7uujj" path="res://Sprites/NPCs/Recepcionista/Kori e Trice0002.png" id="3_vaweb"]
+[ext_resource type="Texture2D" uid="uid://c2iww58n3u1g" path="res://Sprites/NPCs/Recepcionista/Kori e Trice0003.png" id="4_kj57n"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="4_vk0x3"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="5_l18mr"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="6_boje5"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="6_djt5e"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="7_rdrms"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="8_b2nlj"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="9_qc4do"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xc1ki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_na23w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mi4n5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vaweb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kj57n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y81us"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_boje5")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_37gll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_78yus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vk0x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l18mr")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_djt5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rdrms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b2nlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qc4do")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwpdb"]
+size = Vector2(377, 276)
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_bbjbk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_xc1ki")
+frame_progress = 0.68298
+
+[node name="Node2D" type="StaticBody2D" parent="."]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+z_index = 50
+y_sort_enabled = true
+position = Vector2(-46, -52)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_y81us")
+animation = &"mission"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-57.5, 73)
+shape = SubResource("RectangleShape2D_vwpdb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

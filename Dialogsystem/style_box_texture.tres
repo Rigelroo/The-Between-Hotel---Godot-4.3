@@ -1,0 +1,12 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cc3l1mmxnkmv4"]
+
+[ext_resource type="Texture2D" uid="uid://c7j6uvg4s7gv8" path="res://Sprites/Talkbox.png" id="1_muo0j"]
+
+[resource]
+content_margin_left = 60.0
+content_margin_top = 16.0
+content_margin_right = 60.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_muo0j")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2

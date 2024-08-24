@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dw24t6xttmdyt"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_v2ujl"]
+[ext_resource type="Texture2D" uid="uid://dcilvlfcwyjy4" path="res://inventory/Selos/selo_hattime.png" id="2_grdm8"]
+
+[resource]
+script = ExtResource("1_v2ujl")
+name = "selo_hatintime"
+texture = ExtResource("2_grdm8")
+equipedtexture = "res://inventory/Selos/equiped/selo_hattime_equiped.png"
+textureaux = "res://inventory/Selos/selo_hattime.png"
+maxAmountInStack = 2
+max_amount = 0
+showname = "Chapeu da hora"
+description = "Quem não gosta de chapéus, aperte Y para trocar seu novo estilo."
+color = Color(0.67451, 0.372549, 0.635294, 1)
+color_x = 0.67
+color_y = 0.37
+color_z = 0.63
+first_item = 0
+itemactivate = 0
+scriptstr = "res://inventory/Selos/selo_hatintime.gd"

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Inventoryc" load_steps=9 format=3 uid="uid://cb7x44nqwgbui"]
+
+[ext_resource type="Script" path="res://inventory/inventoryc.gd" id="1_yq1ov"]
+[ext_resource type="Script" path="res://inventory/inventorySlotc.gd" id="2_3a6ln"]
+
+[sub_resource type="Resource" id="Resource_olpfo"]
+script = ExtResource("2_3a6ln")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ukp7k"]
+script = ExtResource("2_3a6ln")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_q3a8n"]
+script = ExtResource("2_3a6ln")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_x57kl"]
+script = ExtResource("2_3a6ln")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_ds5mc"]
+script = ExtResource("2_3a6ln")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_dlyf2"]
+script = ExtResource("2_3a6ln")
+amount = 0
+
+[resource]
+script = ExtResource("1_yq1ov")
+stampslots = Array[ExtResource("2_3a6ln")]([SubResource("Resource_olpfo"), SubResource("Resource_ukp7k"), SubResource("Resource_q3a8n"), SubResource("Resource_x57kl"), SubResource("Resource_ds5mc"), SubResource("Resource_dlyf2")])

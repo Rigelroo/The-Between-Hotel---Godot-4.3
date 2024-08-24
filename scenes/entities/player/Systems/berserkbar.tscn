@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://inthdth4l2ck"]
+
+[ext_resource type="Script" path="res://scenes/entities/player/Systems/berserkbar.gd" id="1_bextv"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="2_aslf3"]
+[ext_resource type="PackedScene" uid="uid://vd1ogqthqioc" path="res://scenes/entities/player/Systems/firstpointcontainer.tscn" id="2_j51ty"]
+[ext_resource type="PackedScene" uid="uid://bmot0qyj2qlmc" path="res://scenes/entities/player/Systems/middlepointcontainer.tscn" id="3_udpof"]
+[ext_resource type="PackedScene" uid="uid://b03ebqn7hj8rn" path="res://scenes/entities/player/Systems/finalpointcontainer.tscn" id="6_47m0y"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Barcontrol" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 739.0
+offset_bottom = 147.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Barcontrol"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.56292
+anchor_bottom = 0.972789
+grow_vertical = 2
+script = ExtResource("1_bextv")
+manager = ExtResource("2_aslf3")
+metadata/_edit_use_anchors_ = true
+
+[node name="1Firstpointcontainer" parent="Barcontrol/HBoxContainer" instance=ExtResource("2_j51ty")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="2Middlepointcontainer" parent="Barcontrol/HBoxContainer" instance=ExtResource("3_udpof")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="2Middlepointcontainer2" parent="Barcontrol/HBoxContainer" instance=ExtResource("3_udpof")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="3Finalpointcontainer" parent="Barcontrol/HBoxContainer" instance=ExtResource("6_47m0y")]
+layout_mode = 2
+
+[editable path="Barcontrol/HBoxContainer/1Firstpointcontainer"]

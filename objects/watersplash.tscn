@@ -1,0 +1,89 @@
+[gd_scene load_steps=20 format=3 uid="uid://dbv4cb6wh67dv"]
+
+[ext_resource type="Texture2D" uid="uid://thjnd16kpjq1" path="res://Sprites/Effects/watersplash0000.png" id="1_onfaf"]
+[ext_resource type="Texture2D" uid="uid://cm10ly50wtrfr" path="res://Sprites/Effects/watersplash0001.png" id="2_hj6a7"]
+[ext_resource type="Texture2D" uid="uid://bs2nbuhrwow3c" path="res://Sprites/Effects/watersplash0002.png" id="3_fv01l"]
+[ext_resource type="Texture2D" uid="uid://cod8emsncqscy" path="res://Sprites/Effects/watersplash0003.png" id="4_all3b"]
+[ext_resource type="Texture2D" uid="uid://bg3hv4kdrjsse" path="res://Sprites/Effects/watersplash0004.png" id="5_k75vj"]
+[ext_resource type="Texture2D" uid="uid://c01qddv1i16c3" path="res://Sprites/Effects/watersplash0005.png" id="6_u30f5"]
+[ext_resource type="Texture2D" uid="uid://dqffo0nibrm0v" path="res://Sprites/Effects/watersplash0006.png" id="7_3mcvg"]
+[ext_resource type="Texture2D" uid="uid://dret330755fj3" path="res://Sprites/Effects/watersplash0007.png" id="8_b3ih4"]
+[ext_resource type="Texture2D" uid="uid://bibkobigwaqkv" path="res://Sprites/Effects/watersplash0008.png" id="9_hccol"]
+[ext_resource type="Texture2D" uid="uid://nus3oy6oxerj" path="res://Sprites/Effects/watersplash0009.png" id="10_knh6n"]
+[ext_resource type="Texture2D" uid="uid://rj0olrm43xi0" path="res://Sprites/Effects/watersplash0010.png" id="11_ls3od"]
+[ext_resource type="Texture2D" uid="uid://d3aucy1kl4rq6" path="res://Sprites/Effects/watersplash0011.png" id="12_oc51y"]
+[ext_resource type="Texture2D" uid="uid://blmtagvqon1vd" path="res://Sprites/Effects/watersplash0012.png" id="13_c4vhf"]
+[ext_resource type="Texture2D" uid="uid://dtiqkgir8rf43" path="res://Sprites/Effects/watersplash0013.png" id="14_u24tw"]
+[ext_resource type="Texture2D" uid="uid://c8wrjsmfwcoi" path="res://Sprites/Effects/watersplash0014.png" id="15_525ws"]
+[ext_resource type="Texture2D" uid="uid://c4r1r43kr1k1d" path="res://Sprites/Effects/watersplash0015.png" id="16_uj7fr"]
+[ext_resource type="Texture2D" uid="uid://dnscvmgeq7ofw" path="res://Sprites/Effects/watersplash0016.png" id="17_akqoo"]
+[ext_resource type="Script" path="res://objects/watersplash.gd" id="18_hegk3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d84oc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_onfaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hj6a7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fv01l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_all3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k75vj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u30f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3mcvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b3ih4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hccol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_knh6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ls3od")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oc51y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_c4vhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_u24tw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_525ws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_uj7fr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_akqoo")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="StaticBody2D2" type="StaticBody2D"]
+script = ExtResource("18_hegk3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -191)
+sprite_frames = SubResource("SpriteFrames_d84oc")
+autoplay = "default"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]

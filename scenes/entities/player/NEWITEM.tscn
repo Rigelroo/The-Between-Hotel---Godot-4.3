@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chm1le0lgy0my"]
+
+[ext_resource type="Script" path="res://scenes/entities/player/NEWITEM.gd" id="1_nd7so"]
+
+[node name="NEWITEM" type="Node"]
+script = ExtResource("1_nd7so")
+
+[connection signal="out_itemstate" from="." to="." method="_on_newitem_out_itemstate"]

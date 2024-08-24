@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk0qt5fe1iiuf"]
+
+[ext_resource type="Script" path="res://staminabar.gd" id="1_v8byf"]
+[ext_resource type="Texture2D" uid="uid://vncfqutpqm55" path="res://Sprites/EntryHall/preto.png" id="2_0oou1"]
+[ext_resource type="Texture2D" uid="uid://kenrbb40ur7d" path="res://Tests/pretoverde.png" id="3_kdao5"]
+
+[node name="staminabar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 241.0
+offset_bottom = 250.0
+script = ExtResource("1_v8byf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.602
+anchor_bottom = 0.1
+offset_left = 10.0
+offset_top = 9.0
+offset_right = -1.08202
+offset_bottom = 9.0
+max_value = 5.0
+step = 0.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_0oou1")
+texture_progress = ExtResource("3_kdao5")

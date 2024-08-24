@@ -1,0 +1,47 @@
+join "Kori e Trice" (Kori) 3
+[signal arg="deactivate_movement"]
+"Kori e Trice" (Kori): Trice olha aqui
+"Kori e Trice" (Trice): Nunca te vi aqui carinha
+join Persian (Persian_happy) 1
+update "Kori e Trice" (vazio) 3
+Persian (Persian_happy): Oi, é que eu sou novato
+update Persian (vazio) 1
+"Kori e Trice" (Kori): Ah, o novato que o chefe falou pra gente.\
+Você é o novo ajudante né
+"Kori e Trice" (Trice): finalmente, depois do que aconteceu com o outro
+"Kori e Trice" (Kori): Droga, Trice a gente não pode falar sobre isso
+update "Kori e Trice" (vazio) 3
+Persian (Persian_concerned): Falar sobre o que?
+update Persian (vazio) 1
+"Kori e Trice" (Kori): Nada pra se preocupar agora carneirinho
+"Kori e Trice" (Trice): Yeah, no worries lil'lamb
+update "Kori e Trice" (vazio) 3
+Persian (Persian_pissed): É Persian
+update Persian (vazio) 1
+"Kori e Trice" (Kori): Ok Persian
+"Kori e Trice" (Kori): Você tem assuntos a tratar aqui não é \
+Você tá aqui para pegar a chave\
+do quarto 1 certo?
+update "Kori e Trice" (vazio) 3
+Persian (Persian_pissed): Sim, o gerente me pediu pro "teste"
+update Persian (vazio) 1
+"Kori e Trice" (Trice): Oh, então realmente é o seu primeiro dia
+update "Kori e Trice" (vazio) 3
+Persian (Persian_talk): Vocês já fizeram o teste?
+update Persian (vazio) 1
+"Kori e Trice" (Trice): Ahm, nah.
+"Kori e Trice" (Kori): Só ajudantes fazem isso
+update "Kori e Trice" (vazio) 3
+Persian (Persian_pissed): Entendi.
+update Persian (vazio) 1
+"Kori e Trice" (Kori): Aqui a chave carinha
+set {index} = 0
+[signal arg="take_item"]
+[wait_input]
+"Kori e Trice" (Trice): Boa sorte, carinha
+update "Kori e Trice" (vazio) 3
+Persian (Persian_happy): Valeu
+update Persian (vazio) 1
+"Kori e Trice" (Kori): E lembra, se você não sabe o que fazer é só falar com a gente ok?
+"Kori e Trice" (Trice): Ou se você só quiser relaxar
+[signal arg="reactivate_movement"]

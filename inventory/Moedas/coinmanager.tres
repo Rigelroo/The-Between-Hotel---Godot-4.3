@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CoinManager" load_steps=2 format=3 uid="uid://bly82l02028bd"]
+
+[ext_resource type="Script" path="res://coin_res.gd" id="1_fnpkq"]
+
+[resource]
+script = ExtResource("1_fnpkq")
+coin_number = 1
+coin_max = 50
+coin_mult = 1
+hleaf_equiped = false
+hatintime_equiped = false
+shadowdiver_equiped = false
+crimsonfury_equiped = false
+frozenheart_equiped = false
+ffemblem_equiped = false
+lifepoints = 6
+inkpoints = 1
+lifepoints_max = 6
+inkpoints_max = 6

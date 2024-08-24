@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwtnff04la3ur"]
+
+[ext_resource type="Script" path="res://inventory/invslot.gd" id="1_5gori"]
+[ext_resource type="Texture2D" uid="uid://bu5j55xadjhoq" path="res://inventory/slot inventario - NoItem.png" id="2_fndyo"]
+[ext_resource type="Texture2D" uid="uid://cagdcxwlouavo" path="res://inventory/slot inventario.png" id="2_foa85"]
+[ext_resource type="Texture2D" uid="uid://bihn5fnhicph1" path="res://inventory/slot inventario - select.png" id="4_ubn74"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5myy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_foa85")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fndyo")
+}],
+"loop": true,
+"name": &"no_item",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ubn74")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[node name="Panel" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(77, 77)
+offset_right = 77.0
+offset_bottom = 77.0
+script = ExtResource("1_5gori")
+
+[node name="background" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.21, 0.21)
+sprite_frames = SubResource("SpriteFrames_i5myy")
+autoplay = "default"
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

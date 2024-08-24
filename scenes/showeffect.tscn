@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=3 uid="uid://bn1ggfjylttat"]
+
+[ext_resource type="Texture2D" uid="uid://dfxghb6502c50" path="res://inventory/show_effect_back.png" id="1_g1lb2"]
+[ext_resource type="Script" path="res://scenes/showeffect.gd" id="1_tt6vu"]
+[ext_resource type="Texture2D" uid="uid://btm1v7eqps0o7" path="res://inventory/show_effect.png" id="2_ypyb3"]
+[ext_resource type="Texture2D" uid="uid://b3bfvxfya6yj8" path="res://inventory/tcham1.png" id="3_eo74i"]
+[ext_resource type="Texture2D" uid="uid://cehaydky0l5co" path="res://inventory/tcham2.png" id="4_bm7lp"]
+[ext_resource type="Animation" uid="uid://don6gwdylkb6c" path="res://tcham1.res" id="6_raf4n"]
+[ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="7_bgrxt"]
+
+[sub_resource type="Animation" id="Animation_8m3e0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qiqyl"]
+_data = {
+"RESET": SubResource("Animation_8m3e0"),
+"tcham1": ExtResource("6_raf4n")
+}
+
+[sub_resource type="Animation" id="Animation_eju6e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ye60o"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yt2wr"]
+_data = {
+"RESET": SubResource("Animation_eju6e"),
+"new_animation": SubResource("Animation_ye60o")
+}
+
+[node name="Showeffect" type="Node2D" node_paths=PackedStringArray("coloreffect", "tcham1", "tcham2", "animation", "animationtext")]
+visible = false
+script = ExtResource("1_tt6vu")
+coloreffect = NodePath("Sprite2D2")
+tcham1 = NodePath("Tcham1")
+tcham2 = NodePath("Tcham2")
+animation = NodePath("Node2D/TchamAnimation")
+animationtext = NodePath("Node2D/LabelAnimation")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(-0.8, -23.8)
+texture = ExtResource("1_g1lb2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-0.8, -23.8)
+texture = ExtResource("2_ypyb3")
+
+[node name="Tcham1" type="Sprite2D" parent="."]
+position = Vector2(233, -261)
+rotation = -0.561996
+texture = ExtResource("3_eo74i")
+offset = Vector2(134.397, -6.8959)
+
+[node name="Tcham2" type="Sprite2D" parent="."]
+position = Vector2(-176, -14)
+texture = ExtResource("4_bm7lp")
+offset = Vector2(-172, 86)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TchamAnimation" type="AnimationPlayer" parent="Node2D"]
+active = false
+root_node = NodePath("../../Tcham1")
+libraries = {
+"": SubResource("AnimationLibrary_qiqyl")
+}
+autoplay = "tcham"
+
+[node name="Label" parent="Node2D" instance=ExtResource("7_bgrxt")]
+
+[node name="LabelAnimation" type="AnimationPlayer" parent="Node2D"]
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_yt2wr")
+}
+
+[connection signal="animatxt" from="." to="." method="_on_animatxt"]

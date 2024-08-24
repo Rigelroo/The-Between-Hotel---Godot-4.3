@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InventoryItemb" load_steps=3 format=3 uid="uid://bdgi1jfcvi644"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItemb.gd" id="1_xcd5f"]
+[ext_resource type="Texture2D" uid="uid://bhf5cj38njt60" path="res://inventory/Chaves/chave_quarto 1.png" id="2_vn7mj"]
+
+[resource]
+script = ExtResource("1_xcd5f")
+name = "chave_quarto1"
+texture = ExtResource("2_vn7mj")
+maxAmountInStack = 2
+max_amount = 0
+showname = "Chave do quarto 1"
+description = "Chave que leva ao quarto número 1, desaparece quando usada."
+color = Color(0.199211, 0.3946, 0.839623, 1)
+color_x = 0.19
+color_y = 0.39
+color_z = 0.83

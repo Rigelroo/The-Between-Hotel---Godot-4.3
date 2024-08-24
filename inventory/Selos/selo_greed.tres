@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cbaiq41qcxvjf"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_mga0t"]
+[ext_resource type="Texture2D" uid="uid://ch101k3r1anum" path="res://inventory/Selos/selo_ganancia.png" id="2_w4bck"]
+
+[resource]
+script = ExtResource("1_mga0t")
+name = "selo_greed"
+texture = ExtResource("2_w4bck")
+equipedtexture = "res://inventory/Selos/equiped/selo_ganancia_equiped.png"
+textureaux = "res://inventory/Selos/selo_ganancia.png"
+maxAmountInStack = 2
+max_amount = 0
+showname = "Selo da Ganancia"
+description = "O amuleto do ganancioso.  Entrega 5 por cento a mais de moedas p/ monstro derrotado."
+color = Color(0.251011, 0.509719, 0.682361, 1)
+color_x = 0.25
+color_y = 0.5
+color_z = 0.68
+first_item = 0
+itemactivate = 0
+scriptstr = "res://inventory/Selos/selo_greed.gd"

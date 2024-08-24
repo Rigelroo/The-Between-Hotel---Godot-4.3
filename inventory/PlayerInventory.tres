@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=20 format=3 uid="uid://cd5dhen5bx51f"]
+
+[ext_resource type="Script" path="res://inventory/inventory.gd" id="1_x8qfe"]
+[ext_resource type="Script" path="res://inventory/inventorySlot.gd" id="2_4qjss"]
+[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://inventory/Selos/selo_herculesleaf.tres" id="3_rdusm"]
+[ext_resource type="Resource" uid="uid://cyox1uv6sr7m7" path="res://inventory/Selos/selo_shadowdiver.tres" id="4_cyoqy"]
+[ext_resource type="Resource" uid="uid://cbaiq41qcxvjf" path="res://inventory/Selos/selo_greed.tres" id="5_xwtpx"]
+
+[sub_resource type="Resource" id="Resource_fd8pu"]
+script = ExtResource("2_4qjss")
+item = ExtResource("3_rdusm")
+amount = 1
+equiped = false
+
+[sub_resource type="Resource" id="Resource_311k3"]
+script = ExtResource("2_4qjss")
+item = ExtResource("4_cyoqy")
+amount = 1
+equiped = false
+
+[sub_resource type="Resource" id="Resource_cd4uu"]
+script = ExtResource("2_4qjss")
+item = ExtResource("5_xwtpx")
+amount = 1
+equiped = false
+
+[sub_resource type="Resource" id="Resource_nartb"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_tiv5b"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_kuicq"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_bufh6"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_weyhc"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_7jbxu"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_mp8oi"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_ss45s"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_hrav7"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_av1ef"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[sub_resource type="Resource" id="Resource_qrf1u"]
+script = ExtResource("2_4qjss")
+amount = 0
+equiped = false
+
+[resource]
+script = ExtResource("1_x8qfe")
+slots = Array[ExtResource("2_4qjss")]([SubResource("Resource_fd8pu"), SubResource("Resource_311k3"), SubResource("Resource_cd4uu"), SubResource("Resource_nartb"), SubResource("Resource_tiv5b"), SubResource("Resource_kuicq"), SubResource("Resource_bufh6"), SubResource("Resource_weyhc"), SubResource("Resource_7jbxu"), SubResource("Resource_mp8oi"), SubResource("Resource_ss45s"), SubResource("Resource_hrav7"), SubResource("Resource_av1ef"), SubResource("Resource_qrf1u")])

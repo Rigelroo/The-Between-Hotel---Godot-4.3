@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ev731c5mwj0x"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1018.0
+offset_top = 19.0
+offset_right = 1129.0
+offset_bottom = 118.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 100.0
+autostart = true

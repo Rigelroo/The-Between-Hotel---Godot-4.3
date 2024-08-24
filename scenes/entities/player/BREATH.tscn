@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm1oandnfm0vi"]
+
+[ext_resource type="Script" path="res://scenes/entities/player/BREATH.gd" id="1_it484"]
+[ext_resource type="Script" path="res://scenes/entities/player/timer.gd" id="2_2a1xk"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="2_twccl"]
+
+[node name="IDLE2" type="Node"]
+script = ExtResource("1_it484")
+manager = ExtResource("2_twccl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+script = ExtResource("2_2a1xk")
+
+[node name="spittingtimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+script = ExtResource("2_2a1xk")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
+[connection signal="timeout" from="spittingtimer" to="." method="_on_spittingtimer_timeout"]

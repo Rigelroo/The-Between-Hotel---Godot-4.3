@@ -1,0 +1,54 @@
+join "Kori e Trice" (Kori) 3
+"Kori e Trice" (Kori): Hey Trice, look
+update Persian (Persian_happy) 0
+"Kori e Trice" (Trice): New face here isn't
+join Persian (Persian_happy) 1
+update "Kori e Trice" (Kori) 0
+Persian (Persian_happy): Hi, it look's like it
+update "Kori e Trice" (Kori) 3
+update Persian (Persian_happy) 0
+"Kori e Trice" (Kori): The boss told us about you\
+you're the new helper
+"Kori e Trice" (Trice): finally...after what happened with the other one
+"Kori e Trice" (Kori): Dang, Trice we cannot talk about that
+update Persian (Persian_happy) 1
+update "Kori e Trice" (Kori) 0
+Persian (Persian_concerned): talk about what?
+update Persian (Persian_happy) 0
+update "Kori e Trice" (Kori) 3
+"Kori e Trice" (Kori): nothing for you to care about lil'lamb
+"Kori e Trice" (Trice): Yeah, dont worry about it goatling
+update Persian (Persian_happy) 1
+update "Kori e Trice" (Kori) 0
+Persian (Persian_mad): I'm not a goat
+update Persian (Persian_happy) 0
+update "Kori e Trice" (Kori) 3
+"Kori e Trice" (Kori): Chill kiddo, lets return to the subject ok?\
+You're here to take the key to room 3 isn't?
+update Persian (Persian_happy) 1
+update "Kori e Trice" (Kori) 0
+Persian (Persian_pissed): Yeah, the manager told me to
+update Persian (Persian_happy) 0
+update "Kori e Trice" (Kori) 3
+"Kori e Trice" (Trice): Oh, So it's really your first day here
+update Persian (Persian_happy) 1
+update "Kori e Trice" (Kori) 0
+Persian (Persian_talk): Do you guys have taken the "test" too?
+update Persian (Persian_happy) 0
+update "Kori e Trice" (Kori) 3
+"Kori e Trice" (Trice): Uhhh, no.
+"Kori e Trice" (Kori): Just helpers do that
+update Persian (Persian_happy) 1
+update "Kori e Trice" (Kori) 0
+Persian (Persian_pissed): Oh.
+update Persian (Persian_happy) 0
+update "Kori e Trice" (Kori) 3
+"Kori e Trice" (Kori): Ok, here's the key lil'lamb
+"Kori e Trice" (Trice): good luck, lil guy!
+update Persian (Persian_happy) 1
+update "Kori e Trice" (Kori) 0
+Persian (Persian_happy): Thanks
+update Persian (Persian_happy) 0
+update "Kori e Trice" (Kori) 3
+"Kori e Trice" (Kori): And remembers, if you dont know what to do just came back right here
+"Kori e Trice" (Trice): Or if you just wanna to hang out

@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf28suurm13uf"]
+
+[ext_resource type="Texture2D" uid="uid://dyba2emp5w45x" path="res://Sprites/Effects/fireb.png" id="1_ngxyu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5gafi"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_2t78a"]
+_data = [Vector2(0.122951, 1), 0.0, 0.0, 0, 0, Vector2(0.346995, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_sw73i"]
+curve_y = SubResource("Curve_2t78a")
+
+[sub_resource type="Curve" id="Curve_071oe"]
+_data = [Vector2(0, 0.849057), 0.0, -0.320263, 0, 0, Vector2(0.101093, 0.939623), 0.920755, 0.920755, 0, 0, Vector2(0.489071, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lbvwc"]
+curve = SubResource("Curve_071oe")
+
+[sub_resource type="Curve" id="Curve_4v1ik"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_suahs"]
+curve = SubResource("Curve_4v1ik")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r3gsi"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 2.055, 1)
+spread = 0.0
+initial_velocity_min = 90.0
+initial_velocity_max = 90.0
+directional_velocity_min = 340.78
+directional_velocity_max = 720.0
+directional_velocity_curve = SubResource("CurveXYZTexture_sw73i")
+radial_velocity_min = -124.02
+radial_velocity_max = -56.6
+gravity = Vector3(-500, -300, 0)
+scale_min = 0.0
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_lbvwc")
+scale_over_velocity_curve = SubResource("CurveTexture_suahs")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.02
+anim_speed_min = 0.45
+anim_speed_max = 0.45
+collision_mode = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_5gafi")
+position = Vector2(14.2, -0.4)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_r3gsi")
+texture = ExtResource("1_ngxyu")

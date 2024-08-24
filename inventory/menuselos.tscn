@@ -1,0 +1,431 @@
+[gd_scene load_steps=18 format=3 uid="uid://cr0rxd186uoyo"]
+
+[ext_resource type="Script" path="res://inventory/inventory_gui.gd" id="1_o6k50"]
+[ext_resource type="Texture2D" uid="uid://e3e0d4koc3eo" path="res://Sprites/Player/Death/submenu - Selos.png" id="1_xp6en"]
+[ext_resource type="PackedScene" uid="uid://cve3o3l3hjcop" path="res://inventory/slot.tscn" id="2_lfo5f"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="2_snvv0"]
+[ext_resource type="Texture2D" uid="uid://cxrga1teivoms" path="res://inventory/submenu - inventário.png" id="4_5orts"]
+[ext_resource type="FontFile" uid="uid://ckwkgvh5vt53w" path="res://Fonts/Everlasting.ttf" id="5_2lpl4"]
+[ext_resource type="Script" path="res://inventory/name_label.gd" id="5_kggpe"]
+[ext_resource type="Texture2D" uid="uid://jcfth6m4bc0m" path="res://inventory/submenu - Missões.png" id="5_pgxi2"]
+[ext_resource type="PackedScene" uid="uid://bwtnff04la3ur" path="res://inventory/invslot.tscn" id="6_fldmh"]
+[ext_resource type="Texture2D" uid="uid://c4l4b8igaw4cv" path="res://inventory/coisinha.png" id="7_77bml"]
+[ext_resource type="FontFile" uid="uid://y17hqcwq1fqb" path="res://Fonts/Typewriter215FP.otf" id="7_wekg0"]
+[ext_resource type="Script" path="res://inventory/center_container.gd" id="9_7qamn"]
+[ext_resource type="Texture2D" uid="uid://cdv3b8nl0p72f" path="res://inventory/gui/Selector/slot inventario - select.png" id="9_gyvsb"]
+[ext_resource type="PackedScene" uid="uid://164hbrtjemk7" path="res://inventory/usarslot.tscn" id="10_otqs3"]
+[ext_resource type="Texture2D" uid="uid://clc8udw1ehpcb" path="res://inventory/gui/Selector/slot inventario - select_shadow.png" id="11_cakds"]
+[ext_resource type="PackedScene" uid="uid://cm7qaulq0t25e" path="res://inventory/Moedas/coin_displayer.tscn" id="16_wry48"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hm3u"]
+
+[node name="InventoryGui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o6k50")
+manager = ExtResource("2_snvv0")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 651.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8hm3u")
+current_tab = 1
+tabs_visible = false
+
+[node name="Missions" type="NinePatchRect" parent="TabContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_pgxi2")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+metadata/_tab_index = 0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Missions"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 603.0
+offset_top = 357.0
+offset_right = -237.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Selos" type="NinePatchRect" parent="TabContainer"]
+layout_mode = 2
+texture = ExtResource("1_xp6en")
+metadata/_tab_index = 1
+
+[node name="Control" type="Control" parent="TabContainer/Selos"]
+anchors_preset = 0
+offset_left = 76.0
+offset_top = 90.0
+offset_right = 524.0
+offset_bottom = 394.0
+
+[node name="Sealbar_slot1" parent="TabContainer/Selos/Control" instance=ExtResource("10_otqs3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 34.0
+offset_top = 153.0
+offset_right = 114.0
+offset_bottom = 233.0
+
+[node name="Sealbar_slot2" parent="TabContainer/Selos/Control" instance=ExtResource("10_otqs3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 70.0
+offset_top = 63.0
+offset_right = 150.0
+offset_bottom = 143.0
+
+[node name="Sealbar_slot3" parent="TabContainer/Selos/Control" instance=ExtResource("10_otqs3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 175.0
+offset_top = 34.0
+offset_right = 255.0
+offset_bottom = 114.0
+
+[node name="Sealbar_slot4" parent="TabContainer/Selos/Control" instance=ExtResource("10_otqs3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 295.0
+offset_top = 54.0
+offset_right = 375.0
+offset_bottom = 134.0
+
+[node name="Sealbar_slot5" parent="TabContainer/Selos/Control" instance=ExtResource("10_otqs3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 340.0
+offset_top = 147.0
+offset_right = 420.0
+offset_bottom = 227.0
+toggle_mode = true
+
+[node name="Sealbar_slot6" parent="TabContainer/Selos/Control" instance=ExtResource("10_otqs3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 185.0
+offset_top = 197.0
+offset_right = 265.0
+offset_bottom = 277.0
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Selos"]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 375.0
+offset_right = 927.0
+offset_bottom = 539.0
+columns = 4
+
+[node name="Panel" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel2" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel3" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel4" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel5" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel6" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel7" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel8" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="TabContainer/Selos"]
+layout_mode = 0
+offset_left = 604.0
+offset_top = 104.0
+offset_right = 912.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2lpl4")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+script = ExtResource("5_kggpe")
+
+[node name="Description" type="Label" parent="TabContainer/Selos"]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 148.0
+offset_right = 910.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_wekg0")
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="ShowSprite" type="Sprite2D" parent="TabContainer/Selos"]
+position = Vector2(661, 206)
+scale = Vector2(0.095, 0.095)
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/Selos"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 592.0
+offset_top = 374.0
+offset_right = 673.0
+offset_bottom = 455.0
+script = ExtResource("9_7qamn")
+
+[node name="Slotselect" type="Sprite2D" parent="TabContainer/Selos/CenterContainer"]
+position = Vector2(27, 23)
+scale = Vector2(0.450837, 0.442469)
+texture = ExtResource("9_gyvsb")
+
+[node name="slotselectshadow" type="Sprite2D" parent="TabContainer/Selos/CenterContainer/Slotselect"]
+show_behind_parent = true
+texture = ExtResource("11_cakds")
+
+[node name="Inventário" type="NinePatchRect" parent="TabContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_5orts")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+metadata/_tab_index = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Inventário"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 124.0
+offset_top = 107.0
+offset_right = -698.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Panel" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel2" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel3" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel4" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel5" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel6" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel7" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel8" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel9" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel10" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel11" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel12" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel13" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel14" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel15" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel16" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel17" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel18" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel19" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Panel20" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
+layout_mode = 2
+
+[node name="Coisinha" type="Sprite2D" parent="TabContainer/Inventário"]
+position = Vector2(131, 515)
+scale = Vector2(0.225432, 0.208)
+texture = ExtResource("7_77bml")
+
+[node name="Coisinha2" type="Sprite2D" parent="TabContainer/Inventário"]
+position = Vector2(131, 102)
+rotation = -4.71239
+scale = Vector2(0.225432, 0.208)
+texture = ExtResource("7_77bml")
+
+[node name="NameLabelb" type="Label" parent="TabContainer/Inventário"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 355.0
+offset_right = 916.0
+offset_bottom = 390.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_2lpl4")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+script = ExtResource("5_kggpe")
+
+[node name="Descriptionb" type="Label" parent="TabContainer/Inventário"]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 393.0
+offset_right = 913.0
+offset_bottom = 541.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_wekg0")
+theme_override_font_sizes/font_size = 17
+autowrap_mode = 3
+
+[node name="ShowSpriteb" type="Sprite2D" parent="TabContainer/Inventário"]
+position = Vector2(663, 466)
+scale = Vector2(0.095, 0.095)
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/Inventário"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 120.0
+offset_top = 102.0
+offset_right = 200.0
+offset_bottom = 182.0
+
+[node name="Slotselectb" type="Sprite2D" parent="TabContainer/Inventário/CenterContainer"]
+scale = Vector2(0.451, 0.451)
+texture = ExtResource("9_gyvsb")
+
+[node name="slotselectshadow2" type="Sprite2D" parent="TabContainer/Inventário/CenterContainer/Slotselectb"]
+show_behind_parent = true
+position = Vector2(4.43458, -2.21728)
+texture = ExtResource("11_cakds")
+
+[node name="Label" type="Label" parent="TabContainer/Inventário"]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 96.0
+offset_right = 839.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0.156863, 0.101961, 0.352941, 1)
+theme_override_fonts/font = ExtResource("5_2lpl4")
+theme_override_font_sizes/font_size = 50
+text = "items"
+horizontal_alignment = 1
+
+[node name="CoinDisplayer" parent="TabContainer/Inventário" instance=ExtResource("16_wry48")]
+layout_mode = 1
+offset_left = 810.0
+offset_top = 248.0
+offset_right = 834.288
+offset_bottom = 130.016
+scale = Vector2(0.145, 0.145)
+
+[node name="TabBar" type="TabBar" parent="."]
+layout_mode = 2
+offset_left = 502.0
+offset_top = -41.0
+offset_right = 635.0
+offset_bottom = -1.0
+tab_close_display_policy = 2
+
+[node name="ButtonSelos" type="Button" parent="."]
+layout_mode = 0
+offset_left = 937.0
+offset_top = 236.0
+offset_right = 1097.0
+offset_bottom = 331.0
+theme_type_variation = &"FlatButton"
+action_mode = 0
+button_mask = 3
+
+[node name="ButtonMissions" type="Button" parent="."]
+layout_mode = 0
+offset_left = 938.0
+offset_top = 121.0
+offset_right = 1098.0
+offset_bottom = 216.0
+action_mode = 0
+button_mask = 3
+flat = true
+
+[node name="ButtonMapa" type="Button" parent="."]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 343.0
+offset_right = 1099.0
+offset_bottom = 438.0
+action_mode = 0
+button_mask = 3
+flat = true
+
+[node name="ButtonConfig" type="Button" parent="."]
+layout_mode = 0
+offset_left = 792.0
+offset_top = 36.0
+offset_right = 958.0
+offset_bottom = 104.0
+action_mode = 0
+button_mask = 3
+flat = true
+
+[node name="Buttoninventario" type="Button" parent="."]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 453.0
+offset_right = 1100.0
+offset_bottom = 548.0
+action_mode = 0
+button_mask = 3
+flat = true
+
+[connection signal="stamp_equiped" from="." to="." method="_on_stamp_equiped"]
+[connection signal="pressed" from="ButtonSelos" to="." method="_on_button_selos_pressed"]
+[connection signal="pressed" from="ButtonMissions" to="." method="_on_button_missions_pressed"]
+[connection signal="pressed" from="ButtonMapa" to="." method="_on_button_mapa_pressed"]
+[connection signal="pressed" from="ButtonConfig" to="." method="_on_button_config_pressed"]
+[connection signal="pressed" from="Buttoninventario" to="." method="_on_buttoninventario_pressed"]

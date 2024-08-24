@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo72gho86k3e3"]
+
+[ext_resource type="Script" path="res://inventory/sealscontainer.gd" id="1_dx4ff"]
+[ext_resource type="PackedScene" uid="uid://164hbrtjemk7" path="res://inventory/usarslot.tscn" id="2_bexy5"]
+
+[node name="SealBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 74.0
+offset_top = -143.0
+offset_right = 504.0
+offset_bottom = 357.0
+script = ExtResource("1_dx4ff")
+
+[node name="Panel" parent="." instance=ExtResource("2_bexy5")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 35.0
+offset_right = 430.0
+offset_bottom = 465.0
+
+[node name="Panel6" parent="." instance=ExtResource("2_bexy5")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 121.0
+offset_top = 255.0
+offset_right = 551.0
+offset_bottom = 685.0
+
+[node name="Panel2" parent="." instance=ExtResource("2_bexy5")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -3.0
+offset_top = 244.0
+offset_right = 427.0
+offset_bottom = 674.0
+
+[node name="Panel3" parent="." instance=ExtResource("2_bexy5")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 121.0
+offset_top = 153.0
+offset_right = 551.0
+offset_bottom = 583.0
+
+[node name="Panel5" parent="." instance=ExtResource("2_bexy5")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 139.0
+offset_right = 430.0
+offset_bottom = 569.0
+
+[node name="Panel4" parent="." instance=ExtResource("2_bexy5")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 124.0
+offset_top = 52.0
+offset_right = 204.0
+offset_bottom = 132.0

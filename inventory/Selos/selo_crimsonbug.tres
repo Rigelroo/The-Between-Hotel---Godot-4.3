@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bv8ujs5m68b51"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_dqn0c"]
+[ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://inventory/Selos/selo_crimsonbug.png" id="2_findb"]
+
+[resource]
+script = ExtResource("1_dqn0c")
+name = "selo_crimsonbug"
+texture = ExtResource("2_findb")
+equipedtexture = "res://inventory/Selos/equiped/selo_hattime_equiped.png"
+textureaux = "res://inventory/Selos/selo_hattime.png"
+maxAmountInStack = 2
+max_amount = 0
+showname = "Fúria carmesim"
+description = "Ele queima com fogo de mil formigas. Segure X com a fúria completa para um ataque explosivo."
+color = Color(0.784314, 0.00392157, 0.411765, 1)
+color_x = 0.78
+color_y = 0.0
+color_z = 0.41
+first_item = 0
+itemactivate = 0
+scriptstr = "res://inventory/Selos/selo_crimsonbug.gd"

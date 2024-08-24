@@ -1,0 +1,108 @@
+[gd_scene load_steps=18 format=3 uid="uid://mvpej8migyid"]
+
+[ext_resource type="Script" path="res://scenes/porta2.gd" id="1_0fe73"]
+[ext_resource type="Texture2D" uid="uid://cby03hegrpq5v" path="res://Sprites/EntryHall/Portagrande.png" id="1_bx1t6"]
+[ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="2_i4pp0"]
+[ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="3_5xcgy"]
+[ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="4_eujkr"]
+[ext_resource type="Texture2D" uid="uid://cg1we2wu1evbm" path="res://Sprites/InteractionBox/InteractionBox - Door0003.png" id="5_4rj4u"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="6_36u8o"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="7_e5d6q"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="8_jpt0w"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="9_3xwh0"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="10_ck8bm"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="11_c71bm"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="12_32cpi"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="13_ifxug"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="14_xesg1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8rbhg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i4pp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5xcgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eujkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4rj4u")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_36u8o")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_e5d6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jpt0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3xwh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ck8bm")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_c71bm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_32cpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ifxug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xesg1")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2olj0"]
+size = Vector2(287, 416)
+
+[node name="Porta2" type="Node2D"]
+position = Vector2(2081, 498)
+script = ExtResource("1_0fe73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_bx1t6")
+
+[node name="Ballondoor2" type="AnimatedSprite2D" parent="."]
+z_index = 50
+y_sort_enabled = true
+position = Vector2(-43, -251)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_8rbhg")
+animation = &"Door"
+
+[node name="AreaD1D1" type="Area2D" parent="."]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="AreaD1D1"]
+position = Vector2(-26.5, 72)
+shape = SubResource("RectangleShape2D_2olj0")
+
+[connection signal="body_entered" from="AreaD1D1" to="." method="_on_area_d_1d_1_body_entered"]
+[connection signal="body_exited" from="AreaD1D1" to="." method="_on_area_d_1d_1_body_exited"]

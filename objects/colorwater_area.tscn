@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0dik3fr1xx4m"]
+
+[ext_resource type="Script" path="res://scenes/colorwater.gd" id="1_mctc1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a082t"]
+size = Vector2(87, 58)
+
+[node name="Area2D2" type="Area2D" node_paths=PackedStringArray("marker")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_mctc1")
+marker = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_a082t")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -30)

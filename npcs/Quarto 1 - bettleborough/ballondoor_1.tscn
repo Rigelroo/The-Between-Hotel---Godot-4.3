@@ -1,0 +1,86 @@
+[gd_scene load_steps=15 format=3 uid="uid://dljh86hnlaoch"]
+
+[ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="1_2rttu"]
+[ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="2_6vfl1"]
+[ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="3_wqme8"]
+[ext_resource type="Texture2D" uid="uid://cg1we2wu1evbm" path="res://Sprites/InteractionBox/InteractionBox - Door0003.png" id="4_q0tek"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="5_jmnde"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="6_71jiv"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="7_g031m"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="8_y0ak3"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="9_bll4g"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="10_ko7kj"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="11_5a3t8"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="12_llm8f"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="13_10dpu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bijw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2rttu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6vfl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wqme8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q0tek")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jmnde")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_71jiv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g031m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y0ak3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bll4g")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ko7kj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5a3t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_llm8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_10dpu")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}]
+
+[node name="Ballondoor1" type="AnimatedSprite2D"]
+z_index = 50
+y_sort_enabled = true
+position = Vector2(-43, -251)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_bijw8")
+animation = &"inactive"
+autoplay = "inactive"

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bswf6hyyrao5a"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_s0q1p"]
+[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="2_yr2ph"]
+
+[resource]
+script = ExtResource("1_s0q1p")
+name = "selo_herculesleaf"
+texture = ExtResource("2_yr2ph")
+equipedtexture = "res://inventory/Selos/equiped/selo_herculesleaf_equiped.png"
+textureaux = "res://inventory/Selos/selo_herculesleaf.png"
+maxAmountInStack = 2
+max_amount = 0
+showname = "Folha de Hercules"
+description = "Um presente formidável. Permite planar por longas distâncias. "
+color = Color(0.172549, 0.588235, 0.388235, 1)
+color_x = 0.17
+color_y = 0.58
+color_z = 0.38
+first_item = 0
+itemactivate = 0
+scriptstr = "res://inventory/Selos/selo_herculesleaf.gd"

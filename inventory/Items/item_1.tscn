@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://dww8nr8h2tg16"]
+
+[ext_resource type="Script" path="res://collectableb.gd" id="1_485eb"]
+[ext_resource type="Resource" uid="uid://x27hiyflu1v" path="res://inventory/Items/inkfruits.tres" id="2_2q4md"]
+[ext_resource type="Texture2D" uid="uid://cio8y3v6gg342" path="res://inventory/Chaves/chave_quarto 2.png" id="3_lq78n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_riqa0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lioiw"]
+size = Vector2(75, 75)
+
+[sub_resource type="Animation" id="Animation_e4yq4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7k6d2"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_odjxf"]
+_data = {
+"RESET": SubResource("Animation_e4yq4"),
+"new_animation": SubResource("Animation_7k6d2")
+}
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_485eb")
+itemRes = ExtResource("2_2q4md")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("ShaderMaterial_riqa0")
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_lioiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_lq78n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_odjxf")
+}
+autoplay = "new_animation"

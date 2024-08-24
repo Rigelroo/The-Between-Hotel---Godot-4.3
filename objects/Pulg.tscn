@@ -1,0 +1,200 @@
+[gd_scene load_steps=26 format=3 uid="uid://cmxab041f4cvq"]
+
+[ext_resource type="Script" path="res://Tests/pulg.gd" id="1_mtoyg"]
+[ext_resource type="Texture2D" uid="uid://bwqnxxc5b8xye" path="res://Sprites/sombra.png" id="2_8e7w3"]
+[ext_resource type="Texture2D" uid="uid://b4lw11h0orryi" path="res://Sprites/Bettlebourough/npcs/pulg0000.png" id="2_dya7e"]
+[ext_resource type="Texture2D" uid="uid://da8fy6wb78o1p" path="res://Sprites/Bettlebourough/npcs/pulg0001.png" id="2_vaanr"]
+[ext_resource type="Texture2D" uid="uid://wp3a0728642j" path="res://Sprites/Bettlebourough/npcs/pulg0002.png" id="3_78h30"]
+[ext_resource type="Texture2D" uid="uid://cllb4mi6wf1ex" path="res://Sprites/Bettlebourough/npcs/pulg0003.png" id="4_nt1lk"]
+[ext_resource type="Texture2D" uid="uid://c1otgehoypk1n" path="res://Sprites/Bettlebourough/npcs/pulg0004.png" id="5_lvc2a"]
+[ext_resource type="Texture2D" uid="uid://spummw8fj8yb" path="res://Sprites/Bettlebourough/npcs/pulg0005.png" id="6_gk73c"]
+[ext_resource type="Texture2D" uid="uid://d20r4gb3iphew" path="res://Sprites/Bettlebourough/npcs/pulg0006.png" id="7_kdyr4"]
+[ext_resource type="Texture2D" uid="uid://bo3gtjbyj06am" path="res://Sprites/Bettlebourough/npcs/pulg0007.png" id="8_fsnv1"]
+[ext_resource type="Texture2D" uid="uid://cwjbokxccmc38" path="res://Sprites/Bettlebourough/npcs/pulg0008.png" id="11_6ua64"]
+[ext_resource type="Texture2D" uid="uid://crq2jcj5uidtc" path="res://Sprites/Bettlebourough/npcs/pulg_walk0000.png" id="12_2jkwm"]
+[ext_resource type="Texture2D" uid="uid://csnvfqpu3l0rx" path="res://Sprites/Bettlebourough/npcs/pulg0009.png" id="12_u8x42"]
+[ext_resource type="Texture2D" uid="uid://b716dktklkfvs" path="res://Sprites/Bettlebourough/npcs/pulg_walk0001.png" id="13_jw2y1"]
+[ext_resource type="Texture2D" uid="uid://cimhuri8qd512" path="res://Sprites/Bettlebourough/npcs/pulg_walk0002.png" id="14_xytqo"]
+[ext_resource type="Texture2D" uid="uid://bqntcc5eeeeia" path="res://Sprites/Bettlebourough/npcs/pulg_walk0003.png" id="15_el87c"]
+[ext_resource type="Texture2D" uid="uid://cdhu1pm2egnyx" path="res://Sprites/Bettlebourough/npcs/pulg_walk0004.png" id="16_8v6hl"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ja76e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecly2"]
+size = Vector2(1022, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qsw"]
+size = Vector2(348, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dopk"]
+size = Vector2(103, 85)
+
+[sub_resource type="Animation" id="Animation_xcr8d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_dya7e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jqeni"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_dya7e"), ExtResource("2_vaanr"), ExtResource("3_78h30"), ExtResource("4_nt1lk"), ExtResource("5_lvc2a"), ExtResource("6_gk73c"), ExtResource("7_kdyr4"), ExtResource("8_fsnv1"), ExtResource("11_6ua64"), ExtResource("12_u8x42")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_awgds"]
+resource_name = "walking"
+length = 0.5
+loop_mode = 1
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("12_2jkwm"), ExtResource("13_jw2y1"), ExtResource("14_xytqo"), ExtResource("15_el87c"), ExtResource("16_8v6hl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-18, 18)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfip4"]
+_data = {
+"RESET": SubResource("Animation_xcr8d"),
+"idle": SubResource("Animation_jqeni"),
+"walking": SubResource("Animation_awgds")
+}
+
+[node name="Pulg" type="CharacterBody2D"]
+script = ExtResource("1_mtoyg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.376471)
+material = SubResource("CanvasItemMaterial_ja76e")
+position = Vector2(-8, 68)
+scale = Vector2(0.43, 0.25)
+texture = ExtResource("2_8e7w3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dya7e")
+
+[node name="FollowArea" type="Area2D" parent="."]
+position = Vector2(4, -5)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FollowArea"]
+position = Vector2(13, 44)
+shape = SubResource("RectangleShape2D_ecly2")
+debug_color = Color(0.590083, 0.453461, 0.803131, 0.42)
+
+[node name="DamageArea" type="Area2D" parent="."]
+position = Vector2(4, -5)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(-18, 40)
+shape = SubResource("RectangleShape2D_o5qsw")
+debug_color = Color(0.960621, 0.526551, 0.690575, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-12.5, 6.5)
+shape = SubResource("RectangleShape2D_1dopk")
+debug_color = Color(0.240873, 0.579449, 0.72299, 0.458824)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dfip4")
+}
+
+[node name="Directiontimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="Rightraycast" type="RayCast2D" parent="Raycasts"]
+rotation = -1.5708
+scale = Vector2(2, 1)
+target_position = Vector2(-1.15835e-06, 53)
+
+[node name="Leftraycast" type="RayCast2D" parent="Raycasts"]
+rotation = 1.5708
+scale = Vector2(2, 1)
+target_position = Vector2(-0.499998, 78)
+
+[connection signal="body_entered" from="FollowArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="FollowArea" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
+[connection signal="timeout" from="Directiontimer" to="." method="_on_directiontimer_timeout"]

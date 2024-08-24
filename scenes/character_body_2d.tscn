@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://cs5ooq5i03tck"]
+
+[ext_resource type="Texture2D" uid="uid://48cvv2pk45uq" path="res://Sprites/Player/Dash/Player_dash.png" id="1_q8yph"]
+
+[sub_resource type="GDScript" id="GDScript_gfalu"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+@export var ghost_node : PackedScene
+@onready var ghost_timer = $GhostTimer
+@onready var particles = $GPUParticles2D
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	move_and_slide()
+func add_ghost():
+	var ghost = ghost_node.instantiate()
+	ghost.set_property(position, $Sprite2D.scale)
+	get_tree().current_scene.add_child(ghost)
+
+
+
+func _on_ghost_timer_timeout():
+	add_ghost()
+
+func dash():
+	ghost_timer.start()
+	particles.emitting = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, \"position\", position + velocity * 1.5, 0.45)
+	
+	await tween.finished
+	ghost_timer.stop()
+	particles.emitting = false
+func _input(event):
+	if event.is_action_pressed(\"dash\"):
+		dash()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5xkha"]
+radius = 30.0
+height = 106.667
+
+[sub_resource type="Gradient" id="Gradient_l8j7u"]
+offsets = PackedFloat32Array(0, 0.940789)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cwmb7"]
+gradient = SubResource("Gradient_l8j7u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_82uag"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_cwmb7")
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = SubResource("GDScript_gfalu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_q8yph")
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 0.15
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.66667, 23.3333)
+shape = SubResource("CapsuleShape2D_5xkha")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(-10, 76.6667)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_82uag")
+
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]

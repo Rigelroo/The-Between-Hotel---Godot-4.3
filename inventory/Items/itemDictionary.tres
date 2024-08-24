@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InventoryDictionary" load_steps=11 format=3 uid="uid://ryheeenq4emp"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItemb.gd" id="1_pfj4s"]
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_w607f"]
+[ext_resource type="Resource" uid="uid://cbaiq41qcxvjf" path="res://inventory/Selos/selo_greed.tres" id="2_2fe70"]
+[ext_resource type="Script" path="res://inventory/items_dictionary.gd" id="2_ki5qi"]
+[ext_resource type="Resource" uid="uid://bdgi1jfcvi644" path="res://inventory/Items/chave_quarto1.tres" id="2_we8xh"]
+[ext_resource type="Resource" uid="uid://bi1gos0aechme" path="res://inventory/Items/chave_quarto2.tres" id="3_85qri"]
+[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://inventory/Selos/selo_herculesleaf.tres" id="3_aw0l3"]
+[ext_resource type="Resource" uid="uid://cusxsokbdck5x" path="res://inventory/Items/inkbottle.tres" id="4_d001n"]
+[ext_resource type="Resource" uid="uid://cyox1uv6sr7m7" path="res://inventory/Selos/selo_shadowdiver.tres" id="4_pm6x3"]
+[ext_resource type="Resource" uid="uid://x27hiyflu1v" path="res://inventory/Items/inkfruits.tres" id="5_8xisw"]
+
+[resource]
+script = ExtResource("2_ki5qi")
+invsitems = Array[ExtResource("1_pfj4s")]([ExtResource("2_we8xh"), ExtResource("3_85qri"), ExtResource("4_d001n"), ExtResource("5_8xisw")])
+invseals = Array[ExtResource("1_w607f")]([ExtResource("4_pm6x3"), ExtResource("3_aw0l3"), ExtResource("2_2fe70")])

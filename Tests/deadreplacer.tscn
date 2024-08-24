@@ -1,0 +1,277 @@
+[gd_scene load_steps=24 format=3 uid="uid://bqk13nl6aiaan"]
+
+[ext_resource type="VideoStream" path="res://Tests/ssstwitter.com_1723257694465.ogv" id="1_h224c"]
+[ext_resource type="Shader" path="res://Tests/deadreplacer.gdshader" id="1_ka0lj"]
+[ext_resource type="Script" path="res://Tests/deadreplacer.gd" id="1_tmmvd"]
+[ext_resource type="Texture2D" uid="uid://vo7nmuofq6gu" path="res://Sprites/prililim.png" id="2_fxxxr"]
+[ext_resource type="FontFile" uid="uid://dbf30jmb03jwh" path="res://Fonts/Typewriter215FP-Heavyhanded.otf" id="2_rbxka"]
+[ext_resource type="Texture2D" uid="uid://vncfqutpqm55" path="res://Sprites/EntryHall/preto.png" id="3_237x2"]
+[ext_resource type="Texture2D" uid="uid://dl1pn2s2a86fr" path="res://Sprites/Namebox.png" id="3_bg2l1"]
+[ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="4_iid76"]
+[ext_resource type="Texture2D" uid="uid://dpxv80q6j4qek" path="res://Sprites/Player/Death/quadro0021.png" id="5_nb1wa"]
+[ext_resource type="Script" path="res://Tests/buttons.gd" id="7_yffwq"]
+[ext_resource type="Script" path="res://scenes/gameoverlabel.gd" id="10_3idl7"]
+[ext_resource type="Texture2D" uid="uid://cdv3b8nl0p72f" path="res://inventory/gui/Selector/slot inventario - select.png" id="12_3tmb2"]
+[ext_resource type="Texture2D" uid="uid://clc8udw1ehpcb" path="res://inventory/gui/Selector/slot inventario - select_shadow.png" id="13_qmgir"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1uh3w"]
+shader = ExtResource("1_ka0lj")
+shader_parameter/dimensions = Vector2(1024, 600)
+shader_parameter/small_stars = 50.0
+shader_parameter/small_stars_far_size = 0.5
+shader_parameter/small_stars_near_size = 1.0
+shader_parameter/large_stars = 8.0
+shader_parameter/large_stars_far_size = 0.1
+shader_parameter/large_stars_near_size = 1.0
+shader_parameter/far_stars_color = Color(0.5, 0, 1, 1)
+shader_parameter/near_stars_color = Color(1, 1, 1, 1)
+shader_parameter/base_scroll_speed = 0.05
+shader_parameter/additional_scroll_speed = 0.05
+shader_parameter/large_stars_texture = ExtResource("2_fxxxr")
+
+[sub_resource type="Animation" id="Animation_8hldr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Control/VideoStreamPlayer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7k07j"]
+resource_name = "new_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Control/VideoStreamPlayer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4uhep"]
+_data = {
+"RESET": SubResource("Animation_8hldr"),
+"new_animation": SubResource("Animation_7k07j")
+}
+
+[sub_resource type="Animation" id="Animation_x6au2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/Label:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3iw3i"]
+resource_name = "new_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/Label:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667, 2.56667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7nnbd"]
+_data = {
+"RESET": SubResource("Animation_x6au2"),
+"new_animation": SubResource("Animation_3iw3i")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjoxy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3n4mh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y71mn"]
+blend_mode = 1
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource("1_tmmvd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 652.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+material = SubResource("ShaderMaterial_1uh3w")
+layout_mode = 0
+offset_right = 1148.0
+offset_bottom = 643.0
+texture = ExtResource("3_237x2")
+
+[node name="Quadro0021" type="Sprite2D" parent="Control"]
+position = Vector2(605, 287)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_nb1wa")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 657.0
+stream = ExtResource("1_h224c")
+expand = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_4uhep")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7nnbd")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.5
+one_shot = true
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 651.0
+script = ExtResource("7_yffwq")
+
+[node name="Label" parent="Control2" instance=ExtResource("4_iid76")]
+layout_direction = 2
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 207.0
+offset_top = 99.0
+offset_right = 985.0
+offset_bottom = 220.0
+grow_horizontal = 1
+grow_vertical = 1
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_font_sizes/normal_font_size = 126
+text = "Game Over"
+script = ExtResource("10_3idl7")
+
+[node name="HBoxContainer" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchor_left = 0.198
+anchor_top = 0.748
+anchor_right = 0.808
+anchor_bottom = 0.896
+offset_left = -92.096
+offset_top = 2.29599
+offset_right = -0.81604
+offset_bottom = 2.39197
+
+[node name="ButtonContinue" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+anchor_left = 0.044
+anchor_top = 0.01
+anchor_right = 0.482
+anchor_bottom = 1.0
+offset_left = 0.0639954
+offset_top = 0.04
+offset_right = 0.291992
+offset_bottom = 1.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("2_rbxka")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fjoxy")
+action_mode = 0
+text = "Continue"
+icon = ExtResource("3_bg2l1")
+flat = true
+icon_alignment = 1
+
+[node name="ButtonSair" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+anchor_left = 0.588
+anchor_top = 0.01
+anchor_right = 1.026
+anchor_bottom = 1.0
+offset_left = 0.127991
+offset_top = 0.04
+offset_right = 0.355957
+offset_bottom = 1.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_rbxka")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3n4mh")
+action_mode = 0
+text = "Sair
+"
+icon = ExtResource("3_bg2l1")
+flat = true
+icon_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 165.0
+offset_top = 484.0
+offset_right = 525.0
+offset_bottom = 593.0
+
+[node name="Selector" type="Sprite2D" parent="CenterContainer"]
+unique_name_in_owner = true
+position = Vector2(18, -48)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("12_3tmb2")
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/Selector"]
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_y71mn")
+texture = ExtResource("13_qmgir")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="HBoxContainer/ButtonContinue" to="Control2" method="_on_button_continue_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonSair" to="." method="_on_button_sair_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonSair" to="Control2" method="_on_button_sair_pressed"]

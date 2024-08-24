@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://c21ll5hm7cti5"]
+
+[ext_resource type="PackedScene" uid="uid://bragq3hxlwc6" path="res://test/objects/obj3.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cjeqa7rgd7df6" path="res://test/objects/obj2.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://bmyuihe17qi3r" path="res://test/objects/obj1.tscn" id="3"]
+[ext_resource type="Script" path="res://addons/thoth/thoth_serializable.gd" id="3_s5vll"]
+[ext_resource type="PackedScene" uid="uid://d1d53x22xlnvx" path="res://test/objects/obj0.tscn" id="4"]
+[ext_resource type="TileSet" path="res://test/scenes/tileset.tres" id="5"]
+[ext_resource type="Script" path="res://test/scenes/level.gd" id="6"]
+[ext_resource type="PackedScene" path="res://test/scenes/buttons.tscn" id="7"]
+[ext_resource type="Script" path="res://addons/thoth/thoth_gamestate.gd" id="8"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 32.0
+
+[node name="level1" type="Node2D"]
+script = ExtResource("6")
+
+[node name="buttons" parent="." instance=ExtResource("7")]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 135.0
+offset_right = 103.0
+offset_bottom = 158.0
+text = "press 1,2,3,4"
+
+[node name="objects" type="Node2D" parent="."]
+
+[node name="Serializable" type="Node" parent="objects"]
+script = ExtResource("3_s5vll")
+transform = false
+
+[node name="obj0" parent="objects" instance=ExtResource("4")]
+position = Vector2(539, 332)
+
+[node name="obj1" parent="objects" instance=ExtResource("4")]
+position = Vector2(870, 341)
+
+[node name="obj2" parent="objects" instance=ExtResource("3")]
+position = Vector2(440, 683)
+
+[node name="obj3" parent="objects" instance=ExtResource("3")]
+position = Vector2(592, 771)
+
+[node name="obj4" parent="objects" instance=ExtResource("3")]
+position = Vector2(798, 771)
+
+[node name="obj5" parent="objects" instance=ExtResource("3")]
+position = Vector2(966, 659)
+
+[node name="obj6" parent="objects" instance=ExtResource("2")]
+position = Vector2(522, 745)
+
+[node name="obj7" parent="objects" instance=ExtResource("1")]
+position = Vector2(680, 785)
+
+[node name="obj8" parent="objects" instance=ExtResource("2")]
+position = Vector2(876, 721)
+
+[node name="obj9" parent="objects" instance=ExtResource("4")]
+position = Vector2(1346, 523)
+
+[node name="obj10" parent="objects" instance=ExtResource("4")]
+position = Vector2(1338, 525)
+
+[node name="obj11" parent="objects" instance=ExtResource("4")]
+position = Vector2(1326, 525)
+
+[node name="obj12" parent="objects" instance=ExtResource("4")]
+position = Vector2(1326, 523)
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("1")
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+scale = Vector2(4, 4)
+tile_set = ExtResource("5")
+format = 2
+
+[node name="Serializable" type="Node" parent="."]
+script = ExtResource("3_s5vll")
+transform = false
+
+[node name="Savestate" type="Node" parent="."]
+script = ExtResource("8")
+
+[connection signal="load_pressed" from="buttons" to="." method="_on_buttons_load_pressed"]
+[connection signal="save_pressed" from="buttons" to="." method="_on_buttons_save_pressed"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://b2tv8163op4e1"]
+
+[ext_resource type="PackedScene" uid="uid://bragq3hxlwc6" path="res://test/objects/obj3.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cjeqa7rgd7df6" path="res://test/objects/obj2.tscn" id="2"]
+[ext_resource type="Script" path="res://addons/thoth/thoth_serializable.gd" id="2_8u1ri"]
+[ext_resource type="PackedScene" uid="uid://bmyuihe17qi3r" path="res://test/objects/obj1.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://d1d53x22xlnvx" path="res://test/objects/obj0.tscn" id="4"]
+[ext_resource type="Script" path="res://test/scenes/level.gd" id="5"]
+[ext_resource type="TileSet" path="res://test/scenes/tileset.tres" id="6"]
+[ext_resource type="Script" path="res://addons/thoth/thoth_gamestate.gd" id="7"]
+[ext_resource type="PackedScene" uid="uid://c3b4ot52r7y1h" path="res://test/scenes/buttons.tscn" id="8"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 32.0
+
+[node name="level0" type="Node2D"]
+script = ExtResource("5")
+
+[node name="Serializable" type="Node" parent="."]
+script = ExtResource("2_8u1ri")
+transform = false
+
+[node name="buttons" parent="." instance=ExtResource("8")]
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="objects" type="Node2D" parent="."]
+
+[node name="Serializable" type="Node" parent="objects"]
+script = ExtResource("2_8u1ri")
+transform = false
+
+[node name="obj0" parent="objects" instance=ExtResource("4")]
+position = Vector2(64, 192)
+
+[node name="obj1" parent="objects" instance=ExtResource("3")]
+position = Vector2(192, 192)
+
+[node name="obj2" parent="objects" instance=ExtResource("2")]
+position = Vector2(64, 320)
+
+[node name="obj3" parent="objects" instance=ExtResource("1")]
+position = Vector2(192, 320)
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("1")
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+scale = Vector2(4, 4)
+tile_set = ExtResource("6")
+format = 2
+
+[node name="Savestate" type="Node" parent="."]
+script = ExtResource("7")
+
+[connection signal="load_pressed" from="buttons" to="." method="_on_buttons_load_pressed"]
+[connection signal="save_pressed" from="buttons" to="." method="_on_buttons_save_pressed"]

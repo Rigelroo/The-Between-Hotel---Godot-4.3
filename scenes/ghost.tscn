@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0tddqcdkk15m"]
+
+[ext_resource type="Texture2D" uid="uid://48cvv2pk45uq" path="res://Sprites/Player/Dash/Player_dash.png" id="1_xcwof"]
+[ext_resource type="Script" path="res://scenes/ghost.gd" id="2_di3yi"]
+
+[node name="Sprite2D" type="Sprite2D"]
+modulate = Color(0.184678, 0.733732, 0.558567, 1)
+show_behind_parent = true
+texture = ExtResource("1_xcwof")
+script = ExtResource("2_di3yi")

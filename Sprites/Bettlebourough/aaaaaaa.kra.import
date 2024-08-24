@@ -1,0 +1,16 @@
+[remap]
+
+importer="godot-krita-importer"
+type="PackedScene"
+uid="uid://bqtc3yane1kgn"
+path="res://.godot/imported/aaaaaaa.kra-489dd8aebfee0bef1037fdf633eee5f1.scn"
+
+[deps]
+
+source_file="res://Sprites/Bettlebourough/aaaaaaa.kra"
+dest_files=["res://.godot/imported/aaaaaaa.kra-489dd8aebfee0bef1037fdf633eee5f1.scn"]
+
+[params]
+
+ignore_invisible_layers=false
+texture_filter=0

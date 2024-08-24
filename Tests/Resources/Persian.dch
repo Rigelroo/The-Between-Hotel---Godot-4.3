@@ -1,0 +1,130 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {
+"Mood 1": {
+"mode": 0,
+"name": "Mood 1",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "res://addons/dialogic/Example Assets/sound-effects/typing3.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
+"style": "Style"
+},
+"default_portrait": "Persian_talk",
+"description": "",
+"display_name": "Persian",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"Persian_concerned": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0004.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"Persian_embarassed": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0006.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"Persian_excited": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0007.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"Persian_happy": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0001.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"Persian_mad": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0016.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"Persian_neutral": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0002.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"Persian_pissed": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0003.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"Persian_sad": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0008.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"Persian_talk": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0000.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"Persian_worried": {
+"export_overrides": {
+"image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0005.png\""
+},
+"mirror": false,
+"offset": Vector2(-60, 0),
+"scale": 0.5,
+"scene": ""
+},
+"vazio": {
+"export_overrides": {
+"image": ""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+}
+},
+"scale": 1.0
+}

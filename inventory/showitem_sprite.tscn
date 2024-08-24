@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c5qhp1upqi1cl"]
+
+[node name="Sprite2D2" type="Sprite2D"]
+position = Vector2(0, -34)
+rotation = -3.14159

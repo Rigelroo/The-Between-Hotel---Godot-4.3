@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc4y3up0lj184"]
+
+[ext_resource type="Texture2D" uid="uid://dkwab2g0mgdgj" path="res://Sprites/EntryHall - Reworked/Quadro1.png" id="1_av008"]
+[ext_resource type="Script" path="res://scenes/quadros.gd" id="1_bwc8d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ipb"]
+size = Vector2(0.407636, 1.65936)
+
+[node name="Quadros" type="Node2D"]
+position = Vector2(290, 1013)
+scale = Vector2(402.319, 190.832)
+script = ExtResource("1_bwc8d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.0208285, -0.0308771)
+scale = Vector2(0.000702198, 0.00143978)
+texture = ExtResource("1_av008")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.0149134, -0.00523996)
+shape = SubResource("RectangleShape2D_m4ipb")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

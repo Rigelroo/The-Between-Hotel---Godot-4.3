@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://24afsbso8vff"]
+
+[ext_resource type="Script" path="res://Tests/portavolta.gd" id="1_vhy6d"]
+[ext_resource type="PackedScene" uid="uid://dljh86hnlaoch" path="res://npcs/Quarto 1 - bettleborough/ballondoor_1.tscn" id="2_mefaw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jujq0"]
+size = Vector2(279.5, 408)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1586, 605)
+script = ExtResource("1_vhy6d")
+
+[node name="Area2D1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D1"]
+position = Vector2(-2, 89)
+shape = SubResource("RectangleShape2D_jujq0")
+
+[node name="Ballondoor1" parent="." instance=ExtResource("2_mefaw")]
+position = Vector2(-6, -226)
+
+[connection signal="body_entered" from="Area2D1" to="." method="_on_area_2d_1_body_entered"]
+[connection signal="body_exited" from="Area2D1" to="." method="_on_area_2d_1_body_exited"]

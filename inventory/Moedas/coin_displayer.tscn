@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm7qaulq0t25e"]
+
+[ext_resource type="Script" path="res://inventory/coins.gd" id="1_rmjdq"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="2_2kw8b"]
+[ext_resource type="Texture2D" uid="uid://dcli6om8ca0fu" path="res://inventory/Moedas/itemmoeda.png" id="3_ibodx"]
+[ext_resource type="FontFile" uid="uid://ckwkgvh5vt53w" path="res://Fonts/Everlasting.ttf" id="4_guqxf"]
+
+[node name="CoinDisplayer" type="Control"]
+layout_mode = 3
+anchor_right = 0.656
+anchor_bottom = 1.108
+offset_left = 4.0
+offset_top = -3.0
+offset_right = 0.287964
+offset_bottom = 0.0159912
+script = ExtResource("1_rmjdq")
+manager = ExtResource("2_2kw8b")
+
+[node name="Itemmoeda" type="Sprite2D" parent="."]
+position = Vector2(494, 231)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ibodx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -35.0
+offset_top = 239.0
+offset_right = 571.0
+offset_bottom = 636.0
+theme_override_colors/font_color = Color(0.141176, 0.0901961, 0.321569, 1)
+theme_override_fonts/font = ExtResource("4_guqxf")
+theme_override_font_sizes/font_size = 396
+text = "100x
+"

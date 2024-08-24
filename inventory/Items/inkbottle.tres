@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItemb" load_steps=3 format=3 uid="uid://cusxsokbdck5x"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItemb.gd" id="1_p3hme"]
+[ext_resource type="Texture2D" uid="uid://dtcppec5sunts" path="res://inventory/Chaves/inkbottle_item.png" id="2_gvxqf"]
+
+[resource]
+script = ExtResource("1_p3hme")
+name = "Ink_bottle"
+texture = ExtResource("2_gvxqf")
+maxAmountInStack = 1
+max_amount = 0
+showname = "Tinteiro"
+description = "Esse tinteiro pulsa com poder arcano.  Use-o para armazenar sombras.  Lembre!  sem sombras = sem poderes."
+color = Color(0.325855, 0.261938, 0.718106, 1)
+color_x = 0.32
+color_y = 0.26
+color_z = 0.71
+first_item = 0

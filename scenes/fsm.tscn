@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://jn6okj5ovtv1"]
+
+[ext_resource type="Script" path="res://Scripts/Player/fsm.gd" id="1_sq4t1"]
+[ext_resource type="PackedScene" uid="uid://7cr0qguiyqho" path="res://Scenes/playertest2/DASH.tscn" id="2_nhmvs"]
+[ext_resource type="PackedScene" uid="uid://bn7q7a4s7x5oi" path="res://Scenes/ghost.tscn" id="3_7l4kg"]
+[ext_resource type="Script" path="res://Scripts/Player/States/player_idle_state.gd" id="3_lyt7l"]
+[ext_resource type="Script" path="res://Scripts/Player/States/player_run_state.gd" id="4_nynnd"]
+[ext_resource type="Script" path="res://Scripts/Player/States/player_jump_state.gd" id="5_aehqm"]
+[ext_resource type="Script" path="res://Scripts/Player/States/player_fall_state.gd" id="6_w034a"]
+
+[sub_resource type="Gradient" id="Gradient_m5jh4"]
+offsets = PackedFloat32Array(0, 0.940789)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wh5mb"]
+gradient = SubResource("Gradient_m5jh4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jxmb2"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 8.0
+scale_max = 8.0
+color_ramp = SubResource("GradientTexture1D_wh5mb")
+
+[node name="FSM" type="Node"]
+script = ExtResource("1_sq4t1")
+
+[node name="Dash" parent="." instance=ExtResource("2_nhmvs")]
+
+[node name="GhostTimer" type="Timer" parent="Dash"]
+wait_time = 0.15
+autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Dash"]
+show_behind_parent = true
+position = Vector2(58.4, 93.6)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_jxmb2")
+
+[node name="Sprite2D" parent="Dash" instance=ExtResource("3_7l4kg")]
+
+[node name="Idle" type="Node" parent="."]
+script = ExtResource("3_lyt7l")
+
+[node name="Run" type="Node" parent="."]
+script = ExtResource("4_nynnd")
+
+[node name="Jump" type="Node" parent="."]
+script = ExtResource("5_aehqm")
+
+[node name="Fall" type="Node" parent="."]
+script = ExtResource("6_w034a")
+
+[node name="CoyoteTimer" type="Timer" parent="Fall"]
+process_callback = 0
+wait_time = 0.001
+one_shot = true

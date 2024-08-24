@@ -1,0 +1,10 @@
+join "Kori e Trice" (Kori) 3
+[signal arg="deactivate_movement"]
+"Kori e Trice" (Kori): Já sentiu saudades?
+update Persian (Persian_happy) 1
+"Kori e Trice" (Trice): Ficou louco para relaxar com a gente né?
+join Persian (Persian_pissed) 1
+update "Kori e Trice" (Kori) 4
+Persian (Persian_pissed): ...
+[signal arg="reactivate_movement"]
+[end_timeline]

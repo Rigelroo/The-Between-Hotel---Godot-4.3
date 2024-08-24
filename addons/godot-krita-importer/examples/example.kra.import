@@ -1,0 +1,16 @@
+[remap]
+
+importer="godot-krita-importer"
+type="PackedScene"
+uid="uid://bneaxiq4qbhr1"
+path="res://.godot/imported/example.kra-d2f9d6bfec414e341b650ea0dea7b8a9.scn"
+
+[deps]
+
+source_file="res://addons/godot-krita-importer/examples/example.kra"
+dest_files=["res://.godot/imported/example.kra-d2f9d6bfec414e341b650ea0dea7b8a9.scn"]
+
+[params]
+
+ignore_invisible_layers=false
+texture_filter=0
