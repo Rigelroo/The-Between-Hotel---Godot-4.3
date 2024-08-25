@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dw7fr5yfile0r"]
+[gd_scene load_steps=39 format=3 uid="uid://dw7fr5yfile0r"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_plb7f"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="2_je1ce"]
@@ -10,8 +10,6 @@
 [ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="7_x172s"]
 [ext_resource type="Texture2D" uid="uid://dbc3oj30ugdsa" path="res://Sprites/EntryHall - Reworked/Planta1.png" id="8_3kh3v"]
 [ext_resource type="PackedScene" uid="uid://dsfojqxnsue1l" path="res://lightmoths.tscn" id="11_0clwa"]
-[ext_resource type="Texture2D" uid="uid://cqh2nchvubbuh" path="res://Sprites/NPCs/Clicko.png" id="11_2cvvs"]
-[ext_resource type="Texture2D" uid="uid://ba3ujfgm5csdt" path="res://Sprites/NPCs/Fishboots.png" id="12_6rppn"]
 [ext_resource type="Texture2D" uid="uid://d38v2m4je1cg4" path="res://Sprites/EntryHall - Reworked/Cerca.png" id="12_883si"]
 [ext_resource type="PackedScene" uid="uid://dk150e1tdwwcb" path="res://Npc-recep.tscn" id="12_ja40y"]
 [ext_resource type="Texture2D" uid="uid://bdj0gomfsojao" path="res://Sprites/EntryHall - Reworked/teto1.png" id="13_1q7l1"]
@@ -65,20 +63,15 @@ position = Vector2(1389, 629.5)
 scale = Vector2(8.08, 5.00545)
 texture = ExtResource("17_k3kee")
 
-[node name="NpcsClicko" type="Sprite2D" parent="."]
-position = Vector2(566, 664)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("11_2cvvs")
-
-[node name="Fishboots" type="Sprite2D" parent="NpcsClicko"]
-position = Vector2(1346.67, -3.33343)
-texture = ExtResource("12_6rppn")
-
 [node name="StaticBody2D4" parent="." instance=ExtResource("4_50h6u")]
 position = Vector2(19, 363)
+collision_layer = 9
+collision_mask = 9
 
 [node name="StaticBody2D6" parent="." instance=ExtResource("4_50h6u")]
 position = Vector2(2327, 371)
+collision_layer = 9
+collision_mask = 9
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
 position = Vector2(1207, 1290)
@@ -101,30 +94,6 @@ position = Vector2(1137, 658)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_qshxw")
 
-[node name="Plantas" type="Node2D" parent="."]
-position = Vector2(1137, 658)
-scale = Vector2(0.3, 0.3)
-
-[node name="Planta2" type="StaticBody2D" parent="Plantas"]
-position = Vector2(103.333, -70)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantas/Planta2"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Plantas/Planta2"]
-position = Vector2(3420, 1423.33)
-texture = ExtResource("7_weleg")
-
-[node name="Planta1" type="StaticBody2D" parent="Plantas"]
-position = Vector2(-6853.33, -3.33331)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantas/Planta1"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Plantas/Planta1"]
-position = Vector2(3420, 1423.33)
-texture = ExtResource("8_3kh3v")
-
 [node name="PortaPrincipal1" parent="." instance=ExtResource("16_wsisy")]
 position = Vector2(259, 505)
 next_scene = "res://Sprites/EntryHall/corridor1.tscn"
@@ -133,7 +102,7 @@ next_scene = "res://Sprites/EntryHall/corridor1.tscn"
 position = Vector2(2064, 501)
 next_scene = "res://Sprites/EntryHall/corridor1.tscn"
 
-[node name="Luminárias" type="Node" parent="."]
+[node name="Luminárias" type="Node2D" parent="."]
 
 [node name="Luzinha1" type="Sprite2D" parent="Luminárias"]
 material = ExtResource("7_x172s")
@@ -206,6 +175,30 @@ texture_scale = 0.72
 
 [node name="lightmoths" parent="Luminárias" instance=ExtResource("11_0clwa")]
 
+[node name="Plantas" type="Node2D" parent="."]
+position = Vector2(1137, 658)
+scale = Vector2(0.3, 0.3)
+
+[node name="Planta2" type="StaticBody2D" parent="Plantas"]
+position = Vector2(103.333, -70)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantas/Planta2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Plantas/Planta2"]
+position = Vector2(3420, 1423.33)
+texture = ExtResource("7_weleg")
+
+[node name="Planta1" type="StaticBody2D" parent="Plantas"]
+position = Vector2(-6853.33, -3.33331)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantas/Planta1"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Plantas/Planta1"]
+position = Vector2(3420, 1423.33)
+texture = ExtResource("8_3kh3v")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1139, 451)
 scale = Vector2(0.3, 0.3)
@@ -251,6 +244,14 @@ texture = SubResource("CanvasTexture_2lumx")
 
 [node name="Camera2D" parent="Player" instance=ExtResource("24_cat1i")]
 position = Vector2(0.75, -23.5)
+limit_left = -5
+limit_top = 45
+limit_right = 2275
+limit_bottom = 1310
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+editor_draw_limits = true
 
 [node name="Cerca" type="StaticBody2D" parent="."]
 position = Vector2(1113, 785)
@@ -318,9 +319,9 @@ metadata/_edit_group_ = true
 texture = ExtResource("31_r2m3r")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("31_fkyq7")]
+visible = true
 
 [node name="berserkbar" parent="." instance=ExtResource("34_ysfqo")]
-visible = false
 scale = Vector2(0.42, 0.42)
 transform = Transform2D(0.42, 0, 0, 0.42, 0, 0)
 

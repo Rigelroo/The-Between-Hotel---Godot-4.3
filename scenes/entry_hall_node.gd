@@ -65,11 +65,12 @@ func _process(delta: float) -> void:
 		activate()
 
 func _on_inventory_gui_closed() -> void:
-	get_tree().paused = false
-	
+	#self.get_tree().paused = false
+	pass
 
 func _on_inventory_gui_opened() -> void:
-	get_tree().paused = true
+	#self.get_tree().paused = true
+	pass
 
 
 func collect_item(inventoryb: Inventoryb):

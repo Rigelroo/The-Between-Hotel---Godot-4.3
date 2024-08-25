@@ -356,6 +356,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [ExtResource("18_ayf5o"), null]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../sword/sword_collider:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.05, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_tox36"]
 resource_name = "AirSlashcombo"
@@ -1495,7 +1507,7 @@ shape = SubResource("RectangleShape2D_1r3j7")
 debug_color = Color(0.708314, 0.405444, 0.705175, 0.42)
 
 [node name="Doublejumpsprite" type="Sprite2D" parent="."]
-position = Vector2(0, 26)
+position = Vector2(1, 15)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("3_kbq60")
 

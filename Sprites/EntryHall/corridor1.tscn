@@ -1,7 +1,10 @@
-[gd_scene load_steps=36 format=4 uid="uid://bu2kdltrk2out"]
+[gd_scene load_steps=42 format=4 uid="uid://bu2kdltrk2out"]
 
+[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_5oy16"]
 [ext_resource type="Texture2D" uid="uid://br2o6qxvpjyx8" path="res://Sprites/EntryHall - Reworked/fundo1.png" id="1_lbqp7"]
 [ext_resource type="Texture2D" uid="uid://bmu42oviapph1" path="res://icon.svg" id="1_xa5e5"]
+[ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_lq7vf"]
+[ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="3_23cid"]
 [ext_resource type="PackedScene" uid="uid://b14pdtk7gvjfl" path="res://porta_1.tscn" id="3_aelg0"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="4_akabm"]
 [ext_resource type="Texture2D" uid="uid://bppdy56ovaf3y" path="res://Sprites/EntryHall - Reworked/chão1.png" id="6_csjmp"]
@@ -17,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://bwr11lq0ei6nj" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0000.png" id="19_qufmi"]
 [ext_resource type="PackedScene" uid="uid://kx2gncymwsr2" path="res://Quadro2.tscn" id="20_f4bei"]
 [ext_resource type="Texture2D" uid="uid://bxhpuidos0a61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0001.png" id="20_qanni"]
-[ext_resource type="PackedScene" uid="uid://ql0ewkv7sbrb" path="res://parede_slide.tscn" id="20_yp57x"]
 [ext_resource type="Texture2D" uid="uid://bm73kn18iqyrn" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0002.png" id="21_3i3wk"]
 [ext_resource type="PackedScene" uid="uid://bix2wopy2aiy7" path="res://Quadro3.tscn" id="21_8x15u"]
 [ext_resource type="Texture2D" uid="uid://db66x10pmb632" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0003.png" id="22_6j5pg"]
@@ -25,6 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://b2su4ijpi25dr" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0005.png" id="24_tcyht"]
 [ext_resource type="Texture2D" uid="uid://dabqxtr5g2u61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0006.png" id="25_54q05"]
 [ext_resource type="Texture2D" uid="uid://bxml7dtd3yxm6" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0007.png" id="26_286nl"]
+[ext_resource type="Texture2D" uid="uid://cqh2nchvubbuh" path="res://Sprites/NPCs/Clicko.png" id="28_5r4dp"]
+[ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="28_wgf4g"]
+[ext_resource type="Texture2D" uid="uid://bwqnxxc5b8xye" path="res://Sprites/sombra.png" id="29_grj7y"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="31_fn461"]
 [ext_resource type="PackedScene" uid="uid://wu27ixe1fu82" path="res://objects/porta_quarto.tscn" id="31_ypx4h"]
 
@@ -82,9 +87,11 @@ texture_region_size = Vector2i(250, 250)
 10:3/0 = 0
 13:3/0 = 0
 13:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 46, -125, 48, 125, -125, 125)
+13:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(-125, -125, 50, -125, 50, 125, -125, 125)
 14:3/0 = 0
 19:3/0 = 0
 19:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(125, -125, -46, -125, -48, 125, 125, 125)
+19:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(-50, -125, 125, -125, 125, 125, -50, 125)
 3:4/0 = 0
 4:4/0 = 0
 5:4/0 = 0
@@ -95,9 +102,11 @@ texture_region_size = Vector2i(250, 250)
 10:4/0 = 0
 13:4/0 = 0
 13:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 46, -125, 48, 125, -125, 125)
+13:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-125, -125, 50, -125, 50, 125, -125, 125)
 14:4/0 = 0
 19:4/0 = 0
 19:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(125, -125, -46, -125, -48, 125, 125, 125)
+19:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-50, -125, 125, -125, 125, 125, -50, 125)
 1:5/0 = 0
 2:5/0 = 0
 3:5/0 = 0
@@ -110,6 +119,7 @@ texture_region_size = Vector2i(250, 250)
 10:5/0 = 0
 13:5/0 = 0
 13:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-125, -125, 46, -125, 48, 125, -125, 125)
+13:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-125, -125, 50, -125, 50, 125, -125, 125)
 14:5/0 = 0
 15:5/0 = 0
 16:5/0 = 0
@@ -117,6 +127,7 @@ texture_region_size = Vector2i(250, 250)
 18:5/0 = 0
 19:5/0 = 0
 19:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(125, -125, -46, -125, -48, 125, 125, 125)
+19:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-50, -125, 125, -125, 125, 125, -50, 125)
 1:6/0 = 0
 2:6/0 = 0
 3:6/0 = 0
@@ -264,6 +275,8 @@ texture_region_size = Vector2i(250, 250)
 [sub_resource type="TileSet" id="TileSet_f8y58"]
 tile_size = Vector2i(250, 250)
 physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 8
+physics_layer_1/collision_mask = 8
 sources/0 = SubResource("TileSetAtlasSource_e0g63")
 sources/1 = SubResource("TileSetAtlasSource_swkdm")
 sources/2 = SubResource("TileSetAtlasSource_55a1l")
@@ -309,7 +322,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_juhxe"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("objplayer")]
+script = ExtResource("1_5oy16")
+objplayer = NodePath("Player")
+splashw = ExtResource("2_lq7vf")
+inv_dictionary = ExtResource("3_23cid")
 
 [node name="Fundo2" type="Sprite2D" parent="."]
 position = Vector2(877, 387)
@@ -380,8 +399,8 @@ visible = false
 position = Vector2(1310, 832)
 rotation = -3.14159
 scale = Vector2(5, 5)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 9
+collision_mask = 9
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
@@ -412,7 +431,7 @@ tile_set = SubResource("TileSet_f8y58")
 [node name="TileMapLayer4" type="TileMapLayer" parent="."]
 position = Vector2(-51, 0)
 scale = Vector2(0.3, 0.3)
-tile_map_data = PackedByteArray("AAABAAoAAgAEAAEAAAACAAoAAgAFAAEAAAADAAoAAgAGAAEAAAAEAAoAAgADAAEAAAAAAAoAAgADAAEAAAAFAAoAAgAEAAEAAAAGAAoAAgAFAAEAAAAHAAoAAgAGAAEAAAAIAAoAAgADAAEAAAAJAAoAAgAEAAEAAAAKAAoAAgAFAAEAAAALAAoAAgAGAAEAAAAMAAoAAgADAAEAAAANAAoAAgAEAAEAAAAOAAoAAgAFAAEAAAAPAAoAAgADAAEAAAAQAAoAAgAEAAEAAAARAAoAAgAFAAEAAAASAAoAAgAGAAEAAAATAAoAAgADAAEAAAAUAAoAAgAEAAEAAAAVAAoAAgAFAAEAAAAWAAoAAgAGAAEAAAAXAAoAAgADAAEAAAAYAAoAAgAEAAEAAAAZAAoAAgAFAAEAAAAaAAoAAgAGAAEAAAAbAAoAAgADAAEAAAAcAAoAAgAEAAEAAAAdAAoAAgAFAAEAAAAeAAoAAgAGAAEAAAAfAAoAAgADAAEAAAAgAAoAAgADAAEAAAAhAAoAAgASAAYAAAAiAAoAAgASAAYAAAAjAAoAAgASAAYAAAAAAAsAAgAMAAsAAAABAAsAAgAMAAsAAAACAAsAAgAMAAsAAAADAAsAAgAMAAsAAAAEAAsAAgAMAAsAAAAFAAsAAgAMAAsAAAAGAAsAAgAMAAsAAAAHAAsAAgAMAAsAAAAIAAsAAgAMAAsAAAAJAAsAAgAMAAsAAAAKAAsAAgAMAAsAAAALAAsAAgAMAAsAAAAMAAsAAgAMAAsAAAAAAAkAAgADAAAAAAABAAkAAgAEAAAAAAACAAkAAgAFAAAAAAADAAkAAgADAAAAAAAEAAkAAgAEAAAAAAAFAAkAAgAFAAAAAAAGAAkAAgADAAAAAAAHAAkAAgAEAAAAAAAIAAkAAgAFAAAAAAAJAAkAAgADAAAAAAAKAAkAAgAEAAAAAAALAAkAAgAFAAAAAAAMAAkAAgADAAAAAAANAAkAAgAEAAAAAAAOAAkAAgAFAAAAAAAPAAkAAgADAAAAAAAQAAkAAgAEAAAAAAARAAkAAgAFAAAAAAASAAkAAgADAAAAAAATAAkAAgAEAAAAAAAUAAkAAgAFAAAAAAAVAAkAAgADAAAAAAAWAAkAAgAEAAAAAAAXAAkAAgAFAAAAAAAYAAkAAgADAAAAAAAZAAkAAgAEAAAAAAAaAAkAAgAFAAAAAAAbAAkAAgADAAAAAAAcAAkAAgAEAAAAAAAdAAkAAgAFAAAAAAAeAAkAAgADAAAAAAAfAAkAAgAEAAAAAAAgAAkAAgAFAAAAAAAhAAkAAgADAAAAAAAiAAkAAgAEAAAAAAAjAAkAAgAFAAAAAAADAAwAAgAMAAsAAAAEAAwAAgAMAAsAAAAFAAwAAgAMAAsAAAAGAAwAAgAMAAsAAAAHAAwAAgAMAAsAAAAIAAwAAgAMAAsAAAAJAAwAAgAMAAsAAAAKAAwAAgAMAAsAAAACAAwAAgAMAAsAAAABAAwAAgAMAAsAAAAAAAwAAgAMAAsAAAALAAwAAgAMAAsAAAANAAsAAgAMAAsAAAAOAAsAAgAMAAsAAAAOAAwAAgAMAAsAAAANAAwAAgAMAAsAAAAMAAwAAgAMAAsAAAAPAAwAAgAMAAsAAAAQAAwAAgAMAAsAAAAQAAsAAgAMAAsAAAAPAAsAAgAMAAsAAAARAAsAAgAMAAsAAAARAAwAAgAMAAsAAAASAAsAAgAMAAsAAAASAAwAAgAMAAsAAAATAAsAAgAMAAsAAAATAAwAAgAMAAsAAAAUAAsAAgAMAAsAAAAUAAwAAgAMAAsAAAAVAAsAAgAMAAsAAAAVAAwAAgAMAAsAAAAWAAsAAgAMAAsAAAAWAAwAAgAMAAsAAAAXAAsAAgAMAAsAAAAXAAwAAgAMAAsAAAAYAAsAAgAMAAsAAAAYAAwAAgAMAAsAAAAZAAsAAgAMAAsAAAAZAAwAAgAMAAsAAAAaAAsAAgAMAAsAAAAaAAwAAgAMAAsAAAAbAAsAAgAMAAsAAAAbAAwAAgAMAAsAAAAcAAsAAgAMAAsAAAAcAAwAAgAMAAsAAAAdAAsAAgAMAAsAAAAdAAwAAgAMAAsAAAAeAAsAAgAMAAsAAAAeAAwAAgAMAAsAAAAfAAsAAgAMAAsAAAAfAAwAAgAMAAsAAAAgAAsAAgAMAAsAAAAgAAwAAgAMAAsAAAAhAAsAAgAMAAsAAAAhAAwAAgAMAAsAAAAiAAsAAgAMAAsAAAAiAAwAAgAMAAsAAAAjAAsAAgAMAAsAAAAjAAwAAgAMAAsAAAAkAAoAAgASAAYAAADx/wEAAgANAAMAAADx/wAAAgANAAMAAADx/wIAAgANAAMAAADx/wMAAgANAAMAAADx/wQAAgANAAMAAADx/wUAAgANAAMAAADx/wYAAgANAAMAAADx/wcAAgANAAMAAADx/wgAAgANAAMAAADx/wkAAgABAAAAAADx/woAAgANAAYAAAA=")
+tile_map_data = PackedByteArray("AAABAAoAAgAMAAoAAAACAAoAAgAMAAoAAAADAAoAAgAMAAoAAAAEAAoAAgAMAAoAAAAAAAoAAgAMAAoAAAAFAAoAAgAMAAoAAAAGAAoAAgAMAAoAAAAHAAoAAgAMAAoAAAAIAAoAAgAMAAoAAAAJAAoAAgAMAAoAAAAKAAoAAgAMAAoAAAALAAoAAgAMAAoAAAAMAAoAAgAMAAoAAAANAAoAAgAMAAoAAAAOAAoAAgAMAAoAAAAPAAoAAgAMAAoAAAAQAAoAAgAMAAoAAAARAAoAAgAMAAoAAAASAAoAAgAMAAoAAAATAAoAAgAMAAoAAAAUAAoAAgAMAAoAAAAVAAoAAgAMAAoAAAAWAAoAAgAMAAoAAAAXAAoAAgAMAAoAAAAYAAoAAgAMAAoAAAAZAAoAAgAMAAoAAAAaAAoAAgAMAAoAAAAbAAoAAgAMAAoAAAAcAAoAAgAMAAoAAAAdAAoAAgAMAAoAAAAeAAoAAgAMAAoAAAAfAAoAAgAMAAoAAAAgAAoAAgAMAAoAAAAhAAoAAgAMAAoAAAAiAAoAAgAMAAoAAAAjAAoAAgAMAAoAAAAAAAsAAgAMAAsAAAABAAsAAgAMAAsAAAACAAsAAgAMAAsAAAADAAsAAgAMAAsAAAAEAAsAAgAMAAsAAAAFAAsAAgAMAAsAAAAGAAsAAgAMAAsAAAAHAAsAAgAMAAsAAAAIAAsAAgAMAAsAAAAJAAsAAgAMAAsAAAAKAAsAAgAMAAsAAAALAAsAAgAMAAsAAAAMAAsAAgAMAAsAAAAAAAkAAgADAAAAAAABAAkAAgAEAAAAAAACAAkAAgAFAAAAAAADAAkAAgADAAAAAAAEAAkAAgAEAAAAAAAFAAkAAgAFAAAAAAAGAAkAAgADAAAAAAAHAAkAAgAEAAAAAAAIAAkAAgAFAAAAAAAJAAkAAgADAAAAAAAKAAkAAgAEAAAAAAALAAkAAgAFAAAAAAAMAAkAAgADAAAAAAANAAkAAgAEAAAAAAAOAAkAAgAFAAAAAAAPAAkAAgADAAAAAAAQAAkAAgAEAAAAAAARAAkAAgAFAAAAAAASAAkAAgADAAAAAAATAAkAAgAEAAAAAAAUAAkAAgAFAAAAAAAVAAkAAgADAAAAAAAWAAkAAgAEAAAAAAAXAAkAAgAFAAAAAAAYAAkAAgADAAAAAAAZAAkAAgAEAAAAAAAaAAkAAgAFAAAAAAAbAAkAAgADAAAAAAAcAAkAAgAEAAAAAAAdAAkAAgAFAAAAAAAeAAkAAgADAAAAAAAfAAkAAgAEAAAAAAAgAAkAAgAFAAAAAAAhAAkAAgADAAAAAAAiAAkAAgAEAAAAAAAjAAkAAgAFAAAAAAADAAwAAgAMAAsAAAAEAAwAAgAMAAsAAAAFAAwAAgAMAAsAAAAGAAwAAgAMAAsAAAAHAAwAAgAMAAsAAAAIAAwAAgAMAAsAAAAJAAwAAgAMAAsAAAAKAAwAAgAMAAsAAAACAAwAAgAMAAsAAAABAAwAAgAMAAsAAAAAAAwAAgAMAAsAAAALAAwAAgAMAAsAAAANAAsAAgAMAAsAAAAOAAsAAgAMAAsAAAAOAAwAAgAMAAsAAAANAAwAAgAMAAsAAAAMAAwAAgAMAAsAAAAPAAwAAgAMAAsAAAAQAAwAAgAMAAsAAAAQAAsAAgAMAAsAAAAPAAsAAgAMAAsAAAARAAsAAgAMAAsAAAARAAwAAgAMAAsAAAASAAsAAgAMAAsAAAASAAwAAgAMAAsAAAATAAsAAgAMAAsAAAATAAwAAgAMAAsAAAAUAAsAAgAMAAsAAAAUAAwAAgAMAAsAAAAVAAsAAgAMAAsAAAAVAAwAAgAMAAsAAAAWAAsAAgAMAAsAAAAWAAwAAgAMAAsAAAAXAAsAAgAMAAsAAAAXAAwAAgAMAAsAAAAYAAsAAgAMAAsAAAAYAAwAAgAMAAsAAAAZAAsAAgAMAAsAAAAZAAwAAgAMAAsAAAAaAAsAAgAMAAsAAAAaAAwAAgAMAAsAAAAbAAsAAgAMAAsAAAAbAAwAAgAMAAsAAAAcAAsAAgAMAAsAAAAcAAwAAgAMAAsAAAAdAAsAAgAMAAsAAAAdAAwAAgAMAAsAAAAeAAsAAgAMAAsAAAAeAAwAAgAMAAsAAAAfAAsAAgAMAAsAAAAfAAwAAgAMAAsAAAAgAAsAAgAMAAsAAAAgAAwAAgAMAAsAAAAhAAsAAgAMAAsAAAAhAAwAAgAMAAsAAAAiAAsAAgAMAAsAAAAiAAwAAgAMAAsAAAAjAAsAAgAMAAsAAAAjAAwAAgAMAAsAAAAkAAoAAgAMAAoAAADx/wEAAgANAAMAAADx/wAAAgANAAMAAADx/wIAAgANAAMAAADx/wMAAgANAAMAAADx/wQAAgANAAMAAADx/wUAAgANAAMAAADx/wYAAgANAAMAAADx/wcAAgANAAMAAADx/wgAAgANAAMAAADx/wkAAgABAAAAAADx/woAAgANAAYAAAD//woAAgAMAAoAAAD+/woAAgAMAAoAAAD9/woAAgAMAAoAAAD8/woAAgAMAAoAAAD7/woAAgAMAAoAAAD6/woAAgAMAAoAAAD5/woAAgAMAAoAAAD4/woAAgAMAAoAAAD3/woAAgAMAAoAAAD2/woAAgAMAAoAAAD1/woAAgAMAAoAAAD0/woAAgAMAAoAAADz/woAAgAMAAoAAADy/woAAgAMAAoAAAD//wsAAgAMAAsAAAD+/wsAAgAMAAsAAAD9/wsAAgAMAAsAAAD8/wsAAgAMAAsAAAD7/wsAAgAMAAsAAAD6/wsAAgAMAAsAAAD5/wsAAgAMAAsAAAD4/wsAAgAMAAsAAAD3/wsAAgAMAAsAAAD2/wsAAgAMAAsAAAD1/wsAAgAMAAsAAAD0/wsAAgAMAAsAAADz/wsAAgAMAAsAAADy/wsAAgAMAAsAAADx/wsAAgAMAAsAAADx/wwAAgAMAAsAAADy/wwAAgAMAAsAAADz/wwAAgAMAAsAAAD0/wwAAgAMAAsAAAD1/wwAAgAMAAsAAAD2/wwAAgAMAAsAAAD3/wwAAgAMAAsAAAD4/wwAAgAMAAsAAAD5/wwAAgAMAAsAAAD6/wwAAgAMAAsAAAD7/wwAAgAMAAsAAAD8/wwAAgAMAAsAAAD9/wwAAgAMAAsAAAD+/wwAAgAMAAsAAAD//wwAAgAMAAsAAAA=")
 tile_set = SubResource("TileSet_f8y58")
 
 [node name="Planta1" type="Sprite2D" parent="."]
@@ -634,13 +653,31 @@ scale = Vector2(6, 6)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0.666667, -28.3333)
 zoom = Vector2(0.7, 0.7)
-
-[node name="StaticBody2D4" parent="." instance=ExtResource("20_yp57x")]
-position = Vector2(-1100, 318)
-
-[node name="StaticBody2D6" parent="." instance=ExtResource("20_yp57x")]
-position = Vector2(2845, 357)
+limit_left = -1300
+limit_top = -10
+limit_right = 2965
+limit_bottom = 915
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+editor_draw_limits = true
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("31_fn461")]
+visible = true
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("28_wgf4g")]
+
+[node name="NpcsClicko" type="Sprite2D" parent="."]
+position = Vector2(1907, 583)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("28_5r4dp")
+
+[node name="Sprite2D" type="Sprite2D" parent="NpcsClicko"]
+modulate = Color(1, 1, 1, 0.537255)
+show_behind_parent = true
+material = SubResource("CanvasItemMaterial_juhxe")
+position = Vector2(-4.99969, 370)
+scale = Vector2(1, 0.35)
+texture = ExtResource("29_grj7y")

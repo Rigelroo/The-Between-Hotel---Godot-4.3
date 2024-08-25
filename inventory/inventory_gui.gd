@@ -164,6 +164,12 @@ func close():
 	isOpen = false
 	manager.inventoryclosed.emit()
 
+
+func readyclose():
+	visible = false
+	isOpen = false
+	#manager.inventoryclosed.emit()
+
 signal stamp_equiped
 
 func equipstamp(slot):

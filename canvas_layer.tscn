@@ -37,7 +37,6 @@ manager = ExtResource("2_pvgtj")
 visible = false
 
 [node name="InventoryGui" parent="." instance=ExtResource("3_2ly1l")]
-visible = false
 offset_left = 34.0
 offset_top = 12.0
 offset_right = 34.0

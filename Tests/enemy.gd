@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
-class_name Pulg
 
-const speed = 100
+
+var speed = 150
+@onready var hit_player = $Hit
+@onready var animplayer = $Body2
 @export var is_pulg_chase : bool = false
 @export var player = Global.player_body
 var health = 80
@@ -16,9 +18,10 @@ var is_dealing_damage: bool = false
 
 var dir: Vector2
 const gravity = 900
-var knockback_force = 200
+var knockback_force = 10000
 var is_roaming: bool = true
 @onready var Raycasts = $Raycasts
+
 func _process(delta: float) -> void:
 	for raycast in Raycasts.get_children():
 		raycast.force_raycast_update() 
@@ -27,36 +30,39 @@ func _process(delta: float) -> void:
 				dir = Vector2.LEFT
 			elif raycast == $Raycasts/Leftraycast:
 				dir = Vector2.RIGHT
-	if is_on_floor():
-		$Sprite2D2.visible = true
-	else:
-		$Sprite2D2.visible = false
 	if !is_on_floor():
-		velocity.y += gravity * delta
-		velocity.x = 0
+		pass
 	move(delta)
 	handle_animation()
 	move_and_slide()
 
 func handle_animation():
-	var animplayer = $AnimationPlayer
+	if is_dealing_damage:
+		$Body2.stop()
+	if !is_dealing_damage:
+		pass
 	if !dead && !taking_damage && !is_dealing_damage:
 		if velocity.x != 0:
-			animplayer.play("walking")
+			pass
 		if velocity.x == 0:
-			animplayer.play("idle")
+			pass
 		if dir.x == -1:
 			$Sprite2D.flip_h = false
+			$Sprite2D2.flip_h = false
+			$Sprite2D3.flip_h = false
 		elif dir.x == 1:
 			$Sprite2D.flip_h = true
+			$Sprite2D2.flip_h = true
+			$Sprite2D3.flip_h = true
+
 	
 func move(delta):
 	if !dead:
 		if !is_pulg_chase:
 			velocity += dir * speed * delta
-		elif is_pulg_chase and !taking_damage:
+		elif is_pulg_chase and !is_dealing_damage:
 			var dir_to_player = position.direction_to(player.position) * speed
-			velocity.x = dir_to_player.x
+			velocity = dir_to_player
 			dir.x = abs(velocity.x) / velocity.x
 		is_roaming = true
 	elif dead:
@@ -70,16 +76,37 @@ func choose(array):
 	array.shuffle()
 	return array.front()
 
-func _on_area_2d_body_entered(body: Player) -> void:
-	is_pulg_chase = true
-	
-func _on_area_2d_body_exited(body: Player) -> void:
-	is_pulg_chase = false
-
 
 func _on_damage_area_area_entered(area: Area2D) -> void:
-		print("doi")
+	if (area == player.slashbox) or (area == player.slashbox_down):
 		damage()
+	if (area == player.slashbox_down):
+		pass
 func damage():
-	
+	is_dealing_damage = true
+	play_knockback()
+	hit_player.play("hit")
+	await hit_player.animation_finished
+	is_dealing_damage = false
+	$Body2.play("Idle")
 	print("hit")
+
+var knockback = Vector2.ZERO
+
+
+func play_knockback():
+	var direction = -global_position.direction_to(player.global_position)
+	var force = direction * knockback_force
+	velocity = (direction * speed * 3 + knockback)
+
+	$KnockbackTimer.start(0.7)
+	await $KnockbackTimer.timeout
+	velocity -= velocity
+
+
+func _on_follow_area_body_entered(body: Node2D) -> void:
+	is_pulg_chase = true
+
+
+func _on_follow_area_body_exited(body: Node2D) -> void:
+	is_pulg_chase = false

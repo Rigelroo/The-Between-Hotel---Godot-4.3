@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=34 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://bfdcvesay4moy" path="res://Sprites/Bettlebourough/parallax/B3.png" id="20_01e4h"]
 [ext_resource type="Texture2D" uid="uid://c1dwfio1icyq6" path="res://Sprites/Bettlebourough/parallax/B4.png" id="21_3cpb2"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="22_ieecm"]
+[ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="23_awmji"]
+[ext_resource type="PackedScene" uid="uid://ef24ixvsy0at" path="res://scenes/entities/Enemies/B1/vespaloca.tscn" id="24_o0o5k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hsyed"]
 texture = ExtResource("8_uyb2n")
@@ -755,5 +757,16 @@ texture = ExtResource("21_3cpb2")
 centered = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource("22_ieecm")]
+visible = true
+
+[node name="SubViewport" parent="CanvasLayer/SubViewportContainer" index="0"]
+render_target_update_mode = 4
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("23_awmji")]
+
+[node name="Wasp" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_o0o5k")]
+position = Vector2(2182, 510)
+scale = Vector2(0.5, 0.5)
+player = NodePath("../Player")
 
 [editable path="CanvasLayer"]

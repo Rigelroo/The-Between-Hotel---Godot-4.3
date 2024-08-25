@@ -19,8 +19,7 @@ func _process(delta: float) -> void:
 
 
 func _ready():
-	
-	inventory.close()
+	inventory.readyclose()
 	hudbar.visible = true
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 

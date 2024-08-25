@@ -18,4 +18,3 @@ func deactivatestamp():
 	manager.crimsonfury_equiped = false
 	print("ht desfoi")
 	manager.no_crimson.emit()
-	
