@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ef24ixvsy0at"]
+[gd_scene load_steps=39 format=3 uid="uid://ef24ixvsy0at"]
 
 [ext_resource type="Texture2D" uid="uid://c452x3agj374j" path="res://Sprites/Bettlebourough/enemies/wasp/attack0000.png" id="1_510se"]
 [ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_x8r2u"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Tests/enemy_vespa.gd" id="2_gf2w3"]
 [ext_resource type="Texture2D" uid="uid://cs0x8cowahmwg" path="res://Sprites/Bettlebourough/enemies/wasp/attack0002.png" id="3_bcgff"]
 [ext_resource type="Texture2D" uid="uid://wjuy2h5fwnay" path="res://Sprites/Bettlebourough/enemies/wasp/attack0003.png" id="4_pw3ei"]
+[ext_resource type="Script" path="res://EnemyIdle.gd" id="4_w2hko"]
 [ext_resource type="Texture2D" uid="uid://bow7pacfuram6" path="res://Sprites/Bettlebourough/enemies/wasp/attack0004.png" id="5_sm4w8"]
 [ext_resource type="Texture2D" uid="uid://8jib26kcunt" path="res://Sprites/Bettlebourough/enemies/wasp/attack0005.png" id="6_gqdx1"]
 [ext_resource type="Texture2D" uid="uid://nstb7fkcr8dh" path="res://Sprites/Bettlebourough/enemies/wasp/wing0000.png" id="7_b44fg"]
@@ -22,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b1i6vgrcux0rx" path="res://Sprites/Bettlebourough/enemies/wasp/wingother0002.png" id="18_0rlda"]
 [ext_resource type="Texture2D" uid="uid://0243k710tuyl" path="res://Sprites/Bettlebourough/enemies/wasp/wingother0003.png" id="19_0axby"]
 [ext_resource type="Texture2D" uid="uid://dgjoqfguta3r" path="res://Tests/smoke.png" id="22_8c7rt"]
+[ext_resource type="Script" path="res://enemyState.gd" id="23_yph7s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kehak"]
 shader = ExtResource("1_x8r2u")
@@ -300,6 +302,12 @@ size = Vector2(474, 552)
 [node name="Wasp" type="CharacterBody2D"]
 material = SubResource("ShaderMaterial_kehak")
 script = ExtResource("2_gf2w3")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("23_yph7s")
+
+[node name="EnemyIdle" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("4_w2hko")
 
 [node name="FollowArea" type="Area2D" parent="."]
 position = Vector2(4, -5)
