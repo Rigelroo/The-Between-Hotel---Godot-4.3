@@ -18,6 +18,7 @@ func _ready() -> void:
 func _process(delta):
 	if current_state:
 		current_state.update(delta)
+		%Statelabel.text = str(current_state.name)
 
 func _physics_process(delta: float) -> void:
 	if current_state:

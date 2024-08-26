@@ -5,7 +5,7 @@ class_name Canvas
 @onready var inventory = $InventoryGui
 @onready var player = preload("res://scenes/entities/player/Player.tscn")
 @onready var hudbar = $Statsbar
-@onready var staminabar = $staminabar
+
 var canOpen_inventory : bool = true
 @export var manager : CoinManager 
 

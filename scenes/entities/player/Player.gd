@@ -109,10 +109,10 @@ func _ready():
 	prev_state = STATES.IDLE
 	current_state = STATES.IDLE
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Start"):
-		currentHealth += 1
-		healthChanged.emit(currentHealth)
-		emit_signal("temporary")
+	#if Input.is_action_just_pressed("Start"):
+		#currentHealth += 1
+		#healthChanged.emit(currentHealth)
+		#emit_signal("temporary")
 	if is_on_floor():
 		$Sprite2D2.visible = true
 	else:

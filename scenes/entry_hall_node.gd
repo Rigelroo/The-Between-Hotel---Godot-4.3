@@ -3,7 +3,7 @@ extends Node2D
 class_name World
 var dead : bool = false
 #@onready var canvas : CanvasLayer = $CanvasLayer
-@onready var player = $Player/Camera2D
+
 @export var objplayer : Player
 @export var splashw : SplashWater
 
@@ -58,9 +58,9 @@ func dont_create_splash():
 func _process_tilemap(body: Node2D, body_RID: RID) -> void:
 	pass
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("Transition"):
-		SceneManager.transition_to(next_scene)
-	
+	#if Input.is_action_just_pressed("Transition"):
+		#SceneManager.transition_to(next_scene)
+	#
 	if splashw.can_create == true:
 		activate()
 

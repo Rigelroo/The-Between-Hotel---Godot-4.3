@@ -51,7 +51,7 @@ fill_from = Vector2(0.489796, 0.520408)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iq357"]
 size = Vector2(1248, 28.0001)
 
-[node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer")]
+[node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Player"]]
 script = ExtResource("1_plb7f")
 objplayer = NodePath("Player")
 splashw = ExtResource("2_q2hfj")

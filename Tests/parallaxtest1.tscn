@@ -764,9 +764,8 @@ render_target_update_mode = 4
 
 [node name="CanvasLayer2" parent="." instance=ExtResource("23_awmji")]
 
-[node name="Wasp" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_o0o5k")]
+[node name="Wasp" parent="." instance=ExtResource("24_o0o5k")]
 position = Vector2(2182, 510)
 scale = Vector2(0.5, 0.5)
-player = NodePath("../Player")
 
 [editable path="CanvasLayer"]
