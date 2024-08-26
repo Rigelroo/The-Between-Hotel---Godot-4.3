@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Precision Platformer"
-run/main_scene="res://Tests/parallaxtest1.tscn"
+run/main_scene="res://scenes/entry_hallNode.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
 config/icon="res://icon.svg"
@@ -27,25 +27,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"Kori e Trice": "res://Sprites/DialogueBox/Kori e Trice/Kori e Trice.dch",
-"Persian": "res://Tests/Resources/Persian.dch"
-}
-directories/dtl_directory={
-"Sprites/timeline": "res://Sprites/timeline.dtl",
-"Teste1": "res://Sprites/DialogueBox/Kori e Trice/Teste1.dtl",
-"Teste1english": "res://Sprites/DialogueBox/Kori e Trice/Teste1english.dtl",
-"dialogueexample": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample.dtl",
-"dialogueexample2": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample2.dtl",
-"doortimeline1": "res://doortimeline1.dtl",
-"doortimeline2": "res://doortimeline2.dtl",
-"exemplodialogue": "res://exemplodialogue.dtl",
-"quadro1": "res://quadro1.dtl",
-"quadro2": "res://quadro2.dtl",
-"quadro3": "res://quadro3.dtl",
-"test2dialogue": "res://Sprites/DialogueBox/Kori e Trice/test2dialogue.dtl",
-"testdialogue": "res://Sprites/DialogueBox/Kori e Trice/testdialogue.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 layout/style_list=["res://Dialogsystem/Style.tres", "res://Dialogsystem/Style2.tres"]
 layout/default_style="res://Dialogsystem/Style.tres"
 text/letter_speed=0.01
