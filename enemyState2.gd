@@ -1,6 +1,6 @@
 extends Node
 
-class_name EnemyState
+class_name EnemyState2
 
 signal Transitioned
 

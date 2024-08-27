@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ef24ixvsy0at"]
+[gd_scene load_steps=42 format=3 uid="uid://ef24ixvsy0at"]
 
 [ext_resource type="Texture2D" uid="uid://c452x3agj374j" path="res://Sprites/Bettlebourough/enemies/wasp/attack0000.png" id="1_510se"]
 [ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_x8r2u"]
@@ -6,10 +6,11 @@
 [ext_resource type="Script" path="res://Tests/enemy_vespa.gd" id="2_gf2w3"]
 [ext_resource type="Texture2D" uid="uid://cs0x8cowahmwg" path="res://Sprites/Bettlebourough/enemies/wasp/attack0002.png" id="3_bcgff"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/ENEMYSTATES.gd" id="3_hof1q"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/enemy_idle.gd" id="4_gpcpr"]
 [ext_resource type="Texture2D" uid="uid://wjuy2h5fwnay" path="res://Sprites/Bettlebourough/enemies/wasp/attack0003.png" id="4_pw3ei"]
-[ext_resource type="Script" path="res://EnemyIdle.gd" id="4_w2hko"]
-[ext_resource type="Script" path="res://EnemyFollow.gd" id="5_bkda8"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/enemy_follow.gd" id="5_sh3jk"]
 [ext_resource type="Texture2D" uid="uid://bow7pacfuram6" path="res://Sprites/Bettlebourough/enemies/wasp/attack0004.png" id="5_sm4w8"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/enemy_attack.gd" id="6_6bfr6"]
 [ext_resource type="Texture2D" uid="uid://8jib26kcunt" path="res://Sprites/Bettlebourough/enemies/wasp/attack0005.png" id="6_gqdx1"]
 [ext_resource type="Texture2D" uid="uid://nstb7fkcr8dh" path="res://Sprites/Bettlebourough/enemies/wasp/wing0000.png" id="7_b44fg"]
 [ext_resource type="Texture2D" uid="uid://dvi4cnqxmucff" path="res://Sprites/Bettlebourough/enemies/wasp/idle0000.png" id="7_odsbi"]
@@ -32,7 +33,7 @@ shader = ExtResource("1_x8r2u")
 shader_parameter/active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxu8r"]
-size = Vector2(3416, 2948)
+size = Vector2(4009.63, 4677)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmulh"]
 size = Vector2(229, 315)
@@ -322,27 +323,21 @@ script = ExtResource("2_gf2w3")
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("3_hof1q")
 
-[node name="EnemyIdle" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("4_w2hko")
-enemy = NodePath("../..")
-move_speed = 150.0
+[node name="EnemyIdle" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("4_gpcpr")
 
-[node name="EnemyFollow" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("5_bkda8")
-enemy = NodePath("../..")
-move_speed = null
+[node name="EnemyAttack" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_6bfr6")
 
-[node name="EnemyAttack" type="Node" parent="EnemyStateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("5_bkda8")
-enemy = NodePath("../..")
-move_speed = null
+[node name="EnemyFollow" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("5_sh3jk")
 
 [node name="FollowArea" type="Area2D" parent="."]
 position = Vector2(-31.1836, -5)
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FollowArea"]
-position = Vector2(20, 34)
+position = Vector2(26.3672, 119.5)
 shape = SubResource("RectangleShape2D_kxu8r")
 debug_color = Color(0.590083, 0.453461, 0.803131, 0.42)
 
@@ -364,17 +359,20 @@ autoplay = "Idle"
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(-33, 14)
+rotation = 0.314159
 texture = ExtResource("12_b7s88")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("14_vvys6")
 position = Vector2(-33, 14)
+rotation = 0.314159
 texture = ExtResource("7_odsbi")
 offset = Vector2(33, -14)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 material = ExtResource("14_vvys6")
 position = Vector2(-33, 14)
+rotation = 0.314159
 texture = ExtResource("7_b44fg")
 
 [node name="Wings" type="AnimationPlayer" parent="."]
@@ -445,6 +443,8 @@ text = "HP
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
+[connection signal="body_entered" from="FollowArea" to="EnemyStateMachine/EnemyIdle" method="_on_follow_area_body_entered"]
 [connection signal="body_exited" from="FollowArea" to="." method="_on_follow_area_body_exited"]
+[connection signal="body_exited" from="FollowArea" to="EnemyStateMachine/EnemyFollow" method="_on_follow_area_body_exited"]
 [connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

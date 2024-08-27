@@ -15,10 +15,14 @@ var dead: bool = false
 var taking_damage : bool = false
 var damage_to_deal = 20
 var is_dealing_damage: bool = false
-
+var is_enemy_chase : bool = false
 var knockback_force = 100
 var knockback_vector = Vector2.ZERO
 var velox = Vector2.ZERO
+var dir: Vector2
+var is_roaming: bool = true
+
+
 @export var a : bool
 
 var player : CharacterBody2D
@@ -28,13 +32,10 @@ var current_state = null
 var prev_state = null
 
 func _ready() -> void:
+	set_physics_process(false)
 	player = get_tree().get_first_node_in_group("Player")
 	%HPlabel.text = "HP: " + str(health)
-	for state in STATES.get_children():
-		state.STATES = STATES
-		state.Player = self
-	prev_state = STATES.IDLE
-	current_state = STATES.IDLE
+
 
 func _on_damage_area_area_entered(area: Area2D) -> void:
 	
@@ -65,7 +66,7 @@ func damage():
 #var knockback = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	%Statelabel.text = str(current_state.get_name())
+	move(delta)
 	move_and_slide()
 	var just_bool = false 
 	if velocity.x > 0:
@@ -81,6 +82,19 @@ func _physics_process(delta: float) -> void:
 	if knockback_vector != Vector2.ZERO:
 		velocity = knockback_vector
 
+func move(delta):
+	is_enemy_chase = true
+	if !dead:
+		if !is_enemy_chase:
+			velocity += dir * speed * delta
+		elif is_enemy_chase and !is_dealing_damage:
+			var dir_to_player = position.direction_to(player.position) * speed
+			velocity = dir_to_player
+			dir.x = abs(velocity.x) / velocity.x
+		is_roaming = true
+	elif dead:
+		velocity.x = 0
+
 func take_damage():
 	health -= 1
 	
@@ -91,13 +105,4 @@ func take_damage():
 		#knockback_vector = knockback_force
 		#
 		#var knockback_tween := get_tree().create_tween()
-		#knockback_tween.tween_property(self, "knockback_vector", Vector2.ZERO, duration) 
-
-func play_knockback():
-	pass
-	#var direction = global_position.direction_to(player.global_position)
-	#var force = direction * knockback_force
-	#velocity = (direction * speed * 3 + knockback * 20)
-	#$KnockbackTimer.start(0.7)
-	#await $KnockbackTimer.timeout
-	#velocity -= velocity
+		#knockback_tween.tween_property(self, "knockback_vector", Vector2.ZERO, duration)
