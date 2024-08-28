@@ -34,13 +34,18 @@ var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player_exited: bool = false
 var player_entered: bool = false
 
+#variáveis do movimento
 @export_subgroup("Movement")
 @export var speed = 150
-@export_enum("Stopped", "Chase", "One direction_x", "One direction_y", "Aleatory_x", "Aleatory_y", "Aleatory_z") var movement_type: int
+@export_enum("Stopped", "Chase", "One direction_x", "One direction_y", "Aleatory_x", "Aleatory_y", "Aleatory_z", "Runaway") var movement_type: int
 @export_enum("No gravity", "Inverted", "Normal", "Stopped" ) var gravity_type: int
 @export var gravity_strength : float = 1.0
 
 var movement_type_const = null
+
+var position_saver = null
+
+var can_attack = false
 
 var player : CharacterBody2D
 @onready var STATES = $EnemyStateMachine
@@ -61,6 +66,7 @@ func gravity_manager(delta):
 
 
 func movement_manager(delta):
+	
 	if movement_type == 0:
 		velocity = Vector2()
 		
@@ -75,8 +81,17 @@ func movement_manager(delta):
 	elif movement_type == 3:
 		one_dir_y()
 		velocity += dir * speed * delta 
-	elif movement_type >= 4:
+	elif movement_type == 4:
 		velocity += dir * speed * delta
+	elif movement_type == 5:
+		velocity += dir * speed * delta
+	elif movement_type == 6:
+		velocity += dir * speed * delta
+	elif movement_type == 7:
+		var dir_to_position = global_position.direction_to(position_saver + position_saver) * speed
+		
+		velocity = dir_to_position
+		dir.x = abs(velocity.x) / velocity.x
 
 func choose(array):
 	array.shuffle()
@@ -205,6 +220,9 @@ func take_damage():
 	var knockback = 3 if (player.global_position.x - self.global_position.x) > 0 else -1
 	knockback_force *= knockback
 	velocity.x = knockback
+
+func deal_damage():
+	player.currentHealth -= damage_value
 	
 
 func _on_follow_area_body_exited(body: Node2D) -> void:

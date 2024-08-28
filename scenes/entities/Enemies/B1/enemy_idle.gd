@@ -1,4 +1,4 @@
-extends "res://scenes/entities/Enemies/stateenemy.gd"
+extends EnemyState
 
 
 

@@ -4,31 +4,28 @@ extends EnemyState
 
 func update(delta):
 	Entity.movement_manager(delta)
+	Entity.velocity.y = -900
 	stop_following()
 	if Entity.player_exited:
 		return STATES.IDLE
-	if Entity.movement_type == 0 && Entity.can_attack:
-		
+	if Entity.can_attack:
 		return STATES.ATTACK
 	return null
 
 func enter_state():
-	if Entity.prev_state != STATES.PREPARE:
-		Entity.can_attack = true
-	Entity.movement_type = 1
-	print(Entity.movement_type)
+	%Body2.play("Idle")
+	Entity.can_attack = false
+	Entity.movement_type = 7
+	
 	Entity.player_entered = false
-
-
 
 func stop_following():
 	var distance = player.position - Entity.global_position
 	
-	if distance.length() < 230:
+	if distance.length() >= 250:
 		Entity.movement_type = 0
-		
-	if distance.length() > 230:
-		Entity.movement_type = 1
+		Entity.can_attack = true
+
 #extends EnemyState
 #
 #

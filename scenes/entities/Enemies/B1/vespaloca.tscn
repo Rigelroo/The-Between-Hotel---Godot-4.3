@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://ef24ixvsy0at"]
+[gd_scene load_steps=46 format=3 uid="uid://ef24ixvsy0at"]
 
 [ext_resource type="Texture2D" uid="uid://c452x3agj374j" path="res://Sprites/Bettlebourough/enemies/wasp/attack0000.png" id="1_510se"]
 [ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_x8r2u"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://wjuy2h5fwnay" path="res://Sprites/Bettlebourough/enemies/wasp/attack0003.png" id="4_pw3ei"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/enemy_follow.gd" id="5_sh3jk"]
 [ext_resource type="Texture2D" uid="uid://bow7pacfuram6" path="res://Sprites/Bettlebourough/enemies/wasp/attack0004.png" id="5_sm4w8"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/enemy_attack.gd" id="6_fo64p"]
 [ext_resource type="Texture2D" uid="uid://8jib26kcunt" path="res://Sprites/Bettlebourough/enemies/wasp/attack0005.png" id="6_gqdx1"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/enemy_prepare.gd" id="6_w7fit"]
 [ext_resource type="Texture2D" uid="uid://nstb7fkcr8dh" path="res://Sprites/Bettlebourough/enemies/wasp/wing0000.png" id="7_b44fg"]
 [ext_resource type="Texture2D" uid="uid://dvi4cnqxmucff" path="res://Sprites/Bettlebourough/enemies/wasp/idle0000.png" id="7_odsbi"]
 [ext_resource type="Texture2D" uid="uid://b6sg2go5mo2kr" path="res://Sprites/Bettlebourough/enemies/wasp/idle0001.png" id="8_brqx1"]
@@ -245,9 +247,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [ExtResource("3_bcgff")]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:movement_type")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_nuiw6"]
-length = 2.0
+length = 0.5
 step = 0.0125
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -268,10 +282,22 @@ tracks/1/path = NodePath("Attackbox/Attackcollision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2625),
+"times": PackedFloat32Array(0, 0.1875, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:movement_type")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_takyk"]
@@ -377,6 +403,7 @@ size = Vector2(476.5, 487)
 [node name="Wasp" type="CharacterBody2D" groups=["Enemies"]]
 material = SubResource("ShaderMaterial_kehak")
 script = ExtResource("2_gf2w3")
+damage_value = 1
 
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("3_hof1q")
@@ -386,6 +413,12 @@ script = ExtResource("4_gpcpr")
 
 [node name="EnemyFollow" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("5_sh3jk")
+
+[node name="EnemyPrepare" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_w7fit")
+
+[node name="EnemyAttack" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_fo64p")
 
 [node name="FollowArea" type="Area2D" parent="."]
 position = Vector2(-31.1836, -5)
