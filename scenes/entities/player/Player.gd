@@ -108,6 +108,7 @@ func _ready():
 		state.Player = self
 	prev_state = STATES.IDLE
 	current_state = STATES.IDLE
+	
 func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("Start"):
 		#currentHealth += 1

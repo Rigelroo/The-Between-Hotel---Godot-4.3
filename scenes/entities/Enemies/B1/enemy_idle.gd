@@ -1,19 +1,18 @@
-extends EnemyState
+extends "res://scenes/entities/Enemies/stateenemy.gd"
 
-@onready var collision = $"../../FollowArea/CollisionShape2D"
 
-var player_entered: bool = false:
-	set(value):
-		player_entered = value
-		collision.set_deferred("disabled", value)
+
+	#set(value):
+		#player_entered = value
+		#collision.set_deferred("disabled", value)
 # Called when the node enters the scene tree for the first time.
 
-func transition():
-	if player_entered:
-		get_parent().change_state("EnemyFollow")
-		
+func update(delta):
+	Entity.movement_manager(delta)
+	if Entity.player_entered:
+		return STATES.FOLLOW
+	return null
 
-
-func _on_follow_area_body_entered(body: Node2D) -> void:
-	if (body == player):
-		player_entered = true
+func enter_state():
+	Entity.movement_type = Entity.movement_type_const
+	Entity.player_exited = false

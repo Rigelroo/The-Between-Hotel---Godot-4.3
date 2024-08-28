@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=35 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -554,6 +554,9 @@ fill_from = Vector2(0.489796, 0.520408)
 blend_mode = 3
 light_mode = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sd7k"]
+size = Vector2(2745, 20)
+
 [node name="world" type="Node2D" node_paths=PackedStringArray("objplayer")]
 script = ExtResource("1_07tvi")
 objplayer = NodePath("Player")
@@ -765,7 +768,13 @@ render_target_update_mode = 4
 [node name="CanvasLayer2" parent="." instance=ExtResource("23_awmji")]
 
 [node name="Wasp" parent="." instance=ExtResource("24_o0o5k")]
-position = Vector2(2182, 510)
+position = Vector2(1692, 615)
 scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1362.5, 0)
+shape = SubResource("RectangleShape2D_8sd7k")
 
 [editable path="CanvasLayer"]

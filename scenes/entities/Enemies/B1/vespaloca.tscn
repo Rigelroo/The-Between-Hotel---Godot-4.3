@@ -1,16 +1,15 @@
-[gd_scene load_steps=42 format=3 uid="uid://ef24ixvsy0at"]
+[gd_scene load_steps=44 format=3 uid="uid://ef24ixvsy0at"]
 
 [ext_resource type="Texture2D" uid="uid://c452x3agj374j" path="res://Sprites/Bettlebourough/enemies/wasp/attack0000.png" id="1_510se"]
 [ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_x8r2u"]
 [ext_resource type="Texture2D" uid="uid://wjmdyf5he8oe" path="res://Sprites/Bettlebourough/enemies/wasp/attack0001.png" id="2_7mprq"]
-[ext_resource type="Script" path="res://Tests/enemy_vespa.gd" id="2_gf2w3"]
+[ext_resource type="Script" path="res://Tests/entitie_script.gd" id="2_gf2w3"]
 [ext_resource type="Texture2D" uid="uid://cs0x8cowahmwg" path="res://Sprites/Bettlebourough/enemies/wasp/attack0002.png" id="3_bcgff"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/ENEMYSTATES.gd" id="3_hof1q"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/enemy_idle.gd" id="4_gpcpr"]
 [ext_resource type="Texture2D" uid="uid://wjuy2h5fwnay" path="res://Sprites/Bettlebourough/enemies/wasp/attack0003.png" id="4_pw3ei"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/enemy_follow.gd" id="5_sh3jk"]
 [ext_resource type="Texture2D" uid="uid://bow7pacfuram6" path="res://Sprites/Bettlebourough/enemies/wasp/attack0004.png" id="5_sm4w8"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/enemy_attack.gd" id="6_6bfr6"]
 [ext_resource type="Texture2D" uid="uid://8jib26kcunt" path="res://Sprites/Bettlebourough/enemies/wasp/attack0005.png" id="6_gqdx1"]
 [ext_resource type="Texture2D" uid="uid://nstb7fkcr8dh" path="res://Sprites/Bettlebourough/enemies/wasp/wing0000.png" id="7_b44fg"]
 [ext_resource type="Texture2D" uid="uid://dvi4cnqxmucff" path="res://Sprites/Bettlebourough/enemies/wasp/idle0000.png" id="7_odsbi"]
@@ -220,8 +219,35 @@ tracks/6/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_1tmfs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attackbox/Attackcollision:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_bcgff")]
+}
+
 [sub_resource type="Animation" id="Animation_nuiw6"]
-length = 0.375
+length = 2.0
 step = 0.0125
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -235,25 +261,54 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_510se"), ExtResource("2_7mprq"), ExtResource("3_bcgff"), ExtResource("4_pw3ei"), ExtResource("5_sm4w8"), ExtResource("6_gqdx1")]
 }
-tracks/1/type = "method"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("EnemyStateMachine/EnemyAttack")
+tracks/1/path = NodePath("Attackbox/Attackcollision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"attack_movement"
-}]
+"times": PackedFloat32Array(0, 0.2625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_takyk"]
+resource_name = "attack_return"
+length = 0.2
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.109375, 0.171875),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_gqdx1"), ExtResource("2_7mprq"), ExtResource("2_7mprq"), ExtResource("7_odsbi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attackbox/Attackcollision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgrry"]
 _data = {
 "Idle": SubResource("Animation_1x4du"),
-"attack": SubResource("Animation_nuiw6")
+"RESET": SubResource("Animation_1tmfs"),
+"attack": SubResource("Animation_nuiw6"),
+"attack_return": SubResource("Animation_takyk")
 }
 
 [sub_resource type="Animation" id="Animation_ax6vg"]
@@ -316,6 +371,9 @@ scale_over_velocity_max = 235.95
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kctrd"]
 size = Vector2(474, 552)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iu8b"]
+size = Vector2(476.5, 487)
+
 [node name="Wasp" type="CharacterBody2D" groups=["Enemies"]]
 material = SubResource("ShaderMaterial_kehak")
 script = ExtResource("2_gf2w3")
@@ -325,9 +383,6 @@ script = ExtResource("3_hof1q")
 
 [node name="EnemyIdle" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("4_gpcpr")
-
-[node name="EnemyAttack" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("6_6bfr6")
 
 [node name="EnemyFollow" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("5_sh3jk")
@@ -346,6 +401,7 @@ position = Vector2(-9.68359, 30.5)
 shape = SubResource("RectangleShape2D_tmulh")
 
 [node name="Hit" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_nllgd")
 }
@@ -366,7 +422,7 @@ texture = ExtResource("12_b7s88")
 material = ExtResource("14_vvys6")
 position = Vector2(-33, 14)
 rotation = 0.314159
-texture = ExtResource("7_odsbi")
+texture = ExtResource("3_bcgff")
 offset = Vector2(33, -14)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
@@ -406,19 +462,6 @@ debug_color = Color(0.960621, 0.526551, 0.690575, 0.419608)
 [node name="Directiontimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Raycasts" type="Node2D" parent="."]
-position = Vector2(-35.1836, 0)
-
-[node name="Rightraycast" type="RayCast2D" parent="Raycasts"]
-rotation = -1.5708
-scale = Vector2(2, 1)
-target_position = Vector2(-1.15835e-06, 53)
-
-[node name="Leftraycast" type="RayCast2D" parent="Raycasts"]
-rotation = 1.5708
-scale = Vector2(2, 1)
-target_position = Vector2(-0.499998, 78)
-
 [node name="KnockbackTimer" type="Timer" parent="."]
 
 [node name="Statelabel" type="Label" parent="."]
@@ -442,9 +485,43 @@ text = "HP
 "
 metadata/_edit_use_anchors_ = true
 
+[node name="Attackbox" type="Area2D" parent="."]
+
+[node name="Attackcollision" type="CollisionShape2D" parent="Attackbox"]
+unique_name_in_owner = true
+position = Vector2(-194.75, 143.5)
+shape = SubResource("RectangleShape2D_0iu8b")
+disabled = true
+debug_color = Color(0.986317, 0.0702289, 0.2335, 0.42)
+
+[node name="Raycasts" type="Node2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(5, 5)
+
+[node name="Rightraycast" type="RayCast2D" parent="Raycasts"]
+rotation = -1.5708
+scale = Vector2(2, 1)
+target_position = Vector2(-7.23998e-05, 40)
+
+[node name="Leftraycast" type="RayCast2D" parent="Raycasts"]
+rotation = 1.5708
+scale = Vector2(2, 1)
+target_position = Vector2(-0.0999334, 36.8)
+
+[node name="Upraycast" type="RayCast2D" parent="Raycasts"]
+rotation = -3.15411
+scale = Vector2(2, 1)
+enabled = false
+target_position = Vector2(-7.23998e-05, 40)
+
+[node name="Downraycast" type="RayCast2D" parent="Raycasts"]
+rotation = -0.0125099
+scale = Vector2(2, 1)
+enabled = false
+target_position = Vector2(-0.455265, 56.7931)
+
 [connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
-[connection signal="body_entered" from="FollowArea" to="EnemyStateMachine/EnemyIdle" method="_on_follow_area_body_entered"]
 [connection signal="body_exited" from="FollowArea" to="." method="_on_follow_area_body_exited"]
-[connection signal="body_exited" from="FollowArea" to="EnemyStateMachine/EnemyFollow" method="_on_follow_area_body_exited"]
 [connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="timeout" from="Directiontimer" to="." method="_on_directiontimer_timeout"]
