@@ -1475,7 +1475,10 @@ inventoryb = ExtResource("4_72txa")
 inventoryc = ExtResource("4_s68tx")
 inv_dictionary = ExtResource("5_dupda")
 manager = ExtResource("5_a6y1r")
-currentHealth = 2
+maxInk = 100
+currentInk = 50
+maxHealth = 100
+currentHealth = 10
 
 [node name="InteractionBalloon" type="AnimatedSprite2D" parent="."]
 z_index = 50

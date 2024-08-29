@@ -1,53 +1,516 @@
-[gd_scene load_steps=9 format=3 uid="uid://c44xqs2w5caa1"]
+[gd_scene load_steps=18 format=3 uid="uid://c44xqs2w5caa1"]
 
-[ext_resource type="Texture2D" uid="uid://vncfqutpqm55" path="res://Sprites/EntryHall/preto.png" id="1_g3vow"]
 [ext_resource type="Script" path="res://scenes/entities/player/Systems/Healthbar.gd" id="1_gwffl"]
-[ext_resource type="Script" path="res://scenes/entities/player/Systems/Statsbar.gd" id="1_pispc"]
+[ext_resource type="Texture2D" uid="uid://4oeto4sgsrlq" path="res://Sprites/Hud/Health/health_thing0000.png" id="2_03tjr"]
 [ext_resource type="Texture2D" uid="uid://djrt8ukwlecr7" path="res://Sprites/Hud/Inkbar_bottom.png" id="3_0b6hv"]
-[ext_resource type="Texture2D" uid="uid://kenrbb40ur7d" path="res://Tests/pretoverde.png" id="3_sxnl2"]
+[ext_resource type="Texture2D" uid="uid://yo3yrawx0jj5" path="res://Sprites/Hud/Health/health0000.png" id="3_osbdi"]
 [ext_resource type="Texture2D" uid="uid://cs8p815gy6y2y" path="res://Sprites/Hud/Inkbar_over.png" id="4_mom3q"]
+[ext_resource type="Texture2D" uid="uid://p0iggqqg23rq" path="res://Sprites/Hud/Health/health0001.png" id="4_vaiip"]
 [ext_resource type="Texture2D" uid="uid://bmg4s2ja6rbi8" path="res://Sprites/Hud/Inkbar_progress.png" id="5_lhvye"]
 [ext_resource type="Script" path="res://scenes/entities/player/Systems/Inkbar.gd" id="6_1ncav"]
+[ext_resource type="Texture2D" uid="uid://cnsixdcpf2m8i" path="res://Sprites/Hud/Health/healthface0000.png" id="6_6b0u1"]
+[ext_resource type="Texture2D" uid="uid://bbeo2aeb42oj8" path="res://Sprites/Hud/Health/healthshake.png" id="14_5vdeg"]
+[ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="19_kabt4"]
+
+[sub_resource type="Animation" id="Animation_xgfem"]
+resource_name = "Damage"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Node2D/Shake:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Node2D/Shake2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Node2D/Shake:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1065, 533), Vector2(1069, 507)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Node2D/Shake2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(855, 513), Vector2(865, 578)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Node2D/Shake:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2.44172, 2.06647]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Node2D/Shake2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-0.5044, -1.27409]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Healthface:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/path = NodePath("../Healthbar:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(863.595, 458.525), Vector2(880.025, 468.525), Vector2(863.595, 458.525), Vector2(873.025, 458.525)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(197, 76), Vector2(197, 61), Vector2(187, 76), Vector2(217, 91), Vector2(197, 76)]
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hp2w0"]
+load_path = "res://.godot/imported/healthshake.png-8133dee2b9388c299e405ba84c6f95d1.ctex"
+
+[sub_resource type="Animation" id="Animation_dsdkm"]
+resource_name = "Danger"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Node2D/Shake:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_hp2w0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Node2D/Shake2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_5vdeg")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("../Node2D/Shake:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1065, 533), Vector2(1069, 507)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../Node2D/Shake2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(855, 513), Vector2(865, 578)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("../Node2D/Shake:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2.44172, 2.06647]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("../Node2D/Shake2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-0.5044, -1.27409]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Healthface:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.233333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.36, 0.36), Vector2(0.4, 0.4), Vector2(0.36, 0.36)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Node2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(296, 154)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Node2D:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.433333, 0.933333, 1.03333, 1.13333, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [-1.17631, -0.685914, -1.17631, -0.685914, -1.17631, -0.685914, -1.17631, -0.685914]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(197, 76)]
+}
+
+[sub_resource type="Animation" id="Animation_j4stf"]
+resource_name = "Normal"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Node2D/Shake:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Node2D/Shake2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("../Node2D/Shake:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1065, 533), Vector2(1069, 507)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../Node2D/Shake2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(855, 513), Vector2(865, 578)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("../Node2D/Shake:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2.44172, 2.06647]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("../Node2D/Shake2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-0.5044, -1.27409]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/path = NodePath("../Healthbar:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(863.595, 458.525)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_k710y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.17631]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(197, 81)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Node2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(296, 154)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_act0a"]
+_data = {
+"Damage": SubResource("Animation_xgfem"),
+"Danger": SubResource("Animation_dsdkm"),
+"Normal": SubResource("Animation_j4stf"),
+"RESET": SubResource("Animation_k710y")
+}
 
 [node name="Statsbar" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_pispc")
+anchors_preset = 0
+
+[node name="HealthThing0000" type="Sprite2D" parent="."]
+position = Vector2(289.995, 164.525)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("2_03tjr")
+
+[node name="HealthThing0001" type="Sprite2D" parent="."]
+position = Vector2(140, 99)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("2_03tjr")
+flip_h = true
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.109
-anchor_top = 0.13
-anchor_right = 0.765
-anchor_bottom = 0.239
-offset_left = 0.431992
-offset_top = -0.240005
-offset_right = -0.488037
-offset_bottom = -0.0640106
-grow_horizontal = 2
-grow_vertical = 2
-nine_patch_stretch = true
-texture_under = ExtResource("1_g3vow")
-texture_progress = ExtResource("3_sxnl2")
+layout_direction = 1
+offset_left = 197.0
+offset_top = 76.0
+offset_right = 664.0
+offset_bottom = 489.0
+scale = Vector2(0.4, 0.4)
+texture_under = ExtResource("3_osbdi")
+texture_progress = ExtResource("4_vaiip")
 script = ExtResource("1_gwffl")
+metadata/_edit_group_ = true
+
+[node name="Healthface" type="Sprite2D" parent="Healthbar"]
+position = Vector2(-74, -63)
+texture = ExtResource("6_6b0u1")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Healthbar")
+libraries = {
+"": SubResource("AnimationLibrary_act0a")
+}
 
 [node name="Inkbar" type="TextureProgressBar" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.207
 anchor_bottom = 0.369
-offset_right = 483.536
-offset_bottom = 484.888
+offset_left = 10.0
+offset_top = 75.0
+offset_right = 493.536
+offset_bottom = 173.888
+rotation = 0.333652
 scale = Vector2(0.33, 0.33)
-min_value = 5.0
-value = 5.0
+value = 50.0
 fill_mode = 3
-texture_under = ExtResource("3_0b6hv")
-texture_over = ExtResource("4_mom3q")
 texture_progress = ExtResource("5_lhvye")
 script = ExtResource("6_1ncav")
+
+[node name="InkbarUnder" type="Sprite2D" parent="Inkbar"]
+show_behind_parent = true
+position = Vector2(361.366, 6.24055)
+rotation = -0.000294566
+scale = Vector2(1, 1)
+texture = ExtResource("3_0b6hv")
+
+[node name="InkbarOver" type="Sprite2D" parent="Inkbar"]
+position = Vector2(361.366, 6.24055)
+rotation = -0.000294566
+scale = Vector2(1, 1)
+texture = ExtResource("4_mom3q")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 307.0
+offset_top = 188.0
+offset_right = 459.0
+offset_bottom = 249.0
+theme_override_fonts/font = ExtResource("19_kabt4")
+theme_override_font_sizes/font_size = 61
+text = "100"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(296, 154)
+rotation = -1.17631
+
+[node name="Shake" type="Sprite2D" parent="Node2D"]
+position = Vector2(102.992, -42.9893)
+rotation = 2.06647
+scale = Vector2(0.4, 0.4)
+texture = SubResource("CompressedTexture2D_hp2w0")
+
+[node name="Shake2" type="Sprite2D" parent="Node2D"]
+position = Vector2(-101.008, 28.0107)
+rotation = -1.27409
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("14_5vdeg")

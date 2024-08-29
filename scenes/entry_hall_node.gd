@@ -39,6 +39,16 @@ func _ready() -> void:
 	objplayer.death.connect(death)
 	splashw.Vaifundo.connect(create_splash)
 	splashw.Desvaifundo.connect(dont_create_splash)
+
+	player.healthChanged.connect(updatehealth)
+	player.inkChanged.connect(updateink)
+	updatehealth()
+	
+	updateink()
+	
+	inventory.readyclose()
+	hudbar.visible = true
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	
 	#canvas.global_position = player.global_position
 func activate():
@@ -63,6 +73,7 @@ func _process(delta: float) -> void:
 	#
 	if splashw.can_create == true:
 		activate()
+		
 
 func _on_inventory_gui_closed() -> void:
 	#self.get_tree().paused = false
@@ -108,3 +119,87 @@ func instance_object():
 	
 	
 	#Call the instance_object() function when you have to create objects. You can also set the position of the object by doing something like: object.position = Vector2(0,0) which will create the object at position(0,0).
+@onready var inventory = $InventoryGui
+@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var hudbar = $Statsbar
+
+var canOpen_inventory : bool = true
+
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
+
+
+
+
+# Called when the node enters the scene tree for the first time.
+#
+#@onready var label = $Control2/Label
+#@onready var gameTimer = $Control2/Timer
+#
+#func _physics_process(delta):
+	#var texttimer = str(time_to_minutes_secs_mili(gameTimer.get_time_left()))
+	#label.call_deferred("set_text", texttimer)
+#
+#func time_to_minutes_secs_mili(time : float):
+	#var mins = int(time) / 60
+	#time -= mins * 60
+	#var secs = int(time)
+	#var mili = int((time - int(time)) * 100)
+	#return str(mins) + ":" + str(secs)
+
+
+func _input(event):
+	if event.is_action_pressed("menu_inventory"):
+		if canOpen_inventory:
+			if inventory.isOpen:
+				hudbar.visible = true
+				inventory.close()
+			else:
+				inventory.open()
+				hudbar.visible = false
+	else: pass
+	
+func _on_dialogic_signal(argument:String):
+	if argument == "deactivate_movement":
+		print("Deactivate Movement!")
+		canOpen_inventory = false
+	if argument == "reactivate_movement":
+		print("Reactivate Movement!")
+		canOpen_inventory = true
+
+var use_milliseconds : bool
+
+
+func updatehealth():
+	$CanvasLayer/Statsbar/Healthbar.value = player.currentHealth * 100 / player.maxHealth
+	$CanvasLayer/Statsbar/Label.text = str($CanvasLayer/Statsbar/Healthbar.value)
+	if player.currentHealth <= 10:
+		$CanvasLayer/Statsbar/AnimationPlayer.play("Danger")
+		$CanvasLayer/Statsbar/Node2D/Shake.visible = true
+		$CanvasLayer/Statsbar/Node2D/Shake2.visible = true
+		$Statsbar/Healthbar/Healthface.texture = load("res://Sprites/Hud/Health/healthface0005.png")
+		
+	if player.currentHealth > 10:
+		$CanvasLayer/Statsbar/Node2D/Shake.visible = false
+		$CanvasLayer/Statsbar/Node2D/Shake2.visible = false
+
+
+	if player.currentHealth >= 80:
+		$CanvasLayer/Statsbar/Healthbar/Healthface.texture = load("res://Sprites/Hud/Health/healthface0000.png")
+		
+	if player.currentHealth >= 60:
+		$CanvasLayer/Statsbar/Healthbar/Healthface.texture = load("res://Sprites/Hud/Health/healthface0002.png")
+	
+	
+	if player.currentHealth >= 50:
+		$CanvasLayer/Statsbar/Healthbar/Healthface.texture = load("res://Sprites/Hud/Health/healthface0003.png")
+	if player.currentHealth >= 30:
+		$CanvasLayer/Statsbar/Healthbar/Healthface.texture = load("res://Sprites/Hud/Health/healthface0006.png")
+
+func updateink():
+	$CanvasLayer/Statsbar/Inkbar.value = player.currentInk * 100 / player.maxInk
+	
