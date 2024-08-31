@@ -162,7 +162,8 @@ func player_input():
 				movement_input.x += 1
 				$GPUParticles2D.scale.x = 0.5
 				$GPUParticles2D.position.x = 14.2
-				$Sprite2D.scale.x = 0.07
+				$Sprite2D.flip_h = false
+				#$Sprite2D.scale.x = 0.07
 				$sword.position.x = 0
 				$Sprite2D.position.x = 1
 				$PlayerHatCold.scale.x = 0.07
@@ -170,7 +171,8 @@ func player_input():
 		if Input.is_action_pressed("MoveLeft"):
 			if $STATES/SLIDE.is_sliding == 0:
 				movement_input.x -= 1
-				$Sprite2D.scale.x = -0.07
+				#$Sprite2D.scale.x = -0.07
+				$Sprite2D.flip_h = true
 				$GPUParticles2D.scale.x = -0.5
 				$GPUParticles2D.position.x = -14.2
 				$PlayerHatCold.scale.x = -0.07
@@ -351,3 +353,16 @@ func check_hitbox():
 		var hitbox = hitbox_areas.front()
 		if hitbox.get_parent() is Pulg:
 			print("pulgdamage")
+
+
+@onready var stats = get_tree().get_first_node_in_group("Stats")
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("EnemyAttackboxs"):
+		area.get_parent().deal_damage()
+		$AnimationPlayer.play("Damage")
+		stats.updatehealth()
+
+func knockback(delta: float) -> void:
+	
+	velocity.x += SPEED * delta 

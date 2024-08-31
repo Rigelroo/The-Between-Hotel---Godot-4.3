@@ -3,21 +3,43 @@ extends EnemyState
 # Called when the node enters the scene tree for the first time.
 
 func update(delta):
+	if !Entity.can_flip:
+		if Entity.velocity.x > 0:
+			Entity.just_bool = false
+			%Sprite2D3.flip_h = Entity.just_bool 
+			%Sprite2D.flip_h = Entity.just_bool 
+			%Sprite2D2.flip_h = Entity.just_bool 
+		else:
+			Entity.just_bool = true
+			%Sprite2D3.flip_h = Entity.just_bool 
+			%Sprite2D.flip_h = Entity.just_bool 
+			%Sprite2D2.flip_h = Entity.just_bool 
+		
 	Entity.movement_manager(delta)
 	Entity.velocity.y = -900
 	stop_following()
 	if Entity.player_exited:
-		return STATES.IDLE
+		if !Entity.is_dealing_damage:
+			return STATES.IDLE
 	if Entity.can_attack:
-		return STATES.ATTACK
+		if !Entity.is_dealing_damage:
+			return STATES.ATTACK
+	if Entity.is_dealing_damage:
+		return STATES.HIT
 	return null
 
 func enter_state():
+	Entity.can_flip = false
+	
 	%Body2.play("Idle")
 	Entity.can_attack = false
 	Entity.movement_type = 7
 	
 	Entity.player_entered = false
+
+func exit_state():
+	Entity.can_flip = true
+	
 
 func stop_following():
 	var distance = player.position - Entity.global_position

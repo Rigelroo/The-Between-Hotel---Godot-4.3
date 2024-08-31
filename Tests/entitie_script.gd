@@ -21,7 +21,7 @@ class_name EnemyVespa
 var dead: bool = false
 var taking_damage : bool = false
 var damage_to_deal = 20
-var is_dealing_damage: bool = false
+@export var is_dealing_damage: bool = false
 var is_enemy_chase : bool = false
 var knockback_force = 100
 var knockback_vector = Vector2.ZERO
@@ -91,6 +91,7 @@ func movement_manager(delta):
 		var dir_to_position = global_position.direction_to(position_saver + position_saver) * speed
 		
 		velocity = dir_to_position
+		dir.y = -abs(velocity.y) / velocity.y
 		dir.x = abs(velocity.x) / velocity.x
 
 func choose(array):
@@ -133,6 +134,7 @@ func one_dir_y():
 				dir = Vector2.UP
 
 func _ready() -> void:
+	position_saver = global_position
 	movement_type_const = movement_type
 	if movement_type == 2:
 		dir = Vector2.RIGHT
@@ -165,30 +167,20 @@ func _on_damage_area_area_entered(area: Area2D) -> void:
 	
 	if (area == player.slashbox) or (area == player.slashbox_down):
 		damage()
-		damage_manager()
 		%HPlabel.text = "HP: " + str(health)
-	#if (area == player.slashbox_down):
-		#damage()
-		#damage_manager()
-		#%HPlabel.text = "HP: " + str(health)
 
-func damage_manager():
-	if health <= health_min:
-		await hit_player.animation_finished
-		queue_free()
-	else:
-		take_damage()
+
+
+
 
 func damage():
 	is_dealing_damage = true
 	hit_player.play("hit")
-	await hit_player.animation_finished
-	is_dealing_damage = false
-	$Body2.play("Idle")
-	print("hit")
-
+	health -= 1
+	
 #var knockback = Vector2.ZERO
 var just_bool = false 
+var can_flip = true
 
 func _physics_process(delta):
 	change_state(current_state.update(delta))
@@ -196,30 +188,23 @@ func _physics_process(delta):
 	movement_manager(delta)
 	gravity_manager(delta)
 	move_and_slide()
-	
-	if velocity.x > 0:
-		just_bool = true
-		$Sprite2D3.flip_h = just_bool 
-		$Sprite2D.flip_h = just_bool 
-		$Sprite2D2.flip_h = just_bool 
-	else:
-		just_bool = false
-		$Sprite2D3.flip_h = just_bool 
-		$Sprite2D.flip_h = just_bool 
-		$Sprite2D2.flip_h = just_bool 
+	if can_flip:
+		if velocity.x > 0:
+			just_bool = true
+			$Sprite2D3.flip_h = just_bool 
+			$Sprite2D.flip_h = just_bool 
+			$Sprite2D2.flip_h = just_bool 
+		elif velocity.x < 0:
+			just_bool = false
+			$Sprite2D3.flip_h = just_bool 
+			$Sprite2D.flip_h = just_bool 
+			$Sprite2D2.flip_h = just_bool 
 	if knockback_vector != Vector2.ZERO:
 		velocity = knockback_vector
 
 
 var can_return : bool = false
 
-
-func take_damage():
-	health -= 1
-	
-	var knockback = 3 if (player.global_position.x - self.global_position.x) > 0 else -1
-	knockback_force *= knockback
-	velocity.x = knockback
 
 func deal_damage():
 	player.currentHealth -= damage_value

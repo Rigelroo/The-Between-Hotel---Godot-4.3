@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=36 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="22_ieecm"]
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="23_awmji"]
 [ext_resource type="PackedScene" uid="uid://ef24ixvsy0at" path="res://scenes/entities/Enemies/B1/vespaloca.tscn" id="24_o0o5k"]
+[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="25_vh4bb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hsyed"]
 texture = ExtResource("8_uyb2n")
@@ -661,13 +662,14 @@ spritestr = "res://Sprites/EntryHall - Reworked/Porta_bugnest.png"
 [node name="Turquesa" parent="." instance=ExtResource("11_hlwct")]
 position = Vector2(-7, -7)
 
-[node name="Pulg" parent="." node_paths=PackedStringArray("player") instance=ExtResource("13_y1m30")]
+[node name="Pulg" parent="." instance=ExtResource("13_y1m30")]
 position = Vector2(2725, 711)
-player = NodePath("../Player")
+speed = 60
 
 [node name="Player" parent="." instance=ExtResource("12_njeaq")]
 position = Vector2(941, 525)
 scale = Vector2(6, 6)
+currentHealth = 100
 
 [node name="Camera2D" parent="Player" instance=ExtResource("13_5etxj")]
 position = Vector2(-0.333366, -25.8333)
@@ -759,10 +761,6 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("21_3cpb2")
 centered = false
 
-[node name="CanvasLayer" parent="." instance=ExtResource("22_ieecm")]
-
-[node name="CanvasLayer2" parent="." instance=ExtResource("23_awmji")]
-
 [node name="Wasp" parent="." instance=ExtResource("24_o0o5k")]
 position = Vector2(1692, 615)
 scale = Vector2(0.5, 0.5)
@@ -773,4 +771,12 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(1362.5, 0)
 shape = SubResource("RectangleShape2D_8sd7k")
 
-[editable path="CanvasLayer"]
+[node name="CanvasLayer" parent="." instance=ExtResource("22_ieecm")]
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("23_awmji")]
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+scale = Vector2(0.76, 0.76)
+transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
+
+[node name="Statsbar" parent="CanvasLayer3" groups=["Stats"] instance=ExtResource("25_vh4bb")]

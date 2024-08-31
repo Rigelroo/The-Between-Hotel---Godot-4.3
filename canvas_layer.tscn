@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn5w1vi5yjg3u"]
+[gd_scene load_steps=5 format=3 uid="uid://cn5w1vi5yjg3u"]
 
 [ext_resource type="Script" path="res://scenes/canvas_layer.gd" id="1_f1ums"]
-[ext_resource type="PackedScene" uid="uid://puxbdddegki2" path="res://hudbar.tscn" id="2_b8avc"]
 [ext_resource type="PackedScene" uid="uid://cr0rxd186uoyo" path="res://inventory/menuselos.tscn" id="3_2ly1l"]
 [ext_resource type="Shader" path="res://inventory/Items/item_1.gdshader" id="4_ipweg"]
-[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="6_6qtae"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d2evd"]
 shader = ExtResource("4_ipweg")
@@ -30,9 +28,6 @@ process_thread_group_order = 0
 process_thread_messages = 0
 script = ExtResource("1_f1ums")
 
-[node name="Hudbar" parent="." instance=ExtResource("2_b8avc")]
-visible = false
-
 [node name="InventoryGui" parent="." instance=ExtResource("3_2ly1l")]
 visible = false
 offset_left = 34.0
@@ -51,24 +46,3 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(1191, 678)
 render_target_update_mode = 4
-
-[node name="Statsbar" parent="." instance=ExtResource("6_6qtae")]
-scale = Vector2(0.825, 0.825)
-
-[node name="Healthbar" parent="Statsbar" index="2"]
-layout_mode = 0
-
-[node name="Label" parent="Statsbar" index="5"]
-layout_mode = 0
-
-[node name="Shake" parent="Statsbar/Node2D" index="0"]
-position = Vector2(1065, 533)
-rotation = 2.44172
-texture = null
-
-[node name="Shake2" parent="Statsbar/Node2D" index="1"]
-position = Vector2(855, 513)
-rotation = -0.5044
-texture = null
-
-[editable path="Statsbar"]

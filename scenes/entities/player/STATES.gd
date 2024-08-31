@@ -15,6 +15,7 @@ extends Node
 @onready var INWATER = $INWATER
 @onready var SWIM = $SWIM
 @onready var BREATH = $BREATH
+
 #@onready var MAGIC = $MAGIC
 
 #@onready var CLIMB = $CLIMB

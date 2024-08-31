@@ -18,9 +18,9 @@ func update(delta):
 	if Player.jump_input_actuation and can_jump:
 		if !Player.is_in_water:
 			return STATES.JUMP
-	if Player.attack_input && !Player.is_jumping:
-		return STATES.SLASH
-	if Player.attack_input && Player.is_jumping:
+	#if Player.attack_input && !Player.is_on_floor():
+		#return STATES.SLASH
+	if Player.attack_input && !Player.is_on_floor():
 		return STATES.AIRSLASH
 	if Player.new_item_activate:
 		$"../../AnimationPlayer".play("new_item")

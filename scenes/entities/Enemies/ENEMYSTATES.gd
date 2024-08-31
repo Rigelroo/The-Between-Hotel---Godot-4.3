@@ -4,6 +4,8 @@ extends Node
 @onready var FOLLOW = $EnemyFollow
 @onready var ATTACK = $EnemyAttack
 @onready var PREPARE = $EnemyPrepare
+@onready var HIT = $EnemyHit
+@onready var DEFEAT = $EnemyDefeat
 #
 #var current_state : EnemyState
 #var previous_state : EnemyState

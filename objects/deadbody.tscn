@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://2kwnf3bx5cwl"]
+
+[ext_resource type="Script" path="res://objects/deadbody.gd" id="1_gfa5p"]
+[ext_resource type="Texture2D" uid="uid://c745eja0irsba" path="res://Sprites/Bettlebourough/enemies/wasp/dead.png" id="1_ph7qn"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_322oo"]
+particle_flag_disable_z = true
+angle_min = -43.6
+angle_max = -43.6
+initial_velocity_min = 296.97
+initial_velocity_max = 296.97
+gravity = Vector3(0, 300, 0)
+scale_min = 0.5
+scale_max = 0.5
+
+[node name="Deadbody" type="GPUParticles2D"]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_322oo")
+texture = ExtResource("1_ph7qn")
+lifetime = 187.2
+one_shot = true
+script = ExtResource("1_gfa5p")

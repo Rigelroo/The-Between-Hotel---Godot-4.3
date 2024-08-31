@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cmxab041f4cvq"]
+[gd_scene load_steps=25 format=3 uid="uid://cmxab041f4cvq"]
 
 [ext_resource type="Script" path="res://Tests/pulg.gd" id="1_mtoyg"]
 [ext_resource type="Texture2D" uid="uid://bwqnxxc5b8xye" path="res://Sprites/sombra.png" id="2_8e7w3"]
@@ -21,10 +21,7 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ja76e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecly2"]
-size = Vector2(1022, 208)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qsw"]
-size = Vector2(348, 208)
+size = Vector2(1564, 588)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dopk"]
 size = Vector2(103, 85)
@@ -137,6 +134,8 @@ _data = {
 
 [node name="Pulg" type="CharacterBody2D"]
 script = ExtResource("1_mtoyg")
+movement_type = 4
+gravity_type = 2
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.376471)
@@ -155,19 +154,9 @@ scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FollowArea"]
-position = Vector2(13, 44)
+position = Vector2(-4, -146)
 shape = SubResource("RectangleShape2D_ecly2")
 debug_color = Color(0.590083, 0.453461, 0.803131, 0.42)
-
-[node name="DamageArea" type="Area2D" parent="."]
-position = Vector2(4, -5)
-scale = Vector2(0.5, 0.5)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-position = Vector2(-18, 40)
-shape = SubResource("RectangleShape2D_o5qsw")
-debug_color = Color(0.960621, 0.526551, 0.690575, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-12.5, 6.5)
@@ -183,6 +172,7 @@ libraries = {
 autostart = true
 
 [node name="Raycasts" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Rightraycast" type="RayCast2D" parent="Raycasts"]
 rotation = -1.5708
@@ -194,7 +184,6 @@ rotation = 1.5708
 scale = Vector2(2, 1)
 target_position = Vector2(-0.499998, 78)
 
-[connection signal="body_entered" from="FollowArea" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="FollowArea" to="." method="_on_area_2d_body_exited"]
-[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
+[connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
+[connection signal="body_exited" from="FollowArea" to="." method="_on_follow_area_body_exited"]
 [connection signal="timeout" from="Directiontimer" to="." method="_on_directiontimer_timeout"]

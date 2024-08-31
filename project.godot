@@ -94,6 +94,8 @@ folder_colors={
 Global="Global"
 Player=""
 Enemies=""
+Stats=""
+EnemyAttackboxs=""
 
 [input]
 

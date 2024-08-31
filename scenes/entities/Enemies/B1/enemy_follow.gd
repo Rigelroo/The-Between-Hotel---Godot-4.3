@@ -6,13 +6,17 @@ func update(delta):
 	Entity.movement_manager(delta)
 	stop_following()
 	if Entity.player_exited:
-		return STATES.IDLE
+		if !Entity.is_dealing_damage:
+			return STATES.IDLE
 	if Entity.movement_type == 0 && Entity.can_attack:
-		
-		return STATES.ATTACK
+		if !Entity.is_dealing_damage:
+			return STATES.ATTACK
+	if Entity.is_dealing_damage:
+		return STATES.HIT
 	return null
 
 func enter_state():
+	%Body2.play("Idle")
 	if Entity.prev_state != STATES.PREPARE:
 		Entity.can_attack = true
 	Entity.movement_type = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=208 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=210 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://dknwb0q3tench" path="res://Sprites/Player/All/jump7.png" id="2_lumcb"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://bwqnxxc5b8xye" path="res://Sprites/sombra.png" id="16_4vd0x"]
 [ext_resource type="Texture2D" uid="uid://d0b60pss8cgek" path="res://Sprites/Player/All/run8.png" id="16_hk7pw"]
 [ext_resource type="Texture2D" uid="uid://yqkit5gamf7n" path="res://Sprites/Player/All/run9.png" id="17_dgea4"]
+[ext_resource type="Material" uid="uid://wq8m3q6pclkd" path="res://shaders/hitshader.tres" id="17_nvx0v"]
 [ext_resource type="Texture2D" uid="uid://beqhgp033s2sh" path="res://Sprites/Player/hats/Player_hat_cold.png" id="18_ayf5o"]
 [ext_resource type="Texture2D" uid="uid://qnauyx1ja8ee" path="res://Sprites/Player/All/run10.png" id="18_bis8s"]
 [ext_resource type="Texture2D" uid="uid://oanxm31b32yt" path="res://Sprites/Player/hats/Player_hat_cold2.png" id="18_e6b5k"]
@@ -166,6 +167,9 @@
 [ext_resource type="Script" path="res://scenes/entities/player/STATES.gd" id="145_om5h6"]
 [ext_resource type="PackedScene" uid="uid://bm1oandnfm0vi" path="res://scenes/entities/player/BREATH.tscn" id="147_41pd1"]
 [ext_resource type="PackedScene" uid="uid://bj2x50p1ul0ft" path="res://splashdetection.tscn" id="152_f5dxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5fq"]
+size = Vector2(20, 25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pbia6"]
 animations = [{
@@ -515,6 +519,32 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("18_ayf5o")]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:material:shader_parameter/active")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [null],
+"method": &"knockback"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_c0056"]
 resource_name = "Defeat"
@@ -715,6 +745,18 @@ tracks/8/path = NodePath("../GPUParticles2D:emitting")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:material:shader_parameter/active")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1480,6 +1522,13 @@ currentInk = 50
 maxHealth = 100
 currentHealth = 10
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_7g5fq")
+debug_color = Color(0.789745, 0.429387, 7.70092e-07, 0.42)
+
 [node name="InteractionBalloon" type="AnimatedSprite2D" parent="."]
 z_index = 50
 y_sort_enabled = true
@@ -1496,6 +1545,7 @@ scale = Vector2(0.1, 0.065)
 texture = ExtResource("16_4vd0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("17_nvx0v")
 position = Vector2(0, -8)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("34_od57t")
@@ -1667,6 +1717,7 @@ position = Vector2(0.8, -2.6)
 [node name="Waterdetection" parent="." instance=ExtResource("145_kpqvk")]
 position = Vector2(-0.2, 9.6)
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="out_itemstate" from="STATES/NEWITEM" to="." method="_on_newitem_out_itemstate"]
 [connection signal="area_entered" from="Interactioncomponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_entered" from="Interactioncomponents/InteractionArea" to="Interactioncomponents" method="_on_interaction_area_area_entered"]

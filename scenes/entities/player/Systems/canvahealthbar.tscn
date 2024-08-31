@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://c44xqs2w5caa1"]
+[gd_scene load_steps=30 format=3 uid="uid://c44xqs2w5caa1"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/Systems/Healthbar.gd" id="1_gwffl"]
+[ext_resource type="Script" path="res://scenes/entities/player/Systems/Statsbar.gd" id="1_q41hd"]
 [ext_resource type="Texture2D" uid="uid://4oeto4sgsrlq" path="res://Sprites/Hud/Health/health_thing0000.png" id="2_03tjr"]
 [ext_resource type="Texture2D" uid="uid://djrt8ukwlecr7" path="res://Sprites/Hud/Inkbar_bottom.png" id="3_0b6hv"]
 [ext_resource type="Texture2D" uid="uid://yo3yrawx0jj5" path="res://Sprites/Hud/Health/health0000.png" id="3_osbdi"]
@@ -9,8 +10,94 @@
 [ext_resource type="Texture2D" uid="uid://bmg4s2ja6rbi8" path="res://Sprites/Hud/Inkbar_progress.png" id="5_lhvye"]
 [ext_resource type="Script" path="res://scenes/entities/player/Systems/Inkbar.gd" id="6_1ncav"]
 [ext_resource type="Texture2D" uid="uid://cnsixdcpf2m8i" path="res://Sprites/Hud/Health/healthface0000.png" id="6_6b0u1"]
+[ext_resource type="Texture2D" uid="uid://dov5ki8yjq5ea" path="res://Sprites/Hud/Health/healthface0001.png" id="7_b04l8"]
+[ext_resource type="Texture2D" uid="uid://p8akwjcna2fv" path="res://Sprites/Hud/Health/healthface0005.png" id="9_u1ubg"]
+[ext_resource type="Texture2D" uid="uid://ck305ipbmy04" path="res://Sprites/Hud/Health/healthface0002.png" id="10_alnse"]
+[ext_resource type="Texture2D" uid="uid://tfdj42xp0oct" path="res://Sprites/Hud/Health/healthface0003.png" id="11_arpex"]
+[ext_resource type="Texture2D" uid="uid://bcwa1xcfbqyho" path="res://Sprites/Hud/Health/healthface0006.png" id="12_lpqus"]
+[ext_resource type="Texture2D" uid="uid://b6057wd1s3wu2" path="res://Sprites/Hud/Health/healthface0004.png" id="13_8q1g7"]
 [ext_resource type="Texture2D" uid="uid://bbeo2aeb42oj8" path="res://Sprites/Hud/Health/healthshake.png" id="14_5vdeg"]
 [ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="19_kabt4"]
+
+[sub_resource type="Animation" id="Animation_mnay2"]
+resource_name = "0"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Healthface:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_8q1g7")]
+}
+
+[sub_resource type="Animation" id="Animation_b4nd4"]
+resource_name = "20_34"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Healthface:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_lpqus")]
+}
+
+[sub_resource type="Animation" id="Animation_hq8rr"]
+resource_name = "35_59"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Healthface:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_arpex")]
+}
+
+[sub_resource type="Animation" id="Animation_uaugk"]
+resource_name = "60_79"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Healthface:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_alnse")]
+}
+
+[sub_resource type="Animation" id="Animation_ikt7s"]
+resource_name = "80_100"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Healthface:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_6b0u1")]
+}
 
 [sub_resource type="Animation" id="Animation_xgfem"]
 resource_name = "Damage"
@@ -41,7 +128,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("../Node2D/Shake:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -53,7 +140,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("../Node2D/Shake2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -90,14 +177,14 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Healthface:frame")
+tracks/6/path = NodePath("Healthface:texture")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [ExtResource("7_b04l8")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -218,14 +305,14 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Healthface:frame")
+tracks/6/path = NodePath("Healthface:texture")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [ExtResource("9_u1ubg")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -414,9 +501,26 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(296, 154)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Healthface:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_u1ubg")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_act0a"]
 _data = {
+"0": SubResource("Animation_mnay2"),
+"20_34": SubResource("Animation_b4nd4"),
+"35_59": SubResource("Animation_hq8rr"),
+"60_79": SubResource("Animation_uaugk"),
+"80_100": SubResource("Animation_ikt7s"),
 "Damage": SubResource("Animation_xgfem"),
 "Danger": SubResource("Animation_dsdkm"),
 "Normal": SubResource("Animation_j4stf"),
@@ -425,7 +529,11 @@ _data = {
 
 [node name="Statsbar" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchor_right = 0.421
+anchor_bottom = 0.435
+offset_right = -484.992
+offset_bottom = -281.88
+script = ExtResource("1_q41hd")
 
 [node name="HealthThing0000" type="Sprite2D" parent="."]
 position = Vector2(289.995, 164.525)
@@ -440,10 +548,11 @@ flip_h = true
 
 [node name="Healthbar" type="TextureProgressBar" parent="."]
 layout_direction = 1
+layout_mode = 2
 offset_left = 197.0
-offset_top = 76.0
+offset_top = 81.0
 offset_right = 664.0
-offset_bottom = 489.0
+offset_bottom = 494.0
 scale = Vector2(0.4, 0.4)
 texture_under = ExtResource("3_osbdi")
 texture_progress = ExtResource("4_vaiip")
@@ -452,7 +561,7 @@ metadata/_edit_group_ = true
 
 [node name="Healthface" type="Sprite2D" parent="Healthbar"]
 position = Vector2(-74, -63)
-texture = ExtResource("6_6b0u1")
+texture = ExtResource("9_u1ubg")
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -462,8 +571,7 @@ libraries = {
 }
 
 [node name="Inkbar" type="TextureProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = -1
+layout_mode = 2
 anchor_right = 0.207
 anchor_bottom = 0.369
 offset_left = 10.0
@@ -481,16 +589,15 @@ script = ExtResource("6_1ncav")
 show_behind_parent = true
 position = Vector2(361.366, 6.24055)
 rotation = -0.000294566
-scale = Vector2(1, 1)
 texture = ExtResource("3_0b6hv")
 
 [node name="InkbarOver" type="Sprite2D" parent="Inkbar"]
 position = Vector2(361.366, 6.24055)
 rotation = -0.000294566
-scale = Vector2(1, 1)
 texture = ExtResource("4_mom3q")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 2
 offset_left = 307.0
 offset_top = 188.0
 offset_right = 459.0
@@ -504,13 +611,11 @@ position = Vector2(296, 154)
 rotation = -1.17631
 
 [node name="Shake" type="Sprite2D" parent="Node2D"]
-position = Vector2(102.992, -42.9893)
+position = Vector2(98.5431, -6.71322)
 rotation = 2.06647
 scale = Vector2(0.4, 0.4)
-texture = SubResource("CompressedTexture2D_hp2w0")
 
 [node name="Shake2" type="Sprite2D" parent="Node2D"]
-position = Vector2(-101.008, 28.0107)
+position = Vector2(-111.457, -26.7132)
 rotation = -1.27409
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("14_5vdeg")

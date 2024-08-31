@@ -322,12 +322,6 @@ texture = ExtResource("31_r2m3r")
 [node name="CanvasLayer" parent="." instance=ExtResource("31_fkyq7")]
 unique_name_in_owner = true
 
-[node name="Label" parent="CanvasLayer/Statsbar" index="5"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 152.0
-offset_bottom = 61.0
-
 [node name="berserkbar" parent="." instance=ExtResource("34_ysfqo")]
 scale = Vector2(0.42, 0.42)
 transform = Transform2D(0.42, 0, 0, 0.42, 0, 0)
@@ -343,6 +337,5 @@ offset_bottom = 1492.24
 [editable path="Selo6"]
 [editable path="Selo4"]
 [editable path="CanvasLayer"]
-[editable path="CanvasLayer/Statsbar"]
 [editable path="berserkbar"]
 [editable path="berserkbar/Barcontrol/HBoxContainer/1Firstpointcontainer"]

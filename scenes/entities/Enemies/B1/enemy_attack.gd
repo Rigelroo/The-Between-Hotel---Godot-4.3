@@ -10,10 +10,23 @@ func update(delta):
 		return STATES.IDLE
 	if !is_attacking:
 		return STATES.PREPARE
-	
+	var distance = player.position - Entity.global_position
+
+	if distance.length() > 230:
+		return STATES.FOLLOW
+		
+	#if Entity.health <= Entity.health_min:
+		#return STATES.DEAD
+	if Entity.is_dealing_damage:
+		return STATES.HIT
 	return null
+func exit_state():
+	Entity.speed = 150
 
 func enter_state():
+	Entity.can_flip = true
+	%Body2.play("attack")
+	Entity.speed = 300
 	Entity.position_saver = Entity.global_position
 	is_attacking = true
 	Entity.movement_type = 1
@@ -22,14 +35,14 @@ func enter_state():
 func stop_following():
 	var distance = player.position - Entity.global_position
 	if distance.length() < 190:
-		%Body2.play("attack")
-		await %Body2.animation_finished
-		Entity.can_attack = false
-		is_attacking = false
 		Entity.movement_type = 0
 	if distance.length() > 230:
 		Entity.movement_type = 1
+		
 
+func stop_attack():
+	Entity.can_attack = false
+	is_attacking = false
 
 #extends EnemyState
 #
