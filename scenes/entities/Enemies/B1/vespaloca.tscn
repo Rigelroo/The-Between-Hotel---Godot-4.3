@@ -736,7 +736,6 @@ size = Vector2(476.5, 487)
 [node name="Wasp" type="CharacterBody2D" groups=["Enemies"]]
 material = SubResource("ShaderMaterial_kehak")
 script = ExtResource("2_gf2w3")
-movement_type = 1
 
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("3_hof1q")
@@ -844,7 +843,7 @@ debug_color = Color(0.960621, 0.526551, 0.690575, 0.419608)
 [node name="Directiontimer" type="Timer" parent="."]
 autostart = true
 
-[node name="KnockbackTimer" type="Timer" parent="."]
+[node name="PrepareTimer" type="Timer" parent="."]
 
 [node name="Statelabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -871,7 +870,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Attackcollision" type="CollisionShape2D" parent="Attackbox"]
 unique_name_in_owner = true
-position = Vector2(-194.75, 143.5)
+position = Vector2(199, 144)
 shape = SubResource("RectangleShape2D_0iu8b")
 disabled = true
 debug_color = Color(0.986317, 0.0702289, 0.2335, 0.42)

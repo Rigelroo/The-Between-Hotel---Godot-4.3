@@ -12,6 +12,7 @@ signal inkChanged
 @onready var splashdec = $Splashdetection
 @onready var slashbox = $sword
 @onready var slashbox_down = $sword1
+@onready var stats = get_tree().get_first_node_in_group("Stats")
 
 @onready var STATES = $STATES
 @onready var Raycasts = $Raycasts
@@ -21,6 +22,7 @@ signal inkChanged
 
 
 @export_subgroup("Extra Properties")
+@export var is_dealing_damage = false
 @export var inTimeline = false
 @export var dying = false
 @export var SWIN_GRAVITY : float = 0.25
@@ -110,6 +112,11 @@ func _ready():
 	current_state = STATES.IDLE
 	
 func _process(delta: float) -> void:
+	if current_state != $STATES/AIRSLASH:
+		$sword1/sword_collider2.disabled = true
+		$sword1/sword_collider3.disabled = true
+	if current_state != $STATES/AIRSLASH:
+		$Sprite2D.material.set_shader_parameter("Active", false)
 	#if Input.is_action_just_pressed("Start"):
 		#currentHealth += 1
 		#healthChanged.emit(currentHealth)
@@ -355,11 +362,10 @@ func check_hitbox():
 			print("pulgdamage")
 
 
-@onready var stats = get_tree().get_first_node_in_group("Stats")
-
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("EnemyAttackboxs"):
 		area.get_parent().deal_damage()
+		is_dealing_damage = true
 		$AnimationPlayer.play("Damage")
 		stats.updatehealth()
 

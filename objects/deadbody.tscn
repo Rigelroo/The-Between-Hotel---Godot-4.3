@@ -7,17 +7,18 @@
 particle_flag_disable_z = true
 angle_min = -43.6
 angle_max = -43.6
-initial_velocity_min = 296.97
-initial_velocity_max = 296.97
+initial_velocity_min = 296.0
+initial_velocity_max = 296.0
 gravity = Vector3(0, 300, 0)
 scale_min = 0.5
 scale_max = 0.5
 
 [node name="Deadbody" type="GPUParticles2D"]
+rotation = -1.01229
 emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_322oo")
 texture = ExtResource("1_ph7qn")
-lifetime = 187.2
+lifetime = 147.3
 one_shot = true
 script = ExtResource("1_gfa5p")

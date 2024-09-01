@@ -33,6 +33,8 @@ func update(delta):
 	if Player.is_in_water:
 		$"../../AnimationPlayer2".play("idle_swimming")
 		return STATES.INWATER
+	if Player.is_dealing_damage == true:
+		return STATES.HIT
 	return null
 
 func enter_state():

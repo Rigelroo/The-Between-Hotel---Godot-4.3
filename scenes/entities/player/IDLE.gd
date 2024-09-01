@@ -28,6 +28,8 @@ func update(delta):
 	if Player.breath_input == true:
 		$"../../AnimationPlayer".play("breath_start")
 		return STATES.BREATH
+	if Player.is_dealing_damage == true:
+		return STATES.HIT
 	return null
 func enter_state():
 	Player.slashing = false

@@ -88,11 +88,12 @@ func movement_manager(delta):
 	elif movement_type == 6:
 		velocity += dir * speed * delta
 	elif movement_type == 7:
-		var dir_to_position = global_position.direction_to(position_saver + position_saver) * speed
-		
-		velocity = dir_to_position
-		dir.y = -abs(velocity.y) / velocity.y
-		dir.x = abs(velocity.x) / velocity.x
+		position -= position.direction_to(player.position) * speed * delta
+		#var dir_to_position = global_position.direction_to(position_saver + position_saver) * speed
+		#
+		#velocity = dir_to_position
+		#dir.y = abs(velocity.y) / velocity.y
+		#dir.x = abs(velocity.x) / velocity.x
 
 func choose(array):
 	array.shuffle()
@@ -194,11 +195,13 @@ func _physics_process(delta):
 			$Sprite2D3.flip_h = just_bool 
 			$Sprite2D.flip_h = just_bool 
 			$Sprite2D2.flip_h = just_bool 
+			%Attackcollision.position.x = 45
 		elif velocity.x < 0:
 			just_bool = false
 			$Sprite2D3.flip_h = just_bool 
 			$Sprite2D.flip_h = just_bool 
 			$Sprite2D2.flip_h = just_bool 
+			%Attackcollision.position.x = -194.75
 	if knockback_vector != Vector2.ZERO:
 		velocity = knockback_vector
 

@@ -1,0 +1,891 @@
+[gd_scene load_steps=76 format=3 uid="uid://pqugb6ka8fnd"]
+
+[ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_ivi4c"]
+[ext_resource type="Script" path="res://Tests/entitie_script.gd" id="2_866lw"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/ENEMYSTATES.gd" id="3_qga7k"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_idle.gd" id="4_5711u"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_hit.gd" id="5_exq6h"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_defeat.gd" id="6_tbtbs"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_follow.gd" id="7_fcae2"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_prepare.gd" id="8_dybiu"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_attack.gd" id="9_lta0p"]
+[ext_resource type="Texture2D" uid="uid://c745eja0irsba" path="res://Sprites/Bettlebourough/enemies/wasp/dead.png" id="10_nnctn"]
+[ext_resource type="Texture2D" uid="uid://pvgdomkxtxu3" path="res://Sprites/Bettlebourough/enemies/Larva/inactive0007.png" id="11_ejgsr"]
+[ext_resource type="Texture2D" uid="uid://c1tn4q43xi0dv" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0001.png" id="12_ukc0i"]
+[ext_resource type="Texture2D" uid="uid://d0kur56iuurnd" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0002.png" id="13_bcayy"]
+[ext_resource type="Texture2D" uid="uid://cytuadg7pq8cg" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0003.png" id="14_lldrh"]
+[ext_resource type="Texture2D" uid="uid://75eogvhfv2mt" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0004.png" id="15_5yefe"]
+[ext_resource type="Texture2D" uid="uid://bberkdx1wvky0" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_inactive0000.png" id="15_fkm1u"]
+[ext_resource type="Texture2D" uid="uid://e1bvnrergfhe" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_inactive0001.png" id="16_konku"]
+[ext_resource type="Texture2D" uid="uid://cxkkinh0w8j2v" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0005.png" id="16_ten6a"]
+[ext_resource type="Texture2D" uid="uid://bqcsd81xi57m4" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_inactive0002.png" id="17_4wo0l"]
+[ext_resource type="Texture2D" uid="uid://bs5mci4onbe8e" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0006.png" id="17_w03c2"]
+[ext_resource type="Texture2D" uid="uid://bhn1bb4nv56ab" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_inactive0003.png" id="18_b81n6"]
+[ext_resource type="Texture2D" uid="uid://b0vfp48pwxvrr" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0007.png" id="18_v0fdv"]
+[ext_resource type="Texture2D" uid="uid://cjknc2kfwebas" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_inactive0004.png" id="19_3kd0g"]
+[ext_resource type="Texture2D" uid="uid://clbogyn6cqlfc" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0008.png" id="19_51ruc"]
+[ext_resource type="Texture2D" uid="uid://dqvonr07rqma1" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0009.png" id="20_4n43x"]
+[ext_resource type="Texture2D" uid="uid://dd5apdxly5tnh" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_inactive0005.png" id="20_j42bl"]
+[ext_resource type="Texture2D" uid="uid://c4rb6idji2r1h" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0010.png" id="21_22r17"]
+[ext_resource type="Texture2D" uid="uid://xxtqjdn33t5b" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_inactive0006.png" id="21_tt5ib"]
+[ext_resource type="Material" uid="uid://wq8m3q6pclkd" path="res://shaders/hitshader.tres" id="22_fdkak"]
+[ext_resource type="Texture2D" uid="uid://chinjxgq6hc3j" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0015.png" id="22_x77bo"]
+[ext_resource type="Texture2D" uid="uid://b5mc30m8ec2gg" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0016.png" id="23_0exnk"]
+[ext_resource type="Texture2D" uid="uid://b5w5yvgjjejtl" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0017.png" id="24_1fnyw"]
+[ext_resource type="Texture2D" uid="uid://ji8yu6qjp2ox" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0018.png" id="25_rehj1"]
+[ext_resource type="Texture2D" uid="uid://b6u6aqe1iexc7" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0019.png" id="26_vvktq"]
+[ext_resource type="Texture2D" uid="uid://0o1l5430a0of" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0020.png" id="27_vx8kx"]
+[ext_resource type="Texture2D" uid="uid://dr1y5iulny2rs" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0000.png" id="28_jkefj"]
+[ext_resource type="Material" uid="uid://cdgsydya4x6w7" path="res://scenes/entities/damageparticles.tres" id="30_dmw8b"]
+[ext_resource type="Texture2D" uid="uid://dgjoqfguta3r" path="res://Tests/smoke.png" id="31_s20ut"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/hitboxComponent.gd" id="32_5sl6i"]
+[ext_resource type="Texture2D" uid="uid://duktdncj6mgvm" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0011.png" id="36_pymq8"]
+[ext_resource type="Texture2D" uid="uid://cnto6iidc86fk" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0012.png" id="37_r0j60"]
+[ext_resource type="Texture2D" uid="uid://dj6hf2empjly8" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0013.png" id="38_ahf64"]
+[ext_resource type="Texture2D" uid="uid://e2jon2ga3b0d" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0014.png" id="39_nrlub"]
+[ext_resource type="Texture2D" uid="uid://bx3jqjc51mudk" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_inactive10000.png" id="40_lhwfp"]
+[ext_resource type="Texture2D" uid="uid://qrdp6ve7var" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_inactive10001.png" id="41_b1plg"]
+[ext_resource type="Texture2D" uid="uid://bhsxnq6nb70fv" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0021.png" id="42_2j11w"]
+[ext_resource type="Texture2D" uid="uid://bdnh6x858t6er" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0022.png" id="43_vwhu2"]
+[ext_resource type="Texture2D" uid="uid://b14a1jblpx1jy" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0023.png" id="44_uqi1f"]
+[ext_resource type="Texture2D" uid="uid://cfpdeeitelnxd" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0024.png" id="45_5jau6"]
+[ext_resource type="Texture2D" uid="uid://ymnjp42web8g" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0025.png" id="46_mwv5a"]
+[ext_resource type="Texture2D" uid="uid://b4wsyw2dxggd5" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0026.png" id="47_c40u3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kehak"]
+shader = ExtResource("1_ivi4c")
+shader_parameter/active = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxu8r"]
+size = Vector2(4009.63, 4677)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmulh"]
+size = Vector2(229, 315)
+
+[sub_resource type="Animation" id="Animation_ov2md"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:is_dealing_damage")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wb5q1"]
+resource_name = "defeat"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.3, 0.4, 0.5, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.314159, -0.314159, 0.314159, 0.314159, -0.314159, 0.314159, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dirt:material:shader_parameter/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0232579, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wings:current_animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"no_wings"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dirt:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_nnctn")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.214)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("EnemyStateMachine/EnemyDefeat")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"death"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_b3q0i"]
+resource_name = "defeat_2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.3, 0.4, 0.5, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.314159, -0.314159, 0.314159, 0.314159, -0.314159, 0.314159, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dirt:material:shader_parameter/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0232579, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wings:current_animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"no_wings"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dirt:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_nnctn")]
+}
+
+[sub_resource type="Animation" id="Animation_4awq0"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.3, 0.4, 0.5, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.314159, -0.314159, 0.314159, 0.314159, -0.314159, 0.314159, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dirt:material:shader_parameter/active")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:is_dealing_damage")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nllgd"]
+_data = {
+"RESET": SubResource("Animation_ov2md"),
+"defeat": SubResource("Animation_wb5q1"),
+"defeat_2": SubResource("Animation_b3q0i"),
+"hit": SubResource("Animation_4awq0")
+}
+
+[sub_resource type="Animation" id="Animation_nuiw6"]
+length = 0.55
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_ejgsr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attackbox/Attackcollision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Larva:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06875, 0.13125, 0.191406, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("12_ukc0i"), ExtResource("13_bcayy"), ExtResource("14_lldrh"), ExtResource("15_5yefe"), ExtResource("16_ten6a"), ExtResource("17_w03c2"), ExtResource("18_v0fdv"), ExtResource("19_51ruc"), ExtResource("20_4n43x"), ExtResource("21_22r17")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Larva:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 256)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Larva:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jcggp"]
+resource_name = "Inactive_close"
+length = 0.35
+loop_mode = 1
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4125, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_fkm1u"), ExtResource("16_konku"), ExtResource("17_4wo0l"), ExtResource("18_b81n6"), ExtResource("19_3kd0g"), ExtResource("20_j42bl")]
+}
+
+[sub_resource type="Animation" id="Animation_pevoy"]
+resource_name = "activate_start"
+length = 0.35
+loop_mode = 1
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_b81n6"), ExtResource("20_j42bl"), ExtResource("21_tt5ib")]
+}
+
+[sub_resource type="Animation" id="Animation_beirt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_3kd0g")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Larva:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("20_j42bl")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Larva:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 14)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Larva:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_e1rkb"]
+resource_name = "activate_middle"
+length = 0.35
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("21_tt5ib")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Larva:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("22_x77bo"), ExtResource("23_0exnk"), ExtResource("24_1fnyw"), ExtResource("25_rehj1"), ExtResource("26_vvktq"), ExtResource("27_vx8kx"), ExtResource("28_jkefj")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Larva:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Larva:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 256)]
+}
+
+[sub_resource type="Animation" id="Animation_ss6gi"]
+resource_name = "attack_return"
+length = 0.3
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_ejgsr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Attackbox/Attackcollision:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Larva:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06875, 0.13125, 0.191406, 0.25, 0.3125, 0.35, 0.4, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("21_22r17"), ExtResource("36_pymq8"), ExtResource("37_r0j60"), ExtResource("38_ahf64"), ExtResource("39_nrlub"), ExtResource("17_w03c2"), ExtResource("18_v0fdv"), ExtResource("19_51ruc"), ExtResource("20_4n43x"), ExtResource("21_22r17")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Larva:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Larva:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 256)]
+}
+
+[sub_resource type="Animation" id="Animation_tfcr8"]
+resource_name = "defeat"
+length = 0.7
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.4, 0.45, 0.5, 0.5625, 0.625, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("21_tt5ib"), ExtResource("21_tt5ib"), ExtResource("20_j42bl"), ExtResource("19_3kd0g"), ExtResource("15_fkm1u"), ExtResource("40_lhwfp"), ExtResource("41_b1plg"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Larva:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0625, 0.125, 0.1875, 0.25, 0.3, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("42_2j11w"), ExtResource("43_vwhu2"), ExtResource("44_uqi1f"), ExtResource("45_5jau6"), ExtResource("46_mwv5a"), ExtResource("47_c40u3"), null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Larva:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 256)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Larva:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ki703"]
+resource_name = "idle"
+length = 0.35
+loop_mode = 2
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("21_tt5ib")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Larva:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("28_jkefj")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Larva:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 260)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Larva:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.175, 0.3125),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.0872665, 0.0, 0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lgrry"]
+_data = {
+"Inactive_close": SubResource("Animation_jcggp"),
+"RESET": SubResource("Animation_beirt"),
+"activate_middle": SubResource("Animation_e1rkb"),
+"activate_start": SubResource("Animation_pevoy"),
+"attack": SubResource("Animation_nuiw6"),
+"attack_return": SubResource("Animation_ss6gi"),
+"defeat": SubResource("Animation_tfcr8"),
+"idle": SubResource("Animation_ki703")
+}
+
+[sub_resource type="Animation" id="Animation_i7dor"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_bgn58"]
+resource_name = "no_wings"
+
+[sub_resource type="Animation" id="Animation_ax6vg"]
+resource_name = "wings"
+length = 0.2
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yx5xa"]
+_data = {
+"RESET": SubResource("Animation_i7dor"),
+"no_wings": SubResource("Animation_bgn58"),
+"wings": SubResource("Animation_ax6vg")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s65u1"]
+lifetime_randomness = 0.16
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 75.53
+direction = Vector3(20, -20, 20)
+spread = 24.494
+initial_velocity_min = 66.67
+initial_velocity_max = 66.67
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 533.33
+gravity = Vector3(0, -100, 0)
+linear_accel_min = -76.37
+linear_accel_max = -13.34
+radial_accel_min = -2.23517e-06
+radial_accel_max = 53.33
+collision_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kctrd"]
+size = Vector2(474, 552)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iu8b"]
+size = Vector2(476.5, 487)
+
+[node name="Larva" type="CharacterBody2D" groups=["Enemies"]]
+material = SubResource("ShaderMaterial_kehak")
+script = ExtResource("2_866lw")
+
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("3_qga7k")
+
+[node name="EnemyIdle" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("4_5711u")
+
+[node name="EnemyHit" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("5_exq6h")
+
+[node name="EnemyDefeat" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_tbtbs")
+
+[node name="EnemyFollow" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_fcae2")
+
+[node name="EnemyPrepare" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("8_dybiu")
+
+[node name="EnemyAttack" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("9_lta0p")
+
+[node name="FollowArea" type="Area2D" parent="."]
+position = Vector2(-31.1836, -5)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FollowArea"]
+position = Vector2(26.3672, 119.5)
+shape = SubResource("RectangleShape2D_kxu8r")
+debug_color = Color(0.590083, 0.453461, 0.803131, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9.68359, 30.5)
+shape = SubResource("RectangleShape2D_tmulh")
+
+[node name="Hit" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_nllgd")
+}
+
+[node name="Body" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_lgrry")
+}
+
+[node name="Larva" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("22_fdkak")
+position = Vector2(-33, 14)
+texture = ExtResource("20_j42bl")
+offset = Vector2(1, -262.089)
+
+[node name="Dirt" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("22_fdkak")
+position = Vector2(-33, 14)
+texture = ExtResource("19_3kd0g")
+offset = Vector2(33, -14)
+
+[node name="Wings" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yx5xa")
+}
+autoplay = "wings"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(78.8164, 0)
+emitting = false
+amount = 7
+process_material = ExtResource("30_dmw8b")
+texture = ExtResource("31_s20ut")
+lifetime = 2.0
+one_shot = true
+preprocess = 0.2
+explosiveness = 0.86
+randomness = 0.67
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(-7, 89)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_s65u1")
+texture = ExtResource("31_s20ut")
+one_shot = true
+explosiveness = 1.0
+randomness = 0.12
+
+[node name="DamageArea" type="Area2D" parent="."]
+position = Vector2(-29.1836, 42)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("32_5sl6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(45, 110)
+shape = SubResource("RectangleShape2D_kctrd")
+debug_color = Color(0.960621, 0.526551, 0.690575, 0.419608)
+
+[node name="Directiontimer" type="Timer" parent="."]
+autostart = true
+
+[node name="PrepareTimer" type="Timer" parent="."]
+
+[node name="Statelabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -117.184
+offset_top = -498.0
+offset_right = 407.816
+offset_bottom = -250.0
+theme_override_font_sizes/font_size = 181
+text = "STATE"
+metadata/_edit_use_anchors_ = true
+
+[node name="HPlabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -645.0
+offset_top = -487.0
+offset_right = -120.0
+offset_bottom = -239.0
+theme_override_font_sizes/font_size = 181
+text = "HP
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Attackbox" type="Area2D" parent="." groups=["EnemyAttackboxs"]]
+
+[node name="Attackcollision" type="CollisionShape2D" parent="Attackbox"]
+unique_name_in_owner = true
+position = Vector2(199, 144)
+shape = SubResource("RectangleShape2D_0iu8b")
+disabled = true
+debug_color = Color(0.986317, 0.0702289, 0.2335, 0.42)
+
+[node name="Raycasts" type="Node2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(5, 5)
+
+[node name="Rightraycast" type="RayCast2D" parent="Raycasts"]
+rotation = -1.5708
+scale = Vector2(2, 1)
+target_position = Vector2(-7.23998e-05, 40)
+
+[node name="Leftraycast" type="RayCast2D" parent="Raycasts"]
+rotation = 1.5708
+scale = Vector2(2, 1)
+target_position = Vector2(-0.0999334, 36.8)
+
+[node name="Upraycast" type="RayCast2D" parent="Raycasts"]
+rotation = -3.15411
+scale = Vector2(2, 1)
+enabled = false
+target_position = Vector2(-7.23998e-05, 40)
+
+[node name="Downraycast" type="RayCast2D" parent="Raycasts"]
+rotation = -0.0125099
+scale = Vector2(2, 1)
+enabled = false
+target_position = Vector2(-0.455265, 56.7931)
+
+[connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
+[connection signal="body_exited" from="FollowArea" to="." method="_on_follow_area_body_exited"]
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="timeout" from="Directiontimer" to="." method="_on_directiontimer_timeout"]
