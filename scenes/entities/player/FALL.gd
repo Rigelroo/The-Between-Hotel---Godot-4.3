@@ -38,6 +38,7 @@ func update(delta):
 	return null
 
 func enter_state():
+	
 	$"../../AnimationPlayer".play("jump")
 	if Player.prev_state == STATES.IDLE or Player.prev_state == STATES.MOVE or Player.prev_state == STATES.SLIDE:
 		can_jump = true

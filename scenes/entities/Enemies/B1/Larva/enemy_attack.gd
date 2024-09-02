@@ -2,35 +2,27 @@ extends EnemyState
 
 # Called when the node enters the scene tree for the first time.
 var is_attacking = false
+@export var can_out = false
 
 func update(delta):
-	Entity.movement_manager(delta)
-	stop_following()
-	if Entity.player_exited:
-		return STATES.IDLE
-	if !is_attacking:
-		return STATES.PREPARE
-	var distance = player.position - Entity.global_position
-
-	if distance.length() > 230:
-		return STATES.FOLLOW
-		
-	#if Entity.health <= Entity.health_min:
-		#return STATES.DEAD
+	if can_out && !Entity.is_dealing_damage:
+		return STATES.ACTIVE
+	if Entity.health <= Entity.health_min:
+		return STATES.DEFEAT
 	if Entity.is_dealing_damage:
 		return STATES.HIT
 	return null
 func exit_state():
-	Entity.speed = 150
+	pass
 
 func enter_state():
-	Entity.can_flip = true
-	%Body2.play("attack")
-	Entity.speed = 300
-	Entity.position_saver = Entity.global_position
-	is_attacking = true
-	Entity.movement_type = 1
-	Entity.player_entered = false
+	%Damagebox.disabled = false
+	%Body.play("attack")
+	await %Body.animation_finished
+	%Body.play("attack_return")
+	
+
+
 
 func stop_following():
 	var distance = player.position - Entity.global_position

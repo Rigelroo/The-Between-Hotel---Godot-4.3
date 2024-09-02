@@ -8,6 +8,8 @@ signal healthChanged
 signal temporary
 signal inkChanged
 
+@onready var damage_numbers_origin = %DamagenumOrigin
+
 @onready var test2D = $Node2D
 @onready var splashdec = $Splashdetection
 @onready var slashbox = $sword
@@ -56,6 +58,12 @@ signal inkChanged
 @export var currentHealth: int = 0
 @export var currentFurypoints: int = 0
 
+@export_subgroup("Damage System")
+@export var damage_value = 5
+@export var damage_max = 5
+@export var damage_min = 0
+
+@export var crit_chance : float = 0.3
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -101,7 +109,7 @@ func changegravity():
 func _ready():
 	$sword/sword_collider.disabled = true
 	$sword1/sword_collider2.disabled = true
-	check_hitbox()
+	
 	Global.player_body = self
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	Dialogic.signal_event.connect(_on_dialogic_signal)
@@ -112,11 +120,18 @@ func _ready():
 	current_state = STATES.IDLE
 	
 func _process(delta: float) -> void:
-	if current_state != $STATES/AIRSLASH:
+	if current_state != STATES.AIRSLASH:
+		await $AnimationPlayer.animation_finished
+		$sword/sword_collider.disabled = true
 		$sword1/sword_collider2.disabled = true
 		$sword1/sword_collider3.disabled = true
-	if current_state != $STATES/AIRSLASH:
-		$Sprite2D.material.set_shader_parameter("Active", false)
+	elif current_state != STATES.SLASH:
+		await $AnimationPlayer.animation_finished
+		$sword/sword_collider.disabled = true
+		$sword1/sword_collider2.disabled = true
+		$sword1/sword_collider3.disabled = true
+	if current_state != STATES.HIT:
+		%Sprite2D.modulate = "#ffffff"
 	#if Input.is_action_just_pressed("Start"):
 		#currentHealth += 1
 		#healthChanged.emit(currentHealth)
@@ -354,21 +369,34 @@ func _on_waterdetection_water_state_changed(is_in_water: bool) -> void:
 var is_in_water : bool = false
 
 
-func check_hitbox():
-	var hitbox_areas = $sword1.get_overlapping_areas() + $sword.get_overlapping_areas()
-	if hitbox_areas:
-		var hitbox = hitbox_areas.front()
-		if hitbox.get_parent() is Pulg:
-			print("pulgdamage")
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("EnemyAttackboxs"):
-		area.get_parent().deal_damage()
+		#area.get_parent().deal_damage()
+		var dvalue = area.owner.damage_value
+		deal_damage(dvalue, area)
+		
 		is_dealing_damage = true
 		$AnimationPlayer.play("Damage")
 		stats.updatehealth()
 
+	
+
+
+
 func knockback(delta: float) -> void:
 	
 	velocity.x += SPEED * delta 
+
+func deal_damage(value: int, area: Area2D):
+	#var criticalchance = randi_range(1, 10)
+	var damage_total = value
+	var is_critical = area.owner.crit_chance > randf()
+	if is_critical:
+		damage_total = value * 2
+		
+	currentHealth -= damage_total
+	Damagenumbers.display_number(damage_total, damage_numbers_origin.global_position, is_critical)
+	
+	

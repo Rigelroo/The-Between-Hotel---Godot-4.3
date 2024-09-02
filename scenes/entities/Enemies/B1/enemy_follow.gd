@@ -13,6 +13,8 @@ func update(delta):
 			return STATES.ATTACK
 	if Entity.is_dealing_damage:
 		return STATES.HIT
+	if Entity.health <= Entity.health_min:
+		return STATES.DEFEAT
 	return null
 
 func enter_state():

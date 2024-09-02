@@ -41,7 +41,7 @@ func enter_state():
 
 func exit_state():
 	owner.is_dealing_damage = false
-	$"../../Sprite2D".material.set_shader_parameter("Active", false)
+	
 
 
 func _on_nohit_timer_timeout() -> void:

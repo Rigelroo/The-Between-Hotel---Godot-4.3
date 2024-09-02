@@ -24,6 +24,7 @@ QuestSystem="*res://addons/quest_system/quest_manager.gd"
 Global="*res://Gloval/Global.gd"
 SceneManager="*res://Tests/scene_manager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Damagenumbers="*res://damagenumbers.gd"
 
 [dialogic]
 

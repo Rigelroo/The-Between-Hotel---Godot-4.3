@@ -7,6 +7,7 @@ func update(delta):
 	
 	return null
 func enter_state():
-		await $"../../AnimationPlayer".animation_finished
-		Player.death.emit()
+	
+	await $"../../AnimationPlayer".animation_finished
+	Player.death.emit()
 		

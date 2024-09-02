@@ -19,6 +19,8 @@ func update(delta):
 		#return STATES.DEAD
 	if Entity.is_dealing_damage:
 		return STATES.HIT
+	if Entity.health <= Entity.health_min:
+		return STATES.DEFEAT
 	return null
 func exit_state():
 	Entity.speed = 150

@@ -21,6 +21,7 @@ func update(delta):
 	
 	return null
 func enter_state():
+	
 	owner.velocity = Vector2()
 	Player.attack_input = true
 	slashing = true

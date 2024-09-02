@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=39 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="23_awmji"]
 [ext_resource type="PackedScene" uid="uid://ef24ixvsy0at" path="res://scenes/entities/Enemies/B1/vespaloca.tscn" id="24_o0o5k"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="25_vh4bb"]
+[ext_resource type="PackedScene" uid="uid://pqugb6ka8fnd" path="res://scenes/entities/Enemies/B1/larva.tscn" id="26_m2c4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hsyed"]
 texture = ExtResource("8_uyb2n")
@@ -691,7 +692,7 @@ position = Vector2(2725, 711)
 speed = 60
 
 [node name="Player" parent="." instance=ExtResource("12_njeaq")]
-position = Vector2(941, 525)
+position = Vector2(849, 401)
 scale = Vector2(6, 6)
 currentHealth = 100
 
@@ -804,3 +805,7 @@ scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
 [node name="Statsbar" parent="CanvasLayer3" groups=["Stats"] instance=ExtResource("25_vh4bb")]
+
+[node name="Larva" parent="." instance=ExtResource("26_m2c4s")]
+position = Vector2(3565, 649)
+scale = Vector2(0.5, 0.5)

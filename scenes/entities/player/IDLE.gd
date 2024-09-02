@@ -32,6 +32,7 @@ func update(delta):
 		return STATES.HIT
 	return null
 func enter_state():
+	
 	Player.slashing = false
 	Player.is_skydiving = false
 	Player.is_jumping = false

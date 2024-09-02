@@ -1,11 +1,13 @@
 extends Node
 
-@onready var IDLE = $EnemyIdle
-@onready var FOLLOW = $EnemyFollow
+@onready var INACTIVE = $EnemyInactive
+@onready var CLOSE = $EnemyClose
+
 @onready var ATTACK = $EnemyAttack
-@onready var PREPARE = $EnemyPrepare
+@onready var ACTIVE = $EnemyActive
 @onready var HIT = $EnemyHit
 @onready var DEFEAT = $EnemyDefeat
+@onready var HIDE = $EnemyHide
 #
 #var current_state : EnemyState
 #var previous_state : EnemyState

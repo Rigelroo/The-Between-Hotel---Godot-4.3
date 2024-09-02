@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name EnemyVespa
+class_name EnemyLarva
 
 
 @onready var damage_numbers_origin = %DamagenumOrigin
@@ -17,6 +17,7 @@ class_name EnemyVespa
 @export var damage_min = 0
 
 @export var crit_chance : float = 0.3
+
 
 
 var dead: bool = false
@@ -125,6 +126,19 @@ func one_dir_x():
 			elif raycast == $Raycasts/Leftraycast:
 				dir = Vector2.RIGHT
 
+func lookdirection():
+	var Raycasts = %Raycasts
+	for raycast in Raycasts.get_children():
+		raycast.force_raycast_update() 
+		if raycast.is_colliding():
+			if raycast == $Raycasts/Rightraycast:
+				%Larva.flip_h = true
+				%Attackcollision.position.x = 336
+			elif raycast == $Raycasts/Leftraycast:
+				%Larva.flip_h = false
+				%Attackcollision.position.x = -330.5
+	
+
 func one_dir_y():
 	var Raycasts = %Raycasts
 	for raycast in Raycasts.get_children():
@@ -136,6 +150,10 @@ func one_dir_y():
 				dir = Vector2.UP
 
 func _ready() -> void:
+	%Larva.rotation = 0
+	is_dealing_damage = false
+	%Damagebox.disabled = true
+	%Body.play("inactive")
 	position_saver = global_position
 	movement_type_const = movement_type
 	if movement_type == 2:
@@ -149,8 +167,8 @@ func _ready() -> void:
 	for state in STATES.get_children():
 		state.STATES = STATES
 		state.Entity = self
-	prev_state = STATES.IDLE
-	current_state = STATES.IDLE
+	prev_state = STATES.INACTIVE
+	current_state = STATES.INACTIVE
 
 	
 	player = get_tree().get_first_node_in_group("Player")
@@ -174,7 +192,7 @@ func _on_damage_area_area_entered(area: Area2D) -> void:
 func deal_damage(value: int, area: Area2D):
 	#var criticalchance = randi_range(1, 10)
 	is_dealing_damage = true
-	hit_player.play("hit")
+	
 	var damage_total = value
 	var is_critical = area.owner.crit_chance > randf()
 	if is_critical:
@@ -186,16 +204,13 @@ func deal_damage(value: int, area: Area2D):
 
 
 
-func damage():
-	is_dealing_damage = true
-	hit_player.play("hit")
-	health -= 1
-	
+
 #var knockback = Vector2.ZERO
 var just_bool = false 
-var can_flip = true
+var can_flip = false
 
 func _physics_process(delta):
+	lookdirection()
 	change_state(current_state.update(delta))
 	%Statelabel.text = current_state.name
 	movement_manager(delta)
@@ -213,12 +228,13 @@ func _physics_process(delta):
 			$Sprite2D3.flip_h = just_bool 
 			$Sprite2D.flip_h = just_bool 
 			$Sprite2D2.flip_h = just_bool 
-			%Attackcollision.position.x = -194.75
+			%Attackcollision.position.x = -330.5
 	if knockback_vector != Vector2.ZERO:
 		velocity = knockback_vector
 
 
 var can_return : bool = false
+
 
 
 

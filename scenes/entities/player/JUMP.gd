@@ -22,6 +22,7 @@ func update(delta):
 		return STATES.DEATH
 	return null
 func enter_state():
+	
 	if Player.prev_state == STATES.SLIDE:
 		#Player.velocity.x = 1500#Player.movement_input = 1
 		#Player.velocity.y = Player.JUMP_VELOCITY

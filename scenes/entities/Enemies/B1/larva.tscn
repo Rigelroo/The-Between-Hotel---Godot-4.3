@@ -1,15 +1,15 @@
-[gd_scene load_steps=76 format=3 uid="uid://pqugb6ka8fnd"]
+[gd_scene load_steps=77 format=3 uid="uid://pqugb6ka8fnd"]
 
 [ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_ivi4c"]
-[ext_resource type="Script" path="res://Tests/entitie_script.gd" id="2_866lw"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/larva_script.gd" id="2_d4vyf"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/ENEMYSTATES.gd" id="3_qga7k"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_idle.gd" id="4_5711u"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_inactive.gd" id="4_5711u"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_hit.gd" id="5_exq6h"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_hide.gd" id="6_7fuus"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_defeat.gd" id="6_tbtbs"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_follow.gd" id="7_fcae2"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_prepare.gd" id="8_dybiu"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_close.gd" id="7_fcae2"]
+[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_active.gd" id="8_dybiu"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_attack.gd" id="9_lta0p"]
-[ext_resource type="Texture2D" uid="uid://c745eja0irsba" path="res://Sprites/Bettlebourough/enemies/wasp/dead.png" id="10_nnctn"]
 [ext_resource type="Texture2D" uid="uid://pvgdomkxtxu3" path="res://Sprites/Bettlebourough/enemies/Larva/inactive0007.png" id="11_ejgsr"]
 [ext_resource type="Texture2D" uid="uid://c1tn4q43xi0dv" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0001.png" id="12_ukc0i"]
 [ext_resource type="Texture2D" uid="uid://d0kur56iuurnd" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0002.png" id="13_bcayy"]
@@ -51,6 +51,12 @@
 [ext_resource type="Texture2D" uid="uid://cfpdeeitelnxd" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0024.png" id="45_5jau6"]
 [ext_resource type="Texture2D" uid="uid://ymnjp42web8g" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0025.png" id="46_mwv5a"]
 [ext_resource type="Texture2D" uid="uid://b4wsyw2dxggd5" path="res://Sprites/Bettlebourough/enemies/Larva/Larva0026.png" id="47_c40u3"]
+[ext_resource type="Texture2D" uid="uid://cutshqlnd6v7k" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_out0000.png" id="48_gm82j"]
+[ext_resource type="Texture2D" uid="uid://cp64fo7pbp1q4" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_out0001.png" id="49_0enlg"]
+[ext_resource type="Texture2D" uid="uid://dewfr1njfxb4v" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_out0002.png" id="50_oc76k"]
+[ext_resource type="Texture2D" uid="uid://bx8jut3dhtumw" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_out0003.png" id="51_mcjvy"]
+[ext_resource type="Texture2D" uid="uid://bx6vb8yppg6b4" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_out0004.png" id="52_0x3ht"]
+[ext_resource type="Texture2D" uid="uid://t30n1o70llxs" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_out0005.png" id="53_8qo80"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kehak"]
 shader = ExtResource("1_ivi4c")
@@ -62,27 +68,12 @@ size = Vector2(4009.63, 4677)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmulh"]
 size = Vector2(229, 315)
 
-[sub_resource type="Animation" id="Animation_ov2md"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:is_dealing_damage")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_wb5q1"]
 resource_name = "defeat"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Dirt:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -94,7 +85,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Dirt:material:shader_parameter/active")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -118,117 +109,27 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Wings:current_animation")
+tracks/3/enabled = false
+tracks/3/path = NodePath("Dirt:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.133333),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"no_wings"]
+"values": [ExtResource("21_tt5ib")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Dirt:texture")
+tracks/4/path = NodePath(".:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_nnctn")]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.214)]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("EnemyStateMachine/EnemyDefeat")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"death"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_b3q0i"]
-resource_name = "defeat_2"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Dirt:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.3, 0.4, 0.5, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.314159, -0.314159, 0.314159, 0.314159, -0.314159, 0.314159, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Dirt:material:shader_parameter/active")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GPUParticles2D:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0232579, 0.3),
+"times": PackedFloat32Array(0, 0.133333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Wings:current_animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.133333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"no_wings"]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Dirt:texture")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_nnctn")]
+"values": [Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_4awq0"]
@@ -237,7 +138,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Dirt:rotation")
+tracks/0/path = NodePath("Larva:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -248,8 +149,8 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Dirt:material:shader_parameter/active")
+tracks/1/enabled = false
+tracks/1/path = NodePath("Larva:material:shader_parameter/active")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -282,13 +183,135 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Larva:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nllgd"]
 _data = {
-"RESET": SubResource("Animation_ov2md"),
 "defeat": SubResource("Animation_wb5q1"),
-"defeat_2": SubResource("Animation_b3q0i"),
 "hit": SubResource("Animation_4awq0")
+}
+
+[sub_resource type="Animation" id="Animation_jcggp"]
+resource_name = "Inactive_close"
+length = 0.35
+loop_mode = 1
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4125, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_fkm1u"), ExtResource("16_konku"), ExtResource("17_4wo0l"), ExtResource("18_b81n6"), ExtResource("19_3kd0g"), ExtResource("20_j42bl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Larva:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_e1rkb"]
+resource_name = "activate_middle"
+length = 0.35
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0125),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("21_tt5ib")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Larva:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0125, 0.0625, 0.1125, 0.1625, 0.2125, 0.2625, 0.3125),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("22_x77bo"), ExtResource("23_0exnk"), ExtResource("24_1fnyw"), ExtResource("25_rehj1"), ExtResource("26_vvktq"), ExtResource("27_vx8kx"), ExtResource("28_jkefj")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Larva:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Larva:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 256)]
+}
+
+[sub_resource type="Animation" id="Animation_pevoy"]
+resource_name = "activate_start"
+length = 0.35
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0125, 0.1125, 0.2125),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_b81n6"), ExtResource("20_j42bl"), ExtResource("21_tt5ib")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Larva:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0125),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
 }
 
 [sub_resource type="Animation" id="Animation_nuiw6"]
@@ -355,146 +378,6 @@ tracks/4/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_jcggp"]
-resource_name = "Inactive_close"
-length = 0.35
-loop_mode = 1
-step = 0.0125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Dirt:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4125, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("15_fkm1u"), ExtResource("16_konku"), ExtResource("17_4wo0l"), ExtResource("18_b81n6"), ExtResource("19_3kd0g"), ExtResource("20_j42bl")]
-}
-
-[sub_resource type="Animation" id="Animation_pevoy"]
-resource_name = "activate_start"
-length = 0.35
-loop_mode = 1
-step = 0.0125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Dirt:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("18_b81n6"), ExtResource("20_j42bl"), ExtResource("21_tt5ib")]
-}
-
-[sub_resource type="Animation" id="Animation_beirt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Dirt:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("19_3kd0g")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Larva:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("20_j42bl")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Larva:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-33, 14)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Larva:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_e1rkb"]
-resource_name = "activate_middle"
-length = 0.35
-step = 0.0125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Dirt:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("21_tt5ib")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Larva:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("22_x77bo"), ExtResource("23_0exnk"), ExtResource("24_1fnyw"), ExtResource("25_rehj1"), ExtResource("26_vvktq"), ExtResource("27_vx8kx"), ExtResource("28_jkefj")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Larva:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Larva:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, 256)]
-}
-
 [sub_resource type="Animation" id="Animation_ss6gi"]
 resource_name = "attack_return"
 length = 0.3
@@ -559,6 +442,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(3, 256)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EnemyStateMachine/EnemyAttack:can_out")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_tfcr8"]
 resource_name = "defeat"
@@ -612,10 +507,24 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EnemyStateMachine/EnemyDefeat")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"death"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ki703"]
 resource_name = "idle"
-length = 0.35
+length = 0.4
 loop_mode = 2
 step = 0.0125
 tracks/0/type = "value"
@@ -661,40 +570,144 @@ tracks/3/path = NodePath("Larva:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.175, 0.3125),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.0872665, 0.0, 0.0872665]
+"values": [-0.0523599, 0.0523599]
+}
+
+[sub_resource type="Animation" id="Animation_p6su8"]
+resource_name = "inactive"
+length = 0.4
+loop_mode = 2
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Larva:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Larva:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 260)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Larva:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0523599, 0.0523599]
+}
+
+[sub_resource type="Animation" id="Animation_mvj3h"]
+resource_name = "out"
+length = 0.7
+step = 0.0125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dirt:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0375, 0.35, 0.4, 0.45, 0.5, 0.5625, 0.625, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("21_tt5ib"), ExtResource("21_tt5ib"), ExtResource("20_j42bl"), ExtResource("19_3kd0g"), ExtResource("15_fkm1u"), ExtResource("40_lhwfp"), ExtResource("41_b1plg"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Larva:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0375, 0.1, 0.1625, 0.225, 0.2875, 0.3375, 0.3875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("48_gm82j"), ExtResource("49_0enlg"), ExtResource("50_oc76k"), ExtResource("51_mcjvy"), ExtResource("52_0x3ht"), ExtResource("53_8qo80"), null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Larva:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 256)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Larva:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("EnemyStateMachine/EnemyHide")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_timer"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgrry"]
 _data = {
 "Inactive_close": SubResource("Animation_jcggp"),
-"RESET": SubResource("Animation_beirt"),
 "activate_middle": SubResource("Animation_e1rkb"),
 "activate_start": SubResource("Animation_pevoy"),
 "attack": SubResource("Animation_nuiw6"),
 "attack_return": SubResource("Animation_ss6gi"),
 "defeat": SubResource("Animation_tfcr8"),
-"idle": SubResource("Animation_ki703")
-}
-
-[sub_resource type="Animation" id="Animation_i7dor"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_bgn58"]
-resource_name = "no_wings"
-
-[sub_resource type="Animation" id="Animation_ax6vg"]
-resource_name = "wings"
-length = 0.2
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_yx5xa"]
-_data = {
-"RESET": SubResource("Animation_i7dor"),
-"no_wings": SubResource("Animation_bgn58"),
-"wings": SubResource("Animation_ax6vg")
+"idle": SubResource("Animation_ki703"),
+"inactive": SubResource("Animation_p6su8"),
+"out": SubResource("Animation_mvj3h")
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s65u1"]
@@ -719,32 +732,43 @@ collision_mode = 2
 size = Vector2(474, 552)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0iu8b"]
-size = Vector2(476.5, 487)
+size = Vector2(333, 487)
 
 [node name="Larva" type="CharacterBody2D" groups=["Enemies"]]
 material = SubResource("ShaderMaterial_kehak")
-script = ExtResource("2_866lw")
+script = ExtResource("2_d4vyf")
+health = 25
 
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("3_qga7k")
 
-[node name="EnemyIdle" type="Node" parent="EnemyStateMachine"]
+[node name="EnemyInactive" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("4_5711u")
 
 [node name="EnemyHit" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("5_exq6h")
 
+[node name="EnemyHide" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_7fuus")
+
+[node name="HideTimer" type="Timer" parent="EnemyStateMachine/EnemyHide"]
+one_shot = true
+
 [node name="EnemyDefeat" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("6_tbtbs")
 
-[node name="EnemyFollow" type="Node" parent="EnemyStateMachine"]
+[node name="EnemyClose" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("7_fcae2")
 
-[node name="EnemyPrepare" type="Node" parent="EnemyStateMachine"]
+[node name="EnemyActive" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("8_dybiu")
 
 [node name="EnemyAttack" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("9_lta0p")
+
+[node name="PrepareTimer" type="Timer" parent="EnemyStateMachine/EnemyAttack"]
+unique_name_in_owner = true
+one_shot = true
 
 [node name="FollowArea" type="Area2D" parent="."]
 position = Vector2(-31.1836, -5)
@@ -773,23 +797,17 @@ libraries = {
 
 [node name="Larva" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-material = ExtResource("22_fdkak")
-position = Vector2(-33, 14)
-texture = ExtResource("20_j42bl")
+position = Vector2(3, 260)
+rotation = -0.0523599
+texture = ExtResource("28_jkefj")
 offset = Vector2(1, -262.089)
 
 [node name="Dirt" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = ExtResource("22_fdkak")
 position = Vector2(-33, 14)
-texture = ExtResource("19_3kd0g")
+texture = ExtResource("21_tt5ib")
 offset = Vector2(33, -14)
-
-[node name="Wings" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_yx5xa")
-}
-autoplay = "wings"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(78.8164, 0)
@@ -818,15 +836,14 @@ position = Vector2(-29.1836, 42)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("32_5sl6i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+[node name="Damagebox" type="CollisionShape2D" parent="DamageArea"]
+unique_name_in_owner = true
 position = Vector2(45, 110)
 shape = SubResource("RectangleShape2D_kctrd")
 debug_color = Color(0.960621, 0.526551, 0.690575, 0.419608)
 
 [node name="Directiontimer" type="Timer" parent="."]
 autostart = true
-
-[node name="PrepareTimer" type="Timer" parent="."]
 
 [node name="Statelabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -853,7 +870,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Attackcollision" type="CollisionShape2D" parent="Attackbox"]
 unique_name_in_owner = true
-position = Vector2(199, 144)
+position = Vector2(336, 118)
 shape = SubResource("RectangleShape2D_0iu8b")
 disabled = true
 debug_color = Color(0.986317, 0.0702289, 0.2335, 0.42)
@@ -863,14 +880,16 @@ unique_name_in_owner = true
 scale = Vector2(5, 5)
 
 [node name="Rightraycast" type="RayCast2D" parent="Raycasts"]
+position = Vector2(-6.48015e-12, 22.8)
 rotation = -1.5708
 scale = Vector2(2, 1)
-target_position = Vector2(-7.23998e-05, 40)
+target_position = Vector2(-0.000305165, 168.6)
 
 [node name="Leftraycast" type="RayCast2D" parent="Raycasts"]
+position = Vector2(6.48015e-12, 22.8)
 rotation = 1.5708
 scale = Vector2(2, 1)
-target_position = Vector2(-0.0999334, 36.8)
+target_position = Vector2(0.000356931, 197.2)
 
 [node name="Upraycast" type="RayCast2D" parent="Raycasts"]
 rotation = -3.15411
@@ -884,6 +903,12 @@ scale = Vector2(2, 1)
 enabled = false
 target_position = Vector2(-0.455265, 56.7931)
 
+[node name="DamagenumOrigin" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-4, -329)
+
+[connection signal="timeout" from="EnemyStateMachine/EnemyHide/HideTimer" to="EnemyStateMachine/EnemyHide" method="_on_hide_timer_timeout"]
+[connection signal="timeout" from="EnemyStateMachine/EnemyAttack/PrepareTimer" to="EnemyStateMachine/EnemyActive" method="_on_prepare_timer_timeout"]
 [connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
 [connection signal="body_exited" from="FollowArea" to="." method="_on_follow_area_body_exited"]
 [connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]

@@ -32,5 +32,6 @@ func update(delta):
 		$"../../AnimationPlayer2".play("swim")
 	return null
 func enter_state():
+	
 	$"../../AnimationPlayer".stop()
 	
