@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpbnhh4wr6ef6"]
+
+[ext_resource type="SpriteFrames" uid="uid://b34i4prh03kka" path="res://objects/fireprojectile.tres" id="2_47rq7"]
+[ext_resource type="Script" path="res://objects/projectile.gd" id="5_23qlw"]
+
+[node name="AnimatedSprite2D" type="CharacterBody2D"]
+script = ExtResource("5_23qlw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_47rq7")
+autoplay = "default"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

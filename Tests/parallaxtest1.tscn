@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=40 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://ef24ixvsy0at" path="res://scenes/entities/Enemies/B1/vespaloca.tscn" id="24_o0o5k"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="25_vh4bb"]
 [ext_resource type="PackedScene" uid="uid://pqugb6ka8fnd" path="res://scenes/entities/Enemies/B1/larva.tscn" id="26_m2c4s"]
+[ext_resource type="PackedScene" uid="uid://caqiovb4lonpj" path="res://scenes/entities/Enemies/B1/firefly.tscn" id="27_o402n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hsyed"]
 texture = ExtResource("8_uyb2n")
@@ -787,7 +788,7 @@ texture = ExtResource("21_3cpb2")
 centered = false
 
 [node name="Wasp" parent="." instance=ExtResource("24_o0o5k")]
-position = Vector2(1692, 615)
+position = Vector2(2816, 368)
 scale = Vector2(0.5, 0.5)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -808,4 +809,8 @@ transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
 [node name="Larva" parent="." instance=ExtResource("26_m2c4s")]
 position = Vector2(3565, 649)
+scale = Vector2(0.5, 0.5)
+
+[node name="firefly" parent="." instance=ExtResource("27_o402n")]
+position = Vector2(1721, 582)
 scale = Vector2(0.5, 0.5)
