@@ -1,6 +1,5 @@
-[gd_scene load_steps=77 format=3 uid="uid://pqugb6ka8fnd"]
+[gd_scene load_steps=76 format=3 uid="uid://pqugb6ka8fnd"]
 
-[ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_ivi4c"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/larva_script.gd" id="2_d4vyf"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/ENEMYSTATES.gd" id="3_qga7k"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Larva/enemy_inactive.gd" id="4_5711u"]
@@ -58,15 +57,26 @@
 [ext_resource type="Texture2D" uid="uid://bx6vb8yppg6b4" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_out0004.png" id="52_0x3ht"]
 [ext_resource type="Texture2D" uid="uid://t30n1o70llxs" path="res://Sprites/Bettlebourough/enemies/Larva/Larva_out0005.png" id="53_8qo80"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kehak"]
-shader = ExtResource("1_ivi4c")
-shader_parameter/active = false
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxu8r"]
 size = Vector2(4009.63, 4677)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmulh"]
 size = Vector2(229, 315)
+
+[sub_resource type="Animation" id="Animation_bkb7i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Larva:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.314159]
+}
 
 [sub_resource type="Animation" id="Animation_wb5q1"]
 resource_name = "defeat"
@@ -121,7 +131,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath(".:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -134,7 +144,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_4awq0"]
 resource_name = "hit"
-length = 0.3
+length = 0.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -142,10 +152,10 @@ tracks/0/path = NodePath("Larva:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.3, 0.4, 0.5, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.066667, 0.166667, 0.266667, 0.333334, 0.4, 0.5, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.314159, -0.314159, 0.314159, 0.314159, -0.314159, 0.314159, 0.0]
+"values": [0.0, 0.314159, -0.314159, 0.314159, 0.314159, -0.314159, 0.314159, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -195,9 +205,34 @@ tracks/4/keys = {
 "update": 1,
 "values": [Color(100, 100, 100, 1), Color(1, 1, 1, 1)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("Body")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pause"
+}]
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("[stop]"),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nllgd"]
 _data = {
+"RESET": SubResource("Animation_bkb7i"),
 "defeat": SubResource("Animation_wb5q1"),
 "hit": SubResource("Animation_4awq0")
 }
@@ -735,7 +770,7 @@ size = Vector2(474, 552)
 size = Vector2(333, 487)
 
 [node name="Larva" type="CharacterBody2D" groups=["Enemies"]]
-material = SubResource("ShaderMaterial_kehak")
+visible = false
 script = ExtResource("2_d4vyf")
 health = 25
 
@@ -798,15 +833,14 @@ libraries = {
 [node name="Larva" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(3, 260)
-rotation = -0.0523599
-texture = ExtResource("28_jkefj")
+rotation = 0.314159
 offset = Vector2(1, -262.089)
 
 [node name="Dirt" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = ExtResource("22_fdkak")
 position = Vector2(-33, 14)
-texture = ExtResource("21_tt5ib")
+texture = ExtResource("15_fkm1u")
 offset = Vector2(33, -14)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]

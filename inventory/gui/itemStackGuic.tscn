@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcbdtia5fb4ur"]
+[gd_scene load_steps=3 format=3 uid="uid://bcbdtia5fb4ur"]
 
 [ext_resource type="Script" path="res://inventory/gui/itemStackGuic.gd" id="1_gdblm"]
+[ext_resource type="Resource" uid="uid://cb7x44nqwgbui" path="res://inventory/PlayerInventoryc.tres" id="2_6eyxa"]
 
 [node name="Panel" type="Panel"]
 script = ExtResource("1_gdblm")
+inv = ExtResource("2_6eyxa")
 
 [node name="Seal" type="Sprite2D" parent="."]
 scale = Vector2(0.07, 0.07)

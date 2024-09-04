@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ProjectileManager" load_steps=2 format=3 uid="uid://dge67wly5hmy7"]
+
+[ext_resource type="Script" path="res://projectile.gd" id="1_0kc8o"]
+
+[resource]
+script = ExtResource("1_0kc8o")
+name = ""
+damage = 0
+type = ""
+animation = ""
+charge_animation = ""
+delay = 0.0
+projectile = 0

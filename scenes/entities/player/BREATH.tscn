@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/entities/player/BREATH.gd" id="1_it484"]
 [ext_resource type="Script" path="res://scenes/entities/player/timer.gd" id="2_2a1xk"]
-[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="2_twccl"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_twccl"]
 
 [node name="IDLE2" type="Node"]
 script = ExtResource("1_it484")

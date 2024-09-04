@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://inthdth4l2ck"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/Systems/berserkbar.gd" id="1_bextv"]
-[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="2_aslf3"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_aslf3"]
 [ext_resource type="PackedScene" uid="uid://vd1ogqthqioc" path="res://scenes/entities/player/Systems/firstpointcontainer.tscn" id="2_j51ty"]
 [ext_resource type="PackedScene" uid="uid://bmot0qyj2qlmc" path="res://scenes/entities/player/Systems/middlepointcontainer.tscn" id="3_udpof"]
 [ext_resource type="PackedScene" uid="uid://b03ebqn7hj8rn" path="res://scenes/entities/player/Systems/finalpointcontainer.tscn" id="6_47m0y"]
@@ -11,12 +11,14 @@
 [node name="Barcontrol" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 739.0
-offset_bottom = 147.0
+offset_left = 8.0
+offset_top = 549.0
+offset_right = 747.0
+offset_bottom = 696.0
+scale = Vector2(0.56, 0.56)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Barcontrol"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.56292

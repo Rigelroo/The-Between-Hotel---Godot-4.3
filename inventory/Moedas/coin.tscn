@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://inventory/Moedas/coin.gd" id="1_02g7g"]
 [ext_resource type="Texture2D" uid="uid://cqsiiph6b3rky" path="res://inventory/Moedas/quadro0000.png" id="1_8or2j"]
 [ext_resource type="Texture2D" uid="uid://b61x2v146q7cf" path="res://inventory/Moedas/quadro0001.png" id="2_kqdox"]
-[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="2_n6e5n"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_n6e5n"]
 [ext_resource type="Texture2D" uid="uid://iregv68fg714" path="res://inventory/Moedas/quadro0002.png" id="3_vqnf6"]
 [ext_resource type="Texture2D" uid="uid://cuwl4v5xt4bpx" path="res://inventory/Moedas/quadro0003.png" id="4_bvlx4"]
 [ext_resource type="Texture2D" uid="uid://do2mpol0ot0fb" path="res://inventory/Moedas/quadro0004.png" id="5_37xi7"]

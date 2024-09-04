@@ -10,6 +10,7 @@ var index: int
 
 
 func insert(isg: ItemStackGuic):
+	print("ss_insert_working")
 	itemStackGuic = isg
 	backgroundSprite.frame = 0
 	container.add_child(itemStackGuic)

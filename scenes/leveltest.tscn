@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scenes/hurtbox.gd" id="17_g27bg"]
 [ext_resource type="Shader" path="res://scenes/leveltest.gdshader" id="17_w0gts"]
 [ext_resource type="Texture2D" uid="uid://cfo03wni6a5qb" path="res://Tests/Legacy_Adventure_Pack/Assets/Assets.png" id="18_7lrtl"]
-[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="18_u3gq3"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="18_u3gq3"]
 [ext_resource type="Texture2D" uid="uid://bvwcb2y0jfaob" path="res://Sprites/Bettlebourough/plantas.png" id="19_mk1xf"]
 [ext_resource type="PackedScene" uid="uid://t6vpd744x7h4" path="res://Tests/cura.tscn" id="19_ujdy2"]
 [ext_resource type="Texture2D" uid="uid://cwn7bcchudyhg" path="res://Sprites/Bettlebourough/1.png" id="20_lbpi5"]

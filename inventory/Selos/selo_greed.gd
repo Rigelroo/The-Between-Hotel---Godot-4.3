@@ -1,7 +1,7 @@
 class_name GreedStamp extends InventoryItem
 
 @export var coin_multiplier: int = 2
-@export var manager = preload("res://inventory/Moedas/coinmanager.tres")
+@export var manager = preload("res://Global/Mainmanager.tres")
 func use(player: Player) -> void:
 	print("useitem")
 func activatestamp():

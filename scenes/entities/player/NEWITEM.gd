@@ -8,8 +8,7 @@ var can_skip = false
 @export var color_y : float
 @export var color_z : float
 
-@export var camera : Camera2D
-@export var player_target : Marker2D
+
 @export var target : Marker2D
 @export var showeffect: Node2D
 @export var player : CharacterBody2D
@@ -38,14 +37,18 @@ func enter_state():
 	
 	
 func get_item():
+	var camera = Player.player_camera
+	var show_target = Player.show_target
 	var t = create_tween()
-	t.tween_property(camera, "position", player_target.position, 0.1)
+	t.tween_property(camera, "position", show_target.position, 0.1)
 	t.tween_property(camera, "zoom", Vector2(1.5, 1.5), 0.5)
 	Player.showitem.visible = true
 	Player.top_level = true
 	t.tween_property(self, "can_skip", true, 1)
 	
 func _on_newitem_out_itemstate() -> void:
+	var camera = Player.player_camera
+	var target = Player.player_target
 	can_skip = false
 	var k = create_tween()
 	Player.can_move_si = true

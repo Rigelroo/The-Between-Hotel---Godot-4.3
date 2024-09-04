@@ -3,7 +3,7 @@ signal Equiped
 
 
 var hleaf_equiped : bool = false
-@export var manager = preload("res://inventory/Moedas/coinmanager.tres")
+@export var manager = preload("res://Global/Mainmanager.tres")
 @export var coin_multiplier: int = 2
 
 

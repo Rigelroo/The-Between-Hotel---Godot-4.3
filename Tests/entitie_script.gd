@@ -1,3 +1,4 @@
+@icon("res://Sprites/Bettlebourough/enemies/wasp/dead.png")
 extends CharacterBody2D
 
 class_name EnemyVespa
@@ -6,6 +7,7 @@ class_name EnemyVespa
 @onready var damage_numbers_origin = %DamagenumOrigin
 @onready var hit_player = $Hit
 @onready var animplayer = $Body2
+#const dead_body = "res://Sprites/Bettlebourough/enemies/wasp/dead.png"
 
 @export_subgroup("Health & Damage")
 @export var health = 5

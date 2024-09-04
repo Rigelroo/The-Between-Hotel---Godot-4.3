@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://inventory/inventory_gui.gd" id="1_o6k50"]
 [ext_resource type="Texture2D" uid="uid://e3e0d4koc3eo" path="res://Sprites/Player/Death/submenu - Selos.png" id="1_xp6en"]
 [ext_resource type="PackedScene" uid="uid://cve3o3l3hjcop" path="res://inventory/slot.tscn" id="2_lfo5f"]
-[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="2_snvv0"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_snvv0"]
 [ext_resource type="Texture2D" uid="uid://cxrga1teivoms" path="res://inventory/submenu - inventário.png" id="4_5orts"]
 [ext_resource type="FontFile" uid="uid://ckwkgvh5vt53w" path="res://Fonts/Everlasting.ttf" id="5_2lpl4"]
 [ext_resource type="Script" path="res://inventory/name_label.gd" id="5_kggpe"]
@@ -429,3 +429,5 @@ flat = true
 [connection signal="pressed" from="ButtonMapa" to="." method="_on_button_mapa_pressed"]
 [connection signal="pressed" from="ButtonConfig" to="." method="_on_button_config_pressed"]
 [connection signal="pressed" from="Buttoninventario" to="." method="_on_buttoninventario_pressed"]
+
+[editable path="TabContainer/Selos/Control/Sealbar_slot1"]

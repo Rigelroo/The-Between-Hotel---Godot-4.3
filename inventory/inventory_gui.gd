@@ -51,7 +51,7 @@ var nextEmptyb: bool
 var previousEmptyb: bool
 
 
-@export var manager : CoinManager
+@export var manager : MainManager
 
 
 func hat_for_selector():
@@ -80,7 +80,7 @@ func nohats():
 	selectorb.texture = load("res://inventory/gui/Selector/slot inventario - select.png")
 
 func _ready():
-	
+	selector.global_position = slots[currently_selected].global_position
 	printa()
 	hat_for_selector()
 	connectSlots()
@@ -174,13 +174,14 @@ signal stamp_equiped
 
 func equipstamp(slot):
 	var sealslot = sealslots
-	if !slot.isEmpty():
-		inventoryc.insert(slot.itemStackGui.inventorySlot.item)
-		print(slot.itemStackGui.inventorySlot.item)
-		if slot.itemStackGui.inventorySlot.item.itemactivate == 0:
-			slot.itemStackGui.inventorySlot.item.itemactivate = 1
-		if slot.itemStackGui.inventorySlot.item.itemactivate == 1:
-			slot.itemStackGui.inventorySlot.item.itemactivate = 0
+	var slotf = slots[currently_selected]
+	if !slotf.isEmpty():
+		inventoryc.insert(slotf.itemStackGui.inventorySlot.item)
+		print(slotf.itemStackGui.inventorySlot.item)
+		if slotf.itemStackGui.inventorySlot.item.itemactivate == 0:
+			slotf.itemStackGui.inventorySlot.item.itemactivate = 1
+		if slotf.itemStackGui.inventorySlot.item.itemactivate == 1:
+			slotf.itemStackGui.inventorySlot.item.itemactivate = 0
 		
 	
 
@@ -203,11 +204,11 @@ func stamp_equipped():
 	var slot = slots[currently_selected]
 	var secondary = slot.itemStackGui.inventorySlot.item.scriptstr
 	var itemscript = load(secondary).new()
-	print("stamp equip")
-	print(slot.itemStackGui.inventorySlot.item.name)
+	print("stamp equip: ",slot.itemStackGui.inventorySlot.item.name)
+	
 	itemscript.activatestamp()
 	#slots[currently_selected].modulateslot()
-	slot.itemStackGui.inventorySlot.amount = 0
+	slot.itemStackGui.inventorySlot.amount -= 1
 	inventory.updated.emit()
 	
 	#var texture = slot.itemStackGui.inventorySlot.item.texture
@@ -384,6 +385,7 @@ func _unhandled_input(event):
 			
 		if event.is_action_pressed("Attack") && number == 1:
 			equipstamp(slot)
+			
 		
 		if event.is_action_pressed("selector_right") && number == 2:
 			move_selector_RB()

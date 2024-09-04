@@ -1,3 +1,4 @@
+@icon("res://Sprites/Player/Idle/player_idle.png")
 extends CharacterBody2D
 
 class_name Player
@@ -35,6 +36,7 @@ signal inkChanged
 @export var new_item_activate = false
 @export var new_item_out = false
 @export var facing_direction = false
+
 #@onready var ghost_timer = $GhostTimer
 #@onready var particles = $GPUParticles2D
 @export_subgroup("Movement_on & off")
@@ -43,27 +45,35 @@ signal inkChanged
 @export var can_move_si = true
 
 @export_subgroup("Objects and Resources")
+@export var manager : MainManager
+@export var player_camera : Camera2D
+@export var target: Marker2D
+@export var player_target: Marker2D
+@export var show_target: Marker2D
 #@export var camera : Camera2D
 @export var inventory : Inventory
 @export var inventoryb : Inventoryb
 @export var inventoryc : Inventoryc
 @export var inv_dictionary : InventoryDictionary
-@export var manager : CoinManager
-@export var hudbar : HudBar
 
-@export_subgroup("Juice System")
-@export var maxInk = 20
-@export var currentInk: int = maxInk
-@export var maxHealth = 10
-@export var currentHealth: int = 0
-@export var currentFurypoints: int = 0
 
-@export_subgroup("Damage System")
-@export var damage_value = 5
-@export var damage_max = 5
-@export var damage_min = 0
+var minInk = null
+var maxInk = null
+var currentInk = null
+var minHealth = null
+var maxHealth = null
+var currentHealth = null
+var currentFurypoints = null
 
-@export var crit_chance : float = 0.3
+
+var damage_value = null
+var damage_max = null
+var damage_min = null
+var crit_chance = null
+
+
+
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -101,12 +111,29 @@ var prev_state = null
 #}
 #nodes
 #var herculesscript : HerculesLeafStamp
-
+func set_stats():
+	
+	minInk = manager.minInk
+	maxInk = manager.maxInk
+	currentInk = manager.currentInk
+	minHealth = manager.minHealth
+	maxHealth = manager.maxHealth
+	currentHealth = manager.currentHealth
+	currentFurypoints = manager.currentFurypoints
+	damage_value = manager.damage_value
+	damage_max = manager.damage_max
+	damage_min = manager.damage_min
+	crit_chance = manager.crit_chance
 
 func changegravity():
 	PhysicsServer2D.area_set_param(get_viewport().find_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY, 280)
 
+func set_idle():
+	current_state = STATES.IDLE
+
+
 func _ready():
+	set_stats()
 	$sword/sword_collider.disabled = true
 	$sword1/sword_collider2.disabled = true
 	
@@ -120,6 +147,7 @@ func _ready():
 	current_state = STATES.IDLE
 	
 func _process(delta: float) -> void:
+	playdeath()
 	if current_state != STATES.AIRSLASH:
 		await $AnimationPlayer.animation_finished
 		$sword/sword_collider.disabled = true
@@ -142,6 +170,7 @@ func _process(delta: float) -> void:
 		$Sprite2D2.visible = false
 
 func _physics_process(delta):
+	
 	player_input()
 	change_state(current_state.update(delta))
 	$Label.text = str(current_state.get_name())
@@ -349,9 +378,6 @@ func _on_timeline_ended():
 
 
 
-@export var target: Marker2D
-@export var player_target: Marker2D
-
 
 	#var valor = Vector2(3,3)
 	#
@@ -382,8 +408,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		stats.updatehealth()
 
 	
-
-
+func playdeath():
+	if currentHealth <= minHealth:
+		dying = true
 
 func knockback(delta: float) -> void:
 	
@@ -393,10 +420,26 @@ func deal_damage(value: int, area: Area2D):
 	#var criticalchance = randi_range(1, 10)
 	var damage_total = value
 	var is_critical = area.owner.crit_chance > randf()
+	
 	if is_critical:
 		damage_total = value * 2
 		
 	currentHealth -= damage_total
 	Damagenumbers.display_number(damage_total, damage_numbers_origin.global_position, is_critical)
-	
+
+func deal_projectiledamage(value: int, area: Area2D):
+	#var criticalchance = randi_range(1, 10)
+	var damage_total = value
+	var is_critical = area.crit_chance > randf()
+	if is_critical:
+		damage_total = value * 2
+		
+	currentHealth -= damage_total
+	Damagenumbers.display_number(damage_total, damage_numbers_origin.global_position, is_critical)
+	stats.updatehealth()
+	is_dealing_damage = true
+	$AnimationPlayer.play("Damage")
+	area.collide()
+
+
 	

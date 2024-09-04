@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var manager : CoinManager = preload("res://inventory/Moedas/coinmanager.tres")
+@onready var manager : MainManager = preload("res://Global/Mainmanager.tres")
 
 signal transitioned_in()
 signal transitioned_out()

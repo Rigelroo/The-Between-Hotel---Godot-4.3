@@ -11,3 +11,5 @@ func enter_state():
 	await $"../../AnimationPlayer".animation_finished
 	Player.death.emit()
 		
+func deathsignal():
+	Player.death.emit()

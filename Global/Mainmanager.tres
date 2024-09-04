@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="MainManager" load_steps=2 format=3 uid="uid://bly82l02028bd"]
+
+[ext_resource type="Script" path="res://Global/main_res.gd" id="1_vco67"]
+
+[resource]
+script = ExtResource("1_vco67")
+coin_number = 1
+coin_max = 50
+coin_mult = 1
+hleaf_equiped = false
+hatintime_equiped = false
+shadowdiver_equiped = false
+crimsonfury_equiped = false
+frozenheart_equiped = false
+ffemblem_equiped = false
+minInk = 0
+maxInk = 100
+currentInk = null
+minHealth = 0
+maxHealth = 100
+currentHealth = 50
+currentFurypoints = 0
+damage_value = 5
+damage_max = 5
+damage_min = 0
+crit_chance = 0.3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=209 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=207 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://dknwb0q3tench" path="res://Sprites/Player/All/jump7.png" id="2_lumcb"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cbsq1sykdcc6e" path="res://scenes/entities/player/IDLE.tscn" id="4_hms1o"]
 [ext_resource type="Texture2D" uid="uid://cca7pw7o6idg2" path="res://Sprites/Player/All/jump5.png" id="4_hrs1f"]
 [ext_resource type="Resource" uid="uid://cb7x44nqwgbui" path="res://inventory/PlayerInventoryc.tres" id="4_s68tx"]
-[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://inventory/Moedas/coinmanager.tres" id="5_a6y1r"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="5_a6y1r"]
 [ext_resource type="PackedScene" uid="uid://cd71drssnvm1d" path="res://scenes/entities/player/MOVE.tscn" id="5_d55dw"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="5_dupda"]
 [ext_resource type="Texture2D" uid="uid://eeix75ovqyx1" path="res://Sprites/Player/All/jump4.png" id="6_5cb6f"]
@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://beqhgp033s2sh" path="res://Sprites/Player/hats/Player_hat_cold.png" id="18_ayf5o"]
 [ext_resource type="Texture2D" uid="uid://qnauyx1ja8ee" path="res://Sprites/Player/All/run10.png" id="18_bis8s"]
 [ext_resource type="Texture2D" uid="uid://c32w6krx6qttm" path="res://Sprites/Player/Attack1/quadro0000.png" id="19_f1g5w"]
-[ext_resource type="Texture2D" uid="uid://dyba2emp5w45x" path="res://Sprites/Effects/fireb.png" id="19_gepcj"]
+[ext_resource type="Texture2D" uid="uid://cb7a00lh4al88" path="res://Sprites/Effects/firespritesheet.png" id="19_spcq3"]
 [ext_resource type="Animation" uid="uid://c1vmf0xcofn8h" path="res://animations/idle_swimming.res" id="19_wfsrk"]
 [ext_resource type="Texture2D" uid="uid://ca76h0wy308eo" path="res://Sprites/Player/Attack1/quadro0001.png" id="20_44s3a"]
 [ext_resource type="Texture2D" uid="uid://d1c5cxfrblq5l" path="res://Sprites/Player/Attack1/quadro0002.png" id="21_ke61w"]
@@ -220,44 +220,6 @@ size = Vector2(15, 20.4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3j7"]
 size = Vector2(20, 20.4)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_km5eb"]
-particles_animation = true
-particles_anim_h_frames = 8
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_a1ac6"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.848765, 0.335849), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_lmgel"]
-curve = SubResource("Curve_a1ac6")
-
-[sub_resource type="Curve" id="Curve_lvbmi"]
-max_value = 3.0
-_data = [Vector2(0.1, 0), 0.0, 0.0, 0, 0, Vector2(0.589506, 2.04906), 0.0, 0.0, 0, 0]
-point_count = 2
-metadata/_snap_enabled = true
-
-[sub_resource type="CurveTexture" id="CurveTexture_f7nj2"]
-curve = SubResource("Curve_lvbmi")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_coqj2"]
-particle_flag_disable_z = true
-direction = Vector3(1, 0.19, 0)
-spread = 0.0
-initial_velocity_min = 70.0
-initial_velocity_max = 70.0
-gravity = Vector3(0, -200, 0)
-linear_accel_min = -2.23517e-06
-linear_accel_max = 100.0
-scale_over_velocity_min = 208.84
-scale_over_velocity_max = 873.42
-scale_over_velocity_curve = SubResource("CurveTexture_f7nj2")
-alpha_curve = SubResource("CurveTexture_lmgel")
-hue_variation_min = -2.23517e-08
-hue_variation_max = -2.23517e-08
 
 [sub_resource type="Animation" id="Animation_parbq"]
 length = 0.001
@@ -645,6 +607,32 @@ tracks/2/keys = {
 "update": 1,
 "values": [ExtResource("18_ayf5o"), null]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Sprite2D/../STATES/DEATH")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deathsignal"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_acm1l"]
 resource_name = "HerculesLeaf_moving"
@@ -699,6 +687,21 @@ tracks/0/keys = {
 "values": [ExtResource("59_ixb8j"), ExtResource("60_1naxw"), ExtResource("61_6iv2f"), ExtResource("62_34lmp"), ExtResource("63_dbfx3"), ExtResource("64_qifsh")]
 }
 
+[sub_resource type="Animation" id="Animation_a7glt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_s282s"]
 resource_name = "breath_end"
 step = 0.05
@@ -713,18 +716,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [ExtResource("132_8pgmd"), ExtResource("133_xjgvu"), ExtResource("134_8v31a"), ExtResource("135_p24no")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../GPUParticles2D:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_b1cih"]
@@ -1373,21 +1364,6 @@ tracks/3/keys = {
 "values": [Vector2(1, 0.2)]
 }
 
-[sub_resource type="Animation" id="Animation_orpl1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nqj7c"]
 _data = {
 "AirSlash": SubResource("Animation_housx"),
@@ -1398,7 +1374,7 @@ _data = {
 "HerculesLeaf_moving": SubResource("Animation_acm1l"),
 "HerculesLeaf_nomove": SubResource("Animation_4m344"),
 "HerculesLeaf_start": SubResource("Animation_p8suk"),
-"RESET": SubResource("Animation_orpl1"),
+"RESET": SubResource("Animation_a7glt"),
 "breath_end": SubResource("Animation_s282s"),
 "breath_start": SubResource("Animation_b1cih"),
 "dash": SubResource("Animation_tscmo"),
@@ -1461,18 +1437,58 @@ size = Vector2(19.8291, 50.1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsxqx"]
 size = Vector2(38.2, 38.1)
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bq5g7"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_m1ehq"]
+min_value = 0.1
+max_value = 4.0
+_data = [Vector2(0, 0.796226), 0.0, 0.0, 0, 0, Vector2(0.988971, 4), 2.38356, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xwb4d"]
+curve = SubResource("Curve_m1ehq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1kki5"]
+particle_flag_disable_z = true
+direction = Vector3(1, 0.19, 0)
+spread = 0.0
+initial_velocity_min = 70.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, -200, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 100.0
+scale_min = 0.2
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_xwb4d")
+hue_variation_min = -2.23517e-08
+hue_variation_max = -2.23517e-08
+anim_speed_min = 2.0
+anim_speed_max = 2.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("target", "player_target", "show_target") groups=["Player"]]
 script = ExtResource("1_bvkld")
 is_dealing_damage = true
+manager = ExtResource("5_a6y1r")
+target = NodePath("PlayerTarget")
+player_target = NodePath("PlayerTarget")
+show_target = NodePath("ShowTarget")
 inventory = ExtResource("3_6uatj")
 inventoryb = ExtResource("4_72txa")
 inventoryc = ExtResource("4_s68tx")
 inv_dictionary = ExtResource("5_dupda")
-manager = ExtResource("5_a6y1r")
-maxInk = 100
-currentInk = 50
-maxHealth = 100
-currentHealth = 10
+
+[node name="ShowTarget" type="Marker2D" parent="."]
+position = Vector2(0, -12)
+
+[node name="PlayerTarget" type="Marker2D" parent="."]
+position = Vector2(0, 4.6)
+
+[node name="ItemTarget" type="Marker2D" parent="."]
+position = Vector2(0, -33.4)
 
 [node name="Hitbox" type="Area2D" parent="."]
 
@@ -1519,18 +1535,10 @@ texture = ExtResource("3_kbq60")
 
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(3.2, -0.2)
-rotation = -0.210063
+modulate = Color(0.0705882, 0.0313726, 0.160784, 1)
+position = Vector2(3.4, -3)
+rotation = 0.0163368
 scale = Vector2(-0.07, 0.07)
-texture = ExtResource("18_ayf5o")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_km5eb")
-position = Vector2(14.2, -0.4)
-emitting = false
-amount = 13
-process_material = SubResource("ParticleProcessMaterial_coqj2")
-texture = ExtResource("19_gepcj")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationPlayer")
@@ -1556,6 +1564,7 @@ position = Vector2(-0.999999, 24)
 
 [node name="sword_collider2" type="CollisionShape2D" parent="sword1"]
 shape = SubResource("RectangleShape2D_wop3j")
+disabled = true
 debug_color = Color(0.766637, 0.286552, 0.855658, 0.42)
 
 [node name="sword_collider3" type="CollisionShape2D" parent="sword1"]
@@ -1598,6 +1607,7 @@ script = ExtResource("145_fox38")
 ghost_node = ExtResource("51_r1s1v")
 
 [node name="SLASH" parent="STATES" instance=ExtResource("55_lke0m")]
+can_doubleslash = false
 
 [node name="HIT" parent="STATES" instance=ExtResource("55_lke0m")]
 script = ExtResource("160_vgtc2")
@@ -1610,17 +1620,14 @@ script = ExtResource("160_vgtc2")
 
 [node name="HLEAF" parent="STATES" instance=ExtResource("88_u3jib")]
 
-[node name="NEWITEM" parent="STATES" node_paths=PackedStringArray("player_target", "target") instance=ExtResource("136_xekvm")]
-player_target = NodePath("../../PlayerTarget")
-target = NodePath("../../CameraTarget")
+[node name="NEWITEM" parent="STATES" instance=ExtResource("136_xekvm")]
 
-[node name="Showeffect" parent="." node_paths=PackedStringArray("player", "newitem", "playertarget") instance=ExtResource("136_0xjdk")]
+[node name="Showeffect" parent="." node_paths=PackedStringArray("player", "newitem") instance=ExtResource("136_0xjdk")]
 show_behind_parent = true
 position = Vector2(2.98023e-08, -16)
 scale = Vector2(0.01, 0.01)
 player = NodePath("..")
 newitem = NodePath("../STATES/NEWITEM")
-playertarget = NodePath("../PlayerTarget")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -18.0
@@ -1666,15 +1673,6 @@ scale = Vector2(5, 5)
 script = ExtResource("127_1ds8y")
 inv_dictionary = ExtResource("5_dupda")
 
-[node name="CameraTarget" type="Marker2D" parent="."]
-position = Vector2(-0.2, -40.8)
-
-[node name="PlayerTarget" type="Marker2D" parent="."]
-position = Vector2(0, 4.6)
-
-[node name="ItemTarget" type="Marker2D" parent="."]
-position = Vector2(0, -33.4)
-
 [node name="Splashdetection" parent="." instance=ExtResource("152_f5dxw")]
 position = Vector2(0.8, -2.6)
 
@@ -1684,6 +1682,15 @@ position = Vector2(-0.2, 9.6)
 [node name="DamagenumOrigin" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -37)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_bq5g7")
+position = Vector2(14.2, -0.4)
+scale = Vector2(0.4, 0.4)
+emitting = false
+amount = 9
+process_material = SubResource("ParticleProcessMaterial_1kki5")
+texture = ExtResource("19_spcq3")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

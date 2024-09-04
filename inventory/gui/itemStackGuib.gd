@@ -2,12 +2,14 @@ extends Panel
 
 class_name ItemStackGuib
 
-@onready var sealSprite: Sprite2D = $Seal
-@onready var amountLabel: Label = $Label
+var sealSprite: Sprite2D
+var amountLabel: Label
 
 var inventorySlotb: InventorySlotb
 
 func update():
+	sealSprite = $Seal
+	amountLabel = $Label
 	if !inventorySlotb  || !inventorySlotb.item:        return
 	
 	sealSprite.visible = true

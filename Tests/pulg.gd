@@ -1,3 +1,4 @@
+@icon("res://Sprites/Bettlebourough/npcs/pulg0000.png")
 extends CharacterBody2D
 
 class_name Pulg

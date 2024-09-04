@@ -2,7 +2,7 @@ extends "state.gd"
 
 class_name Breathcontrol
 
-@export var manager : CoinManager
+@export var manager : MainManager
 
 @onready var prep_timer = $Timer
 var start_prept : bool = false

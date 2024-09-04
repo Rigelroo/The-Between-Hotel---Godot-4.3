@@ -58,6 +58,9 @@ script = ExtResource("1_plb7f")
 objplayer = NodePath("Player")
 splashw = ExtResource("2_q2hfj")
 inv_dictionary = ExtResource("2_je1ce")
+color_x = null
+color_y = null
+color_z = null
 next_scene = "res://Tests/parallaxtest1.tscn"
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
@@ -322,7 +325,6 @@ metadata/_edit_group_ = true
 texture = ExtResource("31_r2m3r")
 
 [node name="PausemenuLayer" parent="." instance=ExtResource("31_fkyq7")]
-process_mode = 0
 
 [node name="Berserklayer" parent="." instance=ExtResource("34_ysfqo")]
 
@@ -341,7 +343,3 @@ visible = false
 [editable path="Selo5"]
 [editable path="Selo6"]
 [editable path="Selo4"]
-[editable path="PausemenuLayer"]
-[editable path="PausemenuLayer/InventoryGui"]
-[editable path="PausemenuLayer/InventoryGui/TabContainer/Selos/Control/Sealbar_slot1"]
-[editable path="PausemenuLayer/InventoryGui/TabContainer/Selos/GridContainer/Panel"]

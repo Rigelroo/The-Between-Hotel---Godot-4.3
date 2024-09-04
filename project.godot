@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 InteractionManager="res://interaction_manager.tscn"
 PhantomCameraManager="res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 QuestSystem="*res://addons/quest_system/quest_manager.gd"
-Global="*res://Gloval/Global.gd"
+Global="*res://Global/Global.gd"
 SceneManager="*res://Tests/scene_manager.tscn"
 Damagenumbers="*res://damagenumbers.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
@@ -97,6 +97,9 @@ Player=""
 Enemies=""
 Stats=""
 EnemyAttackboxs=""
+badProjectile=""
+Gameover=""
+Worldscene=""
 
 [input]
 

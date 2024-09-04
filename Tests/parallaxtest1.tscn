@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=45 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -23,10 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://c1dwfio1icyq6" path="res://Sprites/Bettlebourough/parallax/B4.png" id="21_3cpb2"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="22_ieecm"]
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="23_awmji"]
-[ext_resource type="PackedScene" uid="uid://ef24ixvsy0at" path="res://scenes/entities/Enemies/B1/vespaloca.tscn" id="24_o0o5k"]
+[ext_resource type="PackedScene" uid="uid://ef24ixvsy0at" path="res://scenes/entities/Enemies/B1/Wasp/vespaloca.tscn" id="24_o0o5k"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="25_vh4bb"]
-[ext_resource type="PackedScene" uid="uid://pqugb6ka8fnd" path="res://scenes/entities/Enemies/B1/larva.tscn" id="26_m2c4s"]
-[ext_resource type="PackedScene" uid="uid://caqiovb4lonpj" path="res://scenes/entities/Enemies/B1/firefly.tscn" id="27_o402n"]
+[ext_resource type="PackedScene" uid="uid://pqugb6ka8fnd" path="res://scenes/entities/Enemies/B1/Larva/larva.tscn" id="26_m2c4s"]
+[ext_resource type="PackedScene" uid="uid://caqiovb4lonpj" path="res://scenes/entities/Enemies/B1/Firefly/firefly.tscn" id="27_o402n"]
+[ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="28_icgh1"]
+[ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://inventory/Selos/selo_1.tscn" id="29_w63p5"]
+[ext_resource type="Resource" uid="uid://bv8ujs5m68b51" path="res://inventory/Selos/selo_crimsonbug.tres" id="30_wjqyc"]
+[ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://inventory/Selos/selo_crimsonbug.png" id="31_0jrsl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hsyed"]
 texture = ExtResource("8_uyb2n")
@@ -568,6 +572,8 @@ colors = PackedColorArray(0.447059, 0.419608, 0.67451, 1, 0, 0, 0, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_i5v5p"]
 gradient = SubResource("Gradient_so0hn")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_mbuha"]
+
 [sub_resource type="Gradient" id="Gradient_n1lro"]
 offsets = PackedFloat32Array(0.323232, 0.636364)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -584,7 +590,7 @@ light_mode = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sd7k"]
 size = Vector2(2745, 20)
 
-[node name="world" type="Node2D" node_paths=PackedStringArray("objplayer")]
+[node name="world" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 script = ExtResource("1_07tvi")
 objplayer = NodePath("Player")
 splashw = ExtResource("2_ofkno")
@@ -692,15 +698,37 @@ position = Vector2(-7, -7)
 position = Vector2(2725, 711)
 speed = 60
 
-[node name="Player" parent="." instance=ExtResource("12_njeaq")]
-position = Vector2(849, 401)
+[node name="Larva" parent="." instance=ExtResource("26_m2c4s")]
+position = Vector2(3565, 649)
+scale = Vector2(0.5, 0.5)
+
+[node name="firefly" parent="." instance=ExtResource("27_o402n")]
+position = Vector2(1721, 582)
+scale = Vector2(0.5, 0.5)
+
+[node name="Wasp" parent="." instance=ExtResource("24_o0o5k")]
+position = Vector2(4440, 386)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player" parent="." node_paths=PackedStringArray("showitem") instance=ExtResource("12_njeaq")]
+position = Vector2(2966, 194)
 scale = Vector2(6, 6)
-currentHealth = 100
+showitem = NodePath("Showitemsprite")
 
 [node name="Camera2D" parent="Player" instance=ExtResource("13_5etxj")]
 position = Vector2(-0.333366, -25.8333)
 scale = Vector2(0.166667, 0.166667)
 zoom = Vector2(0.5, 0.5)
+limit_left = 100
+limit_top = 0
+limit_bottom = 1450
+limit_smoothed = true
+editor_draw_limits = true
+
+[node name="Showitemsprite" type="Sprite2D" parent="Player"]
+position = Vector2(0, -33.25)
+scale = Vector2(0.025, 0.025)
+texture = SubResource("CanvasTexture_mbuha")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 material = ExtResource("14_s4luv")
@@ -787,30 +815,33 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("21_3cpb2")
 centered = false
 
-[node name="Wasp" parent="." instance=ExtResource("24_o0o5k")]
-position = Vector2(2816, 368)
-scale = Vector2(0.5, 0.5)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1362.5, 0)
 shape = SubResource("RectangleShape2D_8sd7k")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("22_ieecm")]
+[node name="PausemenuLayer" parent="." instance=ExtResource("22_ieecm")]
 
-[node name="CanvasLayer2" parent="." instance=ExtResource("23_awmji")]
+[node name="Berserklayer" parent="." instance=ExtResource("23_awmji")]
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+[node name="Statslayer" type="CanvasLayer" parent="."]
 scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
-[node name="Statsbar" parent="CanvasLayer3" groups=["Stats"] instance=ExtResource("25_vh4bb")]
+[node name="Statsbar" parent="Statslayer" groups=["Stats"] instance=ExtResource("25_vh4bb")]
+metadata/_edit_use_anchors_ = true
 
-[node name="Larva" parent="." instance=ExtResource("26_m2c4s")]
-position = Vector2(3565, 649)
-scale = Vector2(0.5, 0.5)
+[node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("28_icgh1")]
+process_mode = 3
+visible = false
 
-[node name="firefly" parent="." instance=ExtResource("27_o402n")]
-position = Vector2(1721, 582)
-scale = Vector2(0.5, 0.5)
+[node name="Selo6" parent="." instance=ExtResource("29_w63p5")]
+position = Vector2(3231, 542)
+itemRes = ExtResource("30_wjqyc")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Selo6" index="1"]
+texture = ExtResource("31_0jrsl")
+
+[editable path="Selo6"]

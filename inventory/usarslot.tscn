@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://164hbrtjemk7"]
+[gd_scene load_steps=3 format=3 uid="uid://164hbrtjemk7"]
 
 [ext_resource type="Script" path="res://inventory/slot_gui_e.gd" id="1_kuaub"]
 [ext_resource type="Texture2D" uid="uid://cvqt8xj0rcd5q" path="res://inventory/slot usarselo.png" id="2_qbjgi"]
-[ext_resource type="PackedScene" uid="uid://bcbdtia5fb4ur" path="res://inventory/gui/itemStackGuic.tscn" id="3_uhy68"]
 
 [node name="Sealbar_slot" type="Button"]
 self_modulate = Color(1, 1, 1, 0)
@@ -26,7 +25,3 @@ custom_minimum_size = Vector2(78, 78)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Panel" parent="CenterContainer" instance=ExtResource("3_uhy68")]
-visible = false
-layout_mode = 2

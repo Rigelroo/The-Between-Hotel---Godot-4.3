@@ -11,7 +11,7 @@ signal update
 @export var amount = 3
 @export var current_fullness = 1
 @onready var pointscene = preload("res://scenes/entities/player/Systems/middlepointcontainer.tscn")
-@export var manager : CoinManager
+@export var manager : MainManager
 @onready var inv_manager : InventoryManager
 @onready var player = Global.player_body
 

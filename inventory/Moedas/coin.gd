@@ -1,6 +1,6 @@
 extends Area2D
 @onready var invmanager = InventoryManager
-@export var coinmanager : CoinManager
+@export var coinmanager : MainManager
 @export var number = 1
 func collectcoin():
 	var manager = load("res://inventory/inventory_gui.gd").new()

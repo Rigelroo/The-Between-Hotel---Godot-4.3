@@ -7,6 +7,12 @@ var dead : bool = false
 @export var objplayer : Player
 @export var splashw : SplashWater
 
+@onready var inventory = $PausemenuLayer.inventory
+@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var gameover_manager = get_tree().get_first_node_in_group("Gameover")
+@onready var hudbar = $Statslayer/Statsbar
+
+var canOpen_inventory : bool = true
 
 #@onready var hud : HudBar = $CanvasLayer/Hudbar
 @export var inv_dictionary : InventoryDictionary
@@ -24,15 +30,20 @@ enum TerrainType {
 }
 
 signal loaded()
-
+var death_scene: String = "res://Tests/deadreplacer.tscn"
 @export_file("*.tscn") var next_scene: String
-@onready var manager : CoinManager = preload("res://inventory/Moedas/coinmanager.tres")
+@onready var manager : MainManager = preload("res://Global/Mainmanager.tres")
+
 
 func load_scene() -> void:
 	manager.loaded.emit()
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	
+	player.set_idle()
 	manager.inventoryopened.connect(_on_inventory_gui_opened)
 	manager.inventoryclosed.connect(_on_inventory_gui_closed)
 	manager.loadscene.connect(load_scene)
@@ -40,7 +51,7 @@ func _ready() -> void:
 	splashw.Vaifundo.connect(create_splash)
 	splashw.Desvaifundo.connect(dont_create_splash)
 
-	$CanvasLayer/InventoryGui.readyclose()
+	$PausemenuLayer.inventory.readyclose()
 	
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	
@@ -86,9 +97,11 @@ func collect_item(inventoryb: Inventoryb):
 func collect_stamp(inventory: Inventory):
 	inventory.insert(stamp_index[Dialogic.VAR.index])
 	queue_free()
-	
+
+
 func death():
-	get_tree().reload_current_scene()
+	gameover_manager.activate()
+	
 
 
 var splashinst = preload("res://objects/watersplash.tscn")
@@ -113,11 +126,7 @@ func instance_object():
 	
 	
 	#Call the instance_object() function when you have to create objects. You can also set the position of the object by doing something like: object.position = Vector2(0,0) which will create the object at position(0,0).
-@onready var inventory = $InventoryGui
-@onready var player = get_tree().get_first_node_in_group("Player")
-@onready var hudbar = $Statsbar
 
-var canOpen_inventory : bool = true
 
 
 

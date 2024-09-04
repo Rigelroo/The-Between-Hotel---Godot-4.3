@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bu2kdltrk2out"]
+[gd_scene load_steps=44 format=4 uid="uid://bu2kdltrk2out"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_5oy16"]
 [ext_resource type="Texture2D" uid="uid://br2o6qxvpjyx8" path="res://Sprites/EntryHall - Reworked/fundo1.png" id="1_lbqp7"]
@@ -32,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://bwqnxxc5b8xye" path="res://Sprites/sombra.png" id="29_grj7y"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="31_fn461"]
 [ext_resource type="PackedScene" uid="uid://wu27ixe1fu82" path="res://objects/porta_quarto.tscn" id="31_ypx4h"]
+[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="33_gn41e"]
+[ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="34_n8r74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ydcc"]
 size = Vector2(525.4, 8.40063)
@@ -664,11 +666,6 @@ editor_draw_limits = true
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
 
-[node name="CanvasLayer" parent="." instance=ExtResource("31_fn461")]
-visible = true
-
-[node name="CanvasLayer2" parent="." instance=ExtResource("28_wgf4g")]
-
 [node name="NpcsClicko" type="Sprite2D" parent="."]
 position = Vector2(1907, 583)
 scale = Vector2(0.4, 0.4)
@@ -681,3 +678,18 @@ material = SubResource("CanvasItemMaterial_juhxe")
 position = Vector2(-4.99969, 370)
 scale = Vector2(1, 0.35)
 texture = ExtResource("29_grj7y")
+
+[node name="PausemenuLayer" parent="." instance=ExtResource("31_fn461")]
+
+[node name="Berserklayer" parent="." instance=ExtResource("28_wgf4g")]
+
+[node name="Statslayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.76, 0.76)
+transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
+
+[node name="Statsbar" parent="Statslayer" groups=["Stats"] instance=ExtResource("33_gn41e")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("34_n8r74")]
+process_mode = 3
+visible = false

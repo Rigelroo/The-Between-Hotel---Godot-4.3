@@ -10,6 +10,7 @@ var index: int
 
 
 func insert(isg: ItemStackGui):
+	print("ns_insert_working")
 	itemStackGui = isg
 	backgroundSprite.frame = 0
 	container.add_child(itemStackGui)

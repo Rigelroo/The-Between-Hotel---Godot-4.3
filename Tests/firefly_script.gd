@@ -1,3 +1,4 @@
+@icon("res://Sprites/Bettlebourough/enemies/firefly/firefly0000.png")
 extends CharacterBody2D
 
 class_name EnemyFirefly
@@ -7,7 +8,8 @@ class_name EnemyFirefly
 @onready var damage_numbers_origin = %DamagenumOrigin
 @onready var hit_player = $Hit
 @onready var animplayer = $Body2
-
+@export_file("*.png") var dead_body: String
+@export var projectile_node : PackedScene
 @export_subgroup("Health & Damage")
 @export var health = 5
 @export var health_max = 5
@@ -56,13 +58,16 @@ var current_state = null
 var prev_state = null
 @export var can_shoot = false
 
-func shooting(delta: float):
-	var direction = dir
-	
-	if can_shoot:
-		var bullet_instance = bullet.instantiate()
-		bullet_instance.global_position = %Bulletmarker.global_position
-		get_parent().add_child(bullet_instance)
+func shoot_projectile():
+	var projectile = projectile_node.instantiate()
+	projectile.position = %Bulletmarker.global_position
+	projectile.damage = damage_value # * charge.value
+	get_tree().current_scene.add_child(projectile)
+
+		#if can_shoot:
+		#var bullet_instance = bullet.instantiate()
+		#bullet_instance.global_position = %Bulletmarker.global_position
+		#get_parent().add_child(bullet_instance)
 
 func gravity_manager(delta):
 	if gravity_type == 1:
@@ -206,7 +211,7 @@ var just_bool = false
 var can_flip = true
 
 func _physics_process(delta):
-	shooting(delta)
+	
 	change_state(current_state.update(delta))
 	%Statelabel.text = current_state.name
 	movement_manager(delta)
