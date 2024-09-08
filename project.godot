@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Precision Platformer"
-run/main_scene="res://Tests/parallaxtest1.tscn"
+run/main_scene="res://Sprites/EntryHall/corridor1.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
 config/icon="res://icon.svg"
@@ -20,11 +20,12 @@ config/icon="res://icon.svg"
 
 InteractionManager="res://interaction_manager.tscn"
 PhantomCameraManager="res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-QuestSystem="*res://addons/quest_system/quest_manager.gd"
 Global="*res://Global/Global.gd"
 SceneManager="*res://Tests/scene_manager.tscn"
 Damagenumbers="*res://damagenumbers.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+QuestSystem="*res://addons/quest_system/quest_manager.gd"
+SignalManager="*res://signal_manager.gd"
 
 [dialogic]
 

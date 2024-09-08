@@ -18,6 +18,14 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.deal_projectiledamage(damage, self)
 
+
+func _on_area_entered(area: Area2D) -> void:
+	var player = get_tree().get_first_node_in_group("Player")
+	if (area == player.slashbox) or (area == player.slashbox_down):
+		collide()
+	elif area == player.hitbox:
+		player.deal_projectiledamage(damage, self)
+
 func collide():
 	var tween = create_tween()
 	$CollisionShape2D.disabled = true

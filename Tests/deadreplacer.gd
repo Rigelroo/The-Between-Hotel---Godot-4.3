@@ -4,7 +4,7 @@ extends CanvasLayer
 var currently_selected: int = 0
 @onready var selector = %CenterContainer
 var activated = false
-
+@export var chavinho = false
 signal Continuegame
 
 
@@ -26,7 +26,8 @@ func _ready() -> void:
 func activate():
 	self.visible = true
 	activated = true
-	$Control/VideoStreamPlayer.play()
+	if chavinho:
+		$Control/VideoStreamPlayer.play()
 	$Timer.start(5)
 
 

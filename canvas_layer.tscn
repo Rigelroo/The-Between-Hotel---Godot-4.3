@@ -22,7 +22,6 @@ shader_parameter/scan_line_strength = -8.0
 shader_parameter/pixel_strength = -2.0
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("inventory")]
-process_mode = 3
 process_thread_group = 2
 process_thread_group_order = 0
 process_thread_messages = 0

@@ -423,7 +423,6 @@ action_mode = 0
 button_mask = 3
 flat = true
 
-[connection signal="stamp_equiped" from="." to="." method="_on_stamp_equiped"]
 [connection signal="pressed" from="ButtonSelos" to="." method="_on_button_selos_pressed"]
 [connection signal="pressed" from="ButtonMissions" to="." method="_on_button_missions_pressed"]
 [connection signal="pressed" from="ButtonMapa" to="." method="_on_button_mapa_pressed"]

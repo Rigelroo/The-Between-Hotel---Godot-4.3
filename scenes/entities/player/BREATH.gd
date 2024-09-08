@@ -30,8 +30,12 @@ func update(delta):
 	#if Player.is_in_water:
 		#$"../../AnimationPlayer2".play("idle_swimming")
 		#return STATES.INWATER
+
+
+
+
 	if !Player.breath_input:
-		$"../../GPUParticles2D".emitting = false
+		%Breathemitter.emitting = false
 		$"../../AnimationPlayer".play("idle")
 		manager.deactivatestamina.emit()
 		return STATES.IDLE

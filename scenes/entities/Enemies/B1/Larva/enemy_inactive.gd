@@ -8,15 +8,16 @@ extends EnemyState
 # Called when the node enters the scene tree for the first time.
 
 func update(delta):
-	Entity.movement_manager(delta)
-	var distance = player.position - Entity.global_position
-	var distancex = player.position.x - Entity.global_position.x
-	if distance.length() < 430:
-		return STATES.CLOSE
-	if Entity.health <= Entity.health_min:
-		return STATES.DEFEAT
+	if SignalManager.can_update:
+		Entity.movement_manager(delta)
+		var distance = player.position - Entity.global_position
+		var distancex = player.position.x - Entity.global_position.x
+		if distance.length() < 430:
+			return STATES.CLOSE
+		if Entity.health <= Entity.health_min:
+			return STATES.DEFEAT
 
-	return null
+		return null
 
 func enter_state():
 	$"../../CollisionShape2D".disabled = true

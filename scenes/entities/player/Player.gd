@@ -13,6 +13,7 @@ signal inkChanged
 
 @onready var test2D = $Node2D
 @onready var splashdec = $Splashdetection
+@onready var hitbox = $Hitbox
 @onready var slashbox = $sword
 @onready var slashbox_down = $sword1
 @onready var stats = get_tree().get_first_node_in_group("Stats")
@@ -23,6 +24,8 @@ signal inkChanged
 @onready var item_index = inv_dictionary.invsitems
 @onready var stamp_index = inv_dictionary.invseals
 
+@export_subgroup("Magic System")
+@export var magic_abilities: Array[MagicResource]
 
 @export_subgroup("Extra Properties")
 @export var is_dealing_damage = false
@@ -133,6 +136,7 @@ func set_idle():
 
 
 func _ready():
+	add_to_group("Player")
 	set_stats()
 	$sword/sword_collider.disabled = true
 	$sword1/sword_collider2.disabled = true
@@ -147,6 +151,13 @@ func _ready():
 	current_state = STATES.IDLE
 	
 func _process(delta: float) -> void:
+	
+	if %Breathemitter.emitting:
+		%fire_collider.disabled = false
+
+	if !%Breathemitter.emitting:
+		%fire_collider.disabled = true
+		
 	playdeath()
 	if current_state != STATES.AIRSLASH:
 		await $AnimationPlayer.animation_finished
@@ -211,11 +222,13 @@ func player_input():
 		if Input.is_action_pressed("MoveRight"):
 			if $STATES/SLIDE.is_sliding == 0:
 				movement_input.x += 1
-				$GPUParticles2D.scale.x = 0.5
-				$GPUParticles2D.position.x = 14.2
+				%Breathemitter.scale.x = 0.5
+				%Breathemitter.position.x = 14.2
 				$Sprite2D.flip_h = false
 				#$Sprite2D.scale.x = 0.07
 				$sword.position.x = 0
+				%fire_collider.position.x = 50
+				
 				$Sprite2D.position.x = 1
 				$PlayerHatCold.scale.x = 0.07
 			facing_direction = false
@@ -224,8 +237,9 @@ func player_input():
 				movement_input.x -= 1
 				#$Sprite2D.scale.x = -0.07
 				$Sprite2D.flip_h = true
-				$GPUParticles2D.scale.x = -0.5
-				$GPUParticles2D.position.x = -14.2
+				%Breathemitter.scale.x = -0.5
+				%Breathemitter.position.x = -14.2
+				%fire_collider.position.x = -60
 				$PlayerHatCold.scale.x = -0.07
 				$Sprite2D.position.x = 3.67
 				$sword.position.x = -46

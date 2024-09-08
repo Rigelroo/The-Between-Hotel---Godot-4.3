@@ -72,7 +72,9 @@ func insert(item: InventoryItem):
 			slots[i].item = item
 			slots[i].amount = 1
 			updated.emit()
+			
 			return
+			
 	
 func removeSlot(inventorySlot: InventorySlot):
 	var index = slots.find(inventorySlot)
@@ -103,11 +105,11 @@ func equip_item_at_index(index: int) -> void:
 	if index < 0 || index >= slots.size() || !slots[index].item: return
 	var slot = slots[index]
 	var inventoryc = Inventoryc
-	
+
 	equip_item.emit(slot.item)
 	
 	if slot.amount > 1:
-		slot.amount - 1
+		slot.amount = 0
 		
 		updated.emit()
 		return

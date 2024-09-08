@@ -18,7 +18,8 @@ func insert(item: InventoryItem):
 				#continue
 			#stampslot.amount += 1
 			updated.emit()
-			stamp_unequipped.emit()
+			SignalManager.stamp_unequipped.emit()
+			
 			return
 		if stampslot.item == item:
 			stampslot.item = null
@@ -27,6 +28,25 @@ func insert(item: InventoryItem):
 			#stampslot.amount += 1
 			updated.emit()
 			return
+
+	for i in range(stampslots.size()):
+		if !stampslots[i].item:
+			stampslots[i].item = item
+			stampslots[i].amount = 1
+			updated.emit()
+			SignalManager.stamp_equipped.emit()
+			return
+
+
+	#for stampslot in stampslots:
+		#if stampslot.item == item:
+			#stampslot.item = null
+			##stampslot.amount += 1
+			##updated.emit()
+			#return
+
+
+
 	#for slot in slots:
 		#if slot.item == item:
 			#if slot.amount >= item.maxAmountInStack:
@@ -49,20 +69,8 @@ func insert(item: InventoryItem):
 			#emptySlots[0].item = item
 			#emptySlots[0].amount = 1
 	#updated.emit()
-	for stampslot in stampslots:
-		if stampslot.item == item:
-			stampslot.item = null
-			#stampslot.amount += 1
-			#updated.emit()
-			return
 	
-	for i in range(stampslots.size()):
-		if !stampslots[i].item:
-			stampslots[i].item = item
-			stampslots[i].amount = 1
-			updated.emit()
-			stamp_equipped.emit()
-			return
+	
 	
 func removeSlot(inventorySlot: InventorySlotc):
 	var index = stampslots.find(inventorySlot)

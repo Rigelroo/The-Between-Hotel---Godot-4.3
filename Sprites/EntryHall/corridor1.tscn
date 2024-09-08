@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cqh2nchvubbuh" path="res://Sprites/NPCs/Clicko.png" id="28_5r4dp"]
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="28_wgf4g"]
 [ext_resource type="Texture2D" uid="uid://bwqnxxc5b8xye" path="res://Sprites/sombra.png" id="29_grj7y"]
-[ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="31_fn461"]
+[ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="31_420lk"]
 [ext_resource type="PackedScene" uid="uid://wu27ixe1fu82" path="res://objects/porta_quarto.tscn" id="31_ypx4h"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="33_gn41e"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="34_n8r74"]
@@ -679,8 +679,6 @@ position = Vector2(-4.99969, 370)
 scale = Vector2(1, 0.35)
 texture = ExtResource("29_grj7y")
 
-[node name="PausemenuLayer" parent="." instance=ExtResource("31_fn461")]
-
 [node name="Berserklayer" parent="." instance=ExtResource("28_wgf4g")]
 
 [node name="Statslayer" type="CanvasLayer" parent="."]
@@ -693,3 +691,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("34_n8r74")]
 process_mode = 3
 visible = false
+
+[node name="PausemenuLayer" parent="." instance=ExtResource("31_420lk")]
+process_mode = 0

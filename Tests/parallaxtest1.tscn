@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=44 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://wu27ixe1fu82" path="res://objects/porta_quarto.tscn" id="11_qu67e"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="12_njeaq"]
 [ext_resource type="PackedScene" uid="uid://buw8duilnfqej" path="res://camera_2d.tscn" id="13_5etxj"]
-[ext_resource type="PackedScene" uid="uid://cmxab041f4cvq" path="res://objects/Pulg.tscn" id="13_y1m30"]
 [ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="14_s4luv"]
 [ext_resource type="PackedScene" uid="uid://b1gwbm7ogm5ol" path="res://objects/lightmoths.tscn" id="15_0d4y7"]
 [ext_resource type="PackedScene" uid="uid://cad058dvr1hb3" path="res://npcs/Quarto 1 - bettleborough/splasharea.tscn" id="17_lw15w"]
@@ -693,10 +692,6 @@ spritestr = "res://Sprites/EntryHall - Reworked/Porta_bugnest.png"
 
 [node name="Turquesa" parent="." instance=ExtResource("11_hlwct")]
 position = Vector2(-7, -7)
-
-[node name="Pulg" parent="." instance=ExtResource("13_y1m30")]
-position = Vector2(2725, 711)
-speed = 60
 
 [node name="Larva" parent="." instance=ExtResource("26_m2c4s")]
 position = Vector2(3565, 649)

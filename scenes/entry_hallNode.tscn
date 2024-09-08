@@ -321,9 +321,6 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" parent="Selo4" index="1"]
 texture = ExtResource("31_r2m3r")
 
-[node name="PausemenuLayer" parent="." instance=ExtResource("31_fkyq7")]
-process_mode = 0
-
 [node name="Berserklayer" parent="." instance=ExtResource("34_ysfqo")]
 
 [node name="Statslayer" type="CanvasLayer" parent="."]
@@ -337,11 +334,9 @@ metadata/_edit_use_anchors_ = true
 process_mode = 3
 visible = false
 
+[node name="PausemenuLayer" parent="." instance=ExtResource("31_fkyq7")]
+
 [editable path="Selo3"]
 [editable path="Selo5"]
 [editable path="Selo6"]
 [editable path="Selo4"]
-[editable path="PausemenuLayer"]
-[editable path="PausemenuLayer/InventoryGui"]
-[editable path="PausemenuLayer/InventoryGui/TabContainer/Selos/Control/Sealbar_slot1"]
-[editable path="PausemenuLayer/InventoryGui/TabContainer/Selos/GridContainer/Panel"]

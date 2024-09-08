@@ -51,12 +51,19 @@ var movement_type_const = null
 var position_saver = null
 
 var can_attack = false
-
-var player : CharacterBody2D
+#
+#var player : CharacterBody2D
 @onready var STATES = $EnemyStateMachine
 
 var current_state = null
 var prev_state = null
+@onready var player = get_tree().get_first_node_in_group("Player")
+
+func set_player():
+	var root = get_tree().root
+	var current_scene = root.get_child(root.get_child_count() - 1)
+	if current_scene:
+		var player = current_scene.get_node("Player") 
 
 func gravity_manager(delta):
 	if gravity_type == 1:
@@ -153,6 +160,7 @@ func one_dir_y():
 				dir = Vector2.UP
 
 func _ready() -> void:
+	
 	$CollisionShape2D.disabled = true
 	%Larva.rotation = 0
 	is_dealing_damage = false
@@ -171,11 +179,12 @@ func _ready() -> void:
 	for state in STATES.get_children():
 		state.STATES = STATES
 		state.Entity = self
+		state.player = player
 	prev_state = STATES.INACTIVE
 	current_state = STATES.INACTIVE
 
 	
-	player = get_tree().get_first_node_in_group("Player")
+	#player = get_tree().get_first_node_in_group("Player")
 	%HPlabel.text = "HP: " + str(health)
 
 

@@ -9,6 +9,7 @@ var dead : bool = false
 
 @onready var inventory = $PausemenuLayer.inventory
 @onready var player = get_tree().get_first_node_in_group("Player")
+@onready var stats = get_tree().get_first_node_in_group("Stats")
 @onready var gameover_manager = get_tree().get_first_node_in_group("Gameover")
 @onready var hudbar = $Statslayer/Statsbar
 
@@ -34,6 +35,12 @@ var death_scene: String = "res://Tests/deadreplacer.tscn"
 @export_file("*.tscn") var next_scene: String
 @onready var manager : MainManager = preload("res://Global/Mainmanager.tres")
 
+signal just_equip
+#
+#func _physics_process(delta: float) -> void:
+	#if Input.is_action_just_pressed("Attack") && inventory.number == 1:
+		#SignalManager.just_equip.emit()
+
 
 func load_scene() -> void:
 	manager.loaded.emit()
@@ -42,6 +49,7 @@ func load_scene() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	SignalManager.world_loaded.emit()
 	
 	player.set_idle()
 	manager.inventoryopened.connect(_on_inventory_gui_opened)
@@ -75,7 +83,7 @@ func _process_tilemap(body: Node2D, body_RID: RID) -> void:
 func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("Transition"):
 		#SceneManager.transition_to(next_scene)
-	#
+	
 	if splashw.can_create == true:
 		activate()
 		

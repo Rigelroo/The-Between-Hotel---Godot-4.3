@@ -2,13 +2,13 @@ extends Node
 
 class_name EnemyState
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+
 @onready var animation_hit = %Hit
-@onready var animation_body = %Body2
+
 @onready var statedebug = %Statelabel
 
 signal Transitioned
-
+var player = null
 var STATES = null
 var Entity = null
 

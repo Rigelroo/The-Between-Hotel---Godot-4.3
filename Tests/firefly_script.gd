@@ -51,7 +51,7 @@ var position_saver = null
 
 var can_attack = false
 
-var player : CharacterBody2D
+@onready var player = get_tree().get_first_node_in_group("Player")
 @onready var STATES = $EnemyStateMachine
 
 var current_state = null
@@ -62,7 +62,19 @@ func shoot_projectile():
 	var projectile = projectile_node.instantiate()
 	projectile.position = %Bulletmarker.global_position
 	projectile.damage = damage_value # * charge.value
-	get_tree().current_scene.add_child(projectile)
+	
+	# Ensure `projectile` is a valid instance of a node
+	if projectile:
+		var root = get_tree().root
+		var current_scene = root.get_child(root.get_child_count() - 1)
+	
+		if current_scene:
+			current_scene.add_child(projectile)
+		else:
+			print("Error: No current scene found.")
+	else:
+		print("Error: Projectile is not a valid node.")
+
 
 		#if can_shoot:
 		#var bullet_instance = bullet.instantiate()
@@ -164,11 +176,10 @@ func _ready() -> void:
 	for state in STATES.get_children():
 		state.STATES = STATES
 		state.Entity = self
+		state.player = player
 	prev_state = STATES.IDLE
 	current_state = STATES.IDLE
 
-	
-	player = get_tree().get_first_node_in_group("Player")
 	%HPlabel.text = "HP: " + str(health)
 
 

@@ -9,18 +9,22 @@ signal selected
 var isOpen: bool = false
 @export var SelosisOpen : bool = false
 
-@onready var ItemStackGuiClass = preload("res://inventory/gui/itemStackGui.tscn")
-@onready var ItemStackGuiClassb = preload("res://inventory/gui/itemStackGuib.tscn")
-@onready var ItemStackGuiClassc = preload("res://inventory/gui/itemStackGuic.tscn")
-@onready var inventory: Inventory = preload("res://inventory/PlayerInventory.tres")
-@onready var inventoryb: Inventoryb = preload("res://inventory/PlayerInventoryb.tres")
-@onready var inventoryc: Inventoryc = preload("res://inventory/PlayerInventoryc.tres")
-@onready var slots: Array = $TabContainer/Selos/GridContainer.get_children() #+ $TabContainer/Selos/Control.get_children()
-#@onready var slots: Array = $TabContainer/Selos/Panel/SealBar.get_children()
+#@onready var ItemStackGuiClass = preload("res://inventory/gui/itemStackGui.tscn")
+#@onready var ItemStackGuiClassb = preload("res://inventory/gui/itemStackGuib.tscn")
+#@onready var ItemStackGuiClassc = preload("res://inventory/gui/itemStackGuic.tscn")
+#@onready var inventory: Inventory = preload("res://inventory/PlayerInventory.tres")
+#@onready var inventoryb: Inventoryb = preload("res://inventory/PlayerInventoryb.tres")
+#@onready var inventoryc: Inventoryc = preload("res://inventory/PlayerInventoryc.tres")
+var slots = null
+#@onready var slots: Array = $TabContainer/Selos/GridContainer.get_children() #+ $TabContainer/Selos/Control.get_children()
+#
+#var sealslots: Array = $TabContainer/Selos/Control.get_children()
+#var uslots: Array = $TabContainer/Selos/Control.get_children()
+#var invslots: Array = $"TabContainer/Inventário/GridContainer".get_children()
 
-@onready var sealslots: Array = $TabContainer/Selos/Control.get_children()
-@onready var uslots: Array = $TabContainer/Selos/Control.get_children()
-@onready var invslots: Array = $"TabContainer/Inventário/GridContainer".get_children()
+var sealslots = null
+var uslots = null
+var invslots = null
 #@onready var sealbar_slots: Array = $TabContainer/Selos/SealBar.get_children()
 
 @onready var Selos = $"TabContainer/Selos"
@@ -38,13 +42,13 @@ var isOpen: bool = false
 @export var number = 0
 @onready var coin_displayer = $"TabContainer/Inventário/CoinDisplayer"
 var itemInHand: ItemStackGui
-var currently_selected: int = 0
+@onready var currently_selected: int = 0
 var next_selected: int = 1
 var previously_selected: int = 0
 var nextEmpty: bool
 var previousEmpty: bool
 
-var currently_selectedb: int = 0
+@onready var currently_selectedb: int = 0
 var next_selectedb: int = 1
 var previously_selectedb: int = 0
 var nextEmptyb: bool
@@ -53,6 +57,9 @@ var previousEmptyb: bool
 
 @export var manager : MainManager
 
+
+func world_ready():
+	pass
 
 func hat_for_selector():
 	if manager.hatintime_equiped:
@@ -79,24 +86,41 @@ func nohats():
 	selector.texture = load("res://inventory/gui/Selector/slot inventario - select.png")
 	selectorb.texture = load("res://inventory/gui/Selector/slot inventario - select.png")
 
+func stamp_equipped():
+	SignalManager.stamp_equippedfunc(slots,currently_selected,SignalManager.inventory)
+
+func stamp_unequipped():
+	SignalManager.stamp_unequippedfunc(slots,currently_selected,SignalManager.inventory)
+
+func please_equip():
+	SignalManager.equipstamp(slots, sealslots, currently_selected, SignalManager.inventoryc)
+
 func _ready():
-	selector.global_position = slots[currently_selected].global_position
+	SignalManager.stamp_unequipped.connect(stamp_unequipped)
+	SignalManager.stamp_equipped.connect(stamp_equipped)
+	SignalManager.just_equip.connect(please_equip)
+	SignalManager.inventory.updated.emit()
+	selector = $TabContainer/Selos/CenterContainer/Slotselect
+	
+	slots = $TabContainer/Selos/GridContainer.get_children()
+	sealslots = $TabContainer/Selos/Control.get_children()
+	uslots = $TabContainer/Selos/Control.get_children()
+	invslots = $"TabContainer/Inventário/GridContainer".get_children()
 	printa()
 	hat_for_selector()
 	connectSlots()
-	inventory.updated.connect(update)
-	inventoryb.updated.connect(update)
-	inventoryc.updated.connect(update)
-	inventoryc.stamp_unequipped.connect(stamp_unequipped)
-	inventoryc.stamp_equipped.connect(stamp_equipped)
+	SignalManager.inventory.updated.connect(update)
+	SignalManager.inventoryb.updated.connect(update)
+	SignalManager.inventoryc.updated.connect(update)
+	
 	manager.no_hats.connect(nohats)
 	manager.insert_coin.connect(updatecoin)
 	print("first position",number)
 	update()
 
 func printa():
-	for j in range(min(inventoryb.invslots.size(), invslots.size())):
-		var inventorySlotb: InventorySlotb = inventoryb.invslots[j]
+	for j in range(min(SignalManager.inventoryb.invslots.size(), invslots.size())):
+		var inventorySlotb: InventorySlotb = SignalManager.inventoryb.invslots[j]
 		print(inventorySlotb.item)
 
 
@@ -105,8 +129,8 @@ func updatecoin():
 
 func update():
 	
-	for i in range(min(inventory.slots.size(), slots.size())):
-		var inventorySlot: InventorySlot = inventory.slots[i]
+	for i in range(min(SignalManager.inventory.slots.size(), slots.size())):
+		var inventorySlot: InventorySlot = SignalManager.inventory.slots[i]
 		
 		if !inventorySlot.item:
 			slots[i].clear()
@@ -115,15 +139,15 @@ func update():
 		var itemStackGui: ItemStackGui = slots[i].itemStackGui
 		
 		if !itemStackGui:
-			itemStackGui = ItemStackGuiClass.instantiate()
+			itemStackGui = SignalManager.ItemStackGuiClass.instantiate()
 			slots[i].insert(itemStackGui)
 		itemStackGui.inventorySlot = inventorySlot
 		itemStackGui.update()
 
 
 
-	for i in range(min(inventoryc.stampslots.size(), sealslots.size())):
-		var inventorySlotc: InventorySlotc = inventoryc.stampslots[i]
+	for i in range(min(SignalManager.inventoryc.stampslots.size(), sealslots.size())):
+		var inventorySlotc: InventorySlotc = SignalManager.inventoryc.stampslots[i]
 		
 		if !inventorySlotc.item:
 			sealslots[i].clear()
@@ -132,13 +156,13 @@ func update():
 		var itemStackGuic: ItemStackGuic = sealslots[i].itemStackGuic
 		
 		if !itemStackGuic:
-			itemStackGuic = ItemStackGuiClassc.instantiate()
+			itemStackGuic = SignalManager.ItemStackGuiClassc.instantiate()
 			sealslots[i].insert(itemStackGuic)
 		itemStackGuic.inventorySlotc = inventorySlotc
 		itemStackGuic.update()
 
-	for j in range(min(inventoryb.invslots.size(), invslots.size())):
-		var inventorySlotb: InventorySlotb = inventoryb.invslots[j]
+	for j in range(min(SignalManager.inventoryb.invslots.size(), invslots.size())):
+		var inventorySlotb: InventorySlotb = SignalManager.inventoryb.invslots[j]
 		
 		if !inventorySlotb.item:
 			invslots[j].clear()
@@ -147,7 +171,7 @@ func update():
 		var itemStackGuib: ItemStackGuib = invslots[j].itemStackGuib
 		
 		if !itemStackGuib:
-			itemStackGuib = ItemStackGuiClassb.instantiate()
+			itemStackGuib = SignalManager.ItemStackGuiClassb.instantiate()
 			invslots[j].insert(itemStackGuib)
 		itemStackGuib.inventorySlotb = inventorySlotb
 		itemStackGuib.update()
@@ -170,54 +194,45 @@ func readyclose():
 	isOpen = false
 	#manager.inventoryclosed.emit()
 
-signal stamp_equiped
 
-func equipstamp(slot):
-	var sealslot = sealslots
-	var slotf = slots[currently_selected]
-	if !slotf.isEmpty():
-		inventoryc.insert(slotf.itemStackGui.inventorySlot.item)
-		print(slotf.itemStackGui.inventorySlot.item)
-		if slotf.itemStackGui.inventorySlot.item.itemactivate == 0:
-			slotf.itemStackGui.inventorySlot.item.itemactivate = 1
-		if slotf.itemStackGui.inventorySlot.item.itemactivate == 1:
-			slotf.itemStackGui.inventorySlot.item.itemactivate = 0
-		
-	
 
-func stamp_unequipped():
-	var slot = slots[currently_selected]
-	var secondary = slot.itemStackGui.inventorySlot.item.scriptstr
-	var itemscript = load(secondary).new()
-	print("stamp unequip")
-	slot.itemStackGui.inventorySlot.amount = 1
-	inventory.updated.emit()
-	itemscript.deactivatestamp()
+
+
+
 	
 	
 @onready var greed = GreedStamp
 
 
-func stamp_equipped():
-	
-	#changetexture_equip()
-	var slot = slots[currently_selected]
-	var secondary = slot.itemStackGui.inventorySlot.item.scriptstr
-	var itemscript = load(secondary).new()
-	print("stamp equip: ",slot.itemStackGui.inventorySlot.item.name)
-	
-	itemscript.activatestamp()
-	#slots[currently_selected].modulateslot()
-	slot.itemStackGui.inventorySlot.amount -= 1
-	inventory.updated.emit()
-	
-	#var texture = slot.itemStackGui.inventorySlot.item.texture
-	#var equiptexture = load(terciary)
-	#slot.itemStackGui.inventorySlot.item.texture = load(terciary)
-	#
 
-	#secondary.activatestamp()itemscript
-	
+
+
+#func stamp_equipped():
+	#
+	##changetexture_equip()
+	#var slot = slots[currently_selected]
+	#var secondary = slot.itemStackGui.inventorySlot.item.scriptstr
+	#var itemscript = load(secondary).new()
+	#print("stamp equip: ",slot.itemStackGui.inventorySlot.item.name)
+	#
+	#slot = slots[currently_selected]
+	#secondary = slot.itemStackGui.inventorySlot.item.scriptstr
+	#itemscript = load(secondary).new()
+	#
+	#
+	#itemscript.activatestamp()
+	##slots[currently_selected].modulateslot()
+	#slot.itemStackGui.inventorySlot.amount = 0
+	#print("é esse aqui ó -> ", slots[currently_selected].itemStackGui.inventorySlot.item.name, " num: ",currently_selected)
+	#inventory.updated.emit()
+	#
+	##var texture = slot.itemStackGui.inventorySlot.item.texture
+	##var equiptexture = load(terciary)
+	##slot.itemStackGui.inventorySlot.item.texture = load(terciary)
+	##
+#
+	##secondary.activatestamp()itemscript
+
 func collect(inventory: Inventoryc):
 	pass
 	
@@ -364,10 +379,10 @@ func equip_seal(slot):
 	var itemres = slot
 	var tempItem = slot
 	
-	inventory.equip_item_at_index(currently_selected)
+	SignalManager.inventory.equip_item_at_index(currently_selected)
 	
 func _unhandled_input(event):
-	var slot = slots[currently_selected]
+	#var slot = slots[currently_selected]
 	if isOpen:
 		if event.is_action_pressed("selector_right") && number == 1:
 			move_selector_R()
@@ -380,12 +395,11 @@ func _unhandled_input(event):
 		if event.is_action_pressed("Jump") && number == 1:
 			pass
 			#onSlotClicked(slot)
-			
+		if event.is_action_pressed("Attack") && number == 1:
+			SignalManager.equipstamp(slots, sealslots, currently_selected, SignalManager.inventoryc)
 			#move_selector_stamp()
 			
-		if event.is_action_pressed("Attack") && number == 1:
-			equipstamp(slot)
-			
+		
 		
 		if event.is_action_pressed("selector_right") && number == 2:
 			move_selector_RB()
@@ -395,6 +409,7 @@ func _unhandled_input(event):
 			move_selector_DB()
 		if event.is_action_pressed("selector_up")  && number == 2:
 			move_selector_UB()
+		
 
 func _unhandled_input2(event):
 	pass

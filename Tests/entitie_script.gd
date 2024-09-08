@@ -50,7 +50,7 @@ var position_saver = null
 
 var can_attack = false
 
-var player : CharacterBody2D
+@onready var player = get_tree().get_first_node_in_group("Player")
 @onready var STATES = $EnemyStateMachine
 
 var current_state = null
@@ -151,11 +151,11 @@ func _ready() -> void:
 	for state in STATES.get_children():
 		state.STATES = STATES
 		state.Entity = self
+		state.player = player
 	prev_state = STATES.IDLE
 	current_state = STATES.IDLE
 
 	
-	player = get_tree().get_first_node_in_group("Player")
 	%HPlabel.text = "HP: " + str(health)
 
 

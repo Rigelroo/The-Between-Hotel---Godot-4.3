@@ -1,7 +1,8 @@
-[gd_scene load_steps=207 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=205 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://dknwb0q3tench" path="res://Sprites/Player/All/jump7.png" id="2_lumcb"]
+[ext_resource type="Script" path="res://MagicResource.gd" id="2_s83wp"]
 [ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://inventory/PlayerInventory.tres" id="3_6uatj"]
 [ext_resource type="Texture2D" uid="uid://cdil4nue1d7k" path="res://Sprites/Player/Doublejump_particle/quadro0007.png" id="3_kbq60"]
 [ext_resource type="PackedScene" uid="uid://rahvx1fnjiwx" path="res://scenes/entities/player/JUMP.tscn" id="3_ulsqu"]
@@ -36,7 +37,6 @@
 [ext_resource type="Texture2D" uid="uid://beqhgp033s2sh" path="res://Sprites/Player/hats/Player_hat_cold.png" id="18_ayf5o"]
 [ext_resource type="Texture2D" uid="uid://qnauyx1ja8ee" path="res://Sprites/Player/All/run10.png" id="18_bis8s"]
 [ext_resource type="Texture2D" uid="uid://c32w6krx6qttm" path="res://Sprites/Player/Attack1/quadro0000.png" id="19_f1g5w"]
-[ext_resource type="Texture2D" uid="uid://cb7a00lh4al88" path="res://Sprites/Effects/firespritesheet.png" id="19_spcq3"]
 [ext_resource type="Animation" uid="uid://c1vmf0xcofn8h" path="res://animations/idle_swimming.res" id="19_wfsrk"]
 [ext_resource type="Texture2D" uid="uid://ca76h0wy308eo" path="res://Sprites/Player/Attack1/quadro0001.png" id="20_44s3a"]
 [ext_resource type="Texture2D" uid="uid://d1c5cxfrblq5l" path="res://Sprites/Player/Attack1/quadro0002.png" id="21_ke61w"]
@@ -166,6 +166,7 @@
 [ext_resource type="PackedScene" uid="uid://bm1oandnfm0vi" path="res://scenes/entities/player/BREATH.tscn" id="147_41pd1"]
 [ext_resource type="PackedScene" uid="uid://bj2x50p1ul0ft" path="res://splashdetection.tscn" id="152_f5dxw"]
 [ext_resource type="Script" path="res://scenes/entities/player/HIT.gd" id="160_vgtc2"]
+[ext_resource type="PackedScene" uid="uid://chtv73gw0h0nt" path="res://scenes/magic_system/emitters/firebreathemitter.tscn" id="167_kde63"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5fq"]
 size = Vector2(20, 25)
@@ -701,6 +702,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Breathemitter:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_s282s"]
 resource_name = "breath_end"
@@ -716,6 +729,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [ExtResource("132_8pgmd"), ExtResource("133_xjgvu"), ExtResource("134_8v31a"), ExtResource("135_p24no")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Breathemitter:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_b1cih"]
@@ -1437,41 +1462,12 @@ size = Vector2(19.8291, 50.1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsxqx"]
 size = Vector2(38.2, 38.1)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bq5g7"]
-particles_animation = true
-particles_anim_h_frames = 4
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_m1ehq"]
-min_value = 0.1
-max_value = 4.0
-_data = [Vector2(0, 0.796226), 0.0, 0.0, 0, 0, Vector2(0.988971, 4), 2.38356, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_xwb4d"]
-curve = SubResource("Curve_m1ehq")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1kki5"]
-particle_flag_disable_z = true
-direction = Vector3(1, 0.19, 0)
-spread = 0.0
-initial_velocity_min = 70.0
-initial_velocity_max = 70.0
-gravity = Vector3(0, -200, 0)
-linear_accel_min = -2.23517e-06
-linear_accel_max = 100.0
-scale_min = 0.2
-scale_max = 0.2
-scale_curve = SubResource("CurveTexture_xwb4d")
-hue_variation_min = -2.23517e-08
-hue_variation_max = -2.23517e-08
-anim_speed_min = 2.0
-anim_speed_max = 2.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7qom"]
+size = Vector2(74.829, 50.1)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("target", "player_target", "show_target") groups=["Player"]]
 script = ExtResource("1_bvkld")
-is_dealing_damage = true
+magic_abilities = Array[ExtResource("2_s83wp")]([null])
 manager = ExtResource("5_a6y1r")
 target = NodePath("PlayerTarget")
 player_target = NodePath("PlayerTarget")
@@ -1539,6 +1535,7 @@ modulate = Color(0.0705882, 0.0313726, 0.160784, 1)
 position = Vector2(3.4, -3)
 rotation = 0.0163368
 scale = Vector2(-0.07, 0.07)
+texture = ExtResource("18_ayf5o")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationPlayer")
@@ -1683,14 +1680,19 @@ position = Vector2(-0.2, 9.6)
 unique_name_in_owner = true
 position = Vector2(0, -37)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_bq5g7")
-position = Vector2(14.2, -0.4)
-scale = Vector2(0.4, 0.4)
-emitting = false
-amount = 9
-process_material = SubResource("ParticleProcessMaterial_1kki5")
-texture = ExtResource("19_spcq3")
+[node name="breath" type="Area2D" parent="."]
+position = Vector2(0, -2.98023e-08)
+scale = Vector2(1, 1)
+
+[node name="fire_collider" type="CollisionShape2D" parent="breath"]
+unique_name_in_owner = true
+position = Vector2(50.5855, -7.95)
+shape = SubResource("RectangleShape2D_q7qom")
+disabled = true
+debug_color = Color(0.766637, 0.286552, 0.855658, 0.42)
+
+[node name="Breathemitter" parent="." instance=ExtResource("167_kde63")]
+unique_name_in_owner = true
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

@@ -25,10 +25,11 @@ func transition_to(scene: String) -> void:
 	
 	new_scene.load_scene()
 	new_scene.loaded.connect(awaitt)
-	await new_scene.loaded
+	
 	transition_out()
 	await transitioned_out
-	new_scene.activate()
+	pass
+	#new_scene.activate()
 func awaitt():
 	print("awa")
 

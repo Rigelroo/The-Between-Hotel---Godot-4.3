@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MagicResource" load_steps=2 format=3 uid="uid://bobjqo2b3e2d2"]
+
+[ext_resource type="Script" path="res://MagicResource.gd" id="1_sd4gw"]
+
+[resource]
+script = ExtResource("1_sd4gw")
+name = ""
+ink_cost = 0
+cooldown = 0.0
+duration = 0.0
