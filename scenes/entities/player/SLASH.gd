@@ -15,6 +15,7 @@ func update(delta):
 		return STATES.IDLE
 	if can_doubleslash && Player.attack_input:
 		$"../../AnimationPlayer".play("slash1")
+		
 	if Player.new_item_activate:
 		$"../../AnimationPlayer".play("new_item")
 		return STATES.NEWITEM

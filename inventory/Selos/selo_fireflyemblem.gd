@@ -11,6 +11,7 @@ var hleaf_equiped : bool = false
 func use(player: Player) -> void:
 	print("useitem")
 func activatestamp():
+	SignalManager.breath_index = 0
 	Equiped.emit()
 	manager.ffemblem_equiped = true
 	print("ht foi")

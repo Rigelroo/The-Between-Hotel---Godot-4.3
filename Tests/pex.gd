@@ -8,10 +8,13 @@ var player_in_area = false
 var is_chatting = false
 var Player = null
 var timeline : DialogicTimeline = DialogicTimeline.new()
-@export var dialog_event = 1
+@export var dialog_event = 0
 
+
+@export_file("*.dtl") var dialogs: Array[String] = []
 func _ready():
 	$AnimatedSprite2D2.play("inactive")
+	print("dialog = ",dialogs)
 	#$AnimatedSprite2D.play("default")
 
 func _on_area_2d_2_body_entered(body: CharacterBody2D) -> void:
@@ -48,10 +51,6 @@ func _input(event: InputEvent):
 			return
 	
 		if Input.is_action_pressed("Interact"):
-			if dialog_event == 1:
-				Dialogic.start('testdialogue')
-				dialog_event = 2
-				get_viewport().set_input_as_handled()
-			if dialog_event == 2:
-				Dialogic.start('test2dialogue')
+				Dialogic.start(dialogs[dialog_event])
+				dialog_event = 1
 				get_viewport().set_input_as_handled()

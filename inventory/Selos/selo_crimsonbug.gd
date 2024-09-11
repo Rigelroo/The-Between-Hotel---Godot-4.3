@@ -12,6 +12,7 @@ func use(player: Player) -> void:
 	print("useitem")
 func activatestamp():
 	Equiped.emit()
+	
 	manager.crimsonfury_equiped = true
 	print("ht foi")
 func deactivatestamp():

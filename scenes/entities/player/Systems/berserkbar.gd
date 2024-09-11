@@ -13,7 +13,7 @@ signal update
 @onready var pointscene = preload("res://scenes/entities/player/Systems/middlepointcontainer.tscn")
 @export var manager : MainManager
 @onready var inv_manager : InventoryManager
-@onready var player = Global.player_body
+@onready var player = get_tree().get_first_node_in_group("Player")
 
 func _process(delta: float) -> void:
 	if manager.crimsonfury_equiped:
@@ -30,6 +30,9 @@ func _on_inventory_gui_closed():
 	self.visible = true
 
 func _ready() -> void:
+	SignalManager.world_loaded.connect(world_ready)
+
+func world_ready() -> void:
 	manager.inventoryopened.connect(_on_inventory_gui_opened)
 	manager.inventoryclosed.connect(_on_inventory_gui_closed)
 	maxpoints.max()

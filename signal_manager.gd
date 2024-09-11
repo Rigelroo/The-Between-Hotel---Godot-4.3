@@ -5,8 +5,14 @@ signal stamp_equipped
 signal stamp_unequipped
 signal just_equip
 signal world_loaded
-
+signal magic_changed
 var can_update : bool = false
+
+var breath_index : int = 0:
+	set(new_value):
+		breath_index = new_value
+		magic_changed.emit()
+		print("emitter index: ", breath_index)
 
 @onready var ItemStackGuiClass = preload("res://inventory/gui/itemStackGui.tscn")
 @onready var ItemStackGuiClassb = preload("res://inventory/gui/itemStackGuib.tscn")

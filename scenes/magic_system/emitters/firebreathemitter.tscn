@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://chtv73gw0h0nt"]
+[gd_scene load_steps=9 format=3 uid="uid://chtv73gw0h0nt"]
 
 [ext_resource type="Texture2D" uid="uid://cb7a00lh4al88" path="res://Sprites/Effects/firespritesheet.png" id="1_tdb8n"]
+[ext_resource type="Script" path="res://scenes/magic_system/emitters/emitter.gd" id="2_jo5wc"]
+[ext_resource type="Texture2D" uid="uid://bmll5avo1xexs" path="res://Sprites/Effects/fire_sub0000.png" id="2_qvgxp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5w1xr"]
 particles_animation = true
@@ -34,11 +36,29 @@ hue_variation_max = -2.23517e-08
 anim_speed_min = 2.0
 anim_speed_max = 2.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c5e0j"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+spread = 99.404
+initial_velocity_min = 19.9
+initial_velocity_max = 104.48
+scale_min = 0.3
+scale_max = 0.3
+turbulence_noise_speed_random = 0.04
+
 [node name="Breathemitter" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_5w1xr")
 position = Vector2(14.2, -0.4)
-scale = Vector2(0.833613, 0.245045)
 emitting = false
 amount = 9
 process_material = SubResource("ParticleProcessMaterial_d0s3r")
 texture = ExtResource("1_tdb8n")
+script = ExtResource("2_jo5wc")
+
+[node name="Subemitter" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 6
+amount_ratio = 0.6422
+process_material = SubResource("ParticleProcessMaterial_c5e0j")
+texture = ExtResource("2_qvgxp")

@@ -13,3 +13,4 @@ ink_cost = 10
 cooldown = 1.0
 duration = 5.0
 particles_scene_str = "res://scenes/magic_system/emitters/firebreathemitter.tscn"
+magic_script_str = "res://scenes/magic_system/scripts/firebreath.gd"

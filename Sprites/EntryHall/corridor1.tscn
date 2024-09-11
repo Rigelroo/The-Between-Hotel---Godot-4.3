@@ -508,20 +508,6 @@ scale = Vector2(20.9787, 21.1589)
 texture = SubResource("GradientTexture2D_ypoiu")
 texture_scale = 0.72
 
-[node name="Luzinha1" type="Sprite2D" parent="Node2D/Node2D2/Luzinha6"]
-material = ExtResource("17_3qldc")
-position = Vector2(620, 281)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_0inel")
-metadata/_edit_group_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="Node2D/Node2D2/Luzinha6/Luzinha1"]
-material = ExtResource("17_3qldc")
-position = Vector2(-3.33337, 436.667)
-scale = Vector2(20.9787, 21.1589)
-texture = SubResource("GradientTexture2D_ypoiu")
-texture_scale = 0.72
-
 [node name="Luzinha7" type="Sprite2D" parent="Node2D/Node2D2"]
 material = ExtResource("17_3qldc")
 position = Vector2(183, 204)
@@ -530,20 +516,6 @@ texture = ExtResource("18_0inel")
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D/Node2D2/Luzinha7"]
-material = ExtResource("17_3qldc")
-position = Vector2(-3.33337, 436.667)
-scale = Vector2(20.9787, 21.1589)
-texture = SubResource("GradientTexture2D_ypoiu")
-texture_scale = 0.72
-
-[node name="Luzinha1" type="Sprite2D" parent="Node2D/Node2D2/Luzinha7"]
-material = ExtResource("17_3qldc")
-position = Vector2(620, 281)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("18_0inel")
-metadata/_edit_group_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="Node2D/Node2D2/Luzinha7/Luzinha1"]
 material = ExtResource("17_3qldc")
 position = Vector2(-3.33337, 436.667)
 scale = Vector2(20.9787, 21.1589)
@@ -693,4 +665,3 @@ process_mode = 3
 visible = false
 
 [node name="PausemenuLayer" parent="." instance=ExtResource("31_420lk")]
-process_mode = 0

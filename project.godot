@@ -23,15 +23,16 @@ PhantomCameraManager="res://addons/phantom_camera/scripts/managers/phantom_camer
 Global="*res://Global/Global.gd"
 SceneManager="*res://Tests/scene_manager.tscn"
 Damagenumbers="*res://damagenumbers.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 QuestSystem="*res://addons/quest_system/quest_manager.gd"
 SignalManager="*res://signal_manager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
 directories/dch_directory={
 "Kori e Trice": "res://Sprites/DialogueBox/Kori e Trice/Kori e Trice.dch",
-"Persian": "res://Tests/Resources/Persian.dch"
+"Persian": "res://Tests/Resources/Persian.dch",
+"Turquesa": "res://Sprites/DialogueBox/Turquesa/Turquesa.dch"
 }
 directories/dtl_directory={
 "Teste1": "res://Sprites/DialogueBox/Kori e Trice/Teste1.dtl",
@@ -46,7 +47,9 @@ directories/dtl_directory={
 "quadro3": "res://quadro3.dtl",
 "test2dialogue": "res://Sprites/DialogueBox/Kori e Trice/test2dialogue.dtl",
 "testdialogue": "res://Sprites/DialogueBox/Kori e Trice/testdialogue.dtl",
-"timeline": "res://Sprites/timeline.dtl"
+"timeline": "res://Sprites/timeline.dtl",
+"turquesadialogue1": "res://Sprites/DialogueBox/Turquesa/turquesadialogue1.dtl",
+"turquesadialogue2": "res://Sprites/DialogueBox/Turquesa/turquesadialogue2.dtl"
 }
 layout/style_list=["res://Dialogsystem/Style.tres", "res://Dialogsystem/Style2.tres"]
 layout/default_style="res://Dialogsystem/Style.tres"
@@ -101,6 +104,7 @@ EnemyAttackboxs=""
 badProjectile=""
 Gameover=""
 Worldscene=""
+Breathemitters=""
 
 [input]
 

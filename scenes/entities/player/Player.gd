@@ -27,6 +27,7 @@ signal inkChanged
 @export_subgroup("Magic System")
 @export var magic_abilities: Array[MagicResource]
 
+
 @export_subgroup("Extra Properties")
 @export var is_dealing_damage = false
 @export var inTimeline = false
@@ -136,7 +137,9 @@ func set_idle():
 
 
 func _ready():
+	SignalManager.magic_changed.connect(new_emitter)
 	add_to_group("Player")
+	
 	set_stats()
 	$sword/sword_collider.disabled = true
 	$sword1/sword_collider2.disabled = true
@@ -151,12 +154,8 @@ func _ready():
 	current_state = STATES.IDLE
 	
 func _process(delta: float) -> void:
-	
-	if %Breathemitter.emitting:
-		%fire_collider.disabled = false
-
-	if !%Breathemitter.emitting:
-		%fire_collider.disabled = true
+	if can_emit:
+		breathemitting()
 		
 	playdeath()
 	if current_state != STATES.AIRSLASH:
@@ -222,8 +221,8 @@ func player_input():
 		if Input.is_action_pressed("MoveRight"):
 			if $STATES/SLIDE.is_sliding == 0:
 				movement_input.x += 1
-				%Breathemitter.scale.x = 0.5
-				%Breathemitter.position.x = 14.2
+				#%Breathemitter.scale.x = 0.5
+				#%Breathemitter.position.x = 14.2
 				$Sprite2D.flip_h = false
 				#$Sprite2D.scale.x = 0.07
 				$sword.position.x = 0
@@ -237,8 +236,8 @@ func player_input():
 				movement_input.x -= 1
 				#$Sprite2D.scale.x = -0.07
 				$Sprite2D.flip_h = true
-				%Breathemitter.scale.x = -0.5
-				%Breathemitter.position.x = -14.2
+				#%Breathemitter.scale.x = -0.5
+				#%Breathemitter.position.x = -14.2
 				%fire_collider.position.x = -60
 				$PlayerHatCold.scale.x = -0.07
 				$Sprite2D.position.x = 3.67
@@ -280,7 +279,7 @@ func player_input():
 			velocity.y += SWIN_JUMP
 	if !is_in_water && can_move && can_move_si:
 	#climb
-		if manager.ffemblem_equiped:
+		if manager.ffemblem_equiped or manager.frozenheart_equiped:
 			if Input.is_action_pressed("Magic"):
 				breath_input = true
 			else:
@@ -294,18 +293,43 @@ func player_input():
 			dash_input = true
 		else: 
 			dash_input = false
-		
 		if Input.is_action_just_pressed("Attack"):
 			attack_input = true
-		
 		else: 
 			attack_input = false
+			
+		#if Input.is_action_pressed("Attack"):
+			#is_charging = true
+			#charge_time = 0  # Reset charge time
+		#if Input.is_action_just_released("Attack"):
+			#if is_charging:
+				#perform_charge_attack()
+				#is_charging = false
+			#else:
+				#attack_input = true
+		
+		#else: 
+			#attack_input = false
 	
 		if Input.is_action_just_pressed("Interact"):
 			interact_input = true
 		else: 
 			interact_input = false
 		
+
+var charge_time = 0
+var is_charging = false
+var max_charge = 2.0  # Maximum charge time in seconds
+var charge_power = 1.0  # Basic attack power
+
+func perform_charge_attack():
+	$AnimationPlayer.play("chslash_frost")
+	await $AnimationPlayer.animation_finished
+	$AnimationPlayer.play("idle")
+
+func charge_attack(delta):
+	charge_time += delta
+	charge_time = min(charge_time, max_charge)
 func player():
 	pass
 	
@@ -455,5 +479,44 @@ func deal_projectiledamage(value: int, area: Area2D):
 	$AnimationPlayer.play("Damage")
 	area.collide()
 
+var can_emit = false
 
+var breathemitter = null
+var emitterscene = null
+
+var magic_index = SignalManager.breath_index
+func new_emitter():
+	magic_index = SignalManager.breath_index
+	var emitter = magic_abilities[magic_index].particles_scene_str
+	var emitterinst = load(emitter)
+	var breathemitter = emitterinst.instantiate()
 	
+	emitterscene = get_tree().get_first_node_in_group("Breathemitters")
+	emitterscene.bye()
+	
+	
+	
+	self.add_child(breathemitter)
+	emitterscene = get_tree().get_first_node_in_group("Breathemitters")
+	
+	breathemitter.position.x = 14.2
+	breathemitter.position.y = -0.4
+	
+	
+	
+
+
+func breathemitting():
+	pass
+	#if Input.is_action_pressed("MoveLeft"):
+		#get_node("%Breathemitter").position.x = -14.2
+		#%fire_collider.position.x = -60
+	#if Input.is_action_pressed("MoveRight"):
+		#get_node("%Breathemitter").scale.x = 0.5
+		#%fire_collider.position.x = 14.2
+	#
+	#if get_node("%Breathemitter").emitting:
+		#%fire_collider.disabled = false
+#
+	#if !get_node("%Breathemitter").emitting:
+		#%fire_collider.disabled = true

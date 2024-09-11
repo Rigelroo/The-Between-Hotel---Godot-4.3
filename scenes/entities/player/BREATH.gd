@@ -35,14 +35,16 @@ func update(delta):
 
 
 	if !Player.breath_input:
-		%Breathemitter.emitting = false
+		#%Breathemitter.emitting = false
+		breath_off()
 		$"../../AnimationPlayer".play("idle")
 		manager.deactivatestamina.emit()
 		return STATES.IDLE
 	return null
 func enter_state():
-	
-	
+	Player.new_emitter()
+	await owner.new_emitter()
+	owner.can_emit = true
 	Player.is_skydiving = false
 	Player.is_jumping = false
 	
@@ -59,3 +61,10 @@ func prep_starter() -> void:
 
 func _on_timer_timeout() -> void:
 	$"../../AnimationPlayer".play("breath_end")
+
+func breath_on():
+	Player.emitterscene.emitting = true
+	Player.emitterscene.subemitter.emitting = true
+func breath_off():
+	Player.emitterscene.emitting = false
+	Player.emitterscene.subemitter.emitting = false

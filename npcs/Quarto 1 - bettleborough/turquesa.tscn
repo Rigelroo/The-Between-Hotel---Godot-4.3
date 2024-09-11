@@ -107,7 +107,7 @@ animations = [{
 script = ExtResource("1_6i06r")
 
 [node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(1938, 867)
+position = Vector2(6.66, 83.58)
 scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
 
@@ -124,7 +124,7 @@ shape = SubResource("RectangleShape2D_5bu8n")
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 z_index = 50
 y_sort_enabled = true
-position = Vector2(1925, 579)
+position = Vector2(-6.34, -204.42)
 scale = Vector2(0.26, 0.26)
 sprite_frames = SubResource("SpriteFrames_dgglr")
 animation = &"mission"

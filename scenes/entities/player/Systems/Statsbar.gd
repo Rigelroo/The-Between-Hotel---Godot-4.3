@@ -19,7 +19,11 @@ class_name StatsBar
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 
+
 func _ready() -> void:
+	SignalManager.world_loaded.connect(world_ready)
+
+func world_ready() -> void:
 	add_to_group("Stats")
 	player.healthChanged.connect(updatehealth)
 	player.inkChanged.connect(updateink)

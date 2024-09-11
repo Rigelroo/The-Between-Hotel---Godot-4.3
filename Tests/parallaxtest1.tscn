@@ -31,7 +31,7 @@
 [ext_resource type="Resource" uid="uid://bv8ujs5m68b51" path="res://inventory/Selos/selo_crimsonbug.tres" id="30_wjqyc"]
 [ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://inventory/Selos/selo_crimsonbug.png" id="31_0jrsl"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hsyed"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihi6u"]
 texture = ExtResource("8_uyb2n")
 texture_region_size = Vector2i(223, 223)
 7:5/0 = 0
@@ -51,7 +51,7 @@ texture_region_size = Vector2i(223, 223)
 3:7/0 = 0
 3:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1awks"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jb52p"]
 texture = ExtResource("9_yq2sf")
 texture_region_size = Vector2i(223, 223)
 0:5/0 = 0
@@ -94,7 +94,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-115.5, -115.5, 115.5, -115.5, 115.5, 115.5, -115.5, 115.5)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_618kv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsoi3"]
 texture = ExtResource("10_iffbf")
 texture_region_size = Vector2i(231, 231)
 3:8/0 = 0
@@ -561,9 +561,9 @@ physics_layer_2/collision_mask = 4
 physics_layer_3/collision_layer = 8
 physics_layer_3/collision_mask = 8
 navigation_layer_0/layers = 1
-sources/0 = SubResource("TileSetAtlasSource_hsyed")
-sources/3 = SubResource("TileSetAtlasSource_1awks")
-sources/4 = SubResource("TileSetAtlasSource_618kv")
+sources/0 = SubResource("TileSetAtlasSource_ihi6u")
+sources/3 = SubResource("TileSetAtlasSource_jb52p")
+sources/4 = SubResource("TileSetAtlasSource_jsoi3")
 
 [sub_resource type="Gradient" id="Gradient_so0hn"]
 colors = PackedColorArray(0.447059, 0.419608, 0.67451, 1, 0, 0, 0, 0)

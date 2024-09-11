@@ -9,3 +9,6 @@ class_name MagicResource
 @export var cooldown : float
 @export var duration : float
 @export_file("*.tscn") var particles_scene_str : String
+@export_file("*.gd") var magic_script_str : String
+func use():
+	pass
