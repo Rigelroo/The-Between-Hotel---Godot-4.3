@@ -39,7 +39,7 @@ directories/dtl_directory={
 "Teste1english": "res://Sprites/DialogueBox/Kori e Trice/Teste1english.dtl",
 "dialogueexample": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample.dtl",
 "dialogueexample2": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample2.dtl",
-"doortimeline1": "res://doortimeline1.dtl",
+"doortimeline1": "res://doorlocked.dtl",
 "doortimeline2": "res://doortimeline2.dtl",
 "exemplodialogue": "res://exemplodialogue.dtl",
 "quadro1": "res://quadro1.dtl",

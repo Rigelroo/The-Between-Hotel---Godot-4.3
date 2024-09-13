@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dljh86hnlaoch"]
+[gd_scene load_steps=19 format=3 uid="uid://dljh86hnlaoch"]
 
 [ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="1_2rttu"]
 [ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="2_6vfl1"]
@@ -10,9 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="8_y0ak3"]
 [ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="9_bll4g"]
 [ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="10_ko7kj"]
+[ext_resource type="Texture2D" uid="uid://buaj4i0w37fhc" path="res://Sprites/InteractionBox/InteractionBox - locked0000.png" id="10_ot5c5"]
 [ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="11_5a3t8"]
+[ext_resource type="Texture2D" uid="uid://cmfgtewblulr5" path="res://Sprites/InteractionBox/InteractionBox - locked0001.png" id="11_tlf6i"]
 [ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="12_llm8f"]
+[ext_resource type="Texture2D" uid="uid://4mf672khj0y4" path="res://Sprites/InteractionBox/InteractionBox - locked0002.png" id="12_xjgri"]
 [ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="13_10dpu"]
+[ext_resource type="Texture2D" uid="uid://dibyghp87j8h7" path="res://Sprites/InteractionBox/InteractionBox - locked0003.png" id="13_vlnuf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bijw8"]
 animations = [{
@@ -56,6 +60,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ot5c5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tlf6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xjgri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vlnuf")
+}],
+"loop": true,
+"name": &"locked",
 "speed": 5.0
 }, {
 "frames": [{

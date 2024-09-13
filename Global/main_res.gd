@@ -1,6 +1,11 @@
 extends Resource
 
 class_name MainManager
+@export_subgroup("Doorcorridors")
+@export var floor1_doorlock: Array[bool] = [1,2,3]
+
+#@export var doors_floor1: Array[bool] = [1, 2, 3]
+@export var floor2_doorlock: Array[bool] = [1,2,3]
 
 @export_subgroup("Coin System")
 @export var coin_number : int

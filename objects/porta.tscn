@@ -1,0 +1,126 @@
+[gd_scene load_steps=21 format=3 uid="uid://bxnspryvni6gp"]
+
+[ext_resource type="Script" path="res://scenes/porta1.gd" id="1_pv2oa"]
+[ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="2_d1ba1"]
+[ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="3_2vv7i"]
+[ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="4_dsq2d"]
+[ext_resource type="Texture2D" uid="uid://cg1we2wu1evbm" path="res://Sprites/InteractionBox/InteractionBox - Door0003.png" id="5_sfc4w"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="6_kvjmi"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="7_07v21"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="8_xitxc"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="9_xtw7f"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="10_la1kn"]
+[ext_resource type="Texture2D" uid="uid://buaj4i0w37fhc" path="res://Sprites/InteractionBox/InteractionBox - locked0000.png" id="11_87ns5"]
+[ext_resource type="Texture2D" uid="uid://cmfgtewblulr5" path="res://Sprites/InteractionBox/InteractionBox - locked0001.png" id="12_v7268"]
+[ext_resource type="Texture2D" uid="uid://4mf672khj0y4" path="res://Sprites/InteractionBox/InteractionBox - locked0002.png" id="13_om0k0"]
+[ext_resource type="Texture2D" uid="uid://dibyghp87j8h7" path="res://Sprites/InteractionBox/InteractionBox - locked0003.png" id="14_twh74"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="15_4erk1"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="16_5v5hg"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="17_8tksd"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="18_7lf7f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bijw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d1ba1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2vv7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dsq2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sfc4w")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kvjmi")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_07v21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xitxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xtw7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_la1kn")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_87ns5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_v7268")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_om0k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_twh74")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_4erk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5v5hg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8tksd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7lf7f")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6pf"]
+size = Vector2(598, 837)
+
+[node name="Porta1" type="Node2D"]
+position = Vector2(1153, 988)
+script = ExtResource("1_pv2oa")
+next_scene = "res://Tests/parallaxtest1.tscn"
+
+[node name="Ballondoor" type="AnimatedSprite2D" parent="."]
+z_index = 50
+y_sort_enabled = true
+position = Vector2(-24, -213)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_bijw8")
+animation = &"interaction"
+autoplay = "inactive"
+
+[node name="AreaD2D1" type="Area2D" parent="."]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="AreaD2D1"]
+position = Vector2(0, 357.5)
+shape = SubResource("RectangleShape2D_0u6pf")
+debug_color = Color(0.645423, 0.502287, 0.400547, 0.42)
+
+[connection signal="body_entered" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_entered"]
+[connection signal="body_exited" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_exited"]

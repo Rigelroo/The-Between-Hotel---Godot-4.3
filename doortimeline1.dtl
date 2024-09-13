@@ -1,8 +1,0 @@
-[signal arg="deactivate_movement"]
-join Persian (Persian_happy) 1
-Persian (Persian_talk): Essa porta vai para o corredor A
-Persian (Persian_talk): Na verdade não vai para lugar algum
-Persian (Persian_concerned): Não existe nada depois daqui
-Persian (Persian_happy): Na verdade não ainda
-[signal arg="reactivate_movement"]
-[end_timeline]

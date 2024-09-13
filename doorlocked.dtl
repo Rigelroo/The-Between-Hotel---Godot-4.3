@@ -1,0 +1,6 @@
+[signal arg="deactivate_movement"]
+join Persian (Persian_talk) 1
+Persian (Persian_talk): Não tenho a chave desse quarto
+Persian (Persian_sad): Infelizmente sem bisbilhotar, por enquanto
+[signal arg="reactivate_movement"]
+[end_timeline]

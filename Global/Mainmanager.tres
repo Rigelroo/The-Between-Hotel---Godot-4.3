@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_vco67")
+floor1_doorlock = Array[bool]([true, true, false])
+floor2_doorlock = Array[bool]([false, false, false])
 coin_number = 1
 coin_max = 50
 coin_mult = 1
