@@ -1,4 +1,3 @@
-
 extends Node2D
 #@onready var areaInteraction = $Area2D/AreaInteraction
 @onready var player = $"."
@@ -50,6 +49,7 @@ func _input(event: InputEvent):
 		if Input.is_action_pressed("Interact"):
 			if dialog_event == 1:
 				Dialogic.start('testdialogue')
+				
 				dialog_event = 2
 				get_viewport().set_input_as_handled()
 			if dialog_event == 2:

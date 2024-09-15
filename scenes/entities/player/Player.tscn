@@ -1694,6 +1694,7 @@ anim_offset_max = 0.6766
 turbulence_noise_speed_random = 0.04
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("target", "player_target", "show_target") groups=["Player"]]
+collision_layer = 17
 script = ExtResource("1_bvkld")
 magic_abilities = Array[ExtResource("2_s83wp")]([ExtResource("3_xsbix"), ExtResource("4_1wwsg")])
 manager = ExtResource("5_a6y1r")
@@ -1759,9 +1760,10 @@ scale = Vector2(0.07, 0.07)
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0.0705882, 0.0313726, 0.160784, 1)
-position = Vector2(5.6, -1)
-rotation = 0.63414
+position = Vector2(3.4, -3)
+rotation = 0.0163368
 scale = Vector2(-0.07, 0.07)
+texture = ExtResource("18_ayf5o")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationPlayer")

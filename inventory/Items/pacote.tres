@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItemb" load_steps=3 format=3 uid="uid://d0u0pxghi7rdu"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItemb.gd" id="1_hcc5w"]
+[ext_resource type="Texture2D" uid="uid://dgefh7irbavfb" path="res://inventory/Chaves/pacote.png" id="2_ox5eo"]
+
+[resource]
+script = ExtResource("1_hcc5w")
+name = "pacote"
+Item_type = "Task_item"
+texture = ExtResource("2_ox5eo")
+maxAmountInStack = 2
+max_amount = 0
+showname = "Pacote da Turquesa"
+description = "Está meio surrado, melhor devolver isso logo."
+color = Color(0.705003, 0.411395, 0.431438, 1)
+color_x = 0.7
+color_y = 0.41
+color_z = 0.43
+first_item = 0
+scriptstr = "res://inventory/Items/item_replacescript.gd"

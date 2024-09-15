@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://do862a8fcbrn7"]
+[gd_scene load_steps=42 format=4 uid="uid://do862a8fcbrn7"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_d1reg"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_nei4d"]
@@ -16,7 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://b7fhrvbtfrx0d" path="res://Sprites/Bettlebourough/Insides/quadro2 - 0001.png" id="19_mxa6m"]
 [ext_resource type="Texture2D" uid="uid://d0ko1nd4hljs4" path="res://Sprites/Bettlebourough/Insides/arvoreinsides1.png" id="21_d3oly"]
 [ext_resource type="PackedScene" uid="uid://bnd1jkgn0iro7" path="res://objects/lightspot.tscn" id="21_ivoim"]
+[ext_resource type="Script" path="res://Missões/missions.gd" id="21_tu2sh"]
+[ext_resource type="Resource" uid="uid://ckrn5bqusglwa" path="res://Missões/npc - quests/Turquesa/quest_turquesa1.tres" id="22_ss6mn"]
 [ext_resource type="Texture2D" uid="uid://bfdcvesay4moy" path="res://Sprites/Bettlebourough/parallax/B3.png" id="22_wxajd"]
+[ext_resource type="Resource" uid="uid://3f38aw2mqtdy" path="res://Missões/npc - quests/Matheus/quest_matheus1.tres" id="23_bomun"]
 [ext_resource type="Texture2D" uid="uid://c1dwfio1icyq6" path="res://Sprites/Bettlebourough/parallax/B4.png" id="23_f2o0v"]
 [ext_resource type="Texture2D" uid="uid://bwqnxxc5b8xye" path="res://Sprites/sombra.png" id="23_tyjas"]
 [ext_resource type="Texture2D" uid="uid://20vek862dphp" path="res://Sprites/Bettlebourough/Insides/blur1.png" id="24_myty0"]
@@ -715,6 +718,7 @@ centered = false
 
 [node name="Turquesa" parent="." instance=ExtResource("12_q1oxm")]
 position = Vector2(1530, 1120)
+quests = Array[ExtResource("21_tu2sh")]([ExtResource("22_ss6mn"), ExtResource("23_bomun"), null])
 dialogs = Array[String](["res://Sprites/DialogueBox/Turquesa/turquesadialogue1.dtl", "res://Sprites/DialogueBox/Turquesa/turquesadialogue2.dtl"])
 
 [node name="Sprite2D" type="Sprite2D" parent="Turquesa"]

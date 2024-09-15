@@ -16,7 +16,7 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	if player_in_area:
-		if Input.is_action_pressed("Interact"):
+		if Input.is_action_pressed("enter"):
 				#run_dialogue("dialogueexample")
 				#get_tree().change_scene_to_file("res://Sprites/EntryHall/corridor1.tscn")
 				SceneManager.transition_to(next_scene)

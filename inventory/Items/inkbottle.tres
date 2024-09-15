@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_p3hme")
 name = "Ink_bottle"
+Item_type = "Normal_item"
 texture = ExtResource("2_gvxqf")
 maxAmountInStack = 1
 max_amount = 0
@@ -16,3 +17,4 @@ color_x = 0.32
 color_y = 0.26
 color_z = 0.71
 first_item = 0
+scriptstr = "res://inventory/Items/item_replacescript.gd"

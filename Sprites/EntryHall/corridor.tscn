@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cu2e048hxgdgy"]
+[gd_scene load_steps=27 format=3 uid="uid://cu2e048hxgdgy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_ssnol"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_qv6q8"]
@@ -10,8 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://dlh20q0twljae" path="res://Sprites/Hotel/assets_volante.png" id="6_tq8vq"]
 [ext_resource type="Texture2D" uid="uid://qaqsrvxmy8ln" path="res://Sprites/Hotel/entradaesq_frente.png" id="7_f7a1c"]
 [ext_resource type="Texture2D" uid="uid://dh4acv4eoeure" path="res://Sprites/Hotel/assets_planta1.png" id="7_qcxbd"]
+[ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://objects/showitemsprite.tscn" id="11_smyiw"]
 [ext_resource type="Texture2D" uid="uid://7tiwguj856a5" path="res://Sprites/Hotel/corridor_tetoparallaxA.png" id="15_pbqih"]
-[ext_resource type="PackedScene" uid="uid://bxnspryvni6gp" path="res://objects/porta.tscn" id="17_qjcr4"]
+[ext_resource type="PackedScene" uid="uid://d0fmn0ryn2twd" path="res://objects/porta_1.tscn" id="17_3ba5x"]
+[ext_resource type="PackedScene" uid="uid://b5a3af6jeero5" path="res://objects/porta_2.tscn" id="18_b14py"]
+[ext_resource type="PackedScene" uid="uid://7odf4fl3armh" path="res://objects/scene_trigger.tscn" id="18_dnqxp"]
+[ext_resource type="PackedScene" uid="uid://dysed8fh25ap0" path="res://objects/porta_3.tscn" id="19_retjy"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="28_ygo3h"]
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="31_v3crm"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="32_j52kf"]
@@ -21,10 +25,13 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ra5em"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk3f1"]
-size = Vector2(8819, 331)
+size = Vector2(9284, 331)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cvh1"]
 size = Vector2(8817, 254)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l24im"]
+size = Vector2(538, 1886)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6447o"]
 size = Vector2(316, 2230)
@@ -62,9 +69,10 @@ position = Vector2(428, 0)
 texture = ExtResource("6_c38bo")
 centered = false
 
-[node name="Player" parent="." instance=ExtResource("28_ygo3h")]
+[node name="Player" parent="." node_paths=PackedStringArray("showitem") instance=ExtResource("28_ygo3h")]
 position = Vector2(995, 1718)
 scale = Vector2(14, 14)
+showitem = NodePath("Showitemsprite")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0.666667, -28.3333)
@@ -77,6 +85,8 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 editor_draw_limits = true
+
+[node name="Showitemsprite" parent="Player" instance=ExtResource("11_smyiw")]
 
 [node name="parede" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
@@ -102,28 +112,24 @@ visible = false
 position = Vector2(7, 1910)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4399.5, 155.5)
+position = Vector2(4167, 155.5)
 shape = SubResource("RectangleShape2D_hk3f1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(4398.5, -1785)
 shape = SubResource("RectangleShape2D_2cvh1")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8649, -797)
-shape = SubResource("RectangleShape2D_6447o")
+[node name="Porta1" parent="." node_paths=PackedStringArray("world") instance=ExtResource("17_3ba5x")]
+world = NodePath("..")
 
-[node name="Porta1" parent="." instance=ExtResource("17_qjcr4")]
+[node name="Porta2" parent="." node_paths=PackedStringArray("world") instance=ExtResource("18_b14py")]
+world = NodePath("..")
 
-[node name="Porta2" parent="." instance=ExtResource("17_qjcr4")]
-position = Vector2(2988, 988)
-door_index = 1
-
-[node name="Porta3" parent="." instance=ExtResource("17_qjcr4")]
-position = Vector2(4974, 988)
-door_index = 2
+[node name="Porta3" parent="." node_paths=PackedStringArray("world") instance=ExtResource("19_retjy")]
+world = NodePath("..")
 
 [node name="ParallaxB1" type="Parallax2D" parent="."]
+visible = false
 y_sort_enabled = true
 scale = Vector2(0.495, 0.495)
 scroll_scale = Vector2(0.8, 0.8)
@@ -135,3 +141,23 @@ repeat_times = 4
 scale = Vector2(2, 2)
 texture = ExtResource("15_pbqih")
 centered = false
+
+[node name="SceneTrigger" parent="." instance=ExtResource("18_dnqxp")]
+collision_layer = 0
+collision_mask = 16
+next_scene = "res://scenes/entry_hallNode.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+position = Vector2(-185, 933)
+shape = SubResource("RectangleShape2D_l24im")
+debug_color = Color(0.867464, 0.00054407, 0.856709, 0.42)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+collision_layer = 9
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall"]
+visible = false
+position = Vector2(8656, 1113)
+shape = SubResource("RectangleShape2D_6447o")
+
+[editable path="PausemenuLayer"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://do1803w7m2qiw"]
 
-[ext_resource type="Script" path="res://scenes/porta1.gd" id="1_dr551"]
+[ext_resource type="Script" path="res://scenes/portaA.gd" id="1_dr551"]
 [ext_resource type="Texture2D" uid="uid://cby03hegrpq5v" path="res://Sprites/EntryHall/Portagrande.png" id="2_7gfq4"]
 [ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="3_86y72"]
 [ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="4_1fmjt"]

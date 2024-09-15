@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dljh86hnlaoch"]
+[gd_scene load_steps=25 format=3 uid="uid://dljh86hnlaoch"]
 
 [ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="1_2rttu"]
 [ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="2_6vfl1"]
@@ -17,8 +17,15 @@
 [ext_resource type="Texture2D" uid="uid://4mf672khj0y4" path="res://Sprites/InteractionBox/InteractionBox - locked0002.png" id="12_xjgri"]
 [ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="13_10dpu"]
 [ext_resource type="Texture2D" uid="uid://dibyghp87j8h7" path="res://Sprites/InteractionBox/InteractionBox - locked0003.png" id="13_vlnuf"]
+[ext_resource type="Texture2D" uid="uid://cfh0n5a12t6t8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0000.png" id="18_wi7e6"]
+[ext_resource type="Texture2D" uid="uid://cj6c5w30gbkk8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0001.png" id="19_kgvl4"]
+[ext_resource type="Texture2D" uid="uid://cqirufu6tyo4g" path="res://Sprites/InteractionBox/InteractionBox - unlocking0002.png" id="20_k64bw"]
+[ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="21_5smpd"]
+[ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="22_m11up"]
+[ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="23_44pue"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bijw8"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -95,13 +102,37 @@ animations = [{
 "loop": true,
 "name": &"mission",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_wi7e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_kgvl4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_k64bw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5smpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_m11up")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_44pue")
+}],
+"loop": false,
+"name": &"unlocking",
+"speed": 5.0
 }]
 
 [node name="Ballondoor1" type="AnimatedSprite2D"]
-z_index = 50
 y_sort_enabled = true
 position = Vector2(-43, -251)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_bijw8")
-animation = &"inactive"
+animation = &"unlocking"
 autoplay = "inactive"
+frame = 5
+frame_progress = 1.0

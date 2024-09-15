@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://byagoaous7vaf" path="res://luzinha_6.tscn" id="15_7518i"]
 [ext_resource type="PackedScene" uid="uid://b14pdtk7gvjfl" path="res://porta_1.tscn" id="16_wsisy"]
 [ext_resource type="Texture2D" uid="uid://vncfqutpqm55" path="res://Sprites/EntryHall/preto.png" id="17_k3kee"]
+[ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://objects/showitemsprite.tscn" id="21_ywktv"]
 [ext_resource type="PackedScene" uid="uid://buw8duilnfqej" path="res://camera_2d.tscn" id="24_cat1i"]
 [ext_resource type="Resource" uid="uid://dw24t6xttmdyt" path="res://inventory/Selos/selo_hatintime.tres" id="26_2evtr"]
 [ext_resource type="Resource" uid="uid://bojqr7cp6eeiq" path="res://inventory/Selos/selo_frozenheart.tres" id="26_8ieer"]
@@ -47,8 +48,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_n1lro")
 fill = 1
 fill_from = Vector2(0.489796, 0.520408)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_2lumx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iq357"]
 size = Vector2(1248, 28.0001)
@@ -98,7 +97,7 @@ texture = ExtResource("6_qshxw")
 
 [node name="PortaPrincipal1" parent="." instance=ExtResource("16_wsisy")]
 position = Vector2(259, 505)
-next_scene = "res://Sprites/EntryHall/corridor1.tscn"
+next_scene = "res://Sprites/EntryHall/corridor.tscn"
 
 [node name="PortaPrincipal2" parent="." instance=ExtResource("16_wsisy")]
 position = Vector2(2064, 501)
@@ -240,10 +239,7 @@ scale = Vector2(4, 4)
 showitem = NodePath("Showitemsprite")
 player_camera = NodePath("Camera2D")
 
-[node name="Showitemsprite" type="Sprite2D" parent="Player"]
-position = Vector2(0, -33.25)
-scale = Vector2(0.025, 0.025)
-texture = SubResource("CanvasTexture_2lumx")
+[node name="Showitemsprite" parent="Player" instance=ExtResource("21_ywktv")]
 
 [node name="Camera2D" parent="Player" instance=ExtResource("24_cat1i")]
 position = Vector2(0.75, -23.5)

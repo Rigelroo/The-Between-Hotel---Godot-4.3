@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://cr0rxd186uoyo"]
+[gd_scene load_steps=22 format=3 uid="uid://cr0rxd186uoyo"]
 
 [ext_resource type="Script" path="res://inventory/inventory_gui.gd" id="1_o6k50"]
 [ext_resource type="Texture2D" uid="uid://e3e0d4koc3eo" path="res://Sprites/Player/Death/submenu - Selos.png" id="1_xp6en"]
 [ext_resource type="PackedScene" uid="uid://cve3o3l3hjcop" path="res://inventory/slot.tscn" id="2_lfo5f"]
 [ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_snvv0"]
+[ext_resource type="Script" path="res://inventory/missionscontainer.gd" id="4_3xgf6"]
 [ext_resource type="Texture2D" uid="uid://cxrga1teivoms" path="res://inventory/submenu - inventário.png" id="4_5orts"]
 [ext_resource type="FontFile" uid="uid://ckwkgvh5vt53w" path="res://Fonts/Everlasting.ttf" id="5_2lpl4"]
 [ext_resource type="Script" path="res://inventory/name_label.gd" id="5_kggpe"]
@@ -18,6 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://cm7qaulq0t25e" path="res://inventory/Moedas/coin_displayer.tscn" id="16_wry48"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hm3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kfof8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmke5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cw2jj"]
 
 [node name="InventoryGui" type="Control"]
 layout_mode = 3
@@ -34,32 +41,49 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 651.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8hm3u")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="Missions" type="NinePatchRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("5_pgxi2")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
+script = ExtResource("4_3xgf6")
 metadata/_tab_index = 0
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/Missions"]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Missions"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 603.0
-offset_top = 357.0
-offset_right = -237.0
-offset_bottom = -85.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 4
+anchor_left = 0.09
+anchor_top = 0.249
+anchor_right = 0.402
+anchor_bottom = 0.877
+offset_left = 0.319992
+offset_top = -0.0990143
+offset_right = -0.104004
+offset_bottom = 0.072998
+
+[node name="Taskcontainer" type="Panel" parent="TabContainer/Missions/VBoxContainer"]
+custom_minimum_size = Vector2(341, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kfof8")
+
+[node name="Taskcontainer2" type="Panel" parent="TabContainer/Missions/VBoxContainer"]
+custom_minimum_size = Vector2(341, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vmke5")
+
+[node name="Taskcontainer3" type="Panel" parent="TabContainer/Missions/VBoxContainer"]
+custom_minimum_size = Vector2(341, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cw2jj")
 
 [node name="Selos" type="NinePatchRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("1_xp6en")
 metadata/_tab_index = 1
@@ -372,61 +396,3 @@ offset_top = -41.0
 offset_right = 635.0
 offset_bottom = -1.0
 tab_close_display_policy = 2
-
-[node name="ButtonSelos" type="Button" parent="."]
-layout_mode = 0
-offset_left = 937.0
-offset_top = 236.0
-offset_right = 1097.0
-offset_bottom = 331.0
-theme_type_variation = &"FlatButton"
-action_mode = 0
-button_mask = 3
-
-[node name="ButtonMissions" type="Button" parent="."]
-layout_mode = 0
-offset_left = 938.0
-offset_top = 121.0
-offset_right = 1098.0
-offset_bottom = 216.0
-action_mode = 0
-button_mask = 3
-flat = true
-
-[node name="ButtonMapa" type="Button" parent="."]
-layout_mode = 0
-offset_left = 939.0
-offset_top = 343.0
-offset_right = 1099.0
-offset_bottom = 438.0
-action_mode = 0
-button_mask = 3
-flat = true
-
-[node name="ButtonConfig" type="Button" parent="."]
-layout_mode = 0
-offset_left = 792.0
-offset_top = 36.0
-offset_right = 958.0
-offset_bottom = 104.0
-action_mode = 0
-button_mask = 3
-flat = true
-
-[node name="Buttoninventario" type="Button" parent="."]
-layout_mode = 0
-offset_left = 940.0
-offset_top = 453.0
-offset_right = 1100.0
-offset_bottom = 548.0
-action_mode = 0
-button_mask = 3
-flat = true
-
-[connection signal="pressed" from="ButtonSelos" to="." method="_on_button_selos_pressed"]
-[connection signal="pressed" from="ButtonMissions" to="." method="_on_button_missions_pressed"]
-[connection signal="pressed" from="ButtonMapa" to="." method="_on_button_mapa_pressed"]
-[connection signal="pressed" from="ButtonConfig" to="." method="_on_button_config_pressed"]
-[connection signal="pressed" from="Buttoninventario" to="." method="_on_buttoninventario_pressed"]
-
-[editable path="TabContainer/Selos/Control/Sealbar_slot1"]

@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_hi7vy")
 name = "inkfruits"
+Item_type = "Task_item"
 texture = ExtResource("2_dk7tw")
 maxAmountInStack = 15
 max_amount = 0
@@ -16,3 +17,4 @@ color_x = 0.78
 color_y = 0.37
 color_z = 0.12
 first_item = 0
+scriptstr = "res://inventory/Items/item_replacescript.gd"

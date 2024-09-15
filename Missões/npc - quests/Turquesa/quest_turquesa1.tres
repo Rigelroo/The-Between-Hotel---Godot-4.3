@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Questtask" load_steps=6 format=3 uid="uid://ckrn5bqusglwa"]
+
+[ext_resource type="Script" path="res://Missões/missions.gd" id="1_nm6pa"]
+[ext_resource type="Texture2D" uid="uid://dgefh7irbavfb" path="res://inventory/Chaves/pacote.png" id="1_wvg5m"]
+[ext_resource type="Texture2D" uid="uid://vxnsmkwiq5sv" path="res://Missões/npc icons/Turquesa.png" id="2_hdmdk"]
+[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://inventory/Selos/selo_herculesleaf.tres" id="3_77jrb"]
+[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="3_r6ifo"]
+
+[resource]
+script = ExtResource("1_nm6pa")
+name = "Quest_turquesa1"
+showname = "Recupere o pacote"
+item_texture = ExtResource("1_wvg5m")
+npc_texture = ExtResource("2_hdmdk")
+reward_texture = ExtResource("3_r6ifo")
+reward_item = ExtResource("3_77jrb")
+item_amount = 1
+description = "aaa"
+theme_color = Color(1, 1, 1, 1)

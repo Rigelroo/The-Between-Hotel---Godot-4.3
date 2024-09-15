@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://bxnspryvni6gp"]
+[gd_scene load_steps=27 format=3 uid="uid://bxnspryvni6gp"]
 
-[ext_resource type="Script" path="res://scenes/porta1.gd" id="1_pv2oa"]
+[ext_resource type="Script" path="res://scenes/portaA.gd" id="1_pv2oa"]
 [ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="2_d1ba1"]
 [ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="3_2vv7i"]
 [ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="4_dsq2d"]
@@ -18,8 +18,17 @@
 [ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="16_5v5hg"]
 [ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="17_8tksd"]
 [ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="18_7lf7f"]
+[ext_resource type="Texture2D" uid="uid://cfh0n5a12t6t8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0000.png" id="19_hd1wb"]
+[ext_resource type="Texture2D" uid="uid://cj6c5w30gbkk8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0001.png" id="20_b2olk"]
+[ext_resource type="Texture2D" uid="uid://cqirufu6tyo4g" path="res://Sprites/InteractionBox/InteractionBox - unlocking0002.png" id="21_5ohkh"]
+[ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="22_26y2x"]
+[ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="23_xxyml"]
+[ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="24_57rws"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bijw8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6pf"]
+size = Vector2(598, 837)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ewsx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -96,31 +105,47 @@ animations = [{
 "loop": true,
 "name": &"mission",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_hd1wb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_b2olk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5ohkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_26y2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xxyml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_57rws")
+}],
+"loop": false,
+"name": &"unlocking",
+"speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6pf"]
-size = Vector2(598, 837)
-
 [node name="Porta1" type="Node2D"]
-position = Vector2(1153, 988)
 script = ExtResource("1_pv2oa")
 next_scene = "res://Tests/parallaxtest1.tscn"
-
-[node name="Ballondoor" type="AnimatedSprite2D" parent="."]
-z_index = 50
-y_sort_enabled = true
-position = Vector2(-24, -213)
-scale = Vector2(0.9, 0.9)
-sprite_frames = SubResource("SpriteFrames_bijw8")
-animation = &"interaction"
-autoplay = "inactive"
 
 [node name="AreaD2D1" type="Area2D" parent="."]
 
 [node name="AreaInteraction" type="CollisionShape2D" parent="AreaD2D1"]
-position = Vector2(0, 357.5)
 shape = SubResource("RectangleShape2D_0u6pf")
 debug_color = Color(0.645423, 0.502287, 0.400547, 0.42)
+
+[node name="Ballondoor1" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-6.00012, -641)
+sprite_frames = SubResource("SpriteFrames_7ewsx")
+animation = &"unlocking"
+autoplay = "inactive"
 
 [connection signal="body_entered" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_entered"]
 [connection signal="body_exited" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_exited"]

@@ -17,6 +17,7 @@ signal inkChanged
 @onready var slashbox = $sword
 @onready var slashbox_down = $sword1
 @onready var stats = get_tree().get_first_node_in_group("Stats")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var STATES = $STATES
 @onready var Raycasts = $Raycasts
@@ -67,7 +68,7 @@ var currentInk = null
 var minHealth = null
 var maxHealth = null
 var currentHealth = null
-var currentFurypoints = null
+var currentFurypoints = 0
 
 
 var damage_value = null
@@ -330,6 +331,8 @@ func perform_charge_attack():
 func charge_attack(delta):
 	charge_time += delta
 	charge_time = min(charge_time, max_charge)
+
+
 func player():
 	pass
 	
@@ -365,6 +368,7 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 		if area.itemRes.first_item == 0:
 			new_item_activate = true
 			showitem.texture = area.itemRes.texture
+			showitem.animation_player.play("surge")
 			$STATES/NEWITEM.color_x = area.itemRes.color_x
 			$STATES/NEWITEM.color_y = area.itemRes.color_y
 			$STATES/NEWITEM.color_z = area.itemRes.color_z
@@ -375,6 +379,7 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 	if area.has_method("collectb"):
 		if area.itemRes.first_item == 0:
 			new_item_activate = true
+			showitem.animation_player.play("surge")
 			showitem.texture = area.itemRes.texture
 			$STATES/NEWITEM.color_x = area.itemRes.color_x
 			$STATES/NEWITEM.color_y = area.itemRes.color_y

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://inventory/coins.gd" id="1_rmjdq"]
 [ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_2kw8b"]
 [ext_resource type="Texture2D" uid="uid://dcli6om8ca0fu" path="res://inventory/Moedas/itemmoeda.png" id="3_ibodx"]
-[ext_resource type="FontFile" uid="uid://ckwkgvh5vt53w" path="res://Fonts/Everlasting.ttf" id="4_guqxf"]
+[ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="4_4ff0c"]
 
 [node name="CoinDisplayer" type="Control"]
 layout_mode = 3
@@ -23,12 +23,12 @@ texture = ExtResource("3_ibodx")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -35.0
-offset_top = 239.0
-offset_right = 571.0
-offset_bottom = 636.0
-theme_override_colors/font_color = Color(0.141176, 0.0901961, 0.321569, 1)
-theme_override_fonts/font = ExtResource("4_guqxf")
-theme_override_font_sizes/font_size = 396
-text = "100x
+offset_left = 533.0
+offset_top = 286.0
+offset_right = 1131.0
+offset_bottom = 683.0
+theme_override_colors/font_color = Color(1, 0.850467, 0.822425, 1)
+theme_override_fonts/font = ExtResource("4_4ff0c")
+theme_override_font_sizes/font_size = 241
+text = "100
 "

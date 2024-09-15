@@ -1,0 +1,157 @@
+[gd_scene load_steps=28 format=3 uid="uid://b5a3af6jeero5"]
+
+[ext_resource type="Script" path="res://scenes/portaB.gd" id="1_apygp"]
+[ext_resource type="Resource" uid="uid://bi1gos0aechme" path="res://inventory/Items/chave_quarto2.tres" id="2_jj3ct"]
+[ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="2_kgq41"]
+[ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="3_sys08"]
+[ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="4_suqir"]
+[ext_resource type="Texture2D" uid="uid://cg1we2wu1evbm" path="res://Sprites/InteractionBox/InteractionBox - Door0003.png" id="5_sbuj2"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="6_3rto8"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="7_fsg3y"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="8_dg3er"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="9_0dmb8"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="10_xn8c8"]
+[ext_resource type="Texture2D" uid="uid://buaj4i0w37fhc" path="res://Sprites/InteractionBox/InteractionBox - locked0000.png" id="11_6isym"]
+[ext_resource type="Texture2D" uid="uid://cmfgtewblulr5" path="res://Sprites/InteractionBox/InteractionBox - locked0001.png" id="12_1ivsc"]
+[ext_resource type="Texture2D" uid="uid://4mf672khj0y4" path="res://Sprites/InteractionBox/InteractionBox - locked0002.png" id="13_etxh2"]
+[ext_resource type="Texture2D" uid="uid://dibyghp87j8h7" path="res://Sprites/InteractionBox/InteractionBox - locked0003.png" id="14_ccx80"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="15_wwp7g"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="16_iunfg"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="17_lr0e3"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="18_ttuhw"]
+[ext_resource type="Texture2D" uid="uid://cfh0n5a12t6t8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0000.png" id="19_biftn"]
+[ext_resource type="Texture2D" uid="uid://cj6c5w30gbkk8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0001.png" id="20_5pgoe"]
+[ext_resource type="Texture2D" uid="uid://cqirufu6tyo4g" path="res://Sprites/InteractionBox/InteractionBox - unlocking0002.png" id="21_ypf6i"]
+[ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="22_ylker"]
+[ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="23_m5n1k"]
+[ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="24_hqhjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6pf"]
+size = Vector2(598, 837)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_el3q7"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kgq41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sys08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_suqir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sbuj2")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_3rto8")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fsg3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dg3er")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0dmb8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xn8c8")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_6isym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1ivsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_etxh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ccx80")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_wwp7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_iunfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_lr0e3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ttuhw")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_biftn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5pgoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ypf6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ylker")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_m5n1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_hqhjp")
+}],
+"loop": false,
+"name": &"unlocking",
+"speed": 5.0
+}]
+
+[node name="Porta2" type="Node2D" node_paths=PackedStringArray("balloon")]
+position = Vector2(2988, 1360)
+script = ExtResource("1_apygp")
+next_scene = "res://Tests/parallaxtest1.tscn"
+door_index = 1
+door_key = ExtResource("2_jj3ct")
+balloon = NodePath("Ballondoor2")
+
+[node name="AreaD2D1" type="Area2D" parent="."]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="AreaD2D1"]
+shape = SubResource("RectangleShape2D_0u6pf")
+debug_color = Color(0.645423, 0.502287, 0.400547, 0.42)
+
+[node name="Ballondoor2" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-3.8147e-06, -700)
+sprite_frames = SubResource("SpriteFrames_el3q7")
+animation = &"unlocking"
+autoplay = "inactive"
+
+[connection signal="body_entered" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_entered"]
+[connection signal="body_exited" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_exited"]

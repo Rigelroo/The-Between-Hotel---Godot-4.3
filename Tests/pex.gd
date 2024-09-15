@@ -9,10 +9,11 @@ var is_chatting = false
 var Player = null
 var timeline : DialogicTimeline = DialogicTimeline.new()
 @export var dialog_event = 0
-
+@export var quests : Array[Questtask] = []
 
 @export_file("*.dtl") var dialogs: Array[String] = []
 func _ready():
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 	$AnimatedSprite2D2.play("inactive")
 	print("dialog = ",dialogs)
 	#$AnimatedSprite2D.play("default")
@@ -54,3 +55,11 @@ func _input(event: InputEvent):
 				Dialogic.start(dialogs[dialog_event])
 				dialog_event = 1
 				get_viewport().set_input_as_handled()
+
+func _on_dialogic_signal(argument:String):
+	if argument == "set_mission":
+		var quest = quests[Dialogic.VAR.mission_index]
+		SignalManager.task_manager.insert(quest)
+		print("New_mission!")
+		
+	

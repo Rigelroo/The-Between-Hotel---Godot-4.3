@@ -66,7 +66,6 @@ _data = {
 }
 
 [node name="Showeffect" type="Node2D" node_paths=PackedStringArray("coloreffect", "tcham1", "tcham2", "animation", "animationtext")]
-visible = false
 script = ExtResource("1_tt6vu")
 coloreffect = NodePath("Sprite2D2")
 tcham1 = NodePath("Tcham1")
@@ -76,6 +75,7 @@ animationtext = NodePath("Node2D/LabelAnimation")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(-0.8, -23.8)
+rotation = 0.0872665
 texture = ExtResource("1_g1lb2")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
@@ -90,18 +90,17 @@ offset = Vector2(134.397, -6.8959)
 
 [node name="Tcham2" type="Sprite2D" parent="."]
 position = Vector2(-176, -14)
+rotation = -0.375246
 texture = ExtResource("4_bm7lp")
 offset = Vector2(-172, 86)
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="TchamAnimation" type="AnimationPlayer" parent="Node2D"]
-active = false
 root_node = NodePath("../../Tcham1")
 libraries = {
 "": SubResource("AnimationLibrary_qiqyl")
 }
-autoplay = "tcham"
 
 [node name="Label" parent="Node2D" instance=ExtResource("7_bgrxt")]
 

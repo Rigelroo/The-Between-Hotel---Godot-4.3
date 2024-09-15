@@ -5,7 +5,6 @@ func _ready() -> void:
 	if !ProjectSettings.get_setting('internationalization/locale/test', "").is_empty():
 		print("Testing locale is: ", ProjectSettings.get_setting('internationalization/locale/test'))
 	$PauseIndictator.hide()
-
 	var scene: Node = DialogicUtil.autoload().Styles.load_style(DialogicUtil.get_editor_setting('current_test_style', ''))
 	if not scene is CanvasLayer:
 		if scene is Control:
@@ -41,4 +40,3 @@ func _input(event:InputEvent) -> void:
 
 		auto_skip.disable_on_unread_text = false
 		auto_skip.enabled = !is_auto_skip_enabled
-

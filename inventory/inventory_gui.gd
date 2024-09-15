@@ -58,6 +58,7 @@ var previousEmptyb: bool
 @export var manager : MainManager
 
 
+
 func world_ready():
 	pass
 
@@ -528,4 +529,3 @@ func move_selector_DB():
 
 func _on_stamp_equiped(slot) -> void:
 	print("stamp")
-	

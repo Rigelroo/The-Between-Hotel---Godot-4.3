@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=70 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -17,6 +17,7 @@
 [ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="14_s4luv"]
 [ext_resource type="PackedScene" uid="uid://b1gwbm7ogm5ol" path="res://objects/lightmoths.tscn" id="15_0d4y7"]
 [ext_resource type="PackedScene" uid="uid://cad058dvr1hb3" path="res://npcs/Quarto 1 - bettleborough/splasharea.tscn" id="17_lw15w"]
+[ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://objects/showitemsprite.tscn" id="18_prg3j"]
 [ext_resource type="PackedScene" uid="uid://bnd1jkgn0iro7" path="res://objects/lightspot.tscn" id="19_pekg6"]
 [ext_resource type="Texture2D" uid="uid://bfdcvesay4moy" path="res://Sprites/Bettlebourough/parallax/B3.png" id="20_01e4h"]
 [ext_resource type="Texture2D" uid="uid://c1dwfio1icyq6" path="res://Sprites/Bettlebourough/parallax/B4.png" id="21_3cpb2"]
@@ -30,6 +31,30 @@
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://inventory/Selos/selo_1.tscn" id="29_w63p5"]
 [ext_resource type="Resource" uid="uid://bv8ujs5m68b51" path="res://inventory/Selos/selo_crimsonbug.tres" id="30_wjqyc"]
 [ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://inventory/Selos/selo_crimsonbug.png" id="31_0jrsl"]
+[ext_resource type="Script" path="res://scenes/portaporta.gd" id="32_tub5i"]
+[ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="33_ecl4b"]
+[ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="34_vbfem"]
+[ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="35_ec3x1"]
+[ext_resource type="Texture2D" uid="uid://cg1we2wu1evbm" path="res://Sprites/InteractionBox/InteractionBox - Door0003.png" id="36_p7br5"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="37_nlmdi"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="38_nvb13"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="39_n3hry"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="40_rnov6"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="41_7n485"]
+[ext_resource type="Texture2D" uid="uid://buaj4i0w37fhc" path="res://Sprites/InteractionBox/InteractionBox - locked0000.png" id="42_3mgux"]
+[ext_resource type="Texture2D" uid="uid://cmfgtewblulr5" path="res://Sprites/InteractionBox/InteractionBox - locked0001.png" id="43_uftpp"]
+[ext_resource type="Texture2D" uid="uid://4mf672khj0y4" path="res://Sprites/InteractionBox/InteractionBox - locked0002.png" id="44_7ixbu"]
+[ext_resource type="Texture2D" uid="uid://dibyghp87j8h7" path="res://Sprites/InteractionBox/InteractionBox - locked0003.png" id="45_4tav4"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="46_vjvrs"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="47_f7ah2"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="48_fjsbe"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="49_v6isu"]
+[ext_resource type="Texture2D" uid="uid://cfh0n5a12t6t8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0000.png" id="50_upqx6"]
+[ext_resource type="Texture2D" uid="uid://cj6c5w30gbkk8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0001.png" id="51_svdpi"]
+[ext_resource type="Texture2D" uid="uid://cqirufu6tyo4g" path="res://Sprites/InteractionBox/InteractionBox - unlocking0002.png" id="52_bywrj"]
+[ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="53_s32ca"]
+[ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="54_ekh6u"]
+[ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="55_x00us"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihi6u"]
 texture = ExtResource("8_uyb2n")
@@ -571,8 +596,6 @@ colors = PackedColorArray(0.447059, 0.419608, 0.67451, 1, 0, 0, 0, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_i5v5p"]
 gradient = SubResource("Gradient_so0hn")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_mbuha"]
-
 [sub_resource type="Gradient" id="Gradient_n1lro"]
 offsets = PackedFloat32Array(0.323232, 0.636364)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -588,6 +611,112 @@ light_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sd7k"]
 size = Vector2(2745, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6pf"]
+size = Vector2(598, 837)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5ak7"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_ecl4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_vbfem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_ec3x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_p7br5")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_nlmdi")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_nvb13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_n3hry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_rnov6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_7n485")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_3mgux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_uftpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_7ixbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_4tav4")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("46_vjvrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_f7ah2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_fjsbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_v6isu")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("50_upqx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_svdpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_bywrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_s32ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_ekh6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_x00us")
+}],
+"loop": false,
+"name": &"unlocking",
+"speed": 5.0
+}]
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 script = ExtResource("1_07tvi")
@@ -720,10 +849,7 @@ limit_bottom = 1450
 limit_smoothed = true
 editor_draw_limits = true
 
-[node name="Showitemsprite" type="Sprite2D" parent="Player"]
-position = Vector2(0, -33.25)
-scale = Vector2(0.025, 0.025)
-texture = SubResource("CanvasTexture_mbuha")
+[node name="Showitemsprite" parent="Player" instance=ExtResource("18_prg3j")]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 material = ExtResource("14_s4luv")
@@ -838,5 +964,30 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="Selo6" index="1"]
 texture = ExtResource("31_0jrsl")
+
+[node name="Porta1" type="Node2D" parent="." node_paths=PackedStringArray("balloon", "world")]
+position = Vector2(2988, 647)
+scale = Vector2(0.32, 0.32)
+script = ExtResource("32_tub5i")
+next_scene = "res://Tests/BB - insides1.tscn"
+door_index = 4
+balloon = NodePath("Ballondoor1")
+world = NodePath("..")
+
+[node name="AreaD2D1" type="Area2D" parent="Porta1"]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="Porta1/AreaD2D1"]
+shape = SubResource("RectangleShape2D_0u6pf")
+debug_color = Color(0.645423, 0.502287, 0.400547, 0.42)
+
+[node name="Ballondoor1" type="AnimatedSprite2D" parent="Porta1"]
+y_sort_enabled = true
+position = Vector2(-3.8147e-06, -700)
+sprite_frames = SubResource("SpriteFrames_q5ak7")
+animation = &"unlocking"
+autoplay = "inactive"
+
+[connection signal="body_entered" from="Porta1/AreaD2D1" to="Porta1" method="_on_area_d_2d_1_body_entered"]
+[connection signal="body_exited" from="Porta1/AreaD2D1" to="Porta1" method="_on_area_d_2d_1_body_exited"]
 
 [editable path="Selo6"]

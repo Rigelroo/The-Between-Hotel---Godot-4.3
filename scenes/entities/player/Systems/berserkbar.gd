@@ -6,14 +6,14 @@ signal update
 
 @export var points_index: int
 
-@onready var maxpoints: Array = %HBoxContainer.get_children()
-@onready var maxpoints_num : int = %HBoxContainer.get_child_count()
+var maxpoints: Array 
+var maxpoints_num : int 
 @export var amount = 3
 @export var current_fullness = 1
 @onready var pointscene = preload("res://scenes/entities/player/Systems/middlepointcontainer.tscn")
 @export var manager : MainManager
 @onready var inv_manager : InventoryManager
-@onready var player = get_tree().get_first_node_in_group("Player")
+var player = null
 
 func _process(delta: float) -> void:
 	if manager.crimsonfury_equiped:
@@ -30,20 +30,21 @@ func _on_inventory_gui_closed():
 	self.visible = true
 
 func _ready() -> void:
+	maxpoints = %HBoxContainer.get_children()
+	maxpoints_num = %HBoxContainer.get_child_count()
+	player = get_tree().get_first_node_in_group("Player")
 	SignalManager.world_loaded.connect(world_ready)
+	maxpoints.max()
+	set_max_points(2)
+	show_current_points(player.currentFurypoints)
+	set_points()
 
 func world_ready() -> void:
 	manager.inventoryopened.connect(_on_inventory_gui_opened)
 	manager.inventoryclosed.connect(_on_inventory_gui_closed)
-	maxpoints.max()
-	print(maxpoints_num)
-	set_max_points(2)
-	show_current_points(player.currentFurypoints)
 	player.healthChanged.connect(show_current_points)
 	player.temporary.connect(temporaryf)
-	set_points()
-	
-	print(%HBoxContainer.get_child_count())
+
 
 func temporaryf():
 	print(player.currentFurypoints)

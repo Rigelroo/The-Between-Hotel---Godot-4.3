@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Questtask" load_steps=5 format=3 uid="uid://3f38aw2mqtdy"]
+
+[ext_resource type="Texture2D" uid="uid://bhf5cj38njt60" path="res://inventory/Chaves/chave_quarto 1.png" id="1_bu8oy"]
+[ext_resource type="Texture2D" uid="uid://vda1xj728yhs" path="res://Missões/npc icons/Matheus.png" id="2_mv5q8"]
+[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://inventory/Selos/selo_herculesleaf.tres" id="3_kr3d8"]
+[ext_resource type="Script" path="res://Missões/missions.gd" id="4_40uho"]
+
+[resource]
+script = ExtResource("4_40uho")
+name = "Quest_matheus1"
+showname = "Pegue a chave"
+item_texture = ExtResource("1_bu8oy")
+npc_texture = ExtResource("2_mv5q8")
+reward_item = ExtResource("3_kr3d8")
+reward_item_amount = 1
+reward_itemb_amount = 0
+item_amount = 1
+description = "aaa"
+task_progress = 0
+theme_color = Color(0.372549, 0.639216, 0.431373, 1)

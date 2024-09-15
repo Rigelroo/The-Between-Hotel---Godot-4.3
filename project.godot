@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Precision Platformer"
-run/main_scene="res://Sprites/EntryHall/corridor1.tscn"
+run/main_scene="res://scenes/entry_hallNode.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
 config/icon="res://icon.svg"
@@ -39,7 +39,7 @@ directories/dtl_directory={
 "Teste1english": "res://Sprites/DialogueBox/Kori e Trice/Teste1english.dtl",
 "dialogueexample": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample.dtl",
 "dialogueexample2": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample2.dtl",
-"doortimeline1": "res://doorlocked.dtl",
+"doorlocked1": "res://doorlocked.dtl",
 "doortimeline2": "res://doortimeline2.dtl",
 "exemplodialogue": "res://exemplodialogue.dtl",
 "quadro1": "res://quadro1.dtl",
@@ -74,7 +74,8 @@ glossary/default_case_sensitive=true
 variables={
 "Folder": {},
 "can_move": true,
-"index": 0
+"index": 0,
+"mission_index": 0
 }
 text/input_action="Jump"
 
@@ -262,6 +263,18 @@ Magic={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":5,"axis_value":1.0,"script":null)
 ]
 }
+enter={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+seila={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -269,6 +282,7 @@ Magic={
 2d_physics/layer_2="water"
 2d_physics/layer_3="waterdetection"
 2d_physics/layer_4="wall"
+2d_physics/layer_5="trigger"
 
 [rendering]
 

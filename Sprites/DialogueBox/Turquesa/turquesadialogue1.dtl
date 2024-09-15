@@ -21,4 +21,6 @@ Turquesa (Turquesa): Agora xó! Volte quando pegar a minha encomenda
 join Persian (Persian_worried) 1
 update Turquesa (vazio) 3
 Persian (Persian_pissed): ...
+[signal arg="set_mission"]
+set {mission_index} = 1
 [signal arg="reactivate_movement"]

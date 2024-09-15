@@ -6,12 +6,15 @@
 [resource]
 script = ExtResource("1_1wwnx")
 name = "chave_quarto2"
+Item_type = "Key_item"
 texture = ExtResource("2_hslg6")
 maxAmountInStack = 2
 max_amount = 0
 showname = "Chave do quarto 2"
 description = "Chave que leva ao quarto número 2, desaparece quando usada."
-color = Color(0.788738, 0.194251, 0.563849, 1)
-color_x = 0.78
-color_y = 0.19
-color_z = 0.56
+color = Color(0.2, 0.396078, 0.839216, 1)
+color_x = 0.19
+color_y = 0.39
+color_z = 0.83
+first_item = 0
+scriptstr = "res://inventory/Items/item_chavequarto.gd"
