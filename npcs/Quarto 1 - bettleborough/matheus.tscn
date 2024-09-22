@@ -1,0 +1,285 @@
+[gd_scene load_steps=33 format=3 uid="uid://bk8x8dr8ahmpp"]
+
+[ext_resource type="Script" path="res://npcs/Matheus/matheus.gd" id="1_do6cq"]
+[ext_resource type="Script" path="res://Missões/missions.gd" id="2_ry5ij"]
+[ext_resource type="Resource" uid="uid://3f38aw2mqtdy" path="res://Missões/npc - quests/Matheus/quest_matheus1.tres" id="3_fd6r6"]
+[ext_resource type="Texture2D" uid="uid://b061v062k6e3x" path="res://Sprites/NPCs/Matheus/matheus_idle - 0000.png" id="4_gwfek"]
+[ext_resource type="Texture2D" uid="uid://bhwv7jovnviif" path="res://Sprites/NPCs/Matheus/matheus_idle - 0001.png" id="5_gnuvk"]
+[ext_resource type="Texture2D" uid="uid://b07g4jwlyej1k" path="res://Sprites/NPCs/Matheus/matheus_idle - 0002.png" id="6_3l2g8"]
+[ext_resource type="Texture2D" uid="uid://dej31lde31bpx" path="res://Sprites/NPCs/Matheus/matheus_idle - 0003.png" id="7_mljwy"]
+[ext_resource type="Texture2D" uid="uid://bgw4elvxaxd7w" path="res://Sprites/NPCs/Matheus/matheus_idle - 0004.png" id="8_w4dee"]
+[ext_resource type="Texture2D" uid="uid://b0pc32iedqj6w" path="res://Sprites/NPCs/Matheus/matheus_idle - 0005.png" id="9_5c3fi"]
+[ext_resource type="Texture2D" uid="uid://rf548otl5l2n" path="res://Sprites/NPCs/Matheus/charifer_hug -0000.png" id="10_4wc58"]
+[ext_resource type="Texture2D" uid="uid://cn112426nn2jq" path="res://Sprites/NPCs/Matheus/charifer_hug -0001.png" id="11_6nskr"]
+[ext_resource type="Texture2D" uid="uid://cfnqurgbgyfik" path="res://Sprites/NPCs/Matheus/charifer_hug -0002.png" id="12_wff2h"]
+[ext_resource type="Texture2D" uid="uid://i16hgjagqhu2" path="res://Sprites/NPCs/Matheus/charifer_hug -0003.png" id="13_a0yiw"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="13_rgfwp"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="14_anyl1"]
+[ext_resource type="Texture2D" uid="uid://cs3myvr11wh88" path="res://Sprites/NPCs/Matheus/charifer_hug -0005.png" id="14_uum8v"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="15_bmhp6"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="16_alaj3"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="17_mqx4r"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="18_r6usa"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="19_mondi"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="20_5wcea"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="21_sbyrr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ic4ad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gwfek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gnuvk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3l2g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mljwy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w4dee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5c3fi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_4wc58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6nskr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wff2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_a0yiw")
+}],
+"loop": false,
+"name": &"hug_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_uum8v")
+}],
+"loop": false,
+"name": &"unhug_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bu8n"]
+size = Vector2(490, 610)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dgglr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_rgfwp")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_anyl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bmhp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_alaj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mqx4r")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_r6usa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_mondi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5wcea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_sbyrr")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_hpwgu"]
+resource_name = "hug"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D2/Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_2kaqc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D2/Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"unhug_animation"]
+}
+
+[sub_resource type="Animation" id="Animation_tf6du"]
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D2/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D2/Sprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["default"]
+}
+
+[sub_resource type="Animation" id="Animation_cdg8m"]
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D2/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D2/Sprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["hug_animation"]
+}
+
+[sub_resource type="Animation" id="Animation_6lxyk"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D2/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D2/Sprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["unhug_animation"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1c3xq"]
+_data = {
+"RESET": SubResource("Animation_2kaqc"),
+"default": SubResource("Animation_tf6du"),
+"hug": SubResource("Animation_hpwgu"),
+"hug_animation": SubResource("Animation_cdg8m"),
+"unhug_animation": SubResource("Animation_6lxyk")
+}
+
+[node name="Matheus" type="Node2D"]
+script = ExtResource("1_do6cq")
+quests = Array[ExtResource("2_ry5ij")]([ExtResource("3_fd6r6")])
+quest_completed_dialogue = Array[String](["res://Sprites/DialogueBox/Turquesa/turquesaq1complete.dtl"])
+dialogs = Array[String](["res://Sprites/DialogueBox/Turquesa/turquesadialogue1.dtl", "res://Sprites/DialogueBox/Turquesa/turquesadialogue2.dtl"])
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(6.66, 83.58)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Area2D2"]
+position = Vector2(-32, -168)
+scale = Vector2(0.765, 0.765)
+sprite_frames = SubResource("SpriteFrames_ic4ad")
+animation = &"unhug_animation"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+show_behind_parent = true
+position = Vector2(-42.32, -110.16)
+shape = SubResource("RectangleShape2D_5bu8n")
+debug_color = Color(0.411932, 0.890556, 1, 0.42)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+z_index = 50
+y_sort_enabled = true
+position = Vector2(-38, -190)
+scale = Vector2(0.26, 0.26)
+sprite_frames = SubResource("SpriteFrames_dgglr")
+animation = &"mission"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1c3xq")
+}
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

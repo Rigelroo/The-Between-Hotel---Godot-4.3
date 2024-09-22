@@ -31,10 +31,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={
 "Kori e Trice": "res://Sprites/DialogueBox/Kori e Trice/Kori e Trice.dch",
+"Matheus": "res://Sprites/DialogueBox/Matheus/Matheus.dch",
 "Persian": "res://Tests/Resources/Persian.dch",
 "Turquesa": "res://Sprites/DialogueBox/Turquesa/Turquesa.dch"
 }
 directories/dtl_directory={
+"Matheus/turquesadialogue2": "res://Sprites/DialogueBox/Matheus/matheusdialogue2.dtl",
 "Teste1": "res://Sprites/DialogueBox/Kori e Trice/Teste1.dtl",
 "Teste1english": "res://Sprites/DialogueBox/Kori e Trice/Teste1english.dtl",
 "dialogueexample": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample.dtl",
@@ -42,6 +44,7 @@ directories/dtl_directory={
 "doorlocked1": "res://doorlocked.dtl",
 "doortimeline2": "res://doortimeline2.dtl",
 "exemplodialogue": "res://exemplodialogue.dtl",
+"matheusdialogue1": "res://Sprites/DialogueBox/Matheus/matheusdialogue1.dtl",
 "quadro1": "res://quadro1.dtl",
 "quadro2": "res://quadro2.dtl",
 "quadro3": "res://quadro3.dtl",
@@ -49,7 +52,8 @@ directories/dtl_directory={
 "testdialogue": "res://Sprites/DialogueBox/Kori e Trice/testdialogue.dtl",
 "timeline": "res://Sprites/timeline.dtl",
 "turquesadialogue1": "res://Sprites/DialogueBox/Turquesa/turquesadialogue1.dtl",
-"turquesadialogue2": "res://Sprites/DialogueBox/Turquesa/turquesadialogue2.dtl"
+"turquesadialogue2": "res://Sprites/DialogueBox/Turquesa/turquesadialogue2.dtl",
+"turquesaq1complete": "res://Sprites/DialogueBox/Turquesa/turquesaq1complete.dtl"
 }
 layout/style_list=["res://Dialogsystem/Style.tres", "res://Dialogsystem/Style2.tres"]
 layout/default_style="res://Dialogsystem/Style.tres"

@@ -950,7 +950,7 @@ shape = SubResource("RectangleShape2D_8sd7k")
 scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
-[node name="Statsbar" parent="Statslayer" groups=["Stats"] instance=ExtResource("25_vh4bb")]
+[node name="Statsbar" parent="Statslayer" instance=ExtResource("25_vh4bb")]
 metadata/_edit_use_anchors_ = true
 
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("28_icgh1")]

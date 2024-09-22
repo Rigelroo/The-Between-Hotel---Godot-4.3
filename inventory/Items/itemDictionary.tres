@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InventoryDictionary" load_steps=15 format=3 uid="uid://ryheeenq4emp"]
+[gd_resource type="Resource" script_class="InventoryDictionary" load_steps=17 format=3 uid="uid://ryheeenq4emp"]
 
 [ext_resource type="Script" path="res://inventory/inventoryItemb.gd" id="1_pfj4s"]
 [ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_w607f"]
@@ -14,8 +14,10 @@
 [ext_resource type="Resource" uid="uid://e864yq4aeifi" path="res://inventory/Selos/selo_fireflyemblem.tres" id="6_3ow3f"]
 [ext_resource type="Resource" uid="uid://dw24t6xttmdyt" path="res://inventory/Selos/selo_hatintime.tres" id="7_vxhva"]
 [ext_resource type="Resource" uid="uid://bojqr7cp6eeiq" path="res://inventory/Selos/selo_frozenheart.tres" id="8_fxaqi"]
+[ext_resource type="Resource" uid="uid://vt70xejuyt5h" path="res://inventory/Items/chave_quarto3.tres" id="12_4sa23"]
+[ext_resource type="Resource" uid="uid://d0u0pxghi7rdu" path="res://inventory/Items/pacote.tres" id="15_4jh06"]
 
 [resource]
 script = ExtResource("2_ki5qi")
-invsitems = Array[ExtResource("1_pfj4s")]([ExtResource("2_we8xh"), ExtResource("3_85qri"), ExtResource("4_d001n"), ExtResource("5_8xisw")])
+invsitems = Array[ExtResource("1_pfj4s")]([ExtResource("2_we8xh"), ExtResource("3_85qri"), ExtResource("12_4sa23"), ExtResource("4_d001n"), ExtResource("5_8xisw"), ExtResource("15_4jh06")])
 invseals = Array[ExtResource("1_w607f")]([ExtResource("4_pm6x3"), ExtResource("3_aw0l3"), ExtResource("2_2fe70"), ExtResource("5_4n2p2"), ExtResource("6_3ow3f"), ExtResource("7_vxhva"), ExtResource("8_fxaqi")])

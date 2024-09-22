@@ -178,13 +178,18 @@ func update():
 		itemStackGuib.update()
 
 
+	
+
+
 func open():
+	
 	tab.current_tab = 0
 	visible = true
 	isOpen = true
 	manager.inventoryopened.emit()
 
 func close():
+	get_tree().paused = false
 	visible = false
 	isOpen = false
 	manager.inventoryclosed.emit()
@@ -333,12 +338,21 @@ func updateItemInHand():
 	if !itemInHand: return
 	itemInHand.global_position = selector.global_position - itemInHand.size / 2
 
-
+var canOpen_inventory : bool = true
 
 func _input(event):
 	if Input.is_action_pressed("Magic"):
 		hat_for_selector()
 	
+	if event.is_action_pressed("menu_inventory"):
+		if canOpen_inventory:
+			if isOpen:
+				SignalManager.stats.visible = true
+				close()
+			else:
+				open()
+				SignalManager.stats.visible = false
+	else: pass
 	updateItemInHand()
 	if event.is_action_pressed("change_menu_mais"):
 		if number < 2 && number > -1:

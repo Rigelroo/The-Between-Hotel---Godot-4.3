@@ -28,6 +28,7 @@ shader_parameter/grain_amount = 0.04
 shader_parameter/grain_size = 0.694
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("inventory")]
+process_mode = 3
 process_thread_group = 2
 process_thread_group_order = 0
 process_thread_messages = 0

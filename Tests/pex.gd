@@ -1,7 +1,8 @@
-
+@icon("res://Missões/npc icons/Turquesa.png")
 extends Node2D
 #@onready var areaInteraction = $Area2D/AreaInteraction
 @onready var player = $"."
+
 #@onready var global = $Global
 #@export var can_interact = false
 var player_in_area = false
@@ -10,8 +11,15 @@ var Player = null
 var timeline : DialogicTimeline = DialogicTimeline.new()
 @export var dialog_event = 0
 @export var quests : Array[Questtask] = []
+@export var world : Node2D = self.owner
 
+@export_file("*.dtl") var quest_completed_dialogue : Array[String] = []
+@export var quest_array : int = 0
 @export_file("*.dtl") var dialogs: Array[String] = []
+
+func complete_quest():
+	if quests[quest_array].completed:
+		Dialogic.start(quest_completed_dialogue[quest_array])
 func _ready():
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	$AnimatedSprite2D2.play("inactive")
@@ -52,9 +60,11 @@ func _input(event: InputEvent):
 			return
 	
 		if Input.is_action_pressed("Interact"):
-				Dialogic.start(dialogs[dialog_event])
-				dialog_event = 1
-				get_viewport().set_input_as_handled()
+			#SignalManager.findquest(SignalManager.task_manager.missions, quests[quest_array], quest_array, quests[quest_array].item_amount, quests[quest_array].item_amount)
+			SignalManager.finditem_amount(world.inventory.invslots, quests[quest_array].quest_item, quest_array, quests[quest_array].item_amount)
+			Dialogic.start(dialogs[dialog_event])
+			dialog_event = 1
+			get_viewport().set_input_as_handled()
 
 func _on_dialogic_signal(argument:String):
 	if argument == "set_mission":
