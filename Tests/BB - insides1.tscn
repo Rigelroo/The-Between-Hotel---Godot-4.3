@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://do862a8fcbrn7"]
+[gd_scene load_steps=68 format=4 uid="uid://do862a8fcbrn7"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_d1reg"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_nei4d"]
@@ -29,6 +29,30 @@
 [ext_resource type="Texture2D" uid="uid://dc2wdfrswe6nc" path="res://Sprites/Bettlebourough/Insides/arvore1.png" id="26_1hiw3"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="26_l5g1r"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="27_q3vp6"]
+[ext_resource type="Script" path="res://scenes/portaporta.gd" id="30_f1fyr"]
+[ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="31_8w8ox"]
+[ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="32_xb445"]
+[ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="33_jg4d6"]
+[ext_resource type="Texture2D" uid="uid://cg1we2wu1evbm" path="res://Sprites/InteractionBox/InteractionBox - Door0003.png" id="34_612il"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="35_rupo0"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="36_li1ck"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="37_his8h"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="38_t6ioo"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="39_csl07"]
+[ext_resource type="Texture2D" uid="uid://buaj4i0w37fhc" path="res://Sprites/InteractionBox/InteractionBox - locked0000.png" id="40_02twv"]
+[ext_resource type="Texture2D" uid="uid://cmfgtewblulr5" path="res://Sprites/InteractionBox/InteractionBox - locked0001.png" id="41_0rnpj"]
+[ext_resource type="Texture2D" uid="uid://4mf672khj0y4" path="res://Sprites/InteractionBox/InteractionBox - locked0002.png" id="42_i76w0"]
+[ext_resource type="Texture2D" uid="uid://dibyghp87j8h7" path="res://Sprites/InteractionBox/InteractionBox - locked0003.png" id="43_0nmlf"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="44_8ef37"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="45_lftca"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="46_qjynp"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="47_at15q"]
+[ext_resource type="Texture2D" uid="uid://cfh0n5a12t6t8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0000.png" id="48_g3bfr"]
+[ext_resource type="Texture2D" uid="uid://cj6c5w30gbkk8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0001.png" id="49_l44d4"]
+[ext_resource type="Texture2D" uid="uid://cqirufu6tyo4g" path="res://Sprites/InteractionBox/InteractionBox - unlocking0002.png" id="50_6j53w"]
+[ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="51_m3yjd"]
+[ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="52_yp33q"]
+[ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="53_wvctj"]
 
 [sub_resource type="Gradient" id="Gradient_so0hn"]
 colors = PackedColorArray(0.447059, 0.419608, 0.67451, 1, 0, 0, 0, 0)
@@ -581,6 +605,112 @@ sources/4 = SubResource("TileSetAtlasSource_nxgfb")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yte2v"]
 size = Vector2(2464, 208)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfyjf"]
+size = Vector2(598, 837)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5oh6"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_8w8ox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_xb445")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_jg4d6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_612il")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_rupo0")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_li1ck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_his8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_t6ioo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_csl07")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_02twv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_0rnpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_i76w0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_0nmlf")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_8ef37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_lftca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_qjynp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_at15q")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_g3bfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_l44d4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_6j53w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_m3yjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_yp33q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_wvctj")
+}],
+"loop": false,
+"name": &"unlocking",
+"speed": 5.0
+}]
+
 [node name="world" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 script = ExtResource("1_d1reg")
 objplayer = NodePath("Player")
@@ -692,7 +822,7 @@ centered = false
 scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
-[node name="Statsbar" parent="Statslayer" groups=["Stats"] instance=ExtResource("26_l5g1r")]
+[node name="Statsbar" parent="Statslayer" instance=ExtResource("26_l5g1r")]
 metadata/_edit_use_anchors_ = true
 
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("27_q3vp6")]
@@ -783,3 +913,27 @@ position = Vector2(920, 909)
 scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAD3/wEABAAGAAoAAAD3/wIABAAGAAsAAAD3/wMABAAGAAwAAAD4/wIABAAHAAsAAAD4/wMABAAHAAwAAAD5/wIABAAIAAsAAAD5/wMABAAIAAwAAAD6/wEABAAJAAoAAAD6/wIABAAJAAsAAAD6/wMABAAJAAwAAAD7/wEABAAKAAoAAAD7/wIABAAKAAsAAAD7/wMABAAKAAwAAAD8/wEABAALAAoAAAD8/wIABAALAAsAAAD8/wMABAALAAwAAAD9/wIABAAMAAsAAAD9/wMABAAMAAwAAAAKAAMABAAGAA8AAAALAAMABAAHAA8AAAAMAAMABAAIAA8AAAANAAIABAAHAAsAAAANAAMABAAHAAwAAAAOAAIABAAIAAsAAAAOAAMABAAIAAwAAAAPAAEABAAJAAoAAAAPAAIABAAJAAsAAAAPAAMABAAJAAwAAAAQAAMABAAKAAwAAAARAAMABAALAAwAAAASAAMABAAMAAwAAAAQAAEABAAKAAoAAAAQAAIABAAKAAsAAAARAAEABAALAAoAAAARAAIABAALAAsAAAASAAIABAAMAAsAAAAHAAMABAADAA8AAAAIAAMABAAEAA8AAAAJAAMABAAFAA8AAAA=")
 tile_set = SubResource("TileSet_yrty0")
+
+[node name="Porta1" type="Node2D" parent="." node_paths=PackedStringArray("balloon")]
+position = Vector2(847, 1076)
+scale = Vector2(0.32, 0.32)
+script = ExtResource("30_f1fyr")
+next_scene = "res://Tests/parallaxtest1.tscn"
+door_index = 4
+balloon = NodePath("Ballondoor1")
+
+[node name="AreaD2D1" type="Area2D" parent="Porta1"]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="Porta1/AreaD2D1"]
+shape = SubResource("RectangleShape2D_dfyjf")
+debug_color = Color(0.645423, 0.502287, 0.400547, 0.42)
+
+[node name="Ballondoor1" type="AnimatedSprite2D" parent="Porta1"]
+y_sort_enabled = true
+position = Vector2(-3.8147e-06, -700)
+sprite_frames = SubResource("SpriteFrames_x5oh6")
+animation = &"unlocking"
+autoplay = "inactive"
+
+[connection signal="body_entered" from="Porta1/AreaD2D1" to="Porta1" method="_on_area_d_2d_1_body_entered"]
+[connection signal="body_exited" from="Porta1/AreaD2D1" to="Porta1" method="_on_area_d_2d_1_body_exited"]

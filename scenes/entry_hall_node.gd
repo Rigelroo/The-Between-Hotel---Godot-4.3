@@ -52,8 +52,8 @@ func _ready() -> void:
 	SignalManager.world_loaded.emit()
 	
 	player.set_idle()
-	manager.inventoryopened.connect(_on_inventory_gui_opened)
-	manager.inventoryclosed.connect(_on_inventory_gui_closed)
+	SignalManager.inventoryopened.connect(_on_inventory_gui_opened)
+	SignalManager.inventoryclosed.connect(_on_inventory_gui_closed)
 	manager.loadscene.connect(load_scene)
 	objplayer.death.connect(death)
 	splashw.Vaifundo.connect(create_splash)

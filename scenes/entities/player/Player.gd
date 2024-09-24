@@ -138,6 +138,7 @@ func set_idle():
 
 
 func _ready():
+	stats = get_tree().get_first_node_in_group("Stats")
 	SignalManager.magic_changed.connect(new_emitter)
 	add_to_group("Player")
 	

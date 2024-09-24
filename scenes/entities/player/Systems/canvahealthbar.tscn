@@ -527,7 +527,7 @@ _data = {
 "RESET": SubResource("Animation_k710y")
 }
 
-[node name="Statsbar" type="Control"]
+[node name="Statsbar" type="Control" groups=["Stats"]]
 layout_mode = 3
 anchor_right = 0.421
 anchor_bottom = 0.435

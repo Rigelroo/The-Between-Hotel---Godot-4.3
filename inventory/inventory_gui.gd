@@ -182,12 +182,12 @@ func open():
 	tab.current_tab = 0
 	visible = true
 	isOpen = true
-	manager.inventoryopened.emit()
+	SignalManager.inventoryopened.emit()
 
 func close():
 	visible = false
 	isOpen = false
-	manager.inventoryclosed.emit()
+	SignalManager.inventoryclosed.emit()
 
 
 func readyclose():

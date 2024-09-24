@@ -15,6 +15,9 @@ signal no_item
 signal has_correct_amount
 signal no_correct_amount
 
+signal inventoryclosed
+signal inventoryopened
+
 signal update_quests
 
 var can_update : bool = false

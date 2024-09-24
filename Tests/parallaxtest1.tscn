@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=69 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bj5ftnperx0o5" path="res://Sprites/Bettlebourough/4.png" id="9_yq2sf"]
 [ext_resource type="Texture2D" uid="uid://cug1r1lioeyty" path="res://Sprites/Bettlebourough/aaaaaaa.png" id="10_iffbf"]
 [ext_resource type="PackedScene" uid="uid://c006gr1olwioh" path="res://npcs/Quarto 1 - bettleborough/turquesa.tscn" id="11_hlwct"]
-[ext_resource type="PackedScene" uid="uid://wu27ixe1fu82" path="res://objects/porta_quarto.tscn" id="11_qu67e"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="12_njeaq"]
 [ext_resource type="PackedScene" uid="uid://buw8duilnfqej" path="res://camera_2d.tscn" id="13_5etxj"]
 [ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="14_s4luv"]
@@ -613,7 +612,7 @@ light_mode = 2
 size = Vector2(2745, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6pf"]
-size = Vector2(598, 837)
+size = Vector2(749, 1156)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q5ak7"]
 resource_local_to_scene = true
@@ -813,12 +812,6 @@ scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAD//wAABAABAAkAAAARAP7/BAAHAAgAAAARAP//BAAHAAkAAAASAP7/BAAHAAgAAAASAP//BAAHAAkAAAATAP7/BAAIAAgAAAATAP//BAAIAAkAAAADAP//BAAIAA8AAAADAAAABAAGAAkAAAAEAP//BAAHAAgAAAAEAAAABAAHAAkAAAAFAP//BAAHAAgAAAAFAAAABAAHAAkAAAAGAAAABAAIAAkAAAAGAP//BAAIAAgAAAAQAP7/BAAGAAgAAAAQAP//BAAGAAkAAAAUAP7/BAAGAAgAAAAUAP//BAAGAAkAAAAVAP7/BAAHAAgAAAAVAP//BAAHAAkAAAAWAP7/BAAIAAgAAAAWAP//BAAIAAkAAAD/////BAAEAA8AAAAAAP//BAAFAA8AAAABAP//BAAGAA8AAAACAP//BAAHAA8AAAACAAEABAAXAAkAAAD//wMABAAYAAwAAAAGAAQABAAXAAkAAAALAAQABAAWAAkAAAAVAAIABAAXAAoAAAAQAAIABAAWAAkAAAAPAAUABAAWAAkAAAAKAAcABAAYAAwAAAAIAAcABAAXAAkAAAD4/wMABAAXAAwAAAD5/wIABAAXAAwAAAD7/wAABAAYAAwAAAAJAAIABAAWAAkAAAAOAAEABAAWAAwAAADz/wUABAAWAAwAAAD+/wcABAAWAAoAAAD//wcABAAXAAwAAAAcAAIABAAWAAkAAAA=")
 tile_set = SubResource("TileSet_qjb5f")
 
-[node name="Portavolta" parent="." instance=ExtResource("11_qu67e")]
-position = Vector2(1623, 696)
-scale = Vector2(1.125, 1.125)
-next_scene = "res://Sprites/EntryHall/corridor1.tscn"
-spritestr = "res://Sprites/EntryHall - Reworked/Porta_bugnest.png"
-
 [node name="Turquesa" parent="." instance=ExtResource("11_hlwct")]
 position = Vector2(-7, -7)
 
@@ -950,7 +943,7 @@ shape = SubResource("RectangleShape2D_8sd7k")
 scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
-[node name="Statsbar" parent="Statslayer" groups=["Stats"] instance=ExtResource("25_vh4bb")]
+[node name="Statsbar" parent="Statslayer" instance=ExtResource("25_vh4bb")]
 metadata/_edit_use_anchors_ = true
 
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("28_icgh1")]
@@ -987,7 +980,32 @@ sprite_frames = SubResource("SpriteFrames_q5ak7")
 animation = &"unlocking"
 autoplay = "inactive"
 
+[node name="Porta2" type="Node2D" parent="." node_paths=PackedStringArray("balloon", "world")]
+position = Vector2(1561, 758)
+scale = Vector2(0.32, 0.32)
+script = ExtResource("32_tub5i")
+next_scene = "res://Sprites/EntryHall/corridor.tscn"
+door_index = 4
+balloon = NodePath("Ballondoor1")
+world = NodePath("..")
+
+[node name="AreaD2D1" type="Area2D" parent="Porta2"]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="Porta2/AreaD2D1"]
+position = Vector2(75.5, -159.5)
+shape = SubResource("RectangleShape2D_0u6pf")
+debug_color = Color(0.645423, 0.502287, 0.400547, 0.42)
+
+[node name="Ballondoor1" type="AnimatedSprite2D" parent="Porta2"]
+y_sort_enabled = true
+position = Vector2(21.875, -1028.13)
+sprite_frames = SubResource("SpriteFrames_q5ak7")
+animation = &"unlocking"
+autoplay = "inactive"
+
 [connection signal="body_entered" from="Porta1/AreaD2D1" to="Porta1" method="_on_area_d_2d_1_body_entered"]
 [connection signal="body_exited" from="Porta1/AreaD2D1" to="Porta1" method="_on_area_d_2d_1_body_exited"]
+[connection signal="body_entered" from="Porta2/AreaD2D1" to="Porta2" method="_on_area_d_2d_1_body_entered"]
+[connection signal="body_exited" from="Porta2/AreaD2D1" to="Porta2" method="_on_area_d_2d_1_body_exited"]
 
 [editable path="Selo6"]

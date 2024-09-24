@@ -79,7 +79,7 @@ func transition_to(scene_path: String) -> void:
 
 		# Remove the current scene
 		current_scene.player.remove_from_group("Player")
-		#current_scene.stats.remove_from_group("Stats")
+		current_scene.stats.remove_from_group("Stats")
 		current_scene.gameover_manager.remove_from_group("Gameover")
 		current_scene.queue_free()
 
@@ -98,11 +98,14 @@ func transition_to(scene_path: String) -> void:
 	
 	# Initialize the player in the new scene
 	var new_player = new_scene.get_node("Player")  # Replace with the actual path
+	
 	if new_player:
 		# Optionally, set the player's position or state as needed
 		new_player.add_to_group("Player")
 		pass
-
+	var new_stats = new_scene.get_node("StatsLayer")
+	if new_stats:
+		new_stats.add_to_group("Stats")
 	# Wait for the new scene to be ready
 	
 
