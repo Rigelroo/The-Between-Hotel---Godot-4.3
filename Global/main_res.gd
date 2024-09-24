@@ -54,6 +54,8 @@ signal no_crimson
 signal insert_coin
 
 
+
+
 func insert():
 	if coin_mult == 1:
 		

@@ -1,0 +1,4 @@
+join Turquesa (Kori) 3
+[signal arg="deactivate_movement"]
+Turquesa (Turquesa): Tá fazendo o quê aqui ainda?
+[signal arg="reactivate_movement"]

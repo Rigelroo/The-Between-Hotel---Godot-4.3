@@ -133,9 +133,9 @@ func findquest(questslots, chosed_item, index, amount, item_type):
 	if amount > 1:
 		for j in range(min(SignalManager.task_manager.missions.size(), questslots.size())):
 			var questslot = questslots[j]
-			var item = questslot.itemStackGuib.inventorySlotb.item
-			var item_amount = questslot.itemStackGuib.inventorySlotb.item.amount
-			if !questslots[j].itemStackGuib == null:
+			var item = questslot.item
+			var item_amount = questslot.item.amount
+			if !questslots[j].item == null:
 				if chosed_item == item:
 					if item_amount == amount:
 						show_item(player, questslot.itemStackGuib.inventorySlotb.item)
@@ -152,17 +152,19 @@ func findquest(questslots, chosed_item, index, amount, item_type):
 					print("no method")
 
 
-func finditem_amount(invslots, chosed_item, index, amount, item_type):
+
+func finditem_amount(invslots, chosed_item, index, amount):
 	player = get_tree().get_first_node_in_group("Player")
 	var arg_has_key = true
 	var arg_no_key = false
 	npc_index = index
 	if amount > 1:
 		for j in range(min(SignalManager.inventoryb.invslots.size(), invslots.size())):
-			var invslot = invslots[j]
-			var item = invslot.itemStackGuib.inventorySlotb.item
-			var item_amount = invslot.itemStackGuib.inventorySlotb.item.amount
+
 			if !invslots[j].itemStackGuib == null:
+				var invslot = invslots[j]
+				var item = invslot.itemStackGuib.inventorySlotb.item
+				var item_amount = invslot.itemStackGuib.inventorySlotb.amount
 				if chosed_item == item:
 					if item_amount == amount:
 						show_item(player, invslot.itemStackGuib.inventorySlotb.item)
@@ -180,10 +182,11 @@ func finditem_amount(invslots, chosed_item, index, amount, item_type):
 
 	elif amount <= 1:
 		for j in range(min(SignalManager.inventoryb.invslots.size(), invslots.size())):
-			var invslot = invslots[j]
-			var item = invslot.itemStackGuib.inventorySlotb.item
-			var item_amount = invslot.itemStackGuib.inventorySlotb.item.amount
+			
 			if !invslots[j].itemStackGuib == null:
+				var invslot = invslots[j]
+				var item = invslot.itemStackGuib.inventorySlotb.item
+				var item_amount = invslot.itemStackGuib.inventorySlotb.amount
 				if chosed_item == item:
 					show_item(player, invslot.itemStackGuib.inventorySlotb.item)
 					await show_item(player, invslot.itemStackGuib.inventorySlotb.item)
@@ -231,8 +234,10 @@ func show_item(player: Player, item):
 	player.showitem.animation_player.play("surge_use")
 	await player.animation_player.animation_finished
 	
+@onready var stats = get_tree().get_first_node_in_group("Stats")
 
 func _ready() -> void:
+	stats = get_tree().get_first_node_in_group("Stats")
 	stamp_equipped.connect(stamp_equippedfunc)
 	stamp_unequipped.connect(stamp_unequippedfunc)
 	world_loaded.connect(call_worldloaded)

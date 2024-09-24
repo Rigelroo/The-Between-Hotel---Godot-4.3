@@ -1,0 +1,21 @@
+join Turquesa (Kori) 3
+[signal arg="deactivate_movement"]
+Turquesa (Turquesa): Consegui de volta garoto?
+join Persian (Persian_worried) 1
+update Turquesa (vazio) 3
+Persian (Persian_neutral): Aqui seu pacote
+update Persian (vazio) 1
+Turquesa (Turquesa): Até que enfim!
+Turquesa (Turquesa): Até que enfim!
+join Persian (Persian_worried) 1
+update Turquesa (vazio) 3
+Turquesa (Turquesa): OLha garoto, vou te dar uma coisa
+set {index} = 1
+[signal arg="take_stamp"]
+[wait_input]
+update Persian (Persian_worried) 1
+update Turquesa (vazio) 3
+Persian (Persian_happy): Uau, não esperava isso
+Persian (Persian_pissed): *ela estava com ele o tempo todo*
+Turquesa (Turquesa): De nada, agora pega e sai
+[signal arg="reactivate_movement"]

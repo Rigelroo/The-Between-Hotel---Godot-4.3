@@ -1,7 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://c006gr1olwioh"]
+[gd_scene load_steps=25 format=3 uid="uid://c006gr1olwioh"]
 
 [ext_resource type="Script" path="res://Tests/pex.gd" id="1_6i06r"]
 [ext_resource type="Texture2D" uid="uid://cpg0ajuqytwod" path="res://Sprites/Bettlebourough/npcs/Turquesa0000.png" id="2_147gs"]
+[ext_resource type="Script" path="res://Missões/missions.gd" id="2_yaf6r"]
+[ext_resource type="Resource" uid="uid://ckrn5bqusglwa" path="res://Missões/npc - quests/Turquesa/quest_turquesa1.tres" id="3_68s4q"]
 [ext_resource type="Texture2D" uid="uid://6ke1xer1acn1" path="res://Sprites/Bettlebourough/npcs/Turquesa0001.png" id="3_fxjvm"]
 [ext_resource type="Texture2D" uid="uid://b8ofh8qyihqhb" path="res://Sprites/Bettlebourough/npcs/Turquesa0002.png" id="4_goy6h"]
 [ext_resource type="Texture2D" uid="uid://chnwckrlfcxik" path="res://Sprites/Bettlebourough/npcs/Turquesa0003.png" id="5_v4bkf"]
@@ -105,6 +107,9 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_6i06r")
+quests = Array[ExtResource("2_yaf6r")]([ExtResource("3_68s4q")])
+quest_completed_dialogue = Array[String](["res://Sprites/DialogueBox/Turquesa/turquesaq1complete.dtl"])
+dialogs = Array[String](["res://Sprites/DialogueBox/Turquesa/turquesadialogue1.dtl", "res://Sprites/DialogueBox/Turquesa/turquesadialogue2.dtl"])
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(6.66, 83.58)

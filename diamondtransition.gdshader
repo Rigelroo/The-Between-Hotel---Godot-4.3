@@ -7,7 +7,7 @@ uniform bool fill = true;
 void fragment() {
 	float x = abs(fract(FRAGCOORD.x / size) - 0.5);
 	float y = abs(fract(FRAGCOORD.y / size) -  0.5);
-	
+
 	if (x + y + UV.x > progress * 2.0) {
 		if(fill) {
 			discard;

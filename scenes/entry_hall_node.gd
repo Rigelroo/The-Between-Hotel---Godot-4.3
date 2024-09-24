@@ -89,11 +89,11 @@ func _process(delta: float) -> void:
 		
 
 func _on_inventory_gui_closed() -> void:
-	#self.get_tree().paused = false
+	self.get_tree().paused = false
 	pass
 
 func _on_inventory_gui_opened() -> void:
-	#self.get_tree().paused = true
+	self.get_tree().paused = true
 	pass
 
 
@@ -163,17 +163,17 @@ func instance_object():
 	#return str(mins) + ":" + str(secs)
 
 
-func _input(event):
-	if event.is_action_pressed("menu_inventory"):
-		if canOpen_inventory:
-			if inventory.isOpen:
-				hudbar.visible = true
-				inventory.close()
-			else:
-				inventory.open()
-				hudbar.visible = false
-	else: pass
-	
+#func _input(event):
+	#if event.is_action_pressed("menu_inventory"):
+		#if canOpen_inventory:
+			#if inventory.isOpen:
+				#hudbar.visible = true
+				#inventory.close()
+			#else:
+				#inventory.open()
+				#hudbar.visible = false
+	#else: pass
+	#
 func _on_dialogic_signal(argument:String):
 	if argument == "deactivate_movement":
 		print("Deactivate Movement!")

@@ -1,4 +1,4 @@
-@icon("res://Sprites/Player/Idle/player_idle.png")
+@icon("res://Missões/npc icons/persian.png")
 extends CharacterBody2D
 
 class_name Player
@@ -176,10 +176,7 @@ func _process(delta: float) -> void:
 		#currentHealth += 1
 		#healthChanged.emit(currentHealth)
 		#emit_signal("temporary")
-	if is_on_floor():
-		$Sprite2D2.visible = true
-	else:
-		$Sprite2D2.visible = false
+	
 
 func _physics_process(delta):
 	
@@ -361,6 +358,13 @@ func _on_dialogic_signal(argument:String):
 			test2D.item_index[Dialogic.VAR.index].first_item = 1
 	if argument == "take_stamp":
 		print("take stamp")
+		if test2D.stamp_index[Dialogic.VAR.index].first_item == 0:
+			new_item_activate = true
+			showitem.texture = test2D.stamp_index[Dialogic.VAR.index].texture
+			$STATES/NEWITEM.color_x = test2D.stamp_index[Dialogic.VAR.index].color_x
+			$STATES/NEWITEM.color_y = test2D.stamp_index[Dialogic.VAR.index].color_y
+			$STATES/NEWITEM.color_z = test2D.stamp_index[Dialogic.VAR.index].color_z
+			test2D.stamp_index[Dialogic.VAR.index].first_item = 1
 		test2D.collect_stamp(inventory)
 
 

@@ -7,6 +7,9 @@
 
 [resource]
 script = ExtResource("4_40uho")
+task_progress = 0
+max_progress = 1
+completed = false
 name = "Quest_matheus1"
 showname = "Pegue a chave"
 item_texture = ExtResource("1_bu8oy")
@@ -16,5 +19,5 @@ reward_item_amount = 1
 reward_itemb_amount = 0
 item_amount = 1
 description = "aaa"
-task_progress = 0
 theme_color = Color(0.372549, 0.639216, 0.431373, 1)
+completed_dialogue = ""

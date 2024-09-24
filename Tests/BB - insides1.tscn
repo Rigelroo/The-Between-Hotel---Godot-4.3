@@ -846,10 +846,10 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_mxa6m")
 centered = false
 
-[node name="Turquesa" parent="." instance=ExtResource("12_q1oxm")]
+[node name="Turquesa" parent="." node_paths=PackedStringArray("world") instance=ExtResource("12_q1oxm")]
 position = Vector2(1530, 1120)
 quests = Array[ExtResource("21_tu2sh")]([ExtResource("22_ss6mn"), ExtResource("23_bomun"), null])
-dialogs = Array[String](["res://Sprites/DialogueBox/Turquesa/turquesadialogue1.dtl", "res://Sprites/DialogueBox/Turquesa/turquesadialogue2.dtl"])
+world = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="Turquesa"]
 modulate = Color(0.282584, 0.12014, 1, 0.393)

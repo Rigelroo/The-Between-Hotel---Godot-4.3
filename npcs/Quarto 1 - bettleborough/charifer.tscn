@@ -1,0 +1,129 @@
+[gd_scene load_steps=22 format=3 uid="uid://edy8kcbplrdy"]
+
+[ext_resource type="Script" path="res://Tests/pex.gd" id="1_gjmoc"]
+[ext_resource type="Script" path="res://Missões/missions.gd" id="2_y2kls"]
+[ext_resource type="Resource" uid="uid://3f38aw2mqtdy" path="res://Missões/npc - quests/Matheus/quest_matheus1.tres" id="3_e7nx2"]
+[ext_resource type="Texture2D" uid="uid://by1adrq6kifay" path="res://Sprites/NPCs/Charifer/charifer_idle - 0000.png" id="4_gwqg5"]
+[ext_resource type="Texture2D" uid="uid://bipg5n0ju8whg" path="res://Sprites/NPCs/Charifer/charifer_idle - 0001.png" id="5_0bj82"]
+[ext_resource type="Texture2D" uid="uid://d3yl3ixq03xwg" path="res://Sprites/NPCs/Charifer/charifer_idle - 0002.png" id="6_g3h3p"]
+[ext_resource type="Texture2D" uid="uid://dumlj6w24u4fl" path="res://Sprites/NPCs/Charifer/charifer_idle - 0003.png" id="7_fvntj"]
+[ext_resource type="Texture2D" uid="uid://cvj8c24qhww67" path="res://Sprites/NPCs/Charifer/charifer_idle - 0004.png" id="8_jx3ry"]
+[ext_resource type="Texture2D" uid="uid://bddutopptrljj" path="res://Sprites/NPCs/Charifer/charifer_idle - 0005.png" id="9_ljc6w"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="10_pvx8w"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="11_75kkm"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="12_ermr8"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="13_vb6mo"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="14_uj4jo"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="15_2lnyy"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="16_iw3f6"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="17_osrv1"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="18_bpa6m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kua17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gwqg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0bj82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g3h3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fvntj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jx3ry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ljc6w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idnyo"]
+size = Vector2(490, 610)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dgglr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_pvx8w")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_75kkm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ermr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_vb6mo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uj4jo")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_2lnyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_iw3f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_osrv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_bpa6m")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_gjmoc")
+quests = Array[ExtResource("2_y2kls")]([ExtResource("3_e7nx2")])
+quest_completed_dialogue = Array[String](["res://Sprites/DialogueBox/Turquesa/turquesaq1complete.dtl"])
+dialogs = Array[String](["res://Sprites/DialogueBox/Turquesa/turquesadialogue1.dtl", "res://Sprites/DialogueBox/Turquesa/turquesadialogue2.dtl"])
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(6.66, 83.58)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Area2D2"]
+position = Vector2(-32, -168)
+scale = Vector2(0.765, 0.765)
+sprite_frames = SubResource("SpriteFrames_kua17")
+autoplay = "default"
+frame_progress = 0.465322
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+show_behind_parent = true
+position = Vector2(-45.32, -135.16)
+shape = SubResource("RectangleShape2D_idnyo")
+debug_color = Color(0.411932, 0.890556, 1, 0.42)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+z_index = 50
+y_sort_enabled = true
+position = Vector2(-38, -190)
+scale = Vector2(0.26, 0.26)
+sprite_frames = SubResource("SpriteFrames_dgglr")
+animation = &"mission"
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]

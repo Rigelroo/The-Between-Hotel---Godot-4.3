@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dw7fr5yfile0r"]
+[gd_scene load_steps=42 format=3 uid="uid://dw7fr5yfile0r"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_plb7f"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="2_je1ce"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="34_4p6yw"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="34_e0nbd"]
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="34_ysfqo"]
+[ext_resource type="PackedScene" uid="uid://bk8x8dr8ahmpp" path="res://npcs/Quarto 1 - bettleborough/matheus.tscn" id="37_qpwh8"]
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://inventory/Selos/selo_1.tscn" id="38_088ub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1d0s"]
@@ -233,6 +234,11 @@ texture = ExtResource("13_j7480")
 [node name="Test" parent="." instance=ExtResource("15_2axxg")]
 position = Vector2(307, 1012)
 
+[node name="Matheus" parent="." node_paths=PackedStringArray("world") instance=ExtResource("37_qpwh8")]
+position = Vector2(617, 645)
+scale = Vector2(0.8, 0.8)
+world = NodePath("..")
+
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("14_wel78")]
 position = Vector2(192, 707)
 scale = Vector2(4, 4)
@@ -286,7 +292,7 @@ one_way_collision = true
 one_way_collision_margin = 8.5
 
 [node name="Selo3" parent="." instance=ExtResource("38_088ub")]
-position = Vector2(795, 687)
+position = Vector2(-1129, 763)
 itemRes = ExtResource("26_8ieer")
 metadata/_edit_group_ = true
 
@@ -294,7 +300,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("27_njq1p")
 
 [node name="Selo5" parent="." instance=ExtResource("38_088ub")]
-position = Vector2(885, 687)
+position = Vector2(-1039, 763)
 itemRes = ExtResource("26_2evtr")
 metadata/_edit_group_ = true
 
@@ -302,7 +308,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("27_s7fvb")
 
 [node name="Selo6" parent="." instance=ExtResource("38_088ub")]
-position = Vector2(621, 689)
+position = Vector2(-1303, 765)
 itemRes = ExtResource("28_miotu")
 metadata/_edit_group_ = true
 
@@ -310,7 +316,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("29_c735a")
 
 [node name="Selo4" parent="." instance=ExtResource("38_088ub")]
-position = Vector2(707, 688)
+position = Vector2(-1217, 764)
 itemRes = ExtResource("30_7ejmr")
 metadata/_edit_group_ = true
 
@@ -323,7 +329,7 @@ texture = ExtResource("31_r2m3r")
 scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
-[node name="Statsbar" parent="Statslayer" groups=["Stats"] instance=ExtResource("34_e0nbd")]
+[node name="Statsbar" parent="Statslayer" instance=ExtResource("34_e0nbd")]
 metadata/_edit_use_anchors_ = true
 
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("34_4p6yw")]

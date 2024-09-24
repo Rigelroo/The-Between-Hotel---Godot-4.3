@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cu2e048hxgdgy"]
+[gd_scene load_steps=30 format=3 uid="uid://cu2e048hxgdgy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_ssnol"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_qv6q8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://qaqsrvxmy8ln" path="res://Sprites/Hotel/entradaesq_frente.png" id="7_f7a1c"]
 [ext_resource type="Texture2D" uid="uid://dh4acv4eoeure" path="res://Sprites/Hotel/assets_planta1.png" id="7_qcxbd"]
 [ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://objects/showitemsprite.tscn" id="11_smyiw"]
+[ext_resource type="Script" path="res://Sprites/EntryHall/cast_shadow.gd" id="12_syiuq"]
 [ext_resource type="Texture2D" uid="uid://7tiwguj856a5" path="res://Sprites/Hotel/corridor_tetoparallaxA.png" id="15_pbqih"]
 [ext_resource type="PackedScene" uid="uid://d0fmn0ryn2twd" path="res://objects/porta_1.tscn" id="17_3ba5x"]
 [ext_resource type="PackedScene" uid="uid://b5a3af6jeero5" path="res://objects/porta_2.tscn" id="18_b14py"]
@@ -23,6 +24,15 @@
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="34_4173y"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ra5em"]
+
+[sub_resource type="Gradient" id="Gradient_kmv30"]
+offsets = PackedFloat32Array(0.502825, 0.728814)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e1kga"]
+gradient = SubResource("Gradient_kmv30")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk3f1"]
 size = Vector2(9284, 331)
@@ -88,6 +98,31 @@ editor_draw_limits = true
 
 [node name="Showitemsprite" parent="Player" instance=ExtResource("11_smyiw")]
 
+[node name="CastShadow2" type="Node2D" parent="Player"]
+show_behind_parent = true
+position = Vector2(-0.0714291, 13.7143)
+script = ExtResource("12_syiuq")
+
+[node name="RayCast2D" type="RayCast2D" parent="Player/CastShadow2"]
+target_position = Vector2(0, 70)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CastShadow2"]
+visible = false
+modulate = Color(0.127, 0.114, 0.343, 0.728)
+position = Vector2(1.63168e-06, -9.53674e-07)
+scale = Vector2(0.417411, 0.120536)
+texture = SubResource("GradientTexture2D_e1kga")
+centered = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Player/CastShadow2"]
+position = Vector2(-2.09468e-06, 3.33786e-06)
+scale = Vector2(0.368304, 0.0982142)
+color = Color(0.903343, 0.875969, 0.443411, 1)
+energy = 0.5
+blend_mode = 1
+texture = SubResource("GradientTexture2D_e1kga")
+offset = Vector2(0.969696, -32)
+
 [node name="parede" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
 texture = ExtResource("7_f7a1c")
@@ -99,7 +134,7 @@ centered = false
 scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
-[node name="Statsbar" parent="Statslayer" groups=["Stats"] instance=ExtResource("32_j52kf")]
+[node name="Statsbar" parent="Statslayer" instance=ExtResource("32_j52kf")]
 metadata/_edit_use_anchors_ = true
 
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("33_p0wte")]
@@ -107,6 +142,10 @@ process_mode = 3
 visible = false
 
 [node name="PausemenuLayer" parent="." instance=ExtResource("34_4173y")]
+visible = false
+
+[node name="SubViewport" parent="PausemenuLayer/SubViewportContainer2" index="0"]
+render_target_update_mode = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(7, 1910)
