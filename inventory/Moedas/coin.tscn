@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ca3nupfl0hlmn"]
+[gd_scene load_steps=17 format=3 uid="uid://ca3nupfl0hlmn"]
 
 [ext_resource type="Script" path="res://inventory/Moedas/coin.gd" id="1_02g7g"]
 [ext_resource type="Texture2D" uid="uid://cqsiiph6b3rky" path="res://inventory/Moedas/quadro0000.png" id="1_8or2j"]
@@ -16,10 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cklxfbacqqepj" path="res://inventory/Moedas/quadro0011.png" id="12_h5gdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ple51"]
-size = Vector2(20, 5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlipp"]
-size = Vector2(107, 105)
+size = Vector2(84.2857, 87.1429)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3q1wp"]
 animations = [{
@@ -65,20 +62,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Coinbody" type="Area2D"]
+[node name="Coinbody" type="RigidBody2D"]
+collision_layer = 0
+lock_rotation = true
 script = ExtResource("1_02g7g")
 coinmanager = ExtResource("2_n6e5n")
 
-[node name="Area2D" type="RigidBody2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.499994, 1.5)
 scale = Vector2(0.7, 0.7)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 43.5)
 shape = SubResource("RectangleShape2D_ple51")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_rlipp")
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.7, 0.7)
+collision_mask = 17
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.714277, 2.14286)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ple51")
+debug_color = Color(0.629039, 0.60578, 0.904789, 0.464)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.07, 0.07)
@@ -86,3 +90,5 @@ sprite_frames = SubResource("SpriteFrames_3q1wp")
 autoplay = "default"
 frame_progress = 0.960599
 speed_scale = 1.2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

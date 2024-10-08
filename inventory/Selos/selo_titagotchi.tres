@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://c7iikplev3bmk"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_iamvs"]
+[ext_resource type="Texture2D" uid="uid://dwuhapn07yn8p" path="res://inventory/Selos/selo_titagotchi.png" id="2_xq1dr"]
+
+[resource]
+script = ExtResource("1_iamvs")
+name = "selo_titagotchi"
+texture = ExtResource("2_xq1dr")
+equipedtexture = "res://inventory/Selos/equiped/selo_hattime_equiped.png"
+textureaux = "res://inventory/Selos/selo_hattime.png"
+maxAmountInStack = 2
+max_amount = 0
+showname = "Amuleto Gotchi"
+description = "Criado do coração de um yeti soturno, agora usado pra ajudar seus hóspedes. Aperte baixo para congelar"
+stamp_points = 2
+color = Color(0.396078, 0.756863, 1, 1)
+color_x = 0.39
+color_y = 0.75
+color_z = 1.0
+first_item = 0
+itemactivate = 0
+scriptstr = "res://inventory/Selos/selo_frozenheart.gd"

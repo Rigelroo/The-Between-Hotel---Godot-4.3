@@ -300,7 +300,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("27_njq1p")
 
 [node name="Selo5" parent="." instance=ExtResource("38_088ub")]
-position = Vector2(-1039, 763)
+position = Vector2(803, 650)
 itemRes = ExtResource("26_2evtr")
 metadata/_edit_group_ = true
 

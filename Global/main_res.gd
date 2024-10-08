@@ -11,8 +11,10 @@ class_name MainManager
 @export var coin_number : int
 @export var coin_max : int
 @export var coin_mult : int = 1
+@export var greed_number : int = 1
 
-@export_subgroup("Stamp System")
+
+@export var greed_equiped : bool = false
 @export var hleaf_equiped : bool = false
 @export var hatintime_equiped : bool = false
 @export var shadowdiver_equiped : bool = false
@@ -28,11 +30,12 @@ class_name MainManager
 #@export var inkpoints_max: int = 6
 
 @export_subgroup("Stats/Juice System")
+
 @export var minInk = 0
 @export var maxInk = 20
 @export var currentInk: int = maxInk
 @export var minHealth = 0
-@export var maxHealth = 10
+@export var maxHealth = 5
 @export var currentHealth: int = 0
 @export var currentFurypoints: int = 0
 
@@ -41,6 +44,7 @@ class_name MainManager
 @export var damage_max = 5
 @export var damage_min = 0
 @export var crit_chance = 0.3
+
 signal loaded
 signal loadscene
 
@@ -61,6 +65,6 @@ func insert():
 		
 		coin_number += 1
 		insert_coin.emit()
-	if coin_mult == 2:
+	elif coin_mult == 2:
 		coin_number += 1 * coin_mult
 		insert_coin.emit()

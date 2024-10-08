@@ -7,6 +7,7 @@ var dead : bool = false
 @export var objplayer : Player
 @export var splashw : SplashWater
 
+@export var player_scale : float = 1
 @onready var inventory = $PausemenuLayer.inventory
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var stats = get_tree().get_first_node_in_group("Stats")
@@ -36,11 +37,15 @@ var death_scene: String = "res://Tests/deadreplacer.tscn"
 @onready var manager : MainManager = preload("res://Global/Mainmanager.tres")
 
 signal just_equip
-#
+
 #func _physics_process(delta: float) -> void:
 	#if Input.is_action_just_pressed("Attack") && inventory.number == 1:
 		#SignalManager.just_equip.emit()
-
+func set_player_speed():
+	player_scale = objplayer.global_scale.x
+	objplayer.SPEED = 80 * player_scale 
+	objplayer.JUMP_VELOCITY = -95.0 * player_scale
+	objplayer.dash_speed = 190 * player_scale
 
 func load_scene() -> void:
 	manager.loaded.emit()
@@ -48,7 +53,7 @@ func load_scene() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	set_player_speed()
 	SignalManager.world_loaded.emit()
 	
 	player.set_idle()

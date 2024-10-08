@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8wskawiogqo3"]
+
+[ext_resource type="Resource" uid="uid://bixtrrph8ibg2" path="res://inventory/points/Stcontainer.tres" id="1_gpg3n"]
+[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="2_pqlhu"]
+
+[sub_resource type="GDScript" id="GDScript_ph3af"]
+script/source = "extends Node
+
+@export var itemRes: Statspoints
+
+func collectcontainer():
+	SignalManager.insert_point(itemRes)
+	queue_free()
+	
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lioiw"]
+size = Vector2(75, 75)
+
+[sub_resource type="Animation" id="Animation_nn74q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i7fuw"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -5), Vector2(0, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6o7f8"]
+_data = {
+"RESET": SubResource("Animation_nn74q"),
+"new_animation": SubResource("Animation_i7fuw")
+}
+
+[node name="Item_stamppoint" type="Area2D"]
+script = SubResource("GDScript_ph3af")
+itemRes = ExtResource("1_gpg3n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_lioiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_pqlhu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6o7f8")
+}
+autoplay = "new_animation"

@@ -1,0 +1,271 @@
+[gd_scene load_steps=42 format=3 uid="uid://b3wiqgg03gaan"]
+
+[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_wl04x"]
+[ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_sao3u"]
+[ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="3_ugrrr"]
+[ext_resource type="Texture2D" uid="uid://bdhmrbjpsxoer" path="res://Sprites/Hotel/entryhall_remade.png" id="4_hc5jt"]
+[ext_resource type="Texture2D" uid="uid://centls4w11ypa" path="res://Sprites/Hotel/assets_balcão.png" id="6_g86lm"]
+[ext_resource type="Texture2D" uid="uid://4rfvgi0mk06n" path="res://Sprites/Hotel/assets_primprim.png" id="7_atokc"]
+[ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="9_rjsro"]
+[ext_resource type="Texture2D" uid="uid://bwr11lq0ei6nj" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0000.png" id="10_r6u7g"]
+[ext_resource type="Texture2D" uid="uid://bseo3jw48fvf5" path="res://Sprites/EntryHall/luzinha1.png" id="10_ry8pg"]
+[ext_resource type="Texture2D" uid="uid://bxhpuidos0a61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0001.png" id="11_ty3r7"]
+[ext_resource type="Texture2D" uid="uid://bm73kn18iqyrn" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0002.png" id="12_xyfdk"]
+[ext_resource type="Texture2D" uid="uid://db66x10pmb632" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0003.png" id="13_hhjj5"]
+[ext_resource type="Texture2D" uid="uid://br4xjdpfr3od2" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0004.png" id="14_xb7ka"]
+[ext_resource type="Texture2D" uid="uid://b2su4ijpi25dr" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0005.png" id="15_3g3wu"]
+[ext_resource type="Texture2D" uid="uid://dabqxtr5g2u61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0006.png" id="16_7itdn"]
+[ext_resource type="Texture2D" uid="uid://bxml7dtd3yxm6" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0007.png" id="17_dfetv"]
+[ext_resource type="PackedScene" uid="uid://dk150e1tdwwcb" path="res://Npc-recep.tscn" id="17_xcedm"]
+[ext_resource type="PackedScene" uid="uid://d08xu1ahurxv3" path="res://objects/elevator.tscn" id="18_xbmvf"]
+[ext_resource type="PackedScene" uid="uid://bk8x8dr8ahmpp" path="res://npcs/Quarto 1 - bettleborough/matheus.tscn" id="20_lrsvy"]
+[ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="21_5p0qm"]
+[ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://objects/showitemsprite.tscn" id="22_n6i70"]
+[ext_resource type="PackedScene" uid="uid://buw8duilnfqej" path="res://camera_2d.tscn" id="23_sbrgv"]
+[ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://inventory/Selos/selo_1.tscn" id="25_pdg41"]
+[ext_resource type="Resource" uid="uid://bojqr7cp6eeiq" path="res://inventory/Selos/selo_frozenheart.tres" id="26_y8lya"]
+[ext_resource type="Texture2D" uid="uid://dmymbqqyxrr5w" path="res://inventory/Selos/selo_frozenheart.png" id="27_tqdh3"]
+[ext_resource type="Resource" uid="uid://dw24t6xttmdyt" path="res://inventory/Selos/selo_hatintime.tres" id="28_qydd4"]
+[ext_resource type="Texture2D" uid="uid://dcilvlfcwyjy4" path="res://inventory/Selos/selo_hattime.png" id="29_uycil"]
+[ext_resource type="Resource" uid="uid://bv8ujs5m68b51" path="res://inventory/Selos/selo_crimsonbug.tres" id="30_nyokx"]
+[ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://inventory/Selos/selo_crimsonbug.png" id="31_nqqxp"]
+[ext_resource type="Resource" uid="uid://e864yq4aeifi" path="res://inventory/Selos/selo_fireflyemblem.tres" id="32_cravj"]
+[ext_resource type="Texture2D" uid="uid://ca7tu3todq1tf" path="res://inventory/Selos/selo_fireflyemblem.png" id="33_pm5aw"]
+[ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="34_2wjie"]
+[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="35_cqg7p"]
+[ext_resource type="PackedScene" uid="uid://criewgj3p57f2" path="res://inventory/Selos/item stamppoint.tscn" id="36_2orps"]
+[ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="36_cxjjy"]
+[ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="37_8k0fb"]
+
+[sub_resource type="Gradient" id="Gradient_n1lro"]
+offsets = PackedFloat32Array(0.323232, 0.636364)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mvjgn"]
+gradient = SubResource("Gradient_n1lro")
+fill = 1
+fill_from = Vector2(0.489796, 0.520408)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d23d7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_r6u7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ty3r7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xyfdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_hhjj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xb7ka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3g3wu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7itdn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dfetv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhypq"]
+size = Vector2(45.1103, 401.079)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjqto"]
+size = Vector2(10100, 715)
+
+[node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
+position = Vector2(0, -7)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_wl04x")
+objplayer = NodePath("Player")
+splashw = ExtResource("2_sao3u")
+inv_dictionary = ExtResource("3_ugrrr")
+next_scene = "res://Tests/parallaxtest1.tscn"
+
+[node name="Assets" type="Node2D" parent="."]
+
+[node name="Fundo" type="Sprite2D" parent="Assets"]
+texture = ExtResource("4_hc5jt")
+centered = false
+
+[node name="Recepcionistas" parent="Assets" instance=ExtResource("17_xcedm")]
+position = Vector2(5142, 1496)
+scale = Vector2(5.5, 5.5)
+
+[node name="Fundo2" type="Sprite2D" parent="Assets"]
+position = Vector2(3912, 1976)
+texture = ExtResource("6_g86lm")
+centered = false
+
+[node name="Fundo3" type="Sprite2D" parent="Assets"]
+position = Vector2(5557, 1888)
+texture = ExtResource("7_atokc")
+centered = false
+
+[node name="Luminárias" type="Node2D" parent="."]
+scale = Vector2(4.84, 4.84)
+
+[node name="Luzinha1" type="Sprite2D" parent="Luminárias"]
+material = ExtResource("9_rjsro")
+position = Vector2(366.942, 147.314)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_ry8pg")
+
+[node name="PointLight2D" type="PointLight2D" parent="Luminárias/Luzinha1"]
+material = ExtResource("9_rjsro")
+position = Vector2(-3.33337, 436.667)
+scale = Vector2(20.9787, 21.1589)
+texture = SubResource("GradientTexture2D_mvjgn")
+texture_scale = 0.72
+
+[node name="Lightmoths" type="AnimatedSprite2D" parent="Luminárias/Luzinha1"]
+position = Vector2(8.09912, 462.617)
+sprite_frames = SubResource("SpriteFrames_d23d7")
+autoplay = "default"
+frame_progress = 0.731416
+
+[node name="Luzinha2" type="Sprite2D" parent="Luminárias"]
+material = ExtResource("9_rjsro")
+position = Vector2(716.942, 85.124)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_ry8pg")
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Luminárias/Luzinha2"]
+material = ExtResource("9_rjsro")
+position = Vector2(-3.33337, 436.667)
+scale = Vector2(20.9787, 21.1589)
+texture = SubResource("GradientTexture2D_mvjgn")
+texture_scale = 0.72
+
+[node name="Luzinha3" type="Sprite2D" parent="Luminárias"]
+material = ExtResource("9_rjsro")
+position = Vector2(1871.69, 144.215)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_ry8pg")
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Luminárias/Luzinha3"]
+material = ExtResource("9_rjsro")
+position = Vector2(-3.33337, 436.667)
+scale = Vector2(20.9787, 21.1589)
+texture = SubResource("GradientTexture2D_mvjgn")
+texture_scale = 0.72
+
+[node name="Elevator" parent="Luminárias" instance=ExtResource("18_xbmvf")]
+position = Vector2(1577.27, 356.198)
+scale = Vector2(0.3, 0.3)
+
+[node name="Matheus" parent="." node_paths=PackedStringArray("world") instance=ExtResource("20_lrsvy")]
+position = Vector2(2971, 2126)
+scale = Vector2(4, 4)
+world = NodePath("..")
+
+[node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("21_5p0qm")]
+position = Vector2(1356, 2330)
+scale = Vector2(22, 22)
+showitem = NodePath("Showitemsprite")
+player_camera = NodePath("Camera2D")
+
+[node name="Showitemsprite" parent="Player" instance=ExtResource("22_n6i70")]
+
+[node name="Camera2D" parent="Player" instance=ExtResource("23_sbrgv")]
+position = Vector2(0.75, -23.5)
+zoom = Vector2(0.5, 0.5)
+limit_left = -5
+limit_top = 45
+limit_right = 4020
+limit_bottom = 1405
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+editor_draw_limits = true
+
+[node name="Selo3" parent="." instance=ExtResource("25_pdg41")]
+position = Vector2(-1129, 763)
+itemRes = ExtResource("26_y8lya")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Selo3" index="1"]
+texture = ExtResource("27_tqdh3")
+
+[node name="Selo5" parent="." instance=ExtResource("25_pdg41")]
+position = Vector2(-1039, 763)
+itemRes = ExtResource("28_qydd4")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Selo5" index="1"]
+texture = ExtResource("29_uycil")
+
+[node name="Selo6" parent="." instance=ExtResource("25_pdg41")]
+position = Vector2(-1303, 765)
+itemRes = ExtResource("30_nyokx")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Selo6" index="1"]
+texture = ExtResource("31_nqqxp")
+
+[node name="Selo4" parent="." instance=ExtResource("25_pdg41")]
+position = Vector2(-1217, 764)
+itemRes = ExtResource("32_cravj")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Selo4" index="1"]
+texture = ExtResource("33_pm5aw")
+
+[node name="Berserklayer" parent="." instance=ExtResource("34_2wjie")]
+
+[node name="Statslayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.76, 0.76)
+transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
+
+[node name="Statsbar" parent="Statslayer" instance=ExtResource("35_cqg7p")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("36_cxjjy")]
+process_mode = 3
+visible = false
+
+[node name="PausemenuLayer" parent="." instance=ExtResource("37_8k0fb")]
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="Wall" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(204.9, 1730.1)
+scale = Vector2(16.32, 9.08)
+shape = SubResource("RectangleShape2D_fhypq")
+
+[node name="Wall2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(9709, 1730.1)
+scale = Vector2(16.32, 9.08)
+shape = SubResource("RectangleShape2D_fhypq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(5040, 3207.5)
+scale = Vector2(0.996957, 1)
+shape = SubResource("RectangleShape2D_hjqto")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(5040, -317)
+scale = Vector2(0.996957, 1)
+shape = SubResource("RectangleShape2D_hjqto")
+
+[node name="Item_stamppoint" parent="." instance=ExtResource("36_2orps")]
+position = Vector2(3796, 1890)
+scale = Vector2(3.97, 3.97)
+
+[editable path="Selo3"]
+[editable path="Selo5"]
+[editable path="Selo6"]
+[editable path="Selo4"]

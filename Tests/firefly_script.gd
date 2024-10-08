@@ -3,6 +3,11 @@ extends CharacterBody2D
 
 class_name EnemyFirefly
 
+@onready var dropmarker: Marker2D = $Dropmarker
+const coin_instance = preload("res://inventory/Moedas/coin.tscn")
+@export var coin_amount : int = 1
+
+
 @onready var bullet = preload("res://objects/fireprojectile.tscn")
 
 @onready var damage_numbers_origin = %DamagenumOrigin
@@ -58,7 +63,34 @@ var current_state = null
 var prev_state = null
 @export var can_shoot = false
 
-func shoot_projectile():
+
+func create_coin():
+	print(SignalManager.greed_equiped)
+	if SignalManager.greed_equiped:
+		
+		for i in range(coin_amount):
+			var is_greed = SignalManager.greed_number > randf()
+			if is_greed:
+				for c in range(2):
+					var coin = coin_instance.instantiate()
+					get_parent().call_deferred("add_child", coin)
+					coin.global_position = dropmarker.global_position
+					coin.apply_impulse(Vector2(randi_range(-300,300), -250))
+			else:
+				var coin = coin_instance.instantiate()
+				get_parent().call_deferred("add_child", coin)
+				coin.global_position = dropmarker.global_position
+				coin.apply_impulse(Vector2(randi_range(-300,300), -250))
+	else:
+		for i in range(coin_amount):
+			var coin = coin_instance.instantiate()
+			get_parent().call_deferred("add_child", coin)
+			coin.global_position = dropmarker.global_position
+			coin.apply_impulse(Vector2(randi_range(-300,300), -250))
+		#print("impulse: ", Vector2(randi_range(-700,700), -850))
+
+
+func shoot_projectile(target_position: Vector2):
 	var projectile = projectile_node.instantiate()
 	projectile.position = %Bulletmarker.global_position
 	projectile.damage = damage_value # * charge.value
@@ -70,10 +102,13 @@ func shoot_projectile():
 	
 		if current_scene:
 			current_scene.add_child(projectile)
+			#projectile.global_position = %Bulletmarker.global_position
+			projectile.initialize(player.global_position)
 		else:
 			print("Error: No current scene found.")
 	else:
 		print("Error: Projectile is not a valid node.")
+
 
 
 		#if can_shoot:

@@ -770,8 +770,8 @@ size = Vector2(474, 552)
 size = Vector2(333, 487)
 
 [node name="Larva" type="CharacterBody2D" groups=["Enemies"]]
-visible = false
 script = ExtResource("2_d4vyf")
+coin_amount = 3
 health = 25
 
 [node name="EnemyStateMachine" type="Node" parent="."]
@@ -940,6 +940,8 @@ target_position = Vector2(-0.455265, 56.7931)
 [node name="DamagenumOrigin" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-4, -329)
+
+[node name="Dropmarker" type="Marker2D" parent="."]
 
 [connection signal="timeout" from="EnemyStateMachine/EnemyHide/HideTimer" to="EnemyStateMachine/EnemyHide" method="_on_hide_timer_timeout"]
 [connection signal="timeout" from="EnemyStateMachine/EnemyAttack/PrepareTimer" to="EnemyStateMachine/EnemyActive" method="_on_prepare_timer_timeout"]

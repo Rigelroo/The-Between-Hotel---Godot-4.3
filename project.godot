@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Precision Platformer"
-run/main_scene="res://scenes/entry_hallNode.tscn"
+run/main_scene="res://scenes/Locations/Hotel/entryhall hotel.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
 config/icon="res://icon.svg"
@@ -291,11 +291,12 @@ seila={
 
 [layer_names]
 
-2d_physics/layer_1="normal"
+2d_physics/layer_1="world"
 2d_physics/layer_2="water"
 2d_physics/layer_3="waterdetection"
 2d_physics/layer_4="wall"
 2d_physics/layer_5="trigger"
+2d_physics/layer_6="player"
 
 [rendering]
 

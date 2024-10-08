@@ -36,6 +36,12 @@ var invslots = null
 @onready var descLabel = $TabContainer/Selos/Description
 @onready var showSprite = $TabContainer/Selos/ShowSprite
 
+@onready var current_stamppoint: Sprite2D = $TabContainer/Selos/CurrentStamppoint
+@onready var name_label_2: Label = $TabContainer/Selos/CurrentStamppoint/NameLabel2
+
+@onready var show_stamppoint: Sprite2D = $TabContainer/Selos/ShowStamppoint
+@onready var stamppointname_label: Label = $TabContainer/Selos/ShowStamppoint/StamppointnameLabel
+
 @onready var nameLabelb = $"TabContainer/Inventário/NameLabelb"
 @onready var descLabelb = $"TabContainer/Inventário/Descriptionb"
 @onready var showSpriteb = $"TabContainer/Inventário/ShowSpriteb"
@@ -96,14 +102,19 @@ func stamp_unequipped():
 func please_equip():
 	SignalManager.equipstamp(slots, sealslots, currently_selected, SignalManager.inventoryc)
 
+func not_enough_stpoints():
+	current_stamppoint.start_shake()
+	
+
 func _ready():
+	SignalManager.no_enough_stpoints.connect(not_enough_stpoints)
 	SignalManager.stamp_unequipped.connect(stamp_unequipped)
 	SignalManager.stamp_equipped.connect(stamp_equipped)
 	SignalManager.just_equip.connect(please_equip)
 	SignalManager.inventory.updated.emit()
 	selector = $TabContainer/Selos/CenterContainer/Slotselect
 	
-	slots = $TabContainer/Selos/GridContainer.get_children()
+	slots = $TabContainer/Selos/TabContainer/GridContainer.get_children() + $TabContainer/Selos/TabContainer/GridContainer2.get_children()
 	sealslots = $TabContainer/Selos/Control.get_children()
 	uslots = $TabContainer/Selos/Control.get_children()
 	invslots = $"TabContainer/Inventário/GridContainer".get_children()
@@ -113,7 +124,7 @@ func _ready():
 	SignalManager.inventory.updated.connect(update)
 	SignalManager.inventoryb.updated.connect(update)
 	SignalManager.inventoryc.updated.connect(update)
-	
+	SignalManager.point_update.connect(update)
 	manager.no_hats.connect(nohats)
 	manager.insert_coin.connect(updatecoin)
 	print("first position",number)
@@ -128,8 +139,11 @@ func printa():
 func updatecoin():
 	coin_displayer.update()
 
+func show_stamppoints():
+	name_label_2.set_text(str(SignalManager.stamp_points))
+
 func update():
-	
+	show_stamppoints()
 	for i in range(min(SignalManager.inventory.slots.size(), slots.size())):
 		var inventorySlot: InventorySlot = SignalManager.inventory.slots[i]
 		
@@ -398,6 +412,14 @@ func equip_seal(slot):
 	
 func _unhandled_input(event):
 	#var slot = slots[currently_selected]
+	if currently_selected >= 8:
+		$TabContainer/Selos/TabContainer.current_tab = 1
+		%nextpage_right.visible = false
+		%nextpage_left.visible = true
+	elif currently_selected <= 8:
+		$TabContainer/Selos/TabContainer.current_tab = 0
+		%nextpage_right.visible = true
+		%nextpage_left.visible = false
 	if isOpen:
 		if event.is_action_pressed("selector_right") && number == 1:
 			move_selector_R()
@@ -411,6 +433,7 @@ func _unhandled_input(event):
 			pass
 			#onSlotClicked(slot)
 		if event.is_action_pressed("Attack") && number == 1:
+			
 			SignalManager.equipstamp(slots, sealslots, currently_selected, SignalManager.inventoryc)
 			#move_selector_stamp()
 			
@@ -430,7 +453,9 @@ func _unhandled_input2(event):
 	pass
 	#if event.is_action_pressed("Jump") && number == 2:
 		#inventory.equip_item_at_index(currently_selected)
-		
+
+
+
 func show_item():
 		var islots = slots
 		var slot = islots
@@ -445,6 +470,9 @@ func show_item():
 			previousEmpty = true
 		
 		if !islots[currently_selected].itemStackGui == null:
+			stamppointname_label.set_text(str(slot[currently_selected].itemStackGui.inventorySlot.item.stamp_points))
+			print(slot[currently_selected].itemStackGui.inventorySlot.item.stamp_points)
+			
 			nameLabel.set_text(slot[currently_selected].itemStackGui.inventorySlot.item.showname)
 			descLabel.set_text(slot[currently_selected].itemStackGui.inventorySlot.item.description)
 			showSprite.texture = slot[currently_selected].itemStackGui.inventorySlot.item.texture

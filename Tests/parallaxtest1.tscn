@@ -827,10 +827,15 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(4440, 386)
 scale = Vector2(0.5, 0.5)
 
-[node name="Player" parent="." node_paths=PackedStringArray("showitem") instance=ExtResource("12_njeaq")]
-position = Vector2(2966, 194)
+[node name="Wasp2" parent="." instance=ExtResource("24_o0o5k")]
+position = Vector2(4432, -18)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("12_njeaq")]
+position = Vector2(5083, 406)
 scale = Vector2(6, 6)
 showitem = NodePath("Showitemsprite")
+player_camera = NodePath("Camera2D")
 
 [node name="Camera2D" parent="Player" instance=ExtResource("13_5etxj")]
 position = Vector2(-0.333366, -25.8333)

@@ -34,7 +34,7 @@ func world_ready() -> void:
 
 func updatehealth():
 	healthbar.value = player.currentHealth * 100 / player.maxHealth
-	healthlabel.text = str(healthbar.value)
+	healthlabel.text = str(player.currentHealth)
 
 	if player.currentHealth > 10:
 		shake.visible = false

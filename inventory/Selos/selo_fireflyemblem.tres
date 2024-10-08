@@ -13,6 +13,7 @@ maxAmountInStack = 2
 max_amount = 0
 showname = "Emblema do Vagalume"
 description = "O símbolo de um verdadeiro guerreiro, aperte Y para soltar fogo."
+stamp_points = 2
 color = Color(0.54902, 0.713726, 0.156863, 1)
 color_x = 0.54
 color_y = 0.71

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cr0rxd186uoyo"]
+[gd_scene load_steps=32 format=3 uid="uid://cr0rxd186uoyo"]
 
 [ext_resource type="Script" path="res://inventory/inventory_gui.gd" id="1_o6k50"]
 [ext_resource type="Texture2D" uid="uid://e3e0d4koc3eo" path="res://Sprites/Player/Death/submenu - Selos.png" id="1_xp6en"]
@@ -16,6 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://cdv3b8nl0p72f" path="res://inventory/gui/Selector/slot inventario - select.png" id="9_gyvsb"]
 [ext_resource type="PackedScene" uid="uid://164hbrtjemk7" path="res://inventory/usarslot.tscn" id="10_otqs3"]
 [ext_resource type="Texture2D" uid="uid://clc8udw1ehpcb" path="res://inventory/gui/Selector/slot inventario - select_shadow.png" id="11_cakds"]
+[ext_resource type="Texture2D" uid="uid://bxf5202dmcc6r" path="res://inventory/gui/nextpage_button.png" id="11_g2khj"]
+[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="11_wcqt3"]
+[ext_resource type="Texture2D" uid="uid://dayaohqxfq6rl" path="res://inventory/gui/stamppoint.png" id="12_mkaee"]
+[ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="13_wpfu7"]
+[ext_resource type="Script" path="res://inventory/current_stamppoint.gd" id="14_bdlwy"]
 [ext_resource type="PackedScene" uid="uid://cm7qaulq0t25e" path="res://inventory/Moedas/coin_displayer.tscn" id="16_wry48"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hm3u"]
@@ -25,6 +30,60 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmke5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cw2jj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18trn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ft0an"]
+
+[sub_resource type="Animation" id="Animation_mfpuo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(460, 496)]
+}
+
+[sub_resource type="Animation" id="Animation_5nmiu"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(470, 496)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_tween"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lm02q"]
+_data = {
+"RESET": SubResource("Animation_mfpuo"),
+"shake": SubResource("Animation_5nmiu")
+}
 
 [node name="InventoryGui" type="Control"]
 layout_mode = 3
@@ -41,10 +100,11 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 651.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8hm3u")
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 
 [node name="Missions" type="NinePatchRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("5_pgxi2")
 axis_stretch_horizontal = 2
@@ -61,8 +121,8 @@ anchor_right = 0.402
 anchor_bottom = 0.877
 offset_left = 0.319992
 offset_top = -0.0990143
-offset_right = -0.104004
-offset_bottom = 0.072998
+offset_right = 341.32
+offset_bottom = 307.901
 
 [node name="Taskcontainer" type="Panel" parent="TabContainer/Missions/VBoxContainer"]
 custom_minimum_size = Vector2(341, 100)
@@ -83,10 +143,78 @@ size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cw2jj")
 
 [node name="Selos" type="NinePatchRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("1_xp6en")
 metadata/_tab_index = 1
+
+[node name="TabContainer" type="TabContainer" parent="TabContainer/Selos"]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 371.0
+offset_right = 927.0
+offset_bottom = 566.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_18trn")
+current_tab = 0
+tabs_visible = false
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Selos/TabContainer"]
+layout_mode = 2
+columns = 4
+metadata/_tab_index = 0
+
+[node name="Panel" parent="TabContainer/Selos/TabContainer/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel2" parent="TabContainer/Selos/TabContainer/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel3" parent="TabContainer/Selos/TabContainer/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel4" parent="TabContainer/Selos/TabContainer/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel5" parent="TabContainer/Selos/TabContainer/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel6" parent="TabContainer/Selos/TabContainer/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel7" parent="TabContainer/Selos/TabContainer/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel8" parent="TabContainer/Selos/TabContainer/GridContainer" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="TabContainer/Selos/TabContainer"]
+visible = false
+layout_mode = 2
+columns = 4
+metadata/_tab_index = 1
+
+[node name="Panel" parent="TabContainer/Selos/TabContainer/GridContainer2" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel2" parent="TabContainer/Selos/TabContainer/GridContainer2" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel3" parent="TabContainer/Selos/TabContainer/GridContainer2" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel4" parent="TabContainer/Selos/TabContainer/GridContainer2" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel5" parent="TabContainer/Selos/TabContainer/GridContainer2" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel6" parent="TabContainer/Selos/TabContainer/GridContainer2" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel7" parent="TabContainer/Selos/TabContainer/GridContainer2" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
+
+[node name="Panel8" parent="TabContainer/Selos/TabContainer/GridContainer2" instance=ExtResource("2_lfo5f")]
+layout_mode = 2
 
 [node name="Control" type="Control" parent="TabContainer/Selos"]
 anchors_preset = 0
@@ -156,64 +284,92 @@ offset_top = 197.0
 offset_right = 265.0
 offset_bottom = 277.0
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/Selos"]
-layout_mode = 0
-offset_left = 595.0
-offset_top = 375.0
-offset_right = 927.0
-offset_bottom = 539.0
-columns = 4
-
-[node name="Panel" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
-layout_mode = 2
-
-[node name="Panel2" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
-layout_mode = 2
-
-[node name="Panel3" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
-layout_mode = 2
-
-[node name="Panel4" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
-layout_mode = 2
-
-[node name="Panel5" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
-layout_mode = 2
-
-[node name="Panel6" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
-layout_mode = 2
-
-[node name="Panel7" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
-layout_mode = 2
-
-[node name="Panel8" parent="TabContainer/Selos/GridContainer" instance=ExtResource("2_lfo5f")]
-layout_mode = 2
-
 [node name="NameLabel" type="Label" parent="TabContainer/Selos"]
 layout_mode = 0
 offset_left = 604.0
 offset_top = 104.0
 offset_right = 912.0
-offset_bottom = 139.0
+offset_bottom = 145.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_2lpl4")
 theme_override_font_sizes/font_size = 30
+text = "Folha de Hercules"
 horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("5_kggpe")
 
 [node name="Description" type="Label" parent="TabContainer/Selos"]
 layout_mode = 0
 offset_left = 728.0
 offset_top = 148.0
-offset_right = 910.0
-offset_bottom = 283.0
+offset_right = 902.0
+offset_bottom = 277.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_wekg0")
 theme_override_font_sizes/font_size = 16
+text = "Criado do coração de um yeti soturno, agora usado pra ajudar seus hóspedes. Aperte baixo para congelar"
 autowrap_mode = 3
 
 [node name="ShowSprite" type="Sprite2D" parent="TabContainer/Selos"]
-position = Vector2(661, 206)
-scale = Vector2(0.095, 0.095)
+position = Vector2(664, 199.375)
+scale = Vector2(0.0853333, 0.0853333)
+texture = ExtResource("11_wcqt3")
+
+[node name="nextpage_right" type="Sprite2D" parent="TabContainer/Selos"]
+unique_name_in_owner = true
+position = Vector2(904, 547)
+scale = Vector2(0.190657, 0.190657)
+texture = ExtResource("11_g2khj")
+
+[node name="nextpage_left" type="Sprite2D" parent="TabContainer/Selos"]
+unique_name_in_owner = true
+position = Vector2(617, 547)
+scale = Vector2(0.190657, 0.190657)
+texture = ExtResource("11_g2khj")
+flip_h = true
+
+[node name="ShowStamppoint" type="Sprite2D" parent="TabContainer/Selos"]
+position = Vector2(627, 266)
+scale = Vector2(0.182203, 0.182203)
+texture = ExtResource("12_mkaee")
+
+[node name="StamppointnameLabel" type="Label" parent="TabContainer/Selos/ShowStamppoint"]
+offset_left = 60.3722
+offset_top = -38.4186
+offset_right = 213.372
+offset_bottom = 146.581
+theme_override_fonts/font = ExtResource("13_wpfu7")
+theme_override_font_sizes/font_size = 171
+text = "1"
+horizontal_alignment = 1
+script = ExtResource("5_kggpe")
+metadata/_edit_use_anchors_ = true
+
+[node name="CurrentStamppoint" type="Sprite2D" parent="TabContainer/Selos"]
+material = SubResource("ShaderMaterial_ft0an")
+position = Vector2(460, 496)
+scale = Vector2(0.542202, 0.542202)
+texture = ExtResource("12_mkaee")
+script = ExtResource("14_bdlwy")
+
+[node name="NameLabel2" type="Label" parent="TabContainer/Selos/CurrentStamppoint"]
+offset_left = 12.9103
+offset_top = -1.84433
+offset_right = 165.91
+offset_bottom = 183.156
+scale = Vector2(0.761474, 0.761474)
+theme_override_colors/font_color = Color(8.571, 1.428, 1.429, 1)
+theme_override_fonts/font = ExtResource("13_wpfu7")
+theme_override_font_sizes/font_size = 185
+text = "1"
+horizontal_alignment = 1
+script = ExtResource("5_kggpe")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TabContainer/Selos/CurrentStamppoint"]
+libraries = {
+"": SubResource("AnimationLibrary_lm02q")
+}
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Selos"]
 custom_minimum_size = Vector2(80, 80)

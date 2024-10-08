@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Statspoints" load_steps=3 format=3 uid="uid://2mf7eohch5jn"]
+
+[ext_resource type="Script" path="res://inventory/StatspointItem.gd" id="1_adrmx"]
+[ext_resource type="Texture2D" uid="uid://p0iggqqg23rq" path="res://Sprites/Hud/Health/health0001.png" id="2_ow6ja"]
+
+[resource]
+script = ExtResource("1_adrmx")
+name = "Stamppoint max"
+texture = ExtResource("2_ow6ja")
+showname = "Stamppoint"
+point_type = "Heartpointmax"
+color = Color(0, 0, 0, 1)
+color_x = 0.0
+color_y = 0.0
+color_z = 0.0
+first_item = 0
+itemactivate = 0
+scriptstr = ""

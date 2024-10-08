@@ -21,5 +21,6 @@ func exit_state():
 
 
 func death():
+	Entity.create_coin()
 	Entity.queue_free()
 	

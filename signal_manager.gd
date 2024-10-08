@@ -7,6 +7,7 @@ signal just_equip
 signal world_loaded
 signal magic_changed
 
+signal no_enough_stpoints
 signal try_key
 signal has_key
 signal no_key
@@ -19,6 +20,7 @@ signal inventoryclosed
 signal inventoryopened
 
 signal update_quests
+signal point_update
 
 var can_update : bool = false
 
@@ -29,6 +31,22 @@ var have_correct_amount = false
 
 var door_index = false
 var npc_index = false
+
+@export var greed_number : float = 0.4
+
+@export_subgroup("Stamp System")
+@export var stamp_points : int = 5
+@export var max_stamp_points : int = 5
+
+@export var greed_equiped : bool = false
+@export var hleaf_equiped : bool = false
+@export var hatintime_equiped : bool = false
+@export var shadowdiver_equiped : bool = false
+@export var crimsonfury_equiped : bool = false
+@export var frozenheart_equiped : bool = false
+@export var ffemblem_equiped : bool = false
+
+
 
 var can_emit_item_and_amount: bool = false:
 	set(new_value):
@@ -78,39 +96,50 @@ var breath_index : int = 0:
 @onready var inventoryb: Inventoryb = preload("res://inventory/PlayerInventoryb.tres")
 @onready var inventoryc: Inventoryc = preload("res://inventory/PlayerInventoryc.tres")
 @onready var task_manager: TaskManager = preload("res://Global/Task_manager.tres")
+@onready var main_manager : MainManager = preload("res://Global/Mainmanager.tres")
 var player = null
 
 func equipstamp(slots: Array, sealslots: Array, currently_selected: int, inventoryc: Inventoryc):
-	var sealslot = sealslots
-	var slotf = slots[currently_selected]
-	if !slotf.isEmpty():
-		inventoryc.insert(slotf.itemStackGui.inventorySlot.item)
-		print(slotf.itemStackGui.inventorySlot.item)
-		if slotf.itemStackGui.inventorySlot.item.itemactivate == 0:
-			slotf.itemStackGui.inventorySlot.item.itemactivate = 1
-		elif slotf.itemStackGui.inventorySlot.item.itemactivate == 1:
-			slotf.itemStackGui.inventorySlot.item.itemactivate = 0
-		
+
+		var sealslot = sealslots
+		var slotf = slots[currently_selected]
+		if !slotf.isEmpty():
+			
+				
+				print(slotf.itemStackGui.inventorySlot.item)
+				if slotf.itemStackGui.inventorySlot.item.itemactivate == 0:
+					if stamp_points >= slots[currently_selected].itemStackGui.inventorySlot.item.stamp_points:
+						stamp_points -= slots[currently_selected].itemStackGui.inventorySlot.item.stamp_points
+						inventoryc.insert(slotf.itemStackGui.inventorySlot.item)
+						slotf.itemStackGui.inventorySlot.item.itemactivate = 1
+					else:
+						no_enough_stpoints.emit()
+				elif slotf.itemStackGui.inventorySlot.item.itemactivate == 1:
+						stamp_points += slots[currently_selected].itemStackGui.inventorySlot.item.stamp_points
+						inventoryc.insert(slotf.itemStackGui.inventorySlot.item)
+						slotf.itemStackGui.inventorySlot.item.itemactivate = 0
+	
 
 
 func stamp_equippedfunc(slots: Array,currently_selected: int, inventory: Inventory):
 	
-	#changetexture_equip()
-	var slot = slots[currently_selected]
-	var secondary = slot.itemStackGui.inventorySlot.item.scriptstr
-	var itemscript = load(secondary).new()
-	print("stamp equip: ",slot.itemStackGui.inventorySlot.item.name)
-	
-	slot = slots[currently_selected]
-	secondary = slot.itemStackGui.inventorySlot.item.scriptstr
-	itemscript = load(secondary).new()
-	
-	
-	itemscript.activatestamp()
-	#slots[currently_selected].modulateslot()
-	slot.itemStackGui.inventorySlot.amount = 0
-	print("é esse aqui ó -> ", slots[currently_selected].itemStackGui.inventorySlot.item.name, " num: ",currently_selected)
-	inventory.updated.emit()
+		
+		#changetexture_equip()
+		var slot = slots[currently_selected]
+		var secondary = slot.itemStackGui.inventorySlot.item.scriptstr
+		var itemscript = load(secondary).new()
+		print("stamp equip: ",slot.itemStackGui.inventorySlot.item.name)
+		
+		slot = slots[currently_selected]
+		secondary = slot.itemStackGui.inventorySlot.item.scriptstr
+		itemscript = load(secondary).new()
+		
+		
+		itemscript.activatestamp()
+		#slots[currently_selected].modulateslot()
+		slot.itemStackGui.inventorySlot.amount = 0
+		print("é esse aqui ó -> ", slots[currently_selected].itemStackGui.inventorySlot.item.name, " num: ",currently_selected)
+		inventory.updated.emit()
 
 func stamp_unequippedfunc(slots: Array,currently_selected: int, inventory: Inventory):
 	var slot = slots[currently_selected]
@@ -120,6 +149,8 @@ func stamp_unequippedfunc(slots: Array,currently_selected: int, inventory: Inven
 	slot.itemStackGui.inventorySlot.amount = 1
 	inventory.updated.emit()
 	itemscript.deactivatestamp()
+	
+	
 
 var scr_key = null
 var kscript = null
@@ -151,7 +182,16 @@ func findquest(questslots, chosed_item, index, amount, item_type):
 					continue
 					print("no method")
 
-
+func insert_points(container_item : Statspoints):
+	if container_item.point_type == "Stamppointmax":
+		max_stamp_points += 1
+		stamp_points += 1
+	if container_item.point_type == "Heartpointmax":
+		main_manager.maxHealth += 1
+		main_manager.currentHealth == main_manager.maxHealth
+	if container_item.point_type == "Coinmax":
+		main_manager.coin_max += 25
+	point_update.emit()
 
 func finditem_amount(invslots, chosed_item, index, amount):
 	player = get_tree().get_first_node_in_group("Player")

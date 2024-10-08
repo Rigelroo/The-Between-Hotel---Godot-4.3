@@ -1,15 +1,30 @@
 extends Area2D
 
-var direction: Vector2 = Vector2.RIGHT
+#var direction: Vector2 = Vector2.RIGHT
 
 @export var damage: int = 1
 @export var crit_chance : float = 0.3
 
-var speed : float = 300
 
-func _physics_process(delta: float) -> void:
-	position += direction * speed * delta
-	
+var speed: float = 200.0
+var direction: Vector2
+
+# Função chamada para inicializar o projétil
+func initialize(target_position: Vector2) -> void:
+	direction = (target_position - global_position).normalized()
+
+func _process(delta: float) -> void:
+	global_position += direction * speed * delta
+
+	# Opcional: Destroi o projétil se sair da tela
+	#if not get_viewport().get_visible_rect().has_point(global_position):
+		#queue_free()
+
+
+#
+#func _physics_process(delta: float) -> void:
+	#position += direction * speed * delta
+	#
 
 func _on_screen_exited() -> void:
 	queue_free()

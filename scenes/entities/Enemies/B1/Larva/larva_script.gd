@@ -3,7 +3,9 @@ extends CharacterBody2D
 
 class_name EnemyLarva
 
-
+@onready var dropmarker: Marker2D = $Dropmarker
+const coin_instance = preload("res://inventory/Moedas/coin.tscn")
+@export var coin_amount : int = 1
 
 @onready var damage_numbers_origin = %DamagenumOrigin
 @onready var hit_player = $Hit
@@ -58,6 +60,32 @@ var can_attack = false
 var current_state = null
 var prev_state = null
 @onready var player = get_tree().get_first_node_in_group("Player")
+
+func create_coin():
+	print(SignalManager.greed_equiped)
+	if SignalManager.greed_equiped:
+		
+		for i in range(coin_amount):
+			var is_greed = SignalManager.greed_number > randf()
+			if is_greed:
+				for c in range(2):
+					var coin = coin_instance.instantiate()
+					get_parent().call_deferred("add_child", coin)
+					coin.global_position = dropmarker.global_position
+					coin.apply_impulse(Vector2(randi_range(-300,300), -250))
+			else:
+				var coin = coin_instance.instantiate()
+				get_parent().call_deferred("add_child", coin)
+				coin.global_position = dropmarker.global_position
+				coin.apply_impulse(Vector2(randi_range(-300,300), -250))
+	else:
+		for i in range(coin_amount):
+			var coin = coin_instance.instantiate()
+			get_parent().call_deferred("add_child", coin)
+			coin.global_position = dropmarker.global_position
+			coin.apply_impulse(Vector2(randi_range(-300,300), -250))
+		#print("impulse: ", Vector2(randi_range(-700,700), -850))
+
 
 func set_player():
 	var root = get_tree().root

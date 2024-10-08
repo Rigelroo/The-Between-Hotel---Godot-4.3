@@ -1,7 +1,7 @@
 extends "state.gd"
 
 var dash_direction = Vector2.ZERO
-var dash_speed = 940
+
 var dashing = false
 @onready var sprite = $"../../Sprite2D"
 @export var ghost_node : PackedScene
@@ -44,7 +44,7 @@ func enter_state():
 		dash_direction = Player.movement_input
 	else:
 		dash_direction = Player.last_direction
-	Player.velocity = dash_direction.normalized() * dash_speed
+	Player.velocity = dash_direction.normalized() * Player.dash_speed
 func exit_state():
 	dashing = false
 

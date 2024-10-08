@@ -3,10 +3,14 @@ extends CharacterBody2D
 
 class_name EnemyVespa
 
+@onready var dropmarker: Marker2D = $Dropmarker
+const coin_instance = preload("res://inventory/Moedas/coin.tscn")
 
+const manager = preload("res://Global/Mainmanager.tres")
 @onready var damage_numbers_origin = %DamagenumOrigin
 @onready var hit_player = $Hit
 @onready var animplayer = $Body2
+@export var coin_amount : int = 1
 #const dead_body = "res://Sprites/Bettlebourough/enemies/wasp/dead.png"
 
 @export_subgroup("Health & Damage")
@@ -222,6 +226,31 @@ func _physics_process(delta):
 
 var can_return : bool = false
 
+
+func create_coin():
+	print(SignalManager.greed_equiped)
+	if SignalManager.greed_equiped:
+		
+		for i in range(coin_amount):
+			var is_greed = SignalManager.greed_number > randf()
+			if is_greed:
+				for c in range(2):
+					var coin = coin_instance.instantiate()
+					get_parent().call_deferred("add_child", coin)
+					coin.global_position = dropmarker.global_position
+					coin.apply_impulse(Vector2(randi_range(-300,300), -250))
+			else:
+				var coin = coin_instance.instantiate()
+				get_parent().call_deferred("add_child", coin)
+				coin.global_position = dropmarker.global_position
+				coin.apply_impulse(Vector2(randi_range(-300,300), -250))
+	else:
+		for i in range(coin_amount):
+			var coin = coin_instance.instantiate()
+			get_parent().call_deferred("add_child", coin)
+			coin.global_position = dropmarker.global_position
+			coin.apply_impulse(Vector2(randi_range(-300,300), -250))
+		#print("impulse: ", Vector2(randi_range(-700,700), -850))
 
 
 func _on_follow_area_body_exited(body: Node2D) -> void:

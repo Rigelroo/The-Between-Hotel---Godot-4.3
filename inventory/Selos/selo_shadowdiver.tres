@@ -13,6 +13,7 @@ maxAmountInStack = 2
 max_amount = 0
 showname = "Mergulhador Sombrio"
 description = "Ele pulsa com energia sombria. Permite mergulhar nas sombras ao apertar Y no ar."
+stamp_points = 3
 color = Color(0.529412, 0.470588, 0.898039, 1)
 color_x = 0.52
 color_y = 0.47

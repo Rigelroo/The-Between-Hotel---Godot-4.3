@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dr7iljjvr18ru"]
+
+[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_8fwb6"]
+[ext_resource type="Texture2D" uid="uid://dt1dfy7bftu33" path="res://inventory/Selos/selo_othereye.png" id="2_fra48"]
+
+[resource]
+script = ExtResource("1_8fwb6")
+name = "selo_othereye"
+texture = ExtResource("2_fra48")
+equipedtexture = "res://inventory/Selos/equiped/selo_hattime_equiped.png"
+textureaux = "res://inventory/Selos/selo_hattime.png"
+maxAmountInStack = 2
+max_amount = 0
+showname = "Olho da passagem"
+description = "Criado do coração de um yeti soturno, agora usado pra ajudar seus hóspedes. Aperte baixo para congelar"
+stamp_points = 3
+color = Color(0.166377, 0.228331, 0.020552, 1)
+color_x = 0.16
+color_y = 0.22
+color_z = 0.02
+first_item = 0
+itemactivate = 0
+scriptstr = "res://inventory/Selos/selo_frozenheart.gd"

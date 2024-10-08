@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cu2e048hxgdgy"]
+[gd_scene load_steps=33 format=3 uid="uid://cu2e048hxgdgy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_ssnol"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_qv6q8"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://b5a3af6jeero5" path="res://objects/porta_2.tscn" id="18_b14py"]
 [ext_resource type="PackedScene" uid="uid://7odf4fl3armh" path="res://objects/scene_trigger.tscn" id="18_dnqxp"]
 [ext_resource type="PackedScene" uid="uid://dysed8fh25ap0" path="res://objects/porta_3.tscn" id="19_retjy"]
+[ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://inventory/Selos/selo_1.tscn" id="23_ymihc"]
+[ext_resource type="Resource" uid="uid://dw24t6xttmdyt" path="res://inventory/Selos/selo_hatintime.tres" id="24_c6j8a"]
+[ext_resource type="Texture2D" uid="uid://dcilvlfcwyjy4" path="res://inventory/Selos/selo_hattime.png" id="25_j0gkm"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="28_ygo3h"]
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="31_v3crm"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="32_j52kf"]
@@ -79,20 +82,15 @@ position = Vector2(428, 0)
 texture = ExtResource("6_c38bo")
 centered = false
 
-[node name="Player" parent="." node_paths=PackedStringArray("showitem") instance=ExtResource("28_ygo3h")]
-position = Vector2(995, 1718)
+[node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("28_ygo3h")]
+position = Vector2(996, 1696)
 scale = Vector2(14, 14)
 showitem = NodePath("Showitemsprite")
+player_camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0.666667, -28.3333)
 zoom = Vector2(0.6, 0.6)
-limit_left = 0
-limit_top = 0
-limit_right = 4407
-limit_bottom = 1108
-limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 editor_draw_limits = true
 
@@ -142,13 +140,10 @@ process_mode = 3
 visible = false
 
 [node name="PausemenuLayer" parent="." instance=ExtResource("34_4173y")]
-visible = false
-
-[node name="SubViewport" parent="PausemenuLayer/SubViewportContainer2" index="0"]
-render_target_update_mode = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(7, 1910)
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(4167, 155.5)
@@ -199,4 +194,14 @@ visible = false
 position = Vector2(8656, 1113)
 shape = SubResource("RectangleShape2D_6447o")
 
+[node name="Selo5" parent="." instance=ExtResource("23_ymihc")]
+position = Vector2(2296, 1304)
+scale = Vector2(5.31103, 5.31103)
+itemRes = ExtResource("24_c6j8a")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Selo5" index="1"]
+texture = ExtResource("25_j0gkm")
+
 [editable path="PausemenuLayer"]
+[editable path="Selo5"]

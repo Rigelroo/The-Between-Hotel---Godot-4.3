@@ -720,7 +720,8 @@ size = Vector2(476.5, 487)
 [node name="Wasp" type="CharacterBody2D" groups=["Enemies"]]
 material = SubResource("ShaderMaterial_kehak")
 script = ExtResource("2_gf2w3")
-health = 30
+coin_amount = 4
+health = 1
 damage_value = 10
 movement_type = 1
 
@@ -893,6 +894,8 @@ target_position = Vector2(-0.455265, 56.7931)
 [node name="DamagenumOrigin" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-4, -329)
+
+[node name="Dropmarker" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
 [connection signal="body_exited" from="FollowArea" to="." method="_on_follow_area_body_exited"]

@@ -14,6 +14,7 @@ func update(delta):
 
 func enter_state():
 	%Hit.play("defeat")
+	Entity.create_coin()
 	Entity.gravity_type = 2
 	Entity.gravity_strength = 2
 	Entity.set_physics_process(false)

@@ -604,7 +604,7 @@ offset_right = 459.0
 offset_bottom = 249.0
 theme_override_fonts/font = ExtResource("19_kabt4")
 theme_override_font_sizes/font_size = 61
-text = "100"
+text = "105"
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(296, 154)

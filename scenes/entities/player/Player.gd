@@ -44,7 +44,10 @@ signal inkChanged
 
 #@onready var ghost_timer = $GhostTimer
 #@onready var particles = $GPUParticles2D
-@export_subgroup("Movement_on & off")
+@export_subgroup("Movement")
+@export var dash_speed = 940
+@export var SPEED = 470.0
+@export var JUMP_VELOCITY = -700.0
 @export var can_interact = false
 @export var can_move = true
 @export var can_move_si = true
@@ -96,8 +99,7 @@ var breath_input = false
 var slashing = false
 
 #player_movement
-const SPEED = 470.0
-const JUMP_VELOCITY = -700.0
+
 var last_direction = Vector2.RIGHT
 
 #mechanics
@@ -391,7 +393,18 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 			$STATES/NEWITEM.color_z = area.itemRes.color_z
 			area.itemRes.first_item = 1
 		area.collectb(inventoryb)
-		
+	
+	if area.has_method("collectcontainer"):
+		if area.itemRes.first_item == 0:
+			new_item_activate = true
+			showitem.animation_player.play("surge")
+			showitem.texture = area.itemRes.texture
+			$STATES/NEWITEM.color_x = area.itemRes.color_x
+			$STATES/NEWITEM.color_y = area.itemRes.color_y
+			$STATES/NEWITEM.color_z = area.itemRes.color_z
+			area.itemRes.first_item = 1
+		area.collectcontainer()
+
 	if area.has_method("collectcoin"):
 		area.collectcoin()
 	

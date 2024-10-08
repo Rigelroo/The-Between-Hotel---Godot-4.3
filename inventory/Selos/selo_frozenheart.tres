@@ -13,6 +13,7 @@ maxAmountInStack = 2
 max_amount = 0
 showname = "Sangue frio"
 description = "Criado do coração de um yeti soturno, agora usado pra ajudar seus hóspedes. Aperte baixo para congelar"
+stamp_points = 3
 color = Color(0.396078, 0.756863, 1, 1)
 color_x = 0.39
 color_y = 0.75

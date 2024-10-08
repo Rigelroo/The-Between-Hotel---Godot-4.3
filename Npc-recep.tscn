@@ -81,7 +81,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwpdb"]
-size = Vector2(377, 276)
+size = Vector2(164, 223)
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_bbjbk")
@@ -104,8 +104,9 @@ animation = &"mission"
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="AreaInteraction" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-57.5, 73)
+position = Vector2(-53, 99.5)
 shape = SubResource("RectangleShape2D_vwpdb")
+debug_color = Color(0.411765, 0.890196, 1, 0.419608)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
