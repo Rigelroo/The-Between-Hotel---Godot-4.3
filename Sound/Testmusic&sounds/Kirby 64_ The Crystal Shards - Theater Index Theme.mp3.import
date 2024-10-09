@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4ratr6jnyq21"
+path="res://.godot/imported/Kirby 64_ The Crystal Shards - Theater Index Theme.mp3-718e2c7145d3384e1679923e13ee4637.mp3str"
+
+[deps]
+
+source_file="res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - Theater Index Theme.mp3"
+dest_files=["res://.godot/imported/Kirby 64_ The Crystal Shards - Theater Index Theme.mp3-718e2c7145d3384e1679923e13ee4637.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ef24ixvsy0at"]
+[gd_scene load_steps=52 format=3 uid="uid://ef24ixvsy0at"]
 
 [ext_resource type="Texture2D" uid="uid://c452x3agj374j" path="res://Sprites/Bettlebourough/enemies/wasp/attack0000.png" id="1_510se"]
 [ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_x8r2u"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://dgjoqfguta3r" path="res://Tests/smoke.png" id="22_8c7rt"]
 [ext_resource type="Script" path="res://scenes/entities/Enemies/B1/hitboxComponent.gd" id="26_u6tho"]
 [ext_resource type="Material" uid="uid://cdgsydya4x6w7" path="res://scenes/entities/damageparticles.tres" id="28_btvms"]
+[ext_resource type="AudioStream" uid="uid://dhn7eingilut8" path="res://Sound/Testmusic&sounds/wasp-sound-effect.mp3" id="33_urp5d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kehak"]
 shader = ExtResource("1_x8r2u")
@@ -896,6 +897,10 @@ unique_name_in_owner = true
 position = Vector2(-4, -329)
 
 [node name="Dropmarker" type="Marker2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("33_urp5d")
+pitch_scale = 0.88
 
 [connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
 [connection signal="body_exited" from="FollowArea" to="." method="_on_follow_area_body_exited"]

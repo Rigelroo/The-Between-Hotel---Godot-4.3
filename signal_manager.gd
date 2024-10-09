@@ -24,7 +24,7 @@ signal point_update
 
 var can_update : bool = false
 
-
+@export_file("*.mp3") var sfx_array : Array[String] = ["res://Sound/Testmusic&sounds/traditional-stamp-44189.mp3","res://Sound/Testmusic&sounds/undertale-damage-taken_0iH1Nxl.mp3"]
 var have_correct_key = false
 var have_correct_item = false
 var have_correct_amount = false
@@ -109,11 +109,17 @@ func equipstamp(slots: Array, sealslots: Array, currently_selected: int, invento
 				print(slotf.itemStackGui.inventorySlot.item)
 				if slotf.itemStackGui.inventorySlot.item.itemactivate == 0:
 					if stamp_points >= slots[currently_selected].itemStackGui.inventorySlot.item.stamp_points:
+						var sound_load = load(sfx_array[0])
+						VfxPlayer.set_stream(sound_load)
+						VfxPlayer.play()
 						stamp_points -= slots[currently_selected].itemStackGui.inventorySlot.item.stamp_points
 						inventoryc.insert(slotf.itemStackGui.inventorySlot.item)
 						slotf.itemStackGui.inventorySlot.item.itemactivate = 1
 					else:
 						no_enough_stpoints.emit()
+						var sound_load = load(sfx_array[1])
+						VfxPlayer.set_stream(sound_load)
+						VfxPlayer.play()
 				elif slotf.itemStackGui.inventorySlot.item.itemactivate == 1:
 						stamp_points += slots[currently_selected].itemStackGui.inventorySlot.item.stamp_points
 						inventoryc.insert(slotf.itemStackGui.inventorySlot.item)

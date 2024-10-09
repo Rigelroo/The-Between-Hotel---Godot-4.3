@@ -152,5 +152,5 @@ sprite_frames = SubResource("SpriteFrames_i64k6")
 animation = &"unlocking"
 autoplay = "inactive"
 
-[connection signal="body_entered" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_entered"]
-[connection signal="body_exited" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_exited"]
+[connection signal="area_entered" from="AreaD2D1" to="." method="_on_area_d_2d_1_area_entered"]
+[connection signal="area_exited" from="AreaD2D1" to="." method="_on_area_d_2d_1_area_exited"]

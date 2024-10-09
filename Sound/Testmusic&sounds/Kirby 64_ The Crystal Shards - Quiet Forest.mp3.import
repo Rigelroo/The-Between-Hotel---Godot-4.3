@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chgebwdgpdwa"
+path="res://.godot/imported/Kirby 64_ The Crystal Shards - Quiet Forest.mp3-49ad77cbba8ea351d4880bf9e59edad1.mp3str"
+
+[deps]
+
+source_file="res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - Quiet Forest.mp3"
+dest_files=["res://.godot/imported/Kirby 64_ The Crystal Shards - Quiet Forest.mp3-49ad77cbba8ea351d4880bf9e59edad1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

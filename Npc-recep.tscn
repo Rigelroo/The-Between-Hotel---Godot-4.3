@@ -91,8 +91,6 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_xc1ki")
 frame_progress = 0.68298
 
-[node name="Node2D" type="StaticBody2D" parent="."]
-
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 z_index = 50
 y_sort_enabled = true
@@ -108,5 +106,5 @@ position = Vector2(-53, 99.5)
 shape = SubResource("RectangleShape2D_vwpdb")
 debug_color = Color(0.411765, 0.890196, 1, 0.419608)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

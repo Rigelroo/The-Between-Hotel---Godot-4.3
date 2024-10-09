@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b3wiqgg03gaan"]
+[gd_scene load_steps=70 format=3 uid="uid://b3wiqgg03gaan"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_wl04x"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_sao3u"]
@@ -36,6 +36,31 @@
 [ext_resource type="PackedScene" uid="uid://criewgj3p57f2" path="res://inventory/Selos/item stamppoint.tscn" id="36_2orps"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="36_cxjjy"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="37_8k0fb"]
+[ext_resource type="Script" path="res://scenes/escadaria.gd" id="37_jm5go"]
+[ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="39_x8few"]
+[ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="40_d1nxw"]
+[ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="41_psfl7"]
+[ext_resource type="Texture2D" uid="uid://cg1we2wu1evbm" path="res://Sprites/InteractionBox/InteractionBox - Door0003.png" id="42_qqaoi"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="43_th5et"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="44_gosrd"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="45_jcvtc"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="46_eejpy"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="47_evtkb"]
+[ext_resource type="Texture2D" uid="uid://buaj4i0w37fhc" path="res://Sprites/InteractionBox/InteractionBox - locked0000.png" id="48_nux3i"]
+[ext_resource type="Texture2D" uid="uid://cmfgtewblulr5" path="res://Sprites/InteractionBox/InteractionBox - locked0001.png" id="49_xwykn"]
+[ext_resource type="Texture2D" uid="uid://4mf672khj0y4" path="res://Sprites/InteractionBox/InteractionBox - locked0002.png" id="50_6tykn"]
+[ext_resource type="Texture2D" uid="uid://dibyghp87j8h7" path="res://Sprites/InteractionBox/InteractionBox - locked0003.png" id="51_orng2"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="52_8yij5"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="53_acmh1"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="54_jcv3k"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="55_71ndi"]
+[ext_resource type="Texture2D" uid="uid://cfh0n5a12t6t8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0000.png" id="56_yvbhx"]
+[ext_resource type="Texture2D" uid="uid://cj6c5w30gbkk8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0001.png" id="57_eu10i"]
+[ext_resource type="Texture2D" uid="uid://cqirufu6tyo4g" path="res://Sprites/InteractionBox/InteractionBox - unlocking0002.png" id="58_cvf5e"]
+[ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="59_4rqlg"]
+[ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="60_3d43v"]
+[ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="61_4uysq"]
+[ext_resource type="Script" path="res://scenes/Locations/Hotel/bell.gd" id="62_wcaef"]
 
 [sub_resource type="Gradient" id="Gradient_n1lro"]
 offsets = PackedFloat32Array(0.323232, 0.636364)
@@ -84,10 +109,120 @@ size = Vector2(45.1103, 401.079)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjqto"]
 size = Vector2(10100, 715)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6pf"]
+size = Vector2(598, 837)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5uks"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_x8few")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_d1nxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_psfl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_qqaoi")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_th5et")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_gosrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_jcvtc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_eejpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_evtkb")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_nux3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_xwykn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_6tykn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_orng2")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("52_8yij5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_acmh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_jcv3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_71ndi")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("56_yvbhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_eu10i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_cvf5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_4rqlg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_3d43v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_4uysq")
+}],
+"loop": false,
+"name": &"unlocking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0amaj"]
+size = Vector2(530, 1387.5)
+
 [node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 position = Vector2(0, -7)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_wl04x")
+background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3", ""])
 objplayer = NodePath("Player")
 splashw = ExtResource("2_sao3u")
 inv_dictionary = ExtResource("3_ugrrr")
@@ -168,12 +303,12 @@ position = Vector2(1577.27, 356.198)
 scale = Vector2(0.3, 0.3)
 
 [node name="Matheus" parent="." node_paths=PackedStringArray("world") instance=ExtResource("20_lrsvy")]
-position = Vector2(2971, 2126)
+position = Vector2(3407.5, 2047.5)
 scale = Vector2(4, 4)
 world = NodePath("..")
 
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("21_5p0qm")]
-position = Vector2(1356, 2330)
+position = Vector2(1442.5, 2330)
 scale = Vector2(22, 22)
 showitem = NodePath("Showitemsprite")
 player_camera = NodePath("Camera2D")
@@ -262,8 +397,46 @@ scale = Vector2(0.996957, 1)
 shape = SubResource("RectangleShape2D_hjqto")
 
 [node name="Item_stamppoint" parent="." instance=ExtResource("36_2orps")]
-position = Vector2(3796, 1890)
+position = Vector2(6447.5, 1532.5)
 scale = Vector2(3.97, 3.97)
+
+[node name="Escadaria" type="Node2D" parent="." node_paths=PackedStringArray("balloon", "world")]
+position = Vector2(2117.5, 1767.5)
+scale = Vector2(1.401, 1.401)
+script = ExtResource("37_jm5go")
+next_scene = "res://Sprites/EntryHall/corridor.tscn"
+balloon = NodePath("Ballondoor1")
+world = NodePath("..")
+
+[node name="AreaD2D1" type="Area2D" parent="Escadaria"]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="Escadaria/AreaD2D1"]
+shape = SubResource("RectangleShape2D_0u6pf")
+debug_color = Color(0.645423, 0.502287, 0.400547, 0.42)
+
+[node name="Ballondoor1" type="AnimatedSprite2D" parent="Escadaria"]
+y_sort_enabled = true
+position = Vector2(-3.8147e-06, -700)
+sprite_frames = SubResource("SpriteFrames_x5uks")
+animation = &"unlocking"
+autoplay = "inactive"
+
+[node name="Bell" type="Area2D" parent="."]
+position = Vector2(5727.5, 1820)
+script = ExtResource("62_wcaef")
+sound = Array[String](["res://Sound/Testmusic&sounds/zapsplat_bell_service_disk_ring_slightly_broken_resonate_18042.mp3", "res://Sound/Testmusic&sounds/meow-1.mp3", "res://Sound/Testmusic&sounds/minecraft-dog-bark.mp3"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bell"]
+position = Vector2(-35, 331.25)
+shape = SubResource("RectangleShape2D_0amaj")
+debug_color = Color(0.385495, 0.608889, 0.182104, 0.42)
+
+[node name="Bellsound" type="AudioStreamPlayer2D" parent="Bell"]
+
+[connection signal="area_entered" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_entered"]
+[connection signal="area_exited" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_exited"]
+[connection signal="area_entered" from="Bell" to="Bell" method="_on_area_entered"]
+[connection signal="area_exited" from="Bell" to="Bell" method="_on_area_exited"]
 
 [editable path="Selo3"]
 [editable path="Selo5"]

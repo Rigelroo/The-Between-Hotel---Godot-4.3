@@ -81,10 +81,12 @@ func transition_to(scene_path: String) -> void:
 		current_scene.player.remove_from_group("Player")
 		current_scene.stats.remove_from_group("Stats")
 		current_scene.gameover_manager.remove_from_group("Gameover")
+		#await current_scene.tree_exited
 		current_scene.queue_free()
 
 	# Instantiate and add the new scene
 	var new_scene = load(scene_path).instantiate()
+	
 	root.add_child(new_scene)
 	
 	# Restore or set up the camera

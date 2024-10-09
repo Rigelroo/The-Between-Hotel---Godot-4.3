@@ -63,7 +63,7 @@ var previousEmptyb: bool
 
 @export var manager : MainManager
 
-
+@export_file("*.mp3") var sfx_array : Array[String]
 
 func world_ready():
 	pass
@@ -104,9 +104,10 @@ func please_equip():
 
 func not_enough_stpoints():
 	current_stamppoint.start_shake()
-	
+
 
 func _ready():
+	SignalManager
 	SignalManager.no_enough_stpoints.connect(not_enough_stpoints)
 	SignalManager.stamp_unequipped.connect(stamp_unequipped)
 	SignalManager.stamp_equipped.connect(stamp_equipped)
@@ -354,6 +355,12 @@ func updateItemInHand():
 
 var canOpen_inventory : bool = true
 
+func _exit_tree():
+	SignalManager.no_enough_stpoints.disconnect(not_enough_stpoints)
+	SignalManager.stamp_unequipped.disconnect(stamp_unequipped)
+	SignalManager.stamp_equipped.disconnect(stamp_equipped)
+	SignalManager.just_equip.disconnect(please_equip)
+
 func _input(event):
 	if Input.is_action_pressed("Magic"):
 		hat_for_selector()
@@ -361,11 +368,11 @@ func _input(event):
 	if event.is_action_pressed("menu_inventory"):
 		if canOpen_inventory:
 			if isOpen:
-				SignalManager.stats.visible = true
+				#SignalManager.stats.visible = true
 				close()
 			else:
 				open()
-				SignalManager.stats.visible = false
+				#SignalManager.stats.visible = false
 	else: pass
 	updateItemInHand()
 	if event.is_action_pressed("change_menu_mais"):

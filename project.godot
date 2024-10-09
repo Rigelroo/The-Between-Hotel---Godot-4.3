@@ -25,7 +25,9 @@ SceneManager="*res://Tests/scene_manager.tscn"
 Damagenumbers="*res://damagenumbers.gd"
 QuestSystem="*res://addons/quest_system/quest_manager.gd"
 SignalManager="*res://signal_manager.gd"
+GlobalAudioStreamPlayer="*res://Sound/Scenes/audio_stream_player.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+VfxPlayer="*res://Sound/Scenes/vfx_player.tscn"
 
 [dialogic]
 

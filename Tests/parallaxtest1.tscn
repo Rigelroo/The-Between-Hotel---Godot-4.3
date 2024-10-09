@@ -719,6 +719,7 @@ animations = [{
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 script = ExtResource("1_07tvi")
+background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - Quiet Forest.mp3"])
 objplayer = NodePath("Player")
 splashw = ExtResource("2_ofkno")
 inv_dictionary = ExtResource("3_dsa30")

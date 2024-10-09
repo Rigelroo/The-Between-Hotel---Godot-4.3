@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv5f8dgplg73p"
+path="res://.godot/imported/Kirby 64_ The Crystal Shards - File Select Theme.mp3-b7209280b6f6bf8ca5d7a6833bc74e20.mp3str"
+
+[deps]
+
+source_file="res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3"
+dest_files=["res://.godot/imported/Kirby 64_ The Crystal Shards - File Select Theme.mp3-b7209280b6f6bf8ca5d7a6833bc74e20.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

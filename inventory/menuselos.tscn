@@ -94,6 +94,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o6k50")
 manager = ExtResource("2_snvv0")
+sfx_array = Array[String](["res://Sound/Testmusic&sounds/traditional-stamp-44189.mp3", "res://Sound/Testmusic&sounds/undertale-damage-taken_0iH1Nxl.mp3"])
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 0
@@ -552,3 +553,6 @@ offset_top = -41.0
 offset_right = 635.0
 offset_bottom = -1.0
 tab_close_display_policy = 2
+
+[node name="SFXplayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true

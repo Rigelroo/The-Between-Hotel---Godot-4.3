@@ -4,6 +4,8 @@ class_name World
 var dead : bool = false
 #@onready var canvas : CanvasLayer = $CanvasLayer
 
+@export_file("*.mp3") var background_music_array : Array[String]
+
 @export var objplayer : Player
 @export var splashw : SplashWater
 
@@ -50,9 +52,22 @@ func set_player_speed():
 func load_scene() -> void:
 	manager.loaded.emit()
 	
+func background_music():
+	var sound_load = load(background_music_array[0])
+	GlobalAudioStreamPlayer.set_stream(sound_load)
+	GlobalAudioStreamPlayer.play()
 
+
+func some_function():
+	if SignalManager.is_inside_tree():
+		# Execute a lógica
+		pass
+	else:
+		print("SignalManager não está acessível.")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	some_function()
+	background_music()
 	set_player_speed()
 	SignalManager.world_loaded.emit()
 	

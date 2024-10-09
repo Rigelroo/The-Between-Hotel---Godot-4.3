@@ -88,3 +88,19 @@ func _input(event: InputEvent):
 			#if dialog_event == 1:
 				#Dialogic.start('doortimeline1')
 				#get_viewport().set_input_as_handled()
+
+
+func _on_area_d_2d_1_area_entered(area: Area2D) -> void:
+	if area.owner.is_in_group("Player"):
+		player_in_area = true
+		if locked == false:
+			balloon.play("Door")
+			
+		else:
+			balloon.play("locked")
+
+
+func _on_area_d_2d_1_area_exited(area: Area2D) -> void:
+	if area.owner.is_in_group("Player"):
+		balloon.play("inactive")
+		player_in_area = false

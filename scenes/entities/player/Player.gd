@@ -335,7 +335,7 @@ func charge_attack(delta):
 
 func player():
 	pass
-	
+
 
 
 

@@ -26,17 +26,18 @@ func _ready():
 	print("dialog = ",dialogs)
 	#$AnimatedSprite2D.play("default")
 
-func _on_area_2d_2_body_entered(body: CharacterBody2D) -> void:
-	$AnimatedSprite2D2.play("mission")
-	if body.has_method("player"):
-			player_in_area = true
+func _on_area_2d_2_area_entered(area: Area2D) -> void:
+	
+	if area.owner.is_in_group("Player"):
+		$AnimatedSprite2D2.play("mission")
+		player_in_area = true
 
 
 
-func _on_area_2d_2_body_exited(body: CharacterBody2D) -> void:
-	$AnimatedSprite2D2.play("inactive")
-	if body.has_method("player"):
-			player_in_area = false
+func _on_area_2d_2_area_exited(area: Area2D) -> void:
+	if area.owner.is_in_group("Player"):
+		$AnimatedSprite2D2.play("inactive")
+		player_in_area = false
 
 #func _process(delta: float) -> void:
 	#if player_in_area:

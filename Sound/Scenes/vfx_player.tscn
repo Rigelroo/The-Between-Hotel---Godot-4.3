@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3wfagajmrk1m"]
+
+[ext_resource type="AudioStream" uid="uid://cv5f8dgplg73p" path="res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3" id="1_tlpav"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_tlpav")

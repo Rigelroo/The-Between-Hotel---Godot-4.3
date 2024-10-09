@@ -52,6 +52,7 @@ size = Vector2(316, 2230)
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("objplayer")]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ssnol")
+background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3"])
 objplayer = NodePath("Player")
 splashw = ExtResource("2_qv6q8")
 inv_dictionary = ExtResource("3_gmx88")
@@ -179,7 +180,7 @@ centered = false
 [node name="SceneTrigger" parent="." instance=ExtResource("18_dnqxp")]
 collision_layer = 0
 collision_mask = 16
-next_scene = "res://scenes/entry_hallNode.tscn"
+next_scene = "res://scenes/Locations/Hotel/entryhall hotel.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 position = Vector2(-185, 933)
