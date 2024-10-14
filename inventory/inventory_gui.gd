@@ -107,7 +107,8 @@ func not_enough_stpoints():
 
 
 func _ready():
-	SignalManager
+	%Config.show_options()
+	
 	SignalManager.no_enough_stpoints.connect(not_enough_stpoints)
 	SignalManager.stamp_unequipped.connect(stamp_unequipped)
 	SignalManager.stamp_equipped.connect(stamp_equipped)
@@ -197,8 +198,7 @@ func update():
 
 
 func open():
-	
-	tab.current_tab = 0
+
 	visible = true
 	isOpen = true
 	SignalManager.inventoryopened.emit()
@@ -376,24 +376,42 @@ func _input(event):
 	else: pass
 	updateItemInHand()
 	if event.is_action_pressed("change_menu_mais"):
-		if number < 2 && number > -1:
-			number = number + 1
-			tab.current_tab = number
-			print("position",number)
-		elif number == 2:
-			number = 0
-			tab.current_tab = 0
-			print("position",number)
+		var tabcountmax = %TabContainer.get_tab_count()
+		var tabcount = 0
+		if tab.current_tab < tabcountmax:
+			tab.current_tab += 1
+		elif tab.current_tab == tabcountmax:
+			tab.current_tab += 1
+		print(%TabContainer.get_tab_count())
+		#if number < 2 && number > -1:
+			#number = number + 1
+			#tab.current_tab = number
+			#print("position",number)
+		#elif number == 2:
+			#number = 0
+			#tab.current_tab = 0
+			#print("position",number)
 	
 	if event.is_action_pressed("change_menu_menos") :
-		if number < 3 && number > 0:
-			number = number - 1
-			tab.current_tab = number
-			print("position",number)
-		elif number == 0:
-			number = 2
-			tab.current_tab = 2
-			print("position",number)
+		var tabcountmax = %TabContainer.get_tab_count()
+		
+		var tabcount = 0
+		if tab.current_tab < tabcountmax:
+			if tab.current_tab != 0:
+				print(tab.current_tab)
+				tab.current_tab -= 1
+		elif tab.current_tab == tabcountmax:
+			print(tab.current_tab)
+			tab.current_tab -= 1
+		print(%TabContainer.get_tab_count())
+		#if number < 3 && number > 0:
+			#number = number - 1
+			#tab.current_tab = number
+			#print("position",number)
+		#elif number == 0:
+			#number = 2
+			#tab.current_tab = 2
+			#print("position",number)
 
 
 func _on_button_selos_pressed() -> void:
@@ -418,6 +436,22 @@ func equip_seal(slot):
 	SignalManager.inventory.equip_item_at_index(currently_selected)
 	
 func _unhandled_input(event):
+	if %TabContainer.current_tab == 0:
+		if Input.is_action_just_pressed("selector_up"):
+			%Config.move_selector_U()
+		if Input.is_action_just_pressed("selector_down"):
+			%Config.move_selector_D()
+		if Input.is_action_just_pressed("inventory_less"):
+			%Config.show_less_options()
+			%Config.goto_options()
+		if Input.is_action_just_pressed("inventory_more"):
+			%Config.show_more_options()
+			%Config.goto_options()
+		if Input.is_action_just_pressed("Attack"):
+			%Config.selectioned_press()
+		if Input.is_action_just_pressed("Interact"):
+			%Config.out_options()
+	
 	#var slot = slots[currently_selected]
 	if currently_selected >= 8:
 		$TabContainer/Selos/TabContainer.current_tab = 1
@@ -427,32 +461,32 @@ func _unhandled_input(event):
 		$TabContainer/Selos/TabContainer.current_tab = 0
 		%nextpage_right.visible = true
 		%nextpage_left.visible = false
-	if isOpen:
-		if event.is_action_pressed("selector_right") && number == 1:
+	if isOpen && %TabContainer.current_tab == 2:
+		if event.is_action_pressed("selector_right"):
 			move_selector_R()
-		if event.is_action_pressed("selector_left") && number == 1:
+		if event.is_action_pressed("selector_left"):
 			move_selector_L()
-		if event.is_action_pressed("selector_down")  && number == 1:
+		if event.is_action_pressed("selector_down"):
 			move_selector_D()
-		if event.is_action_pressed("selector_up")  && number == 1:
+		if event.is_action_pressed("selector_up"):
 			move_selector_U()
-		if event.is_action_pressed("Jump") && number == 1:
+		if event.is_action_pressed("Jump"):
 			pass
 			#onSlotClicked(slot)
-		if event.is_action_pressed("Attack") && number == 1:
+		if event.is_action_pressed("Attack"):
 			
 			SignalManager.equipstamp(slots, sealslots, currently_selected, SignalManager.inventoryc)
 			#move_selector_stamp()
 			
 		
-		
-		if event.is_action_pressed("selector_right") && number == 2:
+	if isOpen && %TabContainer.current_tab == 3:
+		if event.is_action_pressed("selector_right"):
 			move_selector_RB()
-		if event.is_action_pressed("selector_left") && number == 2:
+		if event.is_action_pressed("selector_left"):
 			move_selector_LB()
-		if event.is_action_pressed("selector_down")  && number == 2:
+		if event.is_action_pressed("selector_down"):
 			move_selector_DB()
-		if event.is_action_pressed("selector_up")  && number == 2:
+		if event.is_action_pressed("selector_up"):
 			move_selector_UB()
 		
 
@@ -578,3 +612,7 @@ func move_selector_DB():
 
 func _on_stamp_equiped(slot) -> void:
 	print("stamp")
+
+
+func _on_tab_container_tab_changed(tab: int) -> void:
+	pass

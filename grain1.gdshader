@@ -10,11 +10,11 @@ const float grain_size = 1.6; //grain particle size (1.5 - 2.5)
 const float lum_amount = 1.0;
 
 //a random texture generator, but you can also use a pre-computed perturbation texture
-vec4 rnm(vec2 tc) 
+vec4 rnm(vec2 tc)
 {
   float noise =  sin(dot(tc + vec2(TIME,TIME),vec2(12.9898,78.233))) * 43758.5453;
 	float noiseR =  fract(noise)*2.0-1.0;
-    float noiseG =  fract(noise*1.2154)*2.0-1.0; 
+    float noiseG =  fract(noise*1.2154)*2.0-1.0;
     float noiseB =  fract(noise*1.3453)*2.0-1.0;
     float noiseA =  fract(noise*1.3647)*2.0-1.0;
     return vec4(noiseR,noiseG,noiseB,noiseA);
@@ -92,10 +92,10 @@ vec2 coordRot(vec2 tc, float angle)
 
 if const(enabled)
 {
-    vec3 rotOffset = vec3(1.425,3.892,5.835); //rotation offset values	
+    vec3 rotOffset = vec3(1.425,3.892,5.835); //rotation offset values
     vec2 rotCoordsR = coordRot(UV, TIME + rotOffset.x);
     vec3 noise = vec3(pnoise3D(vec3(rotCoordsR*vec2(screen_size.x/grain_size,screen_size.y/grain_size),0.0)));
-  
+
     if (colored)
     {
 	    vec2 rotCoordsG = coordRot(UV, TIME + rotOffset.y);

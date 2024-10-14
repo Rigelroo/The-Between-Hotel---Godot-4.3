@@ -25,9 +25,9 @@ shader_parameter/large_stars_far_size = 0.1
 shader_parameter/large_stars_near_size = 1.0
 shader_parameter/far_stars_color = Color(0.5, 0, 1, 1)
 shader_parameter/near_stars_color = Color(1, 1, 1, 1)
+shader_parameter/large_stars_texture = ExtResource("2_fxxxr")
 shader_parameter/base_scroll_speed = 0.05
 shader_parameter/additional_scroll_speed = 0.05
-shader_parameter/large_stars_texture = ExtResource("2_fxxxr")
 
 [sub_resource type="Animation" id="Animation_8hldr"]
 length = 0.001
@@ -62,8 +62,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4uhep"]
 _data = {
-"RESET": SubResource("Animation_8hldr"),
-"new_animation": SubResource("Animation_7k07j")
+&"RESET": SubResource("Animation_8hldr"),
+&"new_animation": SubResource("Animation_7k07j")
 }
 
 [sub_resource type="Animation" id="Animation_x6au2"]
@@ -123,8 +123,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7nnbd"]
 _data = {
-"RESET": SubResource("Animation_x6au2"),
-"new_animation": SubResource("Animation_3iw3i")
+&"RESET": SubResource("Animation_x6au2"),
+&"new_animation": SubResource("Animation_3iw3i")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjoxy"]
@@ -165,12 +165,12 @@ expand = true
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationPlayer")
 libraries = {
-"": SubResource("AnimationLibrary_4uhep")
+&"": SubResource("AnimationLibrary_4uhep")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7nnbd")
+&"": SubResource("AnimationLibrary_7nnbd")
 }
 
 [node name="Timer" type="Timer" parent="."]
