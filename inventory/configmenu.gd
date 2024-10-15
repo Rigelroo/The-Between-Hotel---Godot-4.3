@@ -209,12 +209,7 @@ func _on_musicvolumeslider_value_changed(value: float) -> void:
 
 
 
-func _on_buttondir_pressed() -> void:
-	pass # Replace with function body.
 
-
-func _on_buttonesq_pressed() -> void:
-	pass # Replace with function body.
 
 
 func _on_sfxvolumeslider_value_changed(value: float) -> void:
@@ -271,7 +266,9 @@ func change_values(config_button):
 	if config_button is Button:
 		cfg_button_type = 3
 		selected_button = config_button
-	
+	if config_button is OptionButton:
+		cfg_button_type = 4
+		selected_button = config_button
 var cfg_button_type = 0
 var selected_button = null
 var increasing = false
@@ -283,6 +280,10 @@ var selected_button_value: int:
 func _unhandled_input(event):
 	if cfg_button_type == 1:
 		if Input.is_action_pressed("selector_left"):
+			if cfg_button_type == 4:
+				screentypebox.item_selected.emit()
+				
+				
 			for i in 100:
 				if cfg_button_type == 1:
 					if !Input.is_action_pressed("selector_left"):
@@ -380,3 +381,39 @@ func _on_button_sim_pressed() -> void:
 
 func _on_button_não_pressed() -> void:
 	out_options()
+
+@onready var screentypebox: OptionButton = $TabContainer/OptionsContainer/Tela/options/Screentypebox
+
+
+const WINDOW_MODE_ARRAY : Array[String] = [
+	"Full-Screen",
+	"Window Mode",
+	"Borderless Window",
+	"Borderless Full-Screen"
+	]
+
+func _ready() -> void:
+	add_window_mode_items()
+	screentypebox.item_selected.connect(on_window_mode_selected)
+
+func on_window_mode_selected(index: int) -> void:
+	match index:
+		0: #FULLSCREEN
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		1: #WINDOW MODE
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		2: #BORDERLESS WINDOW
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+		3: #BORDERLESS FULLSCREEN
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+
+func add_window_mode_items() -> void:
+	for window_mode in WINDOW_MODE_ARRAY:
+		screentypebox.add_item(window_mode)
+
+func _on_screentypebox_item_selected(index: int) -> void:
+	pass # Replace with function body.

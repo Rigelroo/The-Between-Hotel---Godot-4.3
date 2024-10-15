@@ -616,3 +616,23 @@ func _on_stamp_equiped(slot) -> void:
 
 func _on_tab_container_tab_changed(tab: int) -> void:
 	pass
+
+
+func _on_menu_buttonconfig_pressed() -> void:
+	tab.current_tab = 0
+
+
+func _on_menu_buttontasks_pressed() -> void:
+	tab.current_tab = 1
+
+
+func _on_menu_buttonstamps_pressed() -> void:
+	tab.current_tab = 2
+
+
+func _on_menu_buttonmap_pressed() -> void:
+	pass
+
+
+func _on_menu_buttonitems_pressed() -> void:
+	tab.current_tab = 3

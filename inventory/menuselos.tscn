@@ -46,14 +46,14 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbhsj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i5gb"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ae02d"]
 content_margin_bottom = 39.0
 texture = ExtResource("17_be31b")
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 region_rect = Rect2(0, 0, 1032, 129.75)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i5gb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ab6pq"]
 texture = ExtResource("17_be31b")
@@ -241,7 +241,7 @@ texture = ExtResource("28_yqqid")
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pbhsj")
-current_tab = 2
+current_tab = 1
 tabs_visible = false
 metadata/_tab_index = 1
 
@@ -271,42 +271,6 @@ text = " Sons"
 visible_characters = -1
 visible_ratio = 1.0
 script = null
-
-[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons"]
-layout_mode = 1
-offset_left = 334.0
-offset_top = 38.0
-offset_right = 392.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
-action_mode = 0
-text = "
-"
-icon = ExtResource("17_nra2n")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons"]
-layout_mode = 1
-offset_left = 37.0
-offset_top = 38.0
-offset_right = 95.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
-action_mode = 0
-text = "
-"
-icon = ExtResource("18_bij0o")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
 [node name="masterlabel" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons" instance=ExtResource("29_s0oxi")]
 layout_direction = 2
@@ -421,8 +385,49 @@ theme_override_icons/unchecked = ExtResource("19_we7dv")
 action_mode = 0
 text = " mudo"
 
+[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 0.0348282
+offset_right = 0.003479
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("18_bij0o")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 0.121002
+offset_right = 0.0896606
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("17_nra2n")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="Tela" type="TabBar" parent="TabContainer/Config/TabContainer/OptionsContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -448,42 +453,6 @@ text = " Tela
 visible_characters = -1
 visible_ratio = 1.0
 script = null
-
-[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela"]
-layout_mode = 1
-offset_left = 334.0
-offset_top = 38.0
-offset_right = 392.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
-action_mode = 0
-text = "
-"
-icon = ExtResource("17_nra2n")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela"]
-layout_mode = 1
-offset_left = 37.0
-offset_top = 38.0
-offset_right = 95.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
-action_mode = 0
-text = "
-"
-icon = ExtResource("18_bij0o")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
 [node name="resolução" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela" instance=ExtResource("29_s0oxi")]
 layout_direction = 2
@@ -514,22 +483,71 @@ offset_right = 1054.0
 offset_bottom = 959.0
 scale = Vector2(0.306004, 0.306004)
 
-[node name="OptionButton" type="OptionButton" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options"]
+[node name="Screentypebox" type="OptionButton" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options"]
 layout_mode = 0
 offset_left = 91.5021
 offset_top = 107.842
 offset_right = 856.502
-offset_bottom = 185.842
+offset_bottom = 206.122
 theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 56
+theme_override_font_sizes/font_size = 81
 theme_override_styles/normal = SubResource("StyleBoxTexture_ab6pq")
 alignment = 1
+expand_icon = true
 selected = 0
 item_count = 2
 popup/item_0/text = "1152x648"
 popup/item_0/id = 1
 popup/item_1/text = "800x600"
 popup/item_1/id = 0
+
+[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screentypebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = -188.791
+offset_top = -0.933671
+offset_right = -188.822
+offset_bottom = 48.0183
+scale = Vector2(1.41636, 1.41636)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("18_bij0o")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screentypebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 86.1487
+offset_top = -0.933671
+offset_right = 86.1174
+offset_bottom = 48.0183
+scale = Vector2(1.38447, 1.38447)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("17_nra2n")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="TelacheiaBox" type="CheckBox" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options"]
 layout_mode = 2
@@ -566,7 +584,50 @@ theme_override_icons/checked = ExtResource("18_2bsth")
 theme_override_icons/unchecked = ExtResource("19_we7dv")
 text = "Vsync"
 
+[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 0.0348282
+offset_right = 0.003479
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("18_bij0o")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 0.121002
+offset_right = 0.0896606
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("17_nra2n")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="Controles" type="TabBar" parent="TabContainer/Config/TabContainer/OptionsContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -593,30 +654,15 @@ visible_characters = -1
 visible_ratio = 1.0
 script = null
 
-[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Controles"]
-layout_mode = 1
-offset_left = 334.0
-offset_top = 38.0
-offset_right = 392.0
-offset_bottom = 96.0
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
-action_mode = 0
-text = "
-"
-icon = ExtResource("17_nra2n")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
 [node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Controles"]
 layout_mode = 1
-offset_left = 37.0
-offset_top = 38.0
-offset_right = 95.0
-offset_bottom = 96.0
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 0.0348282
+offset_right = 0.003479
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("24_3tohy")
 theme_override_font_sizes/font_size = 51
@@ -625,6 +671,27 @@ action_mode = 0
 text = "
 "
 icon = ExtResource("18_bij0o")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Controles"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 0.121002
+offset_right = 0.0896606
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("17_nra2n")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -1247,24 +1314,75 @@ scale = Vector2(0.145, 0.145)
 [node name="SFXplayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 
+[node name="MenuButtonconfig" type="Button" parent="."]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 8.0
+offset_right = 923.0
+offset_bottom = 81.18
+action_mode = 0
+flat = true
+
+[node name="MenuButtontasks" type="Button" parent="."]
+layout_mode = 0
+offset_left = 959.0
+offset_top = 113.0
+offset_right = 1039.0
+offset_bottom = 186.18
+action_mode = 0
+flat = true
+
+[node name="MenuButtonstamps" type="Button" parent="."]
+layout_mode = 0
+offset_left = 955.0
+offset_top = 239.0
+offset_right = 1035.0
+offset_bottom = 312.18
+action_mode = 0
+flat = true
+
+[node name="MenuButtonmap" type="Button" parent="."]
+layout_mode = 0
+offset_left = 955.0
+offset_top = 352.0
+offset_right = 1035.0
+offset_bottom = 425.18
+action_mode = 0
+flat = true
+
+[node name="MenuButtonitems" type="Button" parent="."]
+layout_mode = 0
+offset_left = 955.0
+offset_top = 463.0
+offset_right = 1035.0
+offset_bottom = 536.18
+action_mode = 0
+flat = true
+
 [connection signal="tab_changed" from="TabContainer" to="." method="_on_tab_container_tab_changed"]
 [connection signal="pressed" from="TabContainer/Config/VBoxContainer/ButtonContinue" to="TabContainer/Config" method="_on_button_continue_pressed"]
 [connection signal="pressed" from="TabContainer/Config/VBoxContainer/ButtonOption" to="TabContainer/Config" method="_on_button_option_pressed"]
 [connection signal="pressed" from="TabContainer/Config/VBoxContainer/ButtonOut" to="TabContainer/Config" method="_on_button_out_pressed"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/Buttondir" to="TabContainer/Config" method="_on_buttondir_pressed"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/Buttonesq" to="TabContainer/Config" method="_on_buttonesq_pressed"]
 [connection signal="value_changed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/options/mainvolumeslider" to="TabContainer/Config" method="_on_mainvolumeslider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/options/musicvolumeslider" to="TabContainer/Config" method="_on_musicvolumeslider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/options/sfxvolumeslider" to="TabContainer/Config" method="_on_sfxvolumeslider_value_changed"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/options/MuteBox" to="TabContainer/Config" method="_on_mute_box_toggled"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/Buttondir" to="TabContainer/Config" method="_on_buttondir_pressed"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/Buttonesq" to="TabContainer/Config" method="_on_buttonesq_pressed"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/Buttonesq" to="TabContainer/Config" method="show_less_options"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/Buttondir" to="TabContainer/Config" method="show_more_options"]
+[connection signal="item_selected" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screentypebox" to="TabContainer/Config" method="on_window_mode_selected"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/TelacheiaBox" to="TabContainer/Config" method="_on_telacheia_box_toggled"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/VsyncBox" to="TabContainer/Config" method="_on_vsync_box_toggled"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/Buttondir" to="TabContainer/Config" method="_on_buttondir_pressed"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/Buttonesq" to="TabContainer/Config" method="_on_buttonesq_pressed"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/Buttonesq" to="TabContainer/Config" method="show_less_options"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/Buttondir" to="TabContainer/Config" method="show_more_options"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/Buttonesq" to="TabContainer/Config" method="show_less_options"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/Buttondir" to="TabContainer/Config" method="show_more_options"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/options/TelacheiaBox" to="TabContainer/Config" method="_on_telacheia_box_toggled"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/options/VsyncBox" to="TabContainer/Config" method="_on_vsync_box_toggled"]
 [connection signal="pressed" from="TabContainer/Config/TabContainer/Certeza/options/ButtonSim" to="TabContainer/Config" method="_on_button_sim_pressed"]
 [connection signal="pressed" from="TabContainer/Config/TabContainer/Certeza/options/ButtonNão" to="TabContainer/Config" method="_on_button_não_pressed"]
 [connection signal="timeout" from="TabContainer/Config/Timer" to="TabContainer/Config" method="_on_timer_timeout"]
+[connection signal="pressed" from="MenuButtonconfig" to="." method="_on_menu_buttonconfig_pressed"]
+[connection signal="pressed" from="MenuButtontasks" to="." method="_on_menu_buttontasks_pressed"]
+[connection signal="pressed" from="MenuButtonstamps" to="." method="_on_menu_buttonstamps_pressed"]
+[connection signal="pressed" from="MenuButtonmap" to="." method="_on_menu_buttonmap_pressed"]
+[connection signal="pressed" from="MenuButtonitems" to="." method="_on_menu_buttonitems_pressed"]
