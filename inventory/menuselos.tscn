@@ -241,12 +241,11 @@ texture = ExtResource("28_yqqid")
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pbhsj")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 metadata/_tab_index = 1
 
 [node name="Sons" type="TabBar" parent="TabContainer/Config/TabContainer/OptionsContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -428,6 +427,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Tela" type="TabBar" parent="TabContainer/Config/TabContainer/OptionsContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -459,18 +459,17 @@ layout_direction = 2
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
-offset_left = 117.0
-offset_top = 140.0
-offset_right = 791.0
-offset_bottom = 282.0
+offset_left = 111.0
+offset_top = 105.0
+offset_right = 785.0
+offset_bottom = 247.0
 scale = Vector2(0.275, 0.275)
 theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
 theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
 theme_override_constants/outline_size = 50
 theme_override_fonts/normal_font = ExtResource("24_3tohy")
 theme_override_font_sizes/normal_font_size = 126
-text = "Resolução
-"
+text = "Resolução"
 visible_characters = -1
 visible_ratio = 1.0
 script = null
@@ -484,22 +483,22 @@ offset_bottom = 959.0
 scale = Vector2(0.306004, 0.306004)
 
 [node name="Screentypebox" type="OptionButton" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options"]
-layout_mode = 0
-offset_left = 91.5021
-offset_top = 107.842
-offset_right = 856.502
-offset_bottom = 206.122
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.134
+anchor_right = 0.865
+anchor_bottom = 0.256
+offset_left = 0.422089
+offset_top = -0.162003
+offset_right = 0.151917
+offset_bottom = -0.21402
 theme_override_fonts/font = ExtResource("24_3tohy")
 theme_override_font_sizes/font_size = 81
 theme_override_styles/normal = SubResource("StyleBoxTexture_ab6pq")
 alignment = 1
 expand_icon = true
-selected = 0
-item_count = 2
-popup/item_0/text = "1152x648"
-popup/item_0/id = 1
-popup/item_1/text = "800x600"
-popup/item_1/id = 0
+fit_to_longest_item = false
 
 [node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screentypebox"]
 layout_mode = 1

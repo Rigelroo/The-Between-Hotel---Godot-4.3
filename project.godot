@@ -37,15 +37,15 @@ directories/dch_directory={
 "Turquesa": "res://Sprites/DialogueBox/Turquesa/Turquesa.dch"
 }
 directories/dtl_directory={
-"Matheus/turquesadialogue2": "res://Sprites/DialogueBox/Matheus/matheusdialogue2.dtl",
 "Teste1": "res://Sprites/DialogueBox/Kori e Trice/Teste1.dtl",
 "Teste1english": "res://Sprites/DialogueBox/Kori e Trice/Teste1english.dtl",
 "dialogueexample": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample.dtl",
 "dialogueexample2": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample2.dtl",
-"doorlocked1": "res://doorlocked.dtl",
+"doorlocked": "res://doorlocked.dtl",
 "doortimeline2": "res://doortimeline2.dtl",
 "exemplodialogue": "res://exemplodialogue.dtl",
 "matheusdialogue1": "res://Sprites/DialogueBox/Matheus/matheusdialogue1.dtl",
+"matheusdialogue2": "res://Sprites/DialogueBox/Matheus/matheusdialogue2.dtl",
 "quadro1": "res://quadro1.dtl",
 "quadro2": "res://quadro2.dtl",
 "quadro3": "res://quadro3.dtl",

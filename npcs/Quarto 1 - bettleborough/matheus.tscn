@@ -237,11 +237,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1c3xq"]
 _data = {
-"RESET": SubResource("Animation_2kaqc"),
-"default": SubResource("Animation_tf6du"),
-"hug": SubResource("Animation_hpwgu"),
-"hug_animation": SubResource("Animation_cdg8m"),
-"unhug_animation": SubResource("Animation_6lxyk")
+&"default": SubResource("Animation_tf6du"),
+&"RESET": SubResource("Animation_2kaqc"),
+&"unhug_animation": SubResource("Animation_6lxyk"),
+&"hug_animation": SubResource("Animation_cdg8m"),
+&"hug": SubResource("Animation_hpwgu")
 }
 
 [node name="Matheus" type="Node2D"]
@@ -278,7 +278,7 @@ animation = &"mission"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_1c3xq")
+&"": SubResource("AnimationLibrary_1c3xq")
 }
 
 [connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

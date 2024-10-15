@@ -176,6 +176,7 @@ func move_option_selector_U():
 		
 		selector.global_position = index[cfg_selected].global_position
 	change_values(index[cfg_selected])
+	print(index[cfg_selected])
 
 func move_option_selector_D():
 	var options = %OptionsContainer.get_children()
@@ -194,6 +195,7 @@ func move_option_selector_D():
 		
 		selector.global_position = index[cfg_selected].global_position
 	change_values(index[cfg_selected])
+	print(index[cfg_selected])
 
 
 var can_option = false
@@ -260,13 +262,14 @@ func change_values(config_button):
 	if config_button is HSlider:
 		cfg_button_type = 1
 		selected_button = config_button
-	if config_button is CheckBox:
+	elif config_button is CheckBox:
 		cfg_button_type = 2
 		selected_button = config_button
-	if config_button is Button:
-		cfg_button_type = 3
-		selected_button = config_button
-	if config_button is OptionButton:
+	#elif config_button is :
+		#pass
+		#cfg_button_type = 3
+		#selected_button = config_button
+	elif config_button is OptionButton:
 		cfg_button_type = 4
 		selected_button = config_button
 var cfg_button_type = 0
@@ -278,11 +281,23 @@ var selected_button_value: int:
 		selected_button.value += 1
 
 func _unhandled_input(event):
+	if Input.is_action_pressed("selector_left"):
+		if cfg_button_type == 4:
+			selected_button.selected -= 1
+				
+			on_window_mode_selected(selected_button.selected)
+	if Input.is_action_pressed("selector_right"):
+		if cfg_button_type == 4:
+				
+			selected_button.selected += 1
+			on_window_mode_selected(selected_button.selected)
+
 	if cfg_button_type == 1:
 		if Input.is_action_pressed("selector_left"):
 			if cfg_button_type == 4:
-				screentypebox.item_selected.emit()
+				screentypebox.selected -= 1
 				
+				on_window_mode_selected(screentypebox.selected)
 				
 			for i in 100:
 				if cfg_button_type == 1:
@@ -293,6 +308,10 @@ func _unhandled_input(event):
 				else: break
 
 		if Input.is_action_pressed("selector_right"):
+			if cfg_button_type == 4:
+				
+				screentypebox.selected += 1
+				on_window_mode_selected(screentypebox.selected)
 			for i in 100:
 				if cfg_button_type == 1:
 					if !Input.is_action_pressed("selector_right"):
