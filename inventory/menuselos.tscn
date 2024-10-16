@@ -241,11 +241,12 @@ texture = ExtResource("28_yqqid")
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pbhsj")
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 metadata/_tab_index = 1
 
 [node name="Sons" type="TabBar" parent="TabContainer/Config/TabContainer/OptionsContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -427,7 +428,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Tela" type="TabBar" parent="TabContainer/Config/TabContainer/OptionsContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -459,10 +459,10 @@ layout_direction = 2
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
-offset_left = 111.0
-offset_top = 105.0
-offset_right = 785.0
-offset_bottom = 247.0
+offset_left = 115.0
+offset_top = 228.0
+offset_right = 789.0
+offset_bottom = 370.0
 scale = Vector2(0.275, 0.275)
 theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
 theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
@@ -470,6 +470,26 @@ theme_override_constants/outline_size = 50
 theme_override_fonts/normal_font = ExtResource("24_3tohy")
 theme_override_font_sizes/normal_font_size = 126
 text = "Resolução"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="janela" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela" instance=ExtResource("29_s0oxi")]
+layout_direction = 2
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 141.0
+offset_top = 136.0
+offset_right = 815.0
+offset_bottom = 278.0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("24_3tohy")
+theme_override_font_sizes/normal_font_size = 126
+text = "Janela"
 visible_characters = -1
 visible_ratio = 1.0
 script = null
@@ -482,7 +502,8 @@ offset_right = 1054.0
 offset_bottom = 959.0
 scale = Vector2(0.306004, 0.306004)
 
-[node name="Screentypebox" type="OptionButton" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options"]
+[node name="Screentypebox" type="OptionButton" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options" groups=["ScreenType"]]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.092
@@ -490,9 +511,9 @@ anchor_top = 0.134
 anchor_right = 0.865
 anchor_bottom = 0.256
 offset_left = 0.422089
-offset_top = -0.162003
+offset_top = -9.96609
 offset_right = 0.151917
-offset_bottom = -0.21402
+offset_bottom = -10.0181
 theme_override_fonts/font = ExtResource("24_3tohy")
 theme_override_font_sizes/font_size = 81
 theme_override_styles/normal = SubResource("StyleBoxTexture_ab6pq")
@@ -548,12 +569,79 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Screenresbox" type="OptionButton" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options" groups=["Resolution"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.134
+anchor_right = 0.865
+anchor_bottom = 0.256
+offset_left = -2.84584
+offset_top = 284.148
+offset_right = -3.11603
+offset_bottom = 284.096
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 81
+theme_override_styles/normal = SubResource("StyleBoxTexture_ab6pq")
+alignment = 1
+expand_icon = true
+fit_to_longest_item = false
+
+[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screenresbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = -188.791
+offset_top = -0.933671
+offset_right = -188.822
+offset_bottom = 48.0183
+scale = Vector2(1.41636, 1.41636)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("18_bij0o")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screenresbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 86.1487
+offset_top = -0.933671
+offset_right = 86.1174
+offset_bottom = 48.0183
+scale = Vector2(1.38447, 1.38447)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("17_nra2n")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="TelacheiaBox" type="CheckBox" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options"]
 layout_mode = 2
-offset_left = 71.8945
-offset_top = 261.435
-offset_right = 1182.89
-offset_bottom = 500.435
+offset_left = 68.6266
+offset_top = 565.352
+offset_right = 1179.62
+offset_bottom = 804.352
 scale = Vector2(0.712654, 0.712654)
 theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
 theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
@@ -568,10 +656,10 @@ text = " Tela cheia
 
 [node name="VsyncBox" type="CheckBox" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options"]
 layout_mode = 2
-offset_left = 78.4304
-offset_top = 460.778
-offset_right = 1068.43
-offset_bottom = 699.778
+offset_left = 75.1625
+offset_top = 764.695
+offset_right = 1065.16
+offset_bottom = 1003.7
 scale = Vector2(0.712654, 0.712654)
 theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
 theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
@@ -1369,6 +1457,7 @@ flat = true
 [connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/Buttonesq" to="TabContainer/Config" method="show_less_options"]
 [connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/Buttondir" to="TabContainer/Config" method="show_more_options"]
 [connection signal="item_selected" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screentypebox" to="TabContainer/Config" method="on_window_mode_selected"]
+[connection signal="item_selected" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screenresbox" to="TabContainer/Config" method="_on_screenres_box_selected"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/TelacheiaBox" to="TabContainer/Config" method="_on_telacheia_box_toggled"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/VsyncBox" to="TabContainer/Config" method="_on_vsync_box_toggled"]
 [connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/Buttonesq" to="TabContainer/Config" method="show_less_options"]

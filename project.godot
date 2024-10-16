@@ -86,7 +86,7 @@ text/input_action="Jump"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=2
 
 [editor]

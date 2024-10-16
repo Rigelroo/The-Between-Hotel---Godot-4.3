@@ -296,8 +296,8 @@ func _unhandled_input(event):
 		if Input.is_action_pressed("selector_left"):
 			if cfg_button_type == 4:
 				screentypebox.selected -= 1
-				
-				on_window_mode_selected(screentypebox.selected)
+				set_window_properties()
+				#on_window_mode_selected(screentypebox.selected)
 				
 			for i in 100:
 				if cfg_button_type == 1:
@@ -331,6 +331,12 @@ func _unhandled_input(event):
 
 #var selected_button: ButtonType  # Substitua 'ButtonType' pelo tipo correto do seu botão
 
+func set_window_properties():
+	if selected_button == %Screentypebox:
+		on_window_mode_selected(screentypebox.selected)
+	if selected_button == %Screenresbox:
+		_on_screenres_box_selected(screentypebox.selected)
+	
 func _decrease_value() -> void:
 	selected_button.value -= 1
 
@@ -402,6 +408,7 @@ func _on_button_não_pressed() -> void:
 	out_options()
 
 @onready var screentypebox: OptionButton = $TabContainer/OptionsContainer/Tela/options/Screentypebox
+@onready var screenresbox: OptionButton = $TabContainer/OptionsContainer/Tela/options/Screenresbox
 
 
 const WINDOW_MODE_ARRAY : Array[String] = [
@@ -410,6 +417,15 @@ const WINDOW_MODE_ARRAY : Array[String] = [
 	"Borderless Window",
 	"Borderless Full-Screen"
 	]
+
+var RESOLUTION_DICT : Dictionary = {
+	"800x600": Vector2i(800,600),
+	"1600x900": Vector2i(1600,900),
+	"1366x768": Vector2i(1366,768),
+	"1280x720": Vector2i(1280,720),
+	"2560x1140": Vector2i(2560,1140),
+	"1920x1080": Vector2i(1920,1080)
+}
 
 func _ready() -> void:
 	add_window_mode_items()
@@ -430,7 +446,13 @@ func on_window_mode_selected(index: int) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 
+func _on_screenres_box_selected(index):
+	var ID = screenresbox.get_item_text(index)
+	get_window().set_size(RESOLUTION_DICT[ID])
+
 func add_window_mode_items() -> void:
+	for resolution in RESOLUTION_DICT:
+		screenresbox.add_item(resolution)
 	for window_mode in WINDOW_MODE_ARRAY:
 		screentypebox.add_item(window_mode)
 
