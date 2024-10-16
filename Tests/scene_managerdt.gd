@@ -54,6 +54,7 @@ var current_camera: Camera2D = null
 
 func transition_in() -> void:
 	animplayer.play("in")
+	
 	await animplayer.animation_finished
 	emit_signal("transitioned_in")
 
@@ -64,6 +65,7 @@ func transition_out() -> void:
 
 func transition_to(scene_path: String) -> void:
 	transition_in()
+	
 	await transitioned_in
 
 	# Get the player and camera from the current scene if necessary
@@ -78,9 +80,10 @@ func transition_to(scene_path: String) -> void:
 		current_camera = camera if camera else current_camera
 
 		# Remove the current scene
-		current_scene.player.remove_from_group("Player")
-		current_scene.stats.remove_from_group("Stats")
-		current_scene.gameover_manager.remove_from_group("Gameover")
+		if !current_scene.has_method("intro"):
+			current_scene.player.remove_from_group("Player")
+			current_scene.stats.remove_from_group("Stats")
+			current_scene.gameover_manager.remove_from_group("Gameover")
 		#await current_scene.tree_exited
 		current_scene.queue_free()
 

@@ -1,0 +1,166 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwlonwe31pl4n"]
+
+[ext_resource type="Texture2D" uid="uid://ctg06lrh0ryx3" path="res://Menu/Sprites/logomarca.png" id="1_a2enh"]
+[ext_resource type="Script" path="res://logo.gd" id="1_ma45y"]
+
+[sub_resource type="Gradient" id="Gradient_j0rgc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cr4oy"]
+gradient = SubResource("Gradient_j0rgc")
+
+[sub_resource type="Animation" id="Animation_78kvh"]
+resource_name = "surge"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logomarca:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.837469, 0.837469, 0.837469, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logomarca:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.733333, 1.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(562, 387), Vector2(562, 330)]
+}
+
+[sub_resource type="Animation" id="Animation_cf486"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logomarca:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.837469, 0.837469, 0.837469, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logomarca:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(562, 330)]
+}
+
+[sub_resource type="Animation" id="Animation_chk6n"]
+resource_name = "out"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logomarca:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.837469, 0.837469, 0.837469, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logomarca:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(562, 330), Vector2(562, 387)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k4dbj"]
+_data = {
+&"RESET": SubResource("Animation_cf486"),
+&"out": SubResource("Animation_chk6n"),
+&"surge": SubResource("Animation_78kvh")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ma45y")
+next_scene = "res://scenes/Locations/Hotel/entryhall hotel.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0289883, 0.000904278, 0.118824, 1)
+position = Vector2(-111, -104)
+scale = Vector2(21.1178, 12.6778)
+texture = SubResource("GradientTexture2D_cr4oy")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.837469, 0.837469, 0.837469, 1)
+position = Vector2(-111, -104)
+scale = Vector2(21.1178, 12.6778)
+texture = SubResource("GradientTexture2D_cr4oy")
+centered = false
+
+[node name="Logomarca" type="Sprite2D" parent="."]
+position = Vector2(562, 330)
+scale = Vector2(0.0692133, 0.0692133)
+texture = ExtResource("1_a2enh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k4dbj")
+}
+
+[node name="Timer" type="Timer" parent="."]
