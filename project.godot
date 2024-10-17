@@ -116,6 +116,7 @@ badProjectile=""
 Gameover=""
 Worldscene=""
 Breathemitters=""
+Buttonchoices=""
 
 [input]
 

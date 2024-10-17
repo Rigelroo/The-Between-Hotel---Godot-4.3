@@ -20,8 +20,10 @@ func selectioned_press():
 			continuegame()
 		elif option_selected == 1:
 			goto_options()
+			set_value_options()
 		elif option_selected == 2:
 			goto_outchoice()
+			set_value_choice()
 
 #func focus():
 	#option_selected = 0
@@ -47,12 +49,13 @@ func goto_options():
 
 func goto_outchoice():
 	if $TabContainer.current_tab == 2:
+		can_choice = true
 		cfg_selected = 0
 		can_move_selector = false
 		option_selected = 0
 		can_option = true
-		var options = $TabContainer/Certeza.get_children()
-		var options_cfg = options[1].get_node("options")
+		var options = $TabContainer/Certeza#.get_children()
+		var options_cfg = options.get_node("options")
 		var index = options_cfg.get_children()
 	
 		selector.global_position = index[option_selected].global_position
@@ -63,6 +66,7 @@ func goto_outchoice():
 
 func out_options():
 	if can_move_selector == false:
+		can_choice = false
 		can_option = false
 		can_move_selector = true
 		option_selected = 1
@@ -102,10 +106,10 @@ func move_selector_U():
 			selector.global_position = slots[option_selected].global_position
 	
 	elif $TabContainer.current_tab == 2:
-		var options = $TabContainer/Certeza.get_node("Choicebuttons")
+		var options = $TabContainer/Certeza.get_node("options")
 		var optcountmax = $TabContainer/Certeza.get_child_count() - 1
 		var index = options.get_children()
-	
+		can_choice = true
 		if cfg_selected == 0:
 			cfg_selected = optcountmax
 		
@@ -119,6 +123,19 @@ func move_selector_U():
 	elif can_option:
 		move_option_selector_U()
 
+func set_value_choice():
+		var options = $TabContainer/Certeza.get_node("options")
+		var optcountmax = $TabContainer/Certeza.get_child_count() - 1
+		var index = options.get_children()
+		can_choice = true
+		change_values(index[cfg_selected])
+
+func set_value_options():
+	var options = %OptionsContainer.get_children()
+	var options_cfg = options[optiontab_selected].get_node("options")
+	var optcountmax = options_cfg.get_child_count() - 1
+	var index = options_cfg.get_children()
+	change_values(index[cfg_selected])
 
 func move_selector_D():
 	if can_move_selector && !can_option:
@@ -137,11 +154,11 @@ func move_selector_D():
 			selector.global_position = slots[option_selected].global_position
 	
 	elif $TabContainer.current_tab == 2:
-		var options = $TabContainer/Certeza.get_node("Choicebuttons")
+		var options = $TabContainer/Certeza.get_node("options")
 		
 		var optcountmax = $TabContainer/Certeza.get_child_count() - 1
 		var index = options.get_children()
-	
+		can_choice = true
 		if cfg_selected == optcountmax:
 			cfg_selected = 0
 		
@@ -265,10 +282,10 @@ func change_values(config_button):
 	elif config_button is CheckBox:
 		cfg_button_type = 2
 		selected_button = config_button
-	#elif config_button is :
-		#pass
-		#cfg_button_type = 3
-		#selected_button = config_button
+	elif config_button.is_in_group("Buttonchoices"):
+		cfg_button_type = 3
+		selected_button = config_button
+		
 	elif config_button is OptionButton:
 		cfg_button_type = 4
 		selected_button = config_button
@@ -280,7 +297,13 @@ var selected_button_value: int:
 	set(new_value):
 		selected_button.value += 1
 
+var can_choice = false
+
 func _unhandled_input(event):
+	if Input.is_action_pressed("Attack"):
+		if can_choice:
+			if selected_button.is_in_group("Buttonchoices"):
+				selected_button.pressed.emit()
 	if Input.is_action_pressed("selector_left"):
 		if cfg_button_type == 4:
 			selected_button.selected -= 1

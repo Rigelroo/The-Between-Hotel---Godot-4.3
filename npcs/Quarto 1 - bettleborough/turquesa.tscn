@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c006gr1olwioh"]
+[gd_scene load_steps=26 format=3 uid="uid://c006gr1olwioh"]
 
 [ext_resource type="Script" path="res://Tests/pex.gd" id="1_6i06r"]
 [ext_resource type="Texture2D" uid="uid://cpg0ajuqytwod" path="res://Sprites/Bettlebourough/npcs/Turquesa0000.png" id="2_147gs"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://ckrn5bqusglwa" path="res://Missões/npc - quests/Turquesa/quest_turquesa1.tres" id="3_68s4q"]
 [ext_resource type="Texture2D" uid="uid://6ke1xer1acn1" path="res://Sprites/Bettlebourough/npcs/Turquesa0001.png" id="3_fxjvm"]
 [ext_resource type="Texture2D" uid="uid://b8ofh8qyihqhb" path="res://Sprites/Bettlebourough/npcs/Turquesa0002.png" id="4_goy6h"]
+[ext_resource type="Material" uid="uid://c3s4d0jc4gm7v" path="res://shaders/entitie_outline.tres" id="4_sos80"]
 [ext_resource type="Texture2D" uid="uid://chnwckrlfcxik" path="res://Sprites/Bettlebourough/npcs/Turquesa0003.png" id="5_v4bkf"]
 [ext_resource type="Texture2D" uid="uid://bvyx7x0fqp5tu" path="res://Sprites/Bettlebourough/npcs/Turquesa0004.png" id="6_3pket"]
 [ext_resource type="Texture2D" uid="uid://bnkmv42p44aap" path="res://Sprites/Bettlebourough/npcs/Turquesa0005.png" id="7_qpnlg"]
@@ -117,6 +118,7 @@ scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Area2D2"]
+material = ExtResource("4_sos80")
 position = Vector2(-32, -168)
 scale = Vector2(0.765, 0.765)
 sprite_frames = SubResource("SpriteFrames_78a7o")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dk150e1tdwwcb"]
+[gd_scene load_steps=19 format=3 uid="uid://dk150e1tdwwcb"]
 
 [ext_resource type="Script" path="res://npc_recep.gd" id="1_bbjbk"]
 [ext_resource type="Texture2D" uid="uid://c8cina7yoj3s5" path="res://Sprites/NPCs/Recepcionista/Kori e Trice0000.png" id="1_na23w"]
 [ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="2_37gll"]
+[ext_resource type="Material" uid="uid://c3s4d0jc4gm7v" path="res://shaders/entitie_outline.tres" id="2_gsxc3"]
 [ext_resource type="Texture2D" uid="uid://cpm3wend3dpxq" path="res://Sprites/NPCs/Recepcionista/Kori e Trice0001.png" id="2_mi4n5"]
 [ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="3_78yus"]
 [ext_resource type="Texture2D" uid="uid://diubupcu7uujj" path="res://Sprites/NPCs/Recepcionista/Kori e Trice0002.png" id="3_vaweb"]
@@ -87,6 +88,7 @@ size = Vector2(164, 223)
 script = ExtResource("1_bbjbk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("2_gsxc3")
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_xc1ki")
 frame_progress = 0.68298

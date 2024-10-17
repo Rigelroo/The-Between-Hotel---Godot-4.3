@@ -198,7 +198,7 @@ func update():
 
 
 func open():
-
+	$Parallax2D.visible = true
 	visible = true
 	isOpen = true
 	SignalManager.inventoryopened.emit()

@@ -114,8 +114,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lm02q"]
 _data = {
-&"RESET": SubResource("Animation_mfpuo"),
-&"shake": SubResource("Animation_5nmiu")
+&"shake": SubResource("Animation_5nmiu"),
+&"RESET": SubResource("Animation_mfpuo")
 }
 
 [node name="InventoryGui" type="Control"]
@@ -132,6 +132,7 @@ manager = ExtResource("2_snvv0")
 sfx_array = Array[String](["res://Sound/Testmusic&sounds/traditional-stamp-44189.mp3", "res://Sound/Testmusic&sounds/undertale-damage-taken_0iH1Nxl.mp3"])
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
 scale = Vector2(0.855, 0.855)
 repeat_size = Vector2(695.25, 695.25)
 autoscroll = Vector2(20, 20)
@@ -896,7 +897,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ButtonSim" type="Button" parent="TabContainer/Config/TabContainer/Certeza/options"]
+[node name="ButtonSim" type="Button" parent="TabContainer/Config/TabContainer/Certeza/options" groups=["Buttonchoices"]]
 layout_mode = 2
 offset_left = 77.0
 offset_top = 236.0
@@ -915,7 +916,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="ButtonNão" type="Button" parent="TabContainer/Config/TabContainer/Certeza/options"]
+[node name="ButtonNão" type="Button" parent="TabContainer/Config/TabContainer/Certeza/options" groups=["Buttonchoices"]]
 layout_mode = 2
 offset_left = 74.0
 offset_top = 330.0
