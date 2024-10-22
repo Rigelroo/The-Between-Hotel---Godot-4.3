@@ -11,6 +11,7 @@ var controlesconfig_dict = {}
 var languageconfig_dict = {}
 
 func _ready() -> void:
+	SignalManager.its_saving.connect(save_game)
 	signalManager_dict = {
 		"SignalManager": [
 			SignalManager.stamp_points,
@@ -45,8 +46,9 @@ func save_configs():
 	}
 	return saveconfigs_dict
 
+
+
 func save_game():
-	SignalManager.its_saving.emit()
 	var save_gamevar = FileAccess.open_encrypted_with_pass("user://savegame.save", FileAccess.WRITE, "OUROBOROS")
 	var json_string = JSON.stringify(save())
 	

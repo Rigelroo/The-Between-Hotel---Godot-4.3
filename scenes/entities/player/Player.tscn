@@ -277,300 +277,11 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ixf4m"]
 _data = {
-&"swim_loop": ExtResource("22_reuc6"),
-&"swim_stop": ExtResource("23_4frts"),
-&"swim": ExtResource("21_sunkh"),
-&"idle_swimming": ExtResource("19_wfsrk"),
-&"RESET": SubResource("Animation_parbq")
-}
-
-[sub_resource type="Animation" id="Animation_t3k2n"]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Doublejumpsprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Doublejumpsprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["default"]
-}
-
-[sub_resource type="Animation" id="Animation_7xe0s"]
-resource_name = "slide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("38_pu54o")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../PlayerHatCold:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-0.455163]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../PlayerHatCold:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(-0.07, 0.07), Vector2(0.07, 0.07)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../PlayerHatCold:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(1, 0.2)]
-}
-
-[sub_resource type="Animation" id="Animation_a7glt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%Sprite2D/../axeemitter:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("%Sprite2D/../axeemitter:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("%Sprite2D/../Doublejumpsprite:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-
-[sub_resource type="Animation" id="Animation_tscmo"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("34_od57t")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../PlayerHatCold:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.4, 3.8)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../PlayerHatCold:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.209229]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../PlayerHatCold:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("18_ayf5o")]
-}
-
-[sub_resource type="Animation" id="Animation_hok3l"]
-resource_name = "new_item"
-length = 0.3
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("114_00nrp"), ExtResource("115_e25xg"), ExtResource("116_pkdwb"), ExtResource("117_hlj8a")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../PlayerHatCold:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(1.8, 3.2), Vector2(2, 2.4), Vector2(2, 1.2), Vector2(2, -1.2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../PlayerHatCold:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.000122652]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../PlayerHatCold:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("18_ayf5o")]
-}
-
-[sub_resource type="Animation" id="Animation_ru5j1"]
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Doublejumpsprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Doublejumpsprite:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["new_animation"]
-}
-
-[sub_resource type="Animation" id="Animation_b1cih"]
-resource_name = "breath_start"
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.45, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("126_5otlc"), ExtResource("127_sdjax"), ExtResource("128_sx6bw"), ExtResource("129_8aqcr"), ExtResource("130_ast55"), ExtResource("131_qu6bx")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../STATES/BREATH")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.75),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"prep_starter"
-}]
+"RESET": SubResource("Animation_parbq"),
+"idle_swimming": ExtResource("19_wfsrk"),
+"swim": ExtResource("21_sunkh"),
+"swim_loop": ExtResource("22_reuc6"),
+"swim_stop": ExtResource("23_4frts")
 }
 
 [sub_resource type="Animation" id="Animation_s282s"]
@@ -654,6 +365,63 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("18_ayf5o")]
+}
+
+[sub_resource type="Animation" id="Animation_b1cih"]
+resource_name = "breath_start"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("126_5otlc"), ExtResource("127_sdjax"), ExtResource("128_sx6bw"), ExtResource("129_8aqcr"), ExtResource("130_ast55"), ExtResource("131_qu6bx")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../STATES/BREATH")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"prep_starter"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ru5j1"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Doublejumpsprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Doublejumpsprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["new_animation"]
 }
 
 [sub_resource type="Animation" id="Animation_khlco"]
@@ -1058,47 +826,6 @@ tracks/3/keys = {
 "values": [ExtResource("18_ayf5o")]
 }
 
-[sub_resource type="Animation" id="Animation_tox36"]
-resource_name = "AirSlashcombo"
-length = 0.3
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("58_7l4i5"), ExtResource("52_dtl6w"), ExtResource("53_030od"), ExtResource("54_c3hvh"), ExtResource("55_2wet8"), ExtResource("56_pagx6"), ExtResource("57_idsnc")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../sword1/sword_collider2:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../PlayerHatCold:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-
 [sub_resource type="Animation" id="Animation_mj6cf"]
 resource_name = "slash1"
 length = 0.35
@@ -1176,6 +903,47 @@ tracks/5/keys = {
 "values": [0.0074687, 0.00644968, 0.317786, 0.63414]
 }
 
+[sub_resource type="Animation" id="Animation_tox36"]
+resource_name = "AirSlashcombo"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("58_7l4i5"), ExtResource("52_dtl6w"), ExtResource("53_030od"), ExtResource("54_c3hvh"), ExtResource("55_2wet8"), ExtResource("56_pagx6"), ExtResource("57_idsnc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sword1/sword_collider2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerHatCold:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
 [sub_resource type="Animation" id="Animation_p8suk"]
 resource_name = "HerculesLeaf_start"
 length = 0.3
@@ -1193,10 +961,188 @@ tracks/0/keys = {
 "values": [ExtResource("59_ixb8j"), ExtResource("60_1naxw"), ExtResource("61_6iv2f"), ExtResource("62_34lmp"), ExtResource("63_dbfx3"), ExtResource("64_qifsh")]
 }
 
-[sub_resource type="Animation" id="Animation_4m344"]
-resource_name = "HerculesLeaf_nomove"
-length = 0.45
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_t3k2n"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Doublejumpsprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Doublejumpsprite:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["default"]
+}
+
+[sub_resource type="Animation" id="Animation_7xe0s"]
+resource_name = "slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("38_pu54o")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PlayerHatCold:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.455163]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerHatCold:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-0.07, 0.07), Vector2(0.07, 0.07)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PlayerHatCold:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(1, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_a7glt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%Sprite2D/../axeemitter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Sprite2D/../axeemitter:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%Sprite2D/../Doublejumpsprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_tscmo"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("34_od57t")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PlayerHatCold:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.4, 3.8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerHatCold:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.209229]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PlayerHatCold:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_ayf5o")]
+}
+
+[sub_resource type="Animation" id="Animation_hok3l"]
+resource_name = "new_item"
+length = 0.3
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1205,10 +1151,46 @@ tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("64_qifsh"), ExtResource("65_0cp3r"), ExtResource("66_cheg1"), ExtResource("67_e2e5m")]
+"values": [ExtResource("114_00nrp"), ExtResource("115_e25xg"), ExtResource("116_pkdwb"), ExtResource("117_hlj8a")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PlayerHatCold:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1.8, 3.2), Vector2(2, 2.4), Vector2(2, 1.2), Vector2(2, -1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerHatCold:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.000122652]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PlayerHatCold:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_ayf5o")]
 }
 
 [sub_resource type="Animation" id="Animation_i5vgc"]
@@ -1596,34 +1578,52 @@ tracks/4/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_4m344"]
+resource_name = "HerculesLeaf_nomove"
+length = 0.45
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("64_qifsh"), ExtResource("65_0cp3r"), ExtResource("66_cheg1"), ExtResource("67_e2e5m")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nqj7c"]
 _data = {
-&"breath_end": SubResource("Animation_s282s"),
-&"Airslash_end": SubResource("Animation_j3f74"),
-&"breath_start": SubResource("Animation_b1cih"),
-&"new_animation": SubResource("Animation_ru5j1"),
-&"Damage": SubResource("Animation_khlco"),
-&"magic": SubResource("Animation_qqpwy"),
-&"idle": SubResource("Animation_tnnmm"),
-&"slash2": SubResource("Animation_34gb4"),
-&"jump": SubResource("Animation_nbatq"),
-&"jump_end": SubResource("Animation_gk1s4"),
-&"HerculesLeaf_moving": SubResource("Animation_acm1l"),
-&"run": SubResource("Animation_pk7r8"),
-&"slash1": SubResource("Animation_mj6cf"),
-&"AirSlashcombo": SubResource("Animation_tox36"),
-&"HerculesLeaf_start": SubResource("Animation_p8suk"),
-&"default": SubResource("Animation_t3k2n"),
-&"slide": SubResource("Animation_7xe0s"),
-&"RESET": SubResource("Animation_a7glt"),
-&"dash": SubResource("Animation_tscmo"),
-&"new_item": SubResource("Animation_hok3l"),
-&"jump_start": SubResource("Animation_i5vgc"),
-&"chslash_frost": SubResource("Animation_h1t40"),
-&"AirSlash": SubResource("Animation_housx"),
-&"doublejump": SubResource("Animation_txn51"),
-&"Defeat": SubResource("Animation_c0056"),
-&"HerculesLeaf_nomove": SubResource("Animation_4m344")
+"AirSlash": SubResource("Animation_housx"),
+"AirSlashcombo": SubResource("Animation_tox36"),
+"Airslash_end": SubResource("Animation_j3f74"),
+"Damage": SubResource("Animation_khlco"),
+"Defeat": SubResource("Animation_c0056"),
+"HerculesLeaf_moving": SubResource("Animation_acm1l"),
+"HerculesLeaf_nomove": SubResource("Animation_4m344"),
+"HerculesLeaf_start": SubResource("Animation_p8suk"),
+"RESET": SubResource("Animation_a7glt"),
+"breath_end": SubResource("Animation_s282s"),
+"breath_start": SubResource("Animation_b1cih"),
+"chslash_frost": SubResource("Animation_h1t40"),
+"dash": SubResource("Animation_tscmo"),
+"default": SubResource("Animation_t3k2n"),
+"doublejump": SubResource("Animation_txn51"),
+"idle": SubResource("Animation_tnnmm"),
+"jump": SubResource("Animation_nbatq"),
+"jump_end": SubResource("Animation_gk1s4"),
+"jump_start": SubResource("Animation_i5vgc"),
+"magic": SubResource("Animation_qqpwy"),
+"new_animation": SubResource("Animation_ru5j1"),
+"new_item": SubResource("Animation_hok3l"),
+"run": SubResource("Animation_pk7r8"),
+"slash1": SubResource("Animation_mj6cf"),
+"slash2": SubResource("Animation_34gb4"),
+"slide": SubResource("Animation_7xe0s")
 }
 
 [sub_resource type="Animation" id="Animation_ehoic"]
@@ -1659,8 +1659,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ma06s"]
 _data = {
-&"active": SubResource("Animation_ehoic"),
-&"inactive": SubResource("Animation_wcsdb")
+"active": SubResource("Animation_ehoic"),
+"inactive": SubResource("Animation_wcsdb")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wop3j"]
@@ -1771,20 +1771,20 @@ texture = ExtResource("18_ayf5o")
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationPlayer")
 libraries = {
-&"": SubResource("AnimationLibrary_ixf4m")
+"": SubResource("AnimationLibrary_ixf4m")
 }
 speed_scale = 1.7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
 libraries = {
-&"": SubResource("AnimationLibrary_nqj7c")
+"": SubResource("AnimationLibrary_nqj7c")
 }
 autoplay = "idle"
 
 [node name="DoublejumpAnimation" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_ma06s")
+"": SubResource("AnimationLibrary_ma06s")
 }
 autoplay = "inactive"
 
@@ -1927,8 +1927,8 @@ debug_color = Color(0.766637, 0.286552, 0.855658, 0.42)
 material = SubResource("CanvasItemMaterial_oabic")
 emitting = false
 amount = 10
-texture = ExtResource("180_3drml")
 process_material = SubResource("ParticleProcessMaterial_yxmod")
+texture = ExtResource("180_3drml")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

@@ -129,19 +129,14 @@ func save():
 	pos.append(position.y)
 	SaveSys.equiped_stamps[name] = inventoryequiped_array
 	SaveSys.pos_dict[name] = pos
-	SaveSys.save_game()
+	
 
 func update_pos(p):
 	position = p
 	
 func update_inv(equipedslots):
-	print("slots -> ", inventoryc.stampslots)
-	print("saved slots -> ",equipedslots["Player"][0])
-	#inventoryc.stampslots = equipedslots["Player"][0]
-	for i in inventoryc.stampslots:
-		inventoryc.stampslots[i] = equipedslots["Player"][0][i]
-	inventoryc.updated.emit()
-	
+	pass
+
 func set_stats():
 	
 	minInk = manager.minInk
@@ -164,7 +159,7 @@ func set_idle():
 
  
 func _ready():
-	save()
+	SignalManager.its_saving.connect(save)
 	stats = get_tree().get_first_node_in_group("Stats")
 	SignalManager.magic_changed.connect(new_emitter)
 	add_to_group("Player")

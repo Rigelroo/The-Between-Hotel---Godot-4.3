@@ -244,9 +244,9 @@ shader_parameter/water_speed = 0.05
 shader_parameter/wave_distortion = 0.2
 shader_parameter/wave_multiplyer = 7
 shader_parameter/water_texture_on = true
+shader_parameter/time = 0.0
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_a2olj")
 shader_parameter/noise_texture2 = SubResource("NoiseTexture2D_gy1li")
-shader_parameter/time = 0.0
 
 [node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 position = Vector2(0, -7)
