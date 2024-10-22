@@ -124,36 +124,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_tf6du"]
-length = 1.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area2D2/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D2/Sprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["default"]
-}
-
-[sub_resource type="Animation" id="Animation_2kaqc"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_hpwgu"]
+resource_name = "hug"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -161,10 +133,10 @@ tracks/0/path = NodePath("Area2D2/Sprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 1,
-"values": [&"unhug_animation"]
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_6lxyk"]
@@ -221,8 +193,36 @@ tracks/1/keys = {
 "values": ["hug_animation"]
 }
 
-[sub_resource type="Animation" id="Animation_hpwgu"]
-resource_name = "hug"
+[sub_resource type="Animation" id="Animation_tf6du"]
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D2/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D2/Sprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["default"]
+}
+
+[sub_resource type="Animation" id="Animation_2kaqc"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -230,19 +230,19 @@ tracks/0/path = NodePath("Area2D2/Sprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": []
+"values": [&"unhug_animation"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1c3xq"]
 _data = {
+&"default": SubResource("Animation_tf6du"),
+&"RESET": SubResource("Animation_2kaqc"),
 &"hug": SubResource("Animation_hpwgu"),
 &"unhug_animation": SubResource("Animation_6lxyk"),
-&"hug_animation": SubResource("Animation_cdg8m"),
-&"default": SubResource("Animation_tf6du"),
-&"RESET": SubResource("Animation_2kaqc")
+&"hug_animation": SubResource("Animation_cdg8m")
 }
 
 [node name="Matheus" type="Node2D"]
