@@ -27,8 +27,8 @@ SignalManager="*res://signal_manager.gd"
 GlobalAudioStreamPlayer="*res://Sound/Scenes/audio_stream_player.tscn"
 VfxPlayer="*res://Sound/Scenes/vfx_player.tscn"
 SaveSys="*res://Menu/Savesystem/savesystem.gd"
-ConfigManager="*res://config_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+ConfigManager="*res://config_manager.gd"
 
 [dialogic]
 
