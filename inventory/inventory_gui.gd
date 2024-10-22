@@ -85,7 +85,7 @@ func hat_for_selector():
 		8: "res://inventory/gui/Selector/select - hat8.png",
 		}
 		for hatsprite in hats:
-			var index = hats[hatsprite]
+			var _index = hats[hatsprite]
 			selector.texture = load(hats[randomnumber])
 			selectorb.texture = load(hats[randomnumber])
 			
@@ -102,13 +102,21 @@ func stamp_unequipped():
 func please_equip():
 	SignalManager.equipstamp(slots, sealslots, currently_selected, SignalManager.inventoryc)
 
+
+
 func not_enough_stpoints():
 	current_stamppoint.start_shake()
 
+func load_items(item):
+	SignalManager.load_equipstamp(slots, sealslots, currently_selected, SignalManager.inventoryc, item)
+	SignalManager.load_stamp_equippedfunc(slots,currently_selected,SignalManager.inventory, item)
+func save_items():
+	SignalManager.save_inventory(uslots)
 
 func _ready():
+	SignalManager.sigload_equipstamp.connect(Callable(self,"load_items"))
 	%Config.show_options()
-	
+	SignalManager.its_saving.connect(save_items)
 	SignalManager.no_enough_stpoints.connect(not_enough_stpoints)
 	SignalManager.stamp_unequipped.connect(stamp_unequipped)
 	SignalManager.stamp_equipped.connect(stamp_equipped)
@@ -254,7 +262,7 @@ func readyclose():
 #
 	##secondary.activatestamp()itemscript
 
-func collect(inventory: Inventoryc):
+func collect(_inventory: Inventoryc):
 	pass
 	
 func insertItemInSlotEquip(sealslot):
@@ -266,7 +274,7 @@ func insertItemInSlotEquip(sealslot):
 	sealslot.insert(item)
 
 func onSlotClicked(slot):
-	var sealslot = sealslots
+	var _sealslot = sealslots
 	print("clico")
 	if slot.isEmpty():
 		if !itemInHand: return
@@ -308,7 +316,7 @@ func insertItemInSlot(slot):
 	#slot.insert(item)
 
 func swapItems(slot):
-	var sealslot = sealslots
+	var _sealslot = sealslots
 	var tempItem = slot.takeItem()
 	insertItemInSlot(slot)
 	itemInHand = tempItem
@@ -377,7 +385,7 @@ func _input(event):
 	updateItemInHand()
 	if event.is_action_pressed("change_menu_mais"):
 		var tabcountmax = %TabContainer.get_tab_count()
-		var tabcount = 0
+		var _tabcount = 0
 		if tab.current_tab < tabcountmax:
 			tab.current_tab += 1
 		elif tab.current_tab == tabcountmax:
@@ -395,7 +403,7 @@ func _input(event):
 	if event.is_action_pressed("change_menu_menos") :
 		var tabcountmax = %TabContainer.get_tab_count()
 		
-		var tabcount = 0
+		var _tabcount = 0
 		if tab.current_tab < tabcountmax:
 			if tab.current_tab != 0:
 				print(tab.current_tab)
@@ -430,8 +438,8 @@ func _on_buttoninventario_pressed() -> void:
 	tab.current_tab = 2
 	
 func equip_seal(slot):
-	var itemres = slot
-	var tempItem = slot
+	var _itemres = slot
+	var _tempItem = slot
 	
 	SignalManager.inventory.equip_item_at_index(currently_selected)
 	
@@ -490,10 +498,7 @@ func _unhandled_input(event):
 			move_selector_UB()
 		
 
-func _unhandled_input2(event):
-	pass
-	#if event.is_action_pressed("Jump") && number == 2:
-		#inventory.equip_item_at_index(currently_selected)
+
 
 
 
@@ -574,7 +579,6 @@ func move_selector_RB():
 	next_selectedb = (currently_selectedb + 1) % invslots.size()
 	previously_selectedb = (currently_selectedb - 2) % invslots.size()
 	selectorb.global_position = invslots[currently_selectedb].global_position
-	selector.centered
 	selected.emit()
 	show_itemb(invslot)
 
@@ -584,7 +588,6 @@ func move_selector_LB():
 	next_selectedb = (currently_selectedb + 1) % invslots.size()
 	previously_selectedb = (currently_selectedb - 2) % invslots.size()
 	selectorb.global_position = invslots[currently_selectedb].global_position
-	selector.centered
 	selected.emit()
 	show_itemb(invslot)
 func move_selector_UB():
@@ -594,7 +597,6 @@ func move_selector_UB():
 	previously_selectedb = (currently_selectedb - 2) % invslots.size()
 	selectorb.global_position = invslots[currently_selectedb].global_position
 	
-	selector.centered
 	selected.emit()
 	show_itemb(invslot)
 func move_selector_DB():
@@ -603,18 +605,17 @@ func move_selector_DB():
 	next_selectedb = (currently_selectedb + 1) % invslots.size()
 	previously_selectedb = (currently_selectedb - 2) % invslots.size()
 	selectorb.global_position = invslots[currently_selectedb].global_position
-	selector.centered
 	selected.emit()
 	show_itemb(invslot)
 	
 
 
 
-func _on_stamp_equiped(slot) -> void:
+func _on_stamp_equiped(_slot) -> void:
 	print("stamp")
 
 
-func _on_tab_container_tab_changed(tab: int) -> void:
+func _on_tab_container_tab_changed(_tab: int) -> void:
 	pass
 
 

@@ -54,7 +54,7 @@ func enter_state():
 
 
 func prep_starter() -> void:
-	var bar = Staminabarnode
+	#var _bar = Staminabarnode
 	$Timer.start(1)
 	#bar.timer.start(5)
 	

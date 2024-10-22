@@ -104,7 +104,7 @@ func insertSlot(index: int, inventorySlot: InventorySlot):
 func equip_item_at_index(index: int) -> void:
 	if index < 0 || index >= slots.size() || !slots[index].item: return
 	var slot = slots[index]
-	var inventoryc = Inventoryc
+	var _inventoryc = Inventoryc
 
 	equip_item.emit(slot.item)
 	

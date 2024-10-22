@@ -6,4 +6,4 @@
 shader = ExtResource("1_acc7x")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/progress = 1.0
-shader_parameter/width = 0.019
+shader_parameter/width = 0.009

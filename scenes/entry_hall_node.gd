@@ -65,7 +65,15 @@ func some_function():
 	else:
 		print("SignalManager não está acessível.")
 # Called when the node enters the scene tree for the first time.
+
+
+
+
 func _ready() -> void:
+	
+	SignalManager.scene_loaded.emit()
+	#SaveSys.load_game(self)
+	
 	some_function()
 	background_music()
 	set_player_speed()
@@ -98,11 +106,14 @@ func create_splash():
 func dont_create_splash():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process_tilemap(body: Node2D, body_RID: RID) -> void:
-	pass
-func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("Transition"):
-		#SceneManager.transition_to(next_scene)
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("Save"):
+		SignalManager.save()
+		SaveSys.save_game()
+		
+	if Input.is_action_pressed("Load"):
+		SaveSys.load_game(self)
 	
 	if splashw.can_create == true:
 		activate()

@@ -1,6 +1,7 @@
 extends Node
 
-
+signal its_saving
+signal scene_loaded
 signal stamp_equipped
 signal stamp_unequipped
 signal just_equip
@@ -23,6 +24,8 @@ signal update_quests
 signal point_update
 
 var can_update : bool = false
+
+
 
 @export_file("*.mp3") var sfx_array : Array[String] = ["res://Sound/Testmusic&sounds/traditional-stamp-44189.mp3","res://Sound/Testmusic&sounds/undertale-damage-taken_0iH1Nxl.mp3"]
 var have_correct_key = false
@@ -124,7 +127,7 @@ func equipstamp(slots: Array, sealslots: Array, currently_selected: int, invento
 						stamp_points += slots[currently_selected].itemStackGui.inventorySlot.item.stamp_points
 						inventoryc.insert(slotf.itemStackGui.inventorySlot.item)
 						slotf.itemStackGui.inventorySlot.item.itemactivate = 0
-	
+
 
 
 func stamp_equippedfunc(slots: Array,currently_selected: int, inventory: Inventory):
@@ -282,11 +285,135 @@ func show_item(player: Player, item):
 	
 @onready var stats = get_tree().get_first_node_in_group("Stats")
 
+signal sigload_equipstamp
+
 func _ready() -> void:
 	stats = get_tree().get_first_node_in_group("Stats")
+	
+	
+	scene_loaded.connect(scene_load_function)
 	stamp_equipped.connect(stamp_equippedfunc)
 	stamp_unequipped.connect(stamp_unequippedfunc)
 	world_loaded.connect(call_worldloaded)
 
+var is_scene_loaded = false
+
+func scene_load_function():
+	is_scene_loaded = true
+
 func call_worldloaded():
 	can_update = true
+
+
+
+var pos = []
+
+func save():
+	var signal_manager_variables = [stamp_points, max_stamp_points,main_manager.greed_equiped,main_manager.hleaf_equiped,main_manager.hatintime_equiped,main_manager.shadowdiver_equiped,main_manager.crimsonfury_equiped,main_manager.frozenheart_equiped,main_manager.ffemblem_equiped]
+	SaveSys.signalManager_dict[name] = signal_manager_variables
+	SaveSys.save_game()
+
+
+
+
+
+func save_all_parameters():
+	pass
+	#signal_manager_variables.append(signal_manager_variables)
+
+func load_parameters(update_parameters):
+	print("update_parameters: ", update_parameters)
+	if update_parameters != null:
+		if "SignalManager" in update_parameters:
+			print("isso: ", update_parameters["SignalManager"][0])
+			var signal_params = update_parameters["SignalManager"]
+			stamp_points = signal_params[0]
+			max_stamp_points = signal_params[1]
+			main_manager.greed_equiped = signal_params[2]
+			main_manager.hleaf_equiped = signal_params[3]
+			main_manager.hatintime_equiped = signal_params[4]
+			main_manager.shadowdiver_equiped = signal_params[5]
+			main_manager.crimsonfury_equiped = signal_params[6]
+			main_manager.frozenheart_equiped = signal_params[7]
+			main_manager.ffemblem_equiped = signal_params[8]
+
+		else:
+			print("A chave 'SignalManager' não existe em update_parameters.")
+	else:
+		print("update_parameters é nulo.")
+var inventoryequiped_array = []
+
+func save_inventory(slots):
+	for i in range(0,5):
+		
+		if slots[i].itemStackGuic != null:
+			inventoryequiped_array.append(slots[i].itemStackGuic.inventorySlotc.item.name)
+			print("item: ",slots[i].itemStackGuic.inventorySlotc.item.name)
+			#inventoryequiped_array.append(PLAYER_INVENTORYC.stampslots[i])
+			#inventoryequiped_array.append(PLAYER_INVENTORYC.stampslots[i].amount)
+			
+	SaveSys.equiped_stamps = inventoryequiped_array
+	
+
+func load_inventory(saved_items):
+	var index = 0
+	var array = []
+	for saved_item in saved_items:
+		for item in inv_dictionary.invseals:
+			if item.name == saved_item:
+				#inventoryc.insert(item)
+				print("item: ", item.name)
+				print("saved item: ", saved_item)
+				if !array.has(item):
+					array.append(item)
+	for iteminarray in array:
+		emit_signal("sigload_equipstamp", iteminarray)
+
+
+
+func load_equipstamp(slots: Array, sealslots: Array, currently_selected: int, inventoryc: Inventoryc, item):
+	var sealslot = sealslots
+	
+	for slot in slots:
+		#var slotf = slots[currently_selected]
+		if !slot.isEmpty():
+			
+				print(slot.itemStackGui.inventorySlot.item)
+				if slot.itemStackGui.inventorySlot.item.name == item.name:
+					if slot.itemStackGui.inventorySlot.item.itemactivate == 0:
+							stamp_points -= item.stamp_points
+							slot.itemStackGui.inventorySlot.item.itemactivate = 1
+							inventoryc.insert(item)
+							
+
+
+func load_stamp_equippedfunc(slots: Array,currently_selected: int, inventory: Inventory, item):
+		for slot in slots:
+			if slot.itemStackGui != null:
+				if slot.itemStackGui.inventorySlot.item.name == item.name:
+					var secondary = slot.itemStackGui.inventorySlot.item.scriptstr
+					var itemscript = load(secondary).new()
+					print("stamp equip: ",slot.itemStackGui.inventorySlot.item.name)
+				
+					
+					secondary = slot.itemStackGui.inventorySlot.item.scriptstr
+					itemscript = load(secondary).new()
+				
+				
+					itemscript.activatestamp()
+				#slots[currently_selected].modulateslot()
+					slot.itemStackGui.inventorySlot.amount = 0
+					print("é esse aqui ó -> ", slots[currently_selected].itemStackGui.inventorySlot.item.name, " num: ",currently_selected)
+					inventory.updated.emit()
+
+@onready var inv_dictionary : InventoryDictionary = preload("res://inventory/Items/itemDictionary.tres")
+
+			#stamp_points = update_parameters["SignalManager"][0]
+			#max_stamp_points = update_parameters["SignalManager"][1]
+			#main_manager.greed_equiped = update_parameters["SignalManager"][2]
+			#main_manager.hleaf_equiped = update_parameters["SignalManager"][3]
+			#main_manager.hatintime_equiped = update_parameters["SignalManager"][4]
+			#main_manager.shadowdiver_equiped = update_parameters["SignalManager"][5]
+			#main_manager.crimsonfury_equiped = update_parameters["SignalManager"][6]
+			#main_manager.frozenheart_equiped = update_parameters["SignalManager"][7]
+			#main_manager.ffemblem_equiped = update_parameters["SignalManager"][8]

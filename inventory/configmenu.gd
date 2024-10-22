@@ -411,15 +411,19 @@ func parar_pulsar():
 
 func _on_telacheia_box_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		ConfigManager.telacheia_value = true
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
+		ConfigManager.telacheia_value = false
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func _on_vsync_box_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		ConfigManager.vsync_value = true
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
 	else:
+		ConfigManager.vsync_value = false
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 
@@ -472,6 +476,7 @@ func on_window_mode_selected(index: int) -> void:
 func _on_screenres_box_selected(index):
 	var ID = screenresbox.get_item_text(index)
 	get_window().set_size(RESOLUTION_DICT[ID])
+	ConfigManager.screentesolution_value = RESOLUTION_DICT[ID]
 
 func add_window_mode_items() -> void:
 	for resolution in RESOLUTION_DICT:
@@ -479,5 +484,6 @@ func add_window_mode_items() -> void:
 	for window_mode in WINDOW_MODE_ARRAY:
 		screentypebox.add_item(window_mode)
 
-func _on_screentypebox_item_selected(index: int) -> void:
-	pass # Replace with function body.
+
+func load_configs():
+	pass

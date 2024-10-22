@@ -15,7 +15,7 @@ func _ready() -> void:
 	newitem.on_itemstate.connect(new_item_activate)
 	newitem.out_itemstate.connect(new_item_out)
 	self.visible = false
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var num = 0.01
 	if self.scale.x < num:
 		self.visible = false

@@ -3,10 +3,13 @@ extends Resource
 class_name Inventoryc
 
 signal updated
-signal stamp_equipped
-signal stamp_unequipped
+#signal stamp_equipped
+#signal stamp_unequipped
 
 @export var stampslots: Array[InventorySlotc]
+
+func call_update():
+	updated.emit()
 
 func insert(item: InventoryItem):
 	

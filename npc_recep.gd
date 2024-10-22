@@ -37,10 +37,10 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 	
 				
-func run_dialogue(dialogue_string):
+func run_dialogue(_dialogue_string):
 	is_chatting = true
 	
-func _input(event: InputEvent):
+func _input(_event: InputEvent):
 	# check if a dialog is already running
 	if player_in_area:
 		if Dialogic.current_timeline != null:

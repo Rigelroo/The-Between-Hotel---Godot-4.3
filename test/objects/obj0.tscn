@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1d53x22xlnvx"]
+
+[ext_resource type="Script" path="res://addons/thoth/thoth_serializable.gd" id="1_qr31e"]
+[ext_resource type="Texture2D" uid="uid://c0u8fr6w6pdg5" path="res://test/textures/ibis0.png" id="2"]
+
+[sub_resource type="GDScript" id="2"]
+script/source = "extends Node2D
+
+var followCursor = false
+var color = Color(1,1,1): set = _set_color
+
+func _unhandled_input(event):
+	if followCursor:
+		if event is InputEventMouseMotion:
+			position = event.position
+
+func _on_Area2D_area_entered(area):
+	findNewSpot()
+
+func _on_Timer_timeout():
+	if position.x < 0 or position.y < 0 or position.x > 1920 or position.y > 1080:
+		queue_free()
+	if $Area2D.get_overlapping_areas().size() > 0:
+		findNewSpot()
+
+func findNewSpot():
+	if followCursor:
+		return
+
+	var dirX = 0
+	var dirY = 0
+	while dirX == 0 and dirY == 0:
+		dirX = randi()%3
+		dirY = randi()%3
+
+	var d = 32 * scale.x
+
+	var newPos = position
+	newPos.x = int(newPos.x / d)*d
+	newPos.y = int(newPos.y / d)*d
+
+	if dirX == 1:
+		newPos.x += d
+	if dirX == 2:
+		newPos.x -= d
+	
+	if dirY == 1:
+		newPos.y += d
+	if dirY == 2:
+		newPos.y -= d
+
+	var tween: Tween = create_tween()
+	tween.tween_property(self, \"position\", newPos, 1)
+	tween.parallel().tween_property(self, \"rotation\", deg_to_rad(90*(randi()%4)), 1)
+
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			self.color = Color(0,0,0)
+			while color.r == 0 and color.g == 0 and color.b == 0:
+				self.color = Color((randi()%3)*0.5,(randi()%3)*0.5,(randi()%3)*0.5)
+		if event.pressed and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			var newScale = randi()%4 + 1
+			scale = Vector2.ONE * newScale
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			queue_free()
+		if event.button_index == MOUSE_BUTTON_MIDDLE:
+			followCursor = event.pressed
+
+func _set_color(c):
+	color = c
+	$Icon.modulate.r = c.r
+	$Icon.modulate.g = c.g
+	$Icon.modulate.b = c.b
+"
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 32.0
+
+[node name="obj0" type="Node2D"]
+script = SubResource("2")
+
+[node name="Serializable" type="Node" parent="."]
+script = ExtResource("1_qr31e")
+children = false
+variables = Array[String](["color"])
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("1")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

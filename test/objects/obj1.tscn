@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmyuihe17qi3r"]
+
+[ext_resource type="Script" path="res://test/objects/obj1.gd" id="1_8s33j"]
+[ext_resource type="Script" path="res://addons/thoth/thoth_serializable.gd" id="1_rwh1o"]
+[ext_resource type="Texture2D" uid="uid://dyljj8i8m0w1y" path="res://test/textures/ibis1.png" id="2"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 32.0
+
+[node name="obj1" type="Node2D"]
+script = ExtResource("1_8s33j")
+
+[node name="Serializable" type="Node" parent="."]
+script = ExtResource("1_rwh1o")
+children = false
+variables = Array[String](["color"])
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("1")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

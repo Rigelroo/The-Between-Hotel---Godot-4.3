@@ -8,7 +8,7 @@ extends "state.gd"
 @onready var timer = $Timer
 @export var slash_duration = .2
 
-func update(delta):
+func update(_delta):
 	
 	if !slashing && can_doubleslash:
 		return STATES.FALL

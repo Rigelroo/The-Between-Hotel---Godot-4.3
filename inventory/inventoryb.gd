@@ -3,7 +3,7 @@ extends Resource
 class_name Inventoryb
 
 signal updated
-signal equip_item
+#signal equip_item
 
 @export var invslots: Array[InventorySlotb]
 

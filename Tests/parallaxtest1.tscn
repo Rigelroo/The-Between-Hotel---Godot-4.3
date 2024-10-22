@@ -821,6 +821,7 @@ position = Vector2(3565, 649)
 scale = Vector2(0.5, 0.5)
 
 [node name="firefly" parent="." instance=ExtResource("27_o402n")]
+visible = false
 position = Vector2(1721, 582)
 scale = Vector2(0.5, 0.5)
 
