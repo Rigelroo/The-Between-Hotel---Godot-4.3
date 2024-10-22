@@ -13,7 +13,7 @@ var dashing = false
 #@onready var dash_particle_left = $"../../GPUParticles2D3"
 #@onready var Dash_spriteR = $DashRight
 #@onready var Dash_spriteL = $DashLeft
-func update(delta):
+func update(_delta):
 	$"../../AnimationPlayer".play("dash")
 	if !dashing:
 		return STATES.FALL

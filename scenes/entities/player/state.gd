@@ -8,7 +8,7 @@ func enter_state():
 	pass
 func exit_state():
 	pass
-func update(delta):
+func update(_delta):
 	return null
 func player_movement():
 	if Player.movement_input.x >0:

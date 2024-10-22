@@ -3,7 +3,7 @@ extends Area2D
 signal water_state_changed(is_in_water : bool)
 var is_in_water : bool = false
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	
 	
 	if(is_in_water == false):
@@ -14,7 +14,7 @@ func _on_body_entered(body):
 			self.water_state_changed.emit(is_in_water)
 			
 			print(water_state_changed)
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	var overlapping_bodies = get_overlapping_bodies()
 	
 	if (overlapping_bodies.size() == 0):
