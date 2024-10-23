@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://b3wiqgg03gaan"]
+[gd_scene load_steps=71 format=3 uid="uid://b3wiqgg03gaan"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_wl04x"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_sao3u"]
@@ -62,9 +62,6 @@
 [ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="60_3d43v"]
 [ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="61_4uysq"]
 [ext_resource type="Script" path="res://scenes/Locations/Hotel/bell.gd" id="62_wcaef"]
-[ext_resource type="Script" path="res://addons/thoth/thoth_gamestate.gd" id="63_m75wa"]
-[ext_resource type="Script" path="res://addons/thoth/thoth_serializable.gd" id="64_vub4y"]
-[ext_resource type="Shader" path="res://scenes/Locations/Hotel/water_reflection.gdshader" id="65_rtnqs"]
 
 [sub_resource type="Gradient" id="Gradient_n1lro"]
 offsets = PackedFloat32Array(0.323232, 0.636364)
@@ -221,32 +218,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0amaj"]
 size = Vector2(530, 1387.5)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a2olj"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_w2xvx"]
-noise_type = 0
-frequency = 1.0
-fractal_octaves = 3
-fractal_lacunarity = 4.0
-metadata/_preview_in_3d_space_ = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gy1li"]
-seamless = true
-noise = SubResource("FastNoiseLite_w2xvx")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tq03"]
-shader = ExtResource("65_rtnqs")
-shader_parameter/level = 0.5
-shader_parameter/water_albedo = Vector4(0.26, 0.23, 0.73, 1)
-shader_parameter/water_opacity = 0.35
-shader_parameter/water_speed = 0.05
-shader_parameter/wave_distortion = 0.2
-shader_parameter/wave_multiplyer = 7
-shader_parameter/water_texture_on = true
-shader_parameter/time = 0.0
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_a2olj")
-shader_parameter/noise_texture2 = SubResource("NoiseTexture2D_gy1li")
 
 [node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 position = Vector2(0, -7)
@@ -464,26 +435,6 @@ shape = SubResource("RectangleShape2D_0amaj")
 debug_color = Color(0.385495, 0.608889, 0.182104, 0.42)
 
 [node name="Bellsound" type="AudioStreamPlayer2D" parent="Bell"]
-
-[node name="Savestate" type="Node" parent="."]
-script = ExtResource("63_m75wa")
-
-[node name="ConfigState" type="Node" parent="."]
-script = ExtResource("63_m75wa")
-save_filename = "config.cfg"
-
-[node name="Serializable" type="Node" parent="."]
-script = ExtResource("64_vub4y")
-transform = false
-children = false
-variables = Array[String](["a", "b", "c"])
-
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_0tq03")
-offset_left = 527.5
-offset_top = 2027.5
-offset_right = 7142.5
-offset_bottom = 3539.5
 
 [connection signal="area_entered" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_entered"]
 [connection signal="area_exited" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_exited"]
