@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4ttnyqfxx6c6"
-path="res://.godot/imported/Icon.png-33e63688031d53466d4d656c73cf10ca.ctex"
+uid="uid://b8gsup42058xn"
+path="res://.godot/imported/plant1.png-47d96825bd61e59b3da38ac773d6c701.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icon.png"
-dest_files=["res://.godot/imported/Icon.png-33e63688031d53466d4d656c73cf10ca.ctex"]
+source_file="res://Sprites/Bettlebourough/plant1.png"
+dest_files=["res://.godot/imported/plant1.png-47d96825bd61e59b3da38ac773d6c701.ctex"]
 
 [params]
 

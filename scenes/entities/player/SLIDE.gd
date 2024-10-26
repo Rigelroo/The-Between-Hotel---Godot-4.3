@@ -47,6 +47,8 @@ func slide_movement(delta):
 		Player.gravity(delta)
 		#
 		Player.velocity.y *= slide_friction
+
+
 func player_slidemove():
 	if Input.is_action_pressed("MoveRight") && Input.is_action_pressed("Jump"):
 		Player.velocity.x = 500

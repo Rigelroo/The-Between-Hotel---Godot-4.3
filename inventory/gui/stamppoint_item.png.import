@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4ttnyqfxx6c6"
-path="res://.godot/imported/Icon.png-33e63688031d53466d4d656c73cf10ca.ctex"
+uid="uid://cvxyeoyo30aik"
+path="res://.godot/imported/stamppoint_item.png-e5fa2dc2ca2405bd3e389df770bd25f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icon.png"
-dest_files=["res://.godot/imported/Icon.png-33e63688031d53466d4d656c73cf10ca.ctex"]
+source_file="res://inventory/gui/stamppoint_item.png"
+dest_files=["res://.godot/imported/stamppoint_item.png-e5fa2dc2ca2405bd3e389df770bd25f6.ctex"]
 
 [params]
 

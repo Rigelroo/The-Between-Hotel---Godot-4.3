@@ -1,16 +1,18 @@
-[gd_resource type="Resource" script_class="Statspoints" load_steps=2 format=3 uid="uid://bixtrrph8ibg2"]
+[gd_resource type="Resource" script_class="Statspoints" load_steps=3 format=3 uid="uid://bixtrrph8ibg2"]
 
 [ext_resource type="Script" path="res://inventory/StatspointItem.gd" id="1_fqkyf"]
+[ext_resource type="Texture2D" uid="uid://cvxyeoyo30aik" path="res://inventory/gui/stamppoint_item.png" id="2_lu385"]
 
 [resource]
 script = ExtResource("1_fqkyf")
-name = ""
-showname = ""
-point_type = ""
-color = Color(0, 0, 0, 1)
-color_x = 0.0
-color_y = 0.0
-color_z = 0.0
+name = "StampPoint"
+texture = ExtResource("2_lu385")
+showname = "Stamp Point"
+point_type = "Stamppointmax"
+color = Color(0.155295, 0.153218, 0.243343, 1)
+color_x = 0.15
+color_y = 0.15
+color_z = 0.24
 first_item = 0
 itemactivate = 0
 scriptstr = ""

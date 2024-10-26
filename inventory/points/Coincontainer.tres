@@ -5,14 +5,14 @@
 
 [resource]
 script = ExtResource("1_adrmx")
-name = "Stamppoint max"
+name = "Coinpoint max"
 texture = ExtResource("2_ow6ja")
-showname = "Stamppoint"
-point_type = "Heartpointmax"
+showname = "Coinpoint max"
+point_type = "Coinmax"
 color = Color(0, 0, 0, 1)
-color_x = 0.0
-color_y = 0.0
-color_z = 0.0
+color_x = 0.15
+color_y = 0.15
+color_z = 0.15
 first_item = 0
 itemactivate = 0
 scriptstr = ""

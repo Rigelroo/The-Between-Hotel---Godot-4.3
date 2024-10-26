@@ -25,7 +25,7 @@ func enter_state():
 	
 	if Player.prev_state == STATES.SLIDE:
 		#Player.velocity.x = 1500#Player.movement_input = 1
-		#Player.velocity.y = Player.JUMP_VELOCITY
+		Player.velocity.y = Player.JUMP_VELOCITY
 		Player.is_jumping = true
 		$"../../AnimationPlayer".play("jump_start")
 	else:

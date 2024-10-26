@@ -48,6 +48,7 @@ signal inkChanged
 @export var dash_speed = 940
 @export var SPEED = 470.0
 @export var JUMP_VELOCITY = -700.0
+@export var max_fall_speed = -700.0 * 1.5
 @export var can_interact = false
 @export var can_move = true
 @export var can_move_si = true
@@ -178,45 +179,87 @@ func _ready():
 	current_state = STATES.IDLE
 	
 func _process(delta: float) -> void:
+	
 	if can_emit:
 		breathemitting()
 		
 	playdeath()
-	if current_state != STATES.AIRSLASH:
-		await $AnimationPlayer.animation_finished
-		$sword/sword_collider.disabled = true
-		$sword1/sword_collider2.disabled = true
-		$sword1/sword_collider3.disabled = true
-	elif current_state != STATES.SLASH:
-		await $AnimationPlayer.animation_finished
-		$sword/sword_collider.disabled = true
-		$sword1/sword_collider2.disabled = true
-		$sword1/sword_collider3.disabled = true
+
+	
+
+func _physics_process(delta):
+	if current_state != STATES.HLEAF:
+		is_skydiving = false
+		
+	if prev_state == STATES.HLEAF:
+		if current_state != STATES.HLEAF:
+			is_skydiving = false
+	if prev_state == STATES.SLASH or prev_state == STATES.AIRSLASH:
+		if current_state != STATES.AIRSLASH:
+			#await $AnimationPlayer.animation_finished
+			$sword/sword_collider.disabled = true
+			$sword1/sword_collider2.disabled = true
+			$sword1/sword_collider3.disabled = true
+		elif current_state != STATES.SLASH:
+			#await $AnimationPlayer.animation_finished
+			$sword/sword_collider.disabled = true
+			$sword1/sword_collider2.disabled = true
+			$sword1/sword_collider3.disabled = true
 	if current_state != STATES.HIT:
 		%Sprite2D.modulate = "#ffffff"
 	#if Input.is_action_just_pressed("Start"):
 		#currentHealth += 1
 		#healthChanged.emit(currentHealth)
 		#emit_signal("temporary")
-	
-
-func _physics_process(delta):
-	
 	player_input()
 	change_state(current_state.update(delta))
 	$Label.text = str(current_state.get_name())
 	move_and_slide()
+#
+#func gravity(delta):
+	#if is_on_floor():
+		#velocity.y = 0
+	#if not is_on_floor() && !is_skydiving:
+		#if(!is_in_water):
+			#velocity.y += gravity_value * delta
+			#
+		#else:
+			#velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
+	#if not is_on_floor() && is_skydiving:
+		#if(!is_in_water):
+			#velocity.y += gravity_value * delta -12
+
+#func gravity(delta):
+	#if is_on_floor():
+		#velocity.y = 0  # Zere a velocidade ao tocar o chão
+#
+	#if not is_on_floor() and !is_skydiving:
+		#if not is_in_water:
+			#velocity.y += gravity_value * delta
+		#else:
+			#velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
+#
+	#if not is_on_floor() and is_skydiving:
+		#if not is_in_water:
+			#velocity.y += (gravity_value / 2) * delta - 12  # Ajuste a gravidade para o skydiving
+
 func gravity(delta):
-	if not is_on_floor() && !is_skydiving:
-		if(!is_in_water):
-			velocity.y += gravity_value * delta
-			
-		else:
-			velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
-	if not is_on_floor() && is_skydiving:
-		if(!is_in_water):
-			velocity.y += gravity_value * delta -12
-		
+	if is_on_floor():
+		velocity.y = 0  # Zere a velocidade ao tocar o chão
+
+	if not is_on_floor():
+		if not is_skydiving:
+			if not is_in_water:
+				velocity.y += gravity_value * delta
+			else:
+				velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
+		else:  # Skydiving
+			if not is_in_water:
+				velocity.y += (gravity_value / 2) * delta
+				velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed)
+
+
+
 func change_state(input_state):
 	if input_state != null:
 		prev_state = current_state 
@@ -224,7 +267,9 @@ func change_state(input_state):
 		
 		prev_state.exit_state()
 		current_state.enter_state()
-		
+
+
+
 func get_next_to_wall():
 	for raycast in Raycasts.get_children():
 		raycast.force_raycast_update() 
@@ -235,11 +280,11 @@ func get_next_to_wall():
 				return Vector2.LEFT
 	return null
 	
-
 func player_input():
 	movement_input = Vector2.ZERO
 	if can_move && can_move_si:
 		if Input.is_action_pressed("MoveRight"):
+			$Trayemmiter.scale.x = -1
 			if $STATES/SLIDE.is_sliding == 0:
 				movement_input.x += 1
 				#%Breathemitter.scale.x = 0.5
@@ -253,10 +298,12 @@ func player_input():
 				$PlayerHatCold.scale.x = 0.07
 			facing_direction = false
 		if Input.is_action_pressed("MoveLeft"):
+			$Trayemmiter.scale.x = 1
 			if $STATES/SLIDE.is_sliding == 0:
 				movement_input.x -= 1
 				#$Sprite2D.scale.x = -0.07
 				$Sprite2D.flip_h = true
+				
 				#%Breathemitter.scale.x = -0.5
 				#%Breathemitter.position.x = -14.2
 				%fire_collider.position.x = -60
@@ -282,22 +329,35 @@ func player_input():
 		$CollisionShape2D2.disabled = false
 		$AnimationPlayer2.active = true
 		$AnimationPlayer.active = false
-	if !is_in_water && can_move && can_move_si:
-		if Input.is_action_pressed("Jump"):
-			
-			#if $STATES/SLIDE.is_sliding == 0:
-				jump_input = true
-		else: 
-				jump_input = false
-	if !is_in_water && can_move && can_move_si:
+		if Input.is_action_pressed("MoveRight"):
+			$Trayemmiter.scale.x = -1
+			if $STATES/SLIDE.is_sliding == 0:
+				movement_input.x += 1
+				$Sprite2D.flip_h = false
+
+		if Input.is_action_pressed("MoveLeft"):
+			$Trayemmiter.scale.x = 1
+			if $STATES/SLIDE.is_sliding == 0:
+				movement_input.x -= 1
+				$Sprite2D.flip_h = true
+
+		if Input.is_action_pressed("MoveUp"):
+			movement_input.y -= 1
+		if Input.is_action_pressed("MoveDown"):
+			movement_input.y += 1
+
+	# Jump handling
+	if !is_skydiving && !is_in_water && can_move && can_move_si:
 		if Input.is_action_just_pressed("Jump"):
-			#if $STATES/SLIDE.is_sliding == 0:
-				jump_input_actuation = true
-		else: 
-				jump_input_actuation = false
+			jump_input_actuation = true
+		else:
+			jump_input_actuation = false
+
 	if is_in_water && can_move && can_move_si:
 		if Input.is_action_just_pressed("Jump"):
 			velocity.y += SWIN_JUMP
+
+
 	if !is_in_water && can_move && can_move_si:
 	#climb
 		if manager.ffemblem_equiped or manager.frozenheart_equiped:
@@ -336,7 +396,110 @@ func player_input():
 			interact_input = true
 		else: 
 			interact_input = false
-		
+#
+#func aplayer_input():
+	#movement_input = Vector2.ZERO
+	#if can_move && can_move_si:
+		#if Input.is_action_pressed("MoveRight"):
+			#$Trayemmiter.scale.x = -1
+			#if $STATES/SLIDE.is_sliding == 0:
+				#movement_input.x += 1
+				##%Breathemitter.scale.x = 0.5
+				##%Breathemitter.position.x = 14.2
+				#$Sprite2D.flip_h = false
+				##$Sprite2D.scale.x = 0.07
+				#$sword.position.x = 0
+				#%fire_collider.position.x = 50
+				#
+				#$Sprite2D.position.x = 1
+				#$PlayerHatCold.scale.x = 0.07
+			#facing_direction = false
+		#if Input.is_action_pressed("MoveLeft"):
+			#$Trayemmiter.scale.x = 1
+			#if $STATES/SLIDE.is_sliding == 0:
+				#movement_input.x -= 1
+				##$Sprite2D.scale.x = -0.07
+				#$Sprite2D.flip_h = true
+				#
+				##%Breathemitter.scale.x = -0.5
+				##%Breathemitter.position.x = -14.2
+				#%fire_collider.position.x = -60
+				#$PlayerHatCold.scale.x = -0.07
+				#$Sprite2D.position.x = 3.67
+				#$sword.position.x = -46
+			#facing_direction = true
+		#if Input.is_action_pressed("MoveUp"):
+			#movement_input.y -= 1
+		#if Input.is_action_pressed("MoveDown"):
+			#movement_input.y += 1
+	#
+	## jumps
+	#if !is_in_water && can_move && can_move_si:
+		##$CollisionShape2D.position.y = 0
+		#$CollisionShape2D.disabled = false
+		#$CollisionShape2D2.disabled = true
+		#$AnimationPlayer2.active = false
+		#$AnimationPlayer.active = true
+	#if is_in_water  && can_move && can_move_si:
+		##$CollisionShape2D.position.y = -9.6
+		#$CollisionShape2D.disabled = true
+		#$CollisionShape2D2.disabled = false
+		#$AnimationPlayer2.active = true
+		#$AnimationPlayer.active = false
+	#if !is_in_water && can_move && can_move_si:
+		#if Input.is_action_pressed("Jump"):
+			#
+			##if $STATES/SLIDE.is_sliding == 0:
+				#jump_input = true
+		#else: 
+				#jump_input = false
+	#if !is_in_water && can_move && can_move_si:
+		#if Input.is_action_just_pressed("Jump"):
+			##if $STATES/SLIDE.is_sliding == 0:
+				#jump_input_actuation = true
+		#else: 
+				#jump_input_actuation = false
+	#if is_in_water && can_move && can_move_si:
+		#if Input.is_action_just_pressed("Jump"):
+			#velocity.y += SWIN_JUMP
+	#if !is_in_water && can_move && can_move_si:
+	##climb
+		#if manager.ffemblem_equiped or manager.frozenheart_equiped:
+			#if Input.is_action_pressed("Magic"):
+				#breath_input = true
+			#else:
+				#breath_input = false
+		#if Input.is_action_pressed("Climb"):
+			#climb_input = true
+		#else: 
+			#climb_input = false
+	##dash
+		#if Input.is_action_just_pressed("Dash"):
+			#dash_input = true
+		#else: 
+			#dash_input = false
+		#if Input.is_action_just_pressed("Attack"):
+			#attack_input = true
+		#else: 
+			#attack_input = false
+			#
+		##if Input.is_action_pressed("Attack"):
+			##is_charging = true
+			##charge_time = 0  # Reset charge time
+		##if Input.is_action_just_released("Attack"):
+			##if is_charging:
+				##perform_charge_attack()
+				##is_charging = false
+			##else:
+				##attack_input = true
+		#
+		##else: 
+			##attack_input = false
+	#
+		#if Input.is_action_just_pressed("Interact"):
+			#interact_input = true
+		#else: 
+			#interact_input = false
 
 var charge_time = 0
 var is_charging = false

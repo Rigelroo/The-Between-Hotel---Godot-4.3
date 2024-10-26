@@ -25,8 +25,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qiqyl"]
 _data = {
-"RESET": SubResource("Animation_8m3e0"),
-"tcham1": ExtResource("6_raf4n")
+&"tcham1": ExtResource("6_raf4n"),
+&"RESET": SubResource("Animation_8m3e0")
 }
 
 [sub_resource type="Animation" id="Animation_eju6e"]
@@ -61,8 +61,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yt2wr"]
 _data = {
-"RESET": SubResource("Animation_eju6e"),
-"new_animation": SubResource("Animation_ye60o")
+&"new_animation": SubResource("Animation_ye60o"),
+&"RESET": SubResource("Animation_eju6e")
 }
 
 [node name="Showeffect" type="Node2D" node_paths=PackedStringArray("coloreffect", "tcham1", "tcham2", "animation", "animationtext")]
@@ -99,7 +99,7 @@ offset = Vector2(-172, 86)
 [node name="TchamAnimation" type="AnimationPlayer" parent="Node2D"]
 root_node = NodePath("../../Tcham1")
 libraries = {
-"": SubResource("AnimationLibrary_qiqyl")
+&"": SubResource("AnimationLibrary_qiqyl")
 }
 
 [node name="Label" parent="Node2D" instance=ExtResource("7_bgrxt")]
@@ -107,7 +107,7 @@ libraries = {
 [node name="LabelAnimation" type="AnimationPlayer" parent="Node2D"]
 root_node = NodePath("../Label")
 libraries = {
-"": SubResource("AnimationLibrary_yt2wr")
+&"": SubResource("AnimationLibrary_yt2wr")
 }
 
 [connection signal="animatxt" from="." to="." method="_on_animatxt"]
