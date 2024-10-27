@@ -84,7 +84,7 @@ texture = ExtResource("6_c38bo")
 centered = false
 
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("28_ygo3h")]
-position = Vector2(996, 1696)
+position = Vector2(2976, 1614)
 scale = Vector2(14, 14)
 showitem = NodePath("Showitemsprite")
 player_camera = NodePath("Camera2D")
