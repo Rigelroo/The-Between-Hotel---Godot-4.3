@@ -1,0 +1,414 @@
+Caminho do Recurso,Tipo,Formato,Uso
+res://Sprites/Bettlebourough/parallax/BB_parallax3.png,Texture,8725x6550 RGBA8,218.0 MiB
+res://Sprites/Bettlebourough/parallax/BB_parallax1.png,Texture,8725x6550 RGBA8,218.0 MiB
+res://Sprites/Bettlebourough/parallax/BB_parallax2.png,Texture,8725x6550 RGBA8,218.0 MiB
+res://Sprites/Bettlebourough/tilemaptest2.png,Texture,8725x5600 RGBA8,186.3 MiB
+res://Sprites/Bettlebourough/tilemaptest2_normal.png,Texture,8725x5600 RGBA8,186.3 MiB
+res://Sprites/Bettlebourough/aaaaaaa.png,Texture,12228x3929 RGBA8,183.2 MiB
+,Texture,12116x3961 RGBA8,183.0 MiB
+,Texture,8448x5632 RGBA8,181.5 MiB
+,Texture,8448x5632 RGBA8,181.5 MiB
+,Texture,8448x5632 RGBA8,181.5 MiB
+,Texture,8448x5632 RGBA8,181.5 MiB
+res://Sprites/Bettlebourough/parallax/B2.png,Texture,5508x2989 RGBA8,62.80 MiB
+res://Sprites/Bettlebourough/parallax/B0.png,Texture,3508x3989 RGBA8,53.38 MiB
+res://Sprites/Bettlebourough/parallax/B1.png,Texture,3508x3989 RGBA8,53.38 MiB
+res://Sprites/Bettlebourough/parallax/B3.png,Texture,3508x3989 RGBA8,53.38 MiB
+res://inventory/submenu - config.png,Texture,4608x2592 RGBA8,45.56 MiB
+res://inventory/submenu - Missões.png,Texture,4608x2592 RGBA8,45.56 MiB
+res://inventory/submenu - inventário.png,Texture,4608x2592 RGBA8,45.56 MiB
+res://Sprites/Player/Death/submenu - Selos.png,Texture,4608x2592 RGBA8,45.56 MiB
+res://inventory/gui/menuparallax.png,Texture,4158x2310 RGB8,27.48 MiB
+res://Sprites/Bettlebourough/assets_house1.png,Texture,2922x2450 RGBA8,27.30 MiB
+res://Sprites/Bettlebourough/parallax/B-1.png,Texture,3508x1989 RGBA8,26.61 MiB
+res://Sprites/Bettlebourough/parallax/B4.png,Texture,3638x1487 RGBA8,20.63 MiB
+res://Sprites/Bettlebourough/tree1.png,Texture,1942x2765 RGBA8,20.48 MiB
+res://Sprites/Bettlebourough/assets_tree1_normal.png,Texture,1942x2765 RGBA8,20.48 MiB
+res://Sprites/Bettlebourough/tree2.png,Texture,1709x2899 RGBA8,18.89 MiB
+res://Sprites/Bettlebourough/4.png,Texture,2080x2080 RGBA8,16.50 MiB
+res://Sprites/Bettlebourough/1.png,Texture,2080x2080 RGBA8,16.50 MiB
+,Texture,2025x2025 RGBA8,15.64 MiB
+,Texture,2025x2025 RGBA8,15.64 MiB
+res://inventory/show_effect_back.png,Texture,2009x1842 RGBA8,14.11 MiB
+res://inventory/show_effect.png,Texture,1806x1673 RGBA8,11.52 MiB
+res://Sprites/Bettlebourough/lightspot.png,Texture,1302x1912 RGBA8,9.49 MiB
+res://inventory/Chaves/pacote.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Moedas/itemmoeda.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Chaves/chave_quarto 3.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Selos/selo_frozenheart.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Selos/selo_fireflyemblem.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Selos/selo_shadowdiver.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Selos/selo_herculesleaf.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Selos/selo_othereye.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Selos/selo_titagotchi.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Selos/selo_ganancia.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Chaves/inkbottle_item.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Chaves/inkfruits.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Chaves/chave_quarto 1.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Chaves/chave_quarto 2.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Selos/selo_crimsonbug.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/Selos/selo_hattime.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://inventory/gui/desenhopersian2.png,Texture,1364x1317 RGBA8,6.85 MiB
+res://Sprites/Player/Magic/magic0010.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0009.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0000.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0001.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0002.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0008.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0003.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0004.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0005.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0006.png,Texture,850x850 RGBA8,2.75 MiB
+res://Sprites/Player/Magic/magic0007.png,Texture,850x850 RGBA8,2.75 MiB
+res://inventory/gui/botão-Sair.png,Texture,1281x563 RGBA8,2.75 MiB
+res://Sprites/Player/AirAttack/quadro0007.png,Texture,800x800 RGBA8,2.44 MiB
+res://Sprites/Player/AirAttack/quadro0006.png,Texture,800x800 RGBA8,2.44 MiB
+res://Sprites/Player/AirAttack/quadro0005.png,Texture,800x800 RGBA8,2.44 MiB
+res://Sprites/Player/AirAttack/quadro0004.png,Texture,800x800 RGBA8,2.44 MiB
+res://Sprites/Player/AirAttack/quadro0003.png,Texture,800x800 RGBA8,2.44 MiB
+res://Sprites/Player/AirAttack/quadro0002.png,Texture,800x800 RGBA8,2.44 MiB
+res://Sprites/Player/AirAttack/quadro0001.png,Texture,800x800 RGBA8,2.44 MiB
+res://Sprites/Player/AirAttack/quadro0000.png,Texture,800x800 RGBA8,2.44 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0012.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0011.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0010.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0009.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0008.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0007.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0006.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0005.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0004.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0003.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0002.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0001.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Player/Upgrades/Hércules Leaf/quadro0000.png,Texture,750x850 RGBA8,2.43 MiB
+res://Sprites/Bettlebourough/plant4.png,Texture,737x856 RGBA8,2.40 MiB
+res://Sprites/Bettlebourough/plant3_normal.png,Texture,694x893 RGBA8,2.36 MiB
+res://Sprites/Bettlebourough/plant3.png,Texture,694x893 RGBA8,2.36 MiB
+Render Target (Internal),Texture,1191x678 RGB8,2.31 MiB
+Render Target (Internal),Texture,1191x678 RGB8,2.31 MiB
+Render Target (Internal),Texture,1191x678 RGB8,2.31 MiB
+Render Target (Internal),Texture,1191x678 RGB8,2.31 MiB
+res://inventory/gui/botão-opções.png,Texture,1248x485 RGBA8,2.30 MiB
+res://inventory/gui/botão-voltar.png,Texture,1132x525 RGBA8,2.26 MiB
+,Texture,816x720 RGBA8,2.24 MiB
+res://Sprites/Player/Attack2/quadro0004.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack2/quadro0005.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack2/quadro0006.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack2/quadro0007.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Slide/Player_slide.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0021.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0020.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0019.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0018.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0017.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0016.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0015.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/New_item/quadro0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0014.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run8.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run9.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run10.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack1/quadro0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/inWater/Player_idle_swimingH.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack1/quadro0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack1/quadro0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/inWater/quadroH0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/inWater/quadroH0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/inWater/quadroH0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/inWater/quadroH0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/inWater/quadroH0004.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/inWater/quadroH0005.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/inWater/quadroH0006.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack1/quadro0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack1/quadro0004.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack1/quadro0005.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack1/quadro0006.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack1/quadro0007.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack2/quadro0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack2/quadro0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack2/quadro0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Attack2/quadro0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Charged/Frost/frost_charged_attack0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Charged/Frost/frost_charged_attack0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Charged/Frost/frost_charged_attack0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0010.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0009.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0008.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0007.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0005.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0004.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Breath/quadro0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/New_item/quadro0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/New_item/quadro0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0004.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Charged/Frost/frost_charged_attack0006.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Charged/Frost/frost_charged_attack0005.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Charged/Frost/frost_charged_attack0004.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Charged/Frost/frost_charged_attack0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0013.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0012.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0011.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0010.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0009.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0008.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/New_item/quadro0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0007.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0006.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Death/quadro0005.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Damage/quadro0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Damage/quadro0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Damage/quadro0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Damage/quadro0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Damage/quadro0004.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/Damage/quadro0005.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0013.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/jump5.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/Idle0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0012.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0011.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/jump7.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0010.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0009.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0008.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0007.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0006.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0005.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0004.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0000.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0016.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run7.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run6.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0015.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run5.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run4.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run3.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run2.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/Idle0003.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/run1.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/jump2.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/Idle0002.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/Idle0001.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/jump6.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/jump3.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Player/All/jump4.png,Texture,750x750 RGBA8,2.14 MiB
+res://Sprites/Effects/watersplash0014.png,Texture,750x750 RGBA8,2.14 MiB
+Render Target (Internal),Texture,1152x648 RGB8,2.13 MiB
+Render Target (Internal),Texture,1152x648 RGB8,2.13 MiB
+res://Sprites/Hud/Health/health_thing0000.png,Texture,903x585 RGBA8,2.01 MiB
+res://Sprites/Hud/Health/healthface0000.png,Texture,903x585 RGBA8,2.01 MiB
+res://Sprites/Hud/Health/healthface0001.png,Texture,903x585 RGBA8,2.01 MiB
+res://Sprites/Hud/Health/healthface0005.png,Texture,903x585 RGBA8,2.01 MiB
+res://Sprites/Hud/Health/healthface0002.png,Texture,903x585 RGBA8,2.01 MiB
+res://Sprites/Hud/Health/healthface0003.png,Texture,903x585 RGBA8,2.01 MiB
+res://Sprites/Hud/Health/healthface0006.png,Texture,903x585 RGBA8,2.01 MiB
+res://Sprites/Hud/Health/healthface0004.png,Texture,903x585 RGBA8,2.01 MiB
+res://Sprites/Hud/Inkbar_bottom.png,Texture,722x724 RGBA8,1.99 MiB
+res://Sprites/Hud/Inkbar_over.png,Texture,722x724 RGBA8,1.99 MiB
+res://Sprites/Bettlebourough/water/waterline0003.png,Texture,1395x340 RGBA8,1.80 MiB
+res://Sprites/Bettlebourough/water/waterline0002.png,Texture,1395x340 RGBA8,1.80 MiB
+res://Sprites/Bettlebourough/water/waterline0001.png,Texture,1395x340 RGBA8,1.80 MiB
+res://Sprites/Bettlebourough/water/waterline0000.png,Texture,1395x340 RGBA8,1.80 MiB
+,Texture,2060x225 RGBA8,1.76 MiB
+res://Missões/task_panel.png,Texture,1374x323 RGBA8,1.69 MiB
+res://Sprites/Bettlebourough/fallingleaves1.png,Texture,1582x269 RGBA8,1.62 MiB
+res://Sprites/Bettlebourough/fallingleaves2.png,Texture,1582x269 RGBA8,1.62 MiB
+res://Sprites/Effects/subfrost.png,Texture,1208x307 RGBA8,1.41 MiB
+res://Sprites/Bettlebourough/plant2.png,Texture,495x734 RGBA8,1.38 MiB
+res://Sprites/Bettlebourough/plant2_normal.png,Texture,495x734 RGBA8,1.38 MiB
+res://Sprites/Bettlebourough/npcs/Turquesa0009.png,Texture,429x824 RGBA8,1.34 MiB
+res://Sprites/Bettlebourough/npcs/Turquesa0007.png,Texture,429x824 RGBA8,1.34 MiB
+res://Sprites/Bettlebourough/npcs/Turquesa0006.png,Texture,429x824 RGBA8,1.34 MiB
+res://Sprites/Bettlebourough/npcs/Turquesa0005.png,Texture,429x824 RGBA8,1.34 MiB
+res://Sprites/Bettlebourough/npcs/Turquesa0004.png,Texture,429x824 RGBA8,1.34 MiB
+res://Sprites/Bettlebourough/npcs/Turquesa0003.png,Texture,429x824 RGBA8,1.34 MiB
+res://Sprites/Bettlebourough/npcs/Turquesa0002.png,Texture,429x824 RGBA8,1.34 MiB
+res://Sprites/Bettlebourough/npcs/Turquesa0001.png,Texture,429x824 RGBA8,1.34 MiB
+res://Sprites/Bettlebourough/npcs/Turquesa0000.png,Texture,429x824 RGBA8,1.34 MiB
+res://Sprites/InteractionBox/InteractionBox - Door0002.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Door0001.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Door0000.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Talk0003.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Talk0002.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Talk0001.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Talk0000.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Interaction0003.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Interaction0002.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Door0003.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - locked0000.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - locked0001.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - locked0002.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - locked0003.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - unlocking0000.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - unlocking0001.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - unlocking0002.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - unlocking0003.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - unlocking0004.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - unlocking0005.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Inactive0000.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Interaction0000.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/InteractionBox/InteractionBox - Interaction0001.png,Texture,582x566 RGBA8,1.25 MiB
+res://Sprites/Bettlebourough/assets_lanternwithrope.png,Texture,296x1058 RGBA8,1.19 MiB
+res://Sprites/Bettlebourough/plant6.png,Texture,627x418 RGBA8,1023.7 KiB
+res://Sprites/Hud/Inkbar_progress.png,Texture,722x338 RGBA8,953.2 KiB
+res://Sprites/Bettlebourough/plant1.png,Texture,360x656 RGBA8,922.5 KiB
+res://Sprites/Bettlebourough/plant1_normal.png,Texture,360x656 RGBA8,922.5 KiB
+res://Sprites/EntryHall/preto.png,Texture,550x550 RGB8,886.2 KiB
+res://Sprites/Player/Doublejump_particle/quadro0006.png,Texture,750x264 RGBA8,773.4 KiB
+res://Sprites/Player/Doublejump_particle/quadro0005.png,Texture,750x264 RGBA8,773.4 KiB
+res://Sprites/Player/Doublejump_particle/quadro0004.png,Texture,750x264 RGBA8,773.4 KiB
+res://Sprites/Player/Doublejump_particle/quadro0003.png,Texture,750x264 RGBA8,773.4 KiB
+res://Sprites/Player/Doublejump_particle/quadro0002.png,Texture,750x264 RGBA8,773.4 KiB
+res://Sprites/Player/Doublejump_particle/quadro0001.png,Texture,750x264 RGBA8,773.4 KiB
+res://Sprites/Player/Doublejump_particle/quadro0000.png,Texture,750x264 RGBA8,773.4 KiB
+res://Sprites/Player/Doublejump_particle/quadro0007.png,Texture,750x264 RGBA8,773.4 KiB
+res://Sprites/Hud/Health/health0000.png,Texture,467x413 RGBA8,753.4 KiB
+res://Sprites/Hud/Health/health0001.png,Texture,467x413 RGBA8,753.4 KiB
+res://Sprites/Hud/Berserk/pointslotfinal_empty.png,Texture,504x379 RGBA8,746.1 KiB
+res://Sprites/Hud/Berserk/pointslotfinal_full.png,Texture,504x379 RGBA8,746.1 KiB
+res://Sprites/Player/Dash/Player_dash.png,Texture,752x752 DXT5 RGBA8,736.8 KiB
+res://Sprites/Effects/frost_ground0008.png,Texture,579x233 RGBA8,526.9 KiB
+res://Sprites/Effects/frost_ground0007.png,Texture,579x233 RGBA8,526.9 KiB
+res://Sprites/Effects/frost_ground0006.png,Texture,579x233 RGBA8,526.9 KiB
+res://inventory/gui/scroll.png,Texture,1032x130 RGBA8,524.0 KiB
+res://inventory/slot inventario - NoItem.png,Texture,368x362 RGBA8,520.3 KiB
+res://inventory/slot inventario - select.png,Texture,368x362 RGBA8,520.3 KiB
+res://inventory/slot inventario.png,Texture,368x362 RGBA8,520.3 KiB
+res://Sprites/Hud/Berserk/pointslotfirst_full.png,Texture,412x283 RGBA8,455.4 KiB
+res://Sprites/Hud/Berserk/pointslotfirst_empty.png,Texture,412x283 RGBA8,455.4 KiB
+res://Sprites/Effects/fire_sub0000.png,Texture,302x307 RGBA8,362.1 KiB
+res://Sprites/Hud/Berserk/pointslotmiddle_empty.png,Texture,340x271 RGBA8,359.9 KiB
+res://Sprites/Hud/Berserk/pointslotmiddle_full.png,Texture,340x271 RGBA8,359.9 KiB
+res://Sprites/branco.png,Texture,349x350 RGB8,357.8 KiB
+res://Sprites/slot.png,Texture,301x302 RGBA8,355.0 KiB
+res://inventory/slot usarselo.png,Texture,298x301 RGBA8,350.3 KiB
+res://Missões/npc icons/Turquesa.png,Texture,261x340 RGBA8,346.6 KiB
+res://Tests/parallaxtest1.tscn::NoiseTexture2D_yb5fb,Texture,512x512 Lum8,341.3 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0004.png,Texture,309x264 RGBA8,318.6 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0003.png,Texture,309x264 RGBA8,318.6 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0002.png,Texture,309x264 RGBA8,318.6 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0001.png,Texture,309x264 RGBA8,318.6 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0000.png,Texture,309x264 RGBA8,318.6 KiB
+res://Missões/npc icons/Matheus.png,Texture,280x285 RGBA8,311.7 KiB
+res://Sprites/Effects/firespritesheet.png,Texture,440x170 RGBA8,292.1 KiB
+res://Sprites/Bettlebourough/plant5.png,Texture,277x259 RGBA8,280.2 KiB
+res://inventory/gui/nextpage_button.png,Texture,303x205 RGBA8,242.6 KiB
+res://inventory/gui/stamppoint.png,Texture,246x236 RGBA8,226.7 KiB
+res://inventory/gui/Selector/slot inventario - select_shadow.png,Texture,239x239 RGBA8,223.1 KiB
+res://inventory/gui/Selector/slot inventario - select.png,Texture,239x239 RGBA8,223.1 KiB
+res://inventory/coisinha.png,Texture,236x233 RGBA8,214.7 KiB
+res://Missões/checkboxcheck.png,Texture,227x229 RGBA8,203.0 KiB
+res://Missões/checkbox.png,Texture,227x229 RGBA8,203.0 KiB
+res://inventory/tcham2.png,Texture,212x198 RGBA8,163.9 KiB
+res://Missões/checkbox_check.png,Texture,198x208 RGBA8,160.8 KiB
+res://inventory/gui/botão-maisesq.png,Texture,164x248 RGBA8,158.8 KiB
+res://inventory/gui/botão-maisdir.png,Texture,164x248 RGBA8,158.8 KiB
+res://inventory/tcham1.png,Texture,176x217 RGBA8,149.1 KiB
+,Texture,190x190 RGBA8,141.0 KiB
+res://Sprites/Hud/Health/healthshake.png,Texture,190x190 RGBA8,141.0 KiB
+res://Sprites/Namebox.png,Texture,348x96 RGBA8,130.5 KiB
+,Texture,256x256 LumAlpha8,128.0 KiB
+res://Sprites/sombra.png,Texture,256x99 RGBA8,99.00 KiB
+res://Sprites/Player/hats/Player_hat_cold.png,Texture,132x145 RGBA8,74.76 KiB
+res://Sprites/prililim.png,Texture,100x100 RGBA8,39.06 KiB
+res://Sprites/Player/hats/Player_hat_cold3.png,Texture,81x67 RGBA8,21.19 KiB
+,Texture,800x6 RGBA8,18.75 KiB
+,Texture,800x6 RGBA8,18.75 KiB
+res://Tests/parallaxtest1.tscn::GradientTexture2D_mvjgn,Texture,64x64 RGBA8,16.00 KiB
+res://Tests/parallaxtest1.tscn::GradientTexture2D_i5v5p,Texture,64x64 RGBA8,16.00 KiB
+,Texture,256x1 RGBFloat,3.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,16x32 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,8x48 RGBA8,1.50 KiB
+,Texture,48x8 RGBA8,1.50 KiB
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+res://Tests/parallaxtest1.tscn::GradientTexture1D_32jfb,Texture,256x1 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+res://scenes/entities/player/Player.tscn::GradientTexture1D_32jfb,Texture,256x1 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,12x12 RGBA8,576 B
+,Texture,12x12 RGBA8,576 B
+,Texture,12x12 RGBA8,576 B
+,Texture,8x16 RGBA8,512 B
+,Texture,8x16 RGBA8,512 B
+,Texture,16x8 RGBA8,512 B
+,Texture,16x8 RGBA8,512 B
+,Texture,14x8 RGBA8,448 B
+,Texture,10x10 RGBA8,400 B
+,Texture,8x8 RGBA8,256 B
+,Texture,8x8 RGBA8,256 B
+,Texture,4x16 RGBA8,256 B
+,Texture,16x4 RGBA8,256 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B

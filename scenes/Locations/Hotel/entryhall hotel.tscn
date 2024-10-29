@@ -221,7 +221,7 @@ size = Vector2(530, 1387.5)
 
 [node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 position = Vector2(0, -7)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.41, 0.41)
 script = ExtResource("1_wl04x")
 background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3", ""])
 objplayer = NodePath("Player")
@@ -232,6 +232,7 @@ next_scene = "res://Tests/parallaxtest1.tscn"
 [node name="Assets" type="Node2D" parent="."]
 
 [node name="Fundo" type="Sprite2D" parent="Assets"]
+scale = Vector2(1.99745, 1.99745)
 texture = ExtResource("4_hc5jt")
 centered = false
 

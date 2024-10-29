@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://cuvxt6lw2scbb"]
+
+[ext_resource type="Texture2D" uid="uid://d3q2cvecv6lfx" path="res://Sprites/Bettlebourough/tilemaptest2.png" id="1_lqwkm"]
+[ext_resource type="Texture2D" uid="uid://dav5o7udjy6u4" path="res://Sprites/Bettlebourough/tilemaptest2_normal.png" id="2_ux3mi"]
+
+[resource]
+diffuse_texture = ExtResource("1_lqwkm")
+normal_texture = ExtResource("2_ux3mi")

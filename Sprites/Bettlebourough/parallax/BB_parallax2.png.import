@@ -3,22 +3,23 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://elghpfnvwwt5"
-path="res://.godot/imported/BB_parallax2.png-e3e6de4a49638b04b9165d2730998ca2.ctex"
+path.bptc="res://.godot/imported/BB_parallax2.png-e3e6de4a49638b04b9165d2730998ca2.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Sprites/Bettlebourough/parallax/BB_parallax2.png"
-dest_files=["res://.godot/imported/BB_parallax2.png-e3e6de4a49638b04b9165d2730998ca2.ctex"]
+dest_files=["res://.godot/imported/BB_parallax2.png-e3e6de4a49638b04b9165d2730998ca2.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
-compress/hdr_compression=1
+compress/hdr_compression=2
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

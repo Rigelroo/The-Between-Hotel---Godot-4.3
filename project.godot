@@ -120,6 +120,12 @@ Worldscene=""
 Breathemitters=""
 Buttonchoices=""
 
+[importer_defaults]
+
+texture={
+&"compress/mode": 2
+}
+
 [input]
 
 ui_accept={

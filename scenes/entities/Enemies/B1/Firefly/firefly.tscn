@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://caqiovb4lonpj"]
+[gd_scene load_steps=50 format=3 uid="uid://caqiovb4lonpj"]
 
 [ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_cglgf"]
 [ext_resource type="Script" path="res://Tests/firefly_script.gd" id="2_plwqb"]
@@ -39,120 +39,6 @@ size = Vector2(8422, 4677)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmulh"]
 size = Vector2(229, 315)
-
-[sub_resource type="Animation" id="Animation_wb5q1"]
-resource_name = "defeat"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.3, 0.4, 0.5, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.314159, -0.314159, 0.314159, 0.314159, -0.314159, 0.314159, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D3:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.314159, -0.314159, 0.314159, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D3:material:shader_parameter/active")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:material:shader_parameter/active")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GPUParticles2D2:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.0232579, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Wings:current_animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.133333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"no_wings"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D:texture")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_64kop")]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath(".:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.214)]
-}
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("EnemyStateMachine/EnemyDefeat")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"death"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_b3q0i"]
 resource_name = "defeat_2"
@@ -318,11 +204,140 @@ tracks/5/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_wb5q1"]
+resource_name = "defeat"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.3, 0.4, 0.5, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.314159, -0.314159, 0.314159, 0.314159, -0.314159, 0.314159, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.314159, -0.314159, 0.314159, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D3:material:shader_parameter/active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:material:shader_parameter/active")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles2D2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0232579, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Wings:current_animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"no_wings"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_64kop")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.214)]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("EnemyStateMachine/EnemyDefeat")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"death"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nllgd"]
 _data = {
-"defeat": SubResource("Animation_wb5q1"),
-"defeat_2": SubResource("Animation_b3q0i"),
-"hit": SubResource("Animation_4awq0")
+&"defeat": SubResource("Animation_wb5q1"),
+&"hit": SubResource("Animation_4awq0"),
+&"defeat_2": SubResource("Animation_b3q0i")
+}
+
+[sub_resource type="Animation" id="Animation_ia2vm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyStateMachine/EnemyAttack:is_attacking")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_1x4du"]
@@ -388,21 +403,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_ia2vm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyStateMachine/EnemyAttack:is_attacking")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_eht2v"]
@@ -498,9 +498,9 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgrry"]
 _data = {
-"Idle": SubResource("Animation_1x4du"),
-"RESET": SubResource("Animation_ia2vm"),
-"attack": SubResource("Animation_eht2v")
+&"Idle": SubResource("Animation_1x4du"),
+&"attack": SubResource("Animation_eht2v"),
+&"RESET": SubResource("Animation_ia2vm")
 }
 
 [sub_resource type="Animation" id="Animation_i7dor"]
@@ -564,9 +564,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx5xa"]
 _data = {
-"RESET": SubResource("Animation_i7dor"),
-"no_wings": SubResource("Animation_bgn58"),
-"wings": SubResource("Animation_ax6vg")
+&"no_wings": SubResource("Animation_bgn58"),
+&"wings": SubResource("Animation_ax6vg"),
+&"RESET": SubResource("Animation_i7dor")
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s65u1"]
@@ -592,6 +592,15 @@ size = Vector2(474, 552)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0iu8b"]
 size = Vector2(476.5, 487)
+
+[sub_resource type="Gradient" id="Gradient_n1lro"]
+offsets = PackedFloat32Array(0.323232, 0.636364)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sspq7"]
+gradient = SubResource("Gradient_n1lro")
+fill = 1
+fill_from = Vector2(0.489796, 0.520408)
 
 [node name="firefly" type="CharacterBody2D" groups=["Enemies"]]
 material = SubResource("ShaderMaterial_kehak")
@@ -631,6 +640,7 @@ position = Vector2(-31.1836, -5)
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FollowArea"]
+visible = false
 position = Vector2(43.3673, 119.5)
 shape = SubResource("RectangleShape2D_kxu8r")
 debug_color = Color(0.590083, 0.453461, 0.803131, 0.42)
@@ -642,13 +652,13 @@ shape = SubResource("RectangleShape2D_tmulh")
 [node name="Hit" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_nllgd")
+&"": SubResource("AnimationLibrary_nllgd")
 }
 
 [node name="Body2" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_lgrry")
+&"": SubResource("AnimationLibrary_lgrry")
 }
 autoplay = "Idle"
 
@@ -657,19 +667,13 @@ unique_name_in_owner = true
 position = Vector2(42, -43)
 texture = ExtResource("21_hisbq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-material = ExtResource("22_ohcb8")
-position = Vector2(40, 14)
-texture = ExtResource("11_ejcw5")
-
 [node name="Bulletmarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(113, 204)
 
 [node name="Wings" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yx5xa")
+&"": SubResource("AnimationLibrary_yx5xa")
 }
 autoplay = "wings"
 
@@ -677,24 +681,24 @@ autoplay = "wings"
 position = Vector2(78.8164, 0)
 emitting = false
 amount = 7
-process_material = ExtResource("30_yqpc8")
-texture = ExtResource("31_kwfql")
 lifetime = 2.0
 one_shot = true
 preprocess = 0.2
 explosiveness = 0.86
 randomness = 0.67
+texture = ExtResource("31_kwfql")
+process_material = ExtResource("30_yqpc8")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 position = Vector2(-7, 89)
 emitting = false
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_s65u1")
-texture = ExtResource("31_kwfql")
 lifetime = 90.55
 one_shot = true
 explosiveness = 1.0
 randomness = 0.12
+texture = ExtResource("31_kwfql")
+process_material = SubResource("ParticleProcessMaterial_s65u1")
 
 [node name="DamageArea" type="Area2D" parent="."]
 position = Vector2(-29.1836, 42)
@@ -772,6 +776,20 @@ unique_name_in_owner = true
 position = Vector2(-4, -329)
 
 [node name="Dropmarker" type="Marker2D" parent="."]
+
+[node name="PointLight2D5" type="PointLight2D" parent="."]
+position = Vector2(6, 86)
+scale = Vector2(4.72652, 4.36455)
+color = Color(0.703113, 0.921424, 0.16303, 1)
+energy = 1.46
+texture = SubResource("GradientTexture2D_sspq7")
+texture_scale = 1.97
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("22_ohcb8")
+position = Vector2(40, 14)
+texture = ExtResource("11_ejcw5")
 
 [connection signal="timeout" from="EnemyStateMachine/EnemyPrepare/PrepareTimer" to="EnemyStateMachine/EnemyPrepare" method="_on_prepare_timer_timeout"]
 [connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]

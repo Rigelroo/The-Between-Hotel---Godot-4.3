@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cu2e048hxgdgy"]
+[gd_scene load_steps=32 format=3 uid="uid://cu2e048hxgdgy"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_ssnol"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_qv6q8"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dh4acv4eoeure" path="res://Sprites/Hotel/assets_planta1.png" id="7_qcxbd"]
 [ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://objects/showitemsprite.tscn" id="11_smyiw"]
 [ext_resource type="Script" path="res://Sprites/EntryHall/cast_shadow.gd" id="12_syiuq"]
-[ext_resource type="Texture2D" uid="uid://7tiwguj856a5" path="res://Sprites/Hotel/corridor_tetoparallaxA.png" id="15_pbqih"]
 [ext_resource type="PackedScene" uid="uid://d0fmn0ryn2twd" path="res://objects/porta_1.tscn" id="17_3ba5x"]
 [ext_resource type="PackedScene" uid="uid://b5a3af6jeero5" path="res://objects/porta_2.tscn" id="18_b14py"]
 [ext_resource type="PackedScene" uid="uid://7odf4fl3armh" path="res://objects/scene_trigger.tscn" id="18_dnqxp"]
@@ -50,7 +49,6 @@ size = Vector2(538, 1886)
 size = Vector2(316, 2230)
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("objplayer")]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_ssnol")
 background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3"])
 objplayer = NodePath("Player")
@@ -58,6 +56,7 @@ splashw = ExtResource("2_qv6q8")
 inv_dictionary = ExtResource("3_gmx88")
 
 [node name="Fundo" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("4_dg7gf")
 centered = false
 
@@ -80,22 +79,23 @@ position = Vector2(7218, 1255)
 
 [node name="teto" type="Sprite2D" parent="."]
 position = Vector2(428, 0)
+scale = Vector2(2, 2)
 texture = ExtResource("6_c38bo")
 centered = false
 
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("28_ygo3h")]
-position = Vector2(2976, 1614)
+position = Vector2(1159, 1590)
 scale = Vector2(14, 14)
 showitem = NodePath("Showitemsprite")
 player_camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0.666667, -28.3333)
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(0.3, 0.3)
 limit_left = 0
 limit_top = 30
-limit_right = 4355
-limit_bottom = 1100
+limit_right = 8710
+limit_bottom = 2200
 position_smoothing_speed = 3.0
 editor_draw_limits = true
 
@@ -166,20 +166,6 @@ world = NodePath("..")
 
 [node name="Porta3" parent="." node_paths=PackedStringArray("world") instance=ExtResource("19_retjy")]
 world = NodePath("..")
-
-[node name="ParallaxB1" type="Parallax2D" parent="."]
-visible = false
-y_sort_enabled = true
-scale = Vector2(0.495, 0.495)
-scroll_scale = Vector2(0.8, 0.8)
-scroll_offset = Vector2(-1412, -14)
-repeat_size = Vector2(4931, 0)
-repeat_times = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxB1"]
-scale = Vector2(2, 2)
-texture = ExtResource("15_pbqih")
-centered = false
 
 [node name="SceneTrigger" parent="." instance=ExtResource("18_dnqxp")]
 collision_layer = 0

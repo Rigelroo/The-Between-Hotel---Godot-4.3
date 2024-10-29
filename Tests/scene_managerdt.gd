@@ -112,7 +112,7 @@ func transition_to(scene_path: String) -> void:
 	if new_stats:
 		new_stats.add_to_group("Stats")
 	# Wait for the new scene to be ready
-	
+	#await new_scene.ready
 
 	transition_out()
 	await transitioned_out

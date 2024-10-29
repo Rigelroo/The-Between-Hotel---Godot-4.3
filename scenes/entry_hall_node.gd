@@ -70,7 +70,7 @@ func some_function():
 
 
 func _ready() -> void:
-	
+	ready.emit()
 	SignalManager.scene_loaded.emit()
 	#SaveSys.load_game(self)
 	
