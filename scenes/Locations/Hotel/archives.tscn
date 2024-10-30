@@ -1,0 +1,323 @@
+[gd_scene load_steps=54 format=3 uid="uid://bs1vp44eemhja"]
+
+[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_rhjma"]
+[ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_tvgw7"]
+[ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="3_ma23c"]
+[ext_resource type="Texture2D" uid="uid://dbq73ra3di5oo" path="res://Sprites/Hotel/Arquivos/assets_fundofundo.png" id="4_7dpd8"]
+[ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="8_l6vxw"]
+[ext_resource type="Texture2D" uid="uid://bseo3jw48fvf5" path="res://Sprites/EntryHall/luzinha1.png" id="9_ybc8n"]
+[ext_resource type="Texture2D" uid="uid://bwr11lq0ei6nj" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0000.png" id="10_2vuou"]
+[ext_resource type="Texture2D" uid="uid://bxhpuidos0a61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0001.png" id="11_hat34"]
+[ext_resource type="Texture2D" uid="uid://bm73kn18iqyrn" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0002.png" id="12_rdih1"]
+[ext_resource type="Texture2D" uid="uid://db66x10pmb632" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0003.png" id="13_qct5n"]
+[ext_resource type="Texture2D" uid="uid://br4xjdpfr3od2" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0004.png" id="14_802tm"]
+[ext_resource type="Texture2D" uid="uid://b2su4ijpi25dr" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0005.png" id="15_ykt8i"]
+[ext_resource type="Texture2D" uid="uid://dabqxtr5g2u61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0006.png" id="16_ki5e8"]
+[ext_resource type="Texture2D" uid="uid://bxml7dtd3yxm6" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0007.png" id="17_pj66l"]
+[ext_resource type="PackedScene" uid="uid://d08xu1ahurxv3" path="res://objects/elevator.tscn" id="18_2mglm"]
+[ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="20_ledlk"]
+[ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://objects/showitemsprite.tscn" id="21_114f6"]
+[ext_resource type="PackedScene" uid="uid://buw8duilnfqej" path="res://camera_2d.tscn" id="22_brgre"]
+[ext_resource type="Texture2D" uid="uid://ljf238s0wxxj" path="res://Sprites/Hotel/Arquivos/assets_prateleira.png" id="24_7ovoi"]
+[ext_resource type="Texture2D" uid="uid://br48umk57e4dt" path="res://Sprites/Hotel/Arquivos/Baki/baki0000.png" id="25_7wqt2"]
+[ext_resource type="Texture2D" uid="uid://8vupjntcq6af" path="res://Sprites/Hotel/Arquivos/Baki/baki0001.png" id="26_7bnye"]
+[ext_resource type="Texture2D" uid="uid://mvafw05qrmxj" path="res://Sprites/Hotel/Arquivos/Baki/baki0002.png" id="27_elebh"]
+[ext_resource type="Texture2D" uid="uid://xxdqad7wftcx" path="res://Sprites/Hotel/Arquivos/Baki/baki0003.png" id="28_wcp0e"]
+[ext_resource type="Texture2D" uid="uid://bwi3hcamctj7r" path="res://Sprites/Hotel/Arquivos/Baki/baki0004.png" id="29_u0wrw"]
+[ext_resource type="Texture2D" uid="uid://btx81urvlyp6" path="res://Sprites/Hotel/Arquivos/Baki/baki0005.png" id="30_hrtqc"]
+[ext_resource type="Texture2D" uid="uid://inepxonnwvqo" path="res://Sprites/Hotel/Arquivos/Baki/baki0006.png" id="31_iy6w6"]
+[ext_resource type="Texture2D" uid="uid://p3y73kpall7s" path="res://Sprites/Hotel/Arquivos/Baki/baki0007.png" id="32_mgl4h"]
+[ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="32_r3bs3"]
+[ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="33_as7kd"]
+[ext_resource type="Texture2D" uid="uid://cmjt3id2o2did" path="res://Sprites/Hotel/Arquivos/Baki/baki0008.png" id="33_d4rlp"]
+[ext_resource type="Texture2D" uid="uid://8ew3l0w3op6j" path="res://Sprites/Hotel/Arquivos/Baki/baki0009.png" id="34_ds35o"]
+[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="34_emn8q"]
+[ext_resource type="Texture2D" uid="uid://ghawlekffbhv" path="res://Sprites/Hotel/Arquivos/Baki/baki0010.png" id="35_3afp6"]
+[ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="35_qrqfg"]
+[ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="36_ei7i4"]
+[ext_resource type="Texture2D" uid="uid://b2uf7p6och4aj" path="res://Sprites/Hotel/Arquivos/Baki/baki0011.png" id="36_mqqty"]
+[ext_resource type="Texture2D" uid="uid://dvfhvo7q0vfsj" path="res://Sprites/Hotel/Arquivos/Baki/baki0012.png" id="37_t31qr"]
+[ext_resource type="Texture2D" uid="uid://ojhj4hhsdhl6" path="res://Sprites/Hotel/Arquivos/Baki/baki0013.png" id="38_bkcxr"]
+[ext_resource type="Texture2D" uid="uid://by8cwwoygxjna" path="res://Sprites/Hotel/Arquivos/Baki/baki0014.png" id="39_e0bjh"]
+[ext_resource type="Texture2D" uid="uid://cb2tv7eulr78w" path="res://Sprites/Hotel/Arquivos/Baki/baki0015.png" id="40_c0crv"]
+[ext_resource type="Texture2D" uid="uid://bfpks0dquxbnj" path="res://Sprites/Hotel/Arquivos/Baki/baki0016.png" id="41_ql6rk"]
+[ext_resource type="Texture2D" uid="uid://dpy0al3pprgpd" path="res://Sprites/Hotel/Arquivos/Baki/baki0017.png" id="42_2wnxv"]
+[ext_resource type="Texture2D" uid="uid://dj27s3efrdm8k" path="res://Sprites/Hotel/Arquivos/Baki/baki0018.png" id="43_ivie6"]
+[ext_resource type="Texture2D" uid="uid://ckkfs2h7rbwar" path="res://Sprites/Hotel/Arquivos/assets_computer_light.png" id="44_b6yf0"]
+[ext_resource type="Texture2D" uid="uid://b14tunjp7yff8" path="res://Sprites/Hotel/Arquivos/assets_papéis.png" id="45_qqwmt"]
+[ext_resource type="Texture2D" uid="uid://dregy7xhwrcvs" path="res://Sprites/Hotel/Arquivos/assets_computer.png" id="46_xv132"]
+
+[sub_resource type="Gradient" id="Gradient_n1lro"]
+offsets = PackedFloat32Array(0.323232, 0.636364)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mvjgn"]
+gradient = SubResource("Gradient_n1lro")
+fill = 1
+fill_from = Vector2(0.489796, 0.520408)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d23d7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_2vuou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hat34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rdih1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_qct5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_802tm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ykt8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ki5e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pj66l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tblin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_7wqt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7bnye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_elebh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_wcp0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_u0wrw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_hrtqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_iy6w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_mgl4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_d4rlp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ds35o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_3afp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_mqqty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_t31qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_bkcxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_e0bjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_c0crv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_ql6rk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_2wnxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_ivie6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dflsc"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhypq"]
+size = Vector2(45.1103, 401.079)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjqto"]
+size = Vector2(10100, 757.683)
+
+[node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
+position = Vector2(0, -7)
+scale = Vector2(0.41, 0.41)
+script = ExtResource("1_rhjma")
+background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3", ""])
+objplayer = NodePath("Player")
+splashw = ExtResource("2_tvgw7")
+inv_dictionary = ExtResource("3_ma23c")
+next_scene = "res://Tests/parallaxtest1.tscn"
+
+[node name="Assets" type="Node2D" parent="."]
+
+[node name="Fundo" type="Sprite2D" parent="Assets"]
+scale = Vector2(1.17713, 1.17713)
+texture = ExtResource("4_7dpd8")
+centered = false
+
+[node name="Luminárias" type="Node2D" parent="."]
+scale = Vector2(4.84, 4.84)
+
+[node name="Luzinha1" type="Sprite2D" parent="Luminárias"]
+material = ExtResource("8_l6vxw")
+position = Vector2(366.942, 147.314)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_ybc8n")
+
+[node name="PointLight2D" type="PointLight2D" parent="Luminárias/Luzinha1"]
+material = ExtResource("8_l6vxw")
+position = Vector2(-3.33337, 436.667)
+scale = Vector2(20.9787, 21.1589)
+texture = SubResource("GradientTexture2D_mvjgn")
+texture_scale = 0.72
+
+[node name="Lightmoths" type="AnimatedSprite2D" parent="Luminárias/Luzinha1"]
+position = Vector2(8.09912, 462.617)
+sprite_frames = SubResource("SpriteFrames_d23d7")
+autoplay = "default"
+frame_progress = 0.731416
+
+[node name="Luzinha2" type="Sprite2D" parent="Luminárias"]
+material = ExtResource("8_l6vxw")
+position = Vector2(716.942, 85.124)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_ybc8n")
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Luminárias/Luzinha2"]
+material = ExtResource("8_l6vxw")
+position = Vector2(-3.33337, 436.667)
+scale = Vector2(20.9787, 21.1589)
+texture = SubResource("GradientTexture2D_mvjgn")
+texture_scale = 0.72
+
+[node name="Luzinha3" type="Sprite2D" parent="Luminárias"]
+material = ExtResource("8_l6vxw")
+position = Vector2(1871.69, 144.215)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_ybc8n")
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Luminárias/Luzinha3"]
+material = ExtResource("8_l6vxw")
+position = Vector2(-3.33337, 436.667)
+scale = Vector2(20.9787, 21.1589)
+texture = SubResource("GradientTexture2D_mvjgn")
+texture_scale = 0.72
+
+[node name="Elevator" parent="Luminárias" instance=ExtResource("18_2mglm")]
+position = Vector2(196.533, 371.397)
+scale = Vector2(0.259813, 0.259813)
+
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(4036.59, 2000)
+scale = Vector2(1.31486, 1.31486)
+sprite_frames = SubResource("SpriteFrames_tblin")
+autoplay = "default"
+frame = 10
+frame_progress = 0.153581
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D2"]
+material = SubResource("CanvasItemMaterial_dflsc")
+position = Vector2(-361.718, 107.588)
+scale = Vector2(1, 1)
+texture = ExtResource("44_b6yf0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Sprite2D2"]
+position = Vector2(454.466, 183.641)
+scale = Vector2(1, 1)
+texture = ExtResource("45_qqwmt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2"]
+position = Vector2(-515.68, 179.931)
+texture = ExtResource("46_xv132")
+
+[node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("20_ledlk")]
+position = Vector2(2853.66, 2409.76)
+scale = Vector2(22, 22)
+showitem = NodePath("Showitemsprite")
+player_camera = NodePath("Camera2D")
+
+[node name="Showitemsprite" parent="Player" instance=ExtResource("21_114f6")]
+
+[node name="Camera2D" parent="Player" instance=ExtResource("22_brgre")]
+position = Vector2(0.75, -23.5)
+zoom = Vector2(0.5, 0.5)
+limit_left = -5
+limit_top = 0
+limit_right = 3440
+limit_bottom = 1325
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+editor_draw_limits = true
+
+[node name="Berserklayer" parent="." instance=ExtResource("32_r3bs3")]
+
+[node name="SaveStarter" parent="Berserklayer" instance=ExtResource("33_as7kd")]
+
+[node name="Statslayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.76, 0.76)
+transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
+
+[node name="Statsbar" parent="Statslayer" instance=ExtResource("34_emn8q")]
+visible = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("35_qrqfg")]
+process_mode = 3
+visible = false
+
+[node name="PausemenuLayer" parent="." instance=ExtResource("36_ei7i4")]
+visible = false
+
+[node name="Collisions" type="StaticBody2D" parent="."]
+
+[node name="Wall" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(-187.805, 1729.27)
+scale = Vector2(16.32, 9.08)
+shape = SubResource("RectangleShape2D_fhypq")
+
+[node name="Wall2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(8731.71, 1717.07)
+scale = Vector2(16.32, 9.08)
+shape = SubResource("RectangleShape2D_fhypq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(5040, 3186.16)
+scale = Vector2(0.996957, 1)
+shape = SubResource("RectangleShape2D_hjqto")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
+position = Vector2(5040, -317)
+scale = Vector2(0.996957, 1)
+shape = SubResource("RectangleShape2D_hjqto")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7907.32, 2363.41)
+scale = Vector2(1.177, 1.177)
+texture = ExtResource("24_7ovoi")

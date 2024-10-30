@@ -310,7 +310,7 @@ scale = Vector2(4, 4)
 world = NodePath("..")
 
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("21_5p0qm")]
-position = Vector2(6752.5, 2180)
+position = Vector2(7590.24, 1946.34)
 scale = Vector2(22, 22)
 showitem = NodePath("Showitemsprite")
 player_camera = NodePath("Camera2D")
