@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b3wiqgg03gaan"]
+[gd_scene load_steps=70 format=3 uid="uid://b3wiqgg03gaan"]
 
 [ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_wl04x"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_sao3u"]
@@ -34,7 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="34_2wjie"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="35_cqg7p"]
 [ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="35_lpw7y"]
-[ext_resource type="PackedScene" uid="uid://criewgj3p57f2" path="res://inventory/Selos/item stamppoint.tscn" id="36_2orps"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="36_cxjjy"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="37_8k0fb"]
 [ext_resource type="Script" path="res://scenes/escadaria.gd" id="37_jm5go"]
@@ -399,10 +398,6 @@ shape = SubResource("RectangleShape2D_hjqto")
 position = Vector2(5040, -317)
 scale = Vector2(0.996957, 1)
 shape = SubResource("RectangleShape2D_hjqto")
-
-[node name="Item_stamppoint" parent="." instance=ExtResource("36_2orps")]
-position = Vector2(6447.5, 1532.5)
-scale = Vector2(3.97, 3.97)
 
 [node name="Escadaria" type="Node2D" parent="." node_paths=PackedStringArray("balloon", "world")]
 position = Vector2(2117.5, 1767.5)
