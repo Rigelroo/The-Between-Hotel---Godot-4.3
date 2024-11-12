@@ -68,6 +68,21 @@ texture = ExtResource("17_be31b")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ft0an"]
 
+[sub_resource type="Animation" id="Animation_mfpuo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(460, 496)]
+}
+
 [sub_resource type="Animation" id="Animation_5nmiu"]
 resource_name = "shake"
 tracks/0/type = "value"
@@ -95,21 +110,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"start_tween"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_mfpuo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(460, 496)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lm02q"]

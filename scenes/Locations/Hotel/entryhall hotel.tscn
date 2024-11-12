@@ -225,6 +225,7 @@ script = ExtResource("1_wl04x")
 background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3", ""])
 objplayer = NodePath("Player")
 splashw = ExtResource("2_sao3u")
+scene_name = "Entryhall"
 inv_dictionary = ExtResource("3_ugrrr")
 next_scene = "res://Tests/parallaxtest1.tscn"
 
@@ -235,16 +236,16 @@ scale = Vector2(1.99745, 1.99745)
 texture = ExtResource("4_hc5jt")
 centered = false
 
-[node name="Recepcionistas" parent="Assets" instance=ExtResource("17_xcedm")]
+[node name="Recepcionistas" parent="." instance=ExtResource("17_xcedm")]
 position = Vector2(5142, 1496)
 scale = Vector2(5.5, 5.5)
 
-[node name="Fundo2" type="Sprite2D" parent="Assets"]
+[node name="Fundo2" type="Sprite2D" parent="."]
 position = Vector2(3912, 1976)
 texture = ExtResource("6_g86lm")
 centered = false
 
-[node name="Fundo3" type="Sprite2D" parent="Assets"]
+[node name="Fundo3" type="Sprite2D" parent="."]
 position = Vector2(5557, 1888)
 texture = ExtResource("7_atokc")
 centered = false

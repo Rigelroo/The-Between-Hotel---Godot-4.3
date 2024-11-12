@@ -75,7 +75,9 @@ func transition_to(scene_path: String) -> void:
 	if current_scene:
 		var player = current_scene.get_node("Player")  # Replace "Player" with your player's node path
 		var camera = current_scene.get_node("Camera2D")  # Replace "Camera2D" with your camera node path
-		
+		if current_scene.has_method("save_scenestate"):
+			current_scene.save_scenestate()
+			
 		# Store current camera if needed
 		current_camera = camera if camera else current_camera
 
@@ -112,7 +114,7 @@ func transition_to(scene_path: String) -> void:
 	if new_stats:
 		new_stats.add_to_group("Stats")
 	# Wait for the new scene to be ready
-	#await new_scene.ready
-
+	#new_scene.loadscene()
+	await new_scene.loadscene()
 	transition_out()
 	await transitioned_out

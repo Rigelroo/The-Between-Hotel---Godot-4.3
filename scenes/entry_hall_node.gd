@@ -1,14 +1,17 @@
 extends Node2D
 
+
 class_name World
 var dead : bool = false
 #@onready var canvas : CanvasLayer = $CanvasLayer
+
+signal scene_ready
 
 @export_file("*.mp3") var background_music_array : Array[String]
 
 @export var objplayer : Player
 @export var splashw : SplashWater
-
+@export var scene_name : String
 @export var player_scale : float = 1
 @onready var inventory = $PausemenuLayer.inventory
 @onready var player = get_tree().get_first_node_in_group("Player")
@@ -70,9 +73,7 @@ func some_function():
 
 
 func _ready() -> void:
-	ready.emit()
-	SignalManager.scene_loaded.emit()
-	#SaveSys.load_game(self)
+	SaveSys.load_game(self)
 	
 	some_function()
 	background_music()
@@ -89,9 +90,29 @@ func _ready() -> void:
 
 	$PausemenuLayer.inventory.readyclose()
 	
-	Dialogic.signal_event.connect(_on_dialogic_signal)
+	load_scenestate()
 	
+	Dialogic.signal_event.connect(_on_dialogic_signal)
+	scene_readyvar = true
+	#SignalManager.scene_loaded.emit()
 	#canvas.global_position = player.global_position
+
+var scene_readyvar = false
+func save_scenestate():
+	for child in self.get_children():
+		if child.has_method("savestate"):
+			child.savestate()
+
+func load_scenestate():
+	for child in self.get_children():
+		if child.has_method("loadstate"):
+			child.loadstate()
+
+func loadscene():
+	if scene_readyvar:
+		SignalManager.scene_loaded.emit()
+
+
 func activate():
 	if splashw.can_create:
 		splashw.Vaifundo.emit()

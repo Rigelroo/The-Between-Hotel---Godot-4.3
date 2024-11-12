@@ -244,12 +244,10 @@ frame_progress = 0.153581
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D2"]
 material = SubResource("CanvasItemMaterial_dflsc")
 position = Vector2(-361.718, 107.588)
-scale = Vector2(1, 1)
 texture = ExtResource("44_b6yf0")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Sprite2D2"]
 position = Vector2(454.466, 183.641)
-scale = Vector2(1, 1)
 texture = ExtResource("45_qqwmt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D2"]

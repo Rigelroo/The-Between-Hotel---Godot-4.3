@@ -312,6 +312,7 @@ func save():
 	var signal_manager_variables = [stamp_points, max_stamp_points,main_manager.greed_equiped,main_manager.hleaf_equiped,main_manager.hatintime_equiped,main_manager.shadowdiver_equiped,main_manager.crimsonfury_equiped,main_manager.frozenheart_equiped,main_manager.ffemblem_equiped]
 	SaveSys.signalManager_dict[name] = signal_manager_variables
 	SaveSys.save_game()
+	its_saving.emit()
 
 
 
@@ -327,7 +328,7 @@ func load_parameters(update_parameters):
 		if "SignalManager" in update_parameters:
 			print("isso: ", update_parameters["SignalManager"][0])
 			var signal_params = update_parameters["SignalManager"]
-			stamp_points = signal_params[0]
+			#stamp_points = signal_params[0]
 			max_stamp_points = signal_params[1]
 			main_manager.greed_equiped = signal_params[2]
 			main_manager.hleaf_equiped = signal_params[3]
@@ -342,8 +343,26 @@ func load_parameters(update_parameters):
 	else:
 		print("update_parameters é nulo.")
 var inventoryequiped_array = []
+var inventorystamps_array = []
+var inventoryitems_array = []
+var inventoryitemsamount_array = []
 
 func save_inventory(slots):
+	for slot in inventoryb.invslots:
+		if slot.item != null:
+			inventoryitems_array.append(slot.item.name)
+			inventoryitemsamount_array.append(slot.amount)
+			print("item: ",slot.item.name)
+			#inventoryequiped_array.append(PLAYER_INVENTORYC.stampslots[i])
+			#inventoryequiped_array.append(PLAYER_INVENTORYC.stampslots[i].amount)
+	
+	for slot in inventory.slots:
+		if slot.item != null:
+			inventorystamps_array.append(slot.item.name)
+			print("stamp: ",slot.item.name)
+			#inventoryequiped_array.append(PLAYER_INVENTORYC.stampslots[i])
+			#inventoryequiped_array.append(PLAYER_INVENTORYC.stampslots[i].amount)
+	
 	for i in range(0,5):
 		
 		if slots[i].itemStackGuic != null:
@@ -353,7 +372,11 @@ func save_inventory(slots):
 			#inventoryequiped_array.append(PLAYER_INVENTORYC.stampslots[i].amount)
 			
 	SaveSys.equiped_stamps = inventoryequiped_array
-	
+	SaveSys.inv_stamps = inventorystamps_array
+	SaveSys.inv_items = inventoryitems_array
+	SaveSys.inv_item_amounts = inventoryitemsamount_array
+
+
 
 func load_inventory(saved_items):
 	var index = 0
@@ -369,6 +392,41 @@ func load_inventory(saved_items):
 	for iteminarray in array:
 		emit_signal("sigload_equipstamp", iteminarray)
 
+#@export var inventory : Inventory
+
+func load_stampsinventory(saved_items):
+	var index = 0
+	var array = []
+	for saved_item in saved_items:
+		for item in inv_dictionary.invseals:
+			if item.name == saved_item:
+				#inventoryc.insert(item)
+				print("item: ", item.name)
+				print("saved item: ", saved_item)
+				if !array.has(item):
+					array.append(item)
+	for iteminarray in array:
+		inventory.insert(iteminarray)
+		#emit_signal("sigload_equipstamp", iteminarray)
+
+func load_itemsinventory(saved_items, saved_amounts):
+	var index = 0
+	var array = []
+	var amount_array = []
+	for saved_item in saved_items:
+		for item in inv_dictionary.invsitems:
+			if item.name == saved_item:
+				#inventoryc.insert(item)
+				print("item: ", item.name)
+				print("saved item: ", saved_item)
+				if !array.has(item):
+					array.append(item)
+	for iteminarray in array:
+		inventoryb.insert(iteminarray)
+		
+	for saved_amount in saved_amounts:
+		for item in inventoryb.invslots:
+			item.amount = saved_amount
 
 
 func load_equipstamp(slots: Array, sealslots: Array, currently_selected: int, inventoryc: Inventoryc, item):

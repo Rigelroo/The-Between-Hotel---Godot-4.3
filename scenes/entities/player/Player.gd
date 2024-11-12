@@ -128,7 +128,7 @@ func save():
 	inventoryequiped_array.append(inventoryc.stampslots)
 	pos.append(position.x)
 	pos.append(position.y)
-	SaveSys.equiped_stamps[name] = inventoryequiped_array
+	SaveSys.equiped_stamps = inventoryequiped_array
 	SaveSys.pos_dict[name] = pos
 	
 

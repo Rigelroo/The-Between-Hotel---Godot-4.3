@@ -8,7 +8,25 @@ var is_chatting = false
 var Player = null
 var timeline : DialogicTimeline = DialogicTimeline.new()
 @export var dialog_event = 1
+@export var test_event = 2
+func load_savedstate():
+	dialog_event
 
+func savestate():
+	var array = {"dialog_event": dialog_event}
+	SaveSys.write_save_scene_state(array, "npc_KoriTrice", get_parent().scene_name)
+	print("test")
+
+func loadstate():
+	SaveSys.read_save_scene_state()
+	
+	var state_data = SaveSys.read_save_scene_state()
+	if state_data:
+		if state_data.has(get_parent().scene_name) and state_data[get_parent().scene_name].has("npc_KoriTrice"):
+			var npc_data = state_data[get_parent().scene_name]["npc_KoriTrice"]
+			print(npc_data)  # Isso imprimirá o valor, por exemplo: [1, false]
+			
+			dialog_event = npc_data["dialog_event"]
 func _ready():
 	$AnimatedSprite2D2.play("inactive")
 	$AnimatedSprite2D.play("default")

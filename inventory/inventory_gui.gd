@@ -150,7 +150,9 @@ func updatecoin():
 	coin_displayer.update()
 
 func show_stamppoints():
+	print("stamppoints: ", SignalManager.stamp_points)
 	name_label_2.set_text(str(SignalManager.stamp_points))
+	
 
 func update():
 	show_stamppoints()
