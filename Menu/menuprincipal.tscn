@@ -1,13 +1,21 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2kbwohtjrf5k"]
+[gd_scene load_steps=53 format=3 uid="uid://d2kbwohtjrf5k"]
 
 [ext_resource type="Texture2D" uid="uid://p7wpl8iyn027" path="res://Menu/Sprites/menuprincipal_fundo.png" id="1_42538"]
+[ext_resource type="Script" path="res://Menu/menuprincipal.gd" id="1_wkb2l"]
+[ext_resource type="Texture2D" uid="uid://dhghbdvfmrbsp" path="res://Menu/Sprites/menuprincipal_hallow2.png" id="2_1kg5x"]
 [ext_resource type="Texture2D" uid="uid://cihsiept8iwwk" path="res://Menu/Sprites/menuprincipal_caixa.png" id="2_53cvo"]
 [ext_resource type="Texture2D" uid="uid://inbe4co0665y" path="res://Menu/Sprites/menuprincipal_titulob.png" id="3_33ln3"]
 [ext_resource type="Texture2D" uid="uid://co3ehghs5vlmu" path="res://Menu/Sprites/persian_menu_todo.png" id="4_mcute"]
+[ext_resource type="Texture2D" uid="uid://dik1etjs2ywhl" path="res://Menu/Sprites/menuprincipal_natal1.png" id="4_wkb2l"]
 [ext_resource type="Texture2D" uid="uid://ba4qw73jyjnce" path="res://Menu/Sprites/persian_menu_patinha0000.png" id="5_n6e1d"]
+[ext_resource type="Texture2D" uid="uid://dwrl1hludyjva" path="res://Menu/Sprites/menunatalluzinhacoisa.png" id="5_y48ur"]
+[ext_resource type="Texture2D" uid="uid://b4a0e7ps63b7j" path="res://Menu/Sprites/menunatalluzinha0000.png" id="6_5phwd"]
 [ext_resource type="Texture2D" uid="uid://c4rnvgsv8ghn6" path="res://Menu/Sprites/persian_menu_patinha0001.png" id="6_hqjym"]
+[ext_resource type="Texture2D" uid="uid://bgy4vs4pn3ff1" path="res://Menu/Sprites/menunatalluzinha0001.png" id="7_knhy5"]
 [ext_resource type="Texture2D" uid="uid://bfwpjwk4k51r2" path="res://Menu/Sprites/persian_menu_patinha0002.png" id="7_m82h3"]
+[ext_resource type="Texture2D" uid="uid://bua7b7vj6er8m" path="res://Menu/Sprites/menunatalluzinha0002.png" id="8_2ytcj"]
 [ext_resource type="Texture2D" uid="uid://dk4t7edhjff0x" path="res://Menu/Sprites/persian_menu_patinha0003.png" id="8_htub2"]
+[ext_resource type="Texture2D" uid="uid://bqobqxftefah3" path="res://Menu/Sprites/menunatalluzinha0003.png" id="9_g85ol"]
 [ext_resource type="Texture2D" uid="uid://qsbphevssdji" path="res://Menu/Sprites/persian_menu_patinha0004.png" id="9_qh65o"]
 [ext_resource type="Texture2D" uid="uid://n3hu81vhllf6" path="res://Menu/Sprites/persian_menu_patinha0005.png" id="10_1g5y1"]
 [ext_resource type="Texture2D" uid="uid://bxbrpkv47wigi" path="res://Menu/Sprites/persian_menu_rabinho0000.png" id="11_w1do3"]
@@ -19,6 +27,44 @@
 [ext_resource type="Texture2D" uid="uid://bg878ycpe4qbf" path="res://Menu/Sprites/menuprincipal_botãocarregar.png" id="17_rund8"]
 [ext_resource type="Texture2D" uid="uid://c6yyf7jbeh0b" path="res://Menu/Sprites/menuprincipal_botãooptions.png" id="18_lj6p2"]
 [ext_resource type="Texture2D" uid="uid://bkkqgtix3a1ay" path="res://Menu/Sprites/menuprincipal_botãosair.png" id="19_yr1gy"]
+[ext_resource type="Script" path="res://scenes/canvas_layer.gd" id="28_knhy5"]
+[ext_resource type="Shader" path="res://objects/test.gdshader" id="29_2ytcj"]
+[ext_resource type="Shader" path="res://inventory/Items/item_1.gdshader" id="30_g85ol"]
+[ext_resource type="Texture2D" uid="uid://bwssnpvxo5ypi" path="res://Menu/Sprites/menusave/menusaves_slots.png" id="31_r7q74"]
+[ext_resource type="Texture2D" uid="uid://cv5l6cecr5hue" path="res://Menu/Sprites/menusave/menusaves_1.png" id="32_tb0pw"]
+[ext_resource type="Texture2D" uid="uid://bhd4jpfe88npe" path="res://Menu/Sprites/menusave/menusaves_2.png" id="33_oc063"]
+[ext_resource type="Texture2D" uid="uid://b2iqlsui6a7so" path="res://Menu/Sprites/menusave/menusaves_3.png" id="34_xfrxp"]
+[ext_resource type="Texture2D" uid="uid://d3dbecd3we6qt" path="res://Menu/Sprites/menusave/menusaves_saveshow.png" id="35_rwrtu"]
+[ext_resource type="Texture2D" uid="uid://c21s8d4vao5wm" path="res://Menu/Sprites/menusave/menusaves_saveshowfoto.png" id="36_uuoh5"]
+[ext_resource type="Texture2D" uid="uid://dg0fleaoncgdr" path="res://Menu/Sprites/menusave/menusaves_saveshowname.png" id="37_w8sd0"]
+[ext_resource type="Texture2D" uid="uid://c5hp6cehylfkh" path="res://Menu/Sprites/menusave/foto_locais/bettleborough.png" id="38_ava26"]
+[ext_resource type="FontFile" uid="uid://exj3c8h6l0tr" path="res://Fonts/Typewriter215FP-Bold.otf" id="38_imnho"]
+[ext_resource type="Texture2D" uid="uid://c48sbmoua2ihm" path="res://Menu/Sprites/menusave/menusaves_vida.png" id="40_ugw1t"]
+[ext_resource type="Texture2D" uid="uid://dgcwo25g6tqfu" path="res://Menu/Sprites/menusave/menusaves_deaths.png" id="41_a0ooc"]
+[ext_resource type="Texture2D" uid="uid://uay5y0ojy2s7" path="res://Menu/Sprites/menusave/menusaves_moeda.png" id="42_0cv2o"]
+[ext_resource type="FontFile" uid="uid://de0cqe1w2vxpa" path="res://Fonts/Typewriter215FP - Copia.ttf" id="43_bnajq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r7q74"]
+shader = ExtResource("30_g85ol")
+shader_parameter/resolution = Vector2(1280, 720)
+shader_parameter/scan_line_amount = 0.102
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ciqmj"]
+shader = ExtResource("29_2ytcj")
+shader_parameter/grain_amount = 0.05
+shader_parameter/grain_size = 0.694
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_meonr"]
 animations = [{
@@ -69,26 +115,310 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ciqmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5phwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_knhy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2ytcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_g85ol")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_5xqpx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menuprincipalcaixa:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1259, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button_creditos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23, 521)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuprincipalTitulob:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuprincipalTitulob:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(270, 165)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuprincipalTitulob:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Menuprincipalcaixa/save_control:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f6g3w"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menuprincipalcaixa:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1915, 324), Vector2(1611, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button_creditos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-128, 521), Vector2(23, 521)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuprincipalTitulob:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.533333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuprincipalTitulob:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.533333, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(270, 200), Vector2(270, 165)]
+}
+
+[sub_resource type="Animation" id="Animation_wkb2l"]
+resource_name = "apertado"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menuprincipalcaixa:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1611, 324), Vector2(-204, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button_creditos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23, 521)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuprincipalTitulob:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuprincipalTitulob:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(270, 165), Vector2(270, 165), Vector2(164, 165)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuprincipalFundo:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(575.444, 324), Vector2(575.444, 324), Vector2(575.444, 324)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuprincipalTitulob:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.233333, 0.533333),
+"transitions": PackedFloat32Array(1, 0.965936),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.122, 0.122)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Menuprincipalcaixa/save_control:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5xqpx"]
+_data = {
+&"RESET": SubResource("Animation_5xqpx"),
+&"apertado": SubResource("Animation_wkb2l"),
+&"start": SubResource("Animation_f6g3w")
+}
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_wkb2l")
+festivosprites = Array[String](["res://Menu/Sprites/menuprincipal_natal1.png", "res://Menu/Sprites/menuprincipal_hallow1.png"])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("inventory")]
+process_mode = 3
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+script = ExtResource("28_knhy5")
+inventory = NodePath("")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+top_level = true
+material = SubResource("ShaderMaterial_r7q74")
+offset_right = 1191.0
+offset_bottom = 678.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1191, 678)
+render_target_update_mode = 4
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer/SubViewportContainer"]
+top_level = true
+material = SubResource("ShaderMaterial_ciqmj")
+layout_mode = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1191, 678)
+render_target_update_mode = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1000, 500.81)
+offset_right = 1150.0
+offset_bottom = 650.0
+color = Color(0.129412, 0.0941176, 0.223529, 1)
 
 [node name="MenuprincipalFundo" type="Sprite2D" parent="."]
 position = Vector2(575.444, 324)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_42538")
 
-[node name="Menuprincipalcaixa" type="Sprite2D" parent="."]
-position = Vector2(1259, 324)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_53cvo")
+[node name="festivoshadow" type="Sprite2D" parent="MenuprincipalFundo"]
+position = Vector2(590.224, 920)
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("2_1kg5x")
+
+[node name="festivo" type="Sprite2D" parent="MenuprincipalFundo/festivoshadow"]
+position = Vector2(241.031, -892.308)
+texture = ExtResource("4_wkb2l")
 
 [node name="MenuprincipalTitulob" type="Sprite2D" parent="."]
 position = Vector2(270, 165)
-scale = Vector2(0.22, 0.22)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_33ln3")
 
 [node name="PersianMenuTodo" type="Sprite2D" parent="."]
 position = Vector2(488, 467)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_mcute")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PersianMenuTodo"]
@@ -109,33 +439,209 @@ offset_left = 23.0
 offset_top = 521.0
 offset_right = 465.0
 offset_bottom = 910.0
-scale = Vector2(0.27, 0.27)
+scale = Vector2(0.245, 0.245)
 icon = ExtResource("16_s7uty")
 flat = true
 
-[node name="Button_carregar" type="Button" parent="."]
-offset_left = 818.0
-offset_top = 69.0
-offset_right = 1958.0
-offset_bottom = 600.0
-scale = Vector2(0.27, 0.27)
+[node name="Menuprincipalcaixa" type="Sprite2D" parent="."]
+position = Vector2(1259, 324)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("2_53cvo")
+
+[node name="festivo2" type="Sprite2D" parent="Menuprincipalcaixa"]
+position = Vector2(-2496.15, 0)
+texture = ExtResource("5_y48ur")
+
+[node name="festivo3" type="AnimatedSprite2D" parent="Menuprincipalcaixa"]
+position = Vector2(-2496.15, 0)
+sprite_frames = SubResource("SpriteFrames_ciqmj")
+autoplay = "default"
+frame_progress = 0.904263
+speed_scale = 0.7
+
+[node name="Button_carregar" type="Button" parent="Menuprincipalcaixa"]
+offset_left = -2996.15
+offset_top = -892.308
+offset_right = -1856.16
+offset_bottom = -361.308
 icon = ExtResource("17_rund8")
 flat = true
 
-[node name="Button_config" type="Button" parent="."]
-offset_left = 793.0
-offset_top = 251.0
-offset_right = 2045.0
-offset_bottom = 743.0
-scale = Vector2(0.27, 0.27)
+[node name="Button_config" type="Button" parent="Menuprincipalcaixa"]
+offset_left = -3096.15
+offset_top = -164.308
+offset_right = -1844.16
+offset_bottom = 327.692
 icon = ExtResource("18_lj6p2")
 flat = true
 
-[node name="Button_sair" type="Button" parent="."]
-offset_left = 799.0
-offset_top = 410.0
-offset_right = 2087.0
-offset_bottom = 954.0
-scale = Vector2(0.27, 0.27)
+[node name="Button_sair" type="Button" parent="Menuprincipalcaixa"]
+offset_left = -3072.15
+offset_top = 471.692
+offset_right = -1784.16
+offset_bottom = 1015.69
 icon = ExtResource("19_yr1gy")
 flat = true
+
+[node name="save_control" type="Control" parent="Menuprincipalcaixa"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="save1" type="Button" parent="Menuprincipalcaixa/save_control"]
+offset_left = -423.076
+offset_top = -876.923
+offset_right = 2185.92
+offset_bottom = -345.923
+icon = ExtResource("31_r7q74")
+flat = true
+
+[node name="numero" type="Sprite2D" parent="Menuprincipalcaixa/save_control/save1"]
+position = Vector2(1415.38, 326.923)
+texture = ExtResource("32_tb0pw")
+
+[node name="save2" type="Button" parent="Menuprincipalcaixa/save_control"]
+offset_left = -423.077
+offset_top = -165.385
+offset_right = 2185.92
+offset_bottom = 326.615
+icon = ExtResource("31_r7q74")
+flat = true
+
+[node name="numero" type="Sprite2D" parent="Menuprincipalcaixa/save_control/save2"]
+visible = false
+position = Vector2(1419.23, 284.616)
+texture = ExtResource("33_oc063")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/save2"]
+offset_left = 1350.0
+offset_top = 84.6158
+offset_right = 2555.0
+offset_bottom = 438.616
+theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
+theme_override_fonts/font = ExtResource("38_imnho")
+theme_override_font_sizes/font_size = 311
+text = "Vazio"
+
+[node name="save3" type="Button" parent="Menuprincipalcaixa/save_control"]
+offset_left = -423.077
+offset_top = 471.692
+offset_right = 2185.92
+offset_bottom = 1015.69
+icon = ExtResource("31_r7q74")
+flat = true
+
+[node name="numero" type="Sprite2D" parent="Menuprincipalcaixa/save_control/save3"]
+visible = false
+position = Vector2(1419.23, 320.616)
+texture = ExtResource("34_xfrxp")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/save3"]
+offset_left = 1350.0
+offset_top = 84.6158
+offset_right = 2555.0
+offset_bottom = 438.616
+theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
+theme_override_fonts/font = ExtResource("38_imnho")
+theme_override_font_sizes/font_size = 311
+text = "Vazio"
+
+[node name="saveshow" type="Sprite2D" parent="Menuprincipalcaixa/save_control"]
+position = Vector2(4076.92, 0)
+scale = Vector2(1.01, 1.01)
+texture = ExtResource("35_rwrtu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
+clip_children = 1
+position = Vector2(3.80807, -498.858)
+texture = ExtResource("36_uuoh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow/Sprite2D2"]
+scale = Vector2(1.005, 1.005)
+texture = ExtResource("38_ava26")
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
+position = Vector2(3.80807, -194.212)
+texture = ExtResource("37_w8sd0")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow/Sprite2D"]
+offset_left = -365.575
+offset_top = -45.6969
+offset_right = 135.425
+offset_bottom = 56.3031
+theme_override_fonts/font = ExtResource("38_imnho")
+theme_override_font_sizes/font_size = 91
+text = "aaaaaaaaaaaa"
+
+[node name="vidas" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
+position = Vector2(-449.353, 156.131)
+texture = ExtResource("40_ugw1t")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow/vidas"]
+offset_left = 118.05
+offset_top = 57.1211
+offset_right = 619.05
+offset_bottom = 159.121
+theme_override_fonts/font = ExtResource("38_imnho")
+theme_override_font_sizes/font_size = 91
+text = "999"
+
+[node name="mortes" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
+position = Vector2(-53.313, 156.131)
+texture = ExtResource("41_a0ooc")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow/mortes"]
+offset_left = 118.05
+offset_top = 57.1211
+offset_right = 619.05
+offset_bottom = 159.121
+theme_override_fonts/font = ExtResource("38_imnho")
+theme_override_font_sizes/font_size = 91
+text = "999"
+metadata/_edit_use_anchors_ = true
+
+[node name="moedas" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
+position = Vector2(357.959, 156.131)
+texture = ExtResource("42_0cv2o")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow/moedas"]
+offset_left = 118.05
+offset_top = 57.1211
+offset_right = 619.05
+offset_bottom = 159.121
+theme_override_fonts/font = ExtResource("38_imnho")
+theme_override_font_sizes/font_size = 91
+text = "999"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow"]
+offset_left = -586.443
+offset_top = 388.423
+offset_right = 618.557
+offset_bottom = 490.424
+theme_override_fonts/font = ExtResource("43_bnajq")
+theme_override_font_sizes/font_size = 86
+text = "Último Save:   15 Nov 2024"
+
+[node name="Label2" type="Label" parent="Menuprincipalcaixa/save_control/saveshow"]
+offset_left = -575.019
+offset_top = 544.555
+offset_right = 629.981
+offset_bottom = 646.555
+theme_override_fonts/font = ExtResource("43_bnajq")
+theme_override_font_sizes/font_size = 86
+text = "Tempo:   3h 14min"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5xqpx")
+}
+autoplay = "start"
+
+[connection signal="pressed" from="Menuprincipalcaixa/Button_carregar" to="." method="_on_button_carregar_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/Button_config" to="." method="_on_button_config_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/Button_sair" to="." method="_on_button_sair_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/save_control/save1" to="." method="_on_button_carregar_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/save_control/save2" to="." method="_on_button_config_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/save_control/save3" to="." method="_on_button_sair_pressed"]

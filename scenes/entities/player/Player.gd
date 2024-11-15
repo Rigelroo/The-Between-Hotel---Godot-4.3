@@ -125,9 +125,13 @@ var inventoryequiped_array = []
 
 
 func save():
+	var saved_scene = get_parent().scene_file_path
+	print(saved_scene)
+	
 	inventoryequiped_array.append(inventoryc.stampslots)
 	pos.append(position.x)
 	pos.append(position.y)
+	SaveSys.saved_current_scene = saved_scene
 	SaveSys.equiped_stamps = inventoryequiped_array
 	SaveSys.pos_dict[name] = pos
 	

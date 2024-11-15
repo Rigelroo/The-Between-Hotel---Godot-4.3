@@ -7,12 +7,15 @@ extends Node2D
 
 func _ready() -> void:
 	$AnimationPlayer.play("surge")
-	await  $AnimationPlayer.animation_finished
+	await $AnimationPlayer.animation_finished
 	$Timer.start(3)
 	await $Timer.timeout
 	$AnimationPlayer.play("out")
 	await  $AnimationPlayer.animation_finished
 	SceneManager.transition_to(next_scene)
+	
+
+
 
 func _process(delta: float) -> void:
 	pass

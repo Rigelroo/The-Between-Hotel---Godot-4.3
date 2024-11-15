@@ -3,6 +3,7 @@ extends Node2D
 
 
 var pos_dict = {}
+var scene_file_dict = {}
 var signalManager_dict = {}
 
 var equiped_stamps = {}
@@ -13,6 +14,7 @@ var somconfig_dict = {}
 var telaconfig_dict = {}
 var controlesconfig_dict = {}
 var languageconfig_dict = {}
+var saved_current_scene : String = ""
 
 func _ready() -> void:
 	SignalManager.its_saving.connect(save_game)
@@ -35,6 +37,7 @@ func save():
 	var save_dict = {
 		"coins" : 100,
 		"user" : "Persi",
+		"saved_current_scene" : saved_current_scene,
 		"position" : pos_dict,
 		"managervariables" : signalManager_dict,
 		"equiped_stamps" : equiped_stamps,
@@ -70,6 +73,8 @@ func save_game():
 	print("Config Data: ", json_config_string)
 	saveconfig_gamevar.store_line(json_config_string)
 
+var stored_scene = null
+
 
 func load_game(world_scene):
 	if not FileAccess.file_exists("user://savegame.save"):
@@ -83,6 +88,9 @@ func load_game(world_scene):
 		var parse_result = json.parse(json_string)
 		var node_data = json.get_data()
 		print("Node Data: ", node_data)
+		
+		if "saved_current_scene" in node_data:
+			stored_scene = node_data["saved_current_scene"]
 		if "managervariables" in node_data:
 			SignalManager.load_parameters(node_data["managervariables"])
 		if "equiped_stamps" in node_data:

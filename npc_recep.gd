@@ -9,11 +9,15 @@ var Player = null
 var timeline : DialogicTimeline = DialogicTimeline.new()
 @export var dialog_event = 1
 @export var test_event = 2
+var pos = []
+
 func load_savedstate():
 	dialog_event
 
 func savestate():
-	var array = {"dialog_event": dialog_event}
+	pos.append(position.x)
+	pos.append(position.y)
+	var array = {"dialog_event": dialog_event, "position": pos}
 	SaveSys.write_save_scene_state(array, "npc_KoriTrice", get_parent().scene_name)
 	print("test")
 

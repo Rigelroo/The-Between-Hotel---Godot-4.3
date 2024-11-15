@@ -5,6 +5,11 @@
 [ext_resource type="Shader" path="res://objects/test.gdshader" id="4_2swba"]
 [ext_resource type="Shader" path="res://inventory/Items/item_1.gdshader" id="4_ipweg"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0gd3"]
+shader = ExtResource("4_2swba")
+shader_parameter/grain_amount = 0.04
+shader_parameter/grain_size = 0.694
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d2evd"]
 shader = ExtResource("4_ipweg")
 shader_parameter/resolution = Vector2(1280, 720)
@@ -17,15 +22,10 @@ shader_parameter/grille_size = 1.0
 shader_parameter/vignette_amount = 0.6
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/aberation_amount = 0.5
-shader_parameter/roll_line_amount = 0.074
+shader_parameter/roll_line_amount = 0.3
 shader_parameter/roll_speed = 1.0
 shader_parameter/scan_line_strength = -8.0
-shader_parameter/pixel_strength = -2.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0gd3"]
-shader = ExtResource("4_2swba")
-shader_parameter/grain_amount = 0.04
-shader_parameter/grain_size = 0.694
+shader_parameter/pixel_strength = -4.0
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("inventory")]
 process_mode = 3
@@ -34,6 +34,22 @@ process_thread_group_order = 0
 process_thread_messages = 0
 script = ExtResource("1_f1ums")
 inventory = NodePath("InventoryGui")
+
+[node name="InventoryGui" parent="." instance=ExtResource("3_2ly1l")]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+top_level = true
+z_index = 4
+material = SubResource("ShaderMaterial_u0gd3")
+offset_right = 1191.0
+offset_bottom = 678.0
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1191, 678)
+render_target_update_mode = 4
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 visible = false
@@ -47,17 +63,3 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(1191, 678)
 render_target_update_mode = 0
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
-top_level = true
-material = SubResource("ShaderMaterial_u0gd3")
-offset_right = 1191.0
-offset_bottom = 678.0
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
-handle_input_locally = false
-size = Vector2i(1191, 678)
-render_target_update_mode = 4
-
-[node name="InventoryGui" parent="." instance=ExtResource("3_2ly1l")]

@@ -53,6 +53,7 @@ script = ExtResource("1_ssnol")
 background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3"])
 objplayer = NodePath("Player")
 splashw = ExtResource("2_qv6q8")
+scene_name = "CorridorAndar1"
 inv_dictionary = ExtResource("3_gmx88")
 
 [node name="Fundo" type="Sprite2D" parent="."]

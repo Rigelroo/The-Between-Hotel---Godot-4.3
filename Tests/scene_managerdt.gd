@@ -115,6 +115,7 @@ func transition_to(scene_path: String) -> void:
 		new_stats.add_to_group("Stats")
 	# Wait for the new scene to be ready
 	#new_scene.loadscene()
+	
 	await new_scene.loadscene()
 	transition_out()
 	await transitioned_out
