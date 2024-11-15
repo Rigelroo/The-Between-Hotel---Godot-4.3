@@ -212,6 +212,7 @@ size = Vector2i(1191, 678)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+visible = false
 top_level = true
 material = SubResource("ShaderMaterial_d2evd")
 offset_right = 1191.0
@@ -221,4 +222,4 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1191, 678)
-render_target_update_mode = 4
+render_target_update_mode = 0
