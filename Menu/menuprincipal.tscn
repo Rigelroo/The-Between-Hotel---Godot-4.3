@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d2kbwohtjrf5k"]
+[gd_scene load_steps=69 format=3 uid="uid://d2kbwohtjrf5k"]
 
 [ext_resource type="Texture2D" uid="uid://p7wpl8iyn027" path="res://Menu/Sprites/menuprincipal_fundo.png" id="1_42538"]
 [ext_resource type="Script" path="res://Menu/menuprincipal.gd" id="1_wkb2l"]
@@ -27,12 +27,12 @@
 [ext_resource type="Texture2D" uid="uid://bg878ycpe4qbf" path="res://Menu/Sprites/menuprincipal_botãocarregar.png" id="17_rund8"]
 [ext_resource type="Texture2D" uid="uid://c6yyf7jbeh0b" path="res://Menu/Sprites/menuprincipal_botãooptions.png" id="18_lj6p2"]
 [ext_resource type="Texture2D" uid="uid://bkkqgtix3a1ay" path="res://Menu/Sprites/menuprincipal_botãosair.png" id="19_yr1gy"]
-[ext_resource type="Script" path="res://scenes/canvas_layer.gd" id="28_knhy5"]
 [ext_resource type="Shader" path="res://objects/test.gdshader" id="29_2ytcj"]
 [ext_resource type="Shader" path="res://inventory/Items/item_1.gdshader" id="30_g85ol"]
 [ext_resource type="Texture2D" uid="uid://bwssnpvxo5ypi" path="res://Menu/Sprites/menusave/menusaves_slots.png" id="31_r7q74"]
 [ext_resource type="Texture2D" uid="uid://cv5l6cecr5hue" path="res://Menu/Sprites/menusave/menusaves_1.png" id="32_tb0pw"]
 [ext_resource type="Texture2D" uid="uid://bhd4jpfe88npe" path="res://Menu/Sprites/menusave/menusaves_2.png" id="33_oc063"]
+[ext_resource type="Texture2D" uid="uid://hs3rhh5odha3" path="res://Menu/Sprites/menusave/menusaves_back.png" id="33_v3bq0"]
 [ext_resource type="Texture2D" uid="uid://b2iqlsui6a7so" path="res://Menu/Sprites/menusave/menusaves_3.png" id="34_xfrxp"]
 [ext_resource type="Texture2D" uid="uid://d3dbecd3we6qt" path="res://Menu/Sprites/menusave/menusaves_saveshow.png" id="35_rwrtu"]
 [ext_resource type="Texture2D" uid="uid://c21s8d4vao5wm" path="res://Menu/Sprites/menusave/menusaves_saveshowfoto.png" id="36_uuoh5"]
@@ -41,8 +41,20 @@
 [ext_resource type="FontFile" uid="uid://exj3c8h6l0tr" path="res://Fonts/Typewriter215FP-Bold.otf" id="38_imnho"]
 [ext_resource type="Texture2D" uid="uid://c48sbmoua2ihm" path="res://Menu/Sprites/menusave/menusaves_vida.png" id="40_ugw1t"]
 [ext_resource type="Texture2D" uid="uid://dgcwo25g6tqfu" path="res://Menu/Sprites/menusave/menusaves_deaths.png" id="41_a0ooc"]
+[ext_resource type="Texture2D" uid="uid://gxw8q8kwkior" path="res://Menu/Sprites/menusave/menusaves_lixeira.png" id="41_bnajq"]
 [ext_resource type="Texture2D" uid="uid://uay5y0ojy2s7" path="res://Menu/Sprites/menusave/menusaves_moeda.png" id="42_0cv2o"]
+[ext_resource type="Texture2D" uid="uid://cvqt8xj0rcd5q" path="res://inventory/slot usarselo.png" id="42_v3bq0"]
 [ext_resource type="FontFile" uid="uid://de0cqe1w2vxpa" path="res://Fonts/Typewriter215FP - Copia.ttf" id="43_bnajq"]
+[ext_resource type="Script" path="res://inventory/slot_gui_e.gd" id="43_faiie"]
+[ext_resource type="Script" path="res://inventory/gui/itemStackGui.gd" id="44_2m83m"]
+[ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://inventory/PlayerInventory.tres" id="45_ukdy4"]
+[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="46_x0hox"]
+[ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="47_b563v"]
+[ext_resource type="FontFile" uid="uid://dbf30jmb03jwh" path="res://Fonts/Typewriter215FP-Heavyhanded.otf" id="51_173fg"]
+[ext_resource type="Texture2D" uid="uid://cdv3b8nl0p72f" path="res://inventory/gui/Selector/slot inventario - select.png" id="51_x0hox"]
+[ext_resource type="Texture2D" uid="uid://dl1pn2s2a86fr" path="res://Sprites/Namebox.png" id="52_08nkk"]
+[ext_resource type="Texture2D" uid="uid://clc8udw1ehpcb" path="res://inventory/gui/Selector/slot inventario - select_shadow.png" id="52_b563v"]
+[ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="53_tg1l0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r7q74"]
 shader = ExtResource("30_g85ol")
@@ -135,6 +147,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0hox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ck1qu"]
+
 [sub_resource type="Animation" id="Animation_5xqpx"]
 length = 0.001
 tracks/0/type = "value"
@@ -152,113 +168,50 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Button_creditos:position")
+tracks/1/path = NodePath("MenuprincipalTitulob:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(23, 521)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuprincipalTitulob:modulate")
+tracks/2/path = NodePath("MenuprincipalTitulob:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MenuprincipalTitulob:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(270, 165)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MenuprincipalTitulob:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuprincipalTitulob:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.2, 0.2)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Menuprincipalcaixa/save_control:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Menuprincipalcaixa/submenuTabcontainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_f6g3w"]
-resource_name = "start"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Menuprincipalcaixa:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.466667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1915, 324), Vector2(1611, 324)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Button_creditos:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.466667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-128, 521), Vector2(23, 521)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("MenuprincipalTitulob:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.533333, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MenuprincipalTitulob:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.533333, 0.833333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(270, 200), Vector2(270, 165)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_wkb2l"]
@@ -278,70 +231,247 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Button_creditos:position")
+tracks/1/path = NodePath("MenuprincipalTitulob:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(23, 521)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuprincipalTitulob:modulate")
+tracks/2/path = NodePath("MenuprincipalTitulob:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MenuprincipalTitulob:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.233333, 0.533333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(270, 165), Vector2(270, 165), Vector2(164, 165)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MenuprincipalFundo:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuprincipalFundo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.233333, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(575.444, 324), Vector2(575.444, 324), Vector2(575.444, 324)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("MenuprincipalTitulob:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuprincipalTitulob:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0.233333, 0.533333),
 "transitions": PackedFloat32Array(1, 0.965936),
 "update": 0,
 "values": [Vector2(0.2, 0.2), Vector2(0.122, 0.122)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Menuprincipalcaixa/save_control:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Menuprincipalcaixa/submenuTabcontainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f6g3w"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menuprincipalcaixa:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1915, 324), Vector2(1611, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuprincipalTitulob:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.533333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuprincipalTitulob:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.533333, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(270, 200), Vector2(270, 165)]
+}
+
+[sub_resource type="Animation" id="Animation_x0hox"]
+resource_name = "desapertado"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menuprincipalcaixa:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-204, 324), Vector2(1611, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuprincipalTitulob:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuprincipalTitulob:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.925),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(164, 165), Vector2(270, 165), Vector2(270, 165)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuprincipalFundo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(575.444, 324), Vector2(575.444, 324), Vector2(575.444, 324)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuprincipalTitulob:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.233333, 0.533333),
+"transitions": PackedFloat32Array(0.965936, 1),
+"update": 0,
+"values": [Vector2(0.122, 0.122), Vector2(0.2, 0.2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Menuprincipalcaixa/submenuTabcontainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b563v"]
+resource_name = "apertado_sair"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menuprincipalcaixa:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1611, 324), Vector2(-204, 324)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuprincipalTitulob:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuprincipalTitulob:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(270, 165), Vector2(270, 165), Vector2(164, 165)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuprincipalFundo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(575.444, 324), Vector2(575.444, 324), Vector2(575.444, 324)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuprincipalTitulob:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.233333, 0.533333),
+"transitions": PackedFloat32Array(1, 0.965936),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.122, 0.122)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Menuprincipalcaixa/submenuTabcontainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.566667, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -352,6 +482,8 @@ tracks/6/keys = {
 _data = {
 &"RESET": SubResource("Animation_5xqpx"),
 &"apertado": SubResource("Animation_wkb2l"),
+&"apertado_sair": SubResource("Animation_b563v"),
+&"desapertado": SubResource("Animation_x0hox"),
 &"start": SubResource("Animation_f6g3w")
 }
 
@@ -359,36 +491,28 @@ _data = {
 script = ExtResource("1_wkb2l")
 festivosprites = Array[String](["res://Menu/Sprites/menuprincipal_natal1.png", "res://Menu/Sprites/menuprincipal_hallow1.png"])
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("inventory")]
-process_mode = 3
-process_thread_group = 2
-process_thread_group_order = 0
-process_thread_messages = 0
-script = ExtResource("28_knhy5")
-inventory = NodePath("")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 top_level = true
 material = SubResource("ShaderMaterial_r7q74")
 offset_right = 1191.0
 offset_bottom = 678.0
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1191, 678)
 render_target_update_mode = 4
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer/SubViewportContainer"]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="SubViewportContainer"]
 top_level = true
 material = SubResource("ShaderMaterial_ciqmj")
 layout_mode = 2
 stretch = true
 metadata/_edit_use_anchors_ = true
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer/SubViewportContainer2"]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer/SubViewportContainer2"]
 handle_input_locally = false
-size = Vector2i(1191, 678)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -434,15 +558,6 @@ autoplay = "default"
 frame_progress = 0.267735
 speed_scale = 1.03
 
-[node name="Button_creditos" type="Button" parent="."]
-offset_left = 23.0
-offset_top = 521.0
-offset_right = 465.0
-offset_bottom = 910.0
-scale = Vector2(0.245, 0.245)
-icon = ExtResource("16_s7uty")
-flat = true
-
 [node name="Menuprincipalcaixa" type="Sprite2D" parent="."]
 position = Vector2(1259, 324)
 scale = Vector2(0.26, 0.26)
@@ -459,113 +574,277 @@ autoplay = "default"
 frame_progress = 0.904263
 speed_scale = 0.7
 
-[node name="Button_carregar" type="Button" parent="Menuprincipalcaixa"]
-offset_left = -2996.15
-offset_top = -892.308
-offset_right = -1856.16
-offset_bottom = -361.308
-icon = ExtResource("17_rund8")
-flat = true
-
-[node name="Button_config" type="Button" parent="Menuprincipalcaixa"]
-offset_left = -3096.15
-offset_top = -164.308
-offset_right = -1844.16
-offset_bottom = 327.692
-icon = ExtResource("18_lj6p2")
-flat = true
-
-[node name="Button_sair" type="Button" parent="Menuprincipalcaixa"]
-offset_left = -3072.15
-offset_top = 471.692
-offset_right = -1784.16
-offset_bottom = 1015.69
-icon = ExtResource("19_yr1gy")
-flat = true
-
-[node name="save_control" type="Control" parent="Menuprincipalcaixa"]
+[node name="menuoptionsContainer" type="Control" parent="Menuprincipalcaixa"]
+unique_name_in_owner = true
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_left = -0.363
+anchor_top = 0.134
+anchor_right = 0.185
+anchor_bottom = 1.158
+offset_left = -4083.3
+offset_top = -1297.86
+offset_right = -2806.48
+offset_bottom = -1864.17
+size_flags_horizontal = 8
+size_flags_vertical = 8
 
-[node name="save1" type="Button" parent="Menuprincipalcaixa/save_control"]
-offset_left = -423.076
-offset_top = -876.923
-offset_right = 2185.92
-offset_bottom = -345.923
-icon = ExtResource("31_r7q74")
+[node name="Button_carregar" type="Button" parent="Menuprincipalcaixa/menuoptionsContainer"]
+custom_minimum_size = Vector2(0, 531)
+layout_mode = 2
+offset_left = 3053.62
+offset_top = -88.4616
+offset_right = 4341.62
+offset_bottom = 442.538
+grow_horizontal = 0
+grow_vertical = 2
 flat = true
 
-[node name="numero" type="Sprite2D" parent="Menuprincipalcaixa/save_control/save1"]
-position = Vector2(1415.38, 326.923)
-texture = ExtResource("32_tb0pw")
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/menuoptionsContainer/Button_carregar"]
+position = Vector2(46.1538, 46.1538)
+texture = ExtResource("17_rund8")
+centered = false
 
-[node name="save2" type="Button" parent="Menuprincipalcaixa/save_control"]
-offset_left = -423.077
-offset_top = -165.385
-offset_right = 2185.92
-offset_bottom = 326.615
-icon = ExtResource("31_r7q74")
+[node name="Button_config" type="Button" parent="Menuprincipalcaixa/menuoptionsContainer"]
+custom_minimum_size = Vector2(0, 531)
+layout_mode = 2
+offset_left = 3053.62
+offset_top = 667.538
+offset_right = 4341.62
+offset_bottom = 1198.54
+grow_horizontal = 0
+grow_vertical = 2
 flat = true
 
-[node name="numero" type="Sprite2D" parent="Menuprincipalcaixa/save_control/save2"]
-visible = false
-position = Vector2(1419.23, 284.616)
-texture = ExtResource("33_oc063")
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/menuoptionsContainer/Button_config"]
+position = Vector2(-15.3846, 28.6155)
+texture = ExtResource("18_lj6p2")
+centered = false
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/save2"]
-offset_left = 1350.0
-offset_top = 84.6158
-offset_right = 2555.0
-offset_bottom = 438.616
+[node name="Button_sair" type="Button" parent="Menuprincipalcaixa/menuoptionsContainer"]
+custom_minimum_size = Vector2(0, 531)
+layout_mode = 2
+offset_left = 3053.62
+offset_top = 1423.54
+offset_right = 4341.62
+offset_bottom = 1954.54
+grow_horizontal = 0
+grow_vertical = 2
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/menuoptionsContainer/Button_sair"]
+texture = ExtResource("19_yr1gy")
+centered = false
+
+[node name="Button_creditos" type="Button" parent="Menuprincipalcaixa/menuoptionsContainer"]
+custom_minimum_size = Vector2(446.19, 389)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 111.0
+offset_top = -389.0
+offset_right = 557.19
+grow_vertical = 0
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/menuoptionsContainer/Button_creditos"]
+texture = ExtResource("16_s7uty")
+centered = false
+
+[node name="submenuTabcontainer" type="TabContainer" parent="Menuprincipalcaixa"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+offset_left = 27.0
+offset_top = -12.0
+offset_right = 5796.0
+offset_bottom = 1319.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x0hox")
+current_tab = 0
+tabs_visible = false
+
+[node name="save_control" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer"]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="labelscontainer" type="VBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control"]
+layout_mode = 0
+offset_left = 980.769
+offset_top = -1138.46
+offset_right = 2164.77
+offset_bottom = -555.462
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/labelscontainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
 theme_override_fonts/font = ExtResource("38_imnho")
 theme_override_font_sizes/font_size = 311
+text = "Jogar"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/labelscontainer"]
+custom_minimum_size = Vector2(100, 230)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
+theme_override_fonts/font = ExtResource("38_imnho")
+theme_override_font_sizes/font_size = 116
+text = "selecione um slot"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control"]
+layout_mode = 0
+offset_left = 492.0
+offset_top = -527.0
+offset_right = 2462.0
+offset_bottom = 1279.0
+
+[node name="saveslots" type="VBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="save1" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots"]
+custom_minimum_size = Vector2(1804.4, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save1"]
+position = Vector2(-538.462, -34.6153)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("31_r7q74")
+centered = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save1/Sprite2D"]
+layout_direction = 2
+offset_left = 958.714
+offset_top = 86.5709
+offset_right = 2138.71
+offset_bottom = 351.571
+scale = Vector2(1.1, 1.1)
+theme_override_constants/separation = 80
+metadata/_edit_use_anchors_ = true
+
+[node name="numero" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save1/Sprite2D/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("32_tb0pw")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save1/Sprite2D/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
+theme_override_fonts/font = ExtResource("38_imnho")
+theme_override_font_sizes/font_size = 236
 text = "Vazio"
 
-[node name="save3" type="Button" parent="Menuprincipalcaixa/save_control"]
-offset_left = -423.077
-offset_top = 471.692
-offset_right = 2185.92
-offset_bottom = 1015.69
-icon = ExtResource("31_r7q74")
+[node name="save2" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots"]
+custom_minimum_size = Vector2(1804.4, 400)
+layout_mode = 2
+size_flags_horizontal = 4
 flat = true
+icon_alignment = 2
+expand_icon = true
 
-[node name="numero" type="Sprite2D" parent="Menuprincipalcaixa/save_control/save3"]
-visible = false
-position = Vector2(1419.23, 320.616)
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save2"]
+position = Vector2(-538.462, -34.6153)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("31_r7q74")
+centered = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save2/Sprite2D"]
+layout_direction = 2
+offset_left = 974.62
+offset_top = 65.6237
+offset_right = 2154.62
+offset_bottom = 359.624
+scale = Vector2(1.1, 1.1)
+theme_override_constants/separation = 80
+metadata/_edit_use_anchors_ = true
+
+[node name="numero" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save2/Sprite2D/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("33_oc063")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save2/Sprite2D/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
+theme_override_fonts/font = ExtResource("38_imnho")
+theme_override_font_sizes/font_size = 236
+text = "Vazio"
+
+[node name="save3" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots"]
+custom_minimum_size = Vector2(1804.4, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save3"]
+position = Vector2(-538.462, -34.6153)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("31_r7q74")
+centered = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save3/Sprite2D"]
+layout_direction = 2
+offset_left = 974.62
+offset_top = 44.3285
+offset_right = 2154.62
+offset_bottom = 384.329
+scale = Vector2(1.1, 1.1)
+theme_override_constants/separation = 80
+metadata/_edit_use_anchors_ = true
+
+[node name="numero" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save3/Sprite2D/HBoxContainer"]
+layout_mode = 2
 texture = ExtResource("34_xfrxp")
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/save3"]
-offset_left = 1350.0
-offset_top = 84.6158
-offset_right = 2555.0
-offset_bottom = 438.616
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save3/Sprite2D/HBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
 theme_override_fonts/font = ExtResource("38_imnho")
-theme_override_font_sizes/font_size = 311
+theme_override_font_sizes/font_size = 236
 text = "Vazio"
 
-[node name="saveshow" type="Sprite2D" parent="Menuprincipalcaixa/save_control"]
+[node name="backbutton" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 8
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/backbutton"]
+position = Vector2(30.923, -98.2309)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("33_v3bq0")
+centered = false
+
+[node name="saveshow" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control"]
 position = Vector2(4076.92, 0)
 scale = Vector2(1.01, 1.01)
 texture = ExtResource("35_rwrtu")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
+[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow"]
 clip_children = 1
 position = Vector2(3.80807, -498.858)
 texture = ExtResource("36_uuoh5")
 
-[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow/Sprite2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/Sprite2D2"]
 scale = Vector2(1.005, 1.005)
 texture = ExtResource("38_ava26")
 
-[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow"]
 position = Vector2(3.80807, -194.212)
 texture = ExtResource("37_w8sd0")
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow/Sprite2D"]
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/Sprite2D"]
 offset_left = -365.575
 offset_top = -45.6969
 offset_right = 135.425
@@ -574,48 +853,60 @@ theme_override_fonts/font = ExtResource("38_imnho")
 theme_override_font_sizes/font_size = 91
 text = "aaaaaaaaaaaa"
 
-[node name="vidas" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
-position = Vector2(-449.353, 156.131)
+[node name="HBoxContainer" type="HBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow"]
+custom_minimum_size = Vector2(1210, 286)
+offset_left = -605.0
+offset_top = 4.0
+offset_right = 605.0
+offset_bottom = 290.0
+alignment = 1
+
+[node name="Lifemax" type="HBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="sprite" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/HBoxContainer/Lifemax"]
+layout_mode = 2
 texture = ExtResource("40_ugw1t")
+stretch_mode = 2
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow/vidas"]
-offset_left = 118.05
-offset_top = 57.1211
-offset_right = 619.05
-offset_bottom = 159.121
-theme_override_fonts/font = ExtResource("38_imnho")
-theme_override_font_sizes/font_size = 91
-text = "999"
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/HBoxContainer/Lifemax"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("43_bnajq")
+theme_override_font_sizes/font_size = 86
+text = "0 "
 
-[node name="mortes" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
-position = Vector2(-53.313, 156.131)
+[node name="Lifemax2" type="HBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="sprite" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/HBoxContainer/Lifemax2"]
+layout_mode = 2
 texture = ExtResource("41_a0ooc")
+stretch_mode = 2
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow/mortes"]
-offset_left = 118.05
-offset_top = 57.1211
-offset_right = 619.05
-offset_bottom = 159.121
-theme_override_fonts/font = ExtResource("38_imnho")
-theme_override_font_sizes/font_size = 91
-text = "999"
-metadata/_edit_use_anchors_ = true
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/HBoxContainer/Lifemax2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("43_bnajq")
+theme_override_font_sizes/font_size = 86
+text = "0 "
 
-[node name="moedas" type="Sprite2D" parent="Menuprincipalcaixa/save_control/saveshow"]
-position = Vector2(357.959, 156.131)
+[node name="Lifemax3" type="HBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="sprite" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/HBoxContainer/Lifemax3"]
+layout_mode = 2
 texture = ExtResource("42_0cv2o")
+stretch_mode = 2
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow/moedas"]
-offset_left = 118.05
-offset_top = 57.1211
-offset_right = 619.05
-offset_bottom = 159.121
-theme_override_fonts/font = ExtResource("38_imnho")
-theme_override_font_sizes/font_size = 91
-text = "999"
-metadata/_edit_use_anchors_ = true
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/HBoxContainer/Lifemax3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("43_bnajq")
+theme_override_font_sizes/font_size = 86
+text = "0 "
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/save_control/saveshow"]
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow"]
 offset_left = -586.443
 offset_top = 388.423
 offset_right = 618.557
@@ -624,7 +915,7 @@ theme_override_fonts/font = ExtResource("43_bnajq")
 theme_override_font_sizes/font_size = 86
 text = "Último Save:   15 Nov 2024"
 
-[node name="Label2" type="Label" parent="Menuprincipalcaixa/save_control/saveshow"]
+[node name="Label2" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow"]
 offset_left = -575.019
 offset_top = 544.555
 offset_right = 629.981
@@ -633,15 +924,366 @@ theme_override_fonts/font = ExtResource("43_bnajq")
 theme_override_font_sizes/font_size = 86
 text = "Tempo:   3h 14min"
 
+[node name="apagarsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow"]
+custom_minimum_size = Vector2(400, 400)
+offset_left = 350.346
+offset_top = 567.403
+offset_right = 750.346
+offset_bottom = 967.403
+rotation = 0.122173
+pivot_offset = Vector2(251.333, 270.373)
+size_flags_horizontal = 4
+icon = ExtResource("41_bnajq")
+flat = true
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control"]
+visible = false
+layout_mode = 0
+offset_left = 3596.15
+offset_top = 711.538
+offset_right = 3676.15
+offset_bottom = 791.538
+
+[node name="Sealbar_slot1" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(306, 306)
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("42_v3bq0")
+script = ExtResource("43_faiie")
+
+[node name="background" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot1"]
+texture = ExtResource("42_v3bq0")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot1"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_right = 306.0
+offset_bottom = 306.0
+
+[node name="Panel" type="Panel" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot1/CenterContainer"]
+layout_mode = 2
+script = ExtResource("44_2m83m")
+inv = ExtResource("45_ukdy4")
+
+[node name="Seal" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot1/CenterContainer/Panel"]
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("46_x0hox")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot1/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 41.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(2.143, 0.971, 0.971, 1)
+theme_override_colors/font_shadow_color = Color(0.0554296, 0.160417, 0.426135, 0.236)
+theme_override_fonts/font = ExtResource("47_b563v")
+theme_override_font_sizes/font_size = 25
+text = "99"
+
+[node name="Sealbar_slot2" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(306, 306)
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("42_v3bq0")
+script = ExtResource("43_faiie")
+
+[node name="background" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot2"]
+texture = ExtResource("42_v3bq0")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot2"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_right = 306.0
+offset_bottom = 306.0
+
+[node name="Panel" type="Panel" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot2/CenterContainer"]
+layout_mode = 2
+script = ExtResource("44_2m83m")
+inv = ExtResource("45_ukdy4")
+
+[node name="Seal" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot2/CenterContainer/Panel"]
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("46_x0hox")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot2/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 41.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(2.143, 0.971, 0.971, 1)
+theme_override_colors/font_shadow_color = Color(0.0554296, 0.160417, 0.426135, 0.236)
+theme_override_fonts/font = ExtResource("47_b563v")
+theme_override_font_sizes/font_size = 25
+text = "99"
+
+[node name="Sealbar_slot3" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(306, 306)
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("42_v3bq0")
+script = ExtResource("43_faiie")
+
+[node name="background" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot3"]
+texture = ExtResource("42_v3bq0")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot3"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_right = 306.0
+offset_bottom = 306.0
+
+[node name="Panel" type="Panel" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot3/CenterContainer"]
+layout_mode = 2
+script = ExtResource("44_2m83m")
+inv = ExtResource("45_ukdy4")
+
+[node name="Seal" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot3/CenterContainer/Panel"]
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("46_x0hox")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot3/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 41.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(2.143, 0.971, 0.971, 1)
+theme_override_colors/font_shadow_color = Color(0.0554296, 0.160417, 0.426135, 0.236)
+theme_override_fonts/font = ExtResource("47_b563v")
+theme_override_font_sizes/font_size = 25
+text = "99"
+
+[node name="Sealbar_slot4" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(306, 306)
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("42_v3bq0")
+script = ExtResource("43_faiie")
+
+[node name="background" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot4"]
+texture = ExtResource("42_v3bq0")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot4"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_right = 306.0
+offset_bottom = 306.0
+
+[node name="Panel" type="Panel" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot4/CenterContainer"]
+layout_mode = 2
+script = ExtResource("44_2m83m")
+inv = ExtResource("45_ukdy4")
+
+[node name="Seal" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot4/CenterContainer/Panel"]
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("46_x0hox")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot4/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 41.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(2.143, 0.971, 0.971, 1)
+theme_override_colors/font_shadow_color = Color(0.0554296, 0.160417, 0.426135, 0.236)
+theme_override_fonts/font = ExtResource("47_b563v")
+theme_override_font_sizes/font_size = 25
+text = "99"
+
+[node name="Sealbar_slot5" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(306, 306)
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("42_v3bq0")
+script = ExtResource("43_faiie")
+
+[node name="background" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot5"]
+texture = ExtResource("42_v3bq0")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot5"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_right = 306.0
+offset_bottom = 306.0
+
+[node name="Panel" type="Panel" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot5/CenterContainer"]
+layout_mode = 2
+script = ExtResource("44_2m83m")
+inv = ExtResource("45_ukdy4")
+
+[node name="Seal" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot5/CenterContainer/Panel"]
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("46_x0hox")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot5/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 41.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(2.143, 0.971, 0.971, 1)
+theme_override_colors/font_shadow_color = Color(0.0554296, 0.160417, 0.426135, 0.236)
+theme_override_fonts/font = ExtResource("47_b563v")
+theme_override_font_sizes/font_size = 25
+text = "99"
+
+[node name="Sealbar_slot6" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(306, 306)
+layout_mode = 2
+action_mode = 0
+icon = ExtResource("42_v3bq0")
+script = ExtResource("43_faiie")
+
+[node name="background" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot6"]
+texture = ExtResource("42_v3bq0")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot6"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 0
+offset_right = 306.0
+offset_bottom = 306.0
+
+[node name="Panel" type="Panel" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot6/CenterContainer"]
+layout_mode = 2
+script = ExtResource("44_2m83m")
+inv = ExtResource("45_ukdy4")
+
+[node name="Seal" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot6/CenterContainer/Panel"]
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("46_x0hox")
+
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/HBoxContainer/Sealbar_slot6/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 41.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(2.143, 0.971, 0.971, 1)
+theme_override_colors/font_shadow_color = Color(0.0554296, 0.160417, 0.426135, 0.236)
+theme_override_fonts/font = ExtResource("47_b563v")
+theme_override_font_sizes/font_size = 25
+text = "99"
+
+[node name="Certeza" type="TabBar" parent="Menuprincipalcaixa/submenuTabcontainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Label" parent="Menuprincipalcaixa/submenuTabcontainer/Certeza" instance=ExtResource("53_tg1l0")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 834.539
+offset_top = -707.231
+offset_right = 1612.54
+offset_bottom = -565.231
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(2.4045, 2.4045)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = " Certeza?"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="options" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/Certeza"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 607.615
+offset_top = -1126.46
+offset_right = 647.615
+offset_bottom = -1086.46
+scale = Vector2(4.57464, 4.57464)
+
+[node name="ButtonSim" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/Certeza/options" groups=["Buttonchoices"]]
+layout_mode = 2
+offset_left = 76.5088
+offset_top = 227.845
+offset_right = 282.509
+offset_bottom = 285.845
+scale = Vector2(1.32666, 1.34511)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ck1qu")
+action_mode = 0
+text = "Sim
+"
+icon = ExtResource("52_08nkk")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ButtonNão" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/Certeza/options" groups=["Buttonchoices"]]
+layout_mode = 2
+offset_left = 74.0
+offset_top = 330.0
+offset_right = 286.0
+offset_bottom = 388.0
+scale = Vector2(1.327, 1.345)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ck1qu")
+action_mode = 0
+text = "Não
+"
+icon = ExtResource("52_08nkk")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_5xqpx")
 }
 autoplay = "start"
 
-[connection signal="pressed" from="Menuprincipalcaixa/Button_carregar" to="." method="_on_button_carregar_pressed"]
-[connection signal="pressed" from="Menuprincipalcaixa/Button_config" to="." method="_on_button_config_pressed"]
-[connection signal="pressed" from="Menuprincipalcaixa/Button_sair" to="." method="_on_button_sair_pressed"]
-[connection signal="pressed" from="Menuprincipalcaixa/save_control/save1" to="." method="_on_button_carregar_pressed"]
-[connection signal="pressed" from="Menuprincipalcaixa/save_control/save2" to="." method="_on_button_config_pressed"]
-[connection signal="pressed" from="Menuprincipalcaixa/save_control/save3" to="." method="_on_button_sair_pressed"]
+[node name="ConfigCentercontainer" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 813.0
+offset_top = 51.0
+offset_right = 848.0
+offset_bottom = 84.0
+
+[node name="Selector" type="Sprite2D" parent="ConfigCentercontainer"]
+unique_name_in_owner = true
+position = Vector2(-65, -92)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("51_x0hox")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="ConfigCentercontainer/Selector"]
+show_behind_parent = true
+texture = ExtResource("52_b563v")
+centered = false
+
+[connection signal="pressed" from="Menuprincipalcaixa/menuoptionsContainer/Button_carregar" to="." method="_on_button_carregar_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/menuoptionsContainer/Button_config" to="." method="_on_button_config_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/menuoptionsContainer/Button_sair" to="." method="_on_button_sair_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save1" to="." method="_on_save_1_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save2" to="." method="_on_save_1_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save3" to="." method="_on_save_1_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/backbutton" to="." method="_on_backbutton_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshow/apagarsave" to="." method="_on_apagarsave_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/Certeza/options/ButtonSim" to="." method="_on_button_sim_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/Certeza/options/ButtonNão" to="." method="_on_button_não_pressed"]

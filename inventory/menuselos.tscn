@@ -151,12 +151,11 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 651.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8hm3u")
-current_tab = 2
+current_tab = 0
 tabs_visible = false
 
 [node name="Config" type="NinePatchRect" parent="TabContainer" node_paths=PackedStringArray("gui")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 texture = ExtResource("23_3y771")
 axis_stretch_horizontal = 2
@@ -226,7 +225,7 @@ offset_top = 74.0
 offset_right = 937.475
 offset_bottom = 574.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_50t2v")
-current_tab = 1
+current_tab = 2
 tabs_visible = false
 
 [node name="Control" type="TabBar" parent="TabContainer/Config/TabContainer"]
@@ -241,6 +240,7 @@ texture = ExtResource("28_yqqid")
 
 [node name="OptionsContainer" type="TabContainer" parent="TabContainer/Config/TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pbhsj")
 current_tab = 1
@@ -867,7 +867,6 @@ theme_override_icons/unchecked = ExtResource("19_we7dv")
 text = "Vsync"
 
 [node name="Certeza" type="TabBar" parent="TabContainer/Config/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -997,6 +996,7 @@ size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cw2jj")
 
 [node name="Selos" type="NinePatchRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("1_xp6en")
 metadata/_tab_index = 2

@@ -190,13 +190,12 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("inventory")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 process_thread_group = 2
 process_thread_group_order = 0
 process_thread_messages = 0
 script = ExtResource("3_y642d")
-inventory = NodePath("")
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer"]
 top_level = true
