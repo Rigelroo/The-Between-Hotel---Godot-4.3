@@ -12,6 +12,7 @@ signal scene_ready
 @export var objplayer : Player
 @export var splashw : SplashWater
 @export var scene_name : String
+@export var nome_cena : String
 @export var player_scale : float = 1
 @onready var inventory = $PausemenuLayer.inventory
 @onready var player = get_tree().get_first_node_in_group("Player")
@@ -46,6 +47,21 @@ signal just_equip
 #func _physics_process(delta: float) -> void:
 	#if Input.is_action_just_pressed("Attack") && inventory.number == 1:
 		#SignalManager.just_equip.emit()
+
+func take_screenshot(file_path: String = "user://screenshot.png") -> void:
+	var viewport = get_viewport()
+	var image = viewport.get_texture().get_image()
+	#image.flip_y()  # Flipa a imagem no eixo Y para corrigir a orientação
+	image.save_png(file_path)
+	print("Screenshot salva em:", file_path)
+
+func save_slot_screenshot(slot: int) -> void:
+	var file_path = "user://slot%s_screenshot.png" % str(slot)
+	take_screenshot(file_path)
+	print("Screenshot salva para o slot %s" % slot)
+
+
+
 func set_player_speed():
 	player_scale = objplayer.global_scale.x
 	objplayer.SPEED = 80 * player_scale 
@@ -73,7 +89,7 @@ func some_function():
 
 
 func _ready() -> void:
-	SaveSys.load_game(self)
+	
 	
 	some_function()
 	background_music()
@@ -90,7 +106,7 @@ func _ready() -> void:
 
 	$PausemenuLayer.inventory.readyclose()
 	
-	load_scenestate()
+	#load_scenestate()
 	
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	scene_readyvar = true
@@ -100,13 +116,13 @@ func _ready() -> void:
 var scene_readyvar = false
 func save_scenestate():
 	for child in self.get_children():
-		if child.has_method("savestate"):
-			child.savestate()
+		if child.has_method("save"):
+			child.save()
 
 func load_scenestate():
 	for child in self.get_children():
-		if child.has_method("loadstate"):
-			child.loadstate()
+		if child.has_method("load_player_state"):
+			child.load_player_state()
 
 func loadscene():
 	if scene_readyvar:
@@ -130,11 +146,13 @@ func dont_create_splash():
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Save"):
-		SignalManager.save()
-		SaveSys.save_game()
-		
+		save_scenestate()
+		save_slot_screenshot(1)
+		SaveSys.save_game(1)
+		SignalManager.save_all_parameters()
 	if Input.is_action_pressed("Load"):
-		SaveSys.load_game(self)
+		SaveSys.load_game(1,self)
+		load_scenestate()
 	
 	if splashw.can_create == true:
 		activate()

@@ -54,6 +54,7 @@ background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ 
 objplayer = NodePath("Player")
 splashw = ExtResource("2_qv6q8")
 scene_name = "CorridorAndar1"
+nome_cena = "Andar 1"
 inv_dictionary = ExtResource("3_gmx88")
 
 [node name="Fundo" type="Sprite2D" parent="."]

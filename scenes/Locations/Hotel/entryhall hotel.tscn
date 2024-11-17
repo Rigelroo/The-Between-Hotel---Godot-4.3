@@ -226,6 +226,7 @@ background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ 
 objplayer = NodePath("Player")
 splashw = ExtResource("2_sao3u")
 scene_name = "Entryhall"
+nome_cena = "Hall de Entrada"
 inv_dictionary = ExtResource("3_ugrrr")
 next_scene = "res://Tests/parallaxtest1.tscn"
 

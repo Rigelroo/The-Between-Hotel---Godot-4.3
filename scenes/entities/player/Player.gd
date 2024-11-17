@@ -119,28 +119,74 @@ var prev_state = null
 	#3:
 	#4:
 #}
-
-var pos = []
+var pos = Vector2.ZERO
 var inventoryequiped_array = []
 
-
 func save():
+	# Salvar a cena atual
 	var saved_scene = get_parent().scene_file_path
-	print(saved_scene)
-	
-	inventoryequiped_array.append(inventoryc.stampslots)
-	pos.append(position.x)
-	pos.append(position.y)
+	var saved_scenename = get_parent().nome_cena
 	SaveSys.saved_current_scene = saved_scene
-	SaveSys.equiped_stamps = inventoryequiped_array
-	SaveSys.pos_dict[name] = pos
-	
+	SaveSys.saved_current_scenename = saved_scenename
+	# Salvar posição atual do jogador
+	pos = position
+	SaveSys.pos_dict[name] = [pos.x, pos.y]
 
-func update_pos(p):
+	# Salvar itens equipados
+	inventoryequiped_array.clear()
+	for slot in inventoryc.stampslots:
+		if slot != null:
+			if slot.item != null:
+				inventoryequiped_array.append(slot.item.name)
+	SaveSys.equiped_stamps = inventoryequiped_array
+
+	print("Player salvo:")
+	print("\tCena:", saved_scene)
+	print("\tPosição:", pos)
+	print("\tItens Equipados:", inventoryequiped_array)
+
+
+func update_pos(p: Vector2):
 	position = p
-	
-func update_inv(equipedslots):
-	pass
+
+func load_player_state():
+	# Carregar posição
+	if SaveSys.pos_dict.has(name):
+		var saved_pos = SaveSys.pos_dict[name]
+		update_pos(Vector2(saved_pos[0], saved_pos[1]))
+
+	# Carregar itens equipados
+	if SaveSys.equiped_stamps.size() > 0:
+		inventoryequiped_array.clear()
+		for item_name in SaveSys.equiped_stamps:
+			var item = inv_dictionary.invseals.find(item_name)
+			if item != null:
+				inventoryequiped_array.append(item)
+				emit_signal("sigload_equipstamp", item)  # Notifica os sistemas sobre os itens equipados.
+
+	print("Player carregado:")
+	print("\tPosição:", position)
+	print("\tItens Equipados:", inventoryequiped_array)
+
+
+#
+#func save():
+	#var saved_scene = get_parent().scene_file_path
+	#print(saved_scene)
+	#
+	#inventoryequiped_array.append(inventoryc.stampslots)
+	#pos.append(position.x)
+	#pos.append(position.y)
+	#SaveSys.saved_current_scene = saved_scene
+	#SaveSys.equiped_stamps = inventoryequiped_array
+	#SaveSys.pos_dict[name] = pos
+	#
+#
+#func update_pos(p):
+	#position = p
+	#
+#func update_inv(equipedslots):
+	#pass
 
 func set_stats():
 	

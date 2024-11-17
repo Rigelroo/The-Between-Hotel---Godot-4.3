@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c74bnmhefu72w"]
 
 [ext_resource type="Script" path="res://addons/dialogic/Editor/Events/Fields/field_dictionary.gd" id="1_p4kmu"]
-[ext_resource type="PackedScene" uid="uid://b27yweami3mxi" path="res://addons/dialogic/Editor/Events/Fields/dictionary_part.tscn" id="2_fg1gy"]
+[ext_resource type="PackedScene" uid="uid://b27yweami3mxi" path="res://inventory/dictionary_part.tscn" id="2_fg1gy"]
 
 [sub_resource type="Image" id="Image_5s534"]
 data = {

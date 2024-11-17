@@ -62,6 +62,7 @@ func move_selector_U():
 	update_things()
 
 func update_things():
+	showtab()
 	# Get currently and previously selected buttons
 	selected_button = menuslots[currently_selected]
 	past_selected_button = menuslots[previously_selected]
@@ -137,16 +138,22 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("selector_right") or event.is_action_pressed("selector_down"):
 		move_selector_D()
+		
 	elif event.is_action_pressed("selector_left") or event.is_action_pressed("selector_up"):
 		move_selector_U()
 	
 	if event.is_action_pressed("Attack") or event.is_action_pressed("Interact"):
 		press_button()
+		
+func showtab():
+	if currently_selected <= %saveshowtabcontainer.get_child_count():
+		%saveshowtabcontainer.current_tab = currently_selected
 
 func _process(delta: float) -> void:
 	pass
 
 func _ready() -> void:
+	update_all_slots()
 	update_things()
 	selected_button = menuslots[currently_selected]
 	selector.set_global_position(Vector2(213.0,51.0),true)
@@ -214,7 +221,7 @@ func _on_button_carregar_pressed() -> void:
 	currently_selected = 0
 	$AnimationPlayer.play("apertado")
 	current_tab = 1
-	
+	update_things()
 
 
 func _on_button_config_pressed() -> void:
@@ -263,3 +270,83 @@ func _on_button_não_pressed() -> void:
 	$AnimationPlayer.play("desapertado")
 	update_things()
 	#out_options()
+
+
+#func update_slot_display(slot: int, scene_label: Label, position_label: Label, items_label: Label):
+	#var slot_data = SaveSys.get_save_slot_data(slot)
+	#
+	#if not slot_data["exists"]:
+		#scene_label.text = "Slot %s: Vazio" % str(slot)
+		#position_label.text = "Posição: N/A"
+		#items_label.text = "Itens Equipados: N/A"
+		#return
+	#
+	## Atualizar Labels com dados do slot
+	#scene_label.text = "Slot %s: Cena: %s" % [str(slot), slot_data.get("saved_current_scene", "Desconhecida")]
+	#var pos = slot_data.get("position", [0, 0])
+	#position_label.text = "Posição: (%s, %s)" % [str(pos[0]), str(pos[1])]
+	#var items = slot_data.get("equiped_stamps", [])
+	#items_label.text = "Itens Equipados: %s" % (", ".join(items))
+
+func update_all_slots():
+	var tab = null
+	var valor = -1
+	for i in range(1,4):  # Três slots, por exemplo
+		valor += 1
+		tab = %saveshowtabcontainer.get_child(valor)
+		var savelocationlabel = tab.savelocationlabel
+		var lifelabel = tab.lifelabel
+		var deathslabel = tab.deathslabel
+		var coinslabel = tab.coinslabel
+		var ultimosavelabel = tab.ultimosavelabel
+		var tempolabel = tab.tempolabel
+		var emptycoiso = tab.empty
+		var print_texturerect = tab.print_texturerect
+		update_slot_display(i, savelocationlabel, lifelabel, deathslabel, coinslabel, ultimosavelabel, tempolabel, emptycoiso)
+		load_slot_screenshot(i, print_texturerect)
+	valor = 0
+func update_slot_display(slot: int, scene_label: Label, lifelabel, deathslabel, coinslabel, ultimosavelabel, tempolabel, emptycoiso):
+	var slot_data = SaveSys.get_slot_data(slot)
+	
+	if slot_data.has("exists"):
+		scene_label.text = "Vazio"
+		#position_label.text = "Posição: N/A"
+		lifelabel.text = "N/A"
+		deathslabel.text = "N/A"
+		coinslabel.text = "N/A"
+		ultimosavelabel.text = "N/A"
+		tempolabel.text = "N/A"
+		emptycoiso.visible = true
+		#items_label.text = "Itens Equipados: N/A"
+		return
+
+	# Atualizar os Labels com dados do slot
+	#scene_label.text = "Cena: %s" % slot_data.get("saved_current_scene", "Desconhecida")
+	
+	var lastscene_name = slot_data.get("saved_current_scenename", "Desconhecida")
+	scene_label.text = lastscene_name
+	
+	#savelocationlabel.text = slot_data.get("saved_current_scene", "Desconhecida")
+	lifelabel.text = "N/A"
+	deathslabel.text = "N/A"
+	coinslabel.text = str(slot_data.get("coins", "N/A"))
+	ultimosavelabel.text = "N/A"
+	tempolabel.text = "0h 0min"
+	emptycoiso.visible = false
+	#var pos = slot_data.get("position", [0, 0])
+	#position_label.text = "Posição: (%s, %s)" % [str(pos[0]), str(pos[1])]
+	
+	#var items = slot_data.get("equiped_stamps", [])
+	#items_label.text = "Itens Equipados: %s" % (", ".join(items))
+func load_slot_screenshot(slot: int, texture_rect: TextureRect) -> void:
+	var file_path = "user://slot%s_screenshot.png" % str(slot)
+	if FileAccess.file_exists(file_path):
+		var img = Image.new()
+		img.load(file_path)
+		var texture = ImageTexture.new()
+		texture.create_from_image(img)
+		texture_rect.texture = texture
+		print("Screenshot carregada para o slot %s" % slot)
+	else:
+		texture_rect.texture = null
+		print("Nenhuma screenshot encontrada para o slot %s" % slot)

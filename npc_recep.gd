@@ -15,16 +15,17 @@ func load_savedstate():
 	dialog_event
 
 func savestate():
-	pos.append(position.x)
-	pos.append(position.y)
-	var array = {"dialog_event": dialog_event, "position": pos}
-	SaveSys.write_save_scene_state(array, "npc_KoriTrice", get_parent().scene_name)
-	print("test")
+	pass
+	#pos.append(position.x)
+	#pos.append(position.y)
+	#var array = {"dialog_event": dialog_event, "position": pos}
+	#SaveSys.write_save_scene_state(array, "npc_KoriTrice", get_parent().scene_name)
+	#print("test")
 
 func loadstate():
-	SaveSys.read_save_scene_state()
 	
-	var state_data = SaveSys.read_save_scene_state()
+	
+	var state_data = null#SaveSys.read_save_scene_state()
 	if state_data:
 		if state_data.has(get_parent().scene_name) and state_data[get_parent().scene_name].has("npc_KoriTrice"):
 			var npc_data = state_data[get_parent().scene_name]["npc_KoriTrice"]
