@@ -95,7 +95,7 @@ var breath_index : int = 0:
 @onready var ItemStackGuiClass = preload("res://inventory/gui/itemStackGui.tscn")
 @onready var ItemStackGuiClassb = preload("res://inventory/gui/itemStackGuib.tscn")
 @onready var ItemStackGuiClassc = preload("res://inventory/gui/itemStackGuic.tscn")
-@onready var inventory: Inventory = preload("res://inventory/PlayerInventory.tres")
+@export var inventory: Inventory = preload("res://inventory/PlayerInventory.tres")
 @onready var inventoryb: Inventoryb = preload("res://inventory/PlayerInventoryb.tres")
 @onready var inventoryc: Inventoryc = preload("res://inventory/PlayerInventoryc.tres")
 @onready var task_manager: TaskManager = preload("res://Global/Task_manager.tres")
@@ -470,7 +470,13 @@ var pos = []
 var inventoryequiped_array = []
 var inventorystamps_array = []
 var inventoryitems_array = []
+var missions_array = []
 var inventoryitemsamount_array = []
+
+var currentsaveslot = null
+var first_sceme = false
+func set_saveslot():
+	pass
 
 # Funções para salvar e carregar os parâmetros do jogo
 func save_all_parameters():
@@ -482,8 +488,8 @@ func save_all_parameters():
 		main_manager.ffemblem_equiped
 	]
 	SaveSys.signalManager_dict["SignalManager"] = signal_manager_variables
-	SaveSys.save_game(1)  # Altere o número do slot se necessário
-	its_saving.emit()
+	#SaveSys.save_game(1)  # Altere o número do slot se necessário
+	#its_saving.emit()
 
 func load_parameters(update_parameters):
 	if update_parameters and "SignalManager" in update_parameters:
@@ -502,9 +508,14 @@ func load_parameters(update_parameters):
 
 # Funções para salvar o inventário
 func save_inventory(slots):
+	
 	reset_inventory_arrays()
-
-	# Salva itens do inventário
+	
+	for mission in task_manager.missions:
+		if mission:
+			missions_array.append(mission.resource_path)
+		
+			# Salva itens do inventário
 	for slot in inventoryb.invslots:
 		if slot.item:
 			inventoryitems_array.append(slot.item.name)
@@ -525,8 +536,10 @@ func save_inventory(slots):
 	SaveSys.inv_stamps = inventorystamps_array
 	SaveSys.inv_items = inventoryitems_array
 	SaveSys.inv_item_amounts = inventoryitemsamount_array
+	SaveSys.missions_array = missions_array
 
 func reset_inventory_arrays():
+	missions_array.clear()
 	inventoryequiped_array.clear()
 	inventorystamps_array.clear()
 	inventoryitems_array.clear()
@@ -547,6 +560,7 @@ func load_stampsinventory(saved_items):
 		for item in inv_dictionary.invseals:
 			if item.name == saved_item:
 				inventory.insert(item)
+	print("esse aqui stamps")
 
 func load_itemsinventory(saved_items, saved_amounts):
 	var index = 0
@@ -560,6 +574,7 @@ func load_itemsinventory(saved_items, saved_amounts):
 		if index < saved_amounts.size():
 			slot.amount = saved_amounts[index]
 			index += 1
+	print("esse aqui items")
 
 # Funções para carregar itens e selos equipados
 func load_equipstamp(slots: Array, sealslots: Array, currently_selected: int, inventoryc: Inventoryc, item):
@@ -569,6 +584,8 @@ func load_equipstamp(slots: Array, sealslots: Array, currently_selected: int, in
 				stamp_points -= item.stamp_points
 				slot.itemStackGui.inventorySlot.item.itemactivate = 1
 				inventoryc.insert(item)
+	print("esse aqui equipstamp")
+
 
 func load_stamp_equippedfunc(slots: Array, currently_selected: int, inventory: Inventory, item):
 	for slot in slots:

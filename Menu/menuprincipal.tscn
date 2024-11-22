@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://d2kbwohtjrf5k"]
+[gd_scene load_steps=84 format=3 uid="uid://d2kbwohtjrf5k"]
 
 [ext_resource type="Texture2D" uid="uid://p7wpl8iyn027" path="res://Menu/Sprites/menuprincipal_fundo.png" id="1_42538"]
 [ext_resource type="Script" path="res://Menu/menuprincipal.gd" id="1_wkb2l"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://hs3rhh5odha3" path="res://Menu/Sprites/menusave/menusaves_back.png" id="33_v3bq0"]
 [ext_resource type="Texture2D" uid="uid://b2iqlsui6a7so" path="res://Menu/Sprites/menusave/menusaves_3.png" id="34_xfrxp"]
 [ext_resource type="Texture2D" uid="uid://d3dbecd3we6qt" path="res://Menu/Sprites/menusave/menusaves_saveshow.png" id="35_rwrtu"]
+[ext_resource type="Texture2D" uid="uid://b7m3bqttejcep" path="res://Menu/Sprites/buttonsstuff/buttonshow_xbox_b.png" id="36_m85bk"]
 [ext_resource type="Texture2D" uid="uid://c21s8d4vao5wm" path="res://Menu/Sprites/menusave/menusaves_saveshowfoto.png" id="36_uuoh5"]
 [ext_resource type="Texture2D" uid="uid://dg0fleaoncgdr" path="res://Menu/Sprites/menusave/menusaves_saveshowname.png" id="37_w8sd0"]
 [ext_resource type="Texture2D" uid="uid://c5hp6cehylfkh" path="res://Menu/Sprites/menusave/foto_locais/bettleborough.png" id="38_ava26"]
@@ -50,17 +51,30 @@
 [ext_resource type="Script" path="res://inventory/gui/itemStackGui.gd" id="44_2m83m"]
 [ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://inventory/PlayerInventory.tres" id="45_ukdy4"]
 [ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="46_x0hox"]
+[ext_resource type="Texture2D" uid="uid://c8hxfbcxwfq5d" path="res://Menu/Sprites/buttonsstuff/buttonshow_xbox_x.png" id="47_atovr"]
 [ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="47_b563v"]
+[ext_resource type="Texture2D" uid="uid://dexnh4nfqwpc5" path="res://Menu/Sprites/menusave/menusaves_playbutton.png" id="48_8s3ra"]
+[ext_resource type="Texture2D" uid="uid://sqav75txw6vx" path="res://Menu/Sprites/buttonsstuff/buttonshow_xbox_a.png" id="49_3w2mj"]
 [ext_resource type="FontFile" uid="uid://dbf30jmb03jwh" path="res://Fonts/Typewriter215FP-Heavyhanded.otf" id="51_173fg"]
 [ext_resource type="Texture2D" uid="uid://cdv3b8nl0p72f" path="res://inventory/gui/Selector/slot inventario - select.png" id="51_x0hox"]
 [ext_resource type="Texture2D" uid="uid://dl1pn2s2a86fr" path="res://Sprites/Namebox.png" id="52_08nkk"]
 [ext_resource type="Texture2D" uid="uid://clc8udw1ehpcb" path="res://inventory/gui/Selector/slot inventario - select_shadow.png" id="52_b563v"]
 [ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="53_tg1l0"]
+[ext_resource type="Texture2D" uid="uid://vt7l3xin7eoe" path="res://inventory/gui/scroll.png" id="60_giayt"]
+[ext_resource type="Texture2D" uid="uid://b88736hycycnl" path="res://Missões/checkboxcheck.png" id="61_u3xcn"]
+[ext_resource type="Texture2D" uid="uid://cu4msfw3k4rdl" path="res://Missões/checkbox.png" id="62_aicyn"]
+[ext_resource type="Texture2D" uid="uid://bgsdjj1kj1t7d" path="res://inventory/gui/botão-maisesq.png" id="63_aoj42"]
+[ext_resource type="Texture2D" uid="uid://beiyt43blkum0" path="res://inventory/gui/botão-maisdir.png" id="64_6loxv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ciqmj"]
+shader = ExtResource("29_2ytcj")
+shader_parameter/grain_amount = 0.05
+shader_parameter/grain_size = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r7q74"]
 shader = ExtResource("30_g85ol")
 shader_parameter/resolution = Vector2(1280, 720)
-shader_parameter/scan_line_amount = 0.102
+shader_parameter/scan_line_amount = 1.0
 shader_parameter/warp_amount = 0.1
 shader_parameter/noise_amount = 0.03
 shader_parameter/interference_amount = 0.2
@@ -73,11 +87,6 @@ shader_parameter/roll_line_amount = 0.3
 shader_parameter/roll_speed = 1.0
 shader_parameter/scan_line_strength = -8.0
 shader_parameter/pixel_strength = -4.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ciqmj"]
-shader = ExtResource("29_2ytcj")
-shader_parameter/grain_amount = 0.05
-shader_parameter/grain_size = 0.694
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_meonr"]
 animations = [{
@@ -151,6 +160,20 @@ animations = [{
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x0hox"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08nkk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k7ui2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3k55h"]
+content_margin_bottom = 39.0
+texture = ExtResource("60_giayt")
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+region_rect = Rect2(0, 0, 1032, 129.75)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkqpt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sotio"]
+texture = ExtResource("60_giayt")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ck1qu"]
 
@@ -494,7 +517,21 @@ _data = {
 script = ExtResource("1_wkb2l")
 festivosprites = Array[String](["res://Menu/Sprites/menuprincipal_natal1.png", "res://Menu/Sprites/menuprincipal_hallow1.png"])
 
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+top_level = true
+material = SubResource("ShaderMaterial_ciqmj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+render_target_update_mode = 4
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
 top_level = true
 material = SubResource("ShaderMaterial_r7q74")
 offset_right = 1191.0
@@ -504,19 +541,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
 size = Vector2i(1191, 678)
-render_target_update_mode = 4
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="SubViewportContainer"]
-top_level = true
-material = SubResource("ShaderMaterial_ciqmj")
-layout_mode = 2
-stretch = true
-metadata/_edit_use_anchors_ = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer/SubViewportContainer2"]
-handle_input_locally = false
-size = Vector2i(2, 2)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1000, 500.81)
@@ -824,10 +849,15 @@ vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/backbutton"]
-position = Vector2(30.923, -98.2309)
-scale = Vector2(0.55, 0.55)
+position = Vector2(-50.5384, -93.6922)
+scale = Vector2(0.804177, 0.804177)
 texture = ExtResource("33_v3bq0")
 centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/backbutton"]
+position = Vector2(311, 117.846)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("36_m85bk")
 
 [node name="saveshowtabcontainer" type="TabContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control"]
 unique_name_in_owner = true
@@ -854,15 +884,12 @@ position = Vector2(3.80807, -498.858)
 texture = ExtResource("36_uuoh5")
 
 [node name="Sprite2D" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/Sprite2D2"]
-custom_minimum_size = Vector2(1127, 603)
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.021
 offset_left = -563.668
 offset_top = -288.956
-offset_right = -563.668
-offset_bottom = -301.619
+offset_right = 563.332
+offset_bottom = 314.044
 texture = ExtResource("38_ava26")
+stretch_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow"]
 position = Vector2(3.80807, -194.212)
@@ -948,26 +975,11 @@ theme_override_fonts/font = ExtResource("43_bnajq")
 theme_override_font_sizes/font_size = 86
 text = "Tempo:   3h 14min"
 
-[node name="apagarsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow"]
-custom_minimum_size = Vector2(400, 400)
-offset_left = 350.346
-offset_top = 567.403
-offset_right = 750.346
-offset_bottom = 967.403
-rotation = 0.122173
-pivot_offset = Vector2(251.333, 270.373)
-size_flags_horizontal = 4
-icon = ExtResource("41_bnajq")
-flat = true
-expand_icon = true
-
-[node name="empty" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow"]
+[node name="empty" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow"]
 visible = false
-position = Vector2(4076.92, 0)
-scale = Vector2(1.01, 1.01)
 texture = ExtResource("35_rwrtu")
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/empty"]
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/empty"]
 modulate = Color(0.165167, 0.133327, 0.380147, 1)
 offset_left = -615.458
 offset_top = 73.5385
@@ -979,6 +991,42 @@ theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
 theme_override_fonts/font = ExtResource("38_imnho")
 theme_override_font_sizes/font_size = 236
 text = "Vazio"
+
+[node name="apagarsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow"]
+visible = false
+offset_left = 26.5835
+offset_top = 647.829
+offset_right = 337.583
+offset_bottom = 997.829
+rotation = 0.122173
+pivot_offset = Vector2(251.333, 270.373)
+size_flags_horizontal = 4
+icon = ExtResource("41_bnajq")
+flat = true
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/apagarsave"]
+position = Vector2(252.261, 277.933)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("47_atovr")
+
+[node name="playsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow"]
+custom_minimum_size = Vector2(400, 400)
+offset_left = 403.583
+offset_top = 636.405
+offset_right = 803.583
+offset_bottom = 1070.41
+rotation = 0.122173
+pivot_offset = Vector2(251.333, 270.373)
+size_flags_horizontal = 4
+icon = ExtResource("48_8s3ra")
+flat = true
+expand_icon = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/playsave"]
+position = Vector2(265.92, 295.439)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("49_3w2mj")
 
 [node name="saveshow2" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer"]
 visible = false
@@ -1088,26 +1136,11 @@ theme_override_fonts/font = ExtResource("43_bnajq")
 theme_override_font_sizes/font_size = 86
 text = "Tempo:   3h 14min"
 
-[node name="apagarsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow"]
-custom_minimum_size = Vector2(400, 400)
-offset_left = 350.346
-offset_top = 567.403
-offset_right = 750.346
-offset_bottom = 967.403
-rotation = 0.122173
-pivot_offset = Vector2(251.333, 270.373)
-size_flags_horizontal = 4
-icon = ExtResource("41_bnajq")
-flat = true
-expand_icon = true
-
-[node name="empty" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2"]
+[node name="empty" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow"]
 visible = false
-position = Vector2(4076.92, 0)
-scale = Vector2(1.01, 1.01)
 texture = ExtResource("35_rwrtu")
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/empty"]
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow/empty"]
 modulate = Color(0.165167, 0.133327, 0.380147, 1)
 offset_left = -615.458
 offset_top = 73.5385
@@ -1119,6 +1152,42 @@ theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
 theme_override_fonts/font = ExtResource("38_imnho")
 theme_override_font_sizes/font_size = 236
 text = "Vazio"
+
+[node name="apagarsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow"]
+visible = false
+offset_left = 26.5835
+offset_top = 647.829
+offset_right = 337.583
+offset_bottom = 997.829
+rotation = 0.122173
+pivot_offset = Vector2(251.333, 270.373)
+size_flags_horizontal = 4
+icon = ExtResource("41_bnajq")
+flat = true
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow/apagarsave"]
+position = Vector2(252.261, 277.933)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("47_atovr")
+
+[node name="playsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow"]
+custom_minimum_size = Vector2(400, 400)
+offset_left = 403.583
+offset_top = 636.405
+offset_right = 803.583
+offset_bottom = 1070.41
+rotation = 0.122173
+pivot_offset = Vector2(251.333, 270.373)
+size_flags_horizontal = 4
+icon = ExtResource("48_8s3ra")
+flat = true
+expand_icon = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow/playsave"]
+position = Vector2(265.92, 295.439)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("49_3w2mj")
 
 [node name="saveshow3" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer"]
 visible = false
@@ -1228,25 +1297,11 @@ theme_override_fonts/font = ExtResource("43_bnajq")
 theme_override_font_sizes/font_size = 86
 text = "Tempo:   3h 14min"
 
-[node name="apagarsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow"]
-custom_minimum_size = Vector2(400, 400)
-offset_left = 350.346
-offset_top = 567.403
-offset_right = 750.346
-offset_bottom = 967.403
-rotation = 0.122173
-pivot_offset = Vector2(251.333, 270.373)
-size_flags_horizontal = 4
-icon = ExtResource("41_bnajq")
-flat = true
-expand_icon = true
-
-[node name="empty" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3"]
-position = Vector2(4076.92, 0)
-scale = Vector2(1.01, 1.01)
+[node name="empty" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow"]
+visible = false
 texture = ExtResource("35_rwrtu")
 
-[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/empty"]
+[node name="Label" type="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow/empty"]
 modulate = Color(0.165167, 0.133327, 0.380147, 1)
 offset_left = -615.458
 offset_top = 73.5385
@@ -1258,6 +1313,42 @@ theme_override_colors/font_color = Color(0.980392, 0.886275, 0.819608, 1)
 theme_override_fonts/font = ExtResource("38_imnho")
 theme_override_font_sizes/font_size = 236
 text = "Vazio"
+
+[node name="apagarsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow"]
+visible = false
+offset_left = 26.5835
+offset_top = 647.829
+offset_right = 337.583
+offset_bottom = 997.829
+rotation = 0.122173
+pivot_offset = Vector2(251.333, 270.373)
+size_flags_horizontal = 4
+icon = ExtResource("41_bnajq")
+flat = true
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow/apagarsave"]
+position = Vector2(252.261, 277.933)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("47_atovr")
+
+[node name="playsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow"]
+custom_minimum_size = Vector2(400, 400)
+offset_left = 403.583
+offset_top = 636.405
+offset_right = 803.583
+offset_bottom = 1070.41
+rotation = 0.122173
+pivot_offset = Vector2(251.333, 270.373)
+size_flags_horizontal = 4
+icon = ExtResource("48_8s3ra")
+flat = true
+expand_icon = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow/playsave"]
+position = Vector2(265.92, 295.439)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("49_3w2mj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menuprincipalcaixa/submenuTabcontainer/save_control"]
 visible = false
@@ -1501,10 +1592,677 @@ theme_override_fonts/font = ExtResource("47_b563v")
 theme_override_font_sizes/font_size = 25
 text = "99"
 
-[node name="Certeza" type="TabBar" parent="Menuprincipalcaixa/submenuTabcontainer"]
+[node name="config_control" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="OptionsContainer" type="TabContainer" parent="Menuprincipalcaixa/submenuTabcontainer/config_control"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 676.846
+offset_top = -949.539
+offset_right = -4703.15
+offset_bottom = -1798.54
+scale = Vector2(4.43638, 4.43638)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_k7ui2")
+current_tab = 0
+tabs_visible = false
+
+[node name="Sons" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons" instance=ExtResource("53_tg1l0")]
+layout_direction = 2
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 118.0
+offset_top = 37.0
+offset_right = 510.0
+offset_bottom = 179.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.444367, 0.444367)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = " Sons"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="masterlabel" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons" instance=ExtResource("53_tg1l0")]
+layout_direction = 2
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 68.0
+offset_top = 157.0
+offset_right = 1058.0
+offset_bottom = 299.0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = " master volume"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="musiclabel" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons" instance=ExtResource("53_tg1l0")]
+layout_direction = 2
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 151.539
+offset_top = 214.835
+offset_right = 595.539
+offset_bottom = 356.835
+scale = Vector2(0.275, 0.275)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = "música"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="vfxlabel" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons" instance=ExtResource("53_tg1l0")]
+layout_direction = 2
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 183.057
+offset_top = 272.669
+offset_right = 421.057
+offset_bottom = 414.669
+scale = Vector2(0.275, 0.275)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = "vfx"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="options" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons" groups=["optionscontrol"]]
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 153.0
+offset_right = 1054.0
+offset_bottom = 959.0
+scale = Vector2(0.306004, 0.306004)
+
+[node name="mainvolumeslider" type="HSlider" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 146.0
+offset_right = 990.0
+offset_bottom = 208.0
+pivot_offset = Vector2(3.3394, -127.525)
+theme_override_styles/slider = SubResource("StyleBoxTexture_3k55h")
+min_value = -79.0
+
+[node name="musicvolumeslider" type="HSlider" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_top = 335.0
+offset_right = 990.0
+offset_bottom = 401.0
+theme_override_styles/slider = SubResource("StyleBoxTexture_3k55h")
+min_value = -79.0
+
+[node name="sfxvolumeslider" type="HSlider" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options"]
+unique_name_in_owner = true
+y_sort_enabled = true
+layout_mode = 2
+offset_top = 524.0
+offset_right = 990.0
+offset_bottom = 608.0
+pivot_offset = Vector2(11.8389, -77.7181)
+theme_override_styles/slider = SubResource("StyleBoxTexture_3k55h")
+min_value = -79.0
+
+[node name="MuteBox" type="CheckBox" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options"]
+layout_mode = 2
+offset_top = 640.515
+offset_right = 990.0
+offset_bottom = 879.515
+scale = Vector2(0.712654, 0.712654)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_constants/outline_size = 70
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 206
+theme_override_icons/checked = ExtResource("61_u3xcn")
+theme_override_icons/unchecked = ExtResource("62_aicyn")
+action_mode = 0
+text = " mudo"
+
+[node name="backbutton" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons"]
+custom_minimum_size = Vector2(400, 200)
+offset_left = 272.225
+offset_top = 445.616
+offset_right = 672.225
+offset_bottom = 645.616
+scale = Vector2(0.22978, 0.22978)
+size_flags_horizontal = 8
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/backbutton"]
+position = Vector2(-50.5384, -93.6922)
+scale = Vector2(0.804177, 0.804177)
+texture = ExtResource("33_v3bq0")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/backbutton"]
+position = Vector2(311, 117.846)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("36_m85bk")
+
+[node name="Buttonesq" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 0.0348282
+offset_right = 0.003479
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("63_aoj42")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 0.121002
+offset_right = 0.0896606
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("64_6loxv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Tela" type="TabBar" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Label" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela" instance=ExtResource("53_tg1l0")]
+layout_direction = 2
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 118.0
+offset_top = 37.0
+offset_right = 510.0
+offset_bottom = 179.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.444367, 0.444367)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = " Tela
+"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="resolução" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela" instance=ExtResource("53_tg1l0")]
+layout_direction = 2
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 115.0
+offset_top = 228.0
+offset_right = 789.0
+offset_bottom = 370.0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = "Resolução"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="janela" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela" instance=ExtResource("53_tg1l0")]
+layout_direction = 2
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 141.0
+offset_top = 136.0
+offset_right = 815.0
+offset_bottom = 278.0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = "Janela"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="options" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela" groups=["optionscontrol"]]
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 153.0
+offset_right = 1054.0
+offset_bottom = 959.0
+scale = Vector2(0.306004, 0.306004)
+
+[node name="Screentypebox" type="OptionButton" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options" groups=["ScreenType"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.134
+anchor_right = 0.865
+anchor_bottom = 0.256
+offset_left = 0.422089
+offset_top = -9.96609
+offset_right = 0.151917
+offset_bottom = -10.0181
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 81
+theme_override_styles/normal = SubResource("StyleBoxTexture_sotio")
+alignment = 1
+expand_icon = true
+fit_to_longest_item = false
+
+[node name="Buttonesq" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/Screentypebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = -188.791
+offset_top = -0.933671
+offset_right = -188.822
+offset_bottom = 48.0183
+scale = Vector2(1.41636, 1.41636)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("63_aoj42")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/Screentypebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 86.1487
+offset_top = -0.933671
+offset_right = 86.1174
+offset_bottom = 48.0183
+scale = Vector2(1.38447, 1.38447)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("64_6loxv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Screenresbox" type="OptionButton" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options" groups=["Resolution"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.134
+anchor_right = 0.865
+anchor_bottom = 0.256
+offset_left = -2.84584
+offset_top = 284.148
+offset_right = -3.11603
+offset_bottom = 284.096
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 81
+theme_override_styles/normal = SubResource("StyleBoxTexture_sotio")
+alignment = 1
+expand_icon = true
+fit_to_longest_item = false
+
+[node name="Buttonesq" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/Screenresbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = -188.791
+offset_top = -0.933671
+offset_right = -188.822
+offset_bottom = 48.0183
+scale = Vector2(1.41636, 1.41636)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("63_aoj42")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/Screenresbox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 86.1487
+offset_top = -0.933671
+offset_right = 86.1174
+offset_bottom = 48.0183
+scale = Vector2(1.38447, 1.38447)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("64_6loxv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TelacheiaBox" type="CheckBox" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options"]
+layout_mode = 2
+offset_left = 68.6266
+offset_top = 565.352
+offset_right = 1179.62
+offset_bottom = 804.352
+scale = Vector2(0.712654, 0.712654)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 151
+theme_override_icons/checked = ExtResource("61_u3xcn")
+theme_override_icons/unchecked = ExtResource("62_aicyn")
+text = " Tela cheia
+"
+
+[node name="VsyncBox" type="CheckBox" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options"]
+layout_mode = 2
+offset_left = 75.1625
+offset_top = 764.695
+offset_right = 1065.16
+offset_bottom = 1003.7
+scale = Vector2(0.712654, 0.712654)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 151
+theme_override_icons/checked = ExtResource("61_u3xcn")
+theme_override_icons/unchecked = ExtResource("62_aicyn")
+text = "Vsync"
+
+[node name="Buttonesq" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 0.0348282
+offset_right = 0.003479
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("63_aoj42")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 0.121002
+offset_right = 0.0896606
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("64_6loxv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="backbutton" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela"]
+custom_minimum_size = Vector2(400, 200)
+offset_left = 272.225
+offset_top = 445.616
+offset_right = 672.225
+offset_bottom = 645.616
+scale = Vector2(0.22978, 0.22978)
+size_flags_horizontal = 8
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/backbutton"]
+position = Vector2(-50.5384, -93.6922)
+scale = Vector2(0.804177, 0.804177)
+texture = ExtResource("33_v3bq0")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/backbutton"]
+position = Vector2(311, 117.846)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("36_m85bk")
+
+[node name="Controles" type="TabBar" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Label" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles" instance=ExtResource("53_tg1l0")]
+layout_direction = 2
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 77.0
+offset_top = 44.0
+offset_right = 773.0
+offset_bottom = 186.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.381132, 0.381132)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = " Controles
+"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
+[node name="resolução" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles" instance=ExtResource("53_tg1l0")]
+layout_direction = 2
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 117.0
+offset_top = 140.0
+offset_right = 791.0
+offset_bottom = 282.0
+scale = Vector2(0.275, 0.275)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = "Resolução"
+visible_characters = -1
+visible_ratio = 1.0
+language = "pt_BR"
+script = null
+
+[node name="options" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles" groups=["optionscontrol"]]
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 153.0
+offset_right = 1054.0
+offset_bottom = 959.0
+scale = Vector2(0.306004, 0.306004)
+
+[node name="OptionButton" type="OptionButton" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles/options"]
+layout_mode = 0
+offset_left = 91.5021
+offset_top = 107.842
+offset_right = 856.502
+offset_bottom = 185.842
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxTexture_sotio")
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "1152x648"
+popup/item_0/id = 1
+popup/item_1/text = "800x600"
+popup/item_1/id = 0
+
+[node name="TelacheiaBox" type="CheckBox" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles/options"]
+layout_mode = 2
+offset_left = 71.8945
+offset_top = 261.435
+offset_right = 1182.89
+offset_bottom = 500.435
+scale = Vector2(0.712654, 0.712654)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 151
+theme_override_icons/checked = ExtResource("61_u3xcn")
+theme_override_icons/unchecked = ExtResource("62_aicyn")
+text = " Tela cheia
+"
+
+[node name="VsyncBox" type="CheckBox" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles/options"]
+layout_mode = 2
+offset_left = 78.4304
+offset_top = 460.778
+offset_right = 1068.43
+offset_bottom = 699.778
+scale = Vector2(0.712654, 0.712654)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 151
+theme_override_icons/checked = ExtResource("61_u3xcn")
+theme_override_icons/unchecked = ExtResource("62_aicyn")
+text = "Vsync"
+
+[node name="backbutton" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles"]
+custom_minimum_size = Vector2(400, 200)
+offset_left = 272.225
+offset_top = 445.616
+offset_right = 672.225
+offset_bottom = 645.616
+scale = Vector2(0.22978, 0.22978)
+size_flags_horizontal = 8
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles/backbutton"]
+position = Vector2(-50.5384, -93.6922)
+scale = Vector2(0.804177, 0.804177)
+texture = ExtResource("33_v3bq0")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles/backbutton"]
+position = Vector2(311, 117.846)
+scale = Vector2(0.553549, 0.553549)
+texture = ExtResource("36_m85bk")
+
+[node name="Certeza" type="TabBar" parent="Menuprincipalcaixa/submenuTabcontainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="Label" parent="Menuprincipalcaixa/submenuTabcontainer/Certeza" instance=ExtResource("53_tg1l0")]
 layout_mode = 0
@@ -1590,7 +2348,7 @@ offset_bottom = 84.0
 
 [node name="Selector" type="Sprite2D" parent="ConfigCentercontainer"]
 unique_name_in_owner = true
-position = Vector2(-65, -92)
+position = Vector2(-66, -137)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("51_x0hox")
 centered = false
@@ -1608,7 +2366,23 @@ centered = false
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save3" to="." method="_on_save_1_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/backbutton" to="." method="_on_backbutton_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/apagarsave" to="." method="_on_apagarsave_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/playsave" to="." method="_on_playsave_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow/apagarsave" to="." method="_on_apagarsave_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow/playsave" to="." method="_on_playsave_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow/apagarsave" to="." method="_on_apagarsave_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow/playsave" to="." method="_on_playsave_pressed"]
+[connection signal="value_changed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options/mainvolumeslider" to="." method="_on_mainvolumeslider_value_changed"]
+[connection signal="value_changed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options/musicvolumeslider" to="." method="_on_musicvolumeslider_value_changed"]
+[connection signal="value_changed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options/sfxvolumeslider" to="." method="_on_sfxvolumeslider_value_changed"]
+[connection signal="toggled" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options/MuteBox" to="." method="_on_mute_box_toggled"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/backbutton" to="." method="_on_backbutton_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/Buttonesq" to="." method="show_less_options"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/Buttondir" to="." method="show_more_options"]
+[connection signal="item_selected" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/Screentypebox" to="." method="on_window_mode_selected"]
+[connection signal="item_selected" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/Screenresbox" to="." method="_on_screenres_box_selected"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/Buttonesq" to="." method="show_less_options"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/Buttondir" to="." method="show_more_options"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/backbutton" to="." method="_on_backbutton_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles/backbutton" to="." method="_on_backbutton_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/Certeza/options/ButtonSim" to="." method="_on_button_sim_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/Certeza/options/ButtonNão" to="." method="_on_button_não_pressed"]

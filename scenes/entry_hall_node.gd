@@ -86,10 +86,14 @@ func some_function():
 # Called when the node enters the scene tree for the first time.
 
 
-
+func load_one_time():
+	if SignalManager.first_sceme:
+		SaveSys.load_game(SignalManager.currentsaveslot, self)
+		SignalManager.first_sceme = false
 
 func _ready() -> void:
-	
+	SignalManager.its_saving.connect(save_scenestate)
+	load_one_time()
 	
 	some_function()
 	background_music()
@@ -114,15 +118,28 @@ func _ready() -> void:
 	#canvas.global_position = player.global_position
 
 var scene_readyvar = false
+
+
 func save_scenestate():
-	for child in self.get_children():
+	for child in get_children():
 		if child.has_method("save"):
 			child.save()
 
 func load_scenestate():
-	for child in self.get_children():
+	for child in get_children():
 		if child.has_method("load_player_state"):
 			child.load_player_state()
+
+
+#func save_scenestate():
+	#for child in self.get_children():
+		#if child.has_method("save"):
+			#child.save()
+
+#func load_scenestate():
+	#for child in self.get_children():
+		#if child.has_method("load_player_state"):
+			#child.load_player_state()
 
 func loadscene():
 	if scene_readyvar:
@@ -146,10 +163,10 @@ func dont_create_splash():
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Save"):
-		save_scenestate()
-		save_slot_screenshot(1)
+		save_slot_screenshot(SignalManager.currentsaveslot)
+		SignalManager.its_saving.emit()
 		SaveSys.save_game(1)
-		SignalManager.save_all_parameters()
+		#SignalManager.save_all_parameters()
 	if Input.is_action_pressed("Load"):
 		SaveSys.load_game(1,self)
 		load_scenestate()

@@ -31,12 +31,14 @@ func set_ready() -> void:
 	progress = $itempanel/Progress
 	texture_progress_bar = $itempanel/Progress/TextureProgressBar
 	namebox = $itempanel/Progress/TextureProgressBar/Namebox
-	progresslabel = $itempanel/Progress/Progresslabel
-	progresslabel_2 = $itempanel/Progress/Progresslabel2
+	progresslabel = $itempanel/Progress/HBoxContainer/Progresslabel
+	progresslabel_2 = $itempanel/Progress/HBoxContainer/Progresslabel2
 	checkbox = $itempanel/CheckboxContainer/checkbox
 	check = $itempanel/CheckboxContainer/check
 	checkcontainer = $itempanel/CheckboxContainer
-	objectivelabel = $itempanel/Progress/objectivelabel
+	objectivelabel = $itempanel/Progress/HBoxContainer/objectivelabel
+
+
 func set_everything(task):
 	texture_rect.modulate = task.theme_color
 	item.texture = task.item_texture

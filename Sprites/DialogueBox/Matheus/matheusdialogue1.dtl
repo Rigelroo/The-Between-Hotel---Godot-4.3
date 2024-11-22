@@ -1,26 +1,32 @@
 join Matheus (Matheus) 3
 [signal arg="deactivate_movement"]
-Turquesa (Turquesa): Oi amore!
-Turquesa (Turquesa): Não quero ser intrometida mas preciso perguntar
-Turquesa (Turquesa): Tem como você pegar minha entrega de volta?
-Turquesa (Turquesa): Aquelas vespas arruaceiras roubaram.
-Turquesa (Turquesa): Eu pegaria mas não quero virar comida de larva.
-Turquesa (Turquesa): Não acho que você consiga, mas o que custa tentar.
+Matheus (Matheus): Persi!
+Matheus (Matheus): Ei garoto, pronto para seu primeiro dia como ajudante?
 join Persian (Persian_worried) 1
-update Turquesa (vazio) 3
-Persian (Persian_worried): É que...
+update Matheus (Matheus) 3
+Persian (Persian_worried): Espero que sim
 update Persian (vazio) 1
-Turquesa (Turquesa): Nem vem recusar garoto, você já entrou na minha casa sem ser convidado.\
-E eu não quero vespas pegando minhas coisas
+Matheus (Matheus): Eu tenho compromissos então não vou poder te ajudar ok?
+Mas acho que você vai se dar bem
 join Persian (Persian_worried) 1
-update Turquesa (vazio) 3
-Persian (Persian_pissed): Eu pego
-update Turquesa (vazio) 3
-Turquesa (Turquesa): Ai obrigada, você é um querido
-Turquesa (Turquesa): Agora xó! Volte quando pegar a minha encomenda
+Matheus (Matheus): Vamos lá
+Quero que você vá para o almoxarifado, pegue a encomenda com o James
+e entregue para Turquesa do quarto 1, o recepcionista vai te entregar a chave
 join Persian (Persian_worried) 1
-update Turquesa (vazio) 3
-Persian (Persian_pissed): ...
+update Matheus (Matheus) 3
+Persian (Persian_worried): Sim senhor!
+update Persian (vazio) 1
+Matheus (Matheus): Boa sorte, não quero falhas ok?
+#E eu não quero vespas pegando minhas coisas
+#join Persian (Persian_worried) 1
+#update Turquesa (vazio) 3
+#Persian (Persian_pissed): Eu pego
+#update Turquesa (vazio) 3
+#Turquesa (Turquesa): Ai obrigada, você é um querido
+#Turquesa (Turquesa): Agora xó! Volte quando pegar a minha encomenda
+#join Persian (Persian_worried) 1
+#update Turquesa (vazio) 3
+#Persian (Persian_pissed): ...
 [signal arg="set_mission"]
-set {mission_index} = 1
+set {mission_index} = 0
 [signal arg="reactivate_movement"]

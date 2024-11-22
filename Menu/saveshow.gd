@@ -12,5 +12,6 @@ extends Control
 @onready var coinslabel: Label = $saveshow/HBoxContainer/Lifemax3/coinslabel
 @onready var ultimosavelabel: Label = $saveshow/Ultimosavelabel
 @onready var tempolabel: Label = $saveshow/tempolabel
-@onready var empty: Sprite2D = $empty
+@onready var empty: Sprite2D = $saveshow/empty
 @onready var print_texturerect: TextureRect = $saveshow/Sprite2D2/Sprite2D
+@onready var apagarsave: Button = $saveshow/apagarsave

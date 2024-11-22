@@ -1,21 +1,33 @@
-extends Node
+extends Resource
 
+class_name ConfigManager
 
-var mainvolume_value = 0
-var musicvolume_value = 0
-var sfxvolume_value = 0
+@export var mainvolume_value = 0
+@export var musicvolume_value = 0
+@export var sfxvolume_value = 0
 
-var screentype_value = null
-var screentesolution_value = null
-var vsync_value = false
-var telacheia_value = false
+@export var screentype_value = null
+@export var screentesolution_value = null
+@export var vsync_value = false
+@export var telacheia_value = false
+@export_enum("Warrior", "Magician", "Thief") var character_class: int
+@export var x = WINDOW_MODE_ARRAY
 
-@onready var ItemStackGuiClass = preload("res://inventory/gui/itemStackGui.tscn")
-@onready var ItemStackGuiClassb = preload("res://inventory/gui/itemStackGuib.tscn")
-@onready var ItemStackGuiClassc = preload("res://inventory/gui/itemStackGuic.tscn")
-@onready var inventory: Inventory = preload("res://inventory/PlayerInventory.tres")
-@onready var inventoryb: Inventoryb = preload("res://inventory/PlayerInventoryb.tres")
-@onready var inventoryc: Inventoryc = preload("res://inventory/PlayerInventoryc.tres")
-@onready var task_manager: TaskManager = preload("res://Global/Task_manager.tres")
-@onready var main_manager : MainManager = preload("res://Global/Mainmanager.tres")
-var player = null
+enum NamedEnum {Full_Screen, Window_Mode, Borderless_Window, Borderless}
+@export var xy: NamedEnum
+
+const WINDOW_MODE_ARRAY : Array[String] = [
+	"Full-Screen",
+	"Window Mode",
+	"Borderless Window",
+	"Borderless Full-Screen"
+	]
+
+var RESOLUTION_DICT : Dictionary = {
+	"800x600": Vector2i(800,600),
+	"1600x900": Vector2i(1600,900),
+	"1366x768": Vector2i(1366,768),
+	"1280x720": Vector2i(1280,720),
+	"2560x1140": Vector2i(2560,1140),
+	"1920x1080": Vector2i(1920,1080)
+}

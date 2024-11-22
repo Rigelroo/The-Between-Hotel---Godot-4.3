@@ -5,7 +5,7 @@ extends NinePatchRect
 @onready var menu_buttons: Array = $TabContainer.get_children()
 
 #@onready var buttons_menu_number = %OptionsContainer.get_child_count()
-@onready var tab = $TabContainer
+@onready var tab = %OptionsContainer
 var option_selected: int = 0
 var currently_selected: int = 0
 @onready var selector = %ConfigCentercontainer

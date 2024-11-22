@@ -23,10 +23,37 @@ var stored_scene = null
 var lifepoints = null
 var Deathsnumber = null
 var saved_current_scenename = null
-
+var scene_states = {}
+var missions_array = {}
 
 func _ready() -> void:
-	SignalManager.its_saving.connect(save_game)
+	pass
+	#SignalManager.its_saving.connect(save_game)
+
+func save_scene_state(scene_name: String, object_name: String, data: Dictionary):
+	# Inicializa o dicionário para a cena, se necessário
+	if not scene_states.has(scene_name):
+		scene_states[scene_name] = {}
+	
+	# Salva os dados do objeto no contexto da cena
+	scene_states[scene_name][object_name] = data
+	print("Estado salvo para o objeto '%s' na cena '%s': %s" % [object_name, scene_name, str(data)])
+
+func load_scene_state(scene_name: String, object_name: String) -> Dictionary:
+	# Verifica se há dados salvos para a cena e o objeto
+	var null_var = {}
+	if scene_states.has(scene_name) and scene_states[scene_name].has(object_name):
+		return scene_states[scene_name][object_name]
+	else:
+		print("Nenhum estado salvo encontrado para o objeto '%s' na cena '%s'." % [object_name, scene_name])
+		return null_var
+
+func save_all_states(scene_name: String, objects: Array):
+	for obj in objects:
+		if obj.has_method("save"):
+			var data = obj.save()  # Assuma que cada objeto retorna seus dados ao chamar 'save'
+			save_scene_state(scene_name, obj.name, data)
+
 
 # Função genérica para salvar dados
 func save_to_slot(slot: int, data: Dictionary) -> void:
@@ -88,7 +115,10 @@ func load_config_from_slot(slot: int) -> Dictionary:
 
 # Função principal para salvar o jogo
 func save_game(slot: int) -> void:
-	
+	#SignalManager.save_items()
+	SignalManager.save_all_parameters()
+	SignalManager.its_saving.emit()
+	## ordem: save_game(Signalmanager.currentslotnumber) ->  save_items & save_all_parameters & its_saving -> player.save()
 	var save_data = {
 		"coins": 100,
 		"user": "Persi",
@@ -101,8 +131,10 @@ func save_game(slot: int) -> void:
 		"inv_item_amounts": inv_item_amounts,
 		"lifepoints" : lifepoints,
 		"Deathsnumber" : Deathsnumber,
-		"saved_current_scenename": saved_current_scenename
+		"saved_current_scenename": saved_current_scenename,
+		"missions_array": missions_array
 	}
+	
 	save_to_slot(slot, save_data)
 
 	var config_data = {
@@ -125,12 +157,17 @@ func load_game(slot: int, world_scene) -> void:
 		stored_scene = save_data["saved_current_scene"]
 	if "managervariables" in save_data:
 		SignalManager.load_parameters(save_data["managervariables"])
-	if "equiped_stamps" in save_data:
-		SignalManager.load_inventory(save_data["equiped_stamps"])
 	if "inv_stamps" in save_data:
 		SignalManager.load_stampsinventory(save_data["inv_stamps"])
 	if "inv_items" in save_data and "inv_item_amounts" in save_data:
 		SignalManager.load_itemsinventory(save_data["inv_items"], save_data["inv_item_amounts"])
+	if "equiped_stamps" in save_data:
+		SignalManager.load_inventory(save_data["equiped_stamps"])
+	if "missions_array" in save_data:
+		for i in save_data["missions_array"]:
+			var quest = load(save_data["missions_array"])
+			SignalManager.task_manager.insert(quest)
+
 
 	# Atualizar a posição dos nodes
 	for i in save_data["position"]:

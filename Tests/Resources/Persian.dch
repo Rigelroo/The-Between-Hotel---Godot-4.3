@@ -1,9 +1,9 @@
 {
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
-"_translation_id": "",
-"color": Color(0.645833, 0.635417, 1, 1),
-"custom_info": {
+&"_translation_id": "",
+&"color": Color(0.645833, 0.635417, 1, 1),
+&"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {
 "Mood 1": {
@@ -19,13 +19,13 @@
 },
 "style": "Style"
 },
-"default_portrait": "Persian_talk",
-"description": "",
-"display_name": "Persian",
-"mirror": false,
-"nicknames": [""],
-"offset": Vector2(0, 0),
-"portraits": {
+&"default_portrait": "Persian_talk",
+&"description": "",
+&"display_name": "Persian",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {
 "Persian_concerned": {
 "export_overrides": {
 "image": "\"res://Sprites/DialogueBox/Persian/Portrait/PersianPortrait - 0004.png\""
@@ -126,5 +126,5 @@
 "scene": ""
 }
 },
-"scale": 1.0
+&"scale": 1.0
 }

@@ -86,6 +86,7 @@ size = Vector2(164, 223)
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_bbjbk")
+dialogs = Array[String](["res://Sprites/DialogueBox/Kori e Trice/testdialogue.dtl", "res://Sprites/DialogueBox/Kori e Trice/test2dialogue.dtl"])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("2_gsxc3")

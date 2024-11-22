@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ConfigManager" load_steps=2 format=3 uid="uid://yeblcn3s22xm"]
+
+[ext_resource type="Script" path="res://config_manager.gd" id="1_qkv32"]
+
+[resource]
+script = ExtResource("1_qkv32")
+mainvolume_value = 0
+musicvolume_value = 0
+sfxvolume_value = 0
+screentype_value = null
+screentesolution_value = null
+vsync_value = false
+telacheia_value = false
+character_class = 0
+x = Array[String](["Full-Screen", "Window Mode", "Borderless Window", "Borderless Full-Screen"])
+xy = 0
+metadata/_custom_type_script = ExtResource("1_qkv32")

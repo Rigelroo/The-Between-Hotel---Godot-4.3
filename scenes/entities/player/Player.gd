@@ -137,8 +137,9 @@ func save():
 	for slot in inventoryc.stampslots:
 		if slot != null:
 			if slot.item != null:
-				inventoryequiped_array.append(slot.item.name)
-	SaveSys.equiped_stamps = inventoryequiped_array
+				pass
+				#inventoryequiped_array.append(slot.item.name)
+	#SaveSys.equiped_stamps = inventoryequiped_array
 
 	print("Player salvo:")
 	print("\tCena:", saved_scene)
@@ -159,10 +160,11 @@ func load_player_state():
 	if SaveSys.equiped_stamps.size() > 0:
 		inventoryequiped_array.clear()
 		for item_name in SaveSys.equiped_stamps:
-			var item = inv_dictionary.invseals.find(item_name)
+			#var item = inv_dictionary.invseals.find(item_name)
+			var item = inv_dictionary.invseals[item_name]
 			if item != null:
 				inventoryequiped_array.append(item)
-				emit_signal("sigload_equipstamp", item)  # Notifica os sistemas sobre os itens equipados.
+				#emit_signal("sigload_equipstamp", item)  # Notifica os sistemas sobre os itens equipados.
 
 	print("Player carregado:")
 	print("\tPosição:", position)
