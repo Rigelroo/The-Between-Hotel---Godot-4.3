@@ -300,57 +300,59 @@ var selected_button_value: int:
 var can_choice = false
 
 func _unhandled_input(event):
-	if Input.is_action_pressed("Attack"):
-		if can_choice:
-			if selected_button.is_in_group("Buttonchoices"):
-				selected_button.pressed.emit()
-	if Input.is_action_pressed("selector_left"):
-		if cfg_button_type == 4:
-			selected_button.selected -= 1
-				
-			on_window_mode_selected(selected_button.selected)
-	if Input.is_action_pressed("selector_right"):
-		if cfg_button_type == 4:
-				
-			selected_button.selected += 1
-			on_window_mode_selected(selected_button.selected)
-
-	if cfg_button_type == 1:
+	
+	if %TabContainer.current_tab == 0 and gui.isOpen:
+		if Input.is_action_pressed("Attack"):
+			if can_choice:
+				if selected_button.is_in_group("Buttonchoices"):
+					selected_button.pressed.emit()
 		if Input.is_action_pressed("selector_left"):
 			if cfg_button_type == 4:
-				screentypebox.selected -= 1
-				set_window_properties()
-				#on_window_mode_selected(screentypebox.selected)
-				
-			for i in 100:
-				if cfg_button_type == 1:
-					if !Input.is_action_pressed("selector_left"):
-						break
-					await get_tree().create_timer(0.01).timeout
-					selected_button.value -= 1
-				else: break
-
+				selected_button.selected -= 1
+					
+				on_window_mode_selected(selected_button.selected)
 		if Input.is_action_pressed("selector_right"):
 			if cfg_button_type == 4:
+					
+				selected_button.selected += 1
+				on_window_mode_selected(selected_button.selected)
+
+		if cfg_button_type == 1:
+			if Input.is_action_pressed("selector_left"):
+				if cfg_button_type == 4:
+					screentypebox.selected -= 1
+					set_window_properties()
+					#on_window_mode_selected(screentypebox.selected)
+					
+				for i in 100:
+					if cfg_button_type == 1:
+						if !Input.is_action_pressed("selector_left"):
+							break
+						await get_tree().create_timer(0.01).timeout
+						selected_button.value -= 1
+					else: break
+
+			if Input.is_action_pressed("selector_right"):
+				if cfg_button_type == 4:
+					
+					screentypebox.selected += 1
+					on_window_mode_selected(screentypebox.selected)
+				for i in 100:
+					if cfg_button_type == 1:
+						if !Input.is_action_pressed("selector_right"):
+							break
+						await get_tree().create_timer(0.01).timeout
+						selected_button.value += 1
+					else: break
+		if cfg_button_type == 2:
+			if Input.is_action_pressed("Attack"):
+				selected_button.button_pressed = !selected_button.button_pressed
+		if cfg_button_type == 3:
+			if Input.is_action_pressed("Attack"):
+				selected_button.pressed.emit()
 				
-				screentypebox.selected += 1
-				on_window_mode_selected(screentypebox.selected)
-			for i in 100:
-				if cfg_button_type == 1:
-					if !Input.is_action_pressed("selector_right"):
-						break
-					await get_tree().create_timer(0.01).timeout
-					selected_button.value += 1
-				else: break
-	if cfg_button_type == 2:
-		if Input.is_action_pressed("Attack"):
-			selected_button.button_pressed = !selected_button.button_pressed
-	if cfg_button_type == 3:
-		if Input.is_action_pressed("Attack"):
-			selected_button.pressed.emit()
-			
-	if Input.is_action_pressed("Interact"):
-		cfg_button_type = 0
+		if Input.is_action_pressed("Interact"):
+			cfg_button_type = 0
 
 #var selected_button: ButtonType  # Substitua 'ButtonType' pelo tipo correto do seu botão
 
@@ -408,22 +410,24 @@ func parar_pulsar():
 	pulsando = false
 	tween.stop_all() # Para qualquer animação em andamento
 
+@onready var config_manager : ConfigManager
+
 
 func _on_telacheia_box_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		ConfigManager.telacheia_value = true
+		config_manager.telacheia_value = true
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
-		ConfigManager.telacheia_value = false
+		config_manager.telacheia_value = false
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func _on_vsync_box_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		ConfigManager.vsync_value = true
+		config_manager.vsync_value = true
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
 	else:
-		ConfigManager.vsync_value = false
+		config_manager.vsync_value = false
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 
@@ -476,7 +480,7 @@ func on_window_mode_selected(index: int) -> void:
 func _on_screenres_box_selected(index):
 	var ID = screenresbox.get_item_text(index)
 	get_window().set_size(RESOLUTION_DICT[ID])
-	ConfigManager.screentesolution_value = RESOLUTION_DICT[ID]
+	config_manager.screentesolution_value = RESOLUTION_DICT[ID]
 
 func add_window_mode_items() -> void:
 	for resolution in RESOLUTION_DICT:

@@ -1,8 +1,8 @@
 [gd_scene load_steps=230 format=3 uid="uid://x7jgw08j0an7"]
 
-[ext_resource type="Script" path="res://scenes/entities/player/Player.gd" id="1_bvkld"]
+[ext_resource type="Script" uid="uid://810alopr4too" path="res://scenes/entities/player/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://dknwb0q3tench" path="res://Sprites/Player/All/jump7.png" id="2_lumcb"]
-[ext_resource type="Script" path="res://MagicResource.gd" id="2_s83wp"]
+[ext_resource type="Script" uid="uid://48ds85a7jp7w" path="res://MagicResource.gd" id="2_s83wp"]
 [ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://inventory/PlayerInventory.tres" id="3_6uatj"]
 [ext_resource type="Texture2D" uid="uid://cdil4nue1d7k" path="res://Sprites/Player/Doublejump_particle/quadro0007.png" id="3_kbq60"]
 [ext_resource type="PackedScene" uid="uid://rahvx1fnjiwx" path="res://scenes/entities/player/JUMP.tscn" id="3_ulsqu"]
@@ -150,39 +150,39 @@
 [ext_resource type="Texture2D" uid="uid://bshgmin7euvsg" path="res://Sprites/Player/New_item/quadro0002.png" id="116_pkdwb"]
 [ext_resource type="Texture2D" uid="uid://c5rvghkaubegs" path="res://Sprites/Player/New_item/quadro0003.png" id="117_hlj8a"]
 [ext_resource type="Texture2D" uid="uid://co6k3475ojqso" path="res://Sprites/Player/Breath/quadro0000.png" id="126_5otlc"]
-[ext_resource type="Script" path="res://scenes/testnode_2d.gd" id="127_1ds8y"]
+[ext_resource type="Script" uid="uid://ci4v1wt68i7md" path="res://scenes/testnode_2d.gd" id="127_1ds8y"]
 [ext_resource type="Texture2D" uid="uid://bxydr4vtb5pt7" path="res://Sprites/Player/Breath/quadro0001.png" id="127_sdjax"]
 [ext_resource type="Texture2D" uid="uid://betr6mmadljdf" path="res://Sprites/Player/Breath/quadro0002.png" id="128_sx6bw"]
 [ext_resource type="Texture2D" uid="uid://bh10y1x4m5hyw" path="res://Sprites/Player/Breath/quadro0003.png" id="129_8aqcr"]
 [ext_resource type="Texture2D" uid="uid://xyofokp7gmxw" path="res://Sprites/Player/Breath/quadro0004.png" id="130_ast55"]
 [ext_resource type="Texture2D" uid="uid://bxfr5mmdb05nb" path="res://Sprites/Player/Breath/quadro0005.png" id="131_qu6bx"]
 [ext_resource type="Texture2D" uid="uid://dg23l7dvosemb" path="res://Sprites/Player/Breath/quadro0007.png" id="132_8pgmd"]
-[ext_resource type="Script" path="res://scenes/entities/player/DEATH.gd" id="132_uy4rk"]
+[ext_resource type="Script" uid="uid://dnutwr1ymqqi5" path="res://scenes/entities/player/DEATH.gd" id="132_uy4rk"]
 [ext_resource type="Texture2D" uid="uid://evwc1wriya2w" path="res://Sprites/Player/Breath/quadro0008.png" id="133_xjgvu"]
 [ext_resource type="Texture2D" uid="uid://dcl6rin3vethc" path="res://Sprites/Player/Breath/quadro0009.png" id="134_8v31a"]
 [ext_resource type="Texture2D" uid="uid://dnf7ha2p7h10l" path="res://Sprites/Player/Breath/quadro0010.png" id="135_p24no"]
 [ext_resource type="PackedScene" uid="uid://bn1ggfjylttat" path="res://scenes/showeffect.tscn" id="136_0xjdk"]
 [ext_resource type="PackedScene" uid="uid://chm1le0lgy0my" path="res://scenes/entities/player/NEWITEM.tscn" id="136_xekvm"]
 [ext_resource type="PackedScene" uid="uid://bodaap2d7v466" path="res://scenes/entities/player/INWATER.tscn" id="140_gdjd7"]
-[ext_resource type="Script" path="res://scenes/entities/player/INWATER.gd" id="141_4wona"]
+[ext_resource type="Script" uid="uid://bi61pgqf1gk3h" path="res://scenes/entities/player/INWATER.gd" id="141_4wona"]
 [ext_resource type="Texture2D" uid="uid://dokr4p3bur5ow" path="res://Sprites/Player/Charged/Frost/frost_charged_attack0000.png" id="141_mktpr"]
 [ext_resource type="Texture2D" uid="uid://b7potjxv2523f" path="res://Sprites/Player/Charged/Frost/frost_charged_attack0001.png" id="142_nyw5i"]
 [ext_resource type="Texture2D" uid="uid://bry2vkyyjljlg" path="res://Sprites/Player/Charged/Frost/frost_charged_attack0002.png" id="143_qvs7o"]
 [ext_resource type="Texture2D" uid="uid://cs3i1nqmf8622" path="res://Sprites/Player/Charged/Frost/frost_charged_attack0003.png" id="144_dxmgh"]
 [ext_resource type="PackedScene" uid="uid://dlswwchw8513" path="res://scenes/entities/player/SWIM.tscn" id="144_sn8ak"]
-[ext_resource type="Script" path="res://scenes/entities/player/SWIM.gd" id="145_fox38"]
+[ext_resource type="Script" uid="uid://c27s3s2tt041l" path="res://scenes/entities/player/SWIM.gd" id="145_fox38"]
 [ext_resource type="PackedScene" uid="uid://cj5rgtbgb440n" path="res://waterdetection2D.tscn" id="145_kpqvk"]
-[ext_resource type="Script" path="res://scenes/entities/player/STATES.gd" id="145_om5h6"]
+[ext_resource type="Script" uid="uid://dmsq2rjjijc7n" path="res://scenes/entities/player/STATES.gd" id="145_om5h6"]
 [ext_resource type="Texture2D" uid="uid://cs4nrd54v4ls" path="res://Sprites/Player/Charged/Frost/frost_charged_attack0004.png" id="145_y3frp"]
 [ext_resource type="Texture2D" uid="uid://dj1x7v3nbau2s" path="res://Sprites/Player/Charged/Frost/frost_charged_attack0005.png" id="146_h7nqf"]
 [ext_resource type="Texture2D" uid="uid://v0qu6h8qg6f4" path="res://Sprites/Player/Charged/Frost/frost_charged_attack0006.png" id="147_8tbhf"]
 [ext_resource type="PackedScene" uid="uid://bm1oandnfm0vi" path="res://scenes/entities/player/BREATH.tscn" id="147_41pd1"]
 [ext_resource type="PackedScene" uid="uid://bj2x50p1ul0ft" path="res://splashdetection.tscn" id="152_f5dxw"]
-[ext_resource type="Script" path="res://scenes/entities/player/HIT.gd" id="160_vgtc2"]
+[ext_resource type="Script" uid="uid://cmd2f3i41qbr7" path="res://scenes/entities/player/HIT.gd" id="160_vgtc2"]
 [ext_resource type="PackedScene" uid="uid://chtv73gw0h0nt" path="res://scenes/magic_system/emitters/firebreathemitter.tscn" id="167_kde63"]
 [ext_resource type="Texture2D" uid="uid://dgc0c0tv27fgp" path="res://Sprites/Effects/subfrost.png" id="180_3drml"]
 [ext_resource type="Texture2D" uid="uid://dph53hjy2bofs" path="res://Sprites/Bettlebourough/fallingleaves2.png" id="182_ikjul"]
-[ext_resource type="Script" path="res://scenes/entities/player/trayemmiter.gd" id="183_a3gtm"]
+[ext_resource type="Script" uid="uid://dbw4dth143cj7" path="res://scenes/entities/player/trayemmiter.gd" id="183_a3gtm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5fq"]
 size = Vector2(20, 25)
@@ -1828,8 +1828,8 @@ scale = Vector2(0.07, 0.07)
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0.0705882, 0.0313726, 0.160784, 1)
-position = Vector2(2.2, 2.8)
-rotation = 0.0141266
+position = Vector2(1.6, 1.8)
+rotation = 0.211076
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
 
@@ -1880,6 +1880,9 @@ script = ExtResource("145_om5h6")
 
 [node name="JUMP" parent="STATES" instance=ExtResource("3_ulsqu")]
 
+[node name="Jumptimer" type="Timer" parent="STATES/JUMP"]
+wait_time = 0.15
+
 [node name="IDLE" parent="STATES" instance=ExtResource("4_hms1o")]
 
 [node name="BREATH" parent="STATES" instance=ExtResource("147_41pd1")]
@@ -1923,7 +1926,6 @@ player = NodePath("..")
 newitem = NodePath("../STATES/NEWITEM")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = -18.0
 offset_top = -34.0
 offset_right = 22.0
@@ -2005,9 +2007,12 @@ texture = ExtResource("182_ikjul")
 process_material = SubResource("ParticleProcessMaterial_edvb6")
 script = ExtResource("183_a3gtm")
 
+[node name="coyotetimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="Trayemmiter" method="_on_animation_player_current_animation_changed"]
+[connection signal="timeout" from="STATES/JUMP/Jumptimer" to="." method="_on_jumptimer_timeout"]
 [connection signal="timeout" from="STATES/HIT/NohitTimer" to="STATES/HIT" method="_on_nohit_timer_timeout"]
 [connection signal="out_itemstate" from="STATES/NEWITEM" to="." method="_on_newitem_out_itemstate"]
 [connection signal="area_entered" from="Interactioncomponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]

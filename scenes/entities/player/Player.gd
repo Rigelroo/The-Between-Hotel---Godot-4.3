@@ -298,17 +298,18 @@ func _physics_process(delta):
 func gravity(delta):
 	if is_on_floor():
 		velocity.y = 0  # Zere a velocidade ao tocar o chão
-
+	#print(current_state.name)
 	if not is_on_floor():
-		if not is_skydiving:
+		if current_state.name != "HLEAF":
 			if not is_in_water:
 				velocity.y += gravity_value * delta
+				#velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed) * delta
 			else:
 				velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
 		else:  # Skydiving
 			if not is_in_water:
-				velocity.y += (gravity_value / 2) * delta
-				velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed)
+				velocity.y += (gravity_value / 2.5) * delta
+				#velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed)
 
 
 
@@ -401,6 +402,7 @@ func player_input():
 	# Jump handling
 	if !is_skydiving && !is_in_water && can_move && can_move_si:
 		if Input.is_action_just_pressed("Jump"):
+			$STATES/JUMP/Jumptimer.start()
 			jump_input_actuation = true
 		else:
 			jump_input_actuation = false
@@ -778,3 +780,12 @@ func breathemitting():
 #
 	#if !get_node("%Breathemitter").emitting:
 		#%fire_collider.disabled = true
+
+
+func _on_jumptimer_timeout() -> void:
+	if !Input.is_action_pressed("Jump"):
+		if velocity.y < -300:
+			velocity.y = -300 
+	else:
+		pass
+		#print("highjump")

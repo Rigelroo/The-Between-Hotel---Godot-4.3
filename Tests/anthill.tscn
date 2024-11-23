@@ -1,6 +1,6 @@
-[gd_scene load_steps=91 format=4 uid="uid://68tbw4w6766r"]
+[gd_scene load_steps=95 format=4 uid="uid://68tbw4w6766r"]
 
-[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_06mvv"]
+[ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_06mvv"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_kjbai"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="3_ic6ae"]
 [ext_resource type="Texture2D" uid="uid://do11rw1ngyrgo" path="res://Sprites/Bettlebourough/anthill/anthill_parallaxasset_14.png" id="5_8dn4f"]
@@ -47,17 +47,27 @@
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="40_2lspn"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="41_7y24m"]
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://inventory/Selos/selo_1.tscn" id="42_gbwim"]
-[ext_resource type="Resource" uid="uid://bv8ujs5m68b51" path="res://inventory/Selos/selo_crimsonbug.tres" id="43_anmqe"]
 [ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://inventory/Selos/selo_crimsonbug.png" id="44_y73qm"]
 [ext_resource type="Texture2D" uid="uid://cuqbg8otjj64a" path="res://Sprites/Bettlebourough/fallingleaves1.png" id="45_m7d74"]
 [ext_resource type="Texture2D" uid="uid://c5kttn55x8rut" path="res://Sprites/Bettlebourough/assets_lanternwithrope.png" id="46_d1btn"]
-[ext_resource type="Shader" path="res://Tests/reflectivewater.gdshader" id="47_h4xlo"]
+[ext_resource type="Shader" uid="uid://bjls1ecffx6lt" path="res://Tests/reflectivewater.gdshader" id="47_h4xlo"]
 [ext_resource type="Texture2D" uid="uid://btx3s65d1y0xh" path="res://Sprites/branco.png" id="48_nt1g0"]
 [ext_resource type="Texture2D" uid="uid://baw8sjkb6gb12" path="res://Sprites/Bettlebourough/water/waterline0000.png" id="49_c4pl3"]
 [ext_resource type="Texture2D" uid="uid://b0xnm0cfpkeyy" path="res://Sprites/Bettlebourough/water/waterline0001.png" id="50_ssq25"]
 [ext_resource type="Texture2D" uid="uid://bdcqrmpu1xgo7" path="res://Sprites/Bettlebourough/water/waterline0002.png" id="51_7j86u"]
 [ext_resource type="Texture2D" uid="uid://bwj2q644wn32o" path="res://Sprites/Bettlebourough/water/waterline0003.png" id="52_37fl1"]
 [ext_resource type="Texture2D" uid="uid://b36am1nre2cg" path="res://Sprites/Bettlebourough/anthill/anthill_parallaxasset_6.png" id="57_1mwvn"]
+[ext_resource type="PackedScene" uid="uid://cad058dvr1hb3" path="res://npcs/Quarto 1 - bettleborough/splasharea.tscn" id="59_1rfc3"]
+[ext_resource type="PackedScene" uid="uid://ef24ixvsy0at" path="res://scenes/entities/Enemies/B1/Wasp/vespaloca.tscn" id="59_hpttp"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8dn4f"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_so0hn"]
+colors = PackedColorArray(0.447059, 0.419608, 0.67451, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1rfc3"]
+gradient = SubResource("Gradient_so0hn")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5oppo"]
 diffuse_texture = ExtResource("18_6jvsc")
@@ -819,11 +829,11 @@ sources/5 = SubResource("TileSetAtlasSource_yj6ra")
 sources/6 = SubResource("TileSetAtlasSource_s45hi")
 sources/2 = SubResource("TileSetAtlasSource_yx7ac")
 
-[sub_resource type="Gradient" id="Gradient_so0hn"]
+[sub_resource type="Gradient" id="Gradient_hpttp"]
 colors = PackedColorArray(0.447059, 0.419608, 0.67451, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_i5v5p"]
-gradient = SubResource("Gradient_so0hn")
+gradient = SubResource("Gradient_hpttp")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_tqynp"]
 diffuse_texture = ExtResource("11_bg83k")
@@ -1051,6 +1061,15 @@ position = Vector2(-765.25, 893.914)
 scale = Vector2(1.12539, 1.12539)
 texture = ExtResource("16_67tnv")
 
+[node name="Sprite2D4" type="Sprite2D" parent="Parallaxes"]
+modulate = Color(0.270588, 0.521569, 0.470588, 1)
+material = SubResource("CanvasItemMaterial_8dn4f")
+position = Vector2(3117.97, 942.79)
+rotation = -1.57254
+scale = Vector2(18.0924, 191.421)
+skew = 1.03712e-05
+texture = SubResource("GradientTexture2D_1rfc3")
+
 [node name="testtiles_detalhes2" type="TileMapLayer" parent="Parallaxes"]
 position = Vector2(269, 649)
 tile_map_data = PackedByteArray("AAABAAAAAgAOAAEAAAABAAEAAgAOAAIAAAABAAMAAgAOAAQAAAABAAQAAgAOAAUAAAACAAAAAgAPAAEAAAACAAEAAgAPAAIAAAACAAIAAgAPAAMAAAACAAMAAgAPAAQAAAACAAQAAgAPAAUAAAADAAAAAgAQAAEAAAADAAEAAgAQAAIAAAADAAIAAgAQAAMAAAADAAMAAgAQAAQAAAADAAQAAgAQAAUAAAAEAAAAAgARAAEAAAAEAAEAAgARAAIAAAAEAAIAAgARAAMAAAAEAAMAAgARAAQAAAA=")
@@ -1083,24 +1102,6 @@ position = Vector2(2135.65, 1237.41)
 rotation = -1.57253
 scale = Vector2(17.9748, 124.118)
 texture = SubResource("GradientTexture2D_i5v5p")
-
-[node name="ParallaxB12" type="Parallax2D" parent="."]
-y_sort_enabled = true
-scale = Vector2(0.996995, 1)
-scroll_scale = Vector2(1.2, 1)
-scroll_offset = Vector2(7380, 0)
-limit_begin = Vector2(-1e+07, 0)
-limit_end = Vector2(1e+07, 0)
-
-[node name="AnthillParallaxasset2" type="Sprite2D" parent="ParallaxB12"]
-position = Vector2(-6417.28, 1148)
-scale = Vector2(1.00301, 1)
-texture = ExtResource("20_1rfc3")
-
-[node name="AnthillParallaxasset9" type="Sprite2D" parent="ParallaxB12"]
-position = Vector2(-6567.74, 527)
-scale = Vector2(1.00301, 1)
-texture = ExtResource("21_hpttp")
 
 [node name="ParallaxB-3" type="Parallax2D" parent="."]
 y_sort_enabled = true
@@ -1225,9 +1226,10 @@ visible = false
 position = Vector2(-7, -7)
 
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("31_swtna")]
-position = Vector2(1760, 344)
+position = Vector2(1920, 913)
 scale = Vector2(8.337, 8.337)
 showitem = NodePath("Showitemsprite")
+JUMP_VELOCITY = -930.0
 player_camera = NodePath("Camera2D")
 
 [node name="Camera2D" parent="Player" instance=ExtResource("32_h2bst")]
@@ -1260,10 +1262,37 @@ visible = false
 material = SubResource("CanvasItemMaterial_wnco0")
 position = Vector2(2203, 457)
 
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(0.270588, 0.521569, 0.470588, 1)
+material = SubResource("CanvasItemMaterial_8dn4f")
+position = Vector2(3357.94, 1334.31)
+rotation = -1.57254
+scale = Vector2(7.15934, 170.093)
+skew = 1.03712e-05
+texture = SubResource("GradientTexture2D_1rfc3")
+
 [node name="Node2D3" parent="." instance=ExtResource("35_becxo")]
 visible = false
 material = SubResource("CanvasItemMaterial_wnco0")
 position = Vector2(4191, 429)
+
+[node name="ParallaxB12" type="Parallax2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(0.996995, 1)
+scroll_scale = Vector2(1.2, 1)
+scroll_offset = Vector2(7380, 0)
+limit_begin = Vector2(-1e+07, 0)
+limit_end = Vector2(1e+07, 0)
+
+[node name="AnthillParallaxasset2" type="Sprite2D" parent="ParallaxB12"]
+position = Vector2(-6417.28, 1148)
+scale = Vector2(1.00301, 1)
+texture = ExtResource("20_1rfc3")
+
+[node name="AnthillParallaxasset9" type="Sprite2D" parent="ParallaxB12"]
+position = Vector2(-6567.74, 527)
+scale = Vector2(1.00301, 1)
+texture = ExtResource("21_hpttp")
 
 [node name="ParallaxB3" type="Parallax2D" parent="."]
 visible = false
@@ -1321,7 +1350,7 @@ visible = false
 
 [node name="Selo6" parent="." instance=ExtResource("42_gbwim")]
 position = Vector2(3231, 542)
-itemRes = ExtResource("43_anmqe")
+scale = Vector2(3, 3)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" parent="Selo6" index="1"]
@@ -1395,7 +1424,6 @@ texture = SubResource("GradientTexture2D_mvjgn")
 texture_scale = 1.97
 
 [node name="ParallaxB9" type="Parallax2D" parent="."]
-scroll_offset = Vector2(-0.11, 0)
 repeat_size = Vector2(1300, 0)
 repeat_times = 10
 
@@ -1414,6 +1442,39 @@ autoplay = "default"
 frame_progress = 0.674872
 speed_scale = 0.16
 
+[node name="ParallaxB10" type="Parallax2D" parent="."]
+scroll_offset = Vector2(32, 350)
+repeat_size = Vector2(1300, 0)
+repeat_times = 10
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxB10"]
+visible = false
+modulate = Color(2, 2, 2, 0.496)
+position = Vector2(-925, 1523)
+scale = Vector2(0.953185, 0.953185)
+sprite_frames = SubResource("SpriteFrames_5fjad")
+autoplay = "default"
+frame_progress = 0.674872
+speed_scale = 0.16
+
+[node name="ParallaxB13" type="Parallax2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(1.27241, 1.27624)
+scroll_scale = Vector2(1.8, 1)
+scroll_offset = Vector2(7082, 227)
+limit_begin = Vector2(-1e+07, 0)
+limit_end = Vector2(1e+07, 0)
+
+[node name="AnthillParallaxasset2" type="Sprite2D" parent="ParallaxB13"]
+position = Vector2(-6417.28, 1148)
+scale = Vector2(1.00301, 1)
+texture = ExtResource("20_1rfc3")
+
+[node name="AnthillParallaxasset9" type="Sprite2D" parent="ParallaxB13"]
+position = Vector2(-6567.74, 527)
+scale = Vector2(1.00301, 1)
+texture = ExtResource("21_hpttp")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.679441, 0.858498, 0.766249, 1)
 
@@ -1421,5 +1482,17 @@ color = Color(0.679441, 0.858498, 0.766249, 1)
 position = Vector2(4363.75, 322.34)
 scale = Vector2(1.65165, 1.65165)
 texture = ExtResource("57_1mwvn")
+
+[node name="waterlevel" type="Marker2D" parent="."]
+position = Vector2(2597, 239)
+
+[node name="Area2D2" parent="." node_paths=PackedStringArray("world") instance=ExtResource("59_1rfc3")]
+position = Vector2(2837, 1543)
+world = NodePath("..")
+
+[node name="Wasp" parent="." instance=ExtResource("59_hpttp")]
+position = Vector2(2556, 514)
+scale = Vector2(0.65, 0.65)
+health = 15
 
 [editable path="Selo6"]

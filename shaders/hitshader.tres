@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://wq8m3q6pclkd"]
 
-[ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_s2abo"]
+[ext_resource type="Shader" uid="uid://c3xm1dtho44rx" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_s2abo"]
 
 [resource]
 shader = ExtResource("1_s2abo")

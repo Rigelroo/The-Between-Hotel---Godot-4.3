@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TaskManager" load_steps=3 format=3 uid="uid://c8ebn6658stpi"]
 
-[ext_resource type="Script" path="res://Missões/missions.gd" id="1_uyov1"]
-[ext_resource type="Script" path="res://Global/task_manager.gd" id="4_3bpnd"]
+[ext_resource type="Script" uid="uid://cxvxkqnaxocnq" path="res://Missões/missions.gd" id="1_uyov1"]
+[ext_resource type="Script" uid="uid://dk82ckpmcjpyf" path="res://Global/task_manager.gd" id="4_3bpnd"]
 
 [resource]
 script = ExtResource("4_3bpnd")

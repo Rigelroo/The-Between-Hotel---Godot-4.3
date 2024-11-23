@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cyox1uv6sr7m7"]
 
-[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_77l23"]
+[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://inventory/inventoryItem.gd" id="1_77l23"]
 [ext_resource type="Texture2D" uid="uid://di4qwpy3expct" path="res://inventory/Selos/selo_shadowdiver.png" id="2_ea1yk"]
 
 [resource]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=70 format=3 uid="uid://b3wiqgg03gaan"]
+[gd_scene load_steps=71 format=3 uid="uid://b3wiqgg03gaan"]
 
-[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_wl04x"]
+[ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_wl04x"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_sao3u"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="3_ugrrr"]
 [ext_resource type="Texture2D" uid="uid://bdhmrbjpsxoer" path="res://Sprites/Hotel/entryhall_remade.png" id="4_hc5jt"]
@@ -36,7 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="35_lpw7y"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="36_cxjjy"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="37_8k0fb"]
-[ext_resource type="Script" path="res://scenes/escadaria.gd" id="37_jm5go"]
+[ext_resource type="Script" uid="uid://dgxwij4ttlqe3" path="res://scenes/escadaria.gd" id="37_jm5go"]
 [ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="39_x8few"]
 [ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="40_d1nxw"]
 [ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="41_psfl7"]
@@ -60,7 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="59_4rqlg"]
 [ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="60_3d43v"]
 [ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="61_4uysq"]
-[ext_resource type="Script" path="res://scenes/Locations/Hotel/bell.gd" id="62_wcaef"]
+[ext_resource type="Script" uid="uid://bw5005u6utnsq" path="res://scenes/Locations/Hotel/bell.gd" id="62_wcaef"]
 
 [sub_resource type="Gradient" id="Gradient_n1lro"]
 offsets = PackedFloat32Array(0.323232, 0.636364)
@@ -217,6 +217,27 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0amaj"]
 size = Vector2(530, 1387.5)
+
+[sub_resource type="Environment" id="Environment_435ya"]
+background_mode = 3
+tonemap_mode = 2
+tonemap_exposure = 0.6
+tonemap_white = 1.1
+glow_enabled = true
+glow_levels/1 = 3.42
+glow_levels/2 = 14.09
+glow_normalized = true
+glow_intensity = 0.08
+glow_strength = 0.7
+glow_bloom = 0.54
+glow_blend_mode = 1
+fog_light_energy = 3.12
+fog_sun_scatter = 0.4
+fog_density = 0.2331
+fog_height = -558.55
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2731
+adjustment_enabled = true
 
 [node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 position = Vector2(0, -7)
@@ -433,6 +454,9 @@ shape = SubResource("RectangleShape2D_0amaj")
 debug_color = Color(0.385495, 0.608889, 0.182104, 0.42)
 
 [node name="Bellsound" type="AudioStreamPlayer2D" parent="Bell"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_435ya")
 
 [connection signal="area_entered" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_entered"]
 [connection signal="area_exited" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_exited"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=19 format=3 uid="uid://cn5w1vi5yjg3u"]
 
-[ext_resource type="Script" path="res://scenes/canvas_layer.gd" id="1_f1ums"]
+[ext_resource type="Script" uid="uid://bb60pyyexo3un" path="res://scenes/canvas_layer.gd" id="1_f1ums"]
 [ext_resource type="PackedScene" uid="uid://cr0rxd186uoyo" path="res://inventory/menuselos.tscn" id="3_2ly1l"]
-[ext_resource type="Shader" path="res://objects/test.gdshader" id="4_2swba"]
-[ext_resource type="Shader" path="res://inventory/Items/item_1.gdshader" id="4_ipweg"]
-[ext_resource type="Script" path="res://inventory/notificationsystem.gd" id="5_280g2"]
+[ext_resource type="Shader" uid="uid://d2iygc34knq60" path="res://objects/test.gdshader" id="4_2swba"]
+[ext_resource type="Shader" uid="uid://b0scaouj3av82" path="res://inventory/Items/item_1.gdshader" id="4_ipweg"]
+[ext_resource type="Script" uid="uid://b8ohonjblhqyo" path="res://inventory/notificationsystem.gd" id="5_280g2"]
 [ext_resource type="FontFile" uid="uid://exj3c8h6l0tr" path="res://Fonts/Typewriter215FP-Bold.otf" id="7_as1ww"]
-[ext_resource type="Script" path="res://Fonts/pivot.gd" id="8_dcl8t"]
+[ext_resource type="Script" uid="uid://bhe7fvbflarf5" path="res://Fonts/pivot.gd" id="8_dcl8t"]
 [ext_resource type="PackedScene" uid="uid://1uftutib1rsp" path="res://Missões/taskpanelnotif.tscn" id="9_g3huw"]
-[ext_resource type="Script" path="res://Fonts/slinky.gd" id="9_robvp"]
+[ext_resource type="Script" uid="uid://l434js5cj2ls" path="res://Fonts/slinky.gd" id="9_robvp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u0gd3"]
 shader = ExtResource("4_2swba")

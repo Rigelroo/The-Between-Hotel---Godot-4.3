@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bswf6hyyrao5a"]
 
-[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_s0q1p"]
+[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://inventory/inventoryItem.gd" id="1_s0q1p"]
 [ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="2_yr2ph"]
 
 [resource]

@@ -151,21 +151,29 @@ func activate():
 		splashw.Vaifundo.emit()
 	if !splashw.can_create:
 		splashw.Desvaifundo.emit()
-		
+
+
 func create_splash():
 	instance_object()
 	print("shuaaa")
 	splashw.can_create = false
-	
+
+
 func dont_create_splash():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Save"):
-		save_slot_screenshot(SignalManager.currentsaveslot)
-		SignalManager.its_saving.emit()
-		SaveSys.save_game(1)
+		if SignalManager.currentsaveslot != null:
+			save_slot_screenshot(SignalManager.currentsaveslot)
+			SignalManager.its_saving.emit()
+			SaveSys.save_game(1)
+		elif SignalManager.currentsaveslot == null:
+			SignalManager.currentsaveslot = 0
+			save_slot_screenshot(SignalManager.currentsaveslot)
+			SignalManager.its_saving.emit()
+			SaveSys.save_game(1)
 		#SignalManager.save_all_parameters()
 	if Input.is_action_pressed("Load"):
 		SaveSys.load_game(1,self)

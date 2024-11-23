@@ -1,7 +1,7 @@
 [gd_scene load_steps=34 format=3 uid="uid://bk8x8dr8ahmpp"]
 
-[ext_resource type="Script" path="res://npcs/Matheus/matheus.gd" id="1_do6cq"]
-[ext_resource type="Script" path="res://Missões/missions.gd" id="2_ry5ij"]
+[ext_resource type="Script" uid="uid://bw5gtqjrrqodo" path="res://npcs/Matheus/matheus.gd" id="1_do6cq"]
+[ext_resource type="Script" uid="uid://cxvxkqnaxocnq" path="res://Missões/missions.gd" id="2_ry5ij"]
 [ext_resource type="Resource" uid="uid://3f38aw2mqtdy" path="res://Missões/npc - quests/Matheus/quest_matheus1.tres" id="3_fd6r6"]
 [ext_resource type="Texture2D" uid="uid://b061v062k6e3x" path="res://Sprites/NPCs/Matheus/matheus_idle - 0000.png" id="4_gwfek"]
 [ext_resource type="Material" uid="uid://c3s4d0jc4gm7v" path="res://shaders/entitie_outline.tres" id="4_k727v"]

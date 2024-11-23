@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://cu2e048hxgdgy"]
 
-[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_ssnol"]
+[ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_ssnol"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_qv6q8"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="3_gmx88"]
 [ext_resource type="Texture2D" uid="uid://rpyjftsdld0j" path="res://Sprites/Hotel/corridor.png" id="4_dg7gf"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://qaqsrvxmy8ln" path="res://Sprites/Hotel/entradaesq_frente.png" id="7_f7a1c"]
 [ext_resource type="Texture2D" uid="uid://dh4acv4eoeure" path="res://Sprites/Hotel/assets_planta1.png" id="7_qcxbd"]
 [ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://objects/showitemsprite.tscn" id="11_smyiw"]
-[ext_resource type="Script" path="res://Sprites/EntryHall/cast_shadow.gd" id="12_syiuq"]
+[ext_resource type="Script" uid="uid://do0q1x7qyon4p" path="res://Sprites/EntryHall/cast_shadow.gd" id="12_syiuq"]
 [ext_resource type="PackedScene" uid="uid://d0fmn0ryn2twd" path="res://objects/porta_1.tscn" id="17_3ba5x"]
 [ext_resource type="PackedScene" uid="uid://b5a3af6jeero5" path="res://objects/porta_2.tscn" id="18_b14py"]
 [ext_resource type="PackedScene" uid="uid://7odf4fl3armh" path="res://objects/scene_trigger.tscn" id="18_dnqxp"]

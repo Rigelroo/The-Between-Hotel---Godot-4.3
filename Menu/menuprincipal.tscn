@@ -1,7 +1,7 @@
 [gd_scene load_steps=84 format=3 uid="uid://d2kbwohtjrf5k"]
 
 [ext_resource type="Texture2D" uid="uid://p7wpl8iyn027" path="res://Menu/Sprites/menuprincipal_fundo.png" id="1_42538"]
-[ext_resource type="Script" path="res://Menu/menuprincipal.gd" id="1_wkb2l"]
+[ext_resource type="Script" uid="uid://bgccsufw85c7p" path="res://Menu/menuprincipal.gd" id="1_wkb2l"]
 [ext_resource type="Texture2D" uid="uid://dhghbdvfmrbsp" path="res://Menu/Sprites/menuprincipal_hallow2.png" id="2_1kg5x"]
 [ext_resource type="Texture2D" uid="uid://cihsiept8iwwk" path="res://Menu/Sprites/menuprincipal_caixa.png" id="2_53cvo"]
 [ext_resource type="Texture2D" uid="uid://inbe4co0665y" path="res://Menu/Sprites/menuprincipal_titulob.png" id="3_33ln3"]
@@ -27,8 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://bg878ycpe4qbf" path="res://Menu/Sprites/menuprincipal_botãocarregar.png" id="17_rund8"]
 [ext_resource type="Texture2D" uid="uid://c6yyf7jbeh0b" path="res://Menu/Sprites/menuprincipal_botãooptions.png" id="18_lj6p2"]
 [ext_resource type="Texture2D" uid="uid://bkkqgtix3a1ay" path="res://Menu/Sprites/menuprincipal_botãosair.png" id="19_yr1gy"]
-[ext_resource type="Shader" path="res://objects/test.gdshader" id="29_2ytcj"]
-[ext_resource type="Shader" path="res://inventory/Items/item_1.gdshader" id="30_g85ol"]
+[ext_resource type="Shader" uid="uid://d2iygc34knq60" path="res://objects/test.gdshader" id="29_2ytcj"]
+[ext_resource type="Shader" uid="uid://b0scaouj3av82" path="res://inventory/Items/item_1.gdshader" id="30_g85ol"]
 [ext_resource type="Texture2D" uid="uid://bwssnpvxo5ypi" path="res://Menu/Sprites/menusave/menusaves_slots.png" id="31_r7q74"]
 [ext_resource type="Texture2D" uid="uid://cv5l6cecr5hue" path="res://Menu/Sprites/menusave/menusaves_1.png" id="32_tb0pw"]
 [ext_resource type="Texture2D" uid="uid://bhd4jpfe88npe" path="res://Menu/Sprites/menusave/menusaves_2.png" id="33_oc063"]
@@ -39,7 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://c21s8d4vao5wm" path="res://Menu/Sprites/menusave/menusaves_saveshowfoto.png" id="36_uuoh5"]
 [ext_resource type="Texture2D" uid="uid://dg0fleaoncgdr" path="res://Menu/Sprites/menusave/menusaves_saveshowname.png" id="37_w8sd0"]
 [ext_resource type="Texture2D" uid="uid://c5hp6cehylfkh" path="res://Menu/Sprites/menusave/foto_locais/bettleborough.png" id="38_ava26"]
-[ext_resource type="Script" path="res://Menu/saveshow.gd" id="38_ck1qu"]
+[ext_resource type="Script" uid="uid://d6a7guw7nnpp" path="res://Menu/saveshow.gd" id="38_ck1qu"]
 [ext_resource type="FontFile" uid="uid://exj3c8h6l0tr" path="res://Fonts/Typewriter215FP-Bold.otf" id="38_imnho"]
 [ext_resource type="Texture2D" uid="uid://c48sbmoua2ihm" path="res://Menu/Sprites/menusave/menusaves_vida.png" id="40_ugw1t"]
 [ext_resource type="Texture2D" uid="uid://dgcwo25g6tqfu" path="res://Menu/Sprites/menusave/menusaves_deaths.png" id="41_a0ooc"]
@@ -47,8 +47,8 @@
 [ext_resource type="Texture2D" uid="uid://uay5y0ojy2s7" path="res://Menu/Sprites/menusave/menusaves_moeda.png" id="42_0cv2o"]
 [ext_resource type="Texture2D" uid="uid://cvqt8xj0rcd5q" path="res://inventory/slot usarselo.png" id="42_v3bq0"]
 [ext_resource type="FontFile" uid="uid://de0cqe1w2vxpa" path="res://Fonts/Typewriter215FP - Copia.ttf" id="43_bnajq"]
-[ext_resource type="Script" path="res://inventory/slot_gui_e.gd" id="43_faiie"]
-[ext_resource type="Script" path="res://inventory/gui/itemStackGui.gd" id="44_2m83m"]
+[ext_resource type="Script" uid="uid://iym5n4aba1jm" path="res://inventory/slot_gui_e.gd" id="43_faiie"]
+[ext_resource type="Script" uid="uid://dijx5q20bnxls" path="res://inventory/gui/itemStackGui.gd" id="44_2m83m"]
 [ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://inventory/PlayerInventory.tres" id="45_ukdy4"]
 [ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="46_x0hox"]
 [ext_resource type="Texture2D" uid="uid://c8hxfbcxwfq5d" path="res://Menu/Sprites/buttonsstuff/buttonshow_xbox_x.png" id="47_atovr"]
@@ -1741,9 +1741,9 @@ offset_top = 640.515
 offset_right = 990.0
 offset_bottom = 879.515
 scale = Vector2(0.712654, 0.712654)
-theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
-theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
 theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
 theme_override_constants/outline_size = 70
 theme_override_fonts/font = ExtResource("51_173fg")
 theme_override_font_sizes/font_size = 206
@@ -1754,6 +1754,7 @@ text = " mudo"
 
 [node name="backbutton" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons"]
 custom_minimum_size = Vector2(400, 200)
+layout_mode = 0
 offset_left = 272.225
 offset_top = 445.616
 offset_right = 672.225
@@ -2034,9 +2035,9 @@ offset_top = 565.352
 offset_right = 1179.62
 offset_bottom = 804.352
 scale = Vector2(0.712654, 0.712654)
-theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
-theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
 theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
 theme_override_constants/outline_size = 60
 theme_override_fonts/font = ExtResource("51_173fg")
 theme_override_font_sizes/font_size = 151
@@ -2052,9 +2053,9 @@ offset_top = 764.695
 offset_right = 1065.16
 offset_bottom = 1003.7
 scale = Vector2(0.712654, 0.712654)
-theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
-theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
 theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
 theme_override_constants/outline_size = 60
 theme_override_fonts/font = ExtResource("51_173fg")
 theme_override_font_sizes/font_size = 151
@@ -2106,6 +2107,7 @@ expand_icon = true
 
 [node name="backbutton" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela"]
 custom_minimum_size = Vector2(400, 200)
+layout_mode = 0
 offset_left = 272.225
 offset_top = 445.616
 offset_right = 672.225
@@ -2208,9 +2210,9 @@ offset_top = 261.435
 offset_right = 1182.89
 offset_bottom = 500.435
 scale = Vector2(0.712654, 0.712654)
-theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
-theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
 theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
 theme_override_constants/outline_size = 60
 theme_override_fonts/font = ExtResource("51_173fg")
 theme_override_font_sizes/font_size = 151
@@ -2226,9 +2228,9 @@ offset_top = 460.778
 offset_right = 1068.43
 offset_bottom = 699.778
 scale = Vector2(0.712654, 0.712654)
-theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
-theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
 theme_override_colors/icon_focus_color = Color(0.155739, 0.574024, 0.675418, 1)
+theme_override_colors/font_outline_color = Color(0.0805946, 0.0533845, 0.230711, 1)
+theme_override_colors/font_color = Color(0.917647, 0.917647, 0.913725, 1)
 theme_override_constants/outline_size = 60
 theme_override_fonts/font = ExtResource("51_173fg")
 theme_override_font_sizes/font_size = 151
@@ -2238,6 +2240,7 @@ text = "Vsync"
 
 [node name="backbutton" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles"]
 custom_minimum_size = Vector2(400, 200)
+layout_mode = 0
 offset_left = 272.225
 offset_top = 445.616
 offset_right = 672.225

@@ -95,7 +95,7 @@ func update(delta):
 
 func enter_state():
 	is_skydiving = true
-	Player.velocity.y = Player.JUMP_VELOCITY
+	Player.velocity.y = Player.JUMP_VELOCITY / 1.5
 	Player.is_jumping = true
 	$"../../AnimationPlayer".play("HerculesLeaf_start")
 	await $"../../AnimationPlayer".animation_finished
@@ -116,8 +116,10 @@ func exit_state():
 	is_skydiving = false
 	Player.is_skydiving = false
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if is_skydiving:
+		if Input.is_action_pressed("Jump"):
+			pass
 		if Player.movement_input.x == 0:
 			$"../../AnimationPlayer".play("HerculesLeaf_nomove")
 		else:
