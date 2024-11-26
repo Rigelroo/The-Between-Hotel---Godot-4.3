@@ -12,7 +12,17 @@ var currently_selected: int = 0
 @export var gui : Control
 var can_move_selector = true
 
+@export var mainvolume_value = 0
+@export var musicvolume_value = 0
+@export var sfxvolume_value = 0
+@export var mudo = false
 
+@export var screentype_value = "Window Mode"
+@export var screentesolution_value = Vector2i(1366,768)
+@export var vsync_value = false
+@export var telacheia_value = false
+
+@export var screenshader_value = null
 
 func selectioned_press():
 	if can_move_selector:
@@ -410,24 +420,24 @@ func parar_pulsar():
 	pulsando = false
 	tween.stop_all() # Para qualquer animação em andamento
 
-@onready var config_manager : ConfigManager
+#@onready var config_manager : ConfigManager
 
 
 func _on_telacheia_box_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		config_manager.telacheia_value = true
+		ConfigManager.telacheia_value = true
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
-		config_manager.telacheia_value = false
+		ConfigManager.telacheia_value = false
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func _on_vsync_box_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		config_manager.vsync_value = true
+		ConfigManager.vsync_value = true
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
 	else:
-		config_manager.vsync_value = false
+		ConfigManager.vsync_value = false
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 
@@ -480,7 +490,7 @@ func on_window_mode_selected(index: int) -> void:
 func _on_screenres_box_selected(index):
 	var ID = screenresbox.get_item_text(index)
 	get_window().set_size(RESOLUTION_DICT[ID])
-	config_manager.screentesolution_value = RESOLUTION_DICT[ID]
+	ConfigManager.screentesolution_value = RESOLUTION_DICT[ID]
 
 func add_window_mode_items() -> void:
 	for resolution in RESOLUTION_DICT:

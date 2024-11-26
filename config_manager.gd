@@ -1,20 +1,18 @@
-extends Resource
+extends Node2D
 
-class_name ConfigManager
+#class_name ConfigManager
 
 @export var mainvolume_value = 0
 @export var musicvolume_value = 0
 @export var sfxvolume_value = 0
+@export var mudo = false
 
 @export var screentype_value = null
 @export var screentesolution_value = null
 @export var vsync_value = false
 @export var telacheia_value = false
-@export_enum("Warrior", "Magician", "Thief") var character_class: int
-@export var x = WINDOW_MODE_ARRAY
 
-enum NamedEnum {Full_Screen, Window_Mode, Borderless_Window, Borderless}
-@export var xy: NamedEnum
+@export var screenshader_value = null
 
 const WINDOW_MODE_ARRAY : Array[String] = [
 	"Full-Screen",
@@ -31,3 +29,16 @@ var RESOLUTION_DICT : Dictionary = {
 	"2560x1140": Vector2i(2560,1140),
 	"1920x1080": Vector2i(1920,1080)
 }
+
+func save_configs():
+	var telaconfig_variables = [screentype_value, screentesolution_value, vsync_value, telacheia_value] 
+	var somconfig_variables = [mainvolume_value, musicvolume_value, sfxvolume_value, mudo]
+	#SaveSys.signalManager_dict["SignalManager"] = signal_manager_variables
+	SaveSys.somconfig_dict = somconfig_variables
+	SaveSys.telaconfig_dict = telaconfig_variables
+	#SaveSys.controlesconfig_dict
+	#SaveSys.languageconfig_dict
+
+func load_configs():
+	var saved_configs = SaveSys.load_config_from_slot(1)
+	print(saved_configs)

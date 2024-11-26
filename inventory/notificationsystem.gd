@@ -7,7 +7,7 @@ var mission = null
 
 # Referências aos pontos
 var start_position = Vector2(-423.0, 227.5)
-var end_position = Vector2(249.0, 227.5)
+var end_position = Vector2(0.0, 227.5)
 var pause_time = 2.0 # Tempo de pausa no ponto final
 
 
