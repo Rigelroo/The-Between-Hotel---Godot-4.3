@@ -17,12 +17,16 @@ var can_move_selector = true
 @export var sfxvolume_value = 0
 @export var mudo = false
 
-@export var screentype_value = "Window Mode"
+@export var screentype_value : int
 @export var screentesolution_value = Vector2i(1366,768)
 @export var vsync_value = false
 @export var telacheia_value = false
 
 @export var screenshader_value = null
+
+func load_configs():
+	var configs = ConfigManager.load_configs()
+	
 
 func selectioned_press():
 	if can_move_selector:
@@ -473,6 +477,7 @@ func _ready() -> void:
 	screentypebox.item_selected.connect(on_window_mode_selected)
 
 func on_window_mode_selected(index: int) -> void:
+	ConfigManager.screentype_value = index
 	match index:
 		0: #FULLSCREEN
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -490,14 +495,10 @@ func on_window_mode_selected(index: int) -> void:
 func _on_screenres_box_selected(index):
 	var ID = screenresbox.get_item_text(index)
 	get_window().set_size(RESOLUTION_DICT[ID])
-	ConfigManager.screentesolution_value = RESOLUTION_DICT[ID]
+	ConfigManager.screenresolution_value = RESOLUTION_DICT[ID]
 
 func add_window_mode_items() -> void:
 	for resolution in RESOLUTION_DICT:
 		screenresbox.add_item(resolution)
 	for window_mode in WINDOW_MODE_ARRAY:
 		screentypebox.add_item(window_mode)
-
-
-func load_configs():
-	pass

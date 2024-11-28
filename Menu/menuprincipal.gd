@@ -436,6 +436,7 @@ func _on_button_sair_pressed() -> void:
 
 
 func _on_backbutton_pressed() -> void:
+	ConfigManager
 	if current_tab != 0:
 		currently_selected = 0
 		current_tab = 0
@@ -564,6 +565,7 @@ func _increase_value() -> void:
 var options_menu_number = 0
 
 func show_less_options():
+	var tabnumbers = %OptionsContainer.get_child_count() - 1
 	if current_option_menu == 0:
 		current_option_menu = options_menu_number
 		%OptionsContainer.current_tab = options_menu_number
@@ -573,7 +575,8 @@ func show_less_options():
 	goto_options()
 
 func show_more_options():
-	if current_option_menu == options_menu_number:
+	var tabnumbers = %OptionsContainer.get_child_count() - 1
+	if current_option_menu == tabnumbers:
 		current_option_menu = 0
 		%OptionsContainer.current_tab = 0
 	else:

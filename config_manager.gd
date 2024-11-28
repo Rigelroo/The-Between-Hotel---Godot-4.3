@@ -7,8 +7,8 @@ extends Node2D
 @export var sfxvolume_value = 0
 @export var mudo = false
 
-@export var screentype_value = null
-@export var screentesolution_value = null
+@export var screentype_value = 0
+@export var screenresolution_value = 2
 @export var vsync_value = false
 @export var telacheia_value = false
 
@@ -31,7 +31,7 @@ var RESOLUTION_DICT : Dictionary = {
 }
 
 func save_configs():
-	var telaconfig_variables = [screentype_value, screentesolution_value, vsync_value, telacheia_value] 
+	var telaconfig_variables = [screentype_value, screenresolution_value, vsync_value, telacheia_value] 
 	var somconfig_variables = [mainvolume_value, musicvolume_value, sfxvolume_value, mudo]
 	#SaveSys.signalManager_dict["SignalManager"] = signal_manager_variables
 	SaveSys.somconfig_dict = somconfig_variables
@@ -42,3 +42,5 @@ func save_configs():
 func load_configs():
 	var saved_configs = SaveSys.load_config_from_slot(1)
 	print(saved_configs)
+	
+	return saved_configs
