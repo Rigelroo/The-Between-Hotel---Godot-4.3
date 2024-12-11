@@ -166,7 +166,6 @@ var kscript = null
 
 
 func findquest(questslots, chosed_item, index, amount, item_type):
-	player = get_tree().get_first_node_in_group("Player")
 	var arg_has_key = true
 	var arg_no_key = false
 	npc_index = index
@@ -178,8 +177,8 @@ func findquest(questslots, chosed_item, index, amount, item_type):
 			if !questslots[j].item == null:
 				if chosed_item == item:
 					if item_amount == amount:
-						show_item(player, questslot.itemStackGuib.inventorySlotb.item)
-						await show_item(player, questslot.itemStackGuib.inventorySlotb.item)
+						show_item(questslot.itemStackGuib.inventorySlotb.item)
+						await show_item(questslot.itemStackGuib.inventorySlotb.item)
 						have_correct_amount = true
 						break
 						#has_key.emit()
@@ -203,7 +202,6 @@ func insert_points(container_item : Statspoints):
 	point_update.emit()
 
 func finditem_amount(invslots, chosed_item, index, amount):
-	player = get_tree().get_first_node_in_group("Player")
 	var arg_has_key = true
 	var arg_no_key = false
 	npc_index = index
@@ -216,8 +214,8 @@ func finditem_amount(invslots, chosed_item, index, amount):
 				var item_amount = invslot.itemStackGuib.inventorySlotb.amount
 				if chosed_item == item:
 					if item_amount == amount:
-						show_item(player, invslot.itemStackGuib.inventorySlotb.item)
-						await show_item(player, invslot.itemStackGuib.inventorySlotb.item)
+						show_item(invslot.itemStackGuib.inventorySlotb.item)
+						await show_item(invslot.itemStackGuib.inventorySlotb.item)
 						have_correct_amount = true
 						break
 						#has_key.emit()
@@ -237,8 +235,8 @@ func finditem_amount(invslots, chosed_item, index, amount):
 				var item = invslot.itemStackGuib.inventorySlotb.item
 				var item_amount = invslot.itemStackGuib.inventorySlotb.amount
 				if chosed_item == item:
-					show_item(player, invslot.itemStackGuib.inventorySlotb.item)
-					await show_item(player, invslot.itemStackGuib.inventorySlotb.item)
+					show_item(invslot.itemStackGuib.inventorySlotb.item)
+					await show_item(invslot.itemStackGuib.inventorySlotb.item)
 					have_correct_item = true
 					break
 					
@@ -248,7 +246,6 @@ func finditem_amount(invslots, chosed_item, index, amount):
 	can_emit_item = true
 
 func find_key(invslots, key, index):
-	player = get_tree().get_first_node_in_group("Player")
 	var arg_has_key = true
 	var arg_no_key = false
 	door_index = index
@@ -262,9 +259,10 @@ func find_key(invslots, key, index):
 				
 				if invslot.itemStackGuib.inventorySlotb.item == key:
 					print("has key")
-					show_item(player, invslot.itemStackGuib.inventorySlotb.item)
-					await show_item(player, invslot.itemStackGuib.inventorySlotb.item)
+					show_item(invslot.itemStackGuib.inventorySlotb.item)
+					await show_item(invslot.itemStackGuib.inventorySlotb.item)
 					have_correct_key = true
+					return have_correct_key
 					break
 					#has_key.emit()
 					#
@@ -272,12 +270,12 @@ func find_key(invslots, key, index):
 					#print("no key")
 					#no_key.emit()
 			else:
-				continue
+				return arg_no_key
 				print("no method")
 	can_emit_key = true
 	#anotação: depois de quebrar esse loop faça ele abrir dialogo "no key"
 	
-func show_item(player: Player, item):
+func show_item(item):
 	player.animation_player.play("new_item")
 	player.showitem.texture = item.texture
 	player.showitem.animation_player.play("surge_use")

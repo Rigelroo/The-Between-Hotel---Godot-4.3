@@ -6,6 +6,7 @@ extends NinePatchRect
 
 #@onready var buttons_menu_number = %OptionsContainer.get_child_count()
 @onready var tab = %OptionsContainer
+@onready var opttab = $TabContainer
 var option_selected: int = 0
 var currently_selected: int = 0
 @onready var selector = %ConfigCentercontainer
@@ -109,14 +110,14 @@ func move_selector_U():
 		if option_selected == 0:
 			option_selected = tabcountmax
 			
-			tab.current_tab = option_selected
+			opttab.current_tab = option_selected
 			
 			#currently_selected = (currently_selected - 1) % slots.size()
 			selector.global_position = slots[option_selected].global_position
 		else:
 			option_selected -= 1
 			
-			tab.current_tab = option_selected
+			opttab.current_tab = option_selected
 			selector.global_position = slots[option_selected].global_position
 	
 	elif $TabContainer.current_tab == 2:
@@ -158,13 +159,13 @@ func move_selector_D():
 		if option_selected == tabcountmax:
 			option_selected = 0
 			
-			tab.current_tab = option_selected
+			opttab.current_tab = option_selected
 			#currently_selected = (currently_selected - 1) % slots.size()
 			selector.global_position = slots[option_selected].global_position
 		else:
 			option_selected += 1
 			
-			tab.current_tab = option_selected
+			opttab.current_tab = option_selected
 			selector.global_position = slots[option_selected].global_position
 	
 	elif $TabContainer.current_tab == 2:
@@ -275,18 +276,18 @@ func show_more_options():
 
 func _on_button_continue_pressed() -> void:
 	option_selected = 0
-	tab.current_tab = option_selected
+	opttab.current_tab = option_selected
 	selector.global_position = slots[option_selected].global_position
 
 
 func _on_button_option_pressed() -> void:
 	option_selected = 1
-	tab.current_tab = option_selected
+	opttab.current_tab = option_selected
 	selector.global_position = slots[option_selected].global_position
 
 func _on_button_out_pressed() -> void:
 	option_selected = 2
-	tab.current_tab = option_selected
+	opttab.current_tab = option_selected
 	selector.global_position = slots[option_selected].global_position
 
 func change_values(config_button):

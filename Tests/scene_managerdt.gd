@@ -83,9 +83,10 @@ func transition_to(scene_path: String) -> void:
 
 		# Remove the current scene
 		if !current_scene.has_method("intro"):
-			current_scene.player.remove_from_group("Player")
-			current_scene.stats.remove_from_group("Stats")
-			current_scene.gameover_manager.remove_from_group("Gameover")
+			pass
+			#current_scene.player.remove_from_group("Player")
+			#current_scene.stats.remove_from_group("Stats")
+			#current_scene.gameover_manager.remove_from_group("Gameover")
 		#await current_scene.tree_exited
 		current_scene.queue_free()
 

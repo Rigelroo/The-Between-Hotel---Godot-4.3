@@ -1,6 +1,6 @@
 [gd_scene load_steps=44 format=4 uid="uid://bu2kdltrk2out"]
 
-[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_5oy16"]
+[ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_5oy16"]
 [ext_resource type="Texture2D" uid="uid://br2o6qxvpjyx8" path="res://Sprites/EntryHall - Reworked/fundo1.png" id="1_lbqp7"]
 [ext_resource type="Texture2D" uid="uid://bmu42oviapph1" path="res://icon.svg" id="1_xa5e5"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_lq7vf"]
@@ -657,7 +657,7 @@ texture = ExtResource("29_grj7y")
 scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
-[node name="Statsbar" parent="Statslayer" groups=["Stats"] instance=ExtResource("33_gn41e")]
+[node name="Statsbar" parent="Statslayer" instance=ExtResource("33_gn41e")]
 metadata/_edit_use_anchors_ = true
 
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("34_n8r74")]

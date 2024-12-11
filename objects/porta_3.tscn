@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://dysed8fh25ap0"]
 
-[ext_resource type="Script" path="res://scenes/portaporta.gd" id="1_2hoec"]
+[ext_resource type="Script" uid="uid://dkp1h3qlgb8i0" path="res://scenes/portaporta.gd" id="1_2hoec"]
 [ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="2_kod64"]
 [ext_resource type="Resource" uid="uid://vt70xejuyt5h" path="res://inventory/Items/chave_quarto3.tres" id="2_mcnco"]
 [ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="3_twfpf"]

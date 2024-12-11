@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://duvohw7bjx74l"]
+
+[ext_resource type="Shader" uid="uid://bjls1ecffx6lt" path="res://Tests/reflectivewater.gdshader" id="1_co6y7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t0xmg"]
+frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yb5fb"]
+seamless = true
+noise = SubResource("FastNoiseLite_t0xmg")
+
+[resource]
+shader = ExtResource("1_co6y7")
+shader_parameter/water_color = Color(0.191934, 0.458848, 0.402448, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_yb5fb")

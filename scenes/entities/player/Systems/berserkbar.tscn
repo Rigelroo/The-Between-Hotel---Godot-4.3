@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://inthdth4l2ck"]
 
-[ext_resource type="Script" path="res://scenes/entities/player/Systems/berserkbar.gd" id="1_bextv"]
+[ext_resource type="Script" uid="uid://cllcmtywc4skj" path="res://scenes/entities/player/Systems/berserkbar.gd" id="1_bextv"]
 [ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_aslf3"]
 [ext_resource type="PackedScene" uid="uid://vd1ogqthqioc" path="res://scenes/entities/player/Systems/firstpointcontainer.tscn" id="2_j51ty"]
 [ext_resource type="PackedScene" uid="uid://bmot0qyj2qlmc" path="res://scenes/entities/player/Systems/middlepointcontainer.tscn" id="3_udpof"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b3wiqgg03gaan"]
+[gd_scene load_steps=74 format=3 uid="uid://b3wiqgg03gaan"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_wl04x"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_sao3u"]
@@ -60,6 +60,7 @@
 [ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="59_4rqlg"]
 [ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="60_3d43v"]
 [ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="61_4uysq"]
+[ext_resource type="Script" uid="uid://dfjy4xicqtf1b" path="res://scenes/Locations/Hotel/trampolim.gd" id="62_82wd4"]
 [ext_resource type="Script" uid="uid://bw5005u6utnsq" path="res://scenes/Locations/Hotel/bell.gd" id="62_wcaef"]
 
 [sub_resource type="Gradient" id="Gradient_n1lro"]
@@ -238,6 +239,12 @@ fog_height = -558.55
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.2731
 adjustment_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8n3q"]
+size = Vector2(878.293, 202.439)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rew2o"]
+size = Vector2(878.293, 156.342)
 
 [node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 position = Vector2(0, -7)
@@ -458,10 +465,27 @@ debug_color = Color(0.385495, 0.608889, 0.182104, 0.42)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_435ya")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("62_82wd4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(655.976, 2828.05)
+shape = SubResource("RectangleShape2D_x8n3q")
+
+[node name="trampolim" type="Area2D" parent="StaticBody2D"]
+position = Vector2(226.829, 2585.37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/trampolim"]
+position = Vector2(429.268, 134.146)
+shape = SubResource("RectangleShape2D_rew2o")
+debug_color = Color(1, 0.522, 1, 0.451)
+
 [connection signal="area_entered" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_entered"]
 [connection signal="area_exited" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_exited"]
 [connection signal="area_entered" from="Bell" to="Bell" method="_on_area_entered"]
 [connection signal="area_exited" from="Bell" to="Bell" method="_on_area_exited"]
+[connection signal="area_entered" from="StaticBody2D/trampolim" to="StaticBody2D" method="_on_trampolim_area_entered"]
+[connection signal="body_entered" from="StaticBody2D/trampolim" to="StaticBody2D" method="_on_trampolim_body_entered"]
 
 [editable path="Selo3"]
 [editable path="Selo5"]

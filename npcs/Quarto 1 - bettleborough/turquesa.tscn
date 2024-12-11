@@ -1,8 +1,8 @@
 [gd_scene load_steps=26 format=3 uid="uid://c006gr1olwioh"]
 
-[ext_resource type="Script" path="res://Tests/pex.gd" id="1_6i06r"]
+[ext_resource type="Script" uid="uid://ymd7dt1ykkny" path="res://Tests/pex.gd" id="1_6i06r"]
 [ext_resource type="Texture2D" uid="uid://cpg0ajuqytwod" path="res://Sprites/Bettlebourough/npcs/Turquesa0000.png" id="2_147gs"]
-[ext_resource type="Script" path="res://Missões/missions.gd" id="2_yaf6r"]
+[ext_resource type="Script" uid="uid://cxvxkqnaxocnq" path="res://Missões/missions.gd" id="2_yaf6r"]
 [ext_resource type="Resource" uid="uid://ckrn5bqusglwa" path="res://Missões/npc - quests/Turquesa/quest_turquesa1.tres" id="3_68s4q"]
 [ext_resource type="Texture2D" uid="uid://6ke1xer1acn1" path="res://Sprites/Bettlebourough/npcs/Turquesa0001.png" id="3_fxjvm"]
 [ext_resource type="Texture2D" uid="uid://b8ofh8qyihqhb" path="res://Sprites/Bettlebourough/npcs/Turquesa0002.png" id="4_goy6h"]

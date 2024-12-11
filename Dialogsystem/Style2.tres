@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://8tt6cp4lwehl"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=20 format=3 uid="uid://8tt6cp4lwehl"]
 
-[ext_resource type="Script" uid="uid://c0werikc7xx3t" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_hky0j"]
+[ext_resource type="Script" uid="uid://dv8im4doe3p3h" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_hky0j"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_lqkts"]
 [ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="3_87by2"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_tirni"]
@@ -9,24 +9,28 @@
 [ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="7_fd0na"]
 [ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="8_0oiyn"]
 [ext_resource type="PackedScene" uid="uid://lx24i8fl6uo" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_layer.tscn" id="9_pmglk"]
-[ext_resource type="Script" uid="uid://dxxtrb20uk1h7" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_tusjl"]
+[ext_resource type="Script" uid="uid://cmsfup2vbgvaf" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_tusjl"]
 
-[sub_resource type="Resource" id="Resource_yf5tf"]
+[sub_resource type="Resource" id="Resource_a51bp"]
+script = ExtResource("1_hky0j")
+overrides = {}
+
+[sub_resource type="Resource" id="Resource_qy1qx"]
 script = ExtResource("1_hky0j")
 scene = ExtResource("2_lqkts")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_1jpqf"]
+[sub_resource type="Resource" id="Resource_872va"]
 script = ExtResource("1_hky0j")
 scene = ExtResource("3_87by2")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_2i0vf"]
+[sub_resource type="Resource" id="Resource_h8x48"]
 script = ExtResource("1_hky0j")
 scene = ExtResource("4_tirni")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_fueih"]
+[sub_resource type="Resource" id="Resource_d4cq2"]
 script = ExtResource("1_hky0j")
 scene = ExtResource("5_vrguc")
 overrides = {
@@ -41,22 +45,22 @@ overrides = {
 "text_use_global_color": "false"
 }
 
-[sub_resource type="Resource" id="Resource_mqgot"]
+[sub_resource type="Resource" id="Resource_5ryg3"]
 script = ExtResource("1_hky0j")
 scene = ExtResource("6_h7v7s")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_b13u4"]
+[sub_resource type="Resource" id="Resource_osgrj"]
 script = ExtResource("1_hky0j")
 scene = ExtResource("7_fd0na")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_vfi6r"]
+[sub_resource type="Resource" id="Resource_lyj6f"]
 script = ExtResource("1_hky0j")
 scene = ExtResource("8_0oiyn")
 overrides = {}
 
-[sub_resource type="Resource" id="Resource_8wgbq"]
+[sub_resource type="Resource" id="Resource_i8ygo"]
 script = ExtResource("1_hky0j")
 scene = ExtResource("9_pmglk")
 overrides = {}
@@ -64,6 +68,18 @@ overrides = {}
 [resource]
 script = ExtResource("10_tusjl")
 name = "Style2"
+layer_list = Array[String](["10", "11", "12", "13", "14", "15", "16", "17"])
+layer_info = {
+"": SubResource("Resource_a51bp"),
+"10": SubResource("Resource_qy1qx"),
+"11": SubResource("Resource_872va"),
+"12": SubResource("Resource_h8x48"),
+"13": SubResource("Resource_d4cq2"),
+"14": SubResource("Resource_5ryg3"),
+"15": SubResource("Resource_osgrj"),
+"16": SubResource("Resource_lyj6f"),
+"17": SubResource("Resource_i8ygo")
+}
 base_overrides = {}
-layers = Array[ExtResource("1_hky0j")]([SubResource("Resource_yf5tf"), SubResource("Resource_1jpqf"), SubResource("Resource_2i0vf"), SubResource("Resource_fueih"), SubResource("Resource_mqgot"), SubResource("Resource_b13u4"), SubResource("Resource_vfi6r"), SubResource("Resource_8wgbq")])
+layers = Array[ExtResource("1_hky0j")]([])
 metadata/_latest_layer = 3

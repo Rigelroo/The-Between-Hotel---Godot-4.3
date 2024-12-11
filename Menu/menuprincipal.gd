@@ -2,7 +2,7 @@ extends Node2D
 
 var systemdatetime_dict = {}
 
-
+@export_file("*.tscn") var first_scene 
 
 @export_file("*.png") var festivosprites : Array[String]
 
@@ -297,7 +297,7 @@ func festivo():
 	systemdatetime_dict = Time.get_datetime_dict_from_system()
 	
 	print(systemdatetime_dict)
-	if systemdatetime_dict.month == 11:
+	if systemdatetime_dict.month == 12:
 		$MenuprincipalFundo/festivoshadow/festivo.texture = load(festivosprites[0])
 		$MenuprincipalFundo/festivoshadow.position.x = 470.224
 		$MenuprincipalFundo/festivoshadow.position.y = 920.0
@@ -317,7 +317,7 @@ func festivo():
 		$MenuprincipalFundo/festivoshadow.visible = true
 		$Menuprincipalcaixa/festivo2.visible = true
 		$Menuprincipalcaixa/festivo3.visible = true
-	elif systemdatetime_dict.month != 11 and systemdatetime_dict.month != 10:
+	elif systemdatetime_dict.month != 12 and systemdatetime_dict.month != 10:
 		$MenuprincipalFundo/festivoshadow.visible = false
 		$Menuprincipalcaixa/festivo2.visible = false
 		$Menuprincipalcaixa/festivo3.visible = false
@@ -388,10 +388,8 @@ func update_slot_display(slot: int, scene_label: Label, lifelabel, deathslabel, 
 func load_slot_screenshot(slot: int, texture_rect: TextureRect) -> void:
 	var file_path = "user://slot%s_screenshot.png" % str(slot)
 	if FileAccess.file_exists(file_path):
-		var img = Image.new()
-		img.load(file_path)
-		var texture = ImageTexture.new()
-		texture.create_from_image(img)
+		var img = Image.load_from_file(file_path)
+		var texture = ImageTexture.create_from_image(img)
 		texture_rect.texture = texture
 		print("Screenshot carregada para o slot %s" % slot)
 	else:
@@ -407,10 +405,56 @@ func _on_playsave_pressed() -> void:
 		save_slot = currently_selected - 1
 	var save = SaveSys.load_from_slot(save_slot)
 	print(SaveSys.load_from_slot(save_slot))
-	if save["saved_current_scene"]:
+	if save.has("saved_current_scene"):
 		SignalManager.currentsaveslot = save_slot 
 		SignalManager.first_sceme = true
 		SceneManager.transition_to(save["saved_current_scene"])
+	else:
+		SignalManager.currentsaveslot = save_slot 
+		SignalManager.first_sceme = true
+		SceneManager.transition_to(first_scene)
+
+func _on_save_1_pressed() -> void:
+	var save_slot = 1
+
+	var save = SaveSys.load_from_slot(save_slot)
+	print(SaveSys.load_from_slot(save_slot))
+	if save.has("saved_current_scene"):
+		SignalManager.currentsaveslot = save_slot 
+		SignalManager.first_sceme = true
+		SceneManager.transition_to(save["saved_current_scene"])
+	else:
+		SignalManager.currentsaveslot = save_slot 
+		SignalManager.first_sceme = true
+		SceneManager.transition_to(first_scene)
+
+func _on_save_2_pressed() -> void:
+	var save_slot = 2
+
+	var save = SaveSys.load_from_slot(save_slot)
+	print(SaveSys.load_from_slot(save_slot))
+	if save.has("saved_current_scene"):
+		SignalManager.currentsaveslot = save_slot 
+		SignalManager.first_sceme = true
+		SceneManager.transition_to(save["saved_current_scene"])
+	else:
+		SignalManager.currentsaveslot = save_slot 
+		SignalManager.first_sceme = true
+		SceneManager.transition_to(first_scene)
+
+func _on_save_3_pressed() -> void:
+	var save_slot = 3
+
+	var save = SaveSys.load_from_slot(save_slot)
+	print(SaveSys.load_from_slot(save_slot))
+	if save.has("saved_current_scene"):
+		SignalManager.currentsaveslot = save_slot 
+		SignalManager.first_sceme = true
+		SceneManager.transition_to(save["saved_current_scene"])
+	else:
+		SignalManager.currentsaveslot = save_slot 
+		SignalManager.first_sceme = true
+		SceneManager.transition_to(first_scene)
 
 
 func _on_button_carregar_pressed() -> void:
@@ -443,19 +487,6 @@ func _on_backbutton_pressed() -> void:
 		$AnimationPlayer.play("desapertado")
 		update_things()
 		selector.set_global_position((selected_button.global_position),true)
-
-
-func _on_save_1_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_save_2_pressed() -> void:
-	pass # Replace with function body.
-
-
-func _on_save_3_pressed() -> void:
-	pass # Replace with function body.
-
 
 func _on_apagarsave_pressed() -> void:
 	pass # Replace with function body.

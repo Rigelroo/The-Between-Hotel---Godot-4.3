@@ -59,7 +59,7 @@ directories/dtl_directory={
 "turquesaq1complete": "res://Sprites/DialogueBox/Turquesa/turquesaq1complete.dtl"
 }
 layout/style_list=["res://Dialogsystem/Style.tres", "res://Dialogsystem/Style2.tres"]
-layout/default_style="res://Dialogsystem/Style.tres"
+layout/default_style="res://Dialogsystem/Style2.tres"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
@@ -88,7 +88,6 @@ text/input_action="Jump"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=2
 

@@ -515,6 +515,7 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wkb2l")
+first_scene = "uid://b3wiqgg03gaan"
 festivosprites = Array[String](["res://Menu/Sprites/menuprincipal_natal1.png", "res://Menu/Sprites/menuprincipal_hallow1.png"])
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
@@ -528,6 +529,7 @@ grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
 handle_input_locally = false
+size = Vector2i(1280, 820)
 render_target_update_mode = 4
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -2351,7 +2353,7 @@ offset_bottom = 84.0
 
 [node name="Selector" type="Sprite2D" parent="ConfigCentercontainer"]
 unique_name_in_owner = true
-position = Vector2(-66, -137)
+position = Vector2(-62, -88)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("51_x0hox")
 centered = false
@@ -2365,8 +2367,8 @@ centered = false
 [connection signal="pressed" from="Menuprincipalcaixa/menuoptionsContainer/Button_config" to="." method="_on_button_config_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/menuoptionsContainer/Button_sair" to="." method="_on_button_sair_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save1" to="." method="_on_save_1_pressed"]
-[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save2" to="." method="_on_save_1_pressed"]
-[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save3" to="." method="_on_save_1_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save2" to="." method="_on_save_2_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save3" to="." method="_on_save_3_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/backbutton" to="." method="_on_backbutton_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/apagarsave" to="." method="_on_apagarsave_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/playsave" to="." method="_on_playsave_pressed"]

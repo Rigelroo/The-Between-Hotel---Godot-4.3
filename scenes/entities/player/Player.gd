@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 class_name Player
 
+func movable_entitie():
+	pass
+
 signal death
 signal get_out_item
 signal healthChanged
@@ -48,7 +51,7 @@ signal inkChanged
 @export var dash_speed = 940
 @export var SPEED = 470.0
 @export var JUMP_VELOCITY = -700.0
-@export var max_fall_speed = -700.0 * 1.5
+@export var max_fall_speed = -900.0 * 1.5
 @export var can_interact = false
 @export var can_move = true
 @export var can_move_si = true
@@ -308,7 +311,7 @@ func gravity(delta):
 				velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
 		else:  # Skydiving
 			if not is_in_water:
-				velocity.y += (gravity_value / 2.5) * delta
+				velocity.y += (gravity_value + 100 / 2.5) * delta
 				#velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed)
 
 

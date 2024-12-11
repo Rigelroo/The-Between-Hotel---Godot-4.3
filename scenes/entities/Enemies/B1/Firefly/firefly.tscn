@@ -664,7 +664,7 @@ autoplay = "Idle"
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(42, -43)
+position = Vector2(40, 19.8237)
 texture = ExtResource("21_hisbq")
 
 [node name="Bulletmarker" type="Marker2D" parent="."]
@@ -717,6 +717,7 @@ autostart = true
 
 [node name="Statelabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -117.184
 offset_top = -498.0
 offset_right = 407.816
@@ -727,6 +728,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HPlabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -645.0
 offset_top = -487.0
 offset_right = -120.0
@@ -788,7 +790,7 @@ texture_scale = 1.97
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 material = ExtResource("22_ohcb8")
-position = Vector2(40, 14)
+position = Vector2(40, 19.8237)
 texture = ExtResource("11_ejcw5")
 
 [connection signal="timeout" from="EnemyStateMachine/EnemyPrepare/PrepareTimer" to="EnemyStateMachine/EnemyPrepare" method="_on_prepare_timer_timeout"]

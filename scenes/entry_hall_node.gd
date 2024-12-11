@@ -72,9 +72,10 @@ func load_scene() -> void:
 	manager.loaded.emit()
 	
 func background_music():
-	var sound_load = load(background_music_array[0])
-	GlobalAudioStreamPlayer.set_stream(sound_load)
-	GlobalAudioStreamPlayer.play()
+	if !background_music_array.is_empty():
+		var sound_load = load(background_music_array[0])
+		GlobalAudioStreamPlayer.set_stream(sound_load)
+		GlobalAudioStreamPlayer.play()
 
 
 func some_function():
@@ -92,6 +93,8 @@ func load_one_time():
 		SignalManager.first_sceme = false
 
 func _ready() -> void:
+	SignalManager.player = objplayer
+	player = objplayer
 	SignalManager.its_saving.connect(save_scenestate)
 	load_one_time()
 	
@@ -168,15 +171,15 @@ func _process(_delta: float) -> void:
 		if SignalManager.currentsaveslot != null:
 			save_slot_screenshot(SignalManager.currentsaveslot)
 			SignalManager.its_saving.emit()
-			SaveSys.save_game(1)
+			SaveSys.save_game(SignalManager.currentsaveslot)
 		elif SignalManager.currentsaveslot == null:
 			SignalManager.currentsaveslot = 0
 			save_slot_screenshot(SignalManager.currentsaveslot)
 			SignalManager.its_saving.emit()
-			SaveSys.save_game(1)
+			SaveSys.save_game(SignalManager.currentsaveslot)
 		#SignalManager.save_all_parameters()
 	if Input.is_action_pressed("Load"):
-		SaveSys.load_game(1,self)
+		SaveSys.load_game(SignalManager.currentsaveslot,self)
 		load_scenestate()
 	
 	if splashw.can_create == true:

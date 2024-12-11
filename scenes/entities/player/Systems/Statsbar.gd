@@ -17,14 +17,15 @@ class_name StatsBar
 @onready var shake_2: Sprite2D = $Node2D/Shake2
 
 
-@onready var player = get_tree().get_first_node_in_group("Player")
+@onready var player = null
 
 
 func _ready() -> void:
+	player = SignalManager.player
 	SignalManager.world_loaded.connect(world_ready)
 
 func world_ready() -> void:
-	
+	player = SignalManager.player
 	player.healthChanged.connect(updatehealth)
 	player.inkChanged.connect(updateink)
 	updatehealth()

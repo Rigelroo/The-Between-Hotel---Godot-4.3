@@ -208,3 +208,28 @@ func get_slot_data(slot: int) -> Dictionary:
 	save_gamevar.close()
 
 	return slot_data
+
+func delete_scene_state(scene_name: String):
+	if scene_states.has(scene_name):
+		scene_states.erase(scene_name)
+		print("Estado da cena '%s' apagado com sucesso." % scene_name)
+	else:
+		print("Nenhum estado salvo encontrado para a cena '%s'." % scene_name)
+
+func delete_object_state(scene_name: String, object_name: String):
+	if scene_states.has(scene_name):
+		if scene_states[scene_name].has(object_name):
+			scene_states[scene_name].erase(object_name)
+			print("Estado do objeto '%s' na cena '%s' apagado com sucesso." % [object_name, scene_name])
+			
+			# Remove a cena do dicionário, se não houver mais objetos salvos nela
+			if scene_states[scene_name].empty():
+				scene_states.erase(scene_name)
+		else:
+			print("Nenhum estado salvo encontrado para o objeto '%s' na cena '%s'." % [object_name, scene_name])
+	else:
+		print("Nenhum estado salvo encontrado para a cena '%s'." % scene_name)
+
+func clear_all_states():
+	scene_states.clear()
+	print("Todos os estados de save foram apagados.")

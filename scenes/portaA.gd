@@ -22,7 +22,7 @@ var argument = null
 @export var world : World
 
 func no_key_func() -> void:
-	Dialogic.start('doorlocked1')
+	Dialogic.start("res://doorlocked.dtl")
 	get_viewport().set_input_as_handled()
 
 
@@ -62,7 +62,11 @@ func _input(event: InputEvent):
 					#get_tree().change_scene_to_file("res://Sprites/EntryHall/corridor1.tscn")
 					SceneManager.transition_to(next_scene)
 			elif locked == true:
-				SignalManager.find_key(world.inventory.invslots, door_key, door_index)
+				var keyfinder = await SignalManager.find_key(world.inventory.invslots, door_key, door_index)
+				if keyfinder:
+					has_key_func()
+				else:
+					no_key_func()
 
 	
 

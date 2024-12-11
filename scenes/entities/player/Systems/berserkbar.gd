@@ -15,6 +15,7 @@ var maxpoints_num : int
 @onready var inv_manager : InventoryManager
 var player = null
 
+
 func _process(delta: float) -> void:
 	if manager.crimsonfury_equiped:
 		self.visible = true
@@ -32,14 +33,15 @@ func _on_inventory_gui_closed():
 func _ready() -> void:
 	maxpoints = %HBoxContainer.get_children()
 	maxpoints_num = %HBoxContainer.get_child_count()
-	player = get_tree().get_first_node_in_group("Player")
+	player = SignalManager.player
 	SignalManager.world_loaded.connect(world_ready)
 	maxpoints.max()
 	set_max_points(2)
-	show_current_points(player.currentFurypoints)
+	
 	set_points()
 
 func world_ready() -> void:
+	player = SignalManager.player
 	manager.inventoryopened.connect(_on_inventory_gui_opened)
 	manager.inventoryclosed.connect(_on_inventory_gui_closed)
 	player.healthChanged.connect(show_current_points)
@@ -47,6 +49,7 @@ func world_ready() -> void:
 
 
 func temporaryf():
+	show_current_points(player.currentFurypoints)
 	print(player.currentFurypoints)
 func show_current_points(current_points: int):
 	var points = get_children()

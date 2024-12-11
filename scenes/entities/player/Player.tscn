@@ -1827,9 +1827,8 @@ scale = Vector2(0.07, 0.07)
 
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(0.0705882, 0.0313726, 0.160784, 1)
-position = Vector2(1.6, 1.8)
-rotation = 0.211076
+position = Vector2(3.4, -3)
+rotation = 0.0163368
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
 
@@ -1926,6 +1925,7 @@ player = NodePath("..")
 newitem = NodePath("../STATES/NEWITEM")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -18.0
 offset_top = -34.0
 offset_right = 22.0
