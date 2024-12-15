@@ -161,6 +161,8 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08nkk"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ck1qu"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k7ui2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3k55h"]
@@ -174,8 +176,6 @@ region_rect = Rect2(0, 0, 1032, 129.75)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sotio"]
 texture = ExtResource("60_giayt")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ck1qu"]
 
 [sub_resource type="Animation" id="Animation_5xqpx"]
 length = 0.001
@@ -1594,6 +1594,82 @@ theme_override_fonts/font = ExtResource("47_b563v")
 theme_override_font_sizes/font_size = 25
 text = "99"
 
+[node name="delete_options" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/save_control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3099.92
+offset_top = -1495.69
+offset_right = 3139.92
+offset_bottom = -1455.69
+scale = Vector2(4.57464, 4.57464)
+
+[node name="saveshow" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/delete_options"]
+position = Vector2(212.711, 322.85)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("35_rwrtu")
+
+[node name="Control" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/delete_options"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonSim" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/delete_options/Control" groups=["Buttonchoices"]]
+layout_mode = 2
+offset_left = 96.3373
+offset_top = 227.845
+offset_right = 302.337
+offset_bottom = 343.845
+scale = Vector2(1.15726, 1.17335)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ck1qu")
+action_mode = 0
+text = "Sim"
+icon = ExtResource("52_08nkk")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ButtonNão" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/delete_options/Control" groups=["Buttonchoices"]]
+layout_mode = 2
+offset_left = 93.3239
+offset_top = 358.006
+offset_right = 305.324
+offset_bottom = 416.006
+scale = Vector2(1.15755, 1.17326)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ck1qu")
+action_mode = 0
+text = "Não"
+icon = ExtResource("52_08nkk")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/delete_options" instance=ExtResource("53_tg1l0")]
+anchors_preset = 0
+anchor_right = 0.0
+offset_left = 78.1902
+offset_top = 168.151
+offset_right = 856.191
+offset_bottom = 310.151
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.419053, 0.419053)
+theme_override_colors/default_color = Color(0.960187, 0.95275, 0.996948, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.0117647, 0.141176, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/normal_font = ExtResource("51_173fg")
+theme_override_font_sizes/normal_font_size = 126
+text = " Certeza?"
+visible_characters = -1
+visible_ratio = 1.0
+script = null
+
 [node name="config_control" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer"]
 visible = false
 layout_mode = 2
@@ -2376,6 +2452,8 @@ centered = false
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow/playsave" to="." method="_on_playsave_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow/apagarsave" to="." method="_on_apagarsave_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow/playsave" to="." method="_on_playsave_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/delete_options/Control/ButtonSim" to="." method="_on_button_delete_sim_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/save_control/delete_options/Control/ButtonNão" to="." method="_on_button_delete_não_pressed"]
 [connection signal="value_changed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options/mainvolumeslider" to="." method="_on_mainvolumeslider_value_changed"]
 [connection signal="value_changed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options/musicvolumeslider" to="." method="_on_musicvolumeslider_value_changed"]
 [connection signal="value_changed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options/sfxvolumeslider" to="." method="_on_sfxvolumeslider_value_changed"]

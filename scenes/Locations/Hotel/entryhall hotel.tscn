@@ -244,7 +244,7 @@ adjustment_enabled = true
 size = Vector2(878.293, 202.439)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rew2o"]
-size = Vector2(878.293, 156.342)
+size = Vector2(207.317, 156.342)
 
 [node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 position = Vector2(0, -7)
@@ -476,7 +476,7 @@ shape = SubResource("RectangleShape2D_x8n3q")
 position = Vector2(226.829, 2585.37)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/trampolim"]
-position = Vector2(429.268, 134.146)
+position = Vector2(459.756, 134.146)
 shape = SubResource("RectangleShape2D_rew2o")
 debug_color = Color(1, 0.522, 1, 0.451)
 

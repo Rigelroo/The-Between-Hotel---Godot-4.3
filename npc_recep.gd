@@ -17,29 +17,49 @@ var timeline : DialogicTimeline = DialogicTimeline.new()
 var player_in_area = false
 var is_chatting = false
 var Player = null
-
+var is_active = true
 var pos = []
 
 func load_savedstate():
 	dialog_event
+#
+#func save():
+	#var pos = [position.x, position.y]
+	#var npc_data = {
+		#"dialog_event": dialog_event,
+		#"position": pos
+	#}
+	#
+	## Salvar no SaveSys
+	#SaveSys.save_scene_state(get_parent().scene_name, "npc_KoriTrice", save())
+	#
 
 func save():
-	var pos = [position.x, position.y]
-	var npc_data = {
-		"dialog_event": dialog_event,
-		"position": pos
+	# Cria um dicionário para salvar as informações relevantes do objeto
+	var position_array = [position.x, position.y]
+	var object_data = {
+		"position": position_array,  # Salva a posição
+		"dialog_event": dialog_event,  # Salva o estado do evento de diálogo
+		"is_active": is_active  # Salva um estado de ativação (personalizado)
 	}
 	
-	# Salvar no SaveSys
-	SaveSys.save_scene_state(get_parent().scene_name, "npc_KoriTrice", npc_data)
+	# Salva no dicionário global de saves em SaveSys
+	SaveSys.save_scene_state(get_parent().scene_name, name, object_data)
+	return object_data
+
+
 
 func load_player_state():
-	var npc_data = SaveSys.load_scene_state(get_parent().scene_name, "npc_KoriTrice")
+	var npc_data = SaveSys.load_scene_state(get_parent().scene_name, "Recepcionistas")
+	var pos_data = null
 	if npc_data != null:
-		dialog_event = npc_data["dialog_event"]
-		var pos_data = npc_data["position"]
-		if pos_data.size() == 2:
-			position = Vector2(pos_data[0], pos_data[1])
+		if npc_data.has("dialog_event"): 
+			dialog_event = npc_data["dialog_event"]
+		if npc_data.has("is_active"):is_active = npc_data["is_active"]
+		if npc_data.has("pos_data"): 
+			pos_data = npc_data["position"]
+			if pos_data.size() == 2:
+				position = Vector2(pos_data[0], pos_data[1])
 
 
 func savestate(slot: int, npc_name: String):

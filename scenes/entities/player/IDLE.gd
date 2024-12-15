@@ -3,6 +3,11 @@ extends "state.gd"
 
 func update(delta):
 	Player.gravity(delta)
+	if Input.is_action_pressed("Balir"):
+		$"../../AnimationPlayer".play("balir")
+		
+	
+	
 	if Player.movement_input.x != 0 and !Player.is_in_water:
 		return STATES.MOVE
 	if Player.jump_input_actuation:
@@ -48,3 +53,8 @@ func enter_state():
 	if Player.prev_state == STATES.MOVE:
 		$"../../AnimationPlayer".play("idle")
 	Player.can_dash = true
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "balir":
+		$"../../AnimationPlayer".play("idle")

@@ -30,6 +30,14 @@ func _ready() -> void:
 	pass
 	#SignalManager.its_saving.connect(save_game)
 
+func save_object_state(scene_name: String, object_name: String, object_data: Dictionary):
+	if !scene_states.has(scene_name):
+		scene_states[scene_name] = {}  # Cria um novo estado para a cena, se necessário
+
+	# Salva os dados do objeto no estado da cena
+	scene_states[scene_name][object_name] = object_data
+	print("Estado do objeto '%s' na cena '%s' salvo: %s" % [object_name, scene_name, object_data])
+
 func save_scene_state(scene_name: String, object_name: String, data: Dictionary):
 	# Inicializa o dicionário para a cena, se necessário
 	if not scene_states.has(scene_name):
@@ -48,14 +56,22 @@ func load_scene_state(scene_name: String, object_name: String) -> Dictionary:
 		print("Nenhum estado salvo encontrado para o objeto '%s' na cena '%s'." % [object_name, scene_name])
 		return null_var
 
+
+
 func save_all_states(scene_name: String, objects: Array):
 	for obj in objects:
 		if obj.has_method("save"):
 			var data = obj.save()  # Assuma que cada objeto retorna seus dados ao chamar 'save'
 			save_scene_state(scene_name, obj.name, data)
 
-
+func load_all_states(scene_name: String, objects: Array):
+	for obj in objects:
+		if obj.has_method("load_player_state"):
+			var data = load_scene_state(scene_name, obj.name)
+			obj.load_player_state()
 # Função genérica para salvar dados
+
+
 func save_to_slot(slot: int, data: Dictionary) -> void:
 	assert(slot > 0 and slot <= MAX_SAVES, "Slot inválido!")
 	var file_path = SAVEGAME_PREFIX + str(slot) + ".save"
@@ -79,10 +95,14 @@ func load_from_slot(slot: int) -> Dictionary:
 		var json = JSON.new()
 		if json.parse(json_string) == OK:
 			data = json.get_data()
+			if data.has("scene_states"):
+				scene_states = data["scene_states"]
 		else:
 			print("Erro ao parsear o JSON do slot ", slot)
 	save_file.close()
 	return data
+
+
 
 # Função para salvar a configuração
 func save_config_to_slot(slot: int, config: Dictionary) -> void:
@@ -133,10 +153,11 @@ func save_game(slot: int) -> void:
 		"lifepoints" : lifepoints,
 		"Deathsnumber" : Deathsnumber,
 		"saved_current_scenename": saved_current_scenename,
-		"missions_array": missions_array
+		"missions_array": missions_array,
+		"scene_states": scene_states
 	}
 	
-	save_to_slot(slot, save_data)
+	save_to_slot(slot, save_data, )
 
 	var config_data = {
 		"sons": somconfig_dict,
@@ -149,6 +170,7 @@ func save_game(slot: int) -> void:
 # Função principal para carregar o jogo
 func load_game(slot: int, world_scene) -> void:
 	var save_data = load_from_slot(slot)
+	
 	if save_data.is_empty():
 		return
 	print("Dados carregados do slot ", slot, ": ", save_data)
@@ -173,7 +195,8 @@ func load_game(slot: int, world_scene) -> void:
 	# Atualizar a posição dos nodes
 	for i in save_data["position"]:
 		var pos = Vector2(save_data["position"][i][0], save_data["position"][i][1])
-		world_scene.get_node(i).update_pos(pos)
+		if world_scene.get_node(i).has_method("update_pos"):
+			world_scene.get_node(i).update_pos(pos)
 
 # Função para exibir dados salvos
 func read_save_to_show_stats() -> Array:
@@ -233,3 +256,7 @@ func delete_object_state(scene_name: String, object_name: String):
 func clear_all_states():
 	scene_states.clear()
 	print("Todos os estados de save foram apagados.")
+
+func destroy_save(slot):
+	var file_path = "user://savegame%s.save" % str(slot)
+	DirAccess.remove_absolute(file_path)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dk150e1tdwwcb"]
 
-[ext_resource type="Script" path="res://npc_recep.gd" id="1_bbjbk"]
+[ext_resource type="Script" uid="uid://cs8wtniikl2hd" path="res://npc_recep.gd" id="1_bbjbk"]
 [ext_resource type="Texture2D" uid="uid://c8cina7yoj3s5" path="res://Sprites/NPCs/Recepcionista/Kori e Trice0000.png" id="1_na23w"]
 [ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="2_37gll"]
 [ext_resource type="Material" uid="uid://c3s4d0jc4gm7v" path="res://shaders/entitie_outline.tres" id="2_gsxc3"]

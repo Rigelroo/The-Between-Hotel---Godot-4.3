@@ -170,7 +170,7 @@ func findquest(questslots, chosed_item, index, amount, item_type):
 	var arg_no_key = false
 	npc_index = index
 	if amount > 1:
-		for j in range(min(SignalManager.task_manager.missions.size(), questslots.size())):
+		for j in range(min(task_manager.missions.size(), questslots.size())):
 			var questslot = questslots[j]
 			var item = questslot.item
 			var item_amount = questslot.item.amount

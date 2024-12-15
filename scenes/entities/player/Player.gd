@@ -101,7 +101,7 @@ var climb_input = false
 var dash_input = false
 var attack_input = false
 var breath_input = false
-
+var balir_input = false
 var slashing = false
 
 #player_movement
@@ -125,54 +125,79 @@ var prev_state = null
 var pos = Vector2.ZERO
 var inventoryequiped_array = []
 
+
 func save():
-	# Salvar a cena atual
+	# Cria um dicionário para salvar as informações relevantes do objeto
 	var saved_scene = get_parent().scene_file_path
 	var saved_scenename = get_parent().nome_cena
 	SaveSys.saved_current_scene = saved_scene
 	SaveSys.saved_current_scenename = saved_scenename
-	# Salvar posição atual do jogador
-	pos = position
-	SaveSys.pos_dict[name] = [pos.x, pos.y]
-
-	# Salvar itens equipados
-	inventoryequiped_array.clear()
-	for slot in inventoryc.stampslots:
-		if slot != null:
-			if slot.item != null:
-				pass
-				#inventoryequiped_array.append(slot.item.name)
-	#SaveSys.equiped_stamps = inventoryequiped_array
-
-	print("Player salvo:")
-	print("\tCena:", saved_scene)
-	print("\tPosição:", pos)
-	print("\tItens Equipados:", inventoryequiped_array)
-
-
-func update_pos(p: Vector2):
-	position = p
+	var position_array = [position.x, position.y]
+	var object_data = {
+		"position": position_array,  # Salva a posição
+	}
+	
+	# Salva no dicionário global de saves em SaveSys
+	SaveSys.save_scene_state(get_parent().scene_name, name, object_data)
+	return object_data
 
 func load_player_state():
-	# Carregar posição
-	if SaveSys.pos_dict.has(name):
-		var saved_pos = SaveSys.pos_dict[name]
-		update_pos(Vector2(saved_pos[0], saved_pos[1]))
+	var pos_data
+	var npc_data = SaveSys.load_scene_state(get_parent().scene_name, "Player")
+	if npc_data != null:
+		if npc_data.has("position"): 
+			pos_data = npc_data["position"]
+			if pos_data.size() == 2:
+				position = Vector2(pos_data[0], pos_data[1])
 
-	# Carregar itens equipados
-	if SaveSys.equiped_stamps.size() > 0:
-		inventoryequiped_array.clear()
-		for item_name in SaveSys.equiped_stamps:
-			#var item = inv_dictionary.invseals.find(item_name)
-			var item = inv_dictionary.invseals[item_name]
-			if item != null:
-				inventoryequiped_array.append(item)
-				#emit_signal("sigload_equipstamp", item)  # Notifica os sistemas sobre os itens equipados.
 
-	print("Player carregado:")
-	print("\tPosição:", position)
-	print("\tItens Equipados:", inventoryequiped_array)
+#func save():
+	## Salvar a cena atual
+	#var saved_scene = get_parent().scene_file_path
+	#var saved_scenename = get_parent().nome_cena
+	#SaveSys.saved_current_scene = saved_scene
+	#SaveSys.saved_current_scenename = saved_scenename
+	## Salvar posição atual do jogador
+	#pos = position
+	#SaveSys.pos_dict[name] = [pos.x, pos.y]
+#
+	## Salvar itens equipados
+	#inventoryequiped_array.clear()
+	#for slot in inventoryc.stampslots:
+		#if slot != null:
+			#if slot.item != null:
+				#pass
+				##inventoryequiped_array.append(slot.item.name)
+	##SaveSys.equiped_stamps = inventoryequiped_array
+#
+	#print("Player salvo:")
+	#print("\tCena:", saved_scene)
+	#print("\tPosição:", pos)
+	#print("\tItens Equipados:", inventoryequiped_array)
+#
+#
 
+#
+#func load_player_state():
+	## Carregar posição
+	#if SaveSys.pos_dict.has(name):
+		#var saved_pos = SaveSys.pos_dict[name]
+		#update_pos(Vector2(saved_pos[0], saved_pos[1]))
+#
+	## Carregar itens equipados
+	#if SaveSys.equiped_stamps.size() > 0:
+		#inventoryequiped_array.clear()
+		#for item_name in SaveSys.equiped_stamps:
+			##var item = inv_dictionary.invseals.find(item_name)
+			#var item = inv_dictionary.invseals[item_name]
+			#if item != null:
+				#inventoryequiped_array.append(item)
+				##emit_signal("sigload_equipstamp", item)  # Notifica os sistemas sobre os itens equipados.
+#
+	#print("Player carregado:")
+	#print("\tPosição:", position)
+	#print("\tItens Equipados:", inventoryequiped_array)
+#
 
 #
 #func save():
@@ -453,7 +478,11 @@ func player_input():
 			interact_input = true
 		else: 
 			interact_input = false
-#
+		
+		if Input.is_action_just_pressed("Balir"):
+			balir_input = true
+		else:
+			interact_input = false
 #func aplayer_input():
 	#movement_input = Vector2.ZERO
 	#if can_move && can_move_si:

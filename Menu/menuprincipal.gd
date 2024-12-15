@@ -41,7 +41,7 @@ var currently_selected = 0
 var previously_selected = 0
 
 var is_in_config_tab = false
-
+var is_in_save_tab = false
 func move_selector_D():
 	if menuslots.size() == 0:
 		return
@@ -177,7 +177,10 @@ func _unhandled_input(event):
 		
 		elif event.is_action_pressed("selector_left") or event.is_action_pressed("selector_up"):
 			move_selector_U()
-		
+			
+	if is_in_save_tab:
+		if event.is_action_pressed("Climb"):
+			_on_apagarsave_pressed()
 
 			
 	if is_in_config_tab:
@@ -270,22 +273,27 @@ func match_curtab():
 	match current_tab:
 		0: #"menu"
 			is_in_config_tab = false
+			is_in_save_tab = false
 			#%submenuTabcontainer.current_tab = current_tab
 			%submenuTabcontainer.current_tab = 0
 			menuslots = %menuoptionsContainer.get_children()
 			update_things()
 		1: #"saves"
 			is_in_config_tab = false
+			is_in_save_tab = false
 			%submenuTabcontainer.current_tab = 0
 			menuslots = %saveslots.get_children()
 			update_things()
+			is_in_save_tab = true
 		2: #"configs"
 			is_in_config_tab = true
+			is_in_save_tab = false
 			%submenuTabcontainer.current_tab = 1
 			menuslots = %OptionsContainer.get_child(current_option_menu).find_child("options").get_children()
 			update_things()
 		3: #"out"
 			is_in_config_tab = false
+			is_in_save_tab = false
 			%submenuTabcontainer.current_tab = 2
 			menuslots = %options.get_children()
 			update_things()
@@ -370,7 +378,8 @@ func update_slot_display(slot: int, scene_label: Label, lifelabel, deathslabel, 
 	#scene_label.text = "Cena: %s" % slot_data.get("saved_current_scene", "Desconhecida")
 	
 	var lastscene_name = slot_data.get("saved_current_scenename", "Desconhecida")
-	scene_label.text = lastscene_name
+	if lastscene_name:
+		scene_label.text = lastscene_name
 	
 	#savelocationlabel.text = slot_data.get("saved_current_scene", "Desconhecida")
 	lifelabel.text = "N/A"
@@ -406,55 +415,90 @@ func _on_playsave_pressed() -> void:
 	var save = SaveSys.load_from_slot(save_slot)
 	print(SaveSys.load_from_slot(save_slot))
 	if save.has("saved_current_scene"):
-		SignalManager.currentsaveslot = save_slot 
-		SignalManager.first_sceme = true
-		SceneManager.transition_to(save["saved_current_scene"])
+		if save["saved_current_scene"]:
+			SignalManager.currentsaveslot = save_slot 
+			SignalManager.first_sceme = true
+			SceneManager.transition_to(save["saved_current_scene"])
 	else:
 		SignalManager.currentsaveslot = save_slot 
 		SignalManager.first_sceme = true
 		SceneManager.transition_to(first_scene)
+
+func _on_apagarsave_pressed() -> void:
+	delete_options.visible = true
+	menuslots = delete_options.get_child(1).get_children()
+	
+
+func _on_button_delete_sim_pressed() -> void:
+	var save_slot = null
+	if currently_selected >= 0 and currently_selected < 3:
+		save_slot = currently_selected + 1
+	elif currently_selected >= 3:
+		save_slot = currently_selected - 1
+	SaveSys.destroy_save(save_slot)
+	delete_options.visible = false
+	menuslots = %saveslots.get_children()
+
+func _on_button_delete_não_pressed() -> void:
+	delete_options.visible = false
+	menuslots = %saveslots.get_children()
+
+@onready var delete_options: Control = $Menuprincipalcaixa/submenuTabcontainer/save_control/delete_options
 
 func _on_save_1_pressed() -> void:
-	var save_slot = 1
-
-	var save = SaveSys.load_from_slot(save_slot)
-	print(SaveSys.load_from_slot(save_slot))
-	if save.has("saved_current_scene"):
-		SignalManager.currentsaveslot = save_slot 
-		SignalManager.first_sceme = true
-		SceneManager.transition_to(save["saved_current_scene"])
-	else:
-		SignalManager.currentsaveslot = save_slot 
-		SignalManager.first_sceme = true
-		SceneManager.transition_to(first_scene)
+	currently_selected = 0
+	showtab()
+	#
+	#var save_slot = 1
+	#var save = SaveSys.load_from_slot(save_slot)
+	#print(SaveSys.load_from_slot(save_slot))
+	#if save.has("saved_current_scene"):
+		#if save["saved_current_scene"]:
+			#SignalManager.currentsaveslot = save_slot 
+			#SignalManager.first_sceme = true
+			#SceneManager.transition_to(save["saved_current_scene"])
+		#else:
+			#SignalManager.currentsaveslot = save_slot
+			#SignalManager.first_sceme = true
+			#SceneManager.transition_to(first_scene)
+	#else:
+		#SignalManager.currentsaveslot = save_slot 
+		#SignalManager.first_sceme = true
+		#SceneManager.transition_to(first_scene)
 
 func _on_save_2_pressed() -> void:
-	var save_slot = 2
-
-	var save = SaveSys.load_from_slot(save_slot)
-	print(SaveSys.load_from_slot(save_slot))
-	if save.has("saved_current_scene"):
-		SignalManager.currentsaveslot = save_slot 
-		SignalManager.first_sceme = true
-		SceneManager.transition_to(save["saved_current_scene"])
-	else:
-		SignalManager.currentsaveslot = save_slot 
-		SignalManager.first_sceme = true
-		SceneManager.transition_to(first_scene)
+	currently_selected = 1
+	showtab()
+	#var save_slot = 2
+#
+	#var save = SaveSys.load_from_slot(save_slot)
+	#print(SaveSys.load_from_slot(save_slot))
+	#if save.has("saved_current_scene"):
+		#if save["saved_current_scene"]:
+			#SignalManager.currentsaveslot = save_slot 
+			#SignalManager.first_sceme = true
+			#SceneManager.transition_to(save["saved_current_scene"])
+	#else:
+		#SignalManager.currentsaveslot = save_slot 
+		#SignalManager.first_sceme = true
+		#SceneManager.transition_to(first_scene)
 
 func _on_save_3_pressed() -> void:
-	var save_slot = 3
-
-	var save = SaveSys.load_from_slot(save_slot)
-	print(SaveSys.load_from_slot(save_slot))
-	if save.has("saved_current_scene"):
-		SignalManager.currentsaveslot = save_slot 
-		SignalManager.first_sceme = true
-		SceneManager.transition_to(save["saved_current_scene"])
-	else:
-		SignalManager.currentsaveslot = save_slot 
-		SignalManager.first_sceme = true
-		SceneManager.transition_to(first_scene)
+	currently_selected = 2
+	showtab()
+	#var save_slot = 3
+#
+	#var save = SaveSys.load_from_slot(save_slot)
+	#print(SaveSys.load_from_slot(save_slot))
+	#if save.has("saved_current_scene"):
+		#if save["saved_current_scene"]:
+			#SignalManager.currentsaveslot = save_slot 
+			#SignalManager.first_sceme = true
+			#SceneManager.transition_to(save["saved_current_scene"])
+	#else:
+		#SignalManager.currentsaveslot = save_slot 
+		#SignalManager.first_sceme = true
+		#SceneManager.transition_to(first_scene)
 
 
 func _on_button_carregar_pressed() -> void:
@@ -487,9 +531,6 @@ func _on_backbutton_pressed() -> void:
 		$AnimationPlayer.play("desapertado")
 		update_things()
 		selector.set_global_position((selected_button.global_position),true)
-
-func _on_apagarsave_pressed() -> void:
-	pass # Replace with function body.
 
 func _on_button_sim_pressed() -> void:
 	get_tree().quit()

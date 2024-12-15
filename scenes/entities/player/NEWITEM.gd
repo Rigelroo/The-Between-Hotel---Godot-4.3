@@ -113,6 +113,8 @@ func update(delta):
 func enter_state():
 	zoom_parameters()
 	$"../../AnimationPlayer".play("new_item")
+	await $"../../AnimationPlayer".animation_finished
+	$"../../AnimationPlayer".stop(true)
 	on_itemstate.emit()
 	get_item()
 	

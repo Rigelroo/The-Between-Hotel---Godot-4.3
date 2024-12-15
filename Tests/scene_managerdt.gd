@@ -83,11 +83,13 @@ func transition_to(scene_path: String) -> void:
 
 		# Remove the current scene
 		if !current_scene.has_method("intro"):
-			pass
+			#pass
 			#current_scene.player.remove_from_group("Player")
 			#current_scene.stats.remove_from_group("Stats")
 			#current_scene.gameover_manager.remove_from_group("Gameover")
-		#await current_scene.tree_exited
+			#await current_scene.tree_exited
+			#SaveSys.save_all_states(current_scene.scene_name, current_scene.get_children())
+			await SaveSys.save_all_states(current_scene.scene_name, current_scene.get_children())
 		current_scene.queue_free()
 
 	# Instantiate and add the new scene
@@ -116,7 +118,8 @@ func transition_to(scene_path: String) -> void:
 		new_stats.add_to_group("Stats")
 	# Wait for the new scene to be ready
 	#new_scene.loadscene()
-	
+	if !new_scene.has_method("intro"):
+		await SaveSys.load_all_states(new_scene.scene_name, new_scene.get_children())
 	await new_scene.loadscene()
 	transition_out()
 	await transitioned_out

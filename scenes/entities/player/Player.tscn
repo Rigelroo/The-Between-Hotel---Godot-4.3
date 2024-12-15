@@ -1,4 +1,4 @@
-[gd_scene load_steps=230 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=236 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" uid="uid://810alopr4too" path="res://scenes/entities/player/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://dknwb0q3tench" path="res://Sprites/Player/All/jump7.png" id="2_lumcb"]
@@ -177,7 +177,12 @@
 [ext_resource type="Texture2D" uid="uid://dj1x7v3nbau2s" path="res://Sprites/Player/Charged/Frost/frost_charged_attack0005.png" id="146_h7nqf"]
 [ext_resource type="Texture2D" uid="uid://v0qu6h8qg6f4" path="res://Sprites/Player/Charged/Frost/frost_charged_attack0006.png" id="147_8tbhf"]
 [ext_resource type="PackedScene" uid="uid://bm1oandnfm0vi" path="res://scenes/entities/player/BREATH.tscn" id="147_41pd1"]
+[ext_resource type="Texture2D" uid="uid://celfgceuhwfuu" path="res://Sprites/Player/special/balir0000.png" id="149_4elh4"]
+[ext_resource type="Texture2D" uid="uid://g8bjpu8g3ysa" path="res://Sprites/Player/special/balir0001.png" id="150_0yjdu"]
+[ext_resource type="Texture2D" uid="uid://n5rjfhdmjnl8" path="res://Sprites/Player/special/balir0002.png" id="151_85fpf"]
 [ext_resource type="PackedScene" uid="uid://bj2x50p1ul0ft" path="res://splashdetection.tscn" id="152_f5dxw"]
+[ext_resource type="Texture2D" uid="uid://drcbpnvcl85o0" path="res://Sprites/Player/special/balir0003.png" id="152_ltiup"]
+[ext_resource type="AudioStream" uid="uid://fr1oss5lodkh" path="res://Sound/baa1.wav" id="153_0yjdu"]
 [ext_resource type="Script" uid="uid://cmd2f3i41qbr7" path="res://scenes/entities/player/HIT.gd" id="160_vgtc2"]
 [ext_resource type="PackedScene" uid="uid://chtv73gw0h0nt" path="res://scenes/magic_system/emitters/firebreathemitter.tscn" id="167_kde63"]
 [ext_resource type="Texture2D" uid="uid://dgc0c0tv27fgp" path="res://Sprites/Effects/subfrost.png" id="180_3drml"]
@@ -1634,6 +1639,74 @@ tracks/3/keys = {
 "values": [Vector2(1, 0.2)]
 }
 
+[sub_resource type="Animation" id="Animation_ht3sh"]
+resource_name = "balir"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("149_4elh4"), ExtResource("150_0yjdu"), ExtResource("151_85fpf"), ExtResource("152_ltiup"), ExtResource("149_4elh4"), ExtResource("150_0yjdu"), ExtResource("151_85fpf"), ExtResource("152_ltiup")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PlayerHatCold:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(2.2, 2.8), Vector2(2.2, 3.2), Vector2(2, 4), Vector2(2, 3.6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerHatCold:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_ayf5o")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PlayerHatCold:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0141266]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Sprite2D/../AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("153_0yjdu")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nqj7c"]
 _data = {
 &"AirSlash": SubResource("Animation_housx"),
@@ -1645,6 +1718,7 @@ _data = {
 &"HerculesLeaf_nomove": SubResource("Animation_4m344"),
 &"HerculesLeaf_start": SubResource("Animation_p8suk"),
 &"RESET": SubResource("Animation_a7glt"),
+&"balir": SubResource("Animation_ht3sh"),
 &"breath_end": SubResource("Animation_s282s"),
 &"breath_start": SubResource("Animation_b1cih"),
 &"chslash_frost": SubResource("Animation_h1t40"),
@@ -1827,8 +1901,8 @@ scale = Vector2(0.07, 0.07)
 
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(3.4, -3)
-rotation = 0.0163368
+position = Vector2(2, -1.2)
+rotation = -0.000122652
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
 
@@ -2009,8 +2083,14 @@ script = ExtResource("183_a3gtm")
 
 [node name="coyotetimer" type="Timer" parent="."]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = 3.496
+pitch_scale = 0.96
+bus = &"SFX"
+
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="STATES/IDLE" method="_on_animation_player_animation_finished"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="Trayemmiter" method="_on_animation_player_current_animation_changed"]
 [connection signal="timeout" from="STATES/JUMP/Jumptimer" to="." method="_on_jumptimer_timeout"]
 [connection signal="timeout" from="STATES/HIT/NohitTimer" to="STATES/HIT" method="_on_nohit_timer_timeout"]

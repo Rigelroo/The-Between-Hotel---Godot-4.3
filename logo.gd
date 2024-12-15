@@ -22,5 +22,7 @@ func _process(delta: float) -> void:
 	if Input.is_anything_pressed():
 		$Timer.stop()
 		$Timer.timeout.emit()
+
+
 func intro():
 	pass

@@ -95,7 +95,7 @@ func load_one_time():
 func _ready() -> void:
 	SignalManager.player = objplayer
 	player = objplayer
-	SignalManager.its_saving.connect(save_scenestate)
+	#SignalManager.its_saving.connect(save_scenestate)
 	load_one_time()
 	
 	some_function()
@@ -123,15 +123,15 @@ func _ready() -> void:
 var scene_readyvar = false
 
 
-func save_scenestate():
-	for child in get_children():
-		if child.has_method("save"):
-			child.save()
-
-func load_scenestate():
-	for child in get_children():
-		if child.has_method("load_player_state"):
-			child.load_player_state()
+#func save_scenestate():
+	#for child in get_children():
+		#if child.has_method("save"):
+			#child.save()
+#
+#func load_scenestate():
+	#for child in get_children():
+		#if child.has_method("load_player_state"):
+			#child.load_player_state()
 
 
 #func save_scenestate():
@@ -180,7 +180,7 @@ func _process(_delta: float) -> void:
 		#SignalManager.save_all_parameters()
 	if Input.is_action_pressed("Load"):
 		SaveSys.load_game(SignalManager.currentsaveslot,self)
-		load_scenestate()
+		#load_scenestate()
 	
 	if splashw.can_create == true:
 		activate()
