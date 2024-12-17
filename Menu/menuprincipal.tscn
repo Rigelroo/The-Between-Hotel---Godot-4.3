@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://d2kbwohtjrf5k"]
+[gd_scene load_steps=85 format=3 uid="uid://d2kbwohtjrf5k"]
 
 [ext_resource type="Texture2D" uid="uid://p7wpl8iyn027" path="res://Menu/Sprites/menuprincipal_fundo.png" id="1_42538"]
 [ext_resource type="Script" uid="uid://bgccsufw85c7p" path="res://Menu/menuprincipal.gd" id="1_wkb2l"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bkkqgtix3a1ay" path="res://Menu/Sprites/menuprincipal_botãosair.png" id="19_yr1gy"]
 [ext_resource type="Shader" uid="uid://d2iygc34knq60" path="res://objects/test.gdshader" id="29_2ytcj"]
 [ext_resource type="Shader" uid="uid://b0scaouj3av82" path="res://inventory/Items/item_1.gdshader" id="30_g85ol"]
+[ext_resource type="Script" uid="uid://brwhk7ahq4lyb" path="res://Menu/save_button.gd" id="31_68er8"]
 [ext_resource type="Texture2D" uid="uid://bwssnpvxo5ypi" path="res://Menu/Sprites/menusave/menusaves_slots.png" id="31_r7q74"]
 [ext_resource type="Texture2D" uid="uid://cv5l6cecr5hue" path="res://Menu/Sprites/menusave/menusaves_1.png" id="32_tb0pw"]
 [ext_resource type="Texture2D" uid="uid://bhd4jpfe88npe" path="res://Menu/Sprites/menusave/menusaves_2.png" id="33_oc063"]
@@ -689,11 +690,12 @@ offset_top = -12.0
 offset_right = 5796.0
 offset_bottom = 1319.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_x0hox")
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 
 [node name="save_control" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -735,13 +737,15 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 125
 
-[node name="save1" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots"]
+[node name="save1" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots" node_paths=PackedStringArray("playbutton")]
 custom_minimum_size = Vector2(1804.4, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 flat = true
 icon_alignment = 2
 expand_icon = true
+script = ExtResource("31_68er8")
+playbutton = NodePath("../../../saveshowtabcontainer/saveshow/saveshow/playsave")
 
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save1"]
 position = Vector2(-538.462, -34.6153)
@@ -771,13 +775,15 @@ theme_override_fonts/font = ExtResource("38_imnho")
 theme_override_font_sizes/font_size = 236
 text = "Vazio"
 
-[node name="save2" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots"]
+[node name="save2" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots" node_paths=PackedStringArray("playbutton")]
 custom_minimum_size = Vector2(1804.4, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 flat = true
 icon_alignment = 2
 expand_icon = true
+script = ExtResource("31_68er8")
+playbutton = NodePath("../../../saveshowtabcontainer/saveshow2/saveshow/playsave")
 
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save2"]
 position = Vector2(-538.462, -34.6153)
@@ -807,13 +813,15 @@ theme_override_fonts/font = ExtResource("38_imnho")
 theme_override_font_sizes/font_size = 236
 text = "Vazio"
 
-[node name="save3" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots"]
+[node name="save3" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots" node_paths=PackedStringArray("playbutton")]
 custom_minimum_size = Vector2(1804.4, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 flat = true
 icon_alignment = 2
 expand_icon = true
+script = ExtResource("31_68er8")
+playbutton = NodePath("../../../saveshowtabcontainer/saveshow3/saveshow/playsave")
 
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/VBoxContainer/saveslots/save3"]
 position = Vector2(-538.462, -34.6153)
@@ -1651,6 +1659,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/delete_options" instance=ExtResource("53_tg1l0")]
+layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 offset_left = 78.1902
@@ -1671,7 +1680,6 @@ visible_ratio = 1.0
 script = null
 
 [node name="config_control" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -1686,10 +1694,11 @@ offset_right = -4703.15
 offset_bottom = -1798.54
 scale = Vector2(4.43638, 4.43638)
 theme_override_styles/panel = SubResource("StyleBoxEmpty_k7ui2")
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 
 [node name="Sons" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -1897,7 +1906,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Tela" type="TabBar" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -2121,8 +2129,7 @@ theme_override_fonts/font = ExtResource("51_173fg")
 theme_override_font_sizes/font_size = 151
 theme_override_icons/checked = ExtResource("61_u3xcn")
 theme_override_icons/unchecked = ExtResource("62_aicyn")
-text = " Tela cheia
-"
+text = " Tela cheia"
 
 [node name="VsyncBox" type="CheckBox" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options"]
 layout_mode = 2
@@ -2340,6 +2347,48 @@ position = Vector2(311, 117.846)
 scale = Vector2(0.553549, 0.553549)
 texture = ExtResource("36_m85bk")
 
+[node name="Buttonesq" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 0.0348282
+offset_right = 0.003479
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("63_aoj42")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttondir" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.84
+anchor_top = 0.076
+anchor_right = 0.986
+anchor_bottom = 0.192
+offset_left = 0.121002
+offset_right = 0.0896606
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("51_173fg")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lkqpt")
+action_mode = 0
+text = "
+"
+icon = ExtResource("64_6loxv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="Certeza" type="TabBar" parent="Menuprincipalcaixa/submenuTabcontainer"]
 visible = false
 layout_mode = 2
@@ -2387,8 +2436,7 @@ theme_override_fonts/font = ExtResource("51_173fg")
 theme_override_font_sizes/font_size = 51
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ck1qu")
 action_mode = 0
-text = "Sim
-"
+text = "Sim"
 icon = ExtResource("52_08nkk")
 flat = true
 icon_alignment = 1
@@ -2406,8 +2454,7 @@ theme_override_fonts/font = ExtResource("51_173fg")
 theme_override_font_sizes/font_size = 51
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ck1qu")
 action_mode = 0
-text = "Não
-"
+text = "Não"
 icon = ExtResource("52_08nkk")
 flat = true
 icon_alignment = 1
@@ -2467,5 +2514,7 @@ centered = false
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/Buttondir" to="." method="show_more_options"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/backbutton" to="." method="_on_backbutton_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles/backbutton" to="." method="_on_backbutton_pressed"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles/Buttonesq" to="." method="show_less_options"]
+[connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Controles/Buttondir" to="." method="show_more_options"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/Certeza/options/ButtonSim" to="." method="_on_button_sim_pressed"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/Certeza/options/ButtonNão" to="." method="_on_button_não_pressed"]

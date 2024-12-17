@@ -39,7 +39,8 @@ func save():
 	
 	# Salva no dicionário global de saves em SaveSys
 	SaveSys.save_scene_state(get_parent().scene_name, name, object_data)
-
+	return object_data
+	
 func load_player_state():
 	var npc_data = SaveSys.load_scene_state(get_parent().scene_name, name)
 	var pos_data = null

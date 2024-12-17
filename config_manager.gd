@@ -14,6 +14,9 @@ extends Node2D
 
 @export var screenshader_value = null
 
+@export var configs_array = [mainvolume_value, musicvolume_value, sfxvolume_value,
+mudo, screentype_value, screenresolution_value, vsync_value, telacheia_value]
+
 const WINDOW_MODE_ARRAY : Array[String] = [
 	"Full-Screen",
 	"Window Mode",
@@ -31,13 +34,21 @@ var RESOLUTION_DICT : Dictionary = {
 }
 
 func save_configs():
-	var telaconfig_variables = [screentype_value, screenresolution_value, vsync_value, telacheia_value] 
-	var somconfig_variables = [mainvolume_value, musicvolume_value, sfxvolume_value, mudo]
+	var telaconfig_variables = {"screentype_value" : screentype_value,
+	"screenresolution" : screenresolution_value,
+	"vsync" : vsync_value,
+	"telacheia" : telacheia_value
+	} 
+	var somconfig_variables = {"mainvolume" : mainvolume_value,
+	"musicvolume" : musicvolume_value,
+	"sfxvolume" : sfxvolume_value,
+	"mudo" : mudo}
 	#SaveSys.signalManager_dict["SignalManager"] = signal_manager_variables
 	SaveSys.somconfig_dict = somconfig_variables
 	SaveSys.telaconfig_dict = telaconfig_variables
 	#SaveSys.controlesconfig_dict
 	#SaveSys.languageconfig_dict
+	SaveSys.save_config_only()
 
 func load_configs():
 	var saved_configs = SaveSys.load_config_from_slot(1)

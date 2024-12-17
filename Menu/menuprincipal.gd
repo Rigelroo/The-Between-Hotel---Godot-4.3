@@ -110,10 +110,13 @@ func update_things():
 	# Get currently and previously selected buttons
 	selected_button = menuslots[currently_selected]
 	past_selected_button = menuslots[previously_selected]
-
+	var buttonsprite
+	var pastbuttonsprite
 	# Safely get child nodes for scaling (assuming the first child is the sprite)
-	var buttonsprite = selected_button.get_child(0) if selected_button else null
-	var pastbuttonsprite = past_selected_button.get_child(0) if past_selected_button else null
+	if selected_button.get_child_count() != 0:
+		buttonsprite = selected_button.get_child(0) if selected_button else null
+	if past_selected_button.get_child_count() != 0:
+		pastbuttonsprite = past_selected_button.get_child(0) if past_selected_button else null
 
 	# Move the selector to the new button position
 	if selector and selected_button:
@@ -121,7 +124,8 @@ func update_things():
 		selector.global_position = selected_button.global_position
 
 	# Apply scaling animation
-	button_pulse(buttonsprite, pastbuttonsprite)
+	if buttonsprite != null && pastbuttonsprite != null:
+		button_pulse(buttonsprite, pastbuttonsprite)
 
 	# Debugging info
 	print("Selected:", selected_button.name if selected_button else "None")
@@ -162,8 +166,12 @@ func button_pulse(buttonsprite, pastbuttonsprite):
 		# Animate the previous button (shrink back to normal)
 		tween.tween_property(pastbuttonsprite, "scale", normal_pbscale, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 
-func press_button():
-	selected_button.pressed.emit()
+func press_button(type):
+	if selected_button.has_method("save_slot"):
+		selected_button.playbutton.pressed.emit()
+	else:
+		if selected_button.has_signal("pressed"):
+			selected_button.pressed.emit()
 
 func _unhandled_input(event):
 	if menuslots.size() == 0:
@@ -198,7 +206,7 @@ func _unhandled_input(event):
 
 
 	if event.is_action_pressed("Attack") or event.is_action_pressed("Jump"):
-		press_button()
+		press_button("Attack")
 
 	if is_in_config_tab:
 		if Input.is_action_pressed("Attack"):
@@ -252,13 +260,15 @@ func _unhandled_input(event):
 
 
 func showtab():
-	if currently_selected <= %saveshowtabcontainer.get_child_count():
-		%saveshowtabcontainer.current_tab = currently_selected
+	if %submenuTabcontainer.current_tab == 1:
+		if currently_selected <= %saveshowtabcontainer.get_child_count():
+			%saveshowtabcontainer.current_tab = currently_selected
 
 func _process(delta: float) -> void:
 	pass
 
 func _ready() -> void:
+	add_window_mode_items()
 	update_all_slots()
 	update_things()
 	selected_button = menuslots[currently_selected]
@@ -352,11 +362,23 @@ func update_all_slots():
 		var emptycoiso = tab.empty
 		var apagarsave = tab.apagarsave
 		var print_texturerect = tab.print_texturerect
+		var saveslots = %saveslots.get_children()
 		update_slot_display(i, savelocationlabel, lifelabel, deathslabel, coinslabel, ultimosavelabel, tempolabel, emptycoiso, apagarsave)
 		load_slot_screenshot(i, print_texturerect)
+		
+		update_saveslot(i,saveslots[i - 1])
 	valor = 0
 
-
+func update_saveslot(slot,saveslots):
+	var slot_data = SaveSys.get_slot_data(slot)
+	
+	if saveslots.has_method("save_slot"):
+		if slot_data.has("exists"):
+			saveslots.has_savefile = false
+			saveslots.label.text = "Vazio"
+		else:
+			saveslots.label.text = " "
+			saveslots.has_savefile = true
 
 func update_slot_display(slot: int, scene_label: Label, lifelabel, deathslabel, coinslabel, ultimosavelabel, tempolabel, emptycoiso, apagarsave):
 	var slot_data = SaveSys.get_slot_data(slot)
@@ -425,8 +447,11 @@ func _on_playsave_pressed() -> void:
 		SceneManager.transition_to(first_scene)
 
 func _on_apagarsave_pressed() -> void:
-	delete_options.visible = true
-	menuslots = delete_options.get_child(1).get_children()
+	print(selected_button.name)
+	if selected_button.has_method("save_slot"):
+		if selected_button.has_savefile:
+			delete_options.visible = true
+			menuslots = delete_options.get_child(1).get_children()
 	
 
 func _on_button_delete_sim_pressed() -> void:
@@ -438,6 +463,7 @@ func _on_button_delete_sim_pressed() -> void:
 	SaveSys.destroy_save(save_slot)
 	delete_options.visible = false
 	menuslots = %saveslots.get_children()
+	update_all_slots()
 
 func _on_button_delete_não_pressed() -> void:
 	delete_options.visible = false
@@ -467,21 +493,23 @@ func _on_save_1_pressed() -> void:
 		#SceneManager.transition_to(first_scene)
 
 func _on_save_2_pressed() -> void:
-	currently_selected = 1
-	showtab()
-	#var save_slot = 2
-#
-	#var save = SaveSys.load_from_slot(save_slot)
-	#print(SaveSys.load_from_slot(save_slot))
-	#if save.has("saved_current_scene"):
-		#if save["saved_current_scene"]:
-			#SignalManager.currentsaveslot = save_slot 
-			#SignalManager.first_sceme = true
-			#SceneManager.transition_to(save["saved_current_scene"])
-	#else:
-		#SignalManager.currentsaveslot = save_slot 
-		#SignalManager.first_sceme = true
-		#SceneManager.transition_to(first_scene)
+	if currently_selected != 1:
+		currently_selected = 1
+		showtab()
+	else:
+		var save_slot = 2
+
+		var save = SaveSys.load_from_slot(save_slot)
+		print(SaveSys.load_from_slot(save_slot))
+		if save.has("saved_current_scene"):
+			if save["saved_current_scene"]:
+				SignalManager.currentsaveslot = save_slot 
+				SignalManager.first_sceme = true
+				SceneManager.transition_to(save["saved_current_scene"])
+		else:
+			SignalManager.currentsaveslot = save_slot 
+			SignalManager.first_sceme = true
+			SceneManager.transition_to(first_scene)
 
 func _on_save_3_pressed() -> void:
 	currently_selected = 2
@@ -513,6 +541,9 @@ func _on_button_config_pressed() -> void:
 	$AnimationPlayer.play("apertado")
 	current_tab = 2
 	update_things()
+	goto_options()
+	match_optiontab(current_option_menu)
+	
 
 
 func _on_button_sair_pressed() -> void:
@@ -644,7 +675,10 @@ func show_less_options():
 	else:
 		current_option_menu -= 1
 		%OptionsContainer.current_tab = current_option_menu
+	currently_selected = 0
+	previously_selected = 0
 	goto_options()
+	match_optiontab(current_option_menu)
 
 func show_more_options():
 	var tabnumbers = %OptionsContainer.get_child_count() - 1
@@ -654,7 +688,10 @@ func show_more_options():
 	else:
 		current_option_menu += 1
 		%OptionsContainer.current_tab = current_option_menu
+	currently_selected = 0
+	previously_selected = 0
 	goto_options()
+	match_optiontab(current_option_menu)
 
 func goto_options():
 	if %submenuTabcontainer.current_tab == 1:
@@ -666,3 +703,7 @@ func goto_options():
 		selector.scale.x = 0.3
 		selector.scale.y = 0.3
 		change_values(menuslots[currently_selected])
+		
+
+func match_optiontab(option_selected):
+	%OptionsContainer.current_tab = option_selected

@@ -218,6 +218,7 @@ func close():
 	visible = false
 	isOpen = false
 	SignalManager.inventoryclosed.emit()
+	%Config.saveconfigs()
 
 
 func readyclose():

@@ -54,13 +54,13 @@ func goto_options():
 		can_option = true
 		var options = %OptionsContainer.get_children()
 		var options_cfg = options[option_selected].get_node("options")
-	
+		
 		var index = options_cfg.get_children()
 		selector.global_position = index[option_selected].global_position
 		selector.scale.x = 0.3
 		selector.scale.y = 0.3
 		change_values(index[cfg_selected])
-
+		match_optiontab(option_selected)
 
 func goto_outchoice():
 	if $TabContainer.current_tab == 2:
@@ -235,10 +235,12 @@ var can_option = false
 
 func _on_mainvolumeslider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, value/5)
+	ConfigManager.mainvolume_value = value
 
 
 func _on_musicvolumeslider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(1, value/5)
+	ConfigManager.musicvolume_value = value
 
 
 
@@ -248,13 +250,18 @@ func _on_musicvolumeslider_value_changed(value: float) -> void:
 
 func _on_sfxvolumeslider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(2, value/5)
+	ConfigManager.sfxvolume_value = value
 
 
 func _on_mute_box_toggled(toggled_on: bool) -> void:
 	AudioServer.set_bus_mute(0,toggled_on)
+	ConfigManager.mudo = toggled_on
 
 @onready var options_menu_number = %OptionsContainer.get_child_count() - 1
 var current_number = 0
+
+func match_optiontab(option_selected):
+	%OptionsContainer.current_tab = optiontab_selected
 
 func show_less_options():
 	if optiontab_selected == 0:
@@ -264,6 +271,7 @@ func show_less_options():
 		optiontab_selected -= 1
 		%OptionsContainer.current_tab = optiontab_selected
 	goto_options()
+	match_optiontab(option_selected)
 
 func show_more_options():
 	if optiontab_selected == options_menu_number:
@@ -273,6 +281,7 @@ func show_more_options():
 		optiontab_selected += 1
 		%OptionsContainer.current_tab = optiontab_selected
 	goto_options()
+	match_optiontab(option_selected)
 
 func _on_button_continue_pressed() -> void:
 	option_selected = 0
@@ -284,6 +293,7 @@ func _on_button_option_pressed() -> void:
 	option_selected = 1
 	opttab.current_tab = option_selected
 	selector.global_position = slots[option_selected].global_position
+	goto_options()
 
 func _on_button_out_pressed() -> void:
 	option_selected = 2
@@ -476,6 +486,9 @@ var RESOLUTION_DICT : Dictionary = {
 func _ready() -> void:
 	add_window_mode_items()
 	screentypebox.item_selected.connect(on_window_mode_selected)
+	loadconfigs()
+	#match_optiontab()
+	
 
 func on_window_mode_selected(index: int) -> void:
 	ConfigManager.screentype_value = index
@@ -496,10 +509,48 @@ func on_window_mode_selected(index: int) -> void:
 func _on_screenres_box_selected(index):
 	var ID = screenresbox.get_item_text(index)
 	get_window().set_size(RESOLUTION_DICT[ID])
-	ConfigManager.screenresolution_value = RESOLUTION_DICT[ID]
+	ConfigManager.screenresolution_value = index
 
 func add_window_mode_items() -> void:
 	for resolution in RESOLUTION_DICT:
 		screenresbox.add_item(resolution)
 	for window_mode in WINDOW_MODE_ARRAY:
 		screentypebox.add_item(window_mode)
+
+func saveconfigs():
+	ConfigManager.save_configs()
+
+func loadconfigs():
+	
+	var saved_configs = ConfigManager.load_configs()
+	
+	%Screentypebox.select(saved_configs["tela"]["screentype_value"])
+	%Screentypebox.emit_signal("item_selected", saved_configs["tela"]["screentype_value"])
+	
+	%Screenresbox.select(saved_configs["tela"]["screenresolution"])
+	%Screenresbox.emit_signal("item_selected", saved_configs["tela"]["screenresolution"])
+	
+	$TabContainer/OptionsContainer/Tela/options/TelacheiaBox.button_pressed = saved_configs["tela"]["telacheia"]
+	$TabContainer/OptionsContainer/Tela/options/VsyncBox.button_pressed = saved_configs["tela"]["vsync"]
+	$TabContainer/OptionsContainer/Tela/options/TelacheiaBox.emit_signal("button_pressed", saved_configs["tela"]["telacheia"])
+	$TabContainer/OptionsContainer/Tela/options/VsyncBox.emit_signal("button_pressed", saved_configs["tela"]["vsync"])
+	
+	%mainvolumeslider.value = saved_configs["sons"]["mainvolume"]
+	%musicvolumeslider.value = saved_configs["sons"]["musicvolume"]
+	%sfxvolumeslider.value = saved_configs["sons"]["sfxvolume"]
+	$TabContainer/OptionsContainer/Sons/options/MuteBox.button_pressed = saved_configs["sons"]["mudo"]
+	%mainvolumeslider.emit_signal("value_changed", saved_configs["sons"]["mainvolume"])
+	%musicvolumeslider.emit_signal("value_changed", saved_configs["sons"]["musicvolume"])
+	%sfxvolumeslider.emit_signal("value_changed", saved_configs["sons"]["sfxvolume"])
+	$TabContainer/OptionsContainer/Sons/options/MuteBox.emit_signal("pressed",saved_configs["sons"]["mudo"])
+	
+static func string_to_vector2(string := "") -> Vector2:
+	if string:
+		var new_string: String = string
+		new_string = new_string.erase(0, 1)
+		new_string = new_string.erase(new_string.length() - 1, 1)
+		var array: Array = new_string.split(", ")
+
+		return Vector2(int(array[0]), int(array[1]))
+
+	return Vector2.ZERO

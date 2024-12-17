@@ -796,6 +796,74 @@ tracks/4/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_ht3sh"]
+resource_name = "balir"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("149_4elh4"), ExtResource("150_0yjdu"), ExtResource("151_85fpf"), ExtResource("152_ltiup"), ExtResource("149_4elh4"), ExtResource("150_0yjdu"), ExtResource("151_85fpf"), ExtResource("152_ltiup")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PlayerHatCold:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(2.2, 2.8), Vector2(2.2, 3.2), Vector2(2, 4), Vector2(2, 3.6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerHatCold:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_ayf5o")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PlayerHatCold:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0141266]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Sprite2D/../AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("153_0yjdu")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+
 [sub_resource type="Animation" id="Animation_s282s"]
 resource_name = "breath_end"
 step = 0.05
@@ -1638,74 +1706,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [Vector2(1, 0.2)]
 }
-
-[sub_resource type="Animation" id="Animation_ht3sh"]
-resource_name = "balir"
-length = 0.7
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("149_4elh4"), ExtResource("150_0yjdu"), ExtResource("151_85fpf"), ExtResource("152_ltiup"), ExtResource("149_4elh4"), ExtResource("150_0yjdu"), ExtResource("151_85fpf"), ExtResource("152_ltiup")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../PlayerHatCold:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(2.2, 2.8), Vector2(2.2, 3.2), Vector2(2, 4), Vector2(2, 3.6)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../PlayerHatCold:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("18_ayf5o")]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../PlayerHatCold:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0141266]
-}
-tracks/4/type = "audio"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("%Sprite2D/../AudioStreamPlayer2D")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("153_0yjdu")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nqj7c"]
 _data = {

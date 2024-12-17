@@ -167,6 +167,16 @@ func save_game(slot: int) -> void:
 	}
 	save_config_to_slot(slot, config_data)
 
+func save_config_only():
+	var slot = 1
+	var config_data = {
+		"sons": somconfig_dict,
+		"tela": telaconfig_dict,
+		"controles": controlesconfig_dict,
+		"linguagem": languageconfig_dict
+	}
+	save_config_to_slot(slot, config_data)
+
 # Função principal para carregar o jogo
 func load_game(slot: int, world_scene) -> void:
 	var save_data = load_from_slot(slot)
@@ -260,3 +270,4 @@ func clear_all_states():
 func destroy_save(slot):
 	var file_path = "user://savegame%s.save" % str(slot)
 	DirAccess.remove_absolute(file_path)
+	

@@ -225,7 +225,7 @@ offset_top = 74.0
 offset_right = 937.475
 offset_bottom = 574.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_50t2v")
-current_tab = 2
+current_tab = 1
 tabs_visible = false
 
 [node name="Control" type="TabBar" parent="TabContainer/Config/TabContainer"]
@@ -240,7 +240,6 @@ texture = ExtResource("28_yqqid")
 
 [node name="OptionsContainer" type="TabContainer" parent="TabContainer/Config/TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pbhsj")
 current_tab = 1
@@ -867,6 +866,7 @@ theme_override_icons/unchecked = ExtResource("19_we7dv")
 text = "Vsync"
 
 [node name="Certeza" type="TabBar" parent="TabContainer/Config/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -909,8 +909,7 @@ theme_override_fonts/font = ExtResource("24_3tohy")
 theme_override_font_sizes/font_size = 51
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
 action_mode = 0
-text = "Sim
-"
+text = "Sim"
 icon = ExtResource("29_3lh8d")
 flat = true
 icon_alignment = 1
@@ -921,15 +920,14 @@ layout_mode = 2
 offset_left = 74.0
 offset_top = 330.0
 offset_right = 286.0
-offset_bottom = 388.0
+offset_bottom = 446.0
 scale = Vector2(1.327, 1.345)
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("24_3tohy")
 theme_override_font_sizes/font_size = 51
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
 action_mode = 0
-text = "Não
-"
+text = "Não"
 icon = ExtResource("29_3lh8d")
 flat = true
 icon_alignment = 1
