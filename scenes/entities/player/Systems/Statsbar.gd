@@ -23,17 +23,25 @@ class_name StatsBar
 func _ready() -> void:
 	player = SignalManager.player
 	SignalManager.world_loaded.connect(world_ready)
+	SignalManager.connect("stats_updated", update_all)
+	
 
 func world_ready() -> void:
 	player = SignalManager.player
-	player.healthChanged.connect(updatehealth)
-	player.inkChanged.connect(updateink)
-	updatehealth()
+	player.healthChanged.connect(update_health)
+	player.inkChanged.connect(update_ink)
+	#updatehealth()
 	
-	updateink()
-	
+	#updateink()
 
-func updatehealth():
+func update_all(stats_type, new_value):
+	if stats_type == "inkpoints":
+		update_ink(new_value)
+	elif stats_type == "healthpoints":
+		update_health(new_value) 
+
+
+func update_health(new_value):
 	healthbar.value = player.currentHealth * 100 / player.maxHealth
 	healthlabel.text = str(player.currentHealth)
 
@@ -57,6 +65,6 @@ func updatehealth():
 		health_player.play("35_59")
 	if player.currentHealth > 10 && player.currentHealth < 35:
 		health_player.play("20_34")
-func updateink():
+func update_ink(new_value):
 	inkbar.value = player.currentInk * 100 / player.maxInk
 	

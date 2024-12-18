@@ -521,28 +521,27 @@ func saveconfigs():
 	ConfigManager.save_configs()
 
 func loadconfigs():
-	
 	var saved_configs = ConfigManager.load_configs()
-	
-	%Screentypebox.select(saved_configs["tela"]["screentype_value"])
-	%Screentypebox.emit_signal("item_selected", saved_configs["tela"]["screentype_value"])
-	
-	%Screenresbox.select(saved_configs["tela"]["screenresolution"])
-	%Screenresbox.emit_signal("item_selected", saved_configs["tela"]["screenresolution"])
-	
-	$TabContainer/OptionsContainer/Tela/options/TelacheiaBox.button_pressed = saved_configs["tela"]["telacheia"]
-	$TabContainer/OptionsContainer/Tela/options/VsyncBox.button_pressed = saved_configs["tela"]["vsync"]
-	$TabContainer/OptionsContainer/Tela/options/TelacheiaBox.emit_signal("button_pressed", saved_configs["tela"]["telacheia"])
-	$TabContainer/OptionsContainer/Tela/options/VsyncBox.emit_signal("button_pressed", saved_configs["tela"]["vsync"])
-	
-	%mainvolumeslider.value = saved_configs["sons"]["mainvolume"]
-	%musicvolumeslider.value = saved_configs["sons"]["musicvolume"]
-	%sfxvolumeslider.value = saved_configs["sons"]["sfxvolume"]
-	$TabContainer/OptionsContainer/Sons/options/MuteBox.button_pressed = saved_configs["sons"]["mudo"]
-	%mainvolumeslider.emit_signal("value_changed", saved_configs["sons"]["mainvolume"])
-	%musicvolumeslider.emit_signal("value_changed", saved_configs["sons"]["musicvolume"])
-	%sfxvolumeslider.emit_signal("value_changed", saved_configs["sons"]["sfxvolume"])
-	$TabContainer/OptionsContainer/Sons/options/MuteBox.emit_signal("pressed",saved_configs["sons"]["mudo"])
+	if saved_configs:
+		screentypebox.select(saved_configs["tela"]["screentype_value"])
+		screentypebox.emit_signal("item_selected", saved_configs["tela"]["screentype_value"])
+		
+		screenresbox.select(saved_configs["tela"]["screenresolution"])
+		screenresbox.emit_signal("item_selected", saved_configs["tela"]["screenresolution"])
+		
+		telacheia_box.button_pressed = saved_configs["tela"]["telacheia"]
+		vsync_box.button_pressed = saved_configs["tela"]["vsync"]
+		telacheia_box.emit_signal("button_pressed", saved_configs["tela"]["telacheia"])
+		vsync_box.emit_signal("button_pressed", saved_configs["tela"]["vsync"])
+		
+		mainvolumeslider.value = saved_configs["sons"]["mainvolume"]
+		musicvolumeslider.value = saved_configs["sons"]["musicvolume"]
+		sfxvolumeslider.value = saved_configs["sons"]["sfxvolume"]
+		mute_box.button_pressed = saved_configs["sons"]["mudo"]
+		mainvolumeslider.emit_signal("value_changed", saved_configs["sons"]["mainvolume"])
+		musicvolumeslider.emit_signal("value_changed", saved_configs["sons"]["musicvolume"])
+		sfxvolumeslider.emit_signal("value_changed", saved_configs["sons"]["sfxvolume"])
+		mute_box.emit_signal("pressed",saved_configs["sons"]["mudo"])
 	
 static func string_to_vector2(string := "") -> Vector2:
 	if string:
@@ -554,3 +553,11 @@ static func string_to_vector2(string := "") -> Vector2:
 		return Vector2(int(array[0]), int(array[1]))
 
 	return Vector2.ZERO
+
+@onready var mainvolumeslider: HSlider = %mainvolumeslider
+@onready var musicvolumeslider: HSlider = %musicvolumeslider
+@onready var sfxvolumeslider: HSlider = %sfxvolumeslider
+@onready var mute_box: CheckBox = $TabContainer/OptionsContainer/Sons/options/MuteBox
+
+@onready var telacheia_box: CheckBox = $TabContainer/OptionsContainer/Tela/options/TelacheiaBox
+@onready var vsync_box: CheckBox = $TabContainer/OptionsContainer/Tela/options/VsyncBox

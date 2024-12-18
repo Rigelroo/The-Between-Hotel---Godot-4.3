@@ -249,7 +249,7 @@ _data = {
 script = ExtResource("1_do6cq")
 quests = Array[ExtResource("2_ry5ij")]([ExtResource("3_fd6r6")])
 quest_completed_dialogue = Array[String](["res://Sprites/DialogueBox/Turquesa/turquesaq1complete.dtl"])
-dialogs = Array[String](["uid://bx4q4lc5igqnj", "res://Sprites/DialogueBox/Matheus/matheusdialogue2.dtl"])
+dialogs = Array[String](["uid://bx4q4lc5igqnj", "uid://cc8pu370wc2uh"])
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(6.66, 83.58)

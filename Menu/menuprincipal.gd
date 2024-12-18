@@ -275,7 +275,7 @@ func _ready() -> void:
 	selector.set_global_position(Vector2(213.0,51.0),true)
 	festivo()
 	match_curtab()
-	
+	loadconfigs()
 
 
 
@@ -578,17 +578,6 @@ func intro(): #é só pra identificar como sendo uma cena "não jogável"
 	pass
 
 
-func _on_mainvolumeslider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0, value/5)
-
-func _on_musicvolumeslider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(1, value/5)
-
-func _on_sfxvolumeslider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(2, value/5)
-
-func _on_mute_box_toggled(toggled_on: bool) -> void:
-	AudioServer.set_bus_mute(0,toggled_on)
 
 func change_values(config_button):
 	if config_button is HSlider:
@@ -607,6 +596,7 @@ func change_values(config_button):
 
 
 func on_window_mode_selected(index: int) -> void:
+	ConfigManager.screentype_value = index
 	match index:
 		0: #FULLSCREEN
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -624,7 +614,7 @@ func on_window_mode_selected(index: int) -> void:
 func _on_screenres_box_selected(index):
 	var ID = screenresbox.get_item_text(index)
 	get_window().set_size(RESOLUTION_DICT[ID])
-	ConfigManager.screentesolution_value = RESOLUTION_DICT[ID]
+	ConfigManager.screenresolution_value = index
 
 func add_window_mode_items() -> void:
 	for resolution in RESOLUTION_DICT:
@@ -651,6 +641,43 @@ var RESOLUTION_DICT : Dictionary = {
 	"2560x1140": Vector2i(2560,1140),
 	"1920x1080": Vector2i(1920,1080)
 }
+
+
+func _on_telacheia_box_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		ConfigManager.telacheia_value = true
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		ConfigManager.telacheia_value = false
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_vsync_box_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		ConfigManager.vsync_value = true
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ADAPTIVE)
+	else:
+		ConfigManager.vsync_value = false
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+
+func _on_mainvolumeslider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(0, value/5)
+	ConfigManager.mainvolume_value = value
+
+
+func _on_musicvolumeslider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(1, value/5)
+	ConfigManager.musicvolume_value = value
+
+func _on_sfxvolumeslider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(2, value/5)
+	ConfigManager.sfxvolume_value = value
+
+
+func _on_mute_box_toggled(toggled_on: bool) -> void:
+	AudioServer.set_bus_mute(0,toggled_on)
+	ConfigManager.mudo = toggled_on
 
 
 func set_window_properties():
@@ -707,3 +734,42 @@ func goto_options():
 
 func match_optiontab(option_selected):
 	%OptionsContainer.current_tab = option_selected
+
+
+func saveconfigs():
+	ConfigManager.save_configs()
+
+func loadconfigs():
+	var saved_configs = ConfigManager.load_configs()
+	if saved_configs:
+		screentypebox.select(saved_configs["tela"]["screentype_value"])
+		screentypebox.emit_signal("item_selected", saved_configs["tela"]["screentype_value"])
+		
+		screenresbox.select(saved_configs["tela"]["screenresolution"])
+		screenresbox.emit_signal("item_selected", saved_configs["tela"]["screenresolution"])
+		
+		telacheia_box.button_pressed = saved_configs["tela"]["telacheia"]
+		vsync_box.button_pressed = saved_configs["tela"]["vsync"]
+		telacheia_box.emit_signal("button_pressed", saved_configs["tela"]["telacheia"])
+		vsync_box.emit_signal("button_pressed", saved_configs["tela"]["vsync"])
+		
+		mainvolumeslider.value = saved_configs["sons"]["mainvolume"]
+		musicvolumeslider.value = saved_configs["sons"]["musicvolume"]
+		sfxvolumeslider.value = saved_configs["sons"]["sfxvolume"]
+		mute_box.button_pressed = saved_configs["sons"]["mudo"]
+		mainvolumeslider.emit_signal("value_changed", saved_configs["sons"]["mainvolume"])
+		musicvolumeslider.emit_signal("value_changed", saved_configs["sons"]["musicvolume"])
+		sfxvolumeslider.emit_signal("value_changed", saved_configs["sons"]["sfxvolume"])
+		mute_box.emit_signal("pressed",saved_configs["sons"]["mudo"])
+
+@onready var mainvolumeslider: HSlider = %mainvolumeslider
+@onready var musicvolumeslider: HSlider = %musicvolumeslider
+@onready var sfxvolumeslider: HSlider = %sfxvolumeslider
+@onready var mute_box: CheckBox = $Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options/MuteBox
+
+@onready var telacheia_box: CheckBox = $Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/TelacheiaBox
+@onready var vsync_box: CheckBox = $Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/VsyncBox
+
+
+func _on_vsync_box_pressed() -> void:
+	pass # Replace with function body.

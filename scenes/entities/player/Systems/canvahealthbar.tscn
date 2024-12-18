@@ -1,14 +1,14 @@
 [gd_scene load_steps=30 format=3 uid="uid://c44xqs2w5caa1"]
 
-[ext_resource type="Script" path="res://scenes/entities/player/Systems/Healthbar.gd" id="1_gwffl"]
-[ext_resource type="Script" path="res://scenes/entities/player/Systems/Statsbar.gd" id="1_q41hd"]
+[ext_resource type="Script" uid="uid://cwwii6x6lb2lo" path="res://scenes/entities/player/Systems/Healthbar.gd" id="1_gwffl"]
+[ext_resource type="Script" uid="uid://b3thcmatp8o3p" path="res://scenes/entities/player/Systems/Statsbar.gd" id="1_q41hd"]
 [ext_resource type="Texture2D" uid="uid://4oeto4sgsrlq" path="res://Sprites/Hud/Health/health_thing0000.png" id="2_03tjr"]
 [ext_resource type="Texture2D" uid="uid://djrt8ukwlecr7" path="res://Sprites/Hud/Inkbar_bottom.png" id="3_0b6hv"]
 [ext_resource type="Texture2D" uid="uid://yo3yrawx0jj5" path="res://Sprites/Hud/Health/health0000.png" id="3_osbdi"]
 [ext_resource type="Texture2D" uid="uid://cs8p815gy6y2y" path="res://Sprites/Hud/Inkbar_over.png" id="4_mom3q"]
 [ext_resource type="Texture2D" uid="uid://p0iggqqg23rq" path="res://Sprites/Hud/Health/health0001.png" id="4_vaiip"]
 [ext_resource type="Texture2D" uid="uid://bmg4s2ja6rbi8" path="res://Sprites/Hud/Inkbar_progress.png" id="5_lhvye"]
-[ext_resource type="Script" path="res://scenes/entities/player/Systems/Inkbar.gd" id="6_1ncav"]
+[ext_resource type="Script" uid="uid://kt8qnphl5gup" path="res://scenes/entities/player/Systems/Inkbar.gd" id="6_1ncav"]
 [ext_resource type="Texture2D" uid="uid://cnsixdcpf2m8i" path="res://Sprites/Hud/Health/healthface0000.png" id="6_6b0u1"]
 [ext_resource type="Texture2D" uid="uid://dov5ki8yjq5ea" path="res://Sprites/Hud/Health/healthface0001.png" id="7_b04l8"]
 [ext_resource type="Texture2D" uid="uid://p8akwjcna2fv" path="res://Sprites/Hud/Health/healthface0005.png" id="9_u1ubg"]
@@ -516,15 +516,15 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_act0a"]
 _data = {
-"0": SubResource("Animation_mnay2"),
-"20_34": SubResource("Animation_b4nd4"),
-"35_59": SubResource("Animation_hq8rr"),
-"60_79": SubResource("Animation_uaugk"),
-"80_100": SubResource("Animation_ikt7s"),
-"Damage": SubResource("Animation_xgfem"),
-"Danger": SubResource("Animation_dsdkm"),
-"Normal": SubResource("Animation_j4stf"),
-"RESET": SubResource("Animation_k710y")
+&"0": SubResource("Animation_mnay2"),
+&"20_34": SubResource("Animation_b4nd4"),
+&"35_59": SubResource("Animation_hq8rr"),
+&"60_79": SubResource("Animation_uaugk"),
+&"80_100": SubResource("Animation_ikt7s"),
+&"Damage": SubResource("Animation_xgfem"),
+&"Danger": SubResource("Animation_dsdkm"),
+&"Normal": SubResource("Animation_j4stf"),
+&"RESET": SubResource("Animation_k710y")
 }
 
 [node name="Statsbar" type="Control" groups=["Stats"]]
@@ -567,7 +567,7 @@ centered = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Healthbar")
 libraries = {
-"": SubResource("AnimationLibrary_act0a")
+&"": SubResource("AnimationLibrary_act0a")
 }
 
 [node name="Inkbar" type="TextureProgressBar" parent="."]

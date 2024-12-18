@@ -48,7 +48,7 @@ signal inkChanged
 #@onready var ghost_timer = $GhostTimer
 #@onready var particles = $GPUParticles2D
 @export_subgroup("Movement")
-@export var dash_speed = 940
+@export var dash_speed = 1880
 @export var SPEED = 470.0
 @export var JUMP_VELOCITY = -700.0
 @export var max_fall_speed = -900.0 * 1.5
@@ -73,10 +73,20 @@ signal inkChanged
 
 var minInk = null
 var maxInk = null
-var currentInk = null
+var currentInk = null: 
+	set(new_value):
+		var stats_type = "inkpoints"
+		currentInk = new_value
+		SignalManager.emit_signal(stats_type, new_value)
+
 var minHealth = null
 var maxHealth = null
-var currentHealth = null
+var currentHealth = null: 
+	set(new_value):
+		var stats_type = "healthpoints"
+		currentHealth = new_value
+		SignalManager.emit_signal(stats_type, new_value)
+
 var currentFurypoints = 0
 
 
@@ -777,6 +787,7 @@ var breathemitter = null
 var emitterscene = null
 
 var magic_index = SignalManager.breath_index
+
 func new_emitter():
 	magic_index = SignalManager.breath_index
 	var emitter = magic_abilities[magic_index].particles_scene_str

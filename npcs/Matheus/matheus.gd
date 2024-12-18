@@ -142,7 +142,7 @@ func _input(_event: InputEvent):
 			SignalManager.findquest(SignalManager.task_manager.missions, quests[quest_array], quest_array, quests[quest_array].item_amount, quests[quest_array].item_amount)
 			SignalManager.finditem_amount(world.inventory.invslots, quests[quest_array].quest_item, quest_array, quests[quest_array].item_amount)
 			Dialogic.start(dialogs[dialog_event])
-			dialog_event = 1
+			dialog_event = 0
 			get_viewport().set_input_as_handled()
 
 func _on_dialogic_signal(argument:String):

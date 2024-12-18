@@ -8,6 +8,8 @@ signal just_equip
 signal world_loaded
 signal magic_changed
 
+signal stats_updated(stats_type, new_value)
+
 signal no_enough_stpoints
 signal try_key
 signal has_key

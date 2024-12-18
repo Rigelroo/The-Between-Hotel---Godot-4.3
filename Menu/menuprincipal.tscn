@@ -2469,8 +2469,8 @@ autoplay = "start"
 [node name="ConfigCentercontainer" type="CenterContainer" parent="."]
 unique_name_in_owner = true
 layout_direction = 1
-offset_left = 813.0
-offset_top = 51.0
+offset_left = 811.0
+offset_top = 49.0
 offset_right = 848.0
 offset_bottom = 84.0
 
@@ -2510,6 +2510,8 @@ centered = false
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/Buttondir" to="." method="show_more_options"]
 [connection signal="item_selected" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/Screentypebox" to="." method="on_window_mode_selected"]
 [connection signal="item_selected" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/Screenresbox" to="." method="_on_screenres_box_selected"]
+[connection signal="toggled" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/TelacheiaBox" to="." method="_on_telacheia_box_toggled"]
+[connection signal="toggled" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/options/VsyncBox" to="." method="_on_vsync_box_toggled"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/Buttonesq" to="." method="show_less_options"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/Buttondir" to="." method="show_more_options"]
 [connection signal="pressed" from="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Tela/backbutton" to="." method="_on_backbutton_pressed"]
