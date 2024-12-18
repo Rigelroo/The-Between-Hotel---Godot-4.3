@@ -18,13 +18,15 @@ class_name StatsBar
 
 
 @onready var player = null
-
-
+var new_value
+var stats_type
 func _ready() -> void:
 	player = SignalManager.player
 	SignalManager.world_loaded.connect(world_ready)
-	SignalManager.connect("stats_updated", update_all)
-	
+	#SignalManager.connect("stats_updated", update_all, new_value )
+	#SignalManager.stats_updated.connect(update_all.bind(SignalManager.stats_type, SignalManager.new_value))
+	#SignalManager.connect("stats_updated", Callable(self, "method_name").bind([extra, arguments]))
+	SignalManager.stats_updated.connect(update_all.bind([stats_type, new_value]))
 
 func world_ready() -> void:
 	player = SignalManager.player
@@ -42,29 +44,29 @@ func update_all(stats_type, new_value):
 
 
 func update_health(new_value):
-	healthbar.value = player.currentHealth * 100 / player.maxHealth
-	healthlabel.text = str(player.currentHealth)
+	healthbar.value = new_value * 100 / player.maxHealth
+	healthlabel.text = str(new_value)
 
-	if player.currentHealth > 10:
+	if new_value > 10:
 		shake.visible = false
 		shake_2.visible = false
 
 
-	if player.currentHealth <= 10:
+	if new_value <= 10:
 		health_player.play("Danger")
 		shake.visible = true
 		shake_2.visible = true
 		
-	if player.currentHealth <= 0:
+	if new_value <= 0:
 		health_player.play("0")
-	if player.currentHealth >= 80 && player.currentHealth <= 100:
+	if new_value >= 80 && player.currentHealth <= 100:
 		health_player.play("80_100")
-	if player.currentHealth >= 60 && player.currentHealth < 80:
+	if new_value >= 60 && new_value < 80:
 		health_player.play("60_79")
-	if player.currentHealth >= 35 && player.currentHealth < 60:
+	if new_value >= 35 && new_value < 60:
 		health_player.play("35_59")
-	if player.currentHealth > 10 && player.currentHealth < 35:
+	if new_value > 10 && new_value < 35:
 		health_player.play("20_34")
 func update_ink(new_value):
-	inkbar.value = player.currentInk * 100 / player.maxInk
+	inkbar.value = new_value * 100 / player.maxInk
 	

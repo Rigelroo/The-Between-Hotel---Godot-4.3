@@ -73,7 +73,7 @@ signal inkChanged
 
 var minInk = null
 var maxInk = null
-var currentInk = null: 
+@export var currentInk = 100: 
 	set(new_value):
 		var stats_type = "inkpoints"
 		currentInk = new_value
@@ -81,7 +81,7 @@ var currentInk = null:
 
 var minHealth = null
 var maxHealth = null
-var currentHealth = null: 
+@export var currentHealth = 100: 
 	set(new_value):
 		var stats_type = "healthpoints"
 		currentHealth = new_value
@@ -776,7 +776,7 @@ func deal_projectiledamage(value: int, area: Area2D):
 		
 	currentHealth -= damage_total
 	Damagenumbers.display_number(damage_total, damage_numbers_origin.global_position, is_critical)
-	stats.updatehealth()
+	#stats.updatehealth()d
 	is_dealing_damage = true
 	$AnimationPlayer.play("Damage")
 	area.collide()

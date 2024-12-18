@@ -119,6 +119,7 @@ Gameover=""
 Worldscene=""
 Breathemitters=""
 Buttonchoices=""
+Interactionarea=""
 
 [importer_defaults]
 

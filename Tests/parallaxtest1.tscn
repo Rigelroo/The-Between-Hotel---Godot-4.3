@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=93 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofkno"]
@@ -47,6 +47,7 @@
 [ext_resource type="Shader" uid="uid://bjls1ecffx6lt" path="res://Tests/reflectivewater.gdshader" id="53_ianfs"]
 [ext_resource type="Texture2D" uid="uid://btx3s65d1y0xh" path="res://Sprites/branco.png" id="53_ilg61"]
 [ext_resource type="PackedScene" uid="uid://dysed8fh25ap0" path="res://objects/porta_3.tscn" id="53_pe5ep"]
+[ext_resource type="PackedScene" uid="uid://caqiovb4lonpj" path="res://scenes/entities/Enemies/B1/Firefly/firefly.tscn" id="54_hu5d5"]
 [ext_resource type="Texture2D" uid="uid://cuqbg8otjj64a" path="res://Sprites/Bettlebourough/fallingleaves1.png" id="58_uarki"]
 [ext_resource type="Texture2D" uid="uid://c5kttn55x8rut" path="res://Sprites/Bettlebourough/assets_lanternwithrope.png" id="65_3be5i"]
 [ext_resource type="Texture2D" uid="uid://baw8sjkb6gb12" path="res://Sprites/Bettlebourough/water/waterline0000.png" id="72_v4f6o"]
@@ -1725,5 +1726,8 @@ environment = SubResource("Environment_l1xbt")
 position = Vector2(6331, 1071)
 scale = Vector2(0.52, 0.52)
 next_scene = "uid://do862a8fcbrn7"
+
+[node name="firefly" parent="." instance=ExtResource("54_hu5d5")]
+position = Vector2(53, 302)
 
 [editable path="Selo6"]

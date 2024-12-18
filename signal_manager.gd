@@ -8,6 +8,9 @@ signal just_equip
 signal world_loaded
 signal magic_changed
 
+var stats_type
+var new_value
+
 signal stats_updated(stats_type, new_value)
 
 signal no_enough_stpoints

@@ -2032,7 +2032,7 @@ collision_mask = 8
 [node name="Interactioncomponents" type="Node2D" parent="."]
 visible = false
 
-[node name="InteractionArea" type="Area2D" parent="Interactioncomponents"]
+[node name="InteractionArea" type="Area2D" parent="Interactioncomponents" groups=["Interactionarea"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactioncomponents/InteractionArea"]
 position = Vector2(-0.900002, -1.95)
