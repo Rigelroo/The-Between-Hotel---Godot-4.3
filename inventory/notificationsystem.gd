@@ -35,6 +35,7 @@ func update():
 
 func insert(mission, container):
 		var taskpanel = $VBoxContainer/Taskcontainer/Taskpanel
+		taskpanel = $VBoxContainer/Taskcontainer/Taskpanel
 		#taskpanel_node.instantiate()
 		
 		# Ensure `projectile` is a valid instance of a node

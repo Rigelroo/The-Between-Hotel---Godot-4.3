@@ -16,17 +16,8 @@ join Persian (Persian_worried) 1
 update Matheus (Matheus) 3
 Persian (Persian_worried): Sim senhor!
 update Persian (vazio) 1
-Matheus (Matheus): Boa sorte, não quero falhas ok?
-#E eu não quero vespas pegando minhas coisas
-#join Persian (Persian_worried) 1
-#update Turquesa (vazio) 3
-#Persian (Persian_pissed): Eu pego
-#update Turquesa (vazio) 3
-#Turquesa (Turquesa): Ai obrigada, você é um querido
-#Turquesa (Turquesa): Agora xó! Volte quando pegar a minha encomenda
-#join Persian (Persian_worried) 1
-#update Turquesa (vazio) 3
-#Persian (Persian_pissed): ...
+Matheus (Matheus): Boa sorte, não vai se machucar ok?
 [signal arg="set_mission"]
+[signal arg="hug"]
 set {mission_index} = 0
 [signal arg="reactivate_movement"]

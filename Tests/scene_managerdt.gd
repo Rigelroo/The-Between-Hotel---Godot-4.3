@@ -98,7 +98,7 @@ func transition_to(scene_path: String) -> void:
 	root.add_child(new_scene)
 	
 	# Restore or set up the camera
-	var new_camera = new_scene.get_node("Camera2D")  # Adjust path as needed
+	var new_camera = new_scene.get_node("Camera2D") or null  # Adjust path as needed
 	if new_camera:
 		new_camera.current = true  # Ensure this camera is active
 	elif current_camera:
@@ -113,7 +113,7 @@ func transition_to(scene_path: String) -> void:
 		# Optionally, set the player's position or state as needed
 		new_player.add_to_group("Player")
 		pass
-	var new_stats = new_scene.get_node("StatsLayer")
+	var new_stats = new_scene.get_node("StatsLayer") or null
 	if new_stats:
 		new_stats.add_to_group("Stats")
 	# Wait for the new scene to be ready

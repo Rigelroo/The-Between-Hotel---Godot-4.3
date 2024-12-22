@@ -4,7 +4,14 @@ class_name Questtask
 
 
 @export_category("Sistema de progresso")
-@export var task_progress : int = 0
+@export var task_progress : int = 0:
+	set(new_value):
+		if SignalManager != null:
+			task_progress = new_value
+			SignalManager.emit_signal("new_taskprogress", self)
+			#SignalManager.update_quests.emit()
+
+
 @export var max_progress : int = 1
 @export var completed: bool = false
 

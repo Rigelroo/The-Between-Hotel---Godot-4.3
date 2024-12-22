@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AdesivoManager" load_steps=6 format=3 uid="uid://bd2sn1l47gqbv"]
+
+[ext_resource type="Script" uid="uid://bf7m785ai4q5b" path="res://adesivores.gd" id="1_k5fg2"]
+[ext_resource type="Script" uid="uid://su883vfyff3a" path="res://Adesivomisc.gd" id="2_snm3x"]
+[ext_resource type="Resource" uid="uid://crfxwnqt3jtp3" path="res://inventory/adesivotype1.tres" id="3_uaaoq"]
+[ext_resource type="Resource" uid="uid://d2tvfkdkv053f" path="res://inventory/adesivotype2.tres" id="4_eryiy"]
+[ext_resource type="Resource" uid="uid://b5pdmnl4hxmhq" path="res://inventory/adesivotype3.tres" id="5_rsscl"]
+
+[resource]
+script = ExtResource("1_k5fg2")
+tipo = Array[ExtResource("2_snm3x")]([ExtResource("4_eryiy"), ExtResource("3_uaaoq"), ExtResource("5_rsscl")])
+metadata/_custom_type_script = ExtResource("1_k5fg2")

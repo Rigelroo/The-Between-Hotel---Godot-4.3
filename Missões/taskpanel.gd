@@ -11,17 +11,20 @@ class_name TaskPanel
 @onready var progress: Control = $itempanel/Progress
 @onready var texture_progress_bar: TextureProgressBar = $itempanel/Progress/TextureProgressBar
 @onready var namebox: Sprite2D = $itempanel/Progress/TextureProgressBar/Namebox
-@onready var progresslabel: Label = $itempanel/Progress/Progresslabel
-@onready var progresslabel_2: Label = $itempanel/Progress/Progresslabel2
-@onready var objectivelabel: Label = $itempanel/Progress/objectivelabel
+@onready var progresslabel: Label = $itempanel/Progress/HBoxContainer/Progresslabel
+@onready var progresslabel_2: Label = $itempanel/Progress/HBoxContainer/Progresslabel2
+@onready var objectivelabel: Label = $itempanel/Progress/HBoxContainer/objectivelabel
+
 
 @onready var checkbox: Sprite2D = $itempanel/CheckboxContainer/checkbox
 @onready var check: Sprite2D = $itempanel/CheckboxContainer/check
 @onready var checkcontainer: CenterContainer = $itempanel/CheckboxContainer
+
+@export var questtask : Questtask
 @export_color_no_alpha var rect_color: Color = Color(1,1,1)
 
 func set_ready() -> void:
-	
+	#SignalManager.new_taskprogress.connect(set_everything)
 	container = $container
 	texture_rect = $container/TextureRect
 	itempanel = $itempanel
@@ -38,8 +41,11 @@ func set_ready() -> void:
 	checkcontainer = $itempanel/CheckboxContainer
 	objectivelabel = $itempanel/Progress/HBoxContainer/objectivelabel
 
+func _ready() -> void:
+	pass
 
 func set_everything(task):
+	questtask = task
 	texture_rect.modulate = task.theme_color
 	item.texture = task.item_texture
 	portrait.texture = task.npc_texture
@@ -53,9 +59,13 @@ func set_everything(task):
 	objectivelabel.text = str(task.max_progress)
 
 func update_progress(task):
-	progresslabel.text = task.task_progress
-	objectivelabel.text = task.max_progress
-	texture_progress_bar.value = task.task_progress
-	if task.task_progress >= task.max_progress:
-		checkcontainer.visible = true
-		task.completed = true
+	set_ready()
+	if questtask == task:
+		
+		progresslabel.set_text(str(task.task_progress))
+		objectivelabel.text = str(task.max_progress)
+		print(task.task_progress)
+		texture_progress_bar.value = task.task_progress
+		if task.task_progress >= task.max_progress:
+			checkcontainer.visible = true
+			task.completed = true

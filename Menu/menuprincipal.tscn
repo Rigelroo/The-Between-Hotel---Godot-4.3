@@ -690,12 +690,12 @@ offset_top = -12.0
 offset_right = 5796.0
 offset_bottom = 1319.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_x0hox")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
+metadata/_edit_use_anchors_ = true
 
 [node name="save_control" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -1680,6 +1680,7 @@ visible_ratio = 1.0
 script = null
 
 [node name="config_control" type="Control" parent="Menuprincipalcaixa/submenuTabcontainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

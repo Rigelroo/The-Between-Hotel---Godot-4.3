@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=3 uid="uid://bs1vp44eemhja"]
 
-[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_rhjma"]
+[ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_rhjma"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_tvgw7"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="3_ma23c"]
 [ext_resource type="Texture2D" uid="uid://dbq73ra3di5oo" path="res://Sprites/Hotel/Arquivos/assets_fundofundo.png" id="4_7dpd8"]
@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="33_as7kd"]
 [ext_resource type="Texture2D" uid="uid://cmjt3id2o2did" path="res://Sprites/Hotel/Arquivos/Baki/baki0008.png" id="33_d4rlp"]
 [ext_resource type="Texture2D" uid="uid://8ew3l0w3op6j" path="res://Sprites/Hotel/Arquivos/Baki/baki0009.png" id="34_ds35o"]
-[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="34_emn8q"]
+[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/statsbar.tscn" id="34_emn8q"]
 [ext_resource type="Texture2D" uid="uid://ghawlekffbhv" path="res://Sprites/Hotel/Arquivos/Baki/baki0010.png" id="35_3afp6"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="35_qrqfg"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="36_ei7i4"]

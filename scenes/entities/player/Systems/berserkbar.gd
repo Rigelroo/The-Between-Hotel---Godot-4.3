@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		
 	elif !manager.crimsonfury_equiped:
 		self.visible = false
-		player.currentFurypoints = 0
+		#player.components.stats_component.currentFurypoints = 0
 		
 
 func _on_inventory_gui_opened():
@@ -45,12 +45,9 @@ func world_ready() -> void:
 	manager.inventoryopened.connect(_on_inventory_gui_opened)
 	manager.inventoryclosed.connect(_on_inventory_gui_closed)
 	player.healthChanged.connect(show_current_points)
-	player.temporary.connect(temporaryf)
 
 
-func temporaryf():
-	show_current_points(player.currentFurypoints)
-	print(player.currentFurypoints)
+
 func show_current_points(current_points: int):
 	var points = get_children()
 	
@@ -86,24 +83,11 @@ func set_emptyness():
 	#filho tu tem que pegar esse negoço setar o valor do slots vazios
 	#basicamente o contrario do set_fullness
 	pass
-	#for i in range(points_index):
-	##for i in range(current_fullness):
-		#maxpoints[i].animationsprite.frame = 1
-		#print(maxpoints[i].animationsprite.frame)
-		#print("current_fullness: ",current_fullness)
-		##%HBoxContainer.add_child(%Middlepointcontainer)
-	#pass
+
 func set_points():
 	pass
-	#for point in maxpoints:
-		#var fullpoints = maxpoints[points_index]
-		#if point.get_name() == "Firstpointcontainer":
-			#print("ehr")
-			#
 
+func update_stats(new_value):
+	show_current_points(new_value)
 
-#func _on_update() -> void:
-	#var updatecontainer: Array = %HBoxContainer.get_children()
-	#maxpoints = updatecontainer
-	#set_fullness()
 	

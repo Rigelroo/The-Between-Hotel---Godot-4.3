@@ -93,6 +93,7 @@ func load_one_time():
 		SignalManager.first_sceme = false
 
 func _ready() -> void:
+	SignalManager.mouse_visible = false
 	SignalManager.player = objplayer
 	player = objplayer
 	#SignalManager.its_saving.connect(save_scenestate)

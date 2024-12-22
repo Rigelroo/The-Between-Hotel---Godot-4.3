@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Adesivomisc" load_steps=2 format=3 uid="uid://d2tvfkdkv053f"]
+
+[ext_resource type="Script" uid="uid://su883vfyff3a" path="res://Adesivomisc.gd" id="1_iweaa"]
+
+[resource]
+script = ExtResource("1_iweaa")
+tipo = "Emblema"
+cor = Color(0.851287, 0.614071, 0, 1)
+metadata/_custom_type_script = ExtResource("1_iweaa")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b3wiqgg03gaan"]
+[gd_scene load_steps=73 format=3 uid="uid://b3wiqgg03gaan"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_wl04x"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_sao3u"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://bxml7dtd3yxm6" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0007.png" id="17_dfetv"]
 [ext_resource type="PackedScene" uid="uid://dk150e1tdwwcb" path="res://Npc-recep.tscn" id="17_xcedm"]
 [ext_resource type="PackedScene" uid="uid://d08xu1ahurxv3" path="res://objects/elevator.tscn" id="18_xbmvf"]
-[ext_resource type="PackedScene" uid="uid://bk8x8dr8ahmpp" path="res://npcs/Quarto 1 - bettleborough/matheus.tscn" id="20_lrsvy"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="21_5p0qm"]
 [ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://objects/showitemsprite.tscn" id="22_n6i70"]
 [ext_resource type="PackedScene" uid="uid://buw8duilnfqej" path="res://camera_2d.tscn" id="23_sbrgv"]
@@ -32,7 +31,7 @@
 [ext_resource type="Resource" uid="uid://e864yq4aeifi" path="res://inventory/Selos/selo_fireflyemblem.tres" id="32_cravj"]
 [ext_resource type="Texture2D" uid="uid://ca7tu3todq1tf" path="res://inventory/Selos/selo_fireflyemblem.png" id="33_pm5aw"]
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="34_2wjie"]
-[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="35_cqg7p"]
+[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/statsbar.tscn" id="35_cqg7p"]
 [ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="35_lpw7y"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="36_cxjjy"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="37_8k0fb"]
@@ -104,11 +103,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhypq"]
-size = Vector2(45.1103, 401.079)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjqto"]
 size = Vector2(10100, 715)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhypq"]
+size = Vector2(45.1103, 401.079)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0u6pf"]
 size = Vector2(598, 837)
@@ -268,6 +267,7 @@ centered = false
 [node name="Recepcionistas" parent="." instance=ExtResource("17_xcedm")]
 position = Vector2(5142, 1496)
 scale = Vector2(5.5, 5.5)
+dialogs = Array[String](["uid://cl4qqgbdws3vi", "res://Sprites/DialogueBox/Kori e Trice/test2dialogue.dtl"])
 
 [node name="Fundo2" type="Sprite2D" parent="."]
 position = Vector2(3912, 1976)
@@ -333,11 +333,6 @@ texture_scale = 0.72
 position = Vector2(1577.27, 356.198)
 scale = Vector2(0.3, 0.3)
 
-[node name="Matheus" parent="." node_paths=PackedStringArray("world") instance=ExtResource("20_lrsvy")]
-position = Vector2(3407.5, 2047.5)
-scale = Vector2(4, 4)
-world = NodePath("..")
-
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("21_5p0qm")]
 position = Vector2(7590.24, 1946.34)
 scale = Vector2(22, 22)
@@ -349,7 +344,7 @@ player_camera = NodePath("Camera2D")
 [node name="Camera2D" parent="Player" instance=ExtResource("23_sbrgv")]
 position = Vector2(0.75, -23.5)
 zoom = Vector2(0.5, 0.5)
-limit_left = -5
+limit_left = 0
 limit_top = 45
 limit_right = 4020
 limit_bottom = 1405
@@ -407,27 +402,31 @@ visible = false
 
 [node name="PausemenuLayer" parent="." instance=ExtResource("37_8k0fb")]
 
-[node name="Collisions" type="StaticBody2D" parent="."]
+[node name="Groundcollision" type="StaticBody2D" parent="."]
 
-[node name="Wall" type="CollisionShape2D" parent="Collisions"]
-position = Vector2(204.9, 1730.1)
-scale = Vector2(16.32, 9.08)
-shape = SubResource("RectangleShape2D_fhypq")
-
-[node name="Wall2" type="CollisionShape2D" parent="Collisions"]
-position = Vector2(9709, 1730.1)
-scale = Vector2(16.32, 9.08)
-shape = SubResource("RectangleShape2D_fhypq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Groundcollision"]
 position = Vector2(5040, 3207.5)
 scale = Vector2(0.996957, 1)
 shape = SubResource("RectangleShape2D_hjqto")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Groundcollision"]
 position = Vector2(5040, -317)
 scale = Vector2(0.996957, 1)
 shape = SubResource("RectangleShape2D_hjqto")
+
+[node name="Wallcollision" type="StaticBody2D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="Wall" type="CollisionShape2D" parent="Wallcollision"]
+position = Vector2(204.9, 1730.1)
+scale = Vector2(16.32, 9.08)
+shape = SubResource("RectangleShape2D_fhypq")
+
+[node name="Wall2" type="CollisionShape2D" parent="Wallcollision"]
+position = Vector2(9709, 1730.1)
+scale = Vector2(16.32, 9.08)
+shape = SubResource("RectangleShape2D_fhypq")
 
 [node name="Escadaria" type="Node2D" parent="." node_paths=PackedStringArray("balloon", "world")]
 position = Vector2(2117.5, 1767.5)
@@ -465,17 +464,33 @@ debug_color = Color(0.385495, 0.608889, 0.182104, 0.42)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_435ya")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="sofá2" type="StaticBody2D" parent="."]
+position = Vector2(8436.59, 65.8537)
 script = ExtResource("62_82wd4")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="sofá2"]
 position = Vector2(681.707, 2828.05)
 shape = SubResource("RectangleShape2D_x8n3q")
 
-[node name="trampolim" type="Area2D" parent="StaticBody2D"]
+[node name="trampolim" type="Area2D" parent="sofá2"]
 position = Vector2(226.829, 2585.37)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/trampolim"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sofá2/trampolim"]
+position = Vector2(454.878, 134.146)
+shape = SubResource("RectangleShape2D_rew2o")
+debug_color = Color(1, 0.522, 1, 0.451)
+
+[node name="sofá" type="StaticBody2D" parent="."]
+script = ExtResource("62_82wd4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="sofá"]
+position = Vector2(681.707, 2828.05)
+shape = SubResource("RectangleShape2D_x8n3q")
+
+[node name="trampolim" type="Area2D" parent="sofá"]
+position = Vector2(226.829, 2585.37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sofá/trampolim"]
 position = Vector2(454.878, 134.146)
 shape = SubResource("RectangleShape2D_rew2o")
 debug_color = Color(1, 0.522, 1, 0.451)
@@ -484,8 +499,10 @@ debug_color = Color(1, 0.522, 1, 0.451)
 [connection signal="area_exited" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_exited"]
 [connection signal="area_entered" from="Bell" to="Bell" method="_on_area_entered"]
 [connection signal="area_exited" from="Bell" to="Bell" method="_on_area_exited"]
-[connection signal="area_entered" from="StaticBody2D/trampolim" to="StaticBody2D" method="_on_trampolim_area_entered"]
-[connection signal="body_entered" from="StaticBody2D/trampolim" to="StaticBody2D" method="_on_trampolim_body_entered"]
+[connection signal="area_entered" from="sofá2/trampolim" to="sofá2" method="_on_trampolim_area_entered"]
+[connection signal="body_entered" from="sofá2/trampolim" to="sofá2" method="_on_trampolim_body_entered"]
+[connection signal="area_entered" from="sofá/trampolim" to="sofá" method="_on_trampolim_area_entered"]
+[connection signal="body_entered" from="sofá/trampolim" to="sofá" method="_on_trampolim_body_entered"]
 
 [editable path="Selo3"]
 [editable path="Selo5"]

@@ -1,51 +1,69 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=17 format=3 uid="uid://cd5dhen5bx51f"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=26 format=3 uid="uid://cd5dhen5bx51f"]
 
 [ext_resource type="Script" uid="uid://cm8hl88rr84go" path="res://inventory/inventory.gd" id="1_x8qfe"]
 [ext_resource type="Script" uid="uid://dpwmgg1ifo3tk" path="res://inventory/inventorySlot.gd" id="2_4qjss"]
+[ext_resource type="Resource" uid="uid://bv8ujs5m68b51" path="res://inventory/Selos/selo_crimsonbug.tres" id="3_1kdap"]
+[ext_resource type="Resource" uid="uid://e864yq4aeifi" path="res://inventory/Selos/selo_fireflyemblem.tres" id="4_5royi"]
+[ext_resource type="Resource" uid="uid://bojqr7cp6eeiq" path="res://inventory/Selos/selo_frozenheart.tres" id="5_jrnpg"]
+[ext_resource type="Resource" uid="uid://cbaiq41qcxvjf" path="res://inventory/Selos/selo_greed.tres" id="6_o5rrd"]
+[ext_resource type="Resource" uid="uid://dw24t6xttmdyt" path="res://inventory/Selos/selo_hatintime.tres" id="7_0m02b"]
+[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://inventory/Selos/selo_herculesleaf.tres" id="8_o3xs2"]
+[ext_resource type="Resource" uid="uid://dr7iljjvr18ru" path="res://inventory/Selos/selo_othereye.tres" id="9_qhf7w"]
+[ext_resource type="Resource" uid="uid://cyox1uv6sr7m7" path="res://inventory/Selos/selo_shadowdiver.tres" id="10_52auq"]
+[ext_resource type="Resource" uid="uid://c7iikplev3bmk" path="res://inventory/Selos/selo_titagotchi.tres" id="11_uhhjm"]
 
 [sub_resource type="Resource" id="Resource_fd8pu"]
 script = ExtResource("2_4qjss")
-amount = 0
+item = ExtResource("3_1kdap")
+amount = 1
 equiped = false
 
 [sub_resource type="Resource" id="Resource_cd4uu"]
 script = ExtResource("2_4qjss")
-amount = 0
+item = ExtResource("4_5royi")
+amount = 1
 equiped = false
 
 [sub_resource type="Resource" id="Resource_nartb"]
 script = ExtResource("2_4qjss")
-amount = 0
+item = ExtResource("5_jrnpg")
+amount = 1
 equiped = false
 
 [sub_resource type="Resource" id="Resource_tiv5b"]
 script = ExtResource("2_4qjss")
-amount = 0
+item = ExtResource("6_o5rrd")
+amount = 1
 equiped = false
 
 [sub_resource type="Resource" id="Resource_kuicq"]
 script = ExtResource("2_4qjss")
-amount = 0
+item = ExtResource("7_0m02b")
+amount = 1
 equiped = false
 
 [sub_resource type="Resource" id="Resource_bufh6"]
 script = ExtResource("2_4qjss")
-amount = 0
+item = ExtResource("8_o3xs2")
+amount = 1
 equiped = false
 
 [sub_resource type="Resource" id="Resource_weyhc"]
 script = ExtResource("2_4qjss")
-amount = 0
+item = ExtResource("9_qhf7w")
+amount = 1
 equiped = false
 
 [sub_resource type="Resource" id="Resource_7jbxu"]
 script = ExtResource("2_4qjss")
-amount = 0
+item = ExtResource("10_52auq")
+amount = 1
 equiped = false
 
 [sub_resource type="Resource" id="Resource_mp8oi"]
 script = ExtResource("2_4qjss")
-amount = 0
+item = ExtResource("11_uhhjm")
+amount = 1
 equiped = false
 
 [sub_resource type="Resource" id="Resource_ss45s"]

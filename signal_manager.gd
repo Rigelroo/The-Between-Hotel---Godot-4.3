@@ -12,6 +12,7 @@ var stats_type
 var new_value
 
 signal stats_updated(stats_type, new_value)
+signal new_taskprogress(task)
 
 signal no_enough_stpoints
 signal try_key
@@ -54,7 +55,14 @@ var npc_index = false
 @export var frozenheart_equiped : bool = false
 @export var ffemblem_equiped : bool = false
 
+var can_showmouse = false
 
+var mouse_visible = false:
+	set(new_value):
+		if !new_value:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 var can_emit_item_and_amount: bool = false:
 	set(new_value):

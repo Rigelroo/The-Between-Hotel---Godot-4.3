@@ -45,25 +45,34 @@ var is_in_save_tab = false
 func move_selector_D():
 	if menuslots.size() == 0:
 		return
-	# Update previous selection
+	
 	previously_selected = currently_selected
-	# Wrap around to the first button if at the end
+	
 	currently_selected = (currently_selected + 1) % menuslots.size()
-	# Update button visuals
+	
 	if is_in_config_tab:
 		change_values(menuslots[currently_selected])
+	if is_in_save_tab:
+		show_savetabs()
 	update_things()
+
+func show_savetabs():
+	var currentinho = (currently_selected) % %saveshowtabcontainer.get_children().size()
+	%saveshowtabcontainer.current_tab = currentinho
+
 
 func move_selector_U():
 	if menuslots.size() == 0:
 		return
-	# Update previous selection
+	
 	previously_selected = currently_selected
-	# Wrap around to the last button if at the beginning
+	
 	currently_selected = (currently_selected - 1 + menuslots.size()) % menuslots.size()
-	# Update button visuals
+	
 	if is_in_config_tab:
 		change_values(menuslots[currently_selected])
+	if is_in_save_tab:
+		show_savetabs()
 	update_things()
 
 
@@ -108,8 +117,9 @@ func move_option_selector_D():
 func update_things():
 	showtab()
 	# Get currently and previously selected buttons
-	selected_button = menuslots[currently_selected]
-	past_selected_button = menuslots[previously_selected]
+	
+	selected_button = menuslots[currently_selected  % menuslots.size()]
+	past_selected_button = menuslots[previously_selected  % menuslots.size()]
 	var buttonsprite
 	var pastbuttonsprite
 	# Safely get child nodes for scaling (assuming the first child is the sprite)
@@ -136,34 +146,28 @@ var original_scales = {}
 
 func button_pulse(buttonsprite, pastbuttonsprite):
 	if buttonsprite and pastbuttonsprite:
-		# Ensure original scales are stored
+
 		if not original_scales.has(buttonsprite):
 			original_scales[buttonsprite] = buttonsprite.scale
 		if not original_scales.has(pastbuttonsprite):
 			original_scales[pastbuttonsprite] = pastbuttonsprite.scale
 
-		# Retrieve the reference scales
 		var base_bscale = original_scales[buttonsprite]
 		var base_pbscale = original_scales[pastbuttonsprite]
 
-		# Define scaling factors
-		var grow_factor = 1.2  # Grow 20% larger
-		var normal_factor = 1.0  # Original size
 
-		# Calculate target scales based on reference
-		var new_bscale = base_bscale * grow_factor  # Grow proportionally
-		var normal_pbscale = base_pbscale * normal_factor  # Restore to original
+		var grow_factor = 1.2  
+		var normal_factor = 1.0
 
-		# Create a new tween
+		var new_bscale = base_bscale * grow_factor 
+		var normal_pbscale = base_pbscale * normal_factor  
+
 		var tween = get_tree().create_tween()
 
-		# Stop any existing animations on these nodes (if needed)
-		#tween.stop_all()
 
-		# Animate the current button (grow)
 		tween.tween_property(buttonsprite, "scale", new_bscale, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 
-		# Animate the previous button (shrink back to normal)
+
 		tween.tween_property(pastbuttonsprite, "scale", normal_pbscale, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 
 func press_button(type):
@@ -268,6 +272,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _ready() -> void:
+	SignalManager.mouse_visible = true
 	add_window_mode_items()
 	update_all_slots()
 	update_things()
@@ -288,6 +293,8 @@ func match_curtab():
 			%submenuTabcontainer.current_tab = 0
 			menuslots = %menuoptionsContainer.get_children()
 			update_things()
+			selector.scale.x = 0.6
+			selector.scale.y = 0.6
 		1: #"saves"
 			is_in_config_tab = false
 			is_in_save_tab = false
@@ -307,6 +314,8 @@ func match_curtab():
 			%submenuTabcontainer.current_tab = 2
 			menuslots = %options.get_children()
 			update_things()
+			selector.scale.x = 0.6
+			selector.scale.y = 0.6
 	
 var current_option_menu = 0
 
@@ -350,7 +359,7 @@ func loadscene():
 func update_all_slots():
 	var tab = null
 	var valor = -1
-	for i in range(1,4):  # Três slots, por exemplo
+	for i in range(1,4):  
 		valor += 1
 		tab = %saveshowtabcontainer.get_child(valor)
 		var savelocationlabel = tab.savelocationlabel
@@ -385,7 +394,7 @@ func update_slot_display(slot: int, scene_label: Label, lifelabel, deathslabel, 
 	
 	if slot_data.has("exists"):
 		scene_label.text = "Vazio"
-		#position_label.text = "Posição: N/A"
+		
 		lifelabel.text = "N/A"
 		deathslabel.text = "N/A"
 		coinslabel.text = "N/A"
@@ -393,12 +402,10 @@ func update_slot_display(slot: int, scene_label: Label, lifelabel, deathslabel, 
 		tempolabel.text = "N/A"
 		emptycoiso.visible = true
 		apagarsave.visible = false
-		#items_label.text = "Itens Equipados: N/A"
+		
 		return
 
-	# Atualizar os Labels com dados do slot
-	#scene_label.text = "Cena: %s" % slot_data.get("saved_current_scene", "Desconhecida")
-	
+
 	var lastscene_name = slot_data.get("saved_current_scenename", "Desconhecida")
 	if lastscene_name:
 		scene_label.text = lastscene_name
@@ -413,9 +420,8 @@ func update_slot_display(slot: int, scene_label: Label, lifelabel, deathslabel, 
 	apagarsave.visible = true
 	#var pos = slot_data.get("position", [0, 0])
 	#position_label.text = "Posição: (%s, %s)" % [str(pos[0]), str(pos[1])]
-	
-	#var items = slot_data.get("equiped_stamps", [])
-	#items_label.text = "Itens Equipados: %s" % (", ".join(items))
+
+
 func load_slot_screenshot(slot: int, texture_rect: TextureRect) -> void:
 	var file_path = "user://slot%s_screenshot.png" % str(slot)
 	if FileAccess.file_exists(file_path):
@@ -555,13 +561,14 @@ func _on_button_sair_pressed() -> void:
 
 
 func _on_backbutton_pressed() -> void:
-	ConfigManager
+	ConfigManager.save_configs()
 	if current_tab != 0:
 		currently_selected = 0
 		current_tab = 0
 		$AnimationPlayer.play("desapertado")
 		update_things()
 		selector.set_global_position((selected_button.global_position),true)
+
 
 func _on_button_sim_pressed() -> void:
 	get_tree().quit()
@@ -730,7 +737,9 @@ func goto_options():
 		selector.scale.x = 0.3
 		selector.scale.y = 0.3
 		change_values(menuslots[currently_selected])
-		
+	else:
+		selector.scale.x = 0.6
+		selector.scale.y = 0.6
 
 func match_optiontab(option_selected):
 	%OptionsContainer.current_tab = option_selected

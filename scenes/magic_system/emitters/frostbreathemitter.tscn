@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dd3vkja7tqwgo" path="res://Sprites/Effects/frost.png" id="1_ewxfi"]
 [ext_resource type="Texture2D" uid="uid://dgc0c0tv27fgp" path="res://Sprites/Effects/subfrost.png" id="2_cvxoi"]
-[ext_resource type="Script" path="res://scenes/magic_system/emitters/emitter.gd" id="2_hmdn0"]
+[ext_resource type="Script" uid="uid://ctr7ygoka00sp" path="res://scenes/magic_system/emitters/emitter.gd" id="2_hmdn0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5w1xr"]
 particles_animation = true
@@ -18,8 +18,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_2xm00")
 
 [sub_resource type="Curve" id="Curve_jucds"]
-min_value = 0.1
-max_value = 4.0
+_limits = [0.1, 4.0, 0.0, 1.0]
 _data = [Vector2(0, 0.796226), 0.0, 0.0, 0, 0, Vector2(0.988971, 4), 2.38356, 0.0, 0, 0]
 point_count = 2
 
@@ -35,8 +34,8 @@ initial_velocity_max = 70.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = -2.23517e-06
 linear_accel_max = 100.0
-scale_min = 0.2
-scale_max = 0.2
+scale_min = 0.5
+scale_max = 0.5
 scale_curve = SubResource("CurveTexture_xwb4d")
 color_ramp = SubResource("GradientTexture1D_5b2rc")
 hue_variation_min = -2.23517e-08
@@ -72,8 +71,8 @@ material = SubResource("CanvasItemMaterial_5w1xr")
 position = Vector2(14.2, -0.4)
 emitting = false
 amount = 5
-process_material = SubResource("ParticleProcessMaterial_3bmgg")
 texture = ExtResource("1_ewxfi")
+process_material = SubResource("ParticleProcessMaterial_3bmgg")
 script = ExtResource("2_hmdn0")
 
 [node name="Subemitter" type="GPUParticles2D" parent="."]
@@ -81,5 +80,5 @@ material = SubResource("CanvasItemMaterial_62wa1")
 emitting = false
 amount = 6
 amount_ratio = 0.6422
-process_material = SubResource("ParticleProcessMaterial_uf2rh")
 texture = ExtResource("2_cvxoi")
+process_material = SubResource("ParticleProcessMaterial_uf2rh")

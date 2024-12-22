@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://164hbrtjemk7" path="res://inventory/usarslot.tscn" id="10_otqs3"]
 [ext_resource type="Texture2D" uid="uid://clc8udw1ehpcb" path="res://inventory/gui/Selector/slot inventario - select_shadow.png" id="11_cakds"]
 [ext_resource type="Texture2D" uid="uid://bxf5202dmcc6r" path="res://inventory/gui/nextpage_button.png" id="11_g2khj"]
-[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="11_wcqt3"]
 [ext_resource type="Texture2D" uid="uid://dayaohqxfq6rl" path="res://inventory/gui/stamppoint.png" id="12_mkaee"]
 [ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="13_wpfu7"]
 [ext_resource type="Script" uid="uid://dyk7mx5miuwt7" path="res://inventory/current_stamppoint.gd" id="14_bdlwy"]
@@ -26,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://beiyt43blkum0" path="res://inventory/gui/botão-maisdir.png" id="17_nra2n"]
 [ext_resource type="Texture2D" uid="uid://b88736hycycnl" path="res://Missões/checkboxcheck.png" id="18_2bsth"]
 [ext_resource type="Texture2D" uid="uid://bgsdjj1kj1t7d" path="res://inventory/gui/botão-maisesq.png" id="18_bij0o"]
+[ext_resource type="Script" uid="uid://4k8quvajtlxo" path="res://inventory/selector.gd" id="19_4erax"]
 [ext_resource type="Texture2D" uid="uid://cu4msfw3k4rdl" path="res://Missões/checkbox.png" id="19_we7dv"]
 [ext_resource type="Texture2D" uid="uid://b4j0b3wgsgx5b" path="res://inventory/submenu - config.png" id="23_3y771"]
 [ext_resource type="Texture2D" uid="uid://waol4h18n8s" path="res://inventory/gui/menuparallax.png" id="23_k6usp"]
@@ -151,11 +151,12 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 651.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8hm3u")
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 
 [node name="Config" type="NinePatchRect" parent="TabContainer" node_paths=PackedStringArray("gui")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = ExtResource("23_3y771")
 axis_stretch_horizontal = 2
@@ -952,6 +953,7 @@ unique_name_in_owner = true
 position = Vector2(18, -48)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_gyvsb")
+script = ExtResource("19_4erax")
 
 [node name="Sprite2D" type="Sprite2D" parent="TabContainer/Config/ConfigCentercontainer/Selector"]
 show_behind_parent = true
@@ -961,7 +963,6 @@ texture = ExtResource("11_cakds")
 wait_time = 0.105
 
 [node name="Missions" type="NinePatchRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("5_pgxi2")
 axis_stretch_horizontal = 2
@@ -1151,27 +1152,32 @@ offset_bottom = 145.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_2lpl4")
 theme_override_font_sizes/font_size = 30
-text = "Folha de Hercules"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_kggpe")
 
-[node name="Description" type="Label" parent="TabContainer/Selos"]
+[node name="Description" type="RichTextLabel" parent="TabContainer/Selos"]
 layout_mode = 0
 offset_left = 728.0
-offset_top = 148.0
+offset_top = 176.0
 offset_right = 902.0
-offset_bottom = 277.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_wekg0")
-theme_override_font_sizes/font_size = 16
-text = "Criado do coração de um yeti soturno, agora usado pra ajudar seus hóspedes. Aperte baixo para congelar"
-autowrap_mode = 3
+offset_bottom = 278.0
+theme_override_colors/default_color = Color(0.0823529, 0.0392157, 0.160784, 1)
+theme_override_fonts/normal_font = ExtResource("7_wekg0")
+
+[node name="Typelabel" type="RichTextLabel" parent="TabContainer/Selos"]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 145.0
+offset_right = 893.0
+offset_bottom = 174.0
+theme_override_colors/default_color = Color(0.779352, 6.10298e-05, 0.608905, 1)
+theme_override_fonts/normal_font = ExtResource("5_2lpl4")
+theme_override_font_sizes/normal_font_size = 26
 
 [node name="ShowSprite" type="Sprite2D" parent="TabContainer/Selos"]
 position = Vector2(664, 199.375)
 scale = Vector2(0.0853333, 0.0853333)
-texture = ExtResource("11_wcqt3")
 
 [node name="nextpage_right" type="Sprite2D" parent="TabContainer/Selos"]
 unique_name_in_owner = true
@@ -1187,6 +1193,7 @@ texture = ExtResource("11_g2khj")
 flip_h = true
 
 [node name="ShowStamppoint" type="Sprite2D" parent="TabContainer/Selos"]
+visible = false
 position = Vector2(627, 266)
 scale = Vector2(0.182203, 0.182203)
 texture = ExtResource("12_mkaee")
@@ -1242,6 +1249,7 @@ script = ExtResource("9_7qamn")
 position = Vector2(27, 23)
 scale = Vector2(0.450837, 0.442469)
 texture = ExtResource("9_gyvsb")
+script = ExtResource("19_4erax")
 
 [node name="slotselectshadow" type="Sprite2D" parent="TabContainer/Selos/CenterContainer/Slotselect"]
 show_behind_parent = true

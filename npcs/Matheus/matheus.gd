@@ -15,7 +15,7 @@ var timeline : DialogicTimeline = DialogicTimeline.new()
 
 @export_file("*.dtl") var quest_completed_dialogue : Array[String] = []
 @export var quest_array : int = 0
-@export_file("*.dtl") var dialogs: Array[String] = []
+@export var dialogs: Array[String] = []
 
 #@export var dialog_event = 1
 @export var test_event = 2
@@ -106,14 +106,14 @@ func _ready():
 
 func _on_area_2d_2_area_entered(area: Area2D) -> void:
 	
-	if area.owner.is_in_group("Player"):
+	if area.is_in_group("Interactionarea"):
 		$AnimatedSprite2D2.play("mission")
 		player_in_area = true
 
 
 
 func _on_area_2d_2_area_exited(area: Area2D) -> void:
-	if area.owner.is_in_group("Player"):
+	if area.is_in_group("Interactionarea"):
 		$AnimatedSprite2D2.play("inactive")
 		player_in_area = false
 
@@ -150,4 +150,22 @@ func _on_dialogic_signal(argument:String):
 		var quest = quests[Dialogic.VAR.mission_index]
 		SignalManager.task_manager.insert(quest)
 		print("New_mission!")
-		
+	if argument == "hug":
+		hug_persian()
+
+func hug_persian():
+	player_can_move = true
+
+var player_can_move = false
+@onready var target: Marker2D = $Marker2D
+
+func _process(delta: float):
+	if player_can_move:
+		SignalManager.player.move_towards_target(delta, target, self)
+
+func play_hug(player):
+	player.visible = false
+	$AnimationPlayer.play("hug_animation")
+	await $AnimationPlayer.animation_finished
+	$AnimationPlayer.play("default")
+	player.visible = true

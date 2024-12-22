@@ -71,32 +71,6 @@ signal inkChanged
 
 
 
-var minInk = null
-var maxInk = null
-@export var currentInk = 100: 
-	set(new_value):
-		var stats_type = "inkpoints"
-		currentInk = new_value
-		SignalManager.emit_signal(stats_type, new_value)
-
-var minHealth = null
-var maxHealth = null
-@export var currentHealth = 100: 
-	set(new_value):
-		var stats_type = "healthpoints"
-		currentHealth = new_value
-		SignalManager.emit_signal(stats_type, new_value)
-
-var currentFurypoints = 0
-
-
-var damage_value = null
-var damage_max = null
-var damage_min = null
-var crit_chance = null
-
-
-
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -134,6 +108,9 @@ var prev_state = null
 #}
 var pos = Vector2.ZERO
 var inventoryequiped_array = []
+
+@onready var components: Node2D = $Components
+
 
 
 func save():
@@ -228,19 +205,6 @@ func load_player_state():
 #func update_inv(equipedslots):
 	#pass
 
-func set_stats():
-	
-	minInk = manager.minInk
-	maxInk = manager.maxInk
-	currentInk = manager.currentInk
-	minHealth = manager.minHealth
-	maxHealth = manager.maxHealth
-	currentHealth = manager.currentHealth
-	currentFurypoints = manager.currentFurypoints
-	damage_value = manager.damage_value
-	damage_max = manager.damage_max
-	damage_min = manager.damage_min
-	crit_chance = manager.crit_chance
 
 func changegravity():
 	PhysicsServer2D.area_set_param(get_viewport().find_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY, 280)
@@ -255,7 +219,7 @@ func _ready():
 	SignalManager.magic_changed.connect(new_emitter)
 	add_to_group("Player")
 	
-	set_stats()
+
 	$sword/sword_collider.disabled = true
 	$sword1/sword_collider2.disabled = true
 	
@@ -272,10 +236,7 @@ func _process(delta: float) -> void:
 	
 	if can_emit:
 		breathemitting()
-		
-	playdeath()
 
-	
 
 func _physics_process(delta):
 	if current_state != STATES.HLEAF:
@@ -748,38 +709,15 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		stats.updatehealth()
 
 	
-func playdeath():
-	if currentHealth <= minHealth:
-		dying = true
+func deal_damage(value: int, area: Area2D):
+	$DamageComponent.deal_damage(value, area)
+func deal_projectiledamage(value: int, area: Area2D):
+	$DamageComponent.deal_damage(value, area)
+
 
 func knockback(delta: float) -> void:
 	
 	velocity.x += SPEED * delta 
-
-func deal_damage(value: int, area: Area2D):
-	#var criticalchance = randi_range(1, 10)
-	var damage_total = value
-	var is_critical = area.owner.crit_chance > randf()
-	
-	if is_critical:
-		damage_total = value * 2
-		
-	currentHealth -= damage_total
-	Damagenumbers.display_number(damage_total, damage_numbers_origin.global_position, is_critical)
-
-func deal_projectiledamage(value: int, area: Area2D):
-	#var criticalchance = randi_range(1, 10)
-	var damage_total = value
-	var is_critical = area.crit_chance > randf()
-	if is_critical:
-		damage_total = value * 2
-		
-	currentHealth -= damage_total
-	Damagenumbers.display_number(damage_total, damage_numbers_origin.global_position, is_critical)
-	#stats.updatehealth()d
-	is_dealing_damage = true
-	$AnimationPlayer.play("Damage")
-	area.collide()
 
 var can_emit = false
 
@@ -811,18 +749,25 @@ func new_emitter():
 
 func breathemitting():
 	pass
-	#if Input.is_action_pressed("MoveLeft"):
-		#get_node("%Breathemitter").position.x = -14.2
-		#%fire_collider.position.x = -60
-	#if Input.is_action_pressed("MoveRight"):
-		#get_node("%Breathemitter").scale.x = 0.5
-		#%fire_collider.position.x = 14.2
-	#
-	#if get_node("%Breathemitter").emitting:
-		#%fire_collider.disabled = false
-#
-	#if !get_node("%Breathemitter").emitting:
-		#%fire_collider.disabled = true
+
+
+
+func move_towards_target(delta: float, target, whocalled):
+	var target_position = target.global_position
+	var direction = (target_position - position).normalized()
+	velocity = (SPEED * 0.4) * direction
+	move_and_slide()
+	if direction.x != 0:
+		movement_input.x += 1
+		$AnimationPlayer.play("run")
+
+
+	if global_position.distance_to(target_position) < 50:
+		velocity = Vector2.ZERO
+		$AnimationPlayer.play("idle")
+		whocalled.player_can_move = false
+		whocalled.play_hug(self)
+
 
 
 func _on_jumptimer_timeout() -> void:

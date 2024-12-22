@@ -33,8 +33,9 @@ var invslots = null
 @onready var selectorb = $"TabContainer/Inventário/CenterContainer/Slotselectb"
 
 @onready var nameLabel = $TabContainer/Selos/NameLabel
-@onready var descLabel = $TabContainer/Selos/Description
+@onready var descLabel: RichTextLabel = $TabContainer/Selos/Description
 @onready var showSprite = $TabContainer/Selos/ShowSprite
+@onready var typelabel: RichTextLabel = $TabContainer/Selos/Typelabel
 
 @onready var current_stamppoint: Sprite2D = $TabContainer/Selos/CurrentStamppoint
 @onready var name_label_2: Label = $TabContainer/Selos/CurrentStamppoint/NameLabel2
@@ -208,12 +209,16 @@ func update():
 
 
 func open():
+	SignalManager.mouse_visible = true
+	SignalManager.can_showmouse = true
 	$Parallax2D.visible = true
 	visible = true
 	isOpen = true
 	SignalManager.inventoryopened.emit()
 
 func close():
+	SignalManager.can_showmouse = false
+	SignalManager.mouse_visible = false
 	get_tree().paused = false
 	visible = false
 	isOpen = false
@@ -519,12 +524,23 @@ func show_item():
 			previousEmpty = true
 		
 		if !islots[currently_selected].itemStackGui == null:
+			$TabContainer/Selos/ShowStamppoint.visible = true
 			stamppointname_label.set_text(str(slot[currently_selected].itemStackGui.inventorySlot.item.stamp_points))
 			print(slot[currently_selected].itemStackGui.inventorySlot.item.stamp_points)
-			
+			set_selotype(slot)
 			nameLabel.set_text(slot[currently_selected].itemStackGui.inventorySlot.item.showname)
 			descLabel.set_text(slot[currently_selected].itemStackGui.inventorySlot.item.description)
 			showSprite.texture = slot[currently_selected].itemStackGui.inventorySlot.item.texture
+
+func set_selotype(slot):
+	var adesivo = AdesivoManager.new()
+	var tipozinho = slot[currently_selected].itemStackGui.inventorySlot.item.item_type
+	typelabel.set_text(tipozinho)
+	var index = 0
+	print(adesivo.tipo[0].tipo)
+	for i in adesivo.tipo:
+		if i.tipo == tipozinho:
+				typelabel.add_theme_color_override("default_color", i.cor)
 
 func show_itemb(invslot):
 		invslot = invslots

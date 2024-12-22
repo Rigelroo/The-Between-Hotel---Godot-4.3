@@ -8,6 +8,7 @@ var mission = null
 
 func _ready() -> void:
 	SignalManager.update_quests.connect(update)
+	SignalManager.new_taskprogress.connect(update_progress)
 	tasks_container = $VBoxContainer.get_children()
 	update()
 
@@ -35,3 +36,9 @@ func insert(mission, container):
 		taskpanel.set_ready()
 		await taskpanel.set_ready()
 		taskpanel.set_everything(mission)
+
+func update_progress(task):
+	var container = $VBoxContainer.get_children()
+	for i in container:
+		if i.get_child_count() != 0:
+			i.get_child(0).update_progress(task)

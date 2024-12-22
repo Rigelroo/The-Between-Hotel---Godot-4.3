@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bwqnxxc5b8xye" path="res://Sprites/sombra.png" id="29_grj7y"]
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="31_420lk"]
 [ext_resource type="PackedScene" uid="uid://wu27ixe1fu82" path="res://objects/porta_quarto.tscn" id="31_ypx4h"]
-[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="33_gn41e"]
+[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/statsbar.tscn" id="33_gn41e"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="34_n8r74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ydcc"]

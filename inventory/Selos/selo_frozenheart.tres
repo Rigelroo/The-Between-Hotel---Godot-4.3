@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bojqr7cp6eeiq"]
 
-[ext_resource type="Script" path="res://inventory/inventoryItem.gd" id="1_yonvy"]
+[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://inventory/inventoryItem.gd" id="1_yonvy"]
 [ext_resource type="Texture2D" uid="uid://dmymbqqyxrr5w" path="res://inventory/Selos/selo_frozenheart.png" id="2_qjtfh"]
 
 [resource]
@@ -12,7 +12,8 @@ textureaux = "res://inventory/Selos/selo_hattime.png"
 maxAmountInStack = 2
 max_amount = 0
 showname = "Sangue frio"
-description = "Criado do coração de um yeti soturno, agora usado pra ajudar seus hóspedes. Aperte baixo para congelar"
+description = "Criado do coração de um yeti soturno, agora pode ser usado pra ajudar seus hóspedes. Aperte baixo para congelar"
+item_type = "Emblema"
 stamp_points = 3
 color = Color(0.396078, 0.756863, 1, 1)
 color_x = 0.39

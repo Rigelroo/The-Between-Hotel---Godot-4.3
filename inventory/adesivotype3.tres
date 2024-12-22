@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Adesivomisc" load_steps=2 format=3 uid="uid://b5pdmnl4hxmhq"]
+
+[ext_resource type="Script" uid="uid://su883vfyff3a" path="res://Adesivomisc.gd" id="1_eb2ro"]
+
+[resource]
+script = ExtResource("1_eb2ro")
+tipo = "Brinquedo"
+cor = Color(0.779352, 6.10298e-05, 0.608905, 1)
+metadata/_custom_type_script = ExtResource("1_eb2ro")

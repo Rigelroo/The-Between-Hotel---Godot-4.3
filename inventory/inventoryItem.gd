@@ -10,6 +10,8 @@ class_name InventoryItem
 @export var max_amount : int
 @export var showname : String = ""
 @export var description : String = ""
+#@export_enum("Emblema","Tralha","Brinquedo") var item_type : Array[int]
+@export_enum("Emblema","Tralha","Brinquedo") var item_type : String
 
 @export var stamp_points : int = 0
 @export var color : Color

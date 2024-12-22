@@ -1,4 +1,4 @@
-[gd_scene load_steps=236 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=239 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" uid="uid://810alopr4too" path="res://scenes/entities/player/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://dknwb0q3tench" path="res://Sprites/Player/All/jump7.png" id="2_lumcb"]
@@ -188,6 +188,9 @@
 [ext_resource type="Texture2D" uid="uid://dgc0c0tv27fgp" path="res://Sprites/Effects/subfrost.png" id="180_3drml"]
 [ext_resource type="Texture2D" uid="uid://dph53hjy2bofs" path="res://Sprites/Bettlebourough/fallingleaves2.png" id="182_ikjul"]
 [ext_resource type="Script" uid="uid://dbw4dth143cj7" path="res://scenes/entities/player/trayemmiter.gd" id="183_a3gtm"]
+[ext_resource type="Script" uid="uid://dfm428eg1bkqn" path="res://scenes/entities/player/stats_component.gd" id="189_85fpf"]
+[ext_resource type="Script" uid="uid://b5gk87of5nr47" path="res://scenes/entities/player/components.gd" id="189_ht3sh"]
+[ext_resource type="Script" uid="uid://jmnprw1gassv" path="res://scenes/entities/player/damage_component.gd" id="190_ltiup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5fq"]
 size = Vector2(20, 25)
@@ -1901,8 +1904,8 @@ scale = Vector2(0.07, 0.07)
 
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(2, -1.2)
-rotation = -0.000122652
+position = Vector2(3.4, -3)
+rotation = 0.0163368
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
 
@@ -2087,6 +2090,17 @@ script = ExtResource("183_a3gtm")
 volume_db = 3.496
 pitch_scale = 0.96
 bus = &"SFX"
+
+[node name="Components" type="Node2D" parent="."]
+script = ExtResource("189_ht3sh")
+
+[node name="StatsComponent" type="Node2D" parent="Components"]
+script = ExtResource("189_85fpf")
+currentInk = 50
+currentFurypoints = 3
+
+[node name="DamageComponent" type="Node2D" parent="Components"]
+script = ExtResource("190_ltiup")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

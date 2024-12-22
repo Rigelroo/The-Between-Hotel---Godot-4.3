@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://dw7fr5yfile0r"]
 
-[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_plb7f"]
+[ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_plb7f"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="2_je1ce"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_q2hfj"]
 [ext_resource type="PackedScene" uid="uid://ql0ewkv7sbrb" path="res://parede_slide.tscn" id="4_50h6u"]
@@ -33,7 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://cn5w1vi5yjg3u" path="res://canvas_layer.tscn" id="31_fkyq7"]
 [ext_resource type="Texture2D" uid="uid://ca7tu3todq1tf" path="res://inventory/Selos/selo_fireflyemblem.png" id="31_r2m3r"]
 [ext_resource type="PackedScene" uid="uid://bqk13nl6aiaan" path="res://Tests/deadreplacer.tscn" id="34_4p6yw"]
-[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/canvahealthbar.tscn" id="34_e0nbd"]
+[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://scenes/entities/player/Systems/statsbar.tscn" id="34_e0nbd"]
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://scenes/entities/player/Systems/berserkbar.tscn" id="34_ysfqo"]
 [ext_resource type="PackedScene" uid="uid://bk8x8dr8ahmpp" path="res://npcs/Quarto 1 - bettleborough/matheus.tscn" id="37_qpwh8"]
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://inventory/Selos/selo_1.tscn" id="38_088ub"]
