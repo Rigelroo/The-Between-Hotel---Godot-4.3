@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcbdtia5fb4ur"]
 
-[ext_resource type="Script" path="res://inventory/gui/itemStackGuic.gd" id="1_gdblm"]
-[ext_resource type="Resource" uid="uid://cb7x44nqwgbui" path="res://inventory/PlayerInventoryc.tres" id="2_6eyxa"]
+[ext_resource type="Script" uid="uid://uwujwxocpvn1" path="res://Inventory/gui/itemStackGuic.gd" id="1_gdblm"]
+[ext_resource type="Resource" uid="uid://cb7x44nqwgbui" path="res://Inventory/PlayerInventoryc.tres" id="2_6eyxa"]
 
 [node name="Panel" type="Panel"]
 script = ExtResource("1_gdblm")

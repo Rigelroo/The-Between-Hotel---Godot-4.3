@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Questtask" load_steps=5 format=3 uid="uid://3f38aw2mqtdy"]
 
-[ext_resource type="Texture2D" uid="uid://bhf5cj38njt60" path="res://inventory/Chaves/chave_quarto 1.png" id="1_bu8oy"]
+[ext_resource type="Texture2D" uid="uid://bhf5cj38njt60" path="res://Inventory/Chaves/chave_quarto 1.png" id="1_bu8oy"]
 [ext_resource type="Texture2D" uid="uid://vda1xj728yhs" path="res://Missões/npc icons/Matheus.png" id="2_mv5q8"]
-[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://inventory/Selos/selo_herculesleaf.tres" id="3_kr3d8"]
+[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://Inventory/Selos/selo_herculesleaf.tres" id="3_kr3d8"]
 [ext_resource type="Script" uid="uid://cxvxkqnaxocnq" path="res://Missões/missions.gd" id="4_40uho"]
 
 [resource]

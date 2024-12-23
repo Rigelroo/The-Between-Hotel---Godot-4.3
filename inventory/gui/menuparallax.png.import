@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://waol4h18n8s"
-path="res://.godot/imported/menuparallax.png-b4baf9c30e65d202754815c5fb9775fa.ctex"
+path="res://.godot/imported/menuparallax.png-e6b8d15410fb8d04462fc83ac8438c07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/gui/menuparallax.png"
-dest_files=["res://.godot/imported/menuparallax.png-b4baf9c30e65d202754815c5fb9775fa.ctex"]
+source_file="res://Inventory/gui/menuparallax.png"
+dest_files=["res://.godot/imported/menuparallax.png-e6b8d15410fb8d04462fc83ac8438c07.ctex"]
 
 [params]
 

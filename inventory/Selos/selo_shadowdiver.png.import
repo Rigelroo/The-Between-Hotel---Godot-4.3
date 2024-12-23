@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di4qwpy3expct"
-path="res://.godot/imported/selo_shadowdiver.png-8e02a9d3cb30a7ab41e1166edf7be455.ctex"
+path="res://.godot/imported/selo_shadowdiver.png-663612c6e01bc2ada900a73af22edc43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/Selos/selo_shadowdiver.png"
-dest_files=["res://.godot/imported/selo_shadowdiver.png-8e02a9d3cb30a7ab41e1166edf7be455.ctex"]
+source_file="res://Inventory/Selos/selo_shadowdiver.png"
+dest_files=["res://.godot/imported/selo_shadowdiver.png-663612c6e01bc2ada900a73af22edc43.ctex"]
 
 [params]
 

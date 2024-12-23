@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpbnhh4wr6ef6"]
 
-[ext_resource type="SpriteFrames" uid="uid://b34i4prh03kka" path="res://objects/fireprojectile.tres" id="2_47rq7"]
+[ext_resource type="SpriteFrames" uid="uid://b34i4prh03kka" path="res://Objects/fireprojectile.tres" id="2_47rq7"]
 [ext_resource type="Texture2D" uid="uid://cb7a00lh4al88" path="res://Sprites/Effects/firespritesheet.png" id="3_b3x57"]
-[ext_resource type="Script" uid="uid://dh77fx26604yq" path="res://objects/projectile.gd" id="5_23qlw"]
+[ext_resource type="Script" uid="uid://dh77fx26604yq" path="res://Objects/projectile.gd" id="5_23qlw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv18e"]
 size = Vector2(81, 82)

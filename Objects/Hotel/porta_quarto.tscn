@@ -1,0 +1,162 @@
+[gd_scene load_steps=29 format=3 uid="uid://wu27ixe1fu82"]
+
+[ext_resource type="Script" uid="uid://b3xid7pamc128" path="res://scenes/portaA.gd" id="1_ke2cg"]
+[ext_resource type="Texture2D" uid="uid://bpmntlvrs40m6" path="res://Sprites/EntryHall - Reworked/Porta_comum.png" id="2_amh4c"]
+[ext_resource type="PackedScene" uid="uid://dljh86hnlaoch" path="res://Entities & NPCs/Quarto 1 - bettleborough/ballondoor_1.tscn" id="3_y1v16"]
+[ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="4_pkis4"]
+[ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="5_pmwut"]
+[ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="6_p3b8c"]
+[ext_resource type="Texture2D" uid="uid://cg1we2wu1evbm" path="res://Sprites/InteractionBox/InteractionBox - Door0003.png" id="7_kk38w"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="8_a82gu"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="9_4swro"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="10_6lsuu"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="11_cdgap"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="12_4thbn"]
+[ext_resource type="Texture2D" uid="uid://buaj4i0w37fhc" path="res://Sprites/InteractionBox/InteractionBox - locked0000.png" id="13_nexhg"]
+[ext_resource type="Texture2D" uid="uid://cmfgtewblulr5" path="res://Sprites/InteractionBox/InteractionBox - locked0001.png" id="14_2mm4b"]
+[ext_resource type="Texture2D" uid="uid://4mf672khj0y4" path="res://Sprites/InteractionBox/InteractionBox - locked0002.png" id="15_w2fd0"]
+[ext_resource type="Texture2D" uid="uid://dibyghp87j8h7" path="res://Sprites/InteractionBox/InteractionBox - locked0003.png" id="16_k3icm"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="17_ep02l"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="18_41evd"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="19_0ierw"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="20_i6cuw"]
+[ext_resource type="Texture2D" uid="uid://cfh0n5a12t6t8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0000.png" id="21_m42wn"]
+[ext_resource type="Texture2D" uid="uid://cj6c5w30gbkk8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0001.png" id="22_mvavm"]
+[ext_resource type="Texture2D" uid="uid://cqirufu6tyo4g" path="res://Sprites/InteractionBox/InteractionBox - unlocking0002.png" id="23_bfdr5"]
+[ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="24_5vra1"]
+[ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="25_lbm3h"]
+[ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="26_3fc3n"]
+
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wile"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pkis4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pmwut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p3b8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kk38w")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_a82gu")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_4swro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6lsuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cdgap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4thbn")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_nexhg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2mm4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_w2fd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_k3icm")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ep02l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_41evd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0ierw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_i6cuw")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_m42wn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mvavm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_bfdr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_5vra1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_lbm3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_3fc3n")
+}],
+"loop": false,
+"name": &"unlocking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik3ee"]
+size = Vector2(272, 316)
+
+[node name="Porta3" type="Node2D"]
+position = Vector2(30, 0)
+script = ExtResource("1_ke2cg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-31, -20)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_amh4c")
+offset = Vector2(23.3334, 6.66673)
+
+[node name="Ballondoor1" parent="." instance=ExtResource("3_y1v16")]
+position = Vector2(-45, -231)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_4wile")
+animation = &"interaction"
+frame = 0
+frame_progress = 0.0
+
+[node name="AreaD2D1" type="Area2D" parent="."]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="AreaD2D1"]
+position = Vector2(-35, 22)
+shape = SubResource("RectangleShape2D_ik3ee")
+
+[connection signal="body_entered" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_entered"]
+[connection signal="body_exited" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_exited"]

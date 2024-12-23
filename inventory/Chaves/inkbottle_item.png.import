@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtcppec5sunts"
-path="res://.godot/imported/inkbottle_item.png-2766a68c1489dae81064817bb159f93e.ctex"
+path="res://.godot/imported/inkbottle_item.png-cc869cc832215132db8d7133f3a8f662.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/Chaves/inkbottle_item.png"
-dest_files=["res://.godot/imported/inkbottle_item.png-2766a68c1489dae81064817bb159f93e.ctex"]
+source_file="res://Inventory/Chaves/inkbottle_item.png"
+dest_files=["res://.godot/imported/inkbottle_item.png-cc869cc832215132db8d7133f3a8f662.ctex"]
 
 [params]
 

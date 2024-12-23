@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxrga1teivoms"
-path="res://.godot/imported/submenu - inventário.png-c4f9c002f8b21136fd6f6805f9f1c244.ctex"
+path="res://.godot/imported/submenu - inventário.png-7edcc0fb94083039a42aecb9b5f75d15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/submenu - inventário.png"
-dest_files=["res://.godot/imported/submenu - inventário.png-c4f9c002f8b21136fd6f6805f9f1c244.ctex"]
+source_file="res://Inventory/submenu - inventário.png"
+dest_files=["res://.godot/imported/submenu - inventário.png-7edcc0fb94083039a42aecb9b5f75d15.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c8wskawiogqo3"]
 
-[ext_resource type="Resource" uid="uid://bixtrrph8ibg2" path="res://inventory/points/Stcontainer.tres" id="1_gpg3n"]
-[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="2_pqlhu"]
+[ext_resource type="Resource" uid="uid://bixtrrph8ibg2" path="res://Inventory/points/Stcontainer.tres" id="1_gpg3n"]
+[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://Inventory/Selos/selo_herculesleaf.png" id="2_pqlhu"]
 
 [sub_resource type="GDScript" id="GDScript_ph3af"]
 script/source = "extends Node

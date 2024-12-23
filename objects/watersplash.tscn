@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c8wrjsmfwcoi" path="res://Sprites/Effects/watersplash0014.png" id="15_525ws"]
 [ext_resource type="Texture2D" uid="uid://c4r1r43kr1k1d" path="res://Sprites/Effects/watersplash0015.png" id="16_uj7fr"]
 [ext_resource type="Texture2D" uid="uid://dnscvmgeq7ofw" path="res://Sprites/Effects/watersplash0016.png" id="17_akqoo"]
-[ext_resource type="Script" path="res://objects/watersplash.gd" id="18_hegk3"]
+[ext_resource type="Script" uid="uid://w6hle6bimufb" path="res://Objects/watersplash.gd" id="18_hegk3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d84oc"]
 animations = [{

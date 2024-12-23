@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InventoryItemb" load_steps=3 format=3 uid="uid://bdgi1jfcvi644"]
 
-[ext_resource type="Script" uid="uid://b5i3v5aqdaqnf" path="res://inventory/inventoryItemb.gd" id="1_xcd5f"]
-[ext_resource type="Texture2D" uid="uid://bhf5cj38njt60" path="res://inventory/Chaves/chave_quarto 1.png" id="2_vn7mj"]
+[ext_resource type="Script" uid="uid://b5i3v5aqdaqnf" path="res://Inventory/Scripts/inventoryItemb.gd" id="1_xcd5f"]
+[ext_resource type="Texture2D" uid="uid://bhf5cj38njt60" path="res://Inventory/Chaves/chave_quarto 1.png" id="2_vn7mj"]
 
 [resource]
 script = ExtResource("1_xcd5f")

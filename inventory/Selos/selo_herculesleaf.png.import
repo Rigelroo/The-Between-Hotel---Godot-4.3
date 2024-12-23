@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://iwumc0glngf5"
-path="res://.godot/imported/selo_herculesleaf.png-cfa2c4e6f3e7da5e9c7d2e98bf389fef.ctex"
+path="res://.godot/imported/selo_herculesleaf.png-5aebdb087d26912cd8995362f1939bd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/Selos/selo_herculesleaf.png"
-dest_files=["res://.godot/imported/selo_herculesleaf.png-cfa2c4e6f3e7da5e9c7d2e98bf389fef.ctex"]
+source_file="res://Inventory/Selos/selo_herculesleaf.png"
+dest_files=["res://.godot/imported/selo_herculesleaf.png-5aebdb087d26912cd8995362f1939bd7.ctex"]
 
 [params]
 

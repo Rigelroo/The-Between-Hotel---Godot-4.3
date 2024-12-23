@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca7tu3todq1tf"
-path="res://.godot/imported/selo_fireflyemblem.png-66094940a015f2410a906627217fbcfc.ctex"
+path="res://.godot/imported/selo_fireflyemblem.png-5f70e42cc42b0d9f91eef9b7d02c9748.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/Selos/selo_fireflyemblem.png"
-dest_files=["res://.godot/imported/selo_fireflyemblem.png-66094940a015f2410a906627217fbcfc.ctex"]
+source_file="res://Inventory/Selos/selo_fireflyemblem.png"
+dest_files=["res://.godot/imported/selo_fireflyemblem.png-5f70e42cc42b0d9f91eef9b7d02c9748.ctex"]
 
 [params]
 

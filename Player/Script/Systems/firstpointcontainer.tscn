@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://vd1ogqthqioc"]
+
+[ext_resource type="Texture2D" uid="uid://b72wku67amoux" path="res://Sprites/Hud/Berserk/pointslotfirst_empty.png" id="1_4kn2b"]
+[ext_resource type="Script" uid="uid://cnjp4njybqovj" path="res://Player/Script/Systems/pointcontainer.gd" id="1_rrx7f"]
+[ext_resource type="Texture2D" uid="uid://lyykxyql2ers" path="res://Sprites/Hud/Berserk/pointslotfirst_full.png" id="2_rght3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o2e6m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6snj0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4kn2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rght3")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rght3")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
+
+[node name="Firstpointcontainer" type="Panel"]
+custom_minimum_size = Vector2(144.235, 143)
+offset_right = 144.235
+offset_bottom = 143.0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_o2e6m")
+script = ExtResource("1_rrx7f")
+
+[node name="first" type="AnimatedSprite2D" parent="."]
+position = Vector2(103, 72)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_6snj0")
+animation = &"empty"

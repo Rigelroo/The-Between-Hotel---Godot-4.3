@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://blquosyq0150h"]
 
-[ext_resource type="Script" path="res://collectable.gd" id="1_hcc7v"]
-[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="1_khhjo"]
-[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://inventory/Selos/selo_herculesleaf.tres" id="2_7q88u"]
+[ext_resource type="Script" uid="uid://4pm7p04hig1i" path="res://Diversos/collectable.gd" id="1_hcc7v"]
+[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://Inventory/Selos/selo_herculesleaf.png" id="1_khhjo"]
+[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://Inventory/Selos/selo_herculesleaf.tres" id="2_7q88u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lioiw"]
 size = Vector2(75, 75)

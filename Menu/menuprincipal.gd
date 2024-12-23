@@ -446,7 +446,7 @@ func _on_playsave_pressed() -> void:
 		if save["saved_current_scene"]:
 			SignalManager.currentsaveslot = save_slot 
 			SignalManager.first_sceme = true
-			SceneManager.transition_to(save["saved_current_scene"])
+			SceneManager.transition_to(first_scene)
 	else:
 		SignalManager.currentsaveslot = save_slot 
 		SignalManager.first_sceme = true

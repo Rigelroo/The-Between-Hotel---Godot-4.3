@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cafl5nwr060p8"]
+
+[ext_resource type="Script" uid="uid://d182b0u38udek" path="res://Player/Script/SLASH.gd" id="1_emncs"]
+
+[node name="SLASH" type="Node"]
+script = ExtResource("1_emncs")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

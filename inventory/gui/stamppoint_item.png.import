@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvxyeoyo30aik"
-path="res://.godot/imported/stamppoint_item.png-e5fa2dc2ca2405bd3e389df770bd25f6.ctex"
+path="res://.godot/imported/stamppoint_item.png-889d8c96d0972338ce59e90b2738bc1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/gui/stamppoint_item.png"
-dest_files=["res://.godot/imported/stamppoint_item.png-e5fa2dc2ca2405bd3e389df770bd25f6.ctex"]
+source_file="res://Inventory/gui/stamppoint_item.png"
+dest_files=["res://.godot/imported/stamppoint_item.png-889d8c96d0972338ce59e90b2738bc1a.ctex"]
 
 [params]
 

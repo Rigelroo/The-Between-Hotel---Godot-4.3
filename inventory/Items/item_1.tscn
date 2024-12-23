@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dww8nr8h2tg16"]
 
-[ext_resource type="Script" path="res://collectableb.gd" id="1_485eb"]
-[ext_resource type="Resource" uid="uid://x27hiyflu1v" path="res://inventory/Items/inkfruits.tres" id="2_2q4md"]
-[ext_resource type="Texture2D" uid="uid://cio8y3v6gg342" path="res://inventory/Chaves/chave_quarto 2.png" id="3_lq78n"]
+[ext_resource type="Script" uid="uid://b1wcuixisptyn" path="res://Diversos/collectableb.gd" id="1_485eb"]
+[ext_resource type="Resource" uid="uid://x27hiyflu1v" path="res://Inventory/Items/inkfruits.tres" id="2_2q4md"]
+[ext_resource type="Texture2D" uid="uid://cio8y3v6gg342" path="res://Inventory/Chaves/chave_quarto 2.png" id="3_lq78n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_riqa0"]
 

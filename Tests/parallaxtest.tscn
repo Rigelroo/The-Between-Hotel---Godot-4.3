@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://87j1vtqmnvmj"]
 
-[ext_resource type="PackedScene" uid="uid://cxoajdx05inhy" path="res://Tests/parallaxtest1.tscn" id="1_sh1tr"]
+[ext_resource type="PackedScene" uid="uid://cxoajdx05inhy" path="res://Locations/Bettleboroughs/parallaxtest1.tscn" id="1_sh1tr"]
 
 [node name="Node2D" type="Window"]
 transparent_bg = true

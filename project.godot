@@ -11,25 +11,26 @@ config_version=5
 [application]
 
 config/name="The Between Hotel"
-run/main_scene="res://logo.tscn"
+run/main_scene="res://Menu/logo.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
 config/icon="res://Menu/Sprites/icon.png"
 
+[audio]
+
+buses/default_bus_layout="res://Diversos/default_bus_layout.tres"
+
 [autoload]
 
-InteractionManager="res://interaction_manager.tscn"
-PhantomCameraManager="res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-Global="*res://Global/Global.gd"
-SceneManager="*res://Tests/scene_manager.tscn"
-Damagenumbers="*res://damagenumbers.gd"
-SignalManager="*res://signal_manager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+ConfigManager="*res://Global/config_manager.gd"
+Damagenumbers="*res://Global/damagenumbers.gd"
+SignalManager="*res://Global/signal_manager.gd"
+SaveSys="*res://Menu/Savesystem/savesystem.gd"
+SceneManager="*res://Global/scene_manager.tscn"
 GlobalAudioStreamPlayer="*res://Sound/Scenes/audio_stream_player.tscn"
 VfxPlayer="*res://Sound/Scenes/vfx_player.tscn"
-SaveSys="*res://Menu/Savesystem/savesystem.gd"
-ConfigManager="*res://config_manager.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-Timecomponent="*res://objects/timecomponent.gd"
+Global="*res://Global/Global.gd"
 
 [dialogic]
 
@@ -44,14 +45,14 @@ directories/dtl_directory={
 "Teste1english": "res://Sprites/DialogueBox/Kori e Trice/Teste1english.dtl",
 "dialogueexample": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample.dtl",
 "dialogueexample2": "res://Sprites/DialogueBox/Kori e Trice/dialogueexample2.dtl",
-"doorlocked": "res://doorlocked.dtl",
-"doortimeline2": "res://doortimeline2.dtl",
-"exemplodialogue": "res://exemplodialogue.dtl",
+"doorlocked": "res://Diversos/doorlocked.dtl",
+"doortimeline2": "res://Diversos/doortimeline2.dtl",
+"exemplodialogue": "res://Diversos/exemplodialogue.dtl",
 "matheusdialogue1": "res://Sprites/DialogueBox/Matheus/matheusdialogue1.dtl",
 "matheusdialogue2": "res://Sprites/DialogueBox/Matheus/matheusdialogue2.dtl",
-"quadro1": "res://quadro1.dtl",
-"quadro2": "res://quadro2.dtl",
-"quadro3": "res://quadro3.dtl",
+"quadro1": "res://Diversos/quadro1.dtl",
+"quadro2": "res://Diversos/quadro2.dtl",
+"quadro3": "res://Diversos/quadro3.dtl",
 "test2dialogue": "res://Sprites/DialogueBox/Kori e Trice/test2dialogue.dtl",
 "testdialogue": "res://Sprites/DialogueBox/Kori e Trice/testdialogue.dtl",
 "timeline": "res://Sprites/timeline.dtl",
@@ -106,7 +107,15 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/dialogic
 [file_customization]
 
 folder_colors={
-"res://Sprites/Player/": "purple",
+"res://Enemies/": "orange",
+"res://Entities & NPCs/": "yellow",
+"res://Inventory/": "teal",
+"res://Locations/": "green",
+"res://Menu/": "red",
+"res://Missões/": "gray",
+"res://Objects/": "blue",
+"res://Player/": "purple",
+"res://Sprites/": "pink",
 "res://Tests/Legacy_Adventure_Pack/": "pink"
 }
 

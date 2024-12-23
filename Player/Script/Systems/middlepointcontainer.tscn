@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmot0qyj2qlmc"]
+
+[ext_resource type="Texture2D" uid="uid://6iebcgno8iyy" path="res://Sprites/Hud/Berserk/pointslotmiddle_empty.png" id="1_a17q6"]
+[ext_resource type="Script" uid="uid://cnjp4njybqovj" path="res://Player/Script/Systems/pointcontainer.gd" id="1_myvb1"]
+[ext_resource type="Texture2D" uid="uid://b6nck8pqqya6h" path="res://Sprites/Hud/Berserk/pointslotmiddle_full.png" id="2_sxque"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nx606"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2ird"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a17q6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sxque")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sxque")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
+
+[node name="Middlepointcontainer" type="Panel"]
+custom_minimum_size = Vector2(95.84, 143)
+offset_right = 95.84
+offset_bottom = 143.0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nx606")
+script = ExtResource("1_myvb1")
+
+[node name="first" type="AnimatedSprite2D" parent="."]
+position = Vector2(72, 72)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_g2ird")
+animation = &"empty"

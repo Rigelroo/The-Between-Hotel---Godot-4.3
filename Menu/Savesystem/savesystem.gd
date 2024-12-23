@@ -1,4 +1,5 @@
-extends Node2D
+extends Node
+
 
 # Define o número máximo de saves
 const MAX_SAVES: int = 3
@@ -198,7 +199,7 @@ func load_game(slot: int, world_scene) -> void:
 		SignalManager.load_inventory(save_data["equiped_stamps"])
 	if "missions_array" in save_data:
 		for i in save_data["missions_array"]:
-			var quest = load(save_data["missions_array"])
+			var quest = save_data["missions_array"]
 			SignalManager.task_manager.insert(quest)
 
 

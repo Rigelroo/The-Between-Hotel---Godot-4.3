@@ -1,0 +1,21 @@
+[gd_scene load_steps=8 format=3 uid="uid://buw8duilnfqej"]
+
+[ext_resource type="Script" uid="uid://cm5ldvny0j7dc" path="res://scenes/camera_2d.gd" id="1_3v17i"]
+[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://Inventory/Scripts/inventoryItem.gd" id="2_y8g1n"]
+[ext_resource type="Script" uid="uid://b5i3v5aqdaqnf" path="res://Inventory/Scripts/inventoryItemb.gd" id="3_40wub"]
+[ext_resource type="Script" uid="uid://bt1bfgl8xv6wx" path="res://Inventory/Scripts/items_dictionary.gd" id="4_uqcxv"]
+[ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://inventory/PlayerInventory.tres" id="5_syyrj"]
+[ext_resource type="Resource" uid="uid://iqp0rlg2vnjr" path="res://inventory/PlayerInventoryb.tres" id="6_4qven"]
+
+[sub_resource type="Resource" id="Resource_oj3ef"]
+script = ExtResource("4_uqcxv")
+invsitems = Array[ExtResource("3_40wub")]([])
+invseals = Array[ExtResource("2_y8g1n")]([])
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(2.98023e-08, -65.8)
+zoom = Vector2(0.7, 0.7)
+script = ExtResource("1_3v17i")
+inv_dictionary = SubResource("Resource_oj3ef")
+inventory = ExtResource("5_syyrj")
+inventoryb = ExtResource("6_4qven")

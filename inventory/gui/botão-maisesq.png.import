@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgsdjj1kj1t7d"
-path="res://.godot/imported/botão-maisesq.png-36830716e0e6dcfa6c509e025f2339a1.ctex"
+path="res://.godot/imported/botão-maisesq.png-f491d8b65cfee52b9964c222bd6d0dbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/gui/botão-maisesq.png"
-dest_files=["res://.godot/imported/botão-maisesq.png-36830716e0e6dcfa6c509e025f2339a1.ctex"]
+source_file="res://Inventory/gui/botão-maisesq.png"
+dest_files=["res://.godot/imported/botão-maisesq.png-f491d8b65cfee52b9964c222bd6d0dbd.ctex"]
 
 [params]
 

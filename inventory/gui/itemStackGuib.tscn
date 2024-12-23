@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqywyb8k80fhd"]
 
-[ext_resource type="Script" path="res://inventory/gui/itemStackGuib.gd" id="1_l3utx"]
+[ext_resource type="Script" uid="uid://btdw8kf8x4rf2" path="res://Inventory/gui/itemStackGuib.gd" id="1_l3utx"]
 [ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="2_pbxns"]
 
 [node name="Panel" type="Panel"]

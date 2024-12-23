@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://j1tijuj74dnh"]
 
-[ext_resource type="Script" path="res://sprite_2d.gd" id="1_rw716"]
-[ext_resource type="Texture2D" uid="uid://di4qwpy3expct" path="res://inventory/Selos/selo_shadowdiver.png" id="2_b6ex7"]
+[ext_resource type="Script" uid="uid://cslev4e6pgq8o" path="res://Diversos/sprite_2d.gd" id="1_rw716"]
+[ext_resource type="Texture2D" uid="uid://di4qwpy3expct" path="res://Inventory/Selos/selo_shadowdiver.png" id="2_b6ex7"]
 
 [node name="Sprite2D" type="Node2D" node_paths=PackedStringArray("target")]
 script = ExtResource("1_rw716")

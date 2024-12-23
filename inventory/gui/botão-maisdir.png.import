@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://beiyt43blkum0"
-path="res://.godot/imported/botão-maisdir.png-8618b1b010a183a3de83b812c632fafa.ctex"
+path="res://.godot/imported/botão-maisdir.png-9ae1fec9ca95d991db5f5ec9ae79b3b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/gui/botão-maisdir.png"
-dest_files=["res://.godot/imported/botão-maisdir.png-8618b1b010a183a3de83b812c632fafa.ctex"]
+source_file="res://Inventory/gui/botão-maisdir.png"
+dest_files=["res://.godot/imported/botão-maisdir.png-9ae1fec9ca95d991db5f5ec9ae79b3b7.ctex"]
 
 [params]
 

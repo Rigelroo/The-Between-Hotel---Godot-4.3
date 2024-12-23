@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Statspoints" load_steps=3 format=3 uid="uid://bixtrrph8ibg2"]
 
-[ext_resource type="Script" path="res://inventory/StatspointItem.gd" id="1_fqkyf"]
-[ext_resource type="Texture2D" uid="uid://cvxyeoyo30aik" path="res://inventory/gui/stamppoint_item.png" id="2_lu385"]
+[ext_resource type="Script" uid="uid://s1epa6kudriw" path="res://Inventory/Scripts/StatspointItem.gd" id="1_fqkyf"]
+[ext_resource type="Texture2D" uid="uid://cvxyeoyo30aik" path="res://Inventory/gui/stamppoint_item.png" id="2_lu385"]
 
 [resource]
 script = ExtResource("1_fqkyf")

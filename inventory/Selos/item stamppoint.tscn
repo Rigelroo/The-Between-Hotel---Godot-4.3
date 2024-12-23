@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://criewgj3p57f2"]
 
-[ext_resource type="Script" path="res://inventory/Selos/collect_point.gd" id="1_fhgf0"]
-[ext_resource type="Resource" uid="uid://bixtrrph8ibg2" path="res://inventory/points/Stcontainer.tres" id="1_k7jos"]
-[ext_resource type="Texture2D" uid="uid://dayaohqxfq6rl" path="res://inventory/gui/stamppoint.png" id="3_quurb"]
+[ext_resource type="Script" uid="uid://bvq458myfn0hs" path="res://Inventory/Selos/collect_point.gd" id="1_fhgf0"]
+[ext_resource type="Resource" uid="uid://bixtrrph8ibg2" path="res://Inventory/points/Stcontainer.tres" id="1_k7jos"]
+[ext_resource type="Texture2D" uid="uid://dayaohqxfq6rl" path="res://Inventory/gui/stamppoint.png" id="3_quurb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lioiw"]
 size = Vector2(75, 75)

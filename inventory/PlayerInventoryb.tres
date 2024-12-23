@@ -1,19 +1,15 @@
-[gd_resource type="Resource" script_class="Inventoryb" load_steps=25 format=3 uid="uid://iqp0rlg2vnjr"]
+[gd_resource type="Resource" script_class="Inventoryb" load_steps=23 format=3 uid="uid://iqp0rlg2vnjr"]
 
-[ext_resource type="Script" uid="uid://bw75ynwv5kkcx" path="res://inventory/inventorySlotb.gd" id="1_xt067"]
-[ext_resource type="Resource" uid="uid://cusxsokbdck5x" path="res://inventory/Items/inkbottle.tres" id="2_lnqrr"]
-[ext_resource type="Resource" uid="uid://x27hiyflu1v" path="res://inventory/Items/inkfruits.tres" id="3_2ivs2"]
-[ext_resource type="Script" uid="uid://dkb6n1xhq7msk" path="res://inventory/inventoryb.gd" id="5_bcev6"]
+[ext_resource type="Script" uid="uid://bw75ynwv5kkcx" path="res://Inventory/Scripts/inventorySlotb.gd" id="1_xt067"]
+[ext_resource type="Script" uid="uid://dkb6n1xhq7msk" path="res://Inventory/Scripts/inventoryb.gd" id="5_bcev6"]
 
 [sub_resource type="Resource" id="Resource_dlaky"]
 script = ExtResource("1_xt067")
-item = ExtResource("2_lnqrr")
-amount = 1
+amount = 0
 
 [sub_resource type="Resource" id="Resource_eboj1"]
 script = ExtResource("1_xt067")
-item = ExtResource("3_2ivs2")
-amount = 5
+amount = 0
 
 [sub_resource type="Resource" id="Resource_jsvgv"]
 script = ExtResource("1_xt067")

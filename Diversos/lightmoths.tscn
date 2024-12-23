@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://dsfojqxnsue1l"]
+
+[ext_resource type="Texture2D" uid="uid://bwr11lq0ei6nj" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0000.png" id="1_3bswe"]
+[ext_resource type="PackedScene" uid="uid://b1gwbm7ogm5ol" path="res://Objects/lightmoths.tscn" id="1_eurm2"]
+[ext_resource type="Texture2D" uid="uid://bxhpuidos0a61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0001.png" id="2_meqtq"]
+[ext_resource type="Texture2D" uid="uid://bm73kn18iqyrn" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0002.png" id="3_6mpdb"]
+[ext_resource type="Texture2D" uid="uid://db66x10pmb632" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0003.png" id="4_wiiw8"]
+[ext_resource type="Texture2D" uid="uid://br4xjdpfr3od2" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0004.png" id="5_3xk2a"]
+[ext_resource type="Texture2D" uid="uid://b2su4ijpi25dr" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0005.png" id="6_twki8"]
+[ext_resource type="Texture2D" uid="uid://dabqxtr5g2u61" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0006.png" id="7_2bvrc"]
+[ext_resource type="Texture2D" uid="uid://bxml7dtd3yxm6" path="res://Sprites/EntryHall - Reworked/Lightmoths/Lightmoths0007.png" id="8_xi5m0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d23d7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3bswe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_meqtq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6mpdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wiiw8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3xk2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_twki8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2bvrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xi5m0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Lightmoths2" parent="." instance=ExtResource("1_eurm2")]
+
+[node name="Lightmoths3" type="AnimatedSprite2D" parent="."]
+position = Vector2(1879, 494)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_d23d7")
+autoplay = "default"
+frame_progress = 0.63364
+
+[node name="Lightmoths4" type="AnimatedSprite2D" parent="."]
+position = Vector2(2070, 382)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_d23d7")
+autoplay = "default"
+frame_progress = 0.63364
+
+[node name="Lightmoths" type="AnimatedSprite2D" parent="."]
+position = Vector2(363, 467)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_d23d7")
+autoplay = "default"
+frame_progress = 0.731416

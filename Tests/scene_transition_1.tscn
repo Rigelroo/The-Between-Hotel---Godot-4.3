@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dw5h0ahdl5gbi"]
 
-[ext_resource type="Shader" path="res://diamondtransition.gdshader" id="1_dkpf7"]
+[ext_resource type="Shader" uid="uid://bshbhxuu8yieo" path="res://Diversos/diamondtransition.gdshader" id="1_dkpf7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kj1ir"]
 shader = ExtResource("1_dkpf7")

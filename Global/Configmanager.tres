@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ConfigManager" load_steps=2 format=3 uid="uid://yeblcn3s22xm"]
 
-[ext_resource type="Script" path="res://config_manager.gd" id="1_qkv32"]
+[ext_resource type="Script" uid="uid://cddet06pg15i4" path="res://Global/config_manager.gd" id="1_qkv32"]
 
 [resource]
 script = ExtResource("1_qkv32")

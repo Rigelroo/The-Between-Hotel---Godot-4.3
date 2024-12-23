@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://or512clfwbmh"
-path="res://.godot/imported/sombrabotão-opções.png-e992b96d959094242b5bdd1ccf08198c.ctex"
+path="res://.godot/imported/sombrabotão-opções.png-c0ece0b95033979c5e57b7b6f88a49ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/gui/sombrabotão-opções.png"
-dest_files=["res://.godot/imported/sombrabotão-opções.png-e992b96d959094242b5bdd1ccf08198c.ctex"]
+source_file="res://Inventory/gui/sombrabotão-opções.png"
+dest_files=["res://.godot/imported/sombrabotão-opções.png-c0ece0b95033979c5e57b7b6f88a49ff.ctex"]
 
 [params]
 

@@ -1,0 +1,153 @@
+[gd_scene load_steps=28 format=3 uid="uid://b14pdtk7gvjfl"]
+
+[ext_resource type="Script" uid="uid://vfcwpsjel6ni" path="res://scenes/portaprincipal.gd" id="1_2l1u0"]
+[ext_resource type="PackedScene" uid="uid://dljh86hnlaoch" path="res://Entities & NPCs/Quarto 1 - bettleborough/ballondoor_1.tscn" id="3_o1dwv"]
+[ext_resource type="Texture2D" uid="uid://c24c61wqohoqx" path="res://Sprites/InteractionBox/InteractionBox - Door0000.png" id="4_7nnqm"]
+[ext_resource type="Texture2D" uid="uid://bnncqobcuueuh" path="res://Sprites/InteractionBox/InteractionBox - Door0001.png" id="5_a06u3"]
+[ext_resource type="Texture2D" uid="uid://ki5vtcln7dcf" path="res://Sprites/InteractionBox/InteractionBox - Door0002.png" id="6_rttcl"]
+[ext_resource type="Texture2D" uid="uid://cg1we2wu1evbm" path="res://Sprites/InteractionBox/InteractionBox - Door0003.png" id="7_ix0rg"]
+[ext_resource type="Texture2D" uid="uid://b2kjhdn5f5kx4" path="res://Sprites/InteractionBox/InteractionBox - Inactive0000.png" id="8_cxoyx"]
+[ext_resource type="Texture2D" uid="uid://bgquf7qlhfuvm" path="res://Sprites/InteractionBox/InteractionBox - Interaction0000.png" id="9_whti3"]
+[ext_resource type="Texture2D" uid="uid://cfn5nekyk6t06" path="res://Sprites/InteractionBox/InteractionBox - Interaction0001.png" id="10_o4l33"]
+[ext_resource type="Texture2D" uid="uid://cngoxlk7k2lwk" path="res://Sprites/InteractionBox/InteractionBox - Interaction0002.png" id="11_asqc5"]
+[ext_resource type="Texture2D" uid="uid://hc0w7v77ywet" path="res://Sprites/InteractionBox/InteractionBox - Interaction0003.png" id="12_i6isl"]
+[ext_resource type="Texture2D" uid="uid://buaj4i0w37fhc" path="res://Sprites/InteractionBox/InteractionBox - locked0000.png" id="13_d8wsh"]
+[ext_resource type="Texture2D" uid="uid://cmfgtewblulr5" path="res://Sprites/InteractionBox/InteractionBox - locked0001.png" id="14_5xe1a"]
+[ext_resource type="Texture2D" uid="uid://4mf672khj0y4" path="res://Sprites/InteractionBox/InteractionBox - locked0002.png" id="15_uapal"]
+[ext_resource type="Texture2D" uid="uid://dibyghp87j8h7" path="res://Sprites/InteractionBox/InteractionBox - locked0003.png" id="16_svv6y"]
+[ext_resource type="Texture2D" uid="uid://dteay2nq4x8lk" path="res://Sprites/InteractionBox/InteractionBox - Talk0000.png" id="17_y6xqs"]
+[ext_resource type="Texture2D" uid="uid://chearacldvmtg" path="res://Sprites/InteractionBox/InteractionBox - Talk0001.png" id="18_hsk8n"]
+[ext_resource type="Texture2D" uid="uid://bej5qewb76i7d" path="res://Sprites/InteractionBox/InteractionBox - Talk0002.png" id="19_l2f55"]
+[ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="20_it1qh"]
+[ext_resource type="Texture2D" uid="uid://cfh0n5a12t6t8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0000.png" id="21_5715a"]
+[ext_resource type="Texture2D" uid="uid://cj6c5w30gbkk8" path="res://Sprites/InteractionBox/InteractionBox - unlocking0001.png" id="22_27wde"]
+[ext_resource type="Texture2D" uid="uid://cqirufu6tyo4g" path="res://Sprites/InteractionBox/InteractionBox - unlocking0002.png" id="23_rpsrg"]
+[ext_resource type="Texture2D" uid="uid://cafljexw0icr3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0003.png" id="24_mxl0b"]
+[ext_resource type="Texture2D" uid="uid://njij15e2qajq" path="res://Sprites/InteractionBox/InteractionBox - unlocking0004.png" id="25_t137j"]
+[ext_resource type="Texture2D" uid="uid://banxu48y1a3v3" path="res://Sprites/InteractionBox/InteractionBox - unlocking0005.png" id="26_r0lp2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_duae7"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7nnqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a06u3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rttcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ix0rg")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_cxoyx")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_whti3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o4l33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_asqc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i6isl")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_d8wsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5xe1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_uapal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_svv6y")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_y6xqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hsk8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l2f55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_it1qh")
+}],
+"loop": true,
+"name": &"mission",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_5715a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_27wde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rpsrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_mxl0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_t137j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_r0lp2")
+}],
+"loop": false,
+"name": &"unlocking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik3ee"]
+size = Vector2(287, 416)
+
+[node name="Porta1" type="Node2D"]
+position = Vector2(28, 0)
+script = ExtResource("1_2l1u0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8, 1)
+scale = Vector2(0.3, 0.3)
+
+[node name="Ballondoor1" parent="." instance=ExtResource("3_o1dwv")]
+sprite_frames = SubResource("SpriteFrames_duae7")
+
+[node name="AreaD2D1" type="Area2D" parent="."]
+
+[node name="AreaInteraction" type="CollisionShape2D" parent="AreaD2D1"]
+position = Vector2(-26.5, 72)
+shape = SubResource("RectangleShape2D_ik3ee")
+
+[connection signal="body_entered" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_entered"]
+[connection signal="body_exited" from="AreaD2D1" to="." method="_on_area_d_2d_1_body_exited"]

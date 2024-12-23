@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b03ebqn7hj8rn"]
+
+[ext_resource type="Script" uid="uid://cnjp4njybqovj" path="res://Player/Script/Systems/pointcontainer.gd" id="1_fw5rj"]
+[ext_resource type="Texture2D" uid="uid://bl3lrlb0p2qsu" path="res://Sprites/Hud/Berserk/pointslotfinal_empty.png" id="1_wr07o"]
+[ext_resource type="Texture2D" uid="uid://bpan64nuwmdl1" path="res://Sprites/Hud/Berserk/pointslotfinal_full.png" id="2_u03bb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eqwkg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26vp4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wr07o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u03bb")
+}],
+"loop": false,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u03bb")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
+
+[node name="Finalpointcontainer" type="Panel"]
+custom_minimum_size = Vector2(95.84, 143)
+offset_right = 95.84
+offset_bottom = 143.0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_eqwkg")
+script = ExtResource("1_fw5rj")
+
+[node name="first" type="AnimatedSprite2D" parent="."]
+position = Vector2(83, 45)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_26vp4")
+animation = &"empty"

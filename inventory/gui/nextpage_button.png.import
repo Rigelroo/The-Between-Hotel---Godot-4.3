@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxf5202dmcc6r"
-path="res://.godot/imported/nextpage_button.png-41c8d2d7a2e26bb5e78c731e4a21f61f.ctex"
+path="res://.godot/imported/nextpage_button.png-7fb910f03def5a3ebf834129c05e5cf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/gui/nextpage_button.png"
-dest_files=["res://.godot/imported/nextpage_button.png-41c8d2d7a2e26bb5e78c731e4a21f61f.ctex"]
+source_file="res://Inventory/gui/nextpage_button.png"
+dest_files=["res://.godot/imported/nextpage_button.png-7fb910f03def5a3ebf834129c05e5cf7.ctex"]
 
 [params]
 

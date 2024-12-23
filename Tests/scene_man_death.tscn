@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cwmc40ufjcm7h"]
 
-[ext_resource type="Script" path="res://Tests/scene_managermod.gd" id="1_8owgt"]
-[ext_resource type="Shader" path="res://diamondtransition.gdshader" id="2_y3yai"]
+[ext_resource type="Script" uid="uid://cx80whgkkqubf" path="res://Tests/scene_managermod.gd" id="1_8owgt"]
+[ext_resource type="Shader" uid="uid://bshbhxuu8yieo" path="res://Diversos/diamondtransition.gdshader" id="2_y3yai"]
 [ext_resource type="Texture2D" uid="uid://crq2jcj5uidtc" path="res://Sprites/Bettlebourough/npcs/pulg_walk0000.png" id="3_8d5q0"]
 [ext_resource type="Texture2D" uid="uid://b716dktklkfvs" path="res://Sprites/Bettlebourough/npcs/pulg_walk0001.png" id="4_7s7ek"]
 [ext_resource type="Texture2D" uid="uid://cimhuri8qd512" path="res://Sprites/Bettlebourough/npcs/pulg_walk0002.png" id="5_3yl4a"]

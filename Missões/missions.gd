@@ -27,7 +27,7 @@ class_name Questtask
 @export var reward_itemb : InventoryItemb
 @export var reward_item_amount : int
 @export var reward_itemb_amount : int
-
+@export var first_quest: bool = true
 @export var item_amount: int = 2
 
 

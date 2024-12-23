@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://do2mpol0ot0fb"
-path="res://.godot/imported/quadro0004.png-a7861a7c6456e0a3074a5e673ee58e03.ctex"
+path="res://.godot/imported/quadro0004.png-a07bf63780d0b5142e88a1acc5741b9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/Moedas/quadro0004.png"
-dest_files=["res://.godot/imported/quadro0004.png-a7861a7c6456e0a3074a5e673ee58e03.ctex"]
+source_file="res://Inventory/Moedas/quadro0004.png"
+dest_files=["res://.godot/imported/quadro0004.png-a07bf63780d0b5142e88a1acc5741b9e.ctex"]
 
 [params]
 

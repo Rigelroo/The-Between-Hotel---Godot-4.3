@@ -1,0 +1,94 @@
+[gd_scene load_steps=19 format=3 uid="uid://puxbdddegki2"]
+
+[ext_resource type="Script" uid="uid://dg5pofww2a2ng" path="res://Diversos/hudbar.gd" id="1_b5md3"]
+[ext_resource type="Texture2D" path="res://Sprites/Hud/Healthbar0000.png" id="1_w4ltg"]
+[ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_34fk3"]
+[ext_resource type="Texture2D" path="res://Sprites/Hud/Healthbar0001.png" id="2_ki70w"]
+[ext_resource type="Texture2D" path="res://Sprites/Hud/Healthbar0002.png" id="3_l2qql"]
+[ext_resource type="Texture2D" path="res://Sprites/Hud/Healthbar0003.png" id="4_ihtuv"]
+[ext_resource type="Texture2D" path="res://Sprites/Hud/Healthbar0004.png" id="5_lmo3o"]
+[ext_resource type="Texture2D" path="res://Sprites/Hud/Healthbar0005.png" id="6_0psoo"]
+[ext_resource type="Texture2D" path="res://Sprites/Hud/Healthbar0006.png" id="7_kf4pr"]
+[ext_resource type="Texture2D" uid="uid://b56u1pcaasvkk" path="res://Sprites/Hud/Inkbar0000.png" id="8_ln73s"]
+[ext_resource type="Texture2D" uid="uid://svc4y831hmse" path="res://Sprites/Hud/Inkbar0001.png" id="9_l1j1s"]
+[ext_resource type="Texture2D" uid="uid://cgm3jpox8iy6m" path="res://Sprites/Hud/Inkbar0002.png" id="10_5eqvl"]
+[ext_resource type="Texture2D" uid="uid://n3v1vt1msfiu" path="res://Sprites/Hud/Inkbar0003.png" id="11_u8gmt"]
+[ext_resource type="Texture2D" uid="uid://b075ca36mq61q" path="res://Sprites/Hud/Inkbar0004.png" id="12_u8pon"]
+[ext_resource type="Texture2D" uid="uid://icac338b55le" path="res://Sprites/Hud/Inkbar0005.png" id="13_a1wbe"]
+[ext_resource type="Texture2D" uid="uid://ci3rmveukgwly" path="res://Sprites/Hud/Inkbar0006.png" id="14_m0xr0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ic2uc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w4ltg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ki70w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l2qql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ihtuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lmo3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0psoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kf4pr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bsk4y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ln73s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l1j1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5eqvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u8gmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u8pon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_a1wbe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_m0xr0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Hudbar" type="Node2D" node_paths=PackedStringArray("lifemeter", "inkmeter")]
+light_mask = 524288
+position = Vector2(281, 129)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_b5md3")
+lifemeter = NodePath("Lifemeter")
+inkmeter = NodePath("inkmeter")
+manager = ExtResource("2_34fk3")
+metadata/_edit_group_ = true
+
+[node name="Lifemeter" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.00012207, -6.10352e-05)
+sprite_frames = SubResource("SpriteFrames_ic2uc")
+
+[node name="inkmeter" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.00012207, -6.10352e-05)
+sprite_frames = SubResource("SpriteFrames_bsk4y")

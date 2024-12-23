@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5evayqyu6mby"
-path="res://.godot/imported/desenhopersian2.png-8d5a29fb3cb3407fa84e7b72e6eb6101.ctex"
+path="res://.godot/imported/desenhopersian2.png-1e847b923e151aee4c3be170160204c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/gui/desenhopersian2.png"
-dest_files=["res://.godot/imported/desenhopersian2.png-8d5a29fb3cb3407fa84e7b72e6eb6101.ctex"]
+source_file="res://Inventory/gui/desenhopersian2.png"
+dest_files=["res://.godot/imported/desenhopersian2.png-1e847b923e151aee4c3be170160204c8.ctex"]
 
 [params]
 

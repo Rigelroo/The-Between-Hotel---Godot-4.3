@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://7odf4fl3armh"]
 
-[ext_resource type="Script" path="res://objects/scene_trigger.gd" id="1_p2fb6"]
+[ext_resource type="Script" uid="uid://x6ltrvfesb6h" path="res://Objects/scene_trigger.gd" id="1_p2fb6"]
 
 [node name="SceneTrigger" type="Area2D"]
 script = ExtResource("1_p2fb6")

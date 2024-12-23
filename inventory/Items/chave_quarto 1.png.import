@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jt2qkfwp7lrd"
-path="res://.godot/imported/chave_quarto 1.png-561a5fbfc4ffd11c11483f374897b130.ctex"
+path="res://.godot/imported/chave_quarto 1.png-d2507798d4df9a4e9c93623a003681bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/Items/chave_quarto 1.png"
-dest_files=["res://.godot/imported/chave_quarto 1.png-561a5fbfc4ffd11c11483f374897b130.ctex"]
+source_file="res://Inventory/Items/chave_quarto 1.png"
+dest_files=["res://.godot/imported/chave_quarto 1.png-d2507798d4df9a4e9c93623a003681bd.ctex"]
 
 [params]
 

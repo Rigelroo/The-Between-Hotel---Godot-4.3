@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://e864yq4aeifi"]
 
-[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://inventory/inventoryItem.gd" id="1_lshhl"]
-[ext_resource type="Texture2D" uid="uid://ca7tu3todq1tf" path="res://inventory/Selos/selo_fireflyemblem.png" id="2_1w8se"]
+[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://Inventory/Scripts/inventoryItem.gd" id="1_lshhl"]
+[ext_resource type="Texture2D" uid="uid://ca7tu3todq1tf" path="res://Inventory/Selos/selo_fireflyemblem.png" id="2_1w8se"]
 
 [resource]
 script = ExtResource("1_lshhl")

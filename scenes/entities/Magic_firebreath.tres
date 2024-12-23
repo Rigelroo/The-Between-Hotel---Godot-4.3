@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="MagicResource" load_steps=4 format=3 uid="uid://bym3eoca4mlv1"]
 
-[ext_resource type="Script" uid="uid://48ds85a7jp7w" path="res://MagicResource.gd" id="1_4bx0v"]
-[ext_resource type="Resource" uid="uid://e864yq4aeifi" path="res://inventory/Selos/selo_fireflyemblem.tres" id="1_j0362"]
-[ext_resource type="Texture2D" uid="uid://ca7tu3todq1tf" path="res://inventory/Selos/selo_fireflyemblem.png" id="3_sdwhd"]
+[ext_resource type="Script" uid="uid://48ds85a7jp7w" path="res://Diversos/MagicResource.gd" id="1_4bx0v"]
+[ext_resource type="Resource" uid="uid://e864yq4aeifi" path="res://Inventory/Selos/selo_fireflyemblem.tres" id="1_j0362"]
+[ext_resource type="Texture2D" uid="uid://ca7tu3todq1tf" path="res://Inventory/Selos/selo_fireflyemblem.png" id="3_sdwhd"]
 
 [resource]
 script = ExtResource("1_4bx0v")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgefh7irbavfb"
-path="res://.godot/imported/pacote.png-8cefb1c47a6bb234a65b06aae1b1f4d2.ctex"
+path="res://.godot/imported/pacote.png-3ee8c95efbd50438afe8f72ff7b79f20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/Chaves/pacote.png"
-dest_files=["res://.godot/imported/pacote.png-8cefb1c47a6bb234a65b06aae1b1f4d2.ctex"]
+source_file="res://Inventory/Chaves/pacote.png"
+dest_files=["res://.godot/imported/pacote.png-3ee8c95efbd50438afe8f72ff7b79f20.ctex"]
 
 [params]
 

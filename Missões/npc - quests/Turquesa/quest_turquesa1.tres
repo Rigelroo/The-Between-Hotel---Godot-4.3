@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Questtask" load_steps=7 format=3 uid="uid://ckrn5bqusglwa"]
 
 [ext_resource type="Script" uid="uid://cxvxkqnaxocnq" path="res://Missões/missions.gd" id="1_nm6pa"]
-[ext_resource type="Texture2D" uid="uid://dgefh7irbavfb" path="res://inventory/Chaves/pacote.png" id="1_wvg5m"]
+[ext_resource type="Texture2D" uid="uid://dgefh7irbavfb" path="res://Inventory/Chaves/pacote.png" id="1_wvg5m"]
 [ext_resource type="Texture2D" uid="uid://vxnsmkwiq5sv" path="res://Missões/npc icons/Turquesa.png" id="2_hdmdk"]
-[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://inventory/Selos/selo_herculesleaf.tres" id="3_77jrb"]
-[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="3_r6ifo"]
-[ext_resource type="Resource" uid="uid://d0u0pxghi7rdu" path="res://inventory/Items/pacote.tres" id="4_hkcgc"]
+[ext_resource type="Resource" uid="uid://bswf6hyyrao5a" path="res://Inventory/Selos/selo_herculesleaf.tres" id="3_77jrb"]
+[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://Inventory/Selos/selo_herculesleaf.png" id="3_r6ifo"]
+[ext_resource type="Resource" uid="uid://d0u0pxghi7rdu" path="res://Inventory/Items/pacote.tres" id="4_hkcgc"]
 
 [resource]
 script = ExtResource("1_nm6pa")

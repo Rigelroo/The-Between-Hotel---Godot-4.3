@@ -1,0 +1,224 @@
+[gd_scene load_steps=14 format=3 uid="uid://cwlonwe31pl4n"]
+
+[ext_resource type="Texture2D" uid="uid://ctg06lrh0ryx3" path="res://Menu/Sprites/logomarca.png" id="1_a2enh"]
+[ext_resource type="Script" uid="uid://g2w6cgelhmeb" path="res://Diversos/logo.gd" id="1_ma45y"]
+[ext_resource type="Script" uid="uid://bb60pyyexo3un" path="res://scenes/canvas_layer.gd" id="3_y642d"]
+[ext_resource type="Shader" uid="uid://d2iygc34knq60" path="res://Objects/test.gdshader" id="4_iicoe"]
+[ext_resource type="Shader" uid="uid://b0scaouj3av82" path="res://Inventory/Items/item_1.gdshader" id="5_dj7nl"]
+
+[sub_resource type="Gradient" id="Gradient_j0rgc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cr4oy"]
+gradient = SubResource("Gradient_j0rgc")
+
+[sub_resource type="Animation" id="Animation_cf486"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logomarca:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.837469, 0.837469, 0.837469, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logomarca:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(562, 330)]
+}
+
+[sub_resource type="Animation" id="Animation_chk6n"]
+resource_name = "out"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logomarca:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.837469, 0.837469, 0.837469, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logomarca:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(562, 330), Vector2(562, 387)]
+}
+
+[sub_resource type="Animation" id="Animation_78kvh"]
+resource_name = "surge"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logomarca:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.837469, 0.837469, 0.837469, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logomarca:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.733333, 1.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(562, 387), Vector2(562, 330)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k4dbj"]
+_data = {
+&"RESET": SubResource("Animation_cf486"),
+&"out": SubResource("Animation_chk6n"),
+&"surge": SubResource("Animation_78kvh")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0gd3"]
+shader = ExtResource("4_iicoe")
+shader_parameter/grain_amount = 0.04
+shader_parameter/grain_size = 0.694
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2evd"]
+shader = ExtResource("5_dj7nl")
+shader_parameter/resolution = Vector2(1280, 720)
+shader_parameter/scan_line_amount = 0.102
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -4.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ma45y")
+next_scene = "res://Menu/menuprincipal.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0289883, 0.000904278, 0.118824, 1)
+position = Vector2(-111, -104)
+scale = Vector2(21.1178, 12.6778)
+texture = SubResource("GradientTexture2D_cr4oy")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.837469, 0.837469, 0.837469, 1)
+position = Vector2(-111, -104)
+scale = Vector2(21.1178, 12.6778)
+texture = SubResource("GradientTexture2D_cr4oy")
+centered = false
+
+[node name="Logomarca" type="Sprite2D" parent="."]
+position = Vector2(562, 330)
+scale = Vector2(0.0692133, 0.0692133)
+texture = ExtResource("1_a2enh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k4dbj")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+script = ExtResource("3_y642d")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer"]
+top_level = true
+material = SubResource("ShaderMaterial_u0gd3")
+offset_right = 1191.0
+offset_bottom = 678.0
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1191, 678)
+render_target_update_mode = 4
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+visible = false
+top_level = true
+material = SubResource("ShaderMaterial_d2evd")
+offset_right = 1191.0
+offset_bottom = 678.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1191, 678)
+render_target_update_mode = 0

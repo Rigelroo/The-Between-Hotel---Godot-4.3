@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MagicResource" load_steps=2 format=3 uid="uid://bobjqo2b3e2d2"]
 
-[ext_resource type="Script" path="res://MagicResource.gd" id="1_sd4gw"]
+[ext_resource type="Script" uid="uid://48ds85a7jp7w" path="res://Diversos/MagicResource.gd" id="1_sd4gw"]
 
 [resource]
 script = ExtResource("1_sd4gw")

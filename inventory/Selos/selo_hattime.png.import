@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcilvlfcwyjy4"
-path="res://.godot/imported/selo_hattime.png-eeb765adb800e57d35886263d02379e3.ctex"
+path="res://.godot/imported/selo_hattime.png-9ca5b2fa1f9d5b42b1cb7ebfa8c23a9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/Selos/selo_hattime.png"
-dest_files=["res://.godot/imported/selo_hattime.png-eeb765adb800e57d35886263d02379e3.ctex"]
+source_file="res://Inventory/Selos/selo_hattime.png"
+dest_files=["res://.godot/imported/selo_hattime.png-9ca5b2fa1f9d5b42b1cb7ebfa8c23a9e.ctex"]
 
 [params]
 

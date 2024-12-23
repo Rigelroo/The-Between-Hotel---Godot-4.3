@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://defdkxqsknv2i"
-path.s3tc="res://.godot/imported/mouse.png-bf364a86a59a610c5e47df194f87c647.s3tc.ctex"
+path.s3tc="res://.godot/imported/mouse.png-48c091f0e3598ab60287c212eb0a528f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://inventory/gui/Selector/mouse.png"
-dest_files=["res://.godot/imported/mouse.png-bf364a86a59a610c5e47df194f87c647.s3tc.ctex"]
+source_file="res://Inventory/gui/Selector/mouse.png"
+dest_files=["res://.godot/imported/mouse.png-48c091f0e3598ab60287c212eb0a528f.s3tc.ctex"]
 
 [params]
 

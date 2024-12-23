@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://164hbrtjemk7"]
 
-[ext_resource type="Script" path="res://inventory/slot_gui_e.gd" id="1_kuaub"]
-[ext_resource type="Texture2D" uid="uid://cvqt8xj0rcd5q" path="res://inventory/slot usarselo.png" id="2_qbjgi"]
+[ext_resource type="Script" uid="uid://iym5n4aba1jm" path="res://Inventory/Scripts/slot_gui_e.gd" id="1_kuaub"]
+[ext_resource type="Texture2D" uid="uid://cvqt8xj0rcd5q" path="res://Inventory/slot usarselo.png" id="2_qbjgi"]
 
 [node name="Sealbar_slot" type="Button"]
 self_modulate = Color(1, 1, 1, 0)

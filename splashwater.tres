@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="SplashWater" load_steps=2 format=3 uid="uid://dekkp2c5lvf1n"]
-
-[ext_resource type="Script" path="res://splashwater.gd" id="1_v3xod"]
-
-[resource]
-script = ExtResource("1_v3xod")
-can_create = false

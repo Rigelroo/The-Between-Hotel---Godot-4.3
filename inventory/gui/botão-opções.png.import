@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dorltxfh7tgc4"
-path="res://.godot/imported/botão-opções.png-2557484d4facbc91c54dce57ee2460a4.ctex"
+path="res://.godot/imported/botão-opções.png-fafe5b5de4aa8af5f84db3181ae9fde1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/gui/botão-opções.png"
-dest_files=["res://.godot/imported/botão-opções.png-2557484d4facbc91c54dce57ee2460a4.ctex"]
+source_file="res://Inventory/gui/botão-opções.png"
+dest_files=["res://.godot/imported/botão-opções.png-fafe5b5de4aa8af5f84db3181ae9fde1.ctex"]
 
 [params]
 

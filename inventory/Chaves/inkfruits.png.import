@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dop427ltmk23j"
-path="res://.godot/imported/inkfruits.png-f70b321abdc9099fa29bdaf3016d4569.ctex"
+path="res://.godot/imported/inkfruits.png-1d1fcddfe104d424d1322dbfe3bbd1ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/Chaves/inkfruits.png"
-dest_files=["res://.godot/imported/inkfruits.png-f70b321abdc9099fa29bdaf3016d4569.ctex"]
+source_file="res://Inventory/Chaves/inkfruits.png"
+dest_files=["res://.godot/imported/inkfruits.png-1d1fcddfe104d424d1322dbfe3bbd1ec.ctex"]
 
 [params]
 

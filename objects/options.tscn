@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bjwkr4x56yhpd"]
 
-[ext_resource type="Texture2D" uid="uid://vt7l3xin7eoe" path="res://inventory/gui/scroll.png" id="1_7uytx"]
+[ext_resource type="Texture2D" uid="uid://vt7l3xin7eoe" path="res://Inventory/gui/scroll.png" id="1_7uytx"]
 [ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="1_q4lcx"]
 [ext_resource type="FontFile" uid="uid://dbf30jmb03jwh" path="res://Fonts/Typewriter215FP-Heavyhanded.otf" id="2_824n3"]
 [ext_resource type="Texture2D" uid="uid://b88736hycycnl" path="res://Missões/checkboxcheck.png" id="4_17i1j"]

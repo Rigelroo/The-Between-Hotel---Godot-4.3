@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cl8l2ymavhowa" path="res://Missões/task_panel.png" id="1_1qn4o"]
 [ext_resource type="Script" uid="uid://5pixnjhvrfox" path="res://Missões/taskpanel.gd" id="1_fvg7h"]
-[ext_resource type="Script" uid="uid://dijx5q20bnxls" path="res://inventory/gui/itemStackGui.gd" id="2_7a77s"]
-[ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://inventory/PlayerInventory.tres" id="3_lq2rw"]
-[ext_resource type="Texture2D" uid="uid://dgefh7irbavfb" path="res://inventory/Chaves/pacote.png" id="4_otpdb"]
+[ext_resource type="Script" uid="uid://dijx5q20bnxls" path="res://Inventory/gui/itemStackGui.gd" id="2_7a77s"]
+[ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://Inventory/PlayerInventory.tres" id="3_lq2rw"]
+[ext_resource type="Texture2D" uid="uid://dgefh7irbavfb" path="res://Inventory/Chaves/pacote.png" id="4_otpdb"]
 [ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="5_28o2f"]
 [ext_resource type="Texture2D" uid="uid://vxnsmkwiq5sv" path="res://Missões/npc icons/Turquesa.png" id="6_tjaj8"]
 [ext_resource type="Texture2D" uid="uid://dl1pn2s2a86fr" path="res://Sprites/Namebox.png" id="7_3e6j5"]

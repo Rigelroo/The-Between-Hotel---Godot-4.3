@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo72gho86k3e3"]
 
-[ext_resource type="Script" path="res://inventory/sealscontainer.gd" id="1_dx4ff"]
-[ext_resource type="PackedScene" uid="uid://164hbrtjemk7" path="res://inventory/usarslot.tscn" id="2_bexy5"]
+[ext_resource type="Script" uid="uid://cmuyg8sgekvdq" path="res://Inventory/Scripts/sealscontainer.gd" id="1_dx4ff"]
+[ext_resource type="PackedScene" uid="uid://164hbrtjemk7" path="res://Inventory/usarslot.tscn" id="2_bexy5"]
 
 [node name="SealBar" type="Control"]
 layout_mode = 3

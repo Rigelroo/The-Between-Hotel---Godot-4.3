@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jcfth6m4bc0m"
-path="res://.godot/imported/submenu - Missões.png-2bd1644e3b347746609203f14c587824.ctex"
+path="res://.godot/imported/submenu - Missões.png-6b6cbb10bebdea059dad2c86962de56b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://inventory/submenu - Missões.png"
-dest_files=["res://.godot/imported/submenu - Missões.png-2bd1644e3b347746609203f14c587824.ctex"]
+source_file="res://Inventory/submenu - Missões.png"
+dest_files=["res://.godot/imported/submenu - Missões.png-6b6cbb10bebdea059dad2c86962de56b.ctex"]
 
 [params]
 

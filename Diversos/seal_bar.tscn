@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://toiqcnid3qpe"]
+
+[ext_resource type="Script" uid="uid://cmuyg8sgekvdq" path="res://Inventory/Scripts/sealscontainer.gd" id="1_pcdrb"]
+[ext_resource type="PackedScene" uid="uid://164hbrtjemk7" path="res://Inventory/usarslot.tscn" id="2_g4pcb"]
+
+[node name="SealBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 595.0
+offset_top = 543.0
+offset_right = 595.0
+offset_bottom = 543.0
+script = ExtResource("1_pcdrb")
+
+[node name="Sealbar_slot" parent="." instance=ExtResource("2_g4pcb")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="Sealbar_slot2" parent="." instance=ExtResource("2_g4pcb")]
+layout_mode = 1
+offset_left = 34.0
+offset_top = -87.0
+offset_right = 108.48
+offset_bottom = -7.0
+
+[node name="Sealbar_slot5" parent="." instance=ExtResource("2_g4pcb")]
+layout_mode = 1
+offset_left = 145.0
+offset_top = -108.0
+offset_right = 219.48
+offset_bottom = -28.0
+
+[node name="Sealbar_slot6" parent="." instance=ExtResource("2_g4pcb")]
+layout_mode = 1
+offset_left = 151.0
+offset_top = 54.0
+offset_right = 225.48
+offset_bottom = 134.0
+
+[node name="Sealbar_slot3" parent="." instance=ExtResource("2_g4pcb")]
+layout_mode = 1
+offset_left = 302.0
+offset_right = 376.48
+offset_bottom = 80.0
+
+[node name="Sealbar_slot4" parent="." instance=ExtResource("2_g4pcb")]
+layout_mode = 1
+offset_left = 263.0
+offset_top = -90.0
+offset_right = 337.48
+offset_bottom = -10.0

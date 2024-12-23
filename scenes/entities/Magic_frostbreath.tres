@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="MagicResource" load_steps=4 format=3 uid="uid://wvb53v5sxedy"]
 
-[ext_resource type="Resource" uid="uid://bojqr7cp6eeiq" path="res://inventory/Selos/selo_frozenheart.tres" id="1_sknpt"]
-[ext_resource type="Script" uid="uid://48ds85a7jp7w" path="res://MagicResource.gd" id="2_jr015"]
-[ext_resource type="Texture2D" uid="uid://dmymbqqyxrr5w" path="res://inventory/Selos/selo_frozenheart.png" id="3_fe3de"]
+[ext_resource type="Resource" uid="uid://bojqr7cp6eeiq" path="res://Inventory/Selos/selo_frozenheart.tres" id="1_sknpt"]
+[ext_resource type="Script" uid="uid://48ds85a7jp7w" path="res://Diversos/MagicResource.gd" id="2_jr015"]
+[ext_resource type="Texture2D" uid="uid://dmymbqqyxrr5w" path="res://Inventory/Selos/selo_frozenheart.png" id="3_fe3de"]
 
 [resource]
 script = ExtResource("2_jr015")

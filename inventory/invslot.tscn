@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwtnff04la3ur"]
 
-[ext_resource type="Script" path="res://inventory/invslot.gd" id="1_5gori"]
-[ext_resource type="Texture2D" uid="uid://bu5j55xadjhoq" path="res://inventory/slot inventario - NoItem.png" id="2_fndyo"]
-[ext_resource type="Texture2D" uid="uid://cagdcxwlouavo" path="res://inventory/slot inventario.png" id="2_foa85"]
-[ext_resource type="Texture2D" uid="uid://bihn5fnhicph1" path="res://inventory/slot inventario - select.png" id="4_ubn74"]
+[ext_resource type="Script" uid="uid://bptb44i3lhwg0" path="res://Inventory/Scripts/invslot.gd" id="1_5gori"]
+[ext_resource type="Texture2D" uid="uid://bu5j55xadjhoq" path="res://Inventory/slot inventario - NoItem.png" id="2_fndyo"]
+[ext_resource type="Texture2D" uid="uid://cagdcxwlouavo" path="res://Inventory/slot inventario.png" id="2_foa85"]
+[ext_resource type="Texture2D" uid="uid://bihn5fnhicph1" path="res://Inventory/slot inventario - select.png" id="4_ubn74"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i5myy"]
 animations = [{

@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://bn1ggfjylttat"]
 
-[ext_resource type="Texture2D" uid="uid://dfxghb6502c50" path="res://inventory/show_effect_back.png" id="1_g1lb2"]
-[ext_resource type="Script" path="res://scenes/showeffect.gd" id="1_tt6vu"]
-[ext_resource type="Texture2D" uid="uid://btm1v7eqps0o7" path="res://inventory/show_effect.png" id="2_ypyb3"]
-[ext_resource type="Texture2D" uid="uid://b3bfvxfya6yj8" path="res://inventory/tcham1.png" id="3_eo74i"]
-[ext_resource type="Texture2D" uid="uid://cehaydky0l5co" path="res://inventory/tcham2.png" id="4_bm7lp"]
-[ext_resource type="Animation" uid="uid://don6gwdylkb6c" path="res://tcham1.res" id="6_raf4n"]
+[ext_resource type="Texture2D" uid="uid://dfxghb6502c50" path="res://Inventory/show_effect_back.png" id="1_g1lb2"]
+[ext_resource type="Script" uid="uid://dboupaxeoj41t" path="res://scenes/showeffect.gd" id="1_tt6vu"]
+[ext_resource type="Texture2D" uid="uid://btm1v7eqps0o7" path="res://Inventory/show_effect.png" id="2_ypyb3"]
+[ext_resource type="Texture2D" uid="uid://b3bfvxfya6yj8" path="res://Inventory/tcham1.png" id="3_eo74i"]
+[ext_resource type="Texture2D" uid="uid://cehaydky0l5co" path="res://Inventory/tcham2.png" id="4_bm7lp"]
+[ext_resource type="Animation" uid="uid://don6gwdylkb6c" path="res://Diversos/tcham1.res" id="6_raf4n"]
 [ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="7_bgrxt"]
 
 [sub_resource type="Animation" id="Animation_8m3e0"]

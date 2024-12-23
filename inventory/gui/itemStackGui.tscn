@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkr5mqcic21i8"]
 
-[ext_resource type="Script" path="res://inventory/gui/itemStackGui.gd" id="1_odrey"]
-[ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://inventory/PlayerInventory.tres" id="2_68w1r"]
-[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://inventory/Selos/selo_herculesleaf.png" id="3_qviop"]
+[ext_resource type="Script" uid="uid://dijx5q20bnxls" path="res://Inventory/gui/itemStackGui.gd" id="1_odrey"]
+[ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://Inventory/PlayerInventory.tres" id="2_68w1r"]
+[ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://Inventory/Selos/selo_herculesleaf.png" id="3_qviop"]
 [ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="4_y1735"]
 
 [node name="Panel" type="Panel"]

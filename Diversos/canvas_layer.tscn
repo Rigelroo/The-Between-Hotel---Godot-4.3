@@ -1,0 +1,226 @@
+[gd_scene load_steps=19 format=3 uid="uid://cn5w1vi5yjg3u"]
+
+[ext_resource type="Script" uid="uid://bb60pyyexo3un" path="res://scenes/canvas_layer.gd" id="1_f1ums"]
+[ext_resource type="PackedScene" uid="uid://cr0rxd186uoyo" path="res://Inventory/menuselos.tscn" id="3_2ly1l"]
+[ext_resource type="Shader" uid="uid://d2iygc34knq60" path="res://Objects/test.gdshader" id="4_2swba"]
+[ext_resource type="Shader" uid="uid://b0scaouj3av82" path="res://Inventory/Items/item_1.gdshader" id="4_ipweg"]
+[ext_resource type="Script" uid="uid://b8ohonjblhqyo" path="res://Inventory/Scripts/notificationsystem.gd" id="5_280g2"]
+[ext_resource type="FontFile" uid="uid://exj3c8h6l0tr" path="res://Fonts/Typewriter215FP-Bold.otf" id="7_as1ww"]
+[ext_resource type="Script" uid="uid://bhe7fvbflarf5" path="res://Fonts/pivot.gd" id="8_dcl8t"]
+[ext_resource type="PackedScene" uid="uid://1uftutib1rsp" path="res://Missões/taskpanelnotif.tscn" id="9_g3huw"]
+[ext_resource type="Script" uid="uid://l434js5cj2ls" path="res://Fonts/slinky.gd" id="9_robvp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0gd3"]
+shader = ExtResource("4_2swba")
+shader_parameter/grain_amount = 0.04
+shader_parameter/grain_size = 0.694
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2evd"]
+shader = ExtResource("4_ipweg")
+shader_parameter/resolution = Vector2(1280, 720)
+shader_parameter/scan_line_amount = 0.102
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -4.0
+
+[sub_resource type="Animation" id="Animation_fkxa7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-390, 238)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Taskcontainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-395, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g3huw"]
+resource_name = "hidetask"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(13, 238), Vector2(-390, 238)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Taskcontainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(34, 1), Vector2(-395, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lrj6d"]
+resource_name = "showtask"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-390, 238), Vector2(13, 238)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Taskcontainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-395, 1), Vector2(34, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ml53l"]
+_data = {
+&"RESET": SubResource("Animation_fkxa7"),
+&"hidetask": SubResource("Animation_g3huw"),
+&"showtask": SubResource("Animation_lrj6d")
+}
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_2kpu7"]
+script = ExtResource("8_dcl8t")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ke5is"]
+script = ExtResource("9_robvp")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eyv6i"]
+
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("inventory")]
+process_mode = 3
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+script = ExtResource("1_f1ums")
+inventory = NodePath("InventoryGui")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+top_level = true
+z_index = 6
+material = SubResource("ShaderMaterial_u0gd3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
+top_level = true
+z_index = 6
+material = SubResource("ShaderMaterial_d2evd")
+offset_right = 1191.0
+offset_bottom = 678.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1191, 678)
+render_target_update_mode = 0
+
+[node name="InventoryGui" parent="." instance=ExtResource("3_2ly1l")]
+
+[node name="NotificationsSystem" type="Control" parent="."]
+z_index = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1111.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_280g2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NotificationsSystem"]
+libraries = {
+&"": SubResource("AnimationLibrary_ml53l")
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NotificationsSystem"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -96.5
+offset_right = 380.0
+offset_bottom = 96.5
+grow_vertical = 2
+theme_override_constants/separation = -15
+
+[node name="Label" type="RichTextLabel" parent="NotificationsSystem/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.054902, 0.0156863, 0.137255, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("7_as1ww")
+theme_override_font_sizes/normal_font_size = 51
+bbcode_enabled = true
+text = "Nova Missão!"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_2kpu7"), SubResource("RichTextEffect_ke5is")]
+
+[node name="Taskcontainer" type="Panel" parent="NotificationsSystem/VBoxContainer"]
+custom_minimum_size = Vector2(341, 150)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_eyv6i")
+
+[node name="Taskpanel" parent="NotificationsSystem/VBoxContainer/Taskcontainer" instance=ExtResource("9_g3huw")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 341.0
+offset_bottom = 153.0
+
+[node name="Timer" type="Timer" parent="NotificationsSystem"]

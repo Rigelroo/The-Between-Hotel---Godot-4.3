@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://2kwnf3bx5cwl"]
 
-[ext_resource type="Script" path="res://objects/deadbody.gd" id="1_gfa5p"]
+[ext_resource type="Script" uid="uid://btqlwn0aqkj6h" path="res://Objects/deadbody.gd" id="1_gfa5p"]
 [ext_resource type="Texture2D" uid="uid://c745eja0irsba" path="res://Sprites/Bettlebourough/enemies/wasp/dead.png" id="1_ph7qn"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_322oo"]

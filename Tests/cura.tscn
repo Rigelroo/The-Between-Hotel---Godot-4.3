@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://t6vpd744x7h4"]
 
-[ext_resource type="Script" path="res://scenes/curar.gd" id="1_qpi36"]
+[ext_resource type="Script" uid="uid://cbjsts2260ih" path="res://scenes/curar.gd" id="1_qpi36"]
 [ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_t3rbe"]
-[ext_resource type="Texture2D" uid="uid://dop427ltmk23j" path="res://inventory/Chaves/inkfruits.png" id="2_u5iu8"]
+[ext_resource type="Texture2D" uid="uid://dop427ltmk23j" path="res://Inventory/Chaves/inkfruits.png" id="2_u5iu8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3oce"]
 size = Vector2(103, 109)
