@@ -1,6 +1,6 @@
 [gd_scene load_steps=40 format=4 uid="uid://1gkt2fv2orts"]
 
-[ext_resource type="Script" path="res://scenes/entry_hall_node.gd" id="1_gf6jh"]
+[ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_gf6jh"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://splashwater.tres" id="2_ofek4"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="3_x8x4o"]
 [ext_resource type="Texture2D" uid="uid://cwn7bcchudyhg" path="res://Sprites/Bettlebourough/1.png" id="4_5ow4j"]
@@ -22,10 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://cpe0yw8vtvlyt" path="res://Sprites/Bettlebourough/parallax/B0.png" id="20_dffb5"]
 [ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="21_x8ejw"]
 [ext_resource type="Texture2D" uid="uid://bfdcvesay4moy" path="res://Sprites/Bettlebourough/parallax/B3.png" id="22_td37j"]
-[ext_resource type="Script" path="res://scenes/canvas_layer.gd" id="23_c5iwu"]
+[ext_resource type="Script" uid="uid://bb60pyyexo3un" path="res://scenes/canvas_layer.gd" id="23_c5iwu"]
 [ext_resource type="PackedScene" uid="uid://puxbdddegki2" path="res://hudbar.tscn" id="24_ban8n"]
 [ext_resource type="PackedScene" uid="uid://cr0rxd186uoyo" path="res://inventory/menuselos.tscn" id="25_66fqo"]
-[ext_resource type="Shader" path="res://inventory/Items/item_1.gdshader" id="26_lb47e"]
+[ext_resource type="Shader" uid="uid://b0scaouj3av82" path="res://inventory/Items/item_1.gdshader" id="26_lb47e"]
 [ext_resource type="PackedScene" uid="uid://24afsbso8vff" path="res://npcs/Quarto 1 - bettleborough/portavolta.tscn" id="27_77bip"]
 [ext_resource type="PackedScene" uid="uid://cad058dvr1hb3" path="res://npcs/Quarto 1 - bettleborough/splasharea.tscn" id="28_f8kwk"]
 
@@ -562,7 +562,7 @@ position = Vector2(-248, -644)
 motion_mirroring = Vector2(2000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D/ParallaxLayer"]
-position = Vector2(380, -1036)
+position = Vector2(1092, -1314)
 scale = Vector2(20, 10)
 texture = ExtResource("17_7wc0q")
 centered = false

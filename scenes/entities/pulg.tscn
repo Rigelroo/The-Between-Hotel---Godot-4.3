@@ -1,14 +1,14 @@
 [gd_scene load_steps=52 format=3 uid="uid://brcf5ogfl7kbt"]
 
-[ext_resource type="Shader" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_hi5np"]
-[ext_resource type="Script" path="res://scenes/environment/Pulg/entitie_script.gd" id="2_hte3i"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/ENEMYSTATES.gd" id="3_2478w"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Wasp/enemy_idle.gd" id="4_8bxuj"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Wasp/enemy_hit.gd" id="5_qkeco"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Wasp/enemy_defeat.gd" id="6_fag7q"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Wasp/enemy_follow.gd" id="7_1cg5i"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Wasp/enemy_prepare.gd" id="8_7un50"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/Wasp/enemy_attack.gd" id="9_6kg3k"]
+[ext_resource type="Shader" uid="uid://c3xm1dtho44rx" path="res://scenes/entities/Enemies/B1/hit.gdshader" id="1_hi5np"]
+[ext_resource type="Script" uid="uid://b0jm46oypdpdu" path="res://scenes/environment/Pulg/entitie_script.gd" id="2_hte3i"]
+[ext_resource type="Script" uid="uid://cn2cxmlk7ocp7" path="res://scenes/entities/Enemies/ENEMYSTATES.gd" id="3_2478w"]
+[ext_resource type="Script" uid="uid://ha1phkjvlhfk" path="res://scenes/entities/Enemies/B1/Wasp/enemy_idle.gd" id="4_8bxuj"]
+[ext_resource type="Script" uid="uid://c8jp6knvxlmu3" path="res://scenes/entities/Enemies/B1/Wasp/enemy_hit.gd" id="5_qkeco"]
+[ext_resource type="Script" uid="uid://dyk2vmfn1l6hf" path="res://scenes/entities/Enemies/B1/Wasp/enemy_defeat.gd" id="6_fag7q"]
+[ext_resource type="Script" uid="uid://vycs3gdlawjp" path="res://scenes/entities/Enemies/B1/Wasp/enemy_follow.gd" id="7_1cg5i"]
+[ext_resource type="Script" uid="uid://ll25btbbbmap" path="res://scenes/entities/Enemies/B1/Wasp/enemy_prepare.gd" id="8_7un50"]
+[ext_resource type="Script" uid="uid://61dfmvp3dox0" path="res://scenes/entities/Enemies/B1/Wasp/enemy_attack.gd" id="9_6kg3k"]
 [ext_resource type="Texture2D" uid="uid://c745eja0irsba" path="res://Sprites/Bettlebourough/enemies/wasp/dead.png" id="10_fy13o"]
 [ext_resource type="Texture2D" uid="uid://dvi4cnqxmucff" path="res://Sprites/Bettlebourough/enemies/wasp/idle0000.png" id="11_ykpi8"]
 [ext_resource type="Texture2D" uid="uid://b6sg2go5mo2kr" path="res://Sprites/Bettlebourough/enemies/wasp/idle0001.png" id="12_2ttg2"]
@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://b1i6vgrcux0rx" path="res://Sprites/Bettlebourough/enemies/wasp/wingother0002.png" id="29_6k05k"]
 [ext_resource type="Material" uid="uid://cdgsydya4x6w7" path="res://scenes/entities/damageparticles.tres" id="30_t4dc7"]
 [ext_resource type="Texture2D" uid="uid://dgjoqfguta3r" path="res://Tests/smoke.png" id="31_w0mqy"]
-[ext_resource type="Script" path="res://scenes/entities/Enemies/B1/hitboxComponent.gd" id="32_hbccw"]
+[ext_resource type="Script" uid="uid://cxs6ii1pkxy2a" path="res://scenes/entities/Enemies/B1/hitboxComponent.gd" id="32_hbccw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kehak"]
 shader = ExtResource("1_hi5np")
@@ -410,10 +410,10 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nllgd"]
 _data = {
-"RESET": SubResource("Animation_ov2md"),
-"defeat": SubResource("Animation_wb5q1"),
-"defeat_2": SubResource("Animation_b3q0i"),
-"hit": SubResource("Animation_4awq0")
+&"RESET": SubResource("Animation_ov2md"),
+&"defeat": SubResource("Animation_wb5q1"),
+&"defeat_2": SubResource("Animation_b3q0i"),
+&"hit": SubResource("Animation_4awq0")
 }
 
 [sub_resource type="Animation" id="Animation_1x4du"]
@@ -576,9 +576,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgrry"]
 _data = {
-"Idle": SubResource("Animation_1x4du"),
-"attack": SubResource("Animation_nuiw6"),
-"attack_return": SubResource("Animation_takyk")
+&"Idle": SubResource("Animation_1x4du"),
+&"attack": SubResource("Animation_nuiw6"),
+&"attack_return": SubResource("Animation_takyk")
 }
 
 [sub_resource type="Animation" id="Animation_i7dor"]
@@ -690,9 +690,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yx5xa"]
 _data = {
-"RESET": SubResource("Animation_i7dor"),
-"no_wings": SubResource("Animation_bgn58"),
-"wings": SubResource("Animation_ax6vg")
+&"RESET": SubResource("Animation_i7dor"),
+&"no_wings": SubResource("Animation_bgn58"),
+&"wings": SubResource("Animation_ax6vg")
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s65u1"]
@@ -761,37 +761,34 @@ shape = SubResource("RectangleShape2D_tmulh")
 [node name="Hit" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_nllgd")
+&"": SubResource("AnimationLibrary_nllgd")
 }
 
 [node name="Body2" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_lgrry")
+&"": SubResource("AnimationLibrary_lgrry")
 }
 autoplay = "Idle"
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(-33, 14)
-rotation = 0.314159
 texture = ExtResource("21_2bheg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("22_uivwg")
 position = Vector2(-33, 14)
-rotation = 0.314159
-texture = ExtResource("10_fy13o")
+texture = ExtResource("11_ykpi8")
 offset = Vector2(33, -14)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 material = ExtResource("22_uivwg")
 position = Vector2(-33, 14)
-rotation = 0.314159
 texture = ExtResource("23_l0e40")
 
 [node name="Wings" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_yx5xa")
+&"": SubResource("AnimationLibrary_yx5xa")
 }
 autoplay = "wings"
 
@@ -799,23 +796,23 @@ autoplay = "wings"
 position = Vector2(78.8164, 0)
 emitting = false
 amount = 7
-process_material = ExtResource("30_t4dc7")
-texture = ExtResource("31_w0mqy")
 lifetime = 2.0
 one_shot = true
 preprocess = 0.2
 explosiveness = 0.86
 randomness = 0.67
+texture = ExtResource("31_w0mqy")
+process_material = ExtResource("30_t4dc7")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 position = Vector2(-7, 89)
 emitting = false
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_s65u1")
-texture = ExtResource("31_w0mqy")
 one_shot = true
 explosiveness = 1.0
 randomness = 0.12
+texture = ExtResource("31_w0mqy")
+process_material = SubResource("ParticleProcessMaterial_s65u1")
 
 [node name="DamageArea" type="Area2D" parent="."]
 position = Vector2(-29.1836, 42)

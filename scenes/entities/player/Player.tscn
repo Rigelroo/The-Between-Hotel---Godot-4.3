@@ -241,7 +241,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7qvs"]
-size = Vector2(15, 20.4)
+size = Vector2(15, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3j7"]
 size = Vector2(20, 20.4)
@@ -1889,7 +1889,7 @@ scale = Vector2(0.07, 0.07)
 texture = ExtResource("51_xgcsn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 3.2)
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_t7qvs")
 debug_color = Color(0.90591, 0.000130916, 0.745074, 0.42)
 
@@ -1904,8 +1904,8 @@ scale = Vector2(0.07, 0.07)
 
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(3.4, -3)
-rotation = 0.0163368
+position = Vector2(2.2, 3.2)
+rotation = 0.0141266
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
 

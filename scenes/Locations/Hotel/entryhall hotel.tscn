@@ -62,12 +62,12 @@
 [ext_resource type="Script" uid="uid://dfjy4xicqtf1b" path="res://scenes/Locations/Hotel/trampolim.gd" id="62_82wd4"]
 [ext_resource type="Script" uid="uid://bw5005u6utnsq" path="res://scenes/Locations/Hotel/bell.gd" id="62_wcaef"]
 
-[sub_resource type="Gradient" id="Gradient_n1lro"]
+[sub_resource type="Gradient" id="Gradient_435ya"]
 offsets = PackedFloat32Array(0.323232, 0.636364)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mvjgn"]
-gradient = SubResource("Gradient_n1lro")
+gradient = SubResource("Gradient_435ya")
 fill = 1
 fill_from = Vector2(0.489796, 0.520408)
 

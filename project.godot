@@ -106,6 +106,7 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/dialogic
 [file_customization]
 
 folder_colors={
+"res://Sprites/Player/": "purple",
 "res://Tests/Legacy_Adventure_Pack/": "pink"
 }
 
