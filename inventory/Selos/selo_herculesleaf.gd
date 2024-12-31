@@ -1,4 +1,4 @@
-class_name HerculesLeafStamp extends InventoryItem
+extends InventoryItem
 
 var hleaf_equiped : bool = false
 @export var manager = preload("res://Global/Mainmanager.tres")

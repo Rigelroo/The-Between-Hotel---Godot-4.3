@@ -8,17 +8,19 @@ point_count = 2
 curve = SubResource("Curve_vy6le")
 
 [resource]
+particle_flag_rotate_y = true
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
+spread = 89.211
 flatness = 0.344
 initial_velocity_min = 631.31
 initial_velocity_max = 888.89
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 208.34
 gravity = Vector3(0, 98, 0)
 linear_accel_min = 78.05
 linear_accel_max = 100.0
-scale_min = 0.8
-scale_max = 0.8
 scale_curve = SubResource("CurveTexture_dkjv3")
 scale_over_velocity_min = 235.95
 scale_over_velocity_max = 235.95
+anim_offset_min = 0.3095
+anim_offset_max = 0.3095

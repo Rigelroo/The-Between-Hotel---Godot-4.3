@@ -82,7 +82,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwpdb"]
-size = Vector2(164, 223)
+size = Vector2(365, 457)
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_bbjbk")

@@ -22,6 +22,7 @@ reward_item = ExtResource("3_77jrb")
 reward_itemb = ExtResource("4_hkcgc")
 reward_item_amount = 0
 reward_itemb_amount = 0
+first_quest = true
 item_amount = 1
 description = "aaa"
 theme_color = Color(1, 1, 1, 1)

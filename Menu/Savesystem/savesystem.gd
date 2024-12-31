@@ -200,7 +200,7 @@ func load_game(slot: int, world_scene) -> void:
 	if "missions_array" in save_data:
 		for i in save_data["missions_array"]:
 			var quest = save_data["missions_array"]
-			SignalManager.task_manager.insert(quest)
+			#SignalManager.task_manager.insert(quest)
 
 
 	# Atualizar a posição dos nodes

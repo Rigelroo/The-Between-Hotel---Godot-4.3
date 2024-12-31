@@ -122,14 +122,14 @@ func _ready():
 	$AnimatedSprite2D.play("default")
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.owner.is_in_group("Player"):
+	if area.is_in_group("Interactionarea"):
 		$AnimatedSprite2D2.play("mission")
 		player_in_area = true
 
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area.owner.is_in_group("Player"):
+	if area.is_in_group("Interactionarea"):
 		$AnimatedSprite2D2.play("inactive")
 		player_in_area = false
 

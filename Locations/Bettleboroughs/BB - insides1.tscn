@@ -711,6 +711,7 @@ animations = [{
 script = ExtResource("1_xj0rf")
 objplayer = NodePath("Player")
 splashw = ExtResource("2_oadde")
+scene_name = "Turquesahouse"
 inv_dictionary = ExtResource("3_2og7d")
 next_scene = "res://scenes/entry_hallNode.tscn"
 

@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://v0ao7y4fwtut"]
+
+[ext_resource type="Material" uid="uid://cvnjyvncupoev" path="res://Sprites/Bettlebourough/grass_sway_ShaderMaterial.tres" id="1_uqwya"]
+[ext_resource type="Script" uid="uid://b0bcwthbpincs" path="res://Objects/plants.gd" id="2_on5jh"]
+[ext_resource type="Texture2D" uid="uid://cretht0l3ok88" path="res://Sprites/Bettlebourough/tileset-decorations.png" id="2_ykqqw"]
+[ext_resource type="Texture2D" uid="uid://p7nknue57rie" path="res://Sprites/Bettlebourough/assets/asset_folhaparticles.png" id="3_ykqqw"]
+[ext_resource type="Material" uid="uid://cdgsydya4x6w7" path="res://scenes/entities/damageparticles.tres" id="4_k0h04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5kpr"]
+size = Vector2(156.667, 225)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fgx7i"]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="Plant" type="Sprite2D"]
+material = ExtResource("1_uqwya")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ykqqw")
+hframes = 14
+vframes = 13
+frame = 44
+script = ExtResource("2_on5jh")
+particlerange = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(13.3333, 19.1667)
+shape = SubResource("RectangleShape2D_r5kpr")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_fgx7i")
+scale = Vector2(-1, -1)
+emitting = false
+amount = 6
+amount_ratio = 0.5038
+lifetime = 1.42
+one_shot = true
+preprocess = 0.2
+explosiveness = 0.86
+randomness = 0.67
+texture = ExtResource("3_ykqqw")
+process_material = ExtResource("4_k0h04")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Grass_area_entered"]

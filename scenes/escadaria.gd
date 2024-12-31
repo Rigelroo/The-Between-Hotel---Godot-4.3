@@ -73,7 +73,7 @@ func _input(event: InputEvent):
 
 
 func _on_area_d_2d_1_area_entered(area: Area2D) -> void:
-	if area.owner.is_in_group("Player"):
+	if area.is_in_group("Interactionarea"):
 		player_in_area = true
 		if locked == false:
 			balloon.play("Door")
@@ -83,6 +83,6 @@ func _on_area_d_2d_1_area_entered(area: Area2D) -> void:
 
 
 func _on_area_d_2d_1_area_exited(area: Area2D) -> void:
-	if area.owner.is_in_group("Player"):
+	if area.is_in_group("Interactionarea"):
 		balloon.play("inactive")
 		player_in_area = false

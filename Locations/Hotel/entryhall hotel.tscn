@@ -495,6 +495,14 @@ position = Vector2(454.878, 134.146)
 shape = SubResource("RectangleShape2D_rew2o")
 debug_color = Color(1, 0.522, 1, 0.451)
 
+[node name="Selo7" parent="." instance=ExtResource("25_pdg41")]
+position = Vector2(1582.93, 2029.27)
+scale = Vector2(5.31103, 5.31103)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="Selo7" index="1"]
+texture = ExtResource("29_uycil")
+
 [connection signal="area_entered" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_entered"]
 [connection signal="area_exited" from="Escadaria/AreaD2D1" to="Escadaria" method="_on_area_d_2d_1_area_exited"]
 [connection signal="area_entered" from="Bell" to="Bell" method="_on_area_entered"]
@@ -508,3 +516,4 @@ debug_color = Color(1, 0.522, 1, 0.451)
 [editable path="Selo5"]
 [editable path="Selo6"]
 [editable path="Selo4"]
+[editable path="Selo7"]

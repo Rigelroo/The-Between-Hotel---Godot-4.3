@@ -1904,7 +1904,7 @@ scale = Vector2(0.07, 0.07)
 
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(2.2, 3.2)
+position = Vector2(2, 3.6)
 rotation = 0.0141266
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
@@ -1929,7 +1929,7 @@ libraries = {
 }
 autoplay = "inactive"
 
-[node name="sword1" type="Area2D" parent="."]
+[node name="sword1" type="Area2D" parent="." groups=["attackbox"]]
 position = Vector2(-0.999999, 24)
 
 [node name="sword_collider2" type="CollisionShape2D" parent="sword1"]
@@ -1943,7 +1943,7 @@ shape = SubResource("RectangleShape2D_wop3j")
 disabled = true
 debug_color = Color(0.766637, 0.286552, 0.855658, 0.42)
 
-[node name="sword" type="Area2D" parent="."]
+[node name="sword" type="Area2D" parent="." groups=["attackbox"]]
 
 [node name="sword_collider" type="CollisionShape2D" parent="sword"]
 position = Vector2(23.0855, -7.95)
@@ -2087,7 +2087,7 @@ script = ExtResource("183_a3gtm")
 [node name="coyotetimer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-volume_db = 3.496
+volume_db = -20.0
 pitch_scale = 0.96
 bus = &"SFX"
 

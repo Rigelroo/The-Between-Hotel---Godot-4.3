@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=4 uid="uid://dixvrpj3xksy0"]
+
+[ext_resource type="Texture2D" uid="uid://rql062pae17g" path="res://Mapamundi/Texturas/block1.png" id="1_ckp8e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eelat"]
+albedo_texture = ExtResource("1_ckp8e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xq5i"]
+resource_name = "Material"
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iit2o"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAgAEAAAAAwAFAAEAAgABAAUABgADAAAAAAAEAAYABQADAAYABAACAAcABQAHAAIABwAGAAQABgAHAAUA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjvArXI7wK1yO8CtcjPArXI7wK1yM8CtcjvArXIzwK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bk43d"]
+resource_name = "Cube"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"attribute_data": PackedByteArray("AABgPwAAgD4AAGA/AAAAPwAAID8AAAA/AAAgPwAAgD4AACA/AAAAAAAAID8AAIA+AADAPgAAgD4AAMA+AAAAAAAAID8AAEA/AAAgPwAAgD8AAMA+AACAPwAAwD4AAEA/AADAPgAAgD4AAMA+AAAAPwAAAD4AAAA/AAAAPgAAgD4AACA/AACAPgAAID8AAAA/AADAPgAAAD8AAMA+AACAPgAAID8AAAA/AAAgPwAAQD8AAMA+AABAPwAAwD4AAAA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_3xq5i"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8CtcjvArXI7wK1yM8CtcjPArXI7wK1yM8CtcjPArXI7wK1yO8CtcjvArXI7wK1yO8CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8CtcjvArXIzwK1yO8CtcjvArXI7wK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yM8CtcjvArXIzwK1yM8CtcjvArXIzwK1yO8CtcjPArXIzwK1yO8/3//fwAA/7//f/9/AAD/v/9//38AAP+//3//fwAA/7//fwAA/3//v/9/AAD/f/+//38AAP9//7//fwAA/3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+//////////7//////////v/////////+//////////7////9//3//v////3//f/+/////f/9//7////9//3//v/9/////f/+//3////9//7//f////3//v/9/////f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_iit2o")
+
+[node name="Cube" type="MeshInstance3D"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_eelat")
+mesh = SubResource("ArrayMesh_bk43d")
+skeleton = NodePath("")

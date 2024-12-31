@@ -134,14 +134,14 @@ sfx_array = Array[String](["res://Sound/Testmusic&sounds/traditional-stamp-44189
 [node name="Parallax2D" type="Parallax2D" parent="."]
 visible = false
 scale = Vector2(0.855, 0.855)
-repeat_size = Vector2(695.25, 695.25)
+repeat_size = Vector2(739.845, 735.135)
 autoscroll = Vector2(20, 20)
 repeat_times = 6
 ignore_camera_scroll = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 modulate = Color(0.513233, 0.513233, 0.513233, 1)
-scale = Vector2(0.379221, 0.379221)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("23_k6usp")
 centered = false
 
@@ -349,7 +349,6 @@ offset_top = 146.0
 offset_right = 990.0
 offset_bottom = 185.0
 theme_override_styles/slider = SubResource("StyleBoxTexture_ae02d")
-min_value = -79.0
 
 [node name="musicvolumeslider" type="HSlider" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons/options"]
 unique_name_in_owner = true
@@ -358,7 +357,6 @@ offset_top = 335.0
 offset_right = 990.0
 offset_bottom = 374.0
 theme_override_styles/slider = SubResource("StyleBoxTexture_ae02d")
-min_value = -79.0
 
 [node name="sfxvolumeslider" type="HSlider" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons/options"]
 unique_name_in_owner = true
@@ -368,7 +366,6 @@ offset_top = 524.0
 offset_right = 990.0
 offset_bottom = 563.0
 theme_override_styles/slider = SubResource("StyleBoxTexture_ae02d")
-min_value = -79.0
 
 [node name="MuteBox" type="CheckBox" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons/options"]
 layout_mode = 2

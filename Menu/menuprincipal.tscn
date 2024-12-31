@@ -1801,7 +1801,6 @@ offset_right = 990.0
 offset_bottom = 208.0
 pivot_offset = Vector2(3.3394, -127.525)
 theme_override_styles/slider = SubResource("StyleBoxTexture_3k55h")
-min_value = -79.0
 
 [node name="musicvolumeslider" type="HSlider" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options"]
 unique_name_in_owner = true
@@ -1810,7 +1809,6 @@ offset_top = 335.0
 offset_right = 990.0
 offset_bottom = 401.0
 theme_override_styles/slider = SubResource("StyleBoxTexture_3k55h")
-min_value = -79.0
 
 [node name="sfxvolumeslider" type="HSlider" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options"]
 unique_name_in_owner = true
@@ -1821,7 +1819,6 @@ offset_right = 990.0
 offset_bottom = 608.0
 pivot_offset = Vector2(11.8389, -77.7181)
 theme_override_styles/slider = SubResource("StyleBoxTexture_3k55h")
-min_value = -79.0
 
 [node name="MuteBox" type="CheckBox" parent="Menuprincipalcaixa/submenuTabcontainer/config_control/OptionsContainer/Sons/options"]
 layout_mode = 2

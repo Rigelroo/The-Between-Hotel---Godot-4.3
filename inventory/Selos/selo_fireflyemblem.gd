@@ -1,4 +1,4 @@
-class_name FireflyStamp extends InventoryItem
+extends InventoryItem
 signal Equiped 
 
 

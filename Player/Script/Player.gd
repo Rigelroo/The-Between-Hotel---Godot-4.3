@@ -21,6 +21,8 @@ signal inkChanged
 @onready var slashbox_down = $sword1
 @onready var stats = get_tree().get_first_node_in_group("Stats")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = %Sprite2D
+
 
 @onready var STATES = $STATES
 @onready var Raycasts = $Raycasts

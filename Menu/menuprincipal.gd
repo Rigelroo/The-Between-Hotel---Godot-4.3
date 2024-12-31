@@ -669,18 +669,21 @@ func _on_vsync_box_toggled(toggled_on: bool) -> void:
 
 
 func _on_mainvolumeslider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(0, value/5)
+	var valueb = value /10
+	AudioServer.set_bus_volume_db(0, linear_to_db(valueb))
 	ConfigManager.mainvolume_value = value
 
 
 func _on_musicvolumeslider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(1, value/5)
+	var valueb = value /5
+	#AudioServer.set_bus_volume_db(1, valueb)
+	AudioServer.set_bus_volume_db(1, linear_to_db(value))
 	ConfigManager.musicvolume_value = value
 
 func _on_sfxvolumeslider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(2, value/5)
+	var valueb = value /5
+	AudioServer.set_bus_volume_db(2, linear_to_db(value))
 	ConfigManager.sfxvolume_value = value
-
 
 func _on_mute_box_toggled(toggled_on: bool) -> void:
 	AudioServer.set_bus_mute(0,toggled_on)

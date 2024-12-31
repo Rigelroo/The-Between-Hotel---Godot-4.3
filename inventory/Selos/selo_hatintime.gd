@@ -1,4 +1,6 @@
-class_name HatStamp extends InventoryItem
+extends InventoryItem
+class_name HatStamps
+
 
 var hleaf_equiped : bool = false
 @export var manager = preload("res://Global/Mainmanager.tres")

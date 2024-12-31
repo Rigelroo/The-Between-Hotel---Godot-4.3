@@ -17,6 +17,7 @@ npc_texture = ExtResource("2_mv5q8")
 reward_item = ExtResource("3_kr3d8")
 reward_item_amount = 1
 reward_itemb_amount = 0
+first_quest = true
 item_amount = 1
 description = "aaa"
 theme_color = Color(0.372549, 0.639216, 0.431373, 1)
