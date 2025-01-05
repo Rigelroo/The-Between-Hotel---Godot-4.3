@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6o7f8"]
 _data = {
-"RESET": SubResource("Animation_nn74q"),
-"new_animation": SubResource("Animation_i7fuw")
+&"RESET": SubResource("Animation_nn74q"),
+&"new_animation": SubResource("Animation_i7fuw")
 }
 
 [node name="Selo1" type="Area2D"]
@@ -58,6 +58,6 @@ texture = ExtResource("1_khhjo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6o7f8")
+&"": SubResource("AnimationLibrary_6o7f8")
 }
 autoplay = "new_animation"

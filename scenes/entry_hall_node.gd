@@ -168,19 +168,19 @@ func dont_create_splash():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Save"):
-		if SignalManager.currentsaveslot != null:
-			save_slot_screenshot(SignalManager.currentsaveslot)
-			SignalManager.its_saving.emit()
-			SaveSys.save_game(SignalManager.currentsaveslot)
-		elif SignalManager.currentsaveslot == null:
-			SignalManager.currentsaveslot = 0
-			save_slot_screenshot(SignalManager.currentsaveslot)
-			SignalManager.its_saving.emit()
-			SaveSys.save_game(SignalManager.currentsaveslot)
-		#SignalManager.save_all_parameters()
-	if Input.is_action_pressed("Load"):
-		SaveSys.load_game(SignalManager.currentsaveslot,self)
+	pass
+	#if Input.is_action_just_pressed("Save"):
+		#if SignalManager.currentsaveslot != null:
+			#save_slot_screenshot(SignalManager.currentsaveslot)
+			#SignalManager.its_saving.emit()
+			#SaveSys.save_game(SignalManager.currentsaveslot)
+		#elif SignalManager.currentsaveslot == null:
+			#SignalManager.currentsaveslot = 0
+			#save_slot_screenshot(SignalManager.currentsaveslot)
+			#SignalManager.its_saving.emit()
+			#SaveSys.save_game(SignalManager.currentsaveslot)
+
+
 		#load_scenestate()
 	
 	if splashw.can_create == true:

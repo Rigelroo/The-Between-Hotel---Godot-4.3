@@ -2,7 +2,7 @@ extends "state.gd"
 
 
 func update(delta):
-	Player.gravity(delta)
+	Player.velocity.y += Player.gravity(delta)
 	if Player.movement_input.x != 0 && !Player.is_in_water:
 		return STATES.MOVE
 	if Player.jump_input_actuation == true:

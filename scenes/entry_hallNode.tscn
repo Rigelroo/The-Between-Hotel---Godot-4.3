@@ -1,21 +1,13 @@
-[gd_scene load_steps=42 format=3 uid="uid://dw7fr5yfile0r"]
+[gd_scene load_steps=34 format=3 uid="uid://dw7fr5yfile0r"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_plb7f"]
 [ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://Inventory/Items/itemDictionary.tres" id="2_je1ce"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_q2hfj"]
 [ext_resource type="PackedScene" uid="uid://ql0ewkv7sbrb" path="res://Diversos/parede_slide.tscn" id="4_50h6u"]
-[ext_resource type="Texture2D" path="res://Sprites/EntryHall - Reworked/staff_room2.png" id="6_qshxw"]
 [ext_resource type="Texture2D" uid="uid://bseo3jw48fvf5" path="res://Sprites/EntryHall/luzinha1.png" id="7_pdpyg"]
-[ext_resource type="Texture2D" path="res://Sprites/EntryHall - Reworked/Planta2.png" id="7_weleg"]
 [ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="7_x172s"]
-[ext_resource type="Texture2D" path="res://Sprites/EntryHall - Reworked/Planta1.png" id="8_3kh3v"]
 [ext_resource type="PackedScene" uid="uid://dsfojqxnsue1l" path="res://Diversos/lightmoths.tscn" id="11_0clwa"]
-[ext_resource type="Texture2D" path="res://Sprites/EntryHall - Reworked/Cerca.png" id="12_883si"]
 [ext_resource type="PackedScene" uid="uid://dk150e1tdwwcb" path="res://Diversos/Npc-recep.tscn" id="12_ja40y"]
-[ext_resource type="Texture2D" path="res://Sprites/EntryHall - Reworked/teto1.png" id="13_1q7l1"]
-[ext_resource type="Texture2D" path="res://icon.svg" id="13_fdccw"]
-[ext_resource type="Texture2D" path="res://Sprites/EntryHall - Reworked/Reçepção.png" id="13_j7480"]
-[ext_resource type="Texture2D" path="res://Sprites/EntryHall - Reworked/staff_room_tilemap.png Mescladas.png" id="14_3jx6i"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://Player/Script/Player.tscn" id="14_wel78"]
 [ext_resource type="PackedScene" uid="uid://cvfrejoygdyek" path="res://Diversos/Quadro1.tscn" id="15_2axxg"]
 [ext_resource type="PackedScene" uid="uid://byagoaous7vaf" path="res://Diversos/luzinha_6.tscn" id="15_7518i"]
@@ -88,13 +80,11 @@ shape = SubResource("RectangleShape2D_q1d0s")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
 position = Vector2(11.5, 9)
 scale = Vector2(1.88281, 0.0625)
-texture = ExtResource("13_fdccw")
 
 [node name="StaffRoom2" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1137, 658)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_qshxw")
 
 [node name="PortaPrincipal1" parent="." instance=ExtResource("16_wsisy")]
 position = Vector2(259, 505)
@@ -189,7 +179,6 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Plantas/Planta2"]
 position = Vector2(3420, 1423.33)
-texture = ExtResource("7_weleg")
 
 [node name="Planta1" type="StaticBody2D" parent="Plantas"]
 position = Vector2(-6853.33, -3.33331)
@@ -199,22 +188,18 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Plantas/Planta1"]
 position = Vector2(3420, 1423.33)
-texture = ExtResource("8_3kh3v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1139, 451)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("13_1q7l1")
 
 [node name="StaffRoomTilemap_pngMescladas" type="Sprite2D" parent="."]
 position = Vector2(725, 482)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("14_3jx6i")
 
 [node name="StaffRoomTilemap_pngMescladas2" type="Sprite2D" parent="."]
 position = Vector2(1553, 480)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("14_3jx6i")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(566, 664)
@@ -229,7 +214,6 @@ position = Vector2(1113, 785)
 [node name="Reçepção" type="Sprite2D" parent="Recepção"]
 position = Vector2(-29, 272)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("13_j7480")
 
 [node name="Test" parent="." instance=ExtResource("15_2axxg")]
 position = Vector2(307, 1012)
@@ -263,7 +247,6 @@ position = Vector2(1113, 785)
 
 [node name="Sprite2D" type="Sprite2D" parent="Cerca"]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("12_883si")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Cerca"]
 position = Vector2(-1394, -48)

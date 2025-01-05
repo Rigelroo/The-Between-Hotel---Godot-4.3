@@ -69,9 +69,24 @@ var is_skydiving = false
 var can_jump = true
 
 func update(delta):
-	Player.gravity(delta)
-	player_movement()
-	
+	Player.velocity.y += Player.gravity(delta)
+	player_movement(delta)
+	if !Player.gliding_actuation:
+		if Player.is_on_floor():
+			return STATES.IDLE
+		if Player.dash_input and Player.can_dash:
+			return STATES.DASH
+		if Player.get_next_to_wall() != null:
+			return STATES.SLIDE
+		if Player.jump_input_actuation and can_jump:
+			return STATES.JUMP
+		if Player.attack_input && !Player.is_jumping:
+			return STATES.SLASH
+		if Player.attack_input && Player.is_jumping:
+			return STATES.AIRSLASH
+		return STATES.FALL
+
+
 	if Player.is_on_floor():
 		return STATES.IDLE
 	if Player.dash_input and Player.can_dash:
@@ -94,6 +109,7 @@ func update(delta):
 	return null
 
 func enter_state():
+	
 	is_skydiving = true
 	Player.velocity.y = Player.JUMP_VELOCITY / 1.5
 	Player.is_jumping = true

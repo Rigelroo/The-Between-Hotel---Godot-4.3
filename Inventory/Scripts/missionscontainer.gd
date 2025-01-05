@@ -12,9 +12,7 @@ func _ready() -> void:
 	tasks_container = $VBoxContainer.get_children()
 	update()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("seila"):
-		update()
+
 
 func update():
 	#for i in range(min(SignalManager.task_manager.missions.size(), tasks.size())):

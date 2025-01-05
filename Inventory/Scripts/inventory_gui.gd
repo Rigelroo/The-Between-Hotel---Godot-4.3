@@ -12,9 +12,9 @@ var isOpen: bool = false
 #@onready var ItemStackGuiClass = preload("res://inventory/gui/itemStackGui.tscn")
 #@onready var ItemStackGuiClassb = preload("res://inventory/gui/itemStackGuib.tscn")
 #@onready var ItemStackGuiClassc = preload("res://inventory/gui/itemStackGuic.tscn")
-#@onready var inventory: Inventory = preload("res://inventory/PlayerInventory.tres")
-#@onready var inventoryb: Inventoryb = preload("res://inventory/PlayerInventoryb.tres")
-#@onready var inventoryc: Inventoryc = preload("res://inventory/PlayerInventoryc.tres")
+var inventory: Inventory = load("res://inventory/PlayerInventory.tres")
+var inventoryb: Inventoryb = load("res://inventory/PlayerInventoryb.tres")
+var inventoryc: Inventoryc = load("res://inventory/PlayerInventoryc.tres")
 var slots = null
 #@onready var slots: Array = $TabContainer/Selos/GridContainer.get_children() #+ $TabContainer/Selos/Control.get_children()
 #
@@ -122,7 +122,7 @@ func _ready():
 	SignalManager.stamp_unequipped.connect(stamp_unequipped)
 	SignalManager.stamp_equipped.connect(stamp_equipped)
 	SignalManager.just_equip.connect(please_equip)
-	SignalManager.inventory.updated.emit()
+	#SignalManager.inventory.updated.emit()
 	selector = $TabContainer/Selos/CenterContainer/Slotselect
 	
 	slots = $TabContainer/Selos/TabContainer/GridContainer.get_children() + $TabContainer/Selos/TabContainer/GridContainer2.get_children()
@@ -135,6 +135,9 @@ func _ready():
 	SignalManager.inventory.updated.connect(update)
 	SignalManager.inventoryb.updated.connect(update)
 	SignalManager.inventoryc.updated.connect(update)
+	inventory.updated.connect(update)
+	inventoryb.updated.connect(update)
+	inventoryc.updated.connect(update)
 	SignalManager.point_update.connect(update)
 	manager.no_hats.connect(nohats)
 	manager.insert_coin.connect(updatecoin)
@@ -156,6 +159,7 @@ func show_stamppoints():
 	
 
 func update():
+	print("update")
 	show_stamppoints()
 	for i in range(min(SignalManager.inventory.slots.size(), slots.size())):
 		var inventorySlot: InventorySlot = SignalManager.inventory.slots[i]

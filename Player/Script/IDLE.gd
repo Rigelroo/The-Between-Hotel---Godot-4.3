@@ -2,7 +2,7 @@ extends "state.gd"
 
 
 func update(delta):
-	Player.gravity(delta)
+	Player.velocity.y += Player.gravity(delta)
 	if Input.is_action_pressed("Balir"):
 		$"../../AnimationPlayer".play("balir")
 		
@@ -51,6 +51,8 @@ func enter_state():
 		await $"../../AnimationPlayer".animation_finished
 		$"../../AnimationPlayer".play("idle")
 	if Player.prev_state == STATES.MOVE:
+		$"../../AnimationPlayer".play("idle")
+	else:
 		$"../../AnimationPlayer".play("idle")
 	Player.can_dash = true
 

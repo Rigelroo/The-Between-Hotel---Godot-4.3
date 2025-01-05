@@ -16,6 +16,8 @@ extends Node
 @onready var SWIM = $SWIM
 @onready var BREATH = $BREATH
 @onready var HIT = $HIT
+@onready var SLIDEH: Node = $SLIDEH
+
 #@onready var MAGIC = $MAGIC
 
 #@onready var CLIMB = $CLIMB
@@ -26,5 +28,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _physics_process(delta: float) -> void:
 	pass

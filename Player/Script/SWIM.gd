@@ -1,8 +1,8 @@
 extends "state.gd"
 
 func update(delta):
-	Player.gravity(delta)
-	player_movement()
+	Player.velocity.y += Player.gravity(delta)
+	player_movement(delta)
 	if Player.velocity.x == 0:
 		if !Player.is_in_water:
 			return STATES.IDLE

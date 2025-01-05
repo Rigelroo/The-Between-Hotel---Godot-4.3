@@ -54,6 +54,7 @@ signal inkChanged
 @export var SPEED = 470.0
 @export var JUMP_VELOCITY = -700.0
 @export var max_fall_speed = -900.0 * 1.5
+@export_range(1, 2000, 0) var slide_deceleration : int = 500
 @export var can_interact = false
 @export var can_move = true
 @export var can_move_si = true
@@ -80,6 +81,7 @@ var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #player input
 var movement_input = Vector2.ZERO
+
 var interact_input = false
 var jump_input = false
 var jump_input_actuation = false
@@ -89,7 +91,7 @@ var attack_input = false
 var breath_input = false
 var balir_input = false
 var slashing = false
-
+var gliding_actuation = false
 #player_movement
 
 var last_direction = Vector2.RIGHT
@@ -248,12 +250,20 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta):
+	player_input()
+	change_state(current_state.update(delta))
+	if %AnimationPlayer.current_animation != "jump_slide":
+		%Sprite2D.rotation = 0
 	if current_state != STATES.HLEAF:
 		is_skydiving = false
-		
+
 	if prev_state == STATES.HLEAF:
 		if current_state != STATES.HLEAF:
 			is_skydiving = false
+	if current_state != STATES.SLIDE:
+		%Sprite2D.position.x = 0
+
+
 	if prev_state == STATES.SLASH or prev_state == STATES.AIRSLASH:
 		if current_state != STATES.AIRSLASH:
 			#await $AnimationPlayer.animation_finished
@@ -271,8 +281,7 @@ func _physics_process(delta):
 		#currentHealth += 1
 		#healthChanged.emit(currentHealth)
 		#emit_signal("temporary")
-	player_input()
-	change_state(current_state.update(delta))
+
 	$Label.text = str(current_state.get_name())
 	move_and_slide()
 #
@@ -303,21 +312,50 @@ func _physics_process(delta):
 		#if not is_in_water:
 			#velocity.y += (gravity_value / 2) * delta - 12  # Ajuste a gravidade para o skydiving
 
-func gravity(delta):
+#func gravity(delta):
+	#if is_on_floor():
+		#velocity.y = 0  # Zere a velocidade ao tocar o chão
+		#gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
+	##print(current_state.name)
+	#if not is_on_floor():
+		#if current_state.name == "FALL":
+			#velocity.y += (1.5 * gravity_value) * delta
+			#
+	#if not is_on_floor():
+		#if current_state.name != "HLEAF":
+			#
+			#if not is_in_water:
+				#velocity.y += gravity_value * delta
+				##velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed) * delta
+			#else:
+				#velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
+		#else:  # Skydiving
+			#if not is_in_water:
+				#velocity.y += (gravity_value + 100 / 2.5) * delta
+				##velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed)
+func gravity(delta) -> float:
+	var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
+	var regravity = 0.0
+
 	if is_on_floor():
-		velocity.y = 0  # Zere a velocidade ao tocar o chão
-	#print(current_state.name)
-	if not is_on_floor():
-		if current_state.name != "HLEAF":
-			if not is_in_water:
-				velocity.y += gravity_value * delta
-				#velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed) * delta
-			else:
-				velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
-		else:  # Skydiving
-			if not is_in_water:
-				velocity.y += (gravity_value + 100 / 2.5) * delta
-				#velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed)
+		velocity.y = 0
+		return 0.0 
+	if current_state.name == "SLIDE":
+		regravity = (gravity_value) * delta
+	if current_state.name == "FALL":
+		regravity = (1.5 * gravity_value) * delta
+	elif current_state.name == "HLEAF":
+		if is_in_water:
+			regravity = clamp(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP) - velocity.y
+		else:
+			regravity = (gravity_value + 100 / 2.5) * delta
+	else:
+		if is_in_water:
+			regravity = clamp(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP) - velocity.y
+		else:
+			regravity = gravity_value * delta
+
+	return regravity
 
 
 
@@ -330,7 +368,6 @@ func change_state(input_state):
 		current_state.enter_state()
 
 
-
 func get_next_to_wall():
 	for raycast in Raycasts.get_children():
 		raycast.force_raycast_update() 
@@ -341,41 +378,78 @@ func get_next_to_wall():
 				return Vector2.LEFT
 	return null
 	
+#func player_input():
+	#movement_input = Vector2.ZERO
+	#if can_move && can_move_si:
+		#if Input.is_action_pressed("MoveRight"):
+			#$Trayemmiter.scale.x = -1
+			#if $STATES/SLIDE.is_sliding == false:
+				#movement_input.x += 1
+				##%Breathemitter.scale.x = 0.5
+				##%Breathemitter.position.x = 14.2
+				#$Sprite2D.flip_h = false
+				##$Sprite2D.scale.x = 0.07
+				#$sword.position.x = 0
+				#%fire_collider.position.x = 50
+				#
+				#$Sprite2D.position.x = 1
+				#$PlayerHatCold.scale.x = 0.07
+			#facing_direction = false
+		#if Input.is_action_pressed("MoveLeft"):
+			#$Trayemmiter.scale.x = 1
+			#if $STATES/SLIDE.is_sliding == false:
+				#movement_input.x -= 1
+				##$Sprite2D.scale.x = -0.07
+				#$Sprite2D.flip_h = true
+				#
+				##%Breathemitter.scale.x = -0.5
+				##%Breathemitter.position.x = -14.2
+				#%fire_collider.position.x = -60
+				#$PlayerHatCold.scale.x = -0.07
+				#$Sprite2D.position.x = 3.67
+				#$sword.position.x = -46
+			#facing_direction = true
 func player_input():
 	movement_input = Vector2.ZERO
-	if can_move && can_move_si:
-		if Input.is_action_pressed("MoveRight"):
-			$Trayemmiter.scale.x = -1
-			if $STATES/SLIDE.is_sliding == 0:
-				movement_input.x += 1
-				#%Breathemitter.scale.x = 0.5
-				#%Breathemitter.position.x = 14.2
-				$Sprite2D.flip_h = false
-				#$Sprite2D.scale.x = 0.07
-				$sword.position.x = 0
-				%fire_collider.position.x = 50
-				
-				$Sprite2D.position.x = 1
-				$PlayerHatCold.scale.x = 0.07
-			facing_direction = false
-		if Input.is_action_pressed("MoveLeft"):
-			$Trayemmiter.scale.x = 1
-			if $STATES/SLIDE.is_sliding == 0:
-				movement_input.x -= 1
-				#$Sprite2D.scale.x = -0.07
-				$Sprite2D.flip_h = true
-				
-				#%Breathemitter.scale.x = -0.5
-				#%Breathemitter.position.x = -14.2
-				%fire_collider.position.x = -60
-				$PlayerHatCold.scale.x = -0.07
-				$Sprite2D.position.x = 3.67
-				$sword.position.x = -46
-			facing_direction = true
+
+	if can_move and can_move_si:
+		if not $STATES/SLIDE.is_sliding:
+				if Input.is_action_pressed("MoveRight"):
+					$Trayemmiter.scale.x = -1
+					movement_input.x += 1
+					if !$STATES/JUMP.wall_jump:
+						$Sprite2D.flip_h = false
+					#else:
+						#$Sprite2D.flip_h = true
+					$sword.position.x = 0
+					%fire_collider.position.x = 50
+					$Sprite2D.position.x = 1
+					$PlayerHatCold.scale.x = 0.07
+					facing_direction = false
+				if Input.is_action_pressed("MoveLeft"):
+					$Trayemmiter.scale.x = 1
+					movement_input.x -= 1
+					if !$STATES/JUMP.wall_jump:
+						$Sprite2D.flip_h = true
+					#else:
+						#$Sprite2D.flip_h = false
+					%fire_collider.position.x = -60
+					$PlayerHatCold.scale.x = -0.07
+					$Sprite2D.position.x = 3.67
+					$sword.position.x = -46
+					facing_direction = true
+			
+			
 		if Input.is_action_pressed("MoveUp"):
 			movement_input.y -= 1
 		if Input.is_action_pressed("MoveDown"):
 			movement_input.y += 1
+	
+		if Input.is_action_pressed("Jump") and !is_on_floor() and manager.hleaf_equiped:
+			gliding_actuation = true
+		else:
+			gliding_actuation = false
+			
 	
 	# jumps
 	if !is_in_water && can_move && can_move_si:
@@ -408,12 +482,13 @@ func player_input():
 			movement_input.y += 1
 
 	# Jump handling
-	if !is_skydiving && !is_in_water && can_move && can_move_si:
-		if Input.is_action_just_pressed("Jump"):
-			$STATES/JUMP/Jumptimer.start()
-			jump_input_actuation = true
-		else:
-			jump_input_actuation = false
+	if not $STATES/SLIDE.is_sliding:
+		if !is_skydiving && !is_in_water && can_move && can_move_si:
+			if Input.is_action_just_pressed("Jump"):
+				$STATES/JUMP/Jumptimer.start()
+				jump_input_actuation = true
+			else:
+				jump_input_actuation = false
 
 	if is_in_water && can_move && can_move_si:
 		if Input.is_action_just_pressed("Jump"):

@@ -1,58 +1,90 @@
 extends "state.gd"
 
+@onready var raycasts: Node2D = $"../../Raycasts"
 
 @export var climb_speed = 50
-@export var slide_friction = .7
-@export var is_sliding = 0
+@export var slide_friction = .9
+@export var is_sliding = false
+
+var can_wall_jump = true  # Controle para evitar wall climbing
+var wall_direction = Vector2.ZERO  # Direção da parede
+
 func update(delta):
-	$"../../AnimationPlayer".play("slide")
 	slide_movement(delta)
-	if Player.get_next_to_wall() == null:
-		is_sliding = 0
-		return STATES.FALL
+	# Verifica se o player está próximo da parede e fora do chão
+	if not Player.is_on_floor() and Player.get_next_to_wall():
+		var next_to_wall = Player.get_next_to_wall()
 		
-	if Player.jump_input_actuation:
-		if Input.is_action_pressed("MoveLeft") or Input.is_action_pressed("MoveRight"):
-			is_sliding = 0
-			return STATES.JUMP
+		# Entra no estado de deslizar se a direção está pressionada e condiz com a parede
+		#if not is_sliding and (
+			#(next_to_wall == Vector2.RIGHT and Input.is_action_pressed("MoveRight")) or
+			#(next_to_wall == Vector2.LEFT and Input.is_action_pressed("MoveLeft"))
+		#):
+			#enter_state()
+			#return STATES.SLIDE
+
+	# Sai do estado de deslizar se não está mais segurando a direção ou saiu da parede
+	if is_sliding:
+		if not Input.is_action_pressed("MoveLeft") and not Input.is_action_pressed("MoveRight"):
+			exit_slide_state()
+			return STATES.FALL
+		if not Player.get_next_to_wall():
+			exit_slide_state()
+			return STATES.FALL
+
+	# Executa o pulo para trás caso o botão de pulo seja pressionado
+	if is_sliding and Input.is_action_just_pressed("Jump") and can_wall_jump:
+		exit_slide_state()
+		
+		return STATES.JUMP
+
+	# Volta ao estado idle ao tocar o chão
 	if Player.is_on_floor():
+		exit_slide_state()
 		return STATES.IDLE
-	if Player.new_item_activate:
-		$"../../AnimationPlayer".play("new_item")
-		return STATES.NEWITEM
-	if Player.dash_input and Player.can_dash:
-		if Input.is_action_pressed("MoveLeft") or Input.is_action_pressed("MoveRight"):
-			return STATES.DASH
-	if Player.is_in_water:
-		$"../../AnimationPlayer2".play("idle_swimming")
-		return STATES.INWATER
+	
 	return null
 
+
+func enter_state():
+	slide_friction = .9
+	Player.velocity.y = 0
+	print("is sliding!")
+	is_sliding = true
+	wall_direction = Player.get_next_to_wall()
+	# Ajuste da posição para evitar tremores
+	if wall_direction == Vector2.RIGHT:
+		if raycasts.buttom_right.is_colliding():
+			Player.position.x -= 3.0
+	elif wall_direction == Vector2.LEFT:
+		if raycasts.buttom_left.is_colliding():
+			Player.position.x += 3.0
+	
+	$"../../AnimationPlayer".play("slide") 
+func exit_slide_state():
+	is_sliding = false
+	$"../../AnimationPlayer".stop()
+func exit_state():
+	slide_friction = .9
+
+func wall_jump():
+	if wall_direction == Vector2.RIGHT:
+		Player.velocity = Vector2(-800, -Player.JUMP_VELOCITY)
+		
+	elif wall_direction == Vector2.LEFT:
+		
+		Player.velocity = Vector2(800, -Player.JUMP_VELOCITY)
+	Player.velocity.y = Player.JUMP_VELOCITY
+	# Impede o wall climbing
+	can_wall_jump = false
+	await get_tree().create_timer(0.2).timeout
+	can_wall_jump = true
+
 func slide_movement(delta):
-	is_sliding = 1
-	if Player.climb_input:
-		if Player.movement_input.y < 0:
-			Player.velocity.y = -climb_speed
-		elif Player.movement_input.y > 0:
-			Player.velocity.y = climb_speed
-			Player.movement_input.x = -300
-			Player.velocity.x = -100
-		#elif Input.is_action_pressed("Jump"):
-		#	Player.velocity.y = Player.JUMP_VELOCITY
-		else:
-			Player.velocity.y = 0
-	else:
-		player_slidemove()
-		#player_movement()
-		Player.gravity(delta)
-		#
+	if is_sliding:
+		Player.velocity.y += Player.gravity(delta)
+		var v = Player.gravity(delta)
 		Player.velocity.y *= slide_friction
-
-
-func player_slidemove():
-	if Input.is_action_pressed("MoveRight") && Input.is_action_pressed("Jump"):
-		Player.velocity.x = 500
-		Player.velocity.y = Player.JUMP_VELOCITY * 1.5
-	if Input.is_action_pressed("MoveLeft") && Input.is_action_pressed("Jump"):
-		Player.velocity.x = 500
-		Player.velocity.y = Player.JUMP_VELOCITY * 1.5
+		#Player.velocity.y += Player.gravity(delta * slide_friction)
+		var v2 = Player.velocity.y
+		pass

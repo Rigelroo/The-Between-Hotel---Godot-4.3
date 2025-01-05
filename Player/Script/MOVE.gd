@@ -1,10 +1,12 @@
 extends "state.gd"
 
 func update(delta):
-	Player.gravity(delta)
-	player_movement()
+	Player.velocity.y += Player.gravity(delta)
+	player_movement(delta)
 	if Player.velocity.x == 0:
-		return STATES.IDLE
+		return STATES.SLIDEH
+	#if Player.velocity.x == 0:
+		#return STATES.IDLE
 	if Player.velocity.y >0:
 		return STATES.FALL
 	if Player.jump_input_actuation:
@@ -27,6 +29,7 @@ func update(delta):
 		return STATES.HIT
 	return null
 func enter_state():
+	
 	Player.is_jumping = false
 	Player.can_dash = true
 	$"../../AnimationPlayer".play("run")
