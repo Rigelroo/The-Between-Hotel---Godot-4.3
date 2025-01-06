@@ -81,6 +81,7 @@ var can_skip = false
 @export var color_x: float
 @export var color_y: float
 @export var color_z: float
+@export var color : Color
 
 @export var target: Marker2D
 @export var showeffect: Node2D

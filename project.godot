@@ -32,6 +32,7 @@ GlobalAudioStreamPlayer="*res://Sound/Scenes/audio_stream_player.tscn"
 VfxPlayer="*res://Sound/Scenes/vfx_player.tscn"
 Global="*res://Global/Global.gd"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [dialogic]
 
@@ -103,7 +104,7 @@ movie_writer/fps=30
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/better-terrain/plugin.cfg", "res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/better-terrain/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [file_customization]
 

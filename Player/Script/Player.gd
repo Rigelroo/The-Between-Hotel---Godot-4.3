@@ -678,18 +678,20 @@ func _on_dialogic_signal(argument:String):
 		if test2D.item_index[Dialogic.VAR.index].first_item == 0:
 			new_item_activate = true
 			showitem.texture = test2D.item_index[Dialogic.VAR.index].texture
-			$STATES/NEWITEM.color_x = test2D.item_index[Dialogic.VAR.index].color_x
-			$STATES/NEWITEM.color_y = test2D.item_index[Dialogic.VAR.index].color_y
-			$STATES/NEWITEM.color_z = test2D.item_index[Dialogic.VAR.index].color_z
+			$STATES/NEWITEM.color = test2D.item_index[Dialogic.VAR.index].color
+			#$STATES/NEWITEM.color_x = test2D.item_index[Dialogic.VAR.index].color_x
+			#$STATES/NEWITEM.color_y = test2D.item_index[Dialogic.VAR.index].color_y
+			#$STATES/NEWITEM.color_z = test2D.item_index[Dialogic.VAR.index].color_z
 			test2D.item_index[Dialogic.VAR.index].first_item = 1
 	if argument == "take_stamp":
 		print("take stamp")
 		if test2D.stamp_index[Dialogic.VAR.index].first_item == 0:
 			new_item_activate = true
 			showitem.texture = test2D.stamp_index[Dialogic.VAR.index].texture
-			$STATES/NEWITEM.color_x = test2D.stamp_index[Dialogic.VAR.index].color_x
-			$STATES/NEWITEM.color_y = test2D.stamp_index[Dialogic.VAR.index].color_y
-			$STATES/NEWITEM.color_z = test2D.stamp_index[Dialogic.VAR.index].color_z
+			$STATES/NEWITEM.color = test2D.stamp_index[Dialogic.VAR.index].color
+			#$STATES/NEWITEM.color_x = test2D.stamp_index[Dialogic.VAR.index].color_x
+			#$STATES/NEWITEM.color_y = test2D.stamp_index[Dialogic.VAR.index].color_y
+			#$STATES/NEWITEM.color_z = test2D.stamp_index[Dialogic.VAR.index].color_z
 			test2D.stamp_index[Dialogic.VAR.index].first_item = 1
 		test2D.collect_stamp(inventory)
 
@@ -700,9 +702,10 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 			new_item_activate = true
 			showitem.texture = area.itemRes.texture
 			showitem.animation_player.play("surge")
-			$STATES/NEWITEM.color_x = area.itemRes.color_x
-			$STATES/NEWITEM.color_y = area.itemRes.color_y
-			$STATES/NEWITEM.color_z = area.itemRes.color_z
+			$STATES/NEWITEM.color = area.itemRes.color
+			#$STATES/NEWITEM.color_x = area.itemRes.color_x
+			#$STATES/NEWITEM.color_y = area.itemRes.color_y
+			#$STATES/NEWITEM.color_z = area.itemRes.color_z
 			area.itemRes.first_item = 1
 		area.collect(inventory)
 		
@@ -712,9 +715,10 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 			new_item_activate = true
 			showitem.animation_player.play("surge")
 			showitem.texture = area.itemRes.texture
-			$STATES/NEWITEM.color_x = area.itemRes.color_x
-			$STATES/NEWITEM.color_y = area.itemRes.color_y
-			$STATES/NEWITEM.color_z = area.itemRes.color_z
+			$STATES/NEWITEM.color = area.itemRes.color
+			#$STATES/NEWITEM.color_x = area.itemRes.color_x
+			#$STATES/NEWITEM.color_y = area.itemRes.color_y
+			#$STATES/NEWITEM.color_z = area.itemRes.color_z
 			area.itemRes.first_item = 1
 		area.collectb(inventoryb)
 	
@@ -723,9 +727,10 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 			new_item_activate = true
 			showitem.animation_player.play("surge")
 			showitem.texture = area.itemRes.texture
-			$STATES/NEWITEM.color_x = area.itemRes.color_x
-			$STATES/NEWITEM.color_y = area.itemRes.color_y
-			$STATES/NEWITEM.color_z = area.itemRes.color_z
+			$STATES/NEWITEM.color = area.itemRes.color
+			#$STATES/NEWITEM.color_x = area.itemRes.color_x
+			#$STATES/NEWITEM.color_y = area.itemRes.color_y
+			#$STATES/NEWITEM.color_z = area.itemRes.color_z
 			area.itemRes.first_item = 1
 		area.collectcontainer()
 

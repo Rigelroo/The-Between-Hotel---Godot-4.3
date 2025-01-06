@@ -25,7 +25,7 @@ func _process(_delta: float) -> void:
 	
 	
 func colormodulate():
-	var color = Color(newitem.color_x, newitem.color_y, newitem.color_z)
+	var color = newitem.color#Color(newitem.color_x, newitem.color_y, newitem.color_z)
 	coloreffect.modulate = color
 
 		#if pressed:
