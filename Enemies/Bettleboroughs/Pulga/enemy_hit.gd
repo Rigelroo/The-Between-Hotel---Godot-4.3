@@ -10,7 +10,10 @@ extends EnemyState
 func update(delta):
 	Entity.movement_manager(delta)
 	if !Entity.is_dealing_damage:
-		return STATES.FOLLOW
+		if Entity.movement_type == 1:
+			return STATES.FOLLOW
+		else:
+			return STATES.MOVE
 	if Entity.health <= Entity.health_min:
 		return STATES.DEFEAT
 		

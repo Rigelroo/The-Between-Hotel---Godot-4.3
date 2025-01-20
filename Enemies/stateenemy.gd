@@ -21,7 +21,3 @@ func exit_state():
 	
 func update(delta):
 	return null
-
-
-func enemy_movement():
-	pass

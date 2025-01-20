@@ -44,10 +44,13 @@ var player_entered: bool = false
 #variáveis do movimento
 @export_subgroup("Movement")
 @export var speed = 150
-@export_enum("Stopped", "Chase", "One direction_x", "One direction_y", "Aleatory_x", "Aleatory_y", "Aleatory_z", "Runaway") var movement_type: int
+@export_enum("Stopped", "Chase", "One direction_x", "One direction_y", "Aleatory_x", "Aleatory_y", "Aleatory_z", "Runaway", "Path") var movement_type: int
 @export_enum("No gravity", "Inverted", "Normal", "Stopped" ) var gravity_type: int
+@export var path : Path2D
 @export var gravity_strength : float = 1.0
 
+@export_subgroup("StateMachine")
+@export var first_state : Node
 var movement_type_const = null
 
 var position_saver = null
@@ -156,8 +159,8 @@ func _ready() -> void:
 		state.STATES = STATES
 		state.Entity = self
 		state.player = player
-	prev_state = STATES.IDLE
-	current_state = STATES.IDLE
+	prev_state = first_state
+	current_state = first_state
 
 	
 	%HPlabel.text = "HP: " + str(health)
@@ -174,21 +177,9 @@ func change_state(input_state):
 func _on_damage_area_area_entered(area: Area2D) -> void:
 	
 	if (area == player.slashbox) or (area == player.slashbox_down):
-		deal_damage(area.owner.damage_value, area)
+		deal_damage(area.owner.damage_component.damage_value, area)
 		%HPlabel.text = "HP: " + str(health)
 
-func deal_damage(value: int, area: Area2D):
-	#var criticalchance = randi_range(1, 10)
-	is_dealing_damage = true
-	hit_player.play("hit")
-	var damage_total = value
-	var is_critical = area.owner.crit_chance > randf()
-	if is_critical:
-		damage_total = value * 2
-		
-	health -= damage_total
-	Damagenumbers.display_number(damage_total, damage_numbers_origin.global_position, is_critical)
-	
 
 
 

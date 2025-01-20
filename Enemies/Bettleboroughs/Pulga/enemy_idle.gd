@@ -1,6 +1,7 @@
 extends EnemyState
 
-
+class STATE:
+	pass
 
 	#set(value):
 		#player_entered = value

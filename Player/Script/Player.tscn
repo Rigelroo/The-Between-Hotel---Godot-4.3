@@ -2114,7 +2114,7 @@ position = Vector2(0, 4.6)
 [node name="ItemTarget" type="Marker2D" parent="."]
 position = Vector2(0, -33.4)
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["Hitbox"]]
 
 [node name="Hitboxcollision" type="CollisionShape2D" parent="Hitbox"]
 unique_name_in_owner = true
@@ -2161,8 +2161,8 @@ scale = Vector2(0.07, 0.07)
 
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(1.6, 1.8)
-rotation = 0.211076
+position = Vector2(3.4, -3)
+rotation = 0.0163368
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
 
@@ -2215,7 +2215,7 @@ script = ExtResource("145_om5h6")
 [node name="JUMP" parent="STATES" instance=ExtResource("3_ulsqu")]
 
 [node name="Jumptimer" type="Timer" parent="STATES/JUMP"]
-wait_time = 0.15
+wait_time = 0.25
 
 [node name="IDLE" parent="STATES" instance=ExtResource("4_hms1o")]
 
@@ -2267,6 +2267,7 @@ player = NodePath("..")
 newitem = NodePath("../STATES/NEWITEM")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -18.0
 offset_top = -34.0
 offset_right = 22.0
@@ -2360,11 +2361,13 @@ bus = &"SFX"
 script = ExtResource("189_ht3sh")
 
 [node name="StatsComponent" type="Node2D" parent="Components"]
+unique_name_in_owner = true
 script = ExtResource("189_85fpf")
 currentInk = 50
 currentFurypoints = 3
 
 [node name="DamageComponent" type="Node2D" parent="Components"]
+unique_name_in_owner = true
 script = ExtResource("190_ltiup")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

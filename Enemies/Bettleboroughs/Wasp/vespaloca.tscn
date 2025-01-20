@@ -723,8 +723,17 @@ material = SubResource("ShaderMaterial_kehak")
 script = ExtResource("2_gf2w3")
 coin_amount = 4
 health = 1
+health_max = null
+health_min = null
 damage_value = 10
+damage_max = null
+damage_min = null
+crit_chance = null
+is_dealing_damage = null
+speed = null
 movement_type = 1
+gravity_type = null
+gravity_strength = null
 
 [node name="EnemyStateMachine" type="Node" parent="."]
 script = ExtResource("3_hof1q")
@@ -776,7 +785,7 @@ autoplay = "Idle"
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-33, 14)
-texture = ExtResource("19_0axby")
+texture = ExtResource("12_b7s88")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -790,7 +799,7 @@ offset = Vector2(33, -14)
 unique_name_in_owner = true
 material = ExtResource("14_vvys6")
 position = Vector2(-33, 14)
-texture = ExtResource("10_nhugw")
+texture = ExtResource("7_b44fg")
 
 [node name="Wings" type="AnimationPlayer" parent="."]
 libraries = {

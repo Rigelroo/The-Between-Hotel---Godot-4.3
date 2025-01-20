@@ -12,7 +12,7 @@ signal healthChanged
 signal temporary
 signal inkChanged
 
-@onready var damage_numbers_origin = %DamagenumOrigin
+
 
 @onready var test2D = $Node2D
 @onready var splashdec = $Splashdetection
@@ -22,6 +22,9 @@ signal inkChanged
 @onready var stats = get_tree().get_first_node_in_group("Stats")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = %Sprite2D
+
+@onready var stats_component: Node2D = $Components/StatsComponent
+@onready var damage_component: Node2D = $Components/DamageComponent
 
 
 @onready var STATES = $STATES
@@ -53,6 +56,7 @@ signal inkChanged
 @export var dash_speed = 1880
 @export var SPEED = 470.0
 @export var JUMP_VELOCITY = -700.0
+@export var variable_jump_value = -300
 @export var max_fall_speed = -900.0 * 1.5
 @export_range(1, 2000, 0) var slide_deceleration : int = 500
 @export var can_interact = false
@@ -791,17 +795,20 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("EnemyAttackboxs"):
 		#area.get_parent().deal_damage()
 		var dvalue = area.owner.damage_value
-		deal_damage(dvalue, area)
+		damage_component.deal_damage(dvalue, area)
 		
 		is_dealing_damage = true
 		$AnimationPlayer.play("Damage")
-		stats.updatehealth()
 
-	
-func deal_damage(value: int, area: Area2D):
-	$DamageComponent.deal_damage(value, area)
-func deal_projectiledamage(value: int, area: Area2D):
-	$DamageComponent.deal_damage(value, area)
+	if area.is_in_group("badProjectile"):
+		var dvalue = area.owner.damage_value
+		damage_component.deal_damage(dvalue, area)
+		
+		is_dealing_damage = true
+		$AnimationPlayer.play("Damage")
+		
+
+
 
 
 func knockback(delta: float) -> void:
@@ -861,8 +868,8 @@ func move_towards_target(delta: float, target, whocalled):
 
 func _on_jumptimer_timeout() -> void:
 	if !Input.is_action_pressed("Jump"):
-		if velocity.y < -300:
-			velocity.y = -300 
+		if velocity.y < variable_jump_value:
+			velocity.y = variable_jump_value 
 	else:
 		pass
 		#print("highjump")
