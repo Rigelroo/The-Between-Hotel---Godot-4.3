@@ -44,7 +44,8 @@ var death_scene: String = "res://Tests/deadreplacer.tscn"
 
 signal just_equip
 
-#func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	pass
 	#if Input.is_action_just_pressed("Attack") && inventory.number == 1:
 		#SignalManager.just_equip.emit()
 

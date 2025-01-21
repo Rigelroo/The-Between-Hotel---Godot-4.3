@@ -60,7 +60,7 @@ var can_showmouse = false
 var mouse_visible = false:
 	set(new_value):
 		if !new_value:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 

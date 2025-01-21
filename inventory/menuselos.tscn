@@ -506,6 +506,9 @@ scale = Vector2(0.306004, 0.306004)
 
 [node name="Screentypebox" type="OptionButton" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options" groups=["ScreenType"]]
 unique_name_in_owner = true
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.092
@@ -573,6 +576,9 @@ expand_icon = true
 
 [node name="Screenresbox" type="OptionButton" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela/options" groups=["Resolution"]]
 unique_name_in_owner = true
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.092
@@ -818,6 +824,9 @@ offset_bottom = 959.0
 scale = Vector2(0.306004, 0.306004)
 
 [node name="OptionButton" type="OptionButton" parent="TabContainer/Config/TabContainer/OptionsContainer/Controles/options"]
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
 layout_mode = 0
 offset_left = 91.5021
 offset_top = 107.842

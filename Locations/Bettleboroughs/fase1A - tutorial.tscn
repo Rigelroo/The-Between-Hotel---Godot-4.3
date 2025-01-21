@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://dvki2umflw07g"]
+[gd_scene load_steps=65 format=4 uid="uid://dvki2umflw07g"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_pu0m5"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_4ti0g"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" uid="uid://4xvnsep6px4l" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="21_6ebul"]
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://Inventory/Selos/selo_1.tscn" id="22_bm8wb"]
 [ext_resource type="Shader" uid="uid://bjls1ecffx6lt" path="res://Tests/reflectivewater.gdshader" id="22_ppbcn"]
-[ext_resource type="PackedScene" uid="uid://crdmoynvlevin" path="res://Enemies/Bettleboroughs/Pulga/minisquito.tscn" id="23_6ebul"]
 [ext_resource type="Texture2D" uid="uid://btx3s65d1y0xh" path="res://Sprites/branco.png" id="23_13h5w"]
 [ext_resource type="PackedScene" uid="uid://b5ou2iekn03vp" path="res://Enemies/Bettleboroughs/Pulga/ant.tscn" id="24_2wf5p"]
 [ext_resource type="Texture2D" uid="uid://baw8sjkb6gb12" path="res://Sprites/Bettlebourough/water/waterline0000.png" id="24_xpmnl"]
@@ -27,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://bdcqrmpu1xgo7" path="res://Sprites/Bettlebourough/water/waterline0002.png" id="26_6vdki"]
 [ext_resource type="Texture2D" uid="uid://bwj2q644wn32o" path="res://Sprites/Bettlebourough/water/waterline0003.png" id="27_mf0kd"]
 [ext_resource type="Shader" uid="uid://b2wn438y4h4qc" path="res://Locations/Bettleboroughs/fog.gdshader" id="38_13h5w"]
+[ext_resource type="PackedScene" uid="uid://csfewgcjfbaci" path="res://Enemies/Bettleboroughs/path_minisquito.tscn" id="38_xpmnl"]
+[ext_resource type="Shader" uid="uid://d2iygc34knq60" path="res://Objects/test.gdshader" id="39_xpmnl"]
 [ext_resource type="Material" uid="uid://cvnjyvncupoev" path="res://Sprites/Bettlebourough/grass_sway_ShaderMaterial.tres" id="53_ap3b0"]
 [ext_resource type="Texture2D" uid="uid://bcubb3x0o348k" path="res://Sprites/Bettlebourough/tileset.png" id="54_bmxtq"]
 [ext_resource type="Texture2D" uid="uid://cretht0l3ok88" path="res://Sprites/Bettlebourough/tileset-decorations.png" id="55_ripnq"]
@@ -1119,11 +1120,10 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[sub_resource type="Curve2D" id="Curve2D_ppbcn"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3255, 555, 0, 0, 0, 0, 3249, 1178)
-}
-point_count = 2
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dpigi"]
+shader = ExtResource("39_xpmnl")
+shader_parameter/grain_amount = 0.04
+shader_parameter/grain_size = 0.694
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 script = ExtResource("1_pu0m5")
@@ -1231,7 +1231,7 @@ scale = Vector2(318.734, 28.0234)
 texture = SubResource("GradientTexture2D_hu5d5")
 
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("58_ni1fe")]
-position = Vector2(798, 1338)
+position = Vector2(2094, -185)
 scale = Vector2(9, 9)
 showitem = NodePath("Showitemsprite")
 JUMP_VELOCITY = -1000.0
@@ -1240,7 +1240,7 @@ player_camera = NodePath("Camera2D")
 
 [node name="Camera2D" parent="Player" instance=ExtResource("59_bm72g")]
 physics_interpolation_mode = 1
-position = Vector2(110.778, 0)
+position = Vector2(0, 0)
 scale = Vector2(0.111111, 0.111111)
 zoom = Vector2(0.3, 0.3)
 limit_left = -125
@@ -1615,8 +1615,8 @@ material = SubResource("CanvasItemMaterial_2yn5m")
 position = Vector2(1729, 577.194)
 scale = Vector2(5, 5)
 amount = 35
-visibility_rect = Rect2(-500, -200, 1000, 400)
 texture = ExtResource("73_2xcgr")
+visibility_rect = Rect2(-500, -200, 1000, 400)
 process_material = SubResource("ParticleProcessMaterial_ftn2t")
 
 [node name="PausemenuLayer" parent="." instance=ExtResource("74_fgwxb")]
@@ -1638,7 +1638,7 @@ visible = false
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(1795, 1338)
+position = Vector2(2094, -185)
 script = ExtResource("20_bm8wb")
 follow_mode = 2
 follow_target = NodePath("../Player")
@@ -1654,16 +1654,21 @@ scale = Vector2(3, 3)
 [node name="Ant" parent="." instance=ExtResource("24_2wf5p")]
 position = Vector2(18047, 570)
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_ppbcn")
+[node name="BaseEnemy" parent="." instance=ExtResource("38_xpmnl")]
+position = Vector2(2036, 679)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(3255, 555)
-rotation = 1.58043
-loop = false
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+top_level = true
+z_index = 6
+material = SubResource("ShaderMaterial_dpigi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
-[node name="Minisquito" parent="Path2D/PathFollow2D" node_paths=PackedStringArray("path") instance=ExtResource("23_6ebul")]
-position = Vector2(-0.665771, 6.36891)
-rotation = -1.58288
-scale = Vector2(0.6, 0.6)
-path = NodePath("..")
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4

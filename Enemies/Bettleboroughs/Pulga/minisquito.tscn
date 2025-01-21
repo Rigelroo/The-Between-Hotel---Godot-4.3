@@ -44,10 +44,10 @@ radial_accel_max = 53.33
 collision_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kctrd"]
-size = Vector2(664, 612)
+size = Vector2(664, 472.928)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0iu8b"]
-size = Vector2(473, 481)
+size = Vector2(352.786, 254.927)
 
 [sub_resource type="Animation" id="Animation_rnfhr"]
 length = 0.001
@@ -615,23 +615,23 @@ shape = SubResource("RectangleShape2D_tmulh")
 position = Vector2(78.8164, 0)
 emitting = false
 amount = 7
+texture = ExtResource("11_vncfy")
 lifetime = 2.0
 one_shot = true
 preprocess = 0.2
 explosiveness = 0.86
 randomness = 0.67
-texture = ExtResource("11_vncfy")
 process_material = ExtResource("12_5pisk")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 position = Vector2(-7, 89)
 emitting = false
 amount = 30
+texture = ExtResource("11_vncfy")
 lifetime = 90.55
 one_shot = true
 explosiveness = 1.0
 randomness = 0.12
-texture = ExtResource("11_vncfy")
 process_material = SubResource("ParticleProcessMaterial_s65u1")
 
 [node name="DamageArea" type="Area2D" parent="."]
@@ -674,7 +674,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Attackcollision" type="CollisionShape2D" parent="Attackbox"]
 unique_name_in_owner = true
-position = Vector2(15, 71.5)
+position = Vector2(16, 84)
 shape = SubResource("RectangleShape2D_0iu8b")
 debug_color = Color(0.986317, 0.0702289, 0.2335, 0.42)
 

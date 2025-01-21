@@ -13,9 +13,15 @@ const coin_instance = preload("res://inventory/Moedas/coin.tscn")
 @onready var movement_component: Node2D = %MovementComponent
 @export_range(1, 1000, 0) var speed : int = 70
 
+@export var damage_value : int = 5
+
+
 func take_damage(amount: int, is_critical: bool):
 	Damagenumbers.display_number(amount, damage_numbers_origin.global_position, false)
 	hit_player.play("hit")
+	await hit_player.animation_finished
+	hit_player.play("RESET")
+
 
 func _physics_process(delta: float) -> void:
 	%MovementComponent.enemy_movement(delta)
@@ -40,7 +46,12 @@ func _on_damage_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("attackbox"):
 		if area.owner.has_method("player"):
 			deal_damage(area.owner.damage_component.damage_value, area)
+			area.owner.damage_component.knockback(self)
 
+func _on_impulse_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("attackbox"):
+		if area.owner.has_method("player"):
+			area.owner.damage_component.knockback_impulse(self)
 
 func deal_damage(value: int, area: Area2D):
 	var damage = critical(area, value)

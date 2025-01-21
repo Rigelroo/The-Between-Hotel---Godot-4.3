@@ -82,7 +82,7 @@ func followPath():
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(Entity.path, "progress_ratio", progress, duration)
 	await get_tree().create_timer(duration).timeout
-	print(Entity.path.progress_ratio)
+	#print(Entity.path.progress_ratio)
 	if progress == 1:
 		progress = 0
 	else:

@@ -1,36 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://cn5w1vi5yjg3u"]
+[gd_scene load_steps=15 format=3 uid="uid://cn5w1vi5yjg3u"]
 
 [ext_resource type="Script" uid="uid://bb60pyyexo3un" path="res://scenes/canvas_layer.gd" id="1_f1ums"]
 [ext_resource type="PackedScene" uid="uid://cr0rxd186uoyo" path="res://Inventory/menuselos.tscn" id="3_2ly1l"]
-[ext_resource type="Shader" uid="uid://d2iygc34knq60" path="res://Objects/test.gdshader" id="4_2swba"]
-[ext_resource type="Shader" uid="uid://b0scaouj3av82" path="res://Inventory/Items/item_1.gdshader" id="4_ipweg"]
 [ext_resource type="Script" uid="uid://b8ohonjblhqyo" path="res://Inventory/Scripts/notificationsystem.gd" id="5_280g2"]
 [ext_resource type="FontFile" uid="uid://exj3c8h6l0tr" path="res://Fonts/Typewriter215FP-Bold.otf" id="7_as1ww"]
 [ext_resource type="Script" uid="uid://bhe7fvbflarf5" path="res://Fonts/pivot.gd" id="8_dcl8t"]
 [ext_resource type="PackedScene" uid="uid://1uftutib1rsp" path="res://Missões/taskpanelnotif.tscn" id="9_g3huw"]
 [ext_resource type="Script" uid="uid://l434js5cj2ls" path="res://Fonts/slinky.gd" id="9_robvp"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0gd3"]
-shader = ExtResource("4_2swba")
-shader_parameter/grain_amount = 0.04
-shader_parameter/grain_size = 0.694
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2evd"]
-shader = ExtResource("4_ipweg")
-shader_parameter/resolution = Vector2(1280, 720)
-shader_parameter/scan_line_amount = 0.102
-shader_parameter/warp_amount = 0.1
-shader_parameter/noise_amount = 0.03
-shader_parameter/interference_amount = 0.2
-shader_parameter/grille_amount = 0.1
-shader_parameter/grille_size = 1.0
-shader_parameter/vignette_amount = 0.6
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/aberation_amount = 0.5
-shader_parameter/roll_line_amount = 0.3
-shader_parameter/roll_speed = 1.0
-shader_parameter/scan_line_strength = -8.0
-shader_parameter/pixel_strength = -4.0
 
 [sub_resource type="Animation" id="Animation_fkxa7"]
 length = 0.001
@@ -135,36 +111,6 @@ process_thread_group_order = 0
 process_thread_messages = 0
 script = ExtResource("1_f1ums")
 inventory = NodePath("InventoryGui")
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
-top_level = true
-z_index = 6
-material = SubResource("ShaderMaterial_u0gd3")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer2"]
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-visible = false
-top_level = true
-z_index = 6
-material = SubResource("ShaderMaterial_d2evd")
-offset_right = 1191.0
-offset_bottom = 678.0
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(1191, 678)
-render_target_update_mode = 0
 
 [node name="InventoryGui" parent="." instance=ExtResource("3_2ly1l")]
 

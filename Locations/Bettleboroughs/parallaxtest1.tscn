@@ -1816,8 +1816,8 @@ material = SubResource("CanvasItemMaterial_2yn5m")
 position = Vector2(1729, 577.194)
 scale = Vector2(5, 5)
 amount = 35
-visibility_rect = Rect2(-500, -200, 1000, 400)
 texture = ExtResource("58_uarki")
+visibility_rect = Rect2(-500, -200, 1000, 400)
 process_material = SubResource("ParticleProcessMaterial_ftn2t")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
@@ -1825,8 +1825,8 @@ material = SubResource("CanvasItemMaterial_2yn5m")
 position = Vector2(7449, 589.194)
 scale = Vector2(5, 5)
 amount = 35
-visibility_rect = Rect2(-500, -200, 1000, 400)
 texture = ExtResource("58_uarki")
+visibility_rect = Rect2(-500, -200, 1000, 400)
 process_material = SubResource("ParticleProcessMaterial_ftn2t")
 
 [node name="PausemenuLayer" parent="." instance=ExtResource("22_ieecm")]

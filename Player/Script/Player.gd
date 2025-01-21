@@ -794,7 +794,7 @@ var is_in_water : bool = false
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("EnemyAttackboxs"):
 		#area.get_parent().deal_damage()
-		var dvalue = area.owner.damage_value
+		var dvalue = area.get_parent().damage_value
 		damage_component.deal_damage(dvalue, area)
 		
 		is_dealing_damage = true

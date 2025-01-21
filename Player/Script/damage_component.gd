@@ -41,3 +41,15 @@ func playdeath():
 	if $StatsComponent.currentHealth <= $StatsComponent.minHealth:
 		#dying = true
 		pass
+
+var knockback_power: int = 500
+
+func knockback(enemy):
+	var knockback_direction = (owner.global_position - enemy.global_position).normalized() * knockback_power
+	owner.velocity = knockback_direction
+	owner.move_and_slide()
+
+func knockback_impulse(enemy):
+	var direction = (owner.global_position - enemy.global_position).normalized() * (-owner.JUMP_VELOCITY * 2)
+	owner.velocity.y += direction.y
+	owner.move_and_slide()
