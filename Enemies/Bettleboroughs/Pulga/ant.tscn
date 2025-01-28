@@ -643,6 +643,7 @@ autostart = true
 
 [node name="Statelabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -117.184
 offset_top = -498.0
 offset_right = 407.816
@@ -653,6 +654,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="HPlabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -645.0
 offset_top = -487.0
 offset_right = -120.0

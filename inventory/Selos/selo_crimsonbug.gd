@@ -1,4 +1,4 @@
-class_name CrimsonStamp extends InventoryItem
+extends InventoryItem
 signal Equiped 
 
 

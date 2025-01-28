@@ -811,23 +811,23 @@ autoplay = "wings"
 position = Vector2(78.8164, 0)
 emitting = false
 amount = 7
+texture = ExtResource("22_8c7rt")
 lifetime = 2.0
 one_shot = true
 preprocess = 0.2
 explosiveness = 0.86
 randomness = 0.67
-texture = ExtResource("22_8c7rt")
 process_material = ExtResource("28_btvms")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 position = Vector2(-7, 89)
 emitting = false
 amount = 30
+texture = ExtResource("22_8c7rt")
 lifetime = 90.55
 one_shot = true
 explosiveness = 1.0
 randomness = 0.12
-texture = ExtResource("22_8c7rt")
 process_material = SubResource("ParticleProcessMaterial_s65u1")
 
 [node name="DamageArea" type="Area2D" parent="."]

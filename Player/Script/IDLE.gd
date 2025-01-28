@@ -2,6 +2,7 @@ extends "state.gd"
 
 
 func update(delta):
+	Player.handleJumpBuffer()
 	Player.velocity.y += Player.gravity(delta)
 	if Input.is_action_pressed("Balir"):
 		$"../../AnimationPlayer".play("balir")

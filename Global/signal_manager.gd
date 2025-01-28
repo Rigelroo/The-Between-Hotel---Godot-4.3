@@ -57,6 +57,8 @@ var npc_index = false
 
 var can_showmouse = false
 
+var coin_number = 10
+
 var mouse_visible = false:
 	set(new_value):
 		if !new_value:

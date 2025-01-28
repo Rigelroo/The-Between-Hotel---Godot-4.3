@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=114 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_ofkno"]
@@ -78,6 +78,10 @@
 [ext_resource type="Texture2D" uid="uid://bdcqrmpu1xgo7" path="res://Sprites/Bettlebourough/water/waterline0002.png" id="74_1vyod"]
 [ext_resource type="Texture2D" uid="uid://bwj2q644wn32o" path="res://Sprites/Bettlebourough/water/waterline0003.png" id="75_gdh3p"]
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://Inventory/Selos/selo_1.tscn" id="78_rjvmj"]
+[ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="79_fyuwo"]
+[ext_resource type="Texture2D" uid="uid://bqm4fvvjrq1s6" path="res://Sprites/Bettlebourough/assets/asset_bettle8.png" id="80_nxn2n"]
+[ext_resource type="Texture2D" uid="uid://dv5rbd3curfxu" path="res://Sprites/Bettlebourough/assets/asset_bettle5.png" id="81_dwq2o"]
+[ext_resource type="Texture2D" uid="uid://cg3xnv85a50n0" path="res://Sprites/Bettlebourough/assets/asset_bettle4.png" id="82_lp6e7"]
 
 [sub_resource type="Gradient" id="Gradient_l1xbt"]
 colors = PackedColorArray(0.447059, 0.419608, 0.67451, 1, 0, 0, 0, 0)
@@ -1700,14 +1704,12 @@ position = Vector2(358, 1093)
 tile_map_data = PackedByteArray("AAD2//n/AAAOAAAAAAD2//r/AAAOAAEAAAD2//v/AAAOAAIAAAD3//n/AAAPAAAAAAD3//r/AAAPAAEAAAD3//v/AAAPAAIAAAD4//n/AAAQAAAAAAD4//r/AAAQAAEAAAD4//v/AAAQAAIAAAD5//n/AAARAAAAAAD5//r/AAARAAEAAAD5//v/AAARAAIAAAD6//n/AAASAAAAAAD6//r/AAASAAEAAAD6//v/AAASAAIAAAD7//z/AAAOAAAAACD8//z/AAAPAAAAACD9//z/AAAQAAAAACD+//z/AAARAAAAACD///z/AAASAAAAACD7//v/AAAOAAEAACD8//v/AAAPAAEAACD9//v/AAAQAAEAACD+//v/AAARAAEAACD///v/AAASAAEAACD7//r/AAAOAAIAACD8//r/AAAPAAIAACD9//r/AAAQAAIAACD+//r/AAARAAIAACD///r/AAASAAIAACAiAPj/AAASAAAAAAAiAPn/AAASAAEAAAAiAPr/AAASAAIAAAAIAPf/AAASAAAAABAIAPj/AAASAAEAABAIAPn/AAASAAIAABAlAPj/AAAQAAEAAAAmAPj/AAAQAAEAAAAmAPn/AAAQAAEAAAAnAPn/AAAQAAEAAAAlAPn/AAAQAAEAAAAnAPj/AAAQAAEAAAAoAPj/AAAQAAEAAAApAPj/AAAQAAEAAAAbAPr/AAAOAAAAAAAbAPv/AAAOAAEAAAAbAPz/AAAOAAIAAAAcAPr/AAAPAAAAAAAcAPv/AAAPAAEAAAAcAPz/AAAPAAIAAAAdAPr/AAAQAAAAAAAdAPv/AAAQAAEAAAAdAPz/AAAQAAIAAAAeAPr/AAARAAAAAAAeAPv/AAARAAEAAAAeAPz/AAARAAIAAAAfAPr/AAASAAAAAAAfAPv/AAASAAEAAAAfAPz/AAASAAIAAAA=")
 tile_set = SubResource("TileSet_a4y80")
 
-[node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("12_njeaq")]
-position = Vector2(7412, 763)
-scale = Vector2(9, 9)
-showitem = NodePath("Showitemsprite")
-player_camera = NodePath("Camera2D")
+[node name="Player" parent="." instance=ExtResource("12_njeaq")]
+position = Vector2(9650, 874)
+scale = Vector2(0.6, 0.6)
 
 [node name="Camera2D" parent="Player" instance=ExtResource("13_5etxj")]
-position = Vector2(0.712132, -34.1823)
+position = Vector2(0, 8.33336)
 zoom = Vector2(0.355, 0.355)
 limit_left = -4270
 limit_top = -765
@@ -1831,8 +1833,6 @@ process_material = SubResource("ParticleProcessMaterial_ftn2t")
 
 [node name="PausemenuLayer" parent="." instance=ExtResource("22_ieecm")]
 
-[node name="Berserklayer" parent="." instance=ExtResource("23_awmji")]
-
 [node name="Statslayer" type="CanvasLayer" parent="."]
 visible = false
 scale = Vector2(0.76, 0.76)
@@ -1850,6 +1850,90 @@ visible = false
 [node name="Selo1" parent="." instance=ExtResource("78_rjvmj")]
 position = Vector2(-1314, 263)
 scale = Vector2(2.5, 2.5)
+
+[node name="Berserklayer" parent="." instance=ExtResource("23_awmji")]
+
+[node name="SaveStarter" parent="Berserklayer" instance=ExtResource("79_fyuwo")]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+modulate = Color(0.0392157, 0.00784314, 0.113725, 1)
+scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(1.2, 1)
+scroll_offset = Vector2(-388, -552)
+
+[node name="AssetBettlep2" type="Polygon2D" parent="Parallax2D"]
+position = Vector2(5744.55, 2578.18)
+scale = Vector2(7.6802, 2.43957)
+color = Color(0.0745098, 0.0745098, 0.219608, 1)
+polygon = PackedVector2Array(-178.393, -182.335, 164.993, -179.354, 178.961, -154.759, 178.132, 68.8273, 170.202, 120.997, -180.997, 112.799)
+
+[node name="AssetBettle10" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(-90.4924, -312.76)
+scale = Vector2(0.130205, 0.409908)
+texture = ExtResource("80_nxn2n")
+hframes = 3
+vframes = 5
+frame = 3
+
+[node name="AssetBettle11" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(130.667, -338.847)
+scale = Vector2(0.130205, 0.409908)
+texture = ExtResource("80_nxn2n")
+hframes = 3
+vframes = 5
+frame = 6
+
+[node name="AssetBettle1" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(-10.7041, -260.757)
+scale = Vector2(0.137674, 0.433422)
+texture = ExtResource("55_v3v54")
+
+[node name="AssetBettle5" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(106.401, -219.599)
+scale = Vector2(0.152403, 0.518119)
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle4" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(189.199, -22.3754)
+rotation = -1.57079
+scale = Vector2(0.433422, 0.137674)
+skew = 4.1008e-05
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle12" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(-182.169, -33.9105)
+rotation = 1.56966
+scale = Vector2(0.433422, 0.137674)
+skew = 4.1008e-05
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle6" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(-123.184, -218.282)
+scale = Vector2(0.137674, 0.433422)
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle13" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(-126.772, 128.19)
+rotation = 3.13056
+scale = Vector2(0.137674, 0.433422)
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle7" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(137.02, 165.296)
+scale = Vector2(0.154694, 0.487004)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle9" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(-63.296, 165.118)
+rotation = 3.14127
+scale = Vector2(0.137674, 0.540969)
+skew = 0.000291109
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle8" type="Sprite2D" parent="Parallax2D/AssetBettlep2"]
+position = Vector2(35.4167, 156.628)
+scale = Vector2(0.154694, 0.487004)
+texture = ExtResource("82_lp6e7")
 
 [connection signal="area_entered" from="Camada 2/AssetsHouse3/Npc3/Area2D" to="Camada 2/AssetsHouse3/Npc3" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Camada 2/AssetsHouse3/Npc3/Area2D" to="Camada 2/AssetsHouse3/Npc3" method="_on_area_2d_area_exited"]

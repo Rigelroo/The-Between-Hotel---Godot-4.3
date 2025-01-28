@@ -53,9 +53,9 @@ signal inkChanged
 #@onready var ghost_timer = $GhostTimer
 #@onready var particles = $GPUParticles2D
 @export_subgroup("Movement")
-@export var dash_speed = 1880
-@export var SPEED = 470.0
-@export var JUMP_VELOCITY = -700.0
+@export var dash_speed = 1880 
+@export var SPEED = 470.0 * 1.5
+@export var JUMP_VELOCITY = -700.0 * 1.5
 @export var variable_jump_value = -300
 @export var max_fall_speed = -900.0 * 1.5
 @export_range(1, 2000, 0) var slide_deceleration : int = 500
@@ -252,8 +252,16 @@ func _process(delta: float) -> void:
 	if can_emit:
 		breathemitting()
 
+@onready var jumpcloud = preload("res://jump_cloud.tscn")
+
+func jump_particles():
+	if is_on_floor():
+		var new_node = jumpcloud.instantiate()
+		get_parent().add_child(new_node)
+		new_node.global_position = $JumpTarget.global_position
 
 func _physics_process(delta):
+	
 	player_input()
 	change_state(current_state.update(delta))
 	if %AnimationPlayer.current_animation != "jump_slide":
@@ -347,11 +355,9 @@ func gravity(delta) -> float:
 	if current_state.name == "SLIDE":
 		regravity = (gravity_value) * delta
 	if current_state.name == "FALL":
-		regravity = (1.5 * gravity_value) * delta
+		regravity = (2.0 * gravity_value) * delta
 	elif current_state.name == "HLEAF":
-		if is_in_water:
-			regravity = clamp(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP) - velocity.y
-		else:
+		if !is_on_floor():
 			regravity = (gravity_value + 100 / 2.5) * delta
 	else:
 		if is_in_water:
@@ -381,45 +387,31 @@ func get_next_to_wall():
 			else:
 				return Vector2.LEFT
 	return null
-	
-#func player_input():
-	#movement_input = Vector2.ZERO
-	#if can_move && can_move_si:
-		#if Input.is_action_pressed("MoveRight"):
-			#$Trayemmiter.scale.x = -1
-			#if $STATES/SLIDE.is_sliding == false:
-				#movement_input.x += 1
-				##%Breathemitter.scale.x = 0.5
-				##%Breathemitter.position.x = 14.2
-				#$Sprite2D.flip_h = false
-				##$Sprite2D.scale.x = 0.07
-				#$sword.position.x = 0
-				#%fire_collider.position.x = 50
-				#
-				#$Sprite2D.position.x = 1
-				#$PlayerHatCold.scale.x = 0.07
-			#facing_direction = false
-		#if Input.is_action_pressed("MoveLeft"):
-			#$Trayemmiter.scale.x = 1
-			#if $STATES/SLIDE.is_sliding == false:
-				#movement_input.x -= 1
-				##$Sprite2D.scale.x = -0.07
-				#$Sprite2D.flip_h = true
-				#
-				##%Breathemitter.scale.x = -0.5
-				##%Breathemitter.position.x = -14.2
-				#%fire_collider.position.x = -60
-				#$PlayerHatCold.scale.x = -0.07
-				#$Sprite2D.position.x = 3.67
-				#$sword.position.x = -46
-			#facing_direction = true
+
+var jumpBuffertime = 1.45
+
+func handleJumpBuffer():
+	if Input.is_action_just_pressed("Jump"):
+		$STATES/JUMP/BufferTimer.start(jumpBuffertime)
+
+
 func player_input():
 	movement_input = Vector2.ZERO
+	if can_move and can_move_si:
+		if current_state == $STATES/SLIDE:
+				if Input.is_action_pressed("MoveRight"):
+					$Emitters/FrictionParticles.scale.x = 1
+					$Emitters/FrictionParticles.position.x = 114.0
+				if Input.is_action_pressed("MoveLeft"):
+					$Emitters/FrictionParticles.scale.x = -1
+					$Emitters/FrictionParticles.position.x = -114.0
 
 	if can_move and can_move_si:
 		if not $STATES/SLIDE.is_sliding:
 				if Input.is_action_pressed("MoveRight"):
-					$Trayemmiter.scale.x = -1
+					%Trayemmiter.scale.x = -1
+					$Emitters/FrictionParticles.scale.x = 1
+					$Emitters/FrictionParticles.position.x = -114.0
 					movement_input.x += 1
 					if !$STATES/JUMP.wall_jump:
 						$Sprite2D.flip_h = false
@@ -431,7 +423,9 @@ func player_input():
 					$PlayerHatCold.scale.x = 0.07
 					facing_direction = false
 				if Input.is_action_pressed("MoveLeft"):
-					$Trayemmiter.scale.x = 1
+					$Emitters/FrictionParticles.scale.x = -1
+					$Emitters/FrictionParticles.position.x = 114.0
+					%Trayemmiter.scale.x = 1
 					movement_input.x -= 1
 					if !$STATES/JUMP.wall_jump:
 						$Sprite2D.flip_h = true
@@ -469,13 +463,13 @@ func player_input():
 		$AnimationPlayer2.active = true
 		$AnimationPlayer.active = false
 		if Input.is_action_pressed("MoveRight"):
-			$Trayemmiter.scale.x = -1
+			%Trayemmiter.scale.x = -1
 			if $STATES/SLIDE.is_sliding == 0:
 				movement_input.x += 1
 				$Sprite2D.flip_h = false
 
 		if Input.is_action_pressed("MoveLeft"):
-			$Trayemmiter.scale.x = 1
+			%Trayemmiter.scale.x = 1
 			if $STATES/SLIDE.is_sliding == 0:
 				movement_input.x -= 1
 				$Sprite2D.flip_h = true
@@ -488,8 +482,10 @@ func player_input():
 	# Jump handling
 	if not $STATES/SLIDE.is_sliding:
 		if !is_skydiving && !is_in_water && can_move && can_move_si:
-			if Input.is_action_just_pressed("Jump"):
+			if Input.is_action_just_pressed("Jump") or $STATES/JUMP/BufferTimer.time_left > 0:
 				$STATES/JUMP/Jumptimer.start()
+				$STATES/JUMP/BufferTimer.stop()
+				print($STATES/JUMP/BufferTimer.time_left)
 				jump_input_actuation = true
 			else:
 				jump_input_actuation = false
@@ -542,109 +538,7 @@ func player_input():
 			balir_input = true
 		else:
 			interact_input = false
-#func aplayer_input():
-	#movement_input = Vector2.ZERO
-	#if can_move && can_move_si:
-		#if Input.is_action_pressed("MoveRight"):
-			#$Trayemmiter.scale.x = -1
-			#if $STATES/SLIDE.is_sliding == 0:
-				#movement_input.x += 1
-				##%Breathemitter.scale.x = 0.5
-				##%Breathemitter.position.x = 14.2
-				#$Sprite2D.flip_h = false
-				##$Sprite2D.scale.x = 0.07
-				#$sword.position.x = 0
-				#%fire_collider.position.x = 50
-				#
-				#$Sprite2D.position.x = 1
-				#$PlayerHatCold.scale.x = 0.07
-			#facing_direction = false
-		#if Input.is_action_pressed("MoveLeft"):
-			#$Trayemmiter.scale.x = 1
-			#if $STATES/SLIDE.is_sliding == 0:
-				#movement_input.x -= 1
-				##$Sprite2D.scale.x = -0.07
-				#$Sprite2D.flip_h = true
-				#
-				##%Breathemitter.scale.x = -0.5
-				##%Breathemitter.position.x = -14.2
-				#%fire_collider.position.x = -60
-				#$PlayerHatCold.scale.x = -0.07
-				#$Sprite2D.position.x = 3.67
-				#$sword.position.x = -46
-			#facing_direction = true
-		#if Input.is_action_pressed("MoveUp"):
-			#movement_input.y -= 1
-		#if Input.is_action_pressed("MoveDown"):
-			#movement_input.y += 1
-	#
-	## jumps
-	#if !is_in_water && can_move && can_move_si:
-		##$CollisionShape2D.position.y = 0
-		#$CollisionShape2D.disabled = false
-		#$CollisionShape2D2.disabled = true
-		#$AnimationPlayer2.active = false
-		#$AnimationPlayer.active = true
-	#if is_in_water  && can_move && can_move_si:
-		##$CollisionShape2D.position.y = -9.6
-		#$CollisionShape2D.disabled = true
-		#$CollisionShape2D2.disabled = false
-		#$AnimationPlayer2.active = true
-		#$AnimationPlayer.active = false
-	#if !is_in_water && can_move && can_move_si:
-		#if Input.is_action_pressed("Jump"):
-			#
-			##if $STATES/SLIDE.is_sliding == 0:
-				#jump_input = true
-		#else: 
-				#jump_input = false
-	#if !is_in_water && can_move && can_move_si:
-		#if Input.is_action_just_pressed("Jump"):
-			##if $STATES/SLIDE.is_sliding == 0:
-				#jump_input_actuation = true
-		#else: 
-				#jump_input_actuation = false
-	#if is_in_water && can_move && can_move_si:
-		#if Input.is_action_just_pressed("Jump"):
-			#velocity.y += SWIN_JUMP
-	#if !is_in_water && can_move && can_move_si:
-	##climb
-		#if manager.ffemblem_equiped or manager.frozenheart_equiped:
-			#if Input.is_action_pressed("Magic"):
-				#breath_input = true
-			#else:
-				#breath_input = false
-		#if Input.is_action_pressed("Climb"):
-			#climb_input = true
-		#else: 
-			#climb_input = false
-	##dash
-		#if Input.is_action_just_pressed("Dash"):
-			#dash_input = true
-		#else: 
-			#dash_input = false
-		#if Input.is_action_just_pressed("Attack"):
-			#attack_input = true
-		#else: 
-			#attack_input = false
-			#
-		##if Input.is_action_pressed("Attack"):
-			##is_charging = true
-			##charge_time = 0  # Reset charge time
-		##if Input.is_action_just_released("Attack"):
-			##if is_charging:
-				##perform_charge_attack()
-				##is_charging = false
-			##else:
-				##attack_input = true
-		#
-		##else: 
-			##attack_input = false
-	#
-		#if Input.is_action_just_pressed("Interact"):
-			#interact_input = true
-		#else: 
-			#interact_input = false
+
 
 var charge_time = 0
 var is_charging = false

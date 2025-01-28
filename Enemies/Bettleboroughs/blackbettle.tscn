@@ -1,31 +1,30 @@
-[gd_scene load_steps=42 format=3 uid="uid://csfewgcjfbaci"]
+[gd_scene load_steps=36 format=3 uid="uid://ba3xwpsxmpij8"]
 
-[ext_resource type="Shader" uid="uid://c3xm1dtho44rx" path="res://scenes/entities/B1/hit.gdshader" id="1_25uyd"]
-[ext_resource type="Script" uid="uid://bpt2xtid6uj8" path="res://Enemies/EnemyStateMachine/enemy_script.gd" id="2_uyd2c"]
-[ext_resource type="Texture2D" uid="uid://ps0a77vodr5n" path="res://Enemies/Bettleboroughs/minisquito - defeated.png" id="3_lm162"]
-[ext_resource type="Script" uid="uid://hyrt48bvwoim" path="res://Enemies/Bettleboroughs/Pulga/movement_component.gd" id="3_tbfdf"]
-[ext_resource type="PackedScene" uid="uid://2kwnf3bx5cwl" path="res://Objects/deadbody.tscn" id="3_uyd2c"]
-[ext_resource type="Script" uid="uid://cn2cxmlk7ocp7" path="res://Enemies/ENEMYSTATES.gd" id="4_lm162"]
-[ext_resource type="Script" uid="uid://cpbx24hrkqvf7" path="res://Enemies/Bettleboroughs/Pulga/enemy_idle.gd" id="5_8wn8e"]
-[ext_resource type="Script" uid="uid://qagvh0iu1thi" path="res://Enemies/Bettleboroughs/Pulga/enemy_move.gd" id="6_vvlk0"]
-[ext_resource type="Texture2D" uid="uid://dgjoqfguta3r" path="res://Tests/smoke.png" id="7_xp277"]
-[ext_resource type="Material" uid="uid://cdgsydya4x6w7" path="res://scenes/entities/damageparticles.tres" id="8_svupe"]
-[ext_resource type="Script" uid="uid://cxs6ii1pkxy2a" path="res://scenes/entities/B1/hitboxComponent.gd" id="9_r7waa"]
-[ext_resource type="AudioStream" uid="uid://dhn7eingilut8" path="res://Sound/Testmusic&sounds/wasp-sound-effect.mp3" id="10_qhc5j"]
-[ext_resource type="Material" uid="uid://wq8m3q6pclkd" path="res://shaders/hitshader.tres" id="11_8aywl"]
-[ext_resource type="Texture2D" uid="uid://ciou5qksyu6pc" path="res://Sprites/Bettlebourough/enemies/bugwing.png" id="12_rkx4x"]
-[ext_resource type="Texture2D" uid="uid://srq5roihyea4" path="res://Sprites/Bettlebourough/enemies/minisquito.png" id="13_7wku8"]
-[ext_resource type="Texture2D" uid="uid://c745eja0irsba" path="res://Sprites/Bettlebourough/enemies/wasp/dead.png" id="14_b8i8y"]
+[ext_resource type="Shader" uid="uid://c3xm1dtho44rx" path="res://scenes/entities/B1/hit.gdshader" id="1_jlkha"]
+[ext_resource type="Script" uid="uid://bpt2xtid6uj8" path="res://Enemies/EnemyStateMachine/enemy_script.gd" id="2_7ri04"]
+[ext_resource type="PackedScene" uid="uid://2kwnf3bx5cwl" path="res://Objects/deadbody.tscn" id="3_8femi"]
+[ext_resource type="Script" uid="uid://hyrt48bvwoim" path="res://Enemies/Bettleboroughs/Pulga/movement_component.gd" id="4_vtkge"]
+[ext_resource type="Script" uid="uid://cn2cxmlk7ocp7" path="res://Enemies/ENEMYSTATES.gd" id="5_x71hh"]
+[ext_resource type="Script" uid="uid://cpbx24hrkqvf7" path="res://Enemies/Bettleboroughs/Pulga/enemy_idle.gd" id="6_ww31q"]
+[ext_resource type="Script" uid="uid://qagvh0iu1thi" path="res://Enemies/Bettleboroughs/Pulga/enemy_move.gd" id="7_v2n87"]
+[ext_resource type="Texture2D" uid="uid://dgjoqfguta3r" path="res://Tests/smoke.png" id="8_m3rfg"]
+[ext_resource type="Material" uid="uid://cdgsydya4x6w7" path="res://scenes/entities/damageparticles.tres" id="9_gvo4v"]
+[ext_resource type="Script" uid="uid://cxs6ii1pkxy2a" path="res://scenes/entities/B1/hitboxComponent.gd" id="10_1w3mk"]
+[ext_resource type="AudioStream" uid="uid://dhn7eingilut8" path="res://Sound/Testmusic&sounds/wasp-sound-effect.mp3" id="11_mrwug"]
+[ext_resource type="Material" uid="uid://wq8m3q6pclkd" path="res://shaders/hitshader.tres" id="12_rllmt"]
+[ext_resource type="Texture2D" uid="uid://ciou5qksyu6pc" path="res://Sprites/Bettlebourough/enemies/bugwing.png" id="13_j5xlv"]
+[ext_resource type="Texture2D" uid="uid://c8bsdjdpn1tab" path="res://Enemies/Bettleboroughs/blackbettle.png" id="14_jlkha"]
+[ext_resource type="Texture2D" uid="uid://c745eja0irsba" path="res://Sprites/Bettlebourough/enemies/wasp/dead.png" id="15_soknf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kehak"]
-shader = ExtResource("1_25uyd")
+shader = ExtResource("1_jlkha")
 shader_parameter/active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxu8r"]
 size = Vector2(2236, 3159)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmulh"]
-size = Vector2(290, 215)
+size = Vector2(209.999, 215)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s65u1"]
 lifetime_randomness = 0.16
@@ -46,13 +45,13 @@ radial_accel_max = 53.33
 collision_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kctrd"]
-size = Vector2(664, 472.928)
+size = Vector2(581.051, 472.928)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25uyd"]
 size = Vector2(200.044, 239.726)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0iu8b"]
-size = Vector2(406.752, 295.003)
+size = Vector2(317.899, 254.927)
 
 [sub_resource type="Animation" id="Animation_rnfhr"]
 length = 0.001
@@ -306,7 +305,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("14_b8i8y")]
+"values": [ExtResource("15_soknf")]
 }
 
 [sub_resource type="Animation" id="Animation_4awq0"]
@@ -395,7 +394,7 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_1x4du"]
-length = 0.5
+length = 0.4
 loop_mode = 1
 step = 0.02
 tracks/0/type = "value"
@@ -405,20 +404,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.48),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
-}
-tracks/1/type = "animation"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("wing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": PackedStringArray("Wings"),
-"times": PackedFloat32Array(0)
+"values": [1, 2, 3, 4, 5, 6]
 }
 
 [sub_resource type="Animation" id="Animation_iideb"]
@@ -472,10 +461,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.16, 0.24),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4, 7, 8, 10]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_351g6"]
@@ -546,175 +535,95 @@ _data = {
 &"shock": SubResource("Animation_ep2or")
 }
 
-[sub_resource type="Animation" id="Animation_du4gx"]
-resource_name = "Wings"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Wings:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 2, 3, 4, 5, 6, 7, 8]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Wings2:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 2, 3, 4, 5, 6, 7, 8]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlkha"]
+size = Vector2(115, 61)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lwyxx"]
-_data = {
-&"Wings": SubResource("Animation_du4gx")
-}
-
-[sub_resource type="Animation" id="Animation_4s8o6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_wptp2"]
-resource_name = "path1"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qt3u"]
-_data = {
-&"RESET": SubResource("Animation_4s8o6"),
-&"path1": SubResource("Animation_wptp2")
-}
-
-[sub_resource type="Curve2D" id="Curve2D_xpmnl"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -539, 712, 0, 0, 0, 0, -540, 1409)
-}
-point_count = 2
-
-[node name="BaseEnemy" type="Node2D"]
-
-[node name="Minisquito" type="CharacterBody2D" parent="." groups=["Enemies"]]
+[node name="bettle" type="CharacterBody2D" groups=["Enemies"]]
 modulate = Color(1, 1, 1, 0.214)
 material = SubResource("ShaderMaterial_kehak")
-position = Vector2(12, -37)
-rotation = 0.0126611
-scale = Vector2(0.600074, 0.600074)
-script = ExtResource("2_uyd2c")
-deadbodyspr = ExtResource("3_lm162")
+script = ExtResource("2_7ri04")
 speed = 312
-deadbody = ExtResource("3_uyd2c")
+deadbody = ExtResource("3_8femi")
 
-[node name="MovementComponent" type="Node2D" parent="Minisquito"]
+[node name="MovementComponent" type="Node2D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("3_tbfdf")
-gravity_type = "No gravity"
-movement_type = "Path"
+script = ExtResource("4_vtkge")
+gravity_type = "Normal"
+movement_type = "One direction_x_border"
 
-[node name="EnemyStateMachine" type="Node" parent="Minisquito"]
-script = ExtResource("4_lm162")
+[node name="EnemyStateMachine" type="Node" parent="."]
+script = ExtResource("5_x71hh")
 
-[node name="EnemyIdle" type="Node" parent="Minisquito/EnemyStateMachine"]
-script = ExtResource("5_8wn8e")
+[node name="EnemyIdle" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_ww31q")
 
-[node name="EnemyMove" type="Node" parent="Minisquito/EnemyStateMachine"]
-script = ExtResource("6_vvlk0")
+[node name="EnemyMove" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("7_v2n87")
 
-[node name="EnemyHit" type="Node" parent="Minisquito/EnemyStateMachine"]
+[node name="EnemyHit" type="Node" parent="EnemyStateMachine"]
 
-[node name="FollowArea" type="Area2D" parent="Minisquito"]
+[node name="FollowArea" type="Area2D" parent="."]
 position = Vector2(-31.1836, -5)
 scale = Vector2(0.5, 0.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Minisquito/FollowArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FollowArea"]
 visible = false
 position = Vector2(60.3672, -640)
 shape = SubResource("RectangleShape2D_kxu8r")
 debug_color = Color(0.590083, 0.453461, 0.803131, 0.42)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Minisquito"]
-position = Vector2(14, 80.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(37.7141, 80.5)
 shape = SubResource("RectangleShape2D_tmulh")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Minisquito"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(78.8164, 0)
 emitting = false
 amount = 7
-texture = ExtResource("7_xp277")
+texture = ExtResource("8_m3rfg")
 lifetime = 2.0
 one_shot = true
 preprocess = 0.2
 explosiveness = 0.86
 randomness = 0.67
-process_material = ExtResource("8_svupe")
+process_material = ExtResource("9_gvo4v")
 
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="Minisquito"]
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 position = Vector2(-7, 89)
 emitting = false
 amount = 30
-texture = ExtResource("7_xp277")
+texture = ExtResource("8_m3rfg")
 lifetime = 90.55
 one_shot = true
 explosiveness = 1.0
 randomness = 0.12
 process_material = SubResource("ParticleProcessMaterial_s65u1")
 
-[node name="DamageArea" type="Area2D" parent="Minisquito"]
+[node name="DamageArea" type="Area2D" parent="."]
 position = Vector2(-29.1836, 42)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("9_r7waa")
+script = ExtResource("10_1w3mk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Minisquito/DamageArea"]
-position = Vector2(86.3672, 92)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(127.841, 92)
 shape = SubResource("RectangleShape2D_kctrd")
 debug_color = Color(0.960621, 0.526551, 0.690575, 0.419608)
 
-[node name="ImpulseArea" type="Area2D" parent="Minisquito"]
+[node name="ImpulseArea" type="Area2D" parent="."]
 position = Vector2(-29.1836, 42)
 scale = Vector2(0.5, 0.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Minisquito/ImpulseArea"]
-position = Vector2(65.5801, -297.698)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ImpulseArea"]
+position = Vector2(119.873, -228.106)
 shape = SubResource("RectangleShape2D_25uyd")
 debug_color = Color(0.960621, 0.526551, 0.690575, 0.419608)
 
-[node name="Directiontimer" type="Timer" parent="Minisquito"]
+[node name="Directiontimer" type="Timer" parent="."]
 autostart = true
 
-[node name="PrepareTimer" type="Timer" parent="Minisquito"]
+[node name="PrepareTimer" type="Timer" parent="."]
 
-[node name="Statelabel" type="Label" parent="Minisquito"]
+[node name="Statelabel" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
 offset_left = -117.184
@@ -725,7 +634,7 @@ theme_override_font_sizes/font_size = 181
 text = "STATE"
 metadata/_edit_use_anchors_ = true
 
-[node name="HPlabel" type="Label" parent="Minisquito"]
+[node name="HPlabel" type="Label" parent="."]
 unique_name_in_owner = true
 visible = false
 offset_left = -645.0
@@ -737,131 +646,123 @@ text = "HP
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="Attackbox" type="Area2D" parent="Minisquito" groups=["EnemyAttackboxs"]]
+[node name="Attackbox" type="Area2D" parent="." groups=["EnemyAttackboxs"]]
 
-[node name="Attackcollision" type="CollisionShape2D" parent="Minisquito/Attackbox"]
+[node name="Attackcollision" type="CollisionShape2D" parent="Attackbox"]
 unique_name_in_owner = true
-position = Vector2(21.1142, 92.3862)
-scale = Vector2(1, 1)
+position = Vector2(35.0508, 88.9269)
 shape = SubResource("RectangleShape2D_0iu8b")
 debug_color = Color(0.986317, 0.0702289, 0.2335, 0.42)
 
-[node name="Raycasts" type="Node2D" parent="Minisquito"]
+[node name="Raycasts" type="Node2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(5, 5)
 
-[node name="Rightraycast" type="RayCast2D" parent="Minisquito/Raycasts"]
+[node name="Rightraycast" type="RayCast2D" parent="Raycasts"]
 rotation = -1.5708
 scale = Vector2(2, 1)
-target_position = Vector2(-7.23998e-05, 40)
+target_position = Vector2(0.099916, 46.4)
 
-[node name="Leftraycast" type="RayCast2D" parent="Minisquito/Raycasts"]
+[node name="Leftraycast" type="RayCast2D" parent="Raycasts"]
 rotation = 1.5708
 scale = Vector2(2, 1)
 target_position = Vector2(-0.0999334, 36.8)
 
-[node name="Upraycast" type="RayCast2D" parent="Minisquito/Raycasts"]
+[node name="Rightbottomraycast" type="RayCast2D" parent="Raycasts"]
+position = Vector2(2.8, 55.8)
+rotation = -1.5708
+target_position = Vector2(-7.23998e-05, 40)
+collide_with_areas = true
+
+[node name="Leftbottomraycast" type="RayCast2D" parent="Raycasts"]
+position = Vector2(2.8, 55.8)
+rotation = 1.5708
+target_position = Vector2(0.400105, 27.6)
+collide_with_areas = true
+
+[node name="Upraycast" type="RayCast2D" parent="Raycasts"]
 rotation = -3.15411
 scale = Vector2(2, 1)
 enabled = false
 target_position = Vector2(-7.23998e-05, 40)
 
-[node name="Downraycast" type="RayCast2D" parent="Minisquito/Raycasts"]
+[node name="Downraycast" type="RayCast2D" parent="Raycasts"]
 rotation = -0.0125099
 scale = Vector2(2, 1)
 enabled = false
 target_position = Vector2(-0.455265, 56.7931)
 
-[node name="DamagenumOrigin" type="Node2D" parent="Minisquito"]
+[node name="DamagenumOrigin" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1, -141)
 
-[node name="Dropmarker" type="Marker2D" parent="Minisquito"]
-position = Vector2(-19.2153, 61.9073)
+[node name="Dropmarker" type="Marker2D" parent="."]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Minisquito"]
-stream = ExtResource("10_qhc5j")
-volume_db = -18.508
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_mrwug")
 pitch_scale = 0.88
-autoplay = true
-bus = &"SFX"
 
-[node name="Wings2" type="Sprite2D" parent="Minisquito"]
+[node name="Wings2" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 modulate = Color(0.297093, 0.297093, 0.297093, 1)
-material = ExtResource("11_8aywl")
+material = ExtResource("12_rllmt")
 position = Vector2(32.75, 4)
 scale = Vector2(0.637845, 1)
-texture = ExtResource("12_rkx4x")
+texture = ExtResource("13_j5xlv")
 hframes = 3
 vframes = 3
-frame = 6
 
-[node name="Sprite" type="Sprite2D" parent="Minisquito"]
+[node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-material = ExtResource("11_8aywl")
+material = ExtResource("12_rllmt")
 position = Vector2(-21, 107)
-texture = ExtResource("13_7wku8")
+texture = ExtResource("14_jlkha")
 offset = Vector2(33, -14)
+flip_h = true
 hframes = 3
-vframes = 3
+vframes = 2
 
-[node name="Wings" type="Sprite2D" parent="Minisquito"]
+[node name="Wings" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-material = ExtResource("11_8aywl")
+visible = false
+material = ExtResource("12_rllmt")
 position = Vector2(212, 53)
-texture = ExtResource("12_rkx4x")
+texture = ExtResource("13_j5xlv")
 hframes = 3
 vframes = 3
-frame = 6
 
-[node name="Hit" type="AnimationPlayer" parent="Minisquito"]
+[node name="Hit" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_nllgd")
 }
 autoplay = "RESET"
 
-[node name="Body" type="AnimationPlayer" parent="Minisquito"]
+[node name="Body" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_lgrry")
 }
 autoplay = "Idle"
 
-[node name="wing" type="AnimationPlayer" parent="Minisquito"]
-libraries = {
-&"": SubResource("AnimationLibrary_lwyxx")
-}
-speed_scale = 1.3
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Minisquito"]
+[node name="GroundDetector" type="Area2D" parent="."]
 
-[node name="Pathplayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_5qt3u")
-}
-autoplay = "path1"
-speed_scale = 0.3
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetector"]
+position = Vector2(-185, 223)
+shape = SubResource("RectangleShape2D_jlkha")
 
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2(551, -749)
-curve = SubResource("Curve2D_xpmnl")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GroundDetector"]
+position = Vector2(223.5, 221)
+shape = SubResource("RectangleShape2D_jlkha")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-539, 712)
-rotation = 1.57223
-loop = false
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
-rotation = -1.55957
-remote_path = NodePath("../../../Minisquito")
-update_scale = false
-
-[connection signal="body_entered" from="Minisquito/FollowArea" to="Minisquito" method="_on_follow_area_body_entered"]
-[connection signal="body_exited" from="Minisquito/FollowArea" to="Minisquito" method="_on_follow_area_body_exited"]
-[connection signal="area_entered" from="Minisquito/DamageArea" to="Minisquito" method="_on_damage_area_area_entered"]
-[connection signal="area_entered" from="Minisquito/ImpulseArea" to="Minisquito" method="_on_impulse_area_area_entered"]
-[connection signal="timeout" from="Minisquito/Directiontimer" to="Minisquito" method="_on_directiontimer_timeout"]
-[connection signal="area_entered" from="Minisquito/Attackbox" to="Minisquito" method="_on_attackbox_area_entered"]
-[connection signal="screen_exited" from="Minisquito/VisibleOnScreenNotifier2D" to="Minisquito" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="FollowArea" to="." method="_on_follow_area_body_entered"]
+[connection signal="body_exited" from="FollowArea" to="." method="_on_follow_area_body_exited"]
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
+[connection signal="area_entered" from="ImpulseArea" to="." method="_on_impulse_area_area_entered"]
+[connection signal="timeout" from="Directiontimer" to="." method="_on_directiontimer_timeout"]
+[connection signal="area_entered" from="Attackbox" to="." method="_on_attackbox_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_shape_exited" from="GroundDetector" to="." method="_on_ground_detector_body_shape_exited"]

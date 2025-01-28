@@ -22,14 +22,19 @@ func update(_delta):
 		return STATES.DEATH
 	return null
 func enter_state():
+
 	Player.velocity.y = Player.velocity.y - 1
 	Player.attack_input = true
 	slashing = true
 	can_doubleslash = false
 	timer.start(slash_duration)
-	$"../../AnimationPlayer".play("AirSlash")
+	if Player.prev_state == STATES.FALL:
+		$"../../AnimationPlayer".play("AirSlashcombo")
+	else:
+		#$"../../AnimationPlayer".play("fall_start")
+		$"../../AnimationPlayer".play("AirSlash")
 	
-	await $"../../AnimationPlayer".animation_finished
+	await get_tree().create_timer(0.35).timeout
 	can_doubleslash = true
 	slashing = false
 

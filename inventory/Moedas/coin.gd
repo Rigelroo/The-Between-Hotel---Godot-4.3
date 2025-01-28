@@ -1,6 +1,6 @@
 extends RigidBody2D
 @onready var invmanager = InventoryManager
-@export var coinmanager : MainManager
+@export var coinmanager = SignalManager
 @export var number = 1
 
 func _ready() -> void:
@@ -8,6 +8,7 @@ func _ready() -> void:
 	pass
 
 func collectcoin():
+	
 	var manager = load("res://inventory/inventory_gui.gd").new()
 	if coinmanager.coin_number < coinmanager.coin_max:
 		coinmanager.insert()

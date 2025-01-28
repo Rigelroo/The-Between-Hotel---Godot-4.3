@@ -47,6 +47,8 @@ func update(delta):
 
 
 func enter_state():
+	%FrictionParticles.process_material = load("res://Diversos/wallslide_particle.tres")
+	%FrictionParticles.emitting = true
 	slide_friction = .9
 	Player.velocity.y = 0
 	print("is sliding!")
@@ -66,6 +68,8 @@ func exit_slide_state():
 	$"../../AnimationPlayer".stop()
 func exit_state():
 	slide_friction = .9
+	%FrictionParticles.process_material = load("res://Diversos/walk_particle.tres")
+	%FrictionParticles.emitting = false
 
 func wall_jump():
 	if wall_direction == Vector2.RIGHT:

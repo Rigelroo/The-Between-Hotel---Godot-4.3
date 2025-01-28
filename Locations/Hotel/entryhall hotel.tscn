@@ -246,8 +246,6 @@ size = Vector2(217.073, 202.439)
 size = Vector2(217.073, 156.342)
 
 [node name="EntryHall" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
-position = Vector2(0, -7)
-scale = Vector2(0.41, 0.41)
 script = ExtResource("1_wl04x")
 background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - File Select Theme.mp3", ""])
 objplayer = NodePath("Player")
@@ -334,8 +332,8 @@ position = Vector2(1577.27, 356.198)
 scale = Vector2(0.3, 0.3)
 
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("21_5p0qm")]
-position = Vector2(7590.24, 1946.34)
-scale = Vector2(22, 22)
+position = Vector2(4569, 2420)
+scale = Vector2(1.6, 1.6)
 showitem = NodePath("Showitemsprite")
 player_camera = NodePath("Camera2D")
 
@@ -394,6 +392,7 @@ scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
 [node name="Statsbar" parent="Statslayer" instance=ExtResource("35_cqg7p")]
+visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("36_cxjjy")]

@@ -7,7 +7,7 @@ var can_jump = true
 var glider_timer
 
 func update(delta):
-	$"../../AnimationPlayer".play("fall")
+	Player.handleJumpBuffer()
 	if not Player.is_on_floor() and Player.get_next_to_wall():
 		var next_to_wall = Player.get_next_to_wall()
 		
@@ -83,6 +83,8 @@ func enter_state():
 func exit_state():
 	glider_timer = false
 	$"../../AnimationPlayer".stop()
+	Player.jump_particles()
+
 
 func _on_coyote_timer_timeout():
 	can_jump = false

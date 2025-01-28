@@ -64,10 +64,7 @@ func save_slot_screenshot(slot: int) -> void:
 
 
 func set_player_speed():
-	player_scale = objplayer.global_scale.x
-	objplayer.SPEED = 80 * player_scale 
-	objplayer.JUMP_VELOCITY = -95.0 * player_scale
-	objplayer.dash_speed = 190 * player_scale
+	pass
 
 func load_scene() -> void:
 	manager.loaded.emit()

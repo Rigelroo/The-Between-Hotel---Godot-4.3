@@ -5,22 +5,22 @@ var player = null
 
 @export_enum("No gravity", "Inverted", "Normal", "Stopped" ) var gravity_type: String
 @export var gravity_strength: float = 1.0
-@export_enum("Stopped", "Chase", "One direction_x", "One direction_y", "Aleatory_x", "Aleatory_y", "Aleatory_z", "Runaway", "Path") var movement_type: String
+@export_enum("Stopped", "Chase", "One direction_x", "One direction_y", "Aleatory_x", "Aleatory_y", "Aleatory_z", "Runaway", "Path", "One direction_x_border") var movement_type: String
 
 
 
 func enemy_movement(delta):
 	
 	match movement_type:
-		"Stopped":  # Movimento parado
+		"Stopped":  
 			Entity.velocity = Vector2.ZERO
 
-		"Chase":  # Persegue o jogador
+		"Chase":
 			if player:
 				var dir_to_player = Entity.global_position.direction_to(player.global_position)
 				Entity.velocity = dir_to_player * Entity.speed
 
-		"One direction_x":  # Move-se em uma direção fixa no eixo X
+		"One direction_x": 
 			Vector2.RIGHT * Entity.speed
 			if Entity.velocity == Vector2.ZERO:
 				Entity.velocity = Vector2.RIGHT * Entity.speed
@@ -28,9 +28,9 @@ func enemy_movement(delta):
 			for raycast in raycasts.get_children():
 				raycast.force_raycast_update()
 				if raycast.is_colliding():
-					Entity.velocity.x = -Entity.velocity.x  # Inverte a direção
+					Entity.velocity.x = -Entity.velocity.x 
 
-		"One direction_y":  # Move-se em uma direção fixa no eixo Y
+		"One direction_y":
 			if Entity.velocity == Vector2.ZERO:
 				Entity.velocity = Vector2.DOWN * Entity.speed
 			var raycasts = %Raycasts
@@ -70,8 +70,24 @@ func enemy_movement(delta):
 				#offset += Entity.speed * delta
 				#Entity.path.offset = offset
 				#Entity.global_position = Entity.path.curve.interpolate_baked(offset)
-	
-	
+
+		"One direction_x_border": 
+			Vector2.RIGHT * Entity.speed
+			var raycasts = %Raycasts
+			#for raycast in raycasts.get_children():
+				#raycast.force_raycast_update()
+				#if raycast.is_colliding() and raycast.name != "Rightbottomraycast" and raycast.name != "Leftbottomraycast":
+					#Entity.velocity.x = -Entity.velocity.x 
+					#if Entity.has_method("change_direction"): Entity.change_direction()
+			#var bottom = [raycasts.get_node("Leftbottomraycast"), raycasts.get_node("Rightbottomraycast") ]
+			#for braycast in bottom:
+				#braycast.force_raycast_update()
+				#if !braycast.is_colliding():
+					#Entity.velocity.x = -Entity.velocity.x 
+					#if Entity.has_method("change_direction"): Entity.change_direction()
+			
+			if Entity.has_method("change_direction"): Entity.change_direction()
+
 		_:  # Caso padrão (fallback)
 			Entity.velocity = Vector2.ZERO
 

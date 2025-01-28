@@ -120,7 +120,7 @@ _data = {
 
 [node name="InventoryGui" type="Control"]
 process_mode = 3
-z_index = 3
+z_index = 35
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,12 +151,11 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 651.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8hm3u")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="Config" type="NinePatchRect" parent="TabContainer" node_paths=PackedStringArray("gui")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 texture = ExtResource("23_3y771")
 axis_stretch_horizontal = 2
@@ -226,11 +225,10 @@ offset_top = 74.0
 offset_right = 937.475
 offset_bottom = 574.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_50t2v")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="Control" type="TabBar" parent="TabContainer/Config/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -241,6 +239,7 @@ texture = ExtResource("28_yqqid")
 
 [node name="OptionsContainer" type="TabContainer" parent="TabContainer/Config/TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_pbhsj")
 current_tab = 1
@@ -384,38 +383,17 @@ theme_override_icons/unchecked = ExtResource("19_we7dv")
 action_mode = 0
 text = " mudo"
 
-[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons"]
+[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.093
 anchor_top = 0.076
 anchor_right = 0.239
 anchor_bottom = 0.192
-offset_left = 12.0348
-offset_right = 12.0035
-offset_bottom = 58.0
-scale = Vector2(0.731627, 0.731627)
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
-action_mode = 0
-text = "
-"
-icon = ExtResource("18_bij0o")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.84
-anchor_top = 0.076
-anchor_right = 0.986
-anchor_bottom = 0.192
-offset_left = 0.121002
-offset_right = 0.0896606
+offset_left = 301.035
+offset_top = -5.0
+offset_right = 301.003
+offset_bottom = 53.0
 scale = Vector2(0.731627, 0.731627)
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("24_3tohy")
@@ -425,6 +403,30 @@ action_mode = 0
 text = "
 "
 icon = ExtResource("17_nra2n")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Sons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 12.0348
+offset_top = -5.0
+offset_right = 12.0035
+offset_bottom = 53.0
+scale = Vector2(0.731627, 0.731627)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("18_bij0o")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -679,38 +681,17 @@ theme_override_icons/checked = ExtResource("18_2bsth")
 theme_override_icons/unchecked = ExtResource("19_we7dv")
 text = "Vsync"
 
-[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela"]
+[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.093
 anchor_top = 0.076
 anchor_right = 0.239
 anchor_bottom = 0.192
-offset_left = 12.0348
-offset_right = 12.0035
-offset_bottom = 58.0
-scale = Vector2(0.731627, 0.731627)
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
-action_mode = 0
-text = "
-"
-icon = ExtResource("18_bij0o")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.84
-anchor_top = 0.076
-anchor_right = 0.986
-anchor_bottom = 0.192
-offset_left = 0.121002
-offset_right = 0.0896606
+offset_left = 301.035
+offset_top = -5.0
+offset_right = 301.003
+offset_bottom = 53.0
 scale = Vector2(0.731627, 0.731627)
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("24_3tohy")
@@ -720,6 +701,30 @@ action_mode = 0
 text = "
 "
 icon = ExtResource("17_nra2n")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Tela"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 12.0348
+offset_top = -5.0
+offset_right = 12.0035
+offset_bottom = 53.0
+scale = Vector2(0.731627, 0.731627)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("18_bij0o")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -751,48 +756,6 @@ text = " Controles
 visible_characters = -1
 visible_ratio = 1.0
 script = null
-
-[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Controles"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.093
-anchor_top = 0.076
-anchor_right = 0.239
-anchor_bottom = 0.192
-offset_left = 0.0348282
-offset_right = 0.003479
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
-action_mode = 0
-text = "
-"
-icon = ExtResource("18_bij0o")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Controles"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.84
-anchor_top = 0.076
-anchor_right = 0.986
-anchor_bottom = 0.192
-offset_left = 0.121002
-offset_right = 0.0896606
-mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("24_3tohy")
-theme_override_font_sizes/font_size = 51
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
-action_mode = 0
-text = "
-"
-icon = ExtResource("17_nra2n")
-flat = true
-icon_alignment = 1
-expand_icon = true
 
 [node name="resolução" parent="TabContainer/Config/TabContainer/OptionsContainer/Controles" instance=ExtResource("29_s0oxi")]
 layout_direction = 2
@@ -877,6 +840,54 @@ theme_override_font_sizes/font_size = 151
 theme_override_icons/checked = ExtResource("18_2bsth")
 theme_override_icons/unchecked = ExtResource("19_we7dv")
 text = "Vsync"
+
+[node name="Buttondir" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Controles"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 301.035
+offset_top = -5.0
+offset_right = 301.003
+offset_bottom = 53.0
+scale = Vector2(0.731627, 0.731627)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("17_nra2n")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Buttonesq" type="Button" parent="TabContainer/Config/TabContainer/OptionsContainer/Controles"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.076
+anchor_right = 0.239
+anchor_bottom = 0.192
+offset_left = 12.0348
+offset_top = -5.0
+offset_right = 12.0035
+offset_bottom = 53.0
+scale = Vector2(0.731627, 0.731627)
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("24_3tohy")
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5i5gb")
+action_mode = 0
+text = "
+"
+icon = ExtResource("18_bij0o")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Certeza" type="TabBar" parent="TabContainer/Config/TabContainer"]
 visible = false
@@ -969,6 +980,7 @@ texture = ExtResource("11_cakds")
 wait_time = 0.105
 
 [node name="Missions" type="NinePatchRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("5_pgxi2")
 axis_stretch_horizontal = 2
@@ -1473,18 +1485,18 @@ flat = true
 [connection signal="value_changed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/options/musicvolumeslider" to="TabContainer/Config" method="_on_musicvolumeslider_value_changed"]
 [connection signal="value_changed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/options/sfxvolumeslider" to="TabContainer/Config" method="_on_sfxvolumeslider_value_changed"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/options/MuteBox" to="TabContainer/Config" method="_on_mute_box_toggled"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/Buttonesq" to="TabContainer/Config" method="show_less_options"]
 [connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/Buttondir" to="TabContainer/Config" method="show_more_options"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Sons/Buttonesq" to="TabContainer/Config" method="show_less_options"]
 [connection signal="item_selected" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screentypebox" to="TabContainer/Config" method="on_window_mode_selected"]
 [connection signal="item_selected" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/Screenresbox" to="TabContainer/Config" method="_on_screenres_box_selected"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/TelacheiaBox" to="TabContainer/Config" method="_on_telacheia_box_toggled"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/options/VsyncBox" to="TabContainer/Config" method="_on_vsync_box_toggled"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/Buttonesq" to="TabContainer/Config" method="show_less_options"]
 [connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/Buttondir" to="TabContainer/Config" method="show_more_options"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/Buttonesq" to="TabContainer/Config" method="show_less_options"]
-[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/Buttondir" to="TabContainer/Config" method="show_more_options"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Tela/Buttonesq" to="TabContainer/Config" method="show_less_options"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/options/TelacheiaBox" to="TabContainer/Config" method="_on_telacheia_box_toggled"]
 [connection signal="toggled" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/options/VsyncBox" to="TabContainer/Config" method="_on_vsync_box_toggled"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/Buttondir" to="TabContainer/Config" method="show_more_options"]
+[connection signal="pressed" from="TabContainer/Config/TabContainer/OptionsContainer/Controles/Buttonesq" to="TabContainer/Config" method="show_less_options"]
 [connection signal="pressed" from="TabContainer/Config/TabContainer/Certeza/options/ButtonSim" to="TabContainer/Config" method="_on_button_sim_pressed"]
 [connection signal="pressed" from="TabContainer/Config/TabContainer/Certeza/options/ButtonNão" to="TabContainer/Config" method="_on_button_não_pressed"]
 [connection signal="timeout" from="TabContainer/Config/Timer" to="TabContainer/Config" method="_on_timer_timeout"]

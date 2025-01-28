@@ -14,11 +14,10 @@ scale_min = 0.5
 scale_max = 0.5
 
 [node name="Deadbody" type="GPUParticles2D"]
-rotation = -1.01229
 emitting = false
 amount = 1
-process_material = SubResource("ParticleProcessMaterial_322oo")
 texture = ExtResource("1_ph7qn")
 lifetime = 147.3
 one_shot = true
+process_material = SubResource("ParticleProcessMaterial_322oo")
 script = ExtResource("1_gfa5p")

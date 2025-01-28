@@ -3,12 +3,12 @@
 [ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="1_5yibs"]
 [ext_resource type="Texture2D" uid="uid://bseo3jw48fvf5" path="res://Sprites/EntryHall/luzinha1.png" id="2_jv7xk"]
 
-[sub_resource type="Gradient" id="Gradient_n1lro"]
+[sub_resource type="Gradient" id="Gradient_3sap7"]
 offsets = PackedFloat32Array(0.323232, 0.636364)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_mvjgn"]
-gradient = SubResource("Gradient_n1lro")
+gradient = SubResource("Gradient_3sap7")
 fill = 1
 fill_from = Vector2(0.489796, 0.520408)
 

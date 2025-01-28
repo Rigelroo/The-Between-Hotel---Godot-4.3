@@ -1,11 +1,13 @@
 extends Node2D
 
-
+@export var immunity_timer = 1.5
 @export var damage_value = 3
 @export var damage_max = 5
 @export var damage_min = 1
 @export var crit_chance = 0.4
 @onready var damage_numbers_origin = %DamagenumOrigin
+
+var can_deal_damage: bool = true
 
 func critical(area, value):
 	var is_critical = crit_chance > randf()
@@ -16,11 +18,18 @@ func critical(area, value):
 		return [value, false]
 
 func deal_damage(value: int, area: Area2D):
-	var damage = critical(area, value)
-	%AnimationPlayer.play("Damage")
-	Damagenumbers.display_number(damage[0], damage_numbers_origin.global_position, damage[1])
+	if can_deal_damage:
+		var damage = critical(area, value)
+		%AnimationPlayer.play("Damage")
+		Damagenumbers.display_number(damage[0], damage_numbers_origin.global_position, damage[1])
+		%StatsComponent.currentHealth -= damage[0]
+		can_deal_damage = false
+	else:
+		pass
 	
-	%StatsComponent.currentHealth -= damage[0]
+	
+	
+	
 
 
 func deal_projectiledamage(value: int, area: Area2D):
@@ -50,6 +59,10 @@ func knockback(enemy):
 	owner.move_and_slide()
 
 func knockback_impulse(enemy):
-	var direction = (owner.global_position - enemy.global_position).normalized() * (-owner.JUMP_VELOCITY * 2)
-	owner.velocity.y += direction.y
+	var direction = (owner.global_position - enemy.global_position).normalized() * (-owner.JUMP_VELOCITY * 3)
+	owner.velocity.y = direction.y * 2
 	owner.move_and_slide()
+
+
+func _on_imunnity_timer_timeout() -> void:
+	pass # Replace with function body.

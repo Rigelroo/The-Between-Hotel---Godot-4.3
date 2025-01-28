@@ -255,8 +255,8 @@ position = Vector2(-515.68, 179.931)
 texture = ExtResource("46_xv132")
 
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("20_ledlk")]
-position = Vector2(2853.66, 2409.76)
-scale = Vector2(22, 22)
+position = Vector2(2402.44, 2336.59)
+scale = Vector2(1.6, 1.6)
 showitem = NodePath("Showitemsprite")
 player_camera = NodePath("Camera2D")
 

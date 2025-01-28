@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://cub371uqsbsvo"]
+
+[ext_resource type="Texture2D" uid="uid://d24u36kbhhlsv" path="res://Player/Sprites/jumpcloud.png" id="1_avbbj"]
+[ext_resource type="Script" path="res://Locations/Bettleboroughs/jump_cloud.gd" id="2_5gej8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxn2n"]
+atlas = ExtResource("1_avbbj")
+region = Rect2(750, 0, 375, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwq2o"]
+atlas = ExtResource("1_avbbj")
+region = Rect2(0, 132, 375, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp6e7"]
+atlas = ExtResource("1_avbbj")
+region = Rect2(375, 132, 375, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arjw4"]
+atlas = ExtResource("1_avbbj")
+region = Rect2(750, 132, 375, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysgf2"]
+atlas = ExtResource("1_avbbj")
+region = Rect2(0, 264, 375, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qecoc"]
+atlas = ExtResource("1_avbbj")
+region = Rect2(375, 264, 375, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttvqn"]
+atlas = ExtResource("1_avbbj")
+region = Rect2(750, 264, 375, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kmg1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxn2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwq2o")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_lp6e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arjw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysgf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qecoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttvqn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="JumpCloud" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_kmg1i")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+script = ExtResource("2_5gej8")

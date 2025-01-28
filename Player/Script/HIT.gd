@@ -46,3 +46,4 @@ func exit_state():
 
 func _on_nohit_timer_timeout() -> void:
 	%Hitboxcollision.disabled = false
+	%DamageComponent.can_deal_damage = true

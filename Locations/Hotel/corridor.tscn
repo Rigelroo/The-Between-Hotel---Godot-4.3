@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cu2e048hxgdgy"]
+[gd_scene load_steps=34 format=3 uid="uid://cu2e048hxgdgy"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_3tsfs"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_2wgvn"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://Objects/showitemsprite.tscn" id="22_r4mrh"]
 [ext_resource type="Script" uid="uid://do0q1x7qyon4p" path="res://Sprites/EntryHall/cast_shadow.gd" id="23_hqg4l"]
 [ext_resource type="Texture2D" uid="uid://qaqsrvxmy8ln" path="res://Sprites/Hotel/entradaesq_frente.png" id="24_ouu5h"]
+[ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://Player/Script/Systems/berserkbar.tscn" id="25_3s4bw"]
+[ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="26_7xmyb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ra5em"]
 
@@ -90,6 +92,7 @@ scale = Vector2(0.76, 0.76)
 transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
 
 [node name="Statsbar" parent="Statslayer" instance=ExtResource("10_vlwar")]
+visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("11_b1uom")]
@@ -153,12 +156,11 @@ texture = ExtResource("19_rhdsh")
 
 [node name="Matheus" parent="." node_paths=PackedStringArray("world") instance=ExtResource("20_jufyy")]
 position = Vector2(2199, 1459)
-scale = Vector2(2.491, 2.491)
+scale = Vector2(2.6, 2.6)
 world = NodePath("..")
 
 [node name="Player" parent="." node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("21_b0j4r")]
-position = Vector2(1511, 1436)
-scale = Vector2(14, 14)
+position = Vector2(758, 1625)
 showitem = NodePath("Showitemsprite")
 player_camera = NodePath("Camera2D")
 
@@ -204,6 +206,10 @@ offset = Vector2(0.969696, -32)
 position = Vector2(1, 0)
 texture = ExtResource("24_ouu5h")
 centered = false
+
+[node name="Berserklayer" parent="." instance=ExtResource("25_3s4bw")]
+
+[node name="SaveStarter" parent="Berserklayer" instance=ExtResource("26_7xmyb")]
 
 [editable path="PausemenuLayer"]
 [editable path="Selo5"]

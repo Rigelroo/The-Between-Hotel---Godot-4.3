@@ -93,7 +93,6 @@ text/input_action="Jump"
 [display]
 
 window/stretch/mode="canvas_items"
-window/vsync/vsync_mode=2
 mouse_cursor/custom_image="uid://defdkxqsknv2i"
 
 [editor]
