@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cn5w1vi5yjg3u"]
+[gd_scene load_steps=16 format=3 uid="uid://cn5w1vi5yjg3u"]
 
 [ext_resource type="Script" uid="uid://bb60pyyexo3un" path="res://scenes/canvas_layer.gd" id="1_f1ums"]
 [ext_resource type="PackedScene" uid="uid://cr0rxd186uoyo" path="res://Inventory/menuselos.tscn" id="3_2ly1l"]
 [ext_resource type="Script" uid="uid://b8ohonjblhqyo" path="res://Inventory/Scripts/notificationsystem.gd" id="5_280g2"]
 [ext_resource type="FontFile" uid="uid://exj3c8h6l0tr" path="res://Fonts/Typewriter215FP-Bold.otf" id="7_as1ww"]
+[ext_resource type="PackedScene" uid="uid://cwg3by7gjx7d6" path="res://Diversos/fastscene_transition.tscn" id="8_6ktdg"]
 [ext_resource type="Script" uid="uid://bhe7fvbflarf5" path="res://Fonts/pivot.gd" id="8_dcl8t"]
 [ext_resource type="PackedScene" uid="uid://1uftutib1rsp" path="res://Missões/taskpanelnotif.tscn" id="9_g3huw"]
 [ext_resource type="Script" uid="uid://l434js5cj2ls" path="res://Fonts/slinky.gd" id="9_robvp"]
@@ -170,3 +171,7 @@ offset_right = 341.0
 offset_bottom = 153.0
 
 [node name="Timer" type="Timer" parent="NotificationsSystem"]
+
+[node name="SceneTransition" parent="." instance=ExtResource("8_6ktdg")]
+position = Vector2(1153, 0)
+scale = Vector2(1, 1)

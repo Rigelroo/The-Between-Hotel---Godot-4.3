@@ -935,9 +935,17 @@ texture_region_size = Vector2i(250, 250)
 12:3/0 = 0
 13:3/0 = 0
 0:4/0 = 0
+0:4/0/physics_layer_5/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+0:4/0/custom_data_0 = true
 1:4/0 = 0
+1:4/0/physics_layer_5/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+1:4/0/custom_data_0 = true
 2:4/0 = 0
+2:4/0/physics_layer_5/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+2:4/0/custom_data_0 = true
 3:4/0 = 0
+3:4/0/physics_layer_5/polygon_0/points = PackedVector2Array(-125, -125, 125, -125, 125, 125, -125, 125)
+3:4/0/custom_data_0 = true
 4:4/0 = 0
 5:4/0 = 0
 9:4/0 = 0
@@ -992,12 +1000,16 @@ physics_layer_3/collision_layer = 9
 physics_layer_3/collision_mask = 9
 physics_layer_4/collision_layer = 64
 physics_layer_4/collision_mask = 64
+physics_layer_5/collision_layer = 64
+physics_layer_5/collision_mask = 64
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "teste"
 terrain_set_0/terrain_0/color = Color(0.584314, 0.682353, 0.607843, 1)
 terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 navigation_layer_0/layers = 1
+custom_data_layer_0/name = "RepositionHazard"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_3dwia")
 sources/1 = SubResource("TileSetAtlasSource_ce42x")
 pattern_0 = SubResource("TileMapPattern_4ytc3")
@@ -1253,7 +1265,7 @@ scale = Vector2(318.734, 28.0234)
 texture = SubResource("GradientTexture2D_hu5d5")
 
 [node name="Player" parent="Camada3 - Meio" node_paths=PackedStringArray("showitem", "player_camera") instance=ExtResource("58_ni1fe")]
-position = Vector2(1643, 899)
+position = Vector2(17048, -1490)
 scale = Vector2(0.8, 0.8)
 showitem = NodePath("Showitemsprite")
 JUMP_VELOCITY = -1200.0
@@ -1262,9 +1274,9 @@ player_camera = NodePath("Camera2D")
 
 [node name="Camera2D" parent="Camada3 - Meio/Player" instance=ExtResource("59_bm72g")]
 physics_interpolation_mode = 1
-position = Vector2(920.435, 37.5)
+position = Vector2(37.5, 85.8696)
 scale = Vector2(1.25, 1.25)
-offset = Vector2(0.287717, -1.23125)
+offset = Vector2(-0.422059, -0.625371)
 ignore_rotation = false
 zoom = Vector2(0.23, 0.23)
 limit_left = -125
@@ -1941,7 +1953,7 @@ visible = false
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(2379.35, 929)
+position = Vector2(17078, -1421.3)
 script = ExtResource("20_bm8wb")
 follow_mode = 2
 follow_target = NodePath("../Camada3 - Meio/Player")

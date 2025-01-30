@@ -186,7 +186,7 @@
 [ext_resource type="Texture2D" uid="uid://dgj3sog8evd5g" path="res://Player/Sprites/All/fallstart0003.png" id="156_da7wo"]
 [ext_resource type="Script" uid="uid://cmd2f3i41qbr7" path="res://Player/Script/HIT.gd" id="160_vgtc2"]
 [ext_resource type="PackedScene" uid="uid://chtv73gw0h0nt" path="res://scenes/magic_system/emitters/firebreathemitter.tscn" id="167_kde63"]
-[ext_resource type="Script" path="res://Player/Script/RUNNING.gd" id="173_gi434"]
+[ext_resource type="Script" uid="uid://cht40njk8kvel" path="res://Player/Script/RUNNING.gd" id="173_gi434"]
 [ext_resource type="Script" uid="uid://dwb47xv8g8o8y" path="res://Player/Script/SLIDEH.gd" id="179_pv5yp"]
 [ext_resource type="Texture2D" uid="uid://dgc0c0tv27fgp" path="res://Sprites/Effects/subfrost.png" id="180_3drml"]
 [ext_resource type="Texture2D" uid="uid://dph53hjy2bofs" path="res://Sprites/Bettlebourough/fallingleaves2.png" id="182_ikjul"]
@@ -2081,6 +2081,9 @@ inv_dictionary = ExtResource("5_dupda")
 [node name="ShowTarget" type="Marker2D" parent="."]
 position = Vector2(0, -103)
 
+[node name="FloorTarget" type="Marker2D" parent="."]
+position = Vector2(0, 271)
+
 [node name="JumpTarget" type="Marker2D" parent="."]
 position = Vector2(0, 240)
 
@@ -2091,6 +2094,8 @@ position = Vector2(0, 4.6)
 position = Vector2(0, -318)
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Hitbox"]]
+collision_layer = 65
+collision_mask = 65
 
 [node name="Hitboxcollision" type="CollisionShape2D" parent="Hitbox"]
 unique_name_in_owner = true
@@ -2412,6 +2417,7 @@ script = ExtResource("190_ltiup")
 [node name="ImunnityTimer" type="Timer" parent="Components/DamageComponent"]
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="STATES/IDLE" method="_on_animation_player_animation_finished"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="Emitters/Trayemmiter" method="_on_animation_player_current_animation_changed"]

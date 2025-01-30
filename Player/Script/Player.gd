@@ -23,6 +23,7 @@ signal inkChanged
 @onready var stats = get_tree().get_first_node_in_group("Stats")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = %Sprite2D
+@onready var floor_target: Marker2D = $FloorTarget
 
 @onready var stats_component: Node2D = $Components/StatsComponent
 @onready var damage_component: Node2D = $Components/DamageComponent
@@ -269,8 +270,20 @@ func jump_particles():
 		get_parent().add_child(new_node)
 		new_node.global_position = $JumpTarget.global_position
 
+
+var last_position : Vector2
+
+func save_position():
+	if is_on_floor():
+		last_position = global_position
+
+func go_to_last_position(cantransition: bool):
+	if cantransition:
+		await get_tree().current_scene.fastscenet.transition()
+		global_position = last_position
+
 func _physics_process(delta):
-	
+	save_position()
 	player_input()
 	change_state(current_state.update(delta))
 	if %AnimationPlayer.current_animation != "jump_slide":
@@ -719,6 +732,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		$AnimationPlayer.play("Damage")
 		
 
+func floor_hazard_damage():
+	$Hitbox.is
+	go_to_last_position(true)
 
 
 
@@ -784,3 +800,7 @@ func _on_jumptimer_timeout() -> void:
 	else:
 		pass
 		#print("highjump")
+
+
+func _on_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	get_tree().current_scene.detect_floor_hazards()

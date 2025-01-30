@@ -34,6 +34,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:material:shader_parameter/fill")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1153, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_mol4y"]
 resource_name = "new_animation"
@@ -64,11 +100,12 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y68gc"]
 _data = {
-"RESET": SubResource("Animation_3anua"),
-"new_animation": SubResource("Animation_mol4y")
+&"RESET": SubResource("Animation_3anua"),
+&"new_animation": SubResource("Animation_mol4y")
 }
 
 [node name="SceneTransition1" type="Node2D"]
+position = Vector2(1153, 0)
 
 [node name="TextureRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_kj1ir")
@@ -78,5 +115,5 @@ color = Color(0.0823529, 0.0705882, 0.176471, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_y68gc")
+&"": SubResource("AnimationLibrary_y68gc")
 }
