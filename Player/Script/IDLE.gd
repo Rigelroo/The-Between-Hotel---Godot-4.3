@@ -9,8 +9,12 @@ func update(delta):
 		
 	
 	
-	if Player.movement_input.x != 0 and !Player.is_in_water:
+	if Player.movement_input.x != 0 and !Player.is_in_water and !Player.sprint_input:
 		return STATES.MOVE
+	if Player.movement_input.x != 0 and !Player.is_in_water and Player.sprint_input:
+		return STATES.RUNNING
+
+
 	if Player.jump_input_actuation:
 		if !Player.is_in_water:
 			$"../../AnimationPlayer".play("jump_start")

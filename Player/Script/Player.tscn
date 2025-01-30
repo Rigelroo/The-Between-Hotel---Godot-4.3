@@ -1,4 +1,4 @@
-[gd_scene load_steps=254 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=255 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" uid="uid://810alopr4too" path="res://Player/Script/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://dknwb0q3tench" path="res://Player/Sprites/All/jump7.png" id="2_lumcb"]
@@ -186,6 +186,7 @@
 [ext_resource type="Texture2D" uid="uid://dgj3sog8evd5g" path="res://Player/Sprites/All/fallstart0003.png" id="156_da7wo"]
 [ext_resource type="Script" uid="uid://cmd2f3i41qbr7" path="res://Player/Script/HIT.gd" id="160_vgtc2"]
 [ext_resource type="PackedScene" uid="uid://chtv73gw0h0nt" path="res://scenes/magic_system/emitters/firebreathemitter.tscn" id="167_kde63"]
+[ext_resource type="Script" path="res://Player/Script/RUNNING.gd" id="173_gi434"]
 [ext_resource type="Script" uid="uid://dwb47xv8g8o8y" path="res://Player/Script/SLIDEH.gd" id="179_pv5yp"]
 [ext_resource type="Texture2D" uid="uid://dgc0c0tv27fgp" path="res://Sprites/Effects/subfrost.png" id="180_3drml"]
 [ext_resource type="Texture2D" uid="uid://dph53hjy2bofs" path="res://Sprites/Bettlebourough/fallingleaves2.png" id="182_ikjul"]
@@ -2065,6 +2066,8 @@ particles_anim_loop = false
 collision_layer = 16
 script = ExtResource("1_bvkld")
 magic_abilities = Array[ExtResource("2_s83wp")]([ExtResource("3_xsbix"), ExtResource("4_1wwsg")])
+SPEED = 605.0
+RUN_SPEED_MULTIPLIER = 1.4
 slide_deceleration = 1773
 manager = ExtResource("5_a6y1r")
 target = NodePath("PlayerTarget")
@@ -2205,6 +2208,9 @@ script = ExtResource("132_uy4rk")
 
 [node name="MOVE" parent="STATES" instance=ExtResource("5_d55dw")]
 
+[node name="RUNNING" parent="STATES" instance=ExtResource("5_d55dw")]
+script = ExtResource("173_gi434")
+
 [node name="SWIM" parent="STATES" instance=ExtResource("144_sn8ak")]
 script = ExtResource("145_fox38")
 
@@ -2242,11 +2248,29 @@ player = NodePath("..")
 newitem = NodePath("../STATES/NEWITEM")
 
 [node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -18.0
-offset_top = -34.0
-offset_right = 22.0
-offset_bottom = -11.0
+offset_left = -140.0
+offset_top = -459.0
+offset_right = 153.0
+offset_bottom = -321.0
+theme_override_font_sizes/font_size = 101
+text = "STATE"
+metadata/_edit_use_anchors_ = true
+
+[node name="SPEEDLabel" type="Label" parent="."]
+offset_left = -815.0
+offset_top = -465.0
+offset_right = -483.0
+offset_bottom = -327.0
+theme_override_font_sizes/font_size = 101
+text = "SPEED:"
+metadata/_edit_use_anchors_ = true
+
+[node name="INOUTLabel" type="Label" parent="."]
+offset_left = -826.0
+offset_top = -594.0
+offset_right = -494.0
+offset_bottom = -456.0
+theme_override_font_sizes/font_size = 101
 text = "STATE"
 metadata/_edit_use_anchors_ = true
 

@@ -65,6 +65,7 @@ func update(delta):
 	return null
 
 func enter_state():
+
 	$"../../AnimationPlayer".play("fall_start")
 	print($"../../AnimationPlayer".current_animation)
 	# Configurar coyote time

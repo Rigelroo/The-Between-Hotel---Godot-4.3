@@ -12,6 +12,7 @@ signal healthChanged
 signal temporary
 signal inkChanged
 
+@onready var inout_label: Label = $INOUTLabel
 
 
 @onready var test2D = $Node2D
@@ -55,13 +56,20 @@ signal inkChanged
 @export_subgroup("Movement")
 @export var dash_speed = 1880 
 @export var SPEED = 470.0 * 1.5
+@export_range(0, 3, 0.05) var RUN_SPEED_MULTIPLIER : float = 1.8:
+	set(nv):
+		RUN_SPEED_MULTIPLIER = nv
+		SPRINT_SPEED = SPEED * RUN_SPEED_MULTIPLIER
+
+
 @export var JUMP_VELOCITY = -700.0 * 1.5
 @export var variable_jump_value = -300
 @export var max_fall_speed = -900.0 * 1.5
-@export_range(1, 2000, 0) var slide_deceleration : int = 500
+@export_range(1, 2000, 0.1) var slide_deceleration : int = 500
 @export var can_interact = false
 @export var can_move = true
 @export var can_move_si = true
+var SPRINT_SPEED : float = SPEED
 
 @export_subgroup("Objects and Resources")
 @export var manager : MainManager
@@ -89,6 +97,7 @@ var movement_input = Vector2.ZERO
 var interact_input = false
 var jump_input = false
 var jump_input_actuation = false
+var sprint_input = false
 var climb_input = false 
 var dash_input = false
 var attack_input = false
@@ -295,6 +304,7 @@ func _physics_process(delta):
 		#emit_signal("temporary")
 
 	$Label.text = str(current_state.get_name())
+	$SPEEDLabel.text = "SPEED: " + str(SPEED)
 	move_and_slide()
 #
 #func gravity(delta):
@@ -355,7 +365,7 @@ func gravity(delta) -> float:
 	if current_state.name == "SLIDE":
 		regravity = (gravity_value) * delta
 	if current_state.name == "FALL":
-		regravity = (2.0 * gravity_value) * delta
+		regravity = (3.5 * gravity_value) * delta
 	elif current_state.name == "HLEAF":
 		if !is_on_floor():
 			regravity = (gravity_value + 100 / 2.5) * delta
@@ -511,6 +521,13 @@ func player_input():
 			dash_input = true
 		else: 
 			dash_input = false
+		
+		if Input.is_action_pressed("Run"):
+			sprint_input = true
+			
+		else: 
+			sprint_input = false
+			
 		if Input.is_action_just_pressed("Attack"):
 			attack_input = true
 		else: 

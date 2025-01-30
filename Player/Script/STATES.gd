@@ -17,6 +17,7 @@ extends Node
 @onready var BREATH = $BREATH
 @onready var HIT = $HIT
 @onready var SLIDEH: Node = $SLIDEH
+@onready var RUNNING: Node = $RUNNING
 
 #@onready var MAGIC = $MAGIC
 

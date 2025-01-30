@@ -4,9 +4,10 @@ var wall_jump = false
 
 func update(delta):
 	Player.velocity.y += Player.gravity(delta)
+
 	if !Player.prev_state == STATES.SLIDE:
 		player_movement(delta)
-
+	
 	if Player.velocity.y >0:
 		return STATES.FALL
 	if Player.dash_input and Player.can_dash:
@@ -26,7 +27,7 @@ func update(delta):
 		return STATES.DEATH
 	return null
 func enter_state():
-	
+
 	if Player.prev_state == STATES.SLIDE:
 		$"../../AnimationPlayer".play("jump_slide")
 		wall_jump = true
@@ -46,3 +47,4 @@ func enter_state():
 
 func exit_state():
 	wall_jump = false
+	print(Player.prev_state.name)

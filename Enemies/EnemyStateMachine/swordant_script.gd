@@ -16,6 +16,8 @@ const coin_instance = preload("res://inventory/Moedas/coin.tscn")
 var current_state = null
 var prev_state = null
 
+var damage_value = 1
+
 @export var speed : float = 120.0
 var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
 

@@ -2,15 +2,17 @@ extends "state.gd"
 
 @onready var friction_particles: GPUParticles2D = $"../../Emitters/FrictionParticles"
 
+var saved_speed = 705.0
+
+
 func update(delta):
 	Player.velocity.y += Player.gravity(delta)
 	player_movement(delta)
 	friction()
 	Player.handleJumpBuffer()
-	if Player.velocity.x == 0:
-		return STATES.SLIDEH
-	if Player.sprint_input:
-		return STATES.RUNNING
+	if Player.velocity.x == 0 or !Player.sprint_input:
+		return STATES.MOVE
+
 	#if Player.velocity.x == 0:
 		#return STATES.IDLE
 	if Player.velocity.y >0:
@@ -47,7 +49,6 @@ func friction():
 		friction_particles.emitting = false
 
 func enter_state():
-	
 	Player.is_jumping = false
 	Player.can_dash = true
 	$"../../AnimationPlayer".play("run")
