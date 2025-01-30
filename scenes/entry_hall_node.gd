@@ -30,7 +30,7 @@ var canOpen_inventory : bool = true
 @export var color_x : float
 @export var color_y : float
 @export var color_z : float
-var splashposition 
+
 enum TerrainType {
 	WATER1 = 1,
 	WATER2 = 2,
@@ -155,8 +155,8 @@ func activate():
 		splashw.Desvaifundo.emit()
 
 
-func create_splash():
-	instance_object()
+func create_splash(marker: Marker2D, color):
+	instance_object(marker, color)
 	print("shuaaa")
 	splashw.can_create = false
 
@@ -211,7 +211,7 @@ func death():
 
 var splashinst = preload("res://objects/watersplash.tscn")
 
-func instance_object():
+func instance_object(marker, color):
 	
 	var new_splash = splashinst.instantiate()
 	var parent = self.get_parent()
@@ -221,12 +221,12 @@ func instance_object():
 
 		# Now change stuff related to the scene structure (like position)
 	#new_splash.global_position = objplayer.splashdec.global_position
-	new_splash.modulate = Color(color_x, color_y, color_z)
+	new_splash.modulate = color
 	print(color_x,color_y,color_z)
-	new_splash.position.y = splashposition
+	
+	new_splash.position.y = marker.global_position.y
 	new_splash.position.x = objplayer.position.x
-	new_splash.scale.x = 0.255
-	new_splash.scale.y = 0.255
+
 	
 	
 	

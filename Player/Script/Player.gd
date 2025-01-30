@@ -464,13 +464,13 @@ func player_input():
 		$AnimationPlayer.active = false
 		if Input.is_action_pressed("MoveRight"):
 			%Trayemmiter.scale.x = -1
-			if $STATES/SLIDE.is_sliding == 0:
+			if $STATES/SLIDE.is_sliding == false:
 				movement_input.x += 1
 				$Sprite2D.flip_h = false
 
 		if Input.is_action_pressed("MoveLeft"):
 			%Trayemmiter.scale.x = 1
-			if $STATES/SLIDE.is_sliding == 0:
+			if $STATES/SLIDE.is_sliding == false:
 				movement_input.x -= 1
 				$Sprite2D.flip_h = true
 

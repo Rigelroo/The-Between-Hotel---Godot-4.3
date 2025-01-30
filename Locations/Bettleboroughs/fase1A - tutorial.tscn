@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://dvki2umflw07g"]
+[gd_scene load_steps=69 format=4 uid="uid://dvki2umflw07g"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_pu0m5"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_4ti0g"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c07kkgcca0477" path="res://Sprites/Bettlebourough/parallax/BB_parallax1.png" id="5_fuom3"]
 [ext_resource type="Texture2D" uid="uid://ckvuki40yfkrf" path="res://Sprites/Bettlebourough/parallax/BB_parallax3.png" id="6_hui8v"]
 [ext_resource type="Texture2D" uid="uid://elghpfnvwwt5" path="res://Sprites/Bettlebourough/parallax/BB_parallax2.png" id="7_driev"]
-[ext_resource type="Script" uid="uid://77acs8117fqt" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="13_eeqow"]
 [ext_resource type="Texture2D" uid="uid://ccqxut7hpqq5m" path="res://Sprites/Bettlebourough/assets/asset_bettlep.png" id="15_h143u"]
 [ext_resource type="Texture2D" uid="uid://8msn6l8fpvpt" path="res://Sprites/Bettlebourough/assets/asset_bettle1.png" id="16_8l1c1"]
 [ext_resource type="Material" uid="uid://b6cccvyxvdcs6" path="res://Sprites/wind_sway.tres" id="16_ncpmp"]
@@ -15,24 +14,20 @@
 [ext_resource type="PackedScene" uid="uid://ba3xwpsxmpij8" path="res://Enemies/Bettleboroughs/blackbettle.tscn" id="18_dpigi"]
 [ext_resource type="Texture2D" uid="uid://cg3xnv85a50n0" path="res://Sprites/Bettlebourough/assets/asset_bettle4.png" id="18_nmn6w"]
 [ext_resource type="Texture2D" uid="uid://ddie16fqblj61" path="res://Sprites/Bettlebourough/assets/asset_bettle3.png" id="19_scjeg"]
-[ext_resource type="Script" uid="uid://dlvkg8r5b2grj" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="20_bm8wb"]
 [ext_resource type="Texture2D" uid="uid://ce7qusynwxnp1" path="res://Sprites/Bettlebourough/assets/asset_bettle2.png" id="20_nmn6w"]
 [ext_resource type="Texture2D" uid="uid://bqm4fvvjrq1s6" path="res://Sprites/Bettlebourough/assets/asset_bettle8.png" id="21_3ll4x"]
-[ext_resource type="Script" uid="uid://4xvnsep6px4l" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="21_6ebul"]
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://Inventory/Selos/selo_1.tscn" id="22_bm8wb"]
 [ext_resource type="Shader" uid="uid://bjls1ecffx6lt" path="res://Tests/reflectivewater.gdshader" id="22_ppbcn"]
 [ext_resource type="Texture2D" uid="uid://btx3s65d1y0xh" path="res://Sprites/branco.png" id="23_13h5w"]
-[ext_resource type="PackedScene" uid="uid://b5ou2iekn03vp" path="res://Enemies/Bettleboroughs/Pulga/ant.tscn" id="24_2wf5p"]
 [ext_resource type="Texture2D" uid="uid://baw8sjkb6gb12" path="res://Sprites/Bettlebourough/water/waterline0000.png" id="24_xpmnl"]
 [ext_resource type="Texture2D" uid="uid://b0xnm0cfpkeyy" path="res://Sprites/Bettlebourough/water/waterline0001.png" id="25_dpigi"]
 [ext_resource type="Texture2D" uid="uid://bdcqrmpu1xgo7" path="res://Sprites/Bettlebourough/water/waterline0002.png" id="26_6vdki"]
 [ext_resource type="Shader" uid="uid://cq0j4wlltql5f" path="res://Inventory/blur.gdshader" id="26_k4eyg"]
 [ext_resource type="Texture2D" uid="uid://bwj2q644wn32o" path="res://Sprites/Bettlebourough/water/waterline0003.png" id="27_mf0kd"]
 [ext_resource type="Shader" uid="uid://b2wn438y4h4qc" path="res://Locations/Bettleboroughs/fog.gdshader" id="38_13h5w"]
-[ext_resource type="Script" uid="uid://4txgb1k78l23" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="38_mf0kd"]
 [ext_resource type="PackedScene" uid="uid://csfewgcjfbaci" path="res://Enemies/Bettleboroughs/path_minisquito.tscn" id="38_xpmnl"]
 [ext_resource type="Shader" uid="uid://d2iygc34knq60" path="res://Objects/test.gdshader" id="39_xpmnl"]
-[ext_resource type="Shader" uid="uid://d156okunqjqq" path="res://Locations/Bettleboroughs/fase1A - tutorial.gdshader" id="40_0jxhp"]
+[ext_resource type="Script" uid="uid://dp2ae6lup0in8" path="res://scenes/colorwater.gd" id="40_dpigi"]
 [ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="42_mf0kd"]
 [ext_resource type="Material" uid="uid://cvnjyvncupoev" path="res://Sprites/Bettlebourough/grass_sway_ShaderMaterial.tres" id="53_ap3b0"]
 [ext_resource type="Texture2D" uid="uid://bcubb3x0o348k" path="res://Sprites/Bettlebourough/tileset.png" id="54_bmxtq"]
@@ -1039,27 +1034,6 @@ gradient = SubResource("Gradient_n1lro")
 fill = 1
 fill_from = Vector2(0.489796, 0.520408)
 
-[sub_resource type="Gradient" id="Gradient_0jxhp"]
-colors = PackedColorArray(0.129412, 0.333333, 0.521569, 1, 0.870997, 1, 0.919881, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ncpmp"]
-noise_type = 4
-frequency = 0.0209
-fractal_octaves = 10
-fractal_lacunarity = 2.915
-fractal_gain = -0.2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4eyg"]
-seamless = true
-color_ramp = SubResource("Gradient_0jxhp")
-noise = SubResource("FastNoiseLite_ncpmp")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6vdki"]
-shader = ExtResource("40_0jxhp")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_k4eyg")
-shader_parameter/density = 0.25
-shader_parameter/speed = Vector2(-0.05, 0.01)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_scjeg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l6s3l"]
@@ -1115,36 +1089,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Environment" id="Environment_l1xbt"]
-background_mode = 3
-background_canvas_max_layer = 10
-ambient_light_source = 2
-ambient_light_color = Color(0.419608, 0.603922, 0.517647, 1)
-tonemap_mode = 1
-tonemap_exposure = 0.74
-tonemap_white = 0.9
-ssr_enabled = true
-ssr_max_steps = 89
-ssr_fade_out = 2.54912
-glow_enabled = true
-glow_levels/1 = 3.42
-glow_levels/2 = 14.09
-glow_normalized = true
-glow_intensity = 0.08
-glow_strength = 0.7
-glow_bloom = 0.54
-glow_blend_mode = 1
-fog_mode = 1
-fog_light_color = Color(0.702284, 0.730102, 0.773812, 1)
-fog_light_energy = 3.12
-fog_sun_scatter = 0.4
-fog_density = 1.0
-fog_height = -558.55
-volumetric_fog_density = 0.2731
-adjustment_enabled = true
-adjustment_brightness = 0.78
-adjustment_contrast = 1.07
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2yn5m"]
 particles_animation = true
 particles_anim_h_frames = 5
@@ -1173,29 +1117,13 @@ scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_32jfb")
 anim_offset_max = 1.0
 
-[sub_resource type="Resource" id="Resource_2wf5p"]
-script = ExtResource("21_6ebul")
-duration = 1.0
-transition = 0
-ease = 2
-
-[sub_resource type="Resource" id="Resource_0jxhp"]
-script = ExtResource("38_mf0kd")
-amplitude = 10.0
-frequency = 0.59
-randomize_noise_seed = 1
-noise_seed = 0
-positional_noise = true
-rotational_noise = false
-positional_multiplier_x = 1.0
-positional_multiplier_y = 1.0
-rotational_multiplier = 1.0
-metadata/_custom_type_script = ExtResource("38_mf0kd")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dpigi"]
 shader = ExtResource("39_xpmnl")
 shader_parameter/grain_amount = 0.04
 shader_parameter/grain_size = 0.694
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a082t"]
+size = Vector2(9622, 1196.65)
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 script = ExtResource("1_pu0m5")
@@ -1254,7 +1182,7 @@ repeat_size = Vector2(2754, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camada 0/ParallaxB7"]
 modulate = Color(0.643852, 0.634045, 0.873803, 1)
-position = Vector2(-222, -866)
+position = Vector2(-301, -2649)
 scale = Vector2(1.37057, 1.37057)
 texture = ExtResource("7_driev")
 centered = false
@@ -1315,18 +1243,13 @@ player_camera = NodePath("Camera2D")
 physics_interpolation_mode = 1
 position = Vector2(37.5, 37.5)
 scale = Vector2(1.25, 1.25)
-offset = Vector2(1.35011, -0.41207)
+offset = Vector2(-1.48933, -1.26688)
 ignore_rotation = false
 zoom = Vector2(0.23, 0.23)
 limit_left = -125
 limit_top = -2830
 position_smoothing_speed = 3.0
 editor_draw_limits = true
-
-[node name="PhantomCameraHost" type="Node" parent="Camada3 - Meio/Player/Camera2D"]
-process_priority = 300
-process_physics_priority = 300
-script = ExtResource("13_eeqow")
 
 [node name="Showitemsprite" parent="Camada3 - Meio/Player" instance=ExtResource("60_rqo5r")]
 
@@ -1338,9 +1261,6 @@ energy = 0.32
 texture = SubResource("GradientTexture2D_k4eyg")
 texture_scale = 1.14
 
-[node name="Ant" parent="Camada3 - Meio" instance=ExtResource("24_2wf5p")]
-position = Vector2(453, 1399)
-
 [node name="BaseEnemy" parent="Camada3 - Meio" instance=ExtResource("38_xpmnl")]
 position = Vector2(9605, 277)
 scale = Vector2(1.3, 1.3)
@@ -1351,19 +1271,6 @@ scale = Vector2(0.75, 0.75)
 
 [node name="Plantas" type="Node2D" parent="."]
 position = Vector2(7, -9)
-
-[node name="ParallaxB9" type="Parallax2D" parent="."]
-scroll_offset = Vector2(16, 1031)
-repeat_size = Vector2(3813, 2941)
-autoscroll = Vector2(12.135, 0)
-repeat_times = 2
-
-[node name="ColorRect" type="ColorRect" parent="ParallaxB9"]
-material = SubResource("ShaderMaterial_6vdki")
-offset_left = 3698.0
-offset_top = 1898.0
-offset_right = 7511.0
-offset_bottom = 4839.0
 
 [node name="Camada 4" type="Node2D" parent="."]
 
@@ -1436,7 +1343,7 @@ polygon = PackedVector2Array(-144.046, -177.568, 17.1162, -180.732, 14.7108, -21
 
 [node name="AssetBettle3" type="Sprite2D" parent="Camada 4/Polygon2D"]
 show_behind_parent = true
-position = Vector2(35.2701, -327.848)
+position = Vector2(35.8262, -319.939)
 scale = Vector2(0.185244, 0.395474)
 texture = ExtResource("19_scjeg")
 
@@ -1450,8 +1357,8 @@ texture = ExtResource("18_nmn6w")
 
 [node name="AssetBettle5" type="Sprite2D" parent="Camada 4/Polygon2D"]
 show_behind_parent = true
-position = Vector2(-73.6534, -208.415)
-scale = Vector2(0.185244, 0.395474)
+position = Vector2(-66.2898, -209.799)
+scale = Vector2(0.202429, 0.447283)
 texture = ExtResource("17_scjeg")
 
 [node name="AssetBettle2" type="Sprite2D" parent="Camada 4/Polygon2D"]
@@ -1753,14 +1660,14 @@ vframes = 5
 frame = 8
 
 [node name="ParallaxB9" type="Parallax2D" parent="Camada 4"]
-scroll_offset = Vector2(-127, 952)
+scroll_offset = Vector2(-128, 953)
 repeat_size = Vector2(1300, 0)
 autoscroll = Vector2(12.135, 0)
-repeat_times = 10
+repeat_times = 11
 
 [node name="Sprite2D4" type="Sprite2D" parent="Camada 4/ParallaxB9"]
 material = SubResource("ShaderMaterial_ncpmp")
-position = Vector2(2844.11, 2291)
+position = Vector2(2844, 2315)
 scale = Vector2(25.615, 4.37714)
 texture = ExtResource("23_13h5w")
 
@@ -1776,21 +1683,9 @@ speed_scale = 0.16
 visible = false
 color = Color(0.679441, 0.858498, 0.766249, 1)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_l1xbt")
-
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_2yn5m")
 position = Vector2(1729, 577.194)
-scale = Vector2(5, 5)
-amount = 35
-texture = ExtResource("73_2xcgr")
-visibility_rect = Rect2(-500, -200, 1000, 400)
-process_material = SubResource("ParticleProcessMaterial_mf0kd")
-
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_2yn5m")
-position = Vector2(9851, 387)
 scale = Vector2(5, 5)
 amount = 35
 texture = ExtResource("73_2xcgr")
@@ -1821,21 +1716,8 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-top_level = true
-position = Vector2(8894, 323)
-script = ExtResource("20_bm8wb")
-follow_mode = 2
-follow_target = NodePath("../Camada3 - Meio/Player")
-zoom = Vector2(0.23, 0.23)
-tween_resource = SubResource("Resource_2wf5p")
-follow_offset = Vector2(30, 30)
-limit_left = -125
-limit_top = -2830
-noise = SubResource("Resource_0jxhp")
-
 [node name="Selo1" parent="." instance=ExtResource("22_bm8wb")]
-position = Vector2(-846, 1187)
+position = Vector2(-2270, 1178)
 scale = Vector2(3, 3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1859,3 +1741,25 @@ render_target_update_mode = 4
 [node name="Berserklayer" parent="." instance=ExtResource("75_joynk")]
 
 [node name="SaveStarter" parent="Berserklayer" instance=ExtResource("42_mf0kd")]
+
+[node name="Area2D2" type="Area2D" parent="." node_paths=PackedStringArray("world", "marker")]
+position = Vector2(7469, 2509)
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("40_dpigi")
+color = Color(0.713726, 0.690196, 0.537255, 1)
+colorx = 0.98
+colory = 1.0
+colorz = 0.5
+world = NodePath("..")
+marker = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-3300, 569.676)
+shape = SubResource("RectangleShape2D_a082t")
+
+[node name="Marker2D" type="Marker2D" parent="Area2D2"]
+position = Vector2(0, -30)
+
+[connection signal="area_entered" from="Area2D2" to="Area2D2" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

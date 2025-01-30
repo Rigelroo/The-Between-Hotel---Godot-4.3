@@ -2292,8 +2292,8 @@ inv_dictionary = ExtResource("5_dupda")
 [node name="Splashdetection" type="Area2D" parent="."]
 position = Vector2(5.96046e-08, -227)
 scale = Vector2(0.2, 0.2)
-collision_layer = 0
-collision_mask = 4
+collision_layer = 6
+collision_mask = 6
 script = ExtResource("188_ggwd4")
 splashw = ExtResource("189_da7wo")
 
@@ -2302,18 +2302,17 @@ position = Vector2(2.49999, 109)
 shape = SubResource("RectangleShape2D_f5pb0")
 
 [node name="Marker2D" type="Marker2D" parent="Splashdetection"]
-position = Vector2(-5, 5.99998)
+position = Vector2(5, 2045)
 
 [node name="Waterdetection" type="Area2D" parent="."]
-position = Vector2(-7, -170)
-scale = Vector2(1, 0.4)
-collision_layer = 0
+position = Vector2(-5, 33)
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("190_gi434")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Waterdetection"]
-position = Vector2(13.5, 537.5)
+position = Vector2(7, 57.5)
 shape = SubResource("RectangleShape2D_snhot")
 
 [node name="DamagenumOrigin" type="Node2D" parent="."]
@@ -2401,7 +2400,7 @@ script = ExtResource("190_ltiup")
 [connection signal="body_entered" from="Splashdetection" to="Splashdetection" method="_on_body_entered"]
 [connection signal="body_exited" from="Splashdetection" to="Splashdetection" method="_on_body_exited"]
 [connection signal="splash" from="Splashdetection" to="Splashdetection" method="_on_splash"]
-[connection signal="body_entered" from="Waterdetection" to="Waterdetection" method="_on_body_entered"]
-[connection signal="body_exited" from="Waterdetection" to="Waterdetection" method="_on_body_exited"]
+[connection signal="area_entered" from="Waterdetection" to="Waterdetection" method="_on_area_entered"]
+[connection signal="area_exited" from="Waterdetection" to="Waterdetection" method="_on_area_exited"]
 [connection signal="water_state_changed" from="Waterdetection" to="." method="_on_waterdetection_water_state_changed"]
 [connection signal="timeout" from="Components/DamageComponent/ImunnityTimer" to="Components/DamageComponent" method="_on_imunnity_timer_timeout"]

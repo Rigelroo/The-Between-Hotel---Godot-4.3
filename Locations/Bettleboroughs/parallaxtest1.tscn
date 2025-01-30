@@ -1312,13 +1312,12 @@ centered = false
 
 [node name="ParallaxB7" type="Parallax2D" parent="Camada 0"]
 y_sort_enabled = true
-scroll_scale = Vector2(0.8, 0.8)
-scroll_offset = Vector2(-2717, 0)
+scroll_scale = Vector2(0.8, 1)
 repeat_size = Vector2(2754, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camada 0/ParallaxB7"]
 modulate = Color(0.643852, 0.634045, 0.873803, 1)
-position = Vector2(0, -152)
+position = Vector2(-35.514, -1389.72)
 texture = ExtResource("10_rkw62")
 centered = false
 
@@ -1328,12 +1327,6 @@ scale = Vector2(0.996995, 1)
 scroll_scale = Vector2(0.6, 0.6)
 scroll_offset = Vector2(7381, -121.806)
 repeat_times = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Camada 0/ParallaxB8"]
-modulate = Color(0.643852, 0.634045, 0.873803, 1)
-position = Vector2(-2685.07, -161)
-texture = ExtResource("10_rkw62")
-centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="Camada 0/ParallaxB8"]
 modulate = Color(0.687, 3.76, 12.782, 0.293)
@@ -1657,12 +1650,12 @@ position = Vector2(3032, 720)
 scale = Vector2(1, 1)
 
 [node name="Plant20" parent="Camada3 - Meio/Plants" instance=ExtResource("47_ce42x")]
-position = Vector2(5472, 976)
+position = Vector2(5469.5, 990)
 scale = Vector2(1, 1)
 frame = 45
 
 [node name="Plant21" parent="Camada3 - Meio/Plants" instance=ExtResource("47_ce42x")]
-position = Vector2(5664, 976)
+position = Vector2(5661.5, 990)
 scale = Vector2(1, 1)
 
 [node name="Plant22" parent="Camada3 - Meio/Plants" instance=ExtResource("47_ce42x")]
@@ -1793,16 +1786,16 @@ scroll_scale = Vector2(1.2, 1)
 scroll_offset = Vector2(-36.0001, -1240.19)
 
 [node name="AnthillParallaxasset4" type="Sprite2D" parent="Camada 5/ParallaxB10"]
-position = Vector2(1552, 1497)
+position = Vector2(1560, 1543)
 texture = ExtResource("40_totll")
 
 [node name="AssetBettle1" type="Sprite2D" parent="Camada 5/ParallaxB10"]
-position = Vector2(3169, 1625)
+position = Vector2(3165, 1671)
 scale = Vector2(1.17532, 1.17532)
 texture = ExtResource("55_v3v54")
 
 [node name="Sprite2D" type="Sprite2D" parent="Camada 5/ParallaxB10"]
-position = Vector2(644, 1497)
+position = Vector2(644, 1554)
 scale = Vector2(1.36997, 1.36997)
 texture = ExtResource("54_ra0wf")
 
