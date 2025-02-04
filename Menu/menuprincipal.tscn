@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://d2kbwohtjrf5k"]
+[gd_scene load_steps=84 format=3 uid="uid://d2kbwohtjrf5k"]
 
 [ext_resource type="Texture2D" uid="uid://p7wpl8iyn027" path="res://Menu/Sprites/menuprincipal_fundo.png" id="1_42538"]
 [ext_resource type="Script" uid="uid://bgccsufw85c7p" path="res://Menu/menuprincipal.gd" id="1_wkb2l"]
@@ -52,7 +52,6 @@
 [ext_resource type="Script" uid="uid://dijx5q20bnxls" path="res://Inventory/gui/itemStackGui.gd" id="44_2m83m"]
 [ext_resource type="Resource" uid="uid://cd5dhen5bx51f" path="res://Inventory/PlayerInventory.tres" id="45_ukdy4"]
 [ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://Inventory/Selos/selo_herculesleaf.png" id="46_x0hox"]
-[ext_resource type="Texture2D" uid="uid://c8hxfbcxwfq5d" path="res://Menu/Sprites/buttonsstuff/buttonshow_xbox_x.png" id="47_atovr"]
 [ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="47_b563v"]
 [ext_resource type="Texture2D" uid="uid://dexnh4nfqwpc5" path="res://Menu/Sprites/menusave/menusaves_playbutton.png" id="48_8s3ra"]
 [ext_resource type="Texture2D" uid="uid://sqav75txw6vx" path="res://Menu/Sprites/buttonsstuff/buttonshow_xbox_a.png" id="49_3w2mj"]
@@ -894,12 +893,13 @@ position = Vector2(3.80807, -498.858)
 texture = ExtResource("36_uuoh5")
 
 [node name="Sprite2D" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/Sprite2D2"]
-offset_left = -563.668
-offset_top = -288.956
-offset_right = 563.332
-offset_bottom = 314.044
+custom_minimum_size = Vector2(1127, 603)
+offset_left = -564.0
+offset_top = -289.0
+offset_right = 563.0
+offset_bottom = 314.0
 texture = ExtResource("38_ava26")
-stretch_mode = 3
+expand_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow"]
 position = Vector2(3.80807, -194.212)
@@ -1018,7 +1018,7 @@ expand_icon = true
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow/apagarsave"]
 position = Vector2(252.261, 277.933)
 scale = Vector2(0.553549, 0.553549)
-texture = ExtResource("47_atovr")
+texture = ExtResource("36_m85bk")
 
 [node name="playsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow/saveshow"]
 custom_minimum_size = Vector2(400, 400)
@@ -1055,12 +1055,13 @@ position = Vector2(3.80807, -498.858)
 texture = ExtResource("36_uuoh5")
 
 [node name="Sprite2D" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow/Sprite2D2"]
+custom_minimum_size = Vector2(1127, 603)
 offset_left = -563.668
 offset_top = -288.956
 offset_right = 563.332
 offset_bottom = 314.044
 texture = ExtResource("38_ava26")
-stretch_mode = 3
+expand_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow"]
 position = Vector2(3.80807, -194.212)
@@ -1179,7 +1180,7 @@ expand_icon = true
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow/apagarsave"]
 position = Vector2(252.261, 277.933)
 scale = Vector2(0.553549, 0.553549)
-texture = ExtResource("47_atovr")
+texture = ExtResource("36_m85bk")
 
 [node name="playsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow2/saveshow"]
 custom_minimum_size = Vector2(400, 400)
@@ -1216,12 +1217,13 @@ position = Vector2(3.80807, -498.858)
 texture = ExtResource("36_uuoh5")
 
 [node name="Sprite2D" type="TextureRect" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow/Sprite2D2"]
+custom_minimum_size = Vector2(1127, 603)
 offset_left = -563.668
 offset_top = -288.956
 offset_right = 563.332
 offset_bottom = 314.044
 texture = ExtResource("38_ava26")
-stretch_mode = 3
+expand_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow"]
 position = Vector2(3.80807, -194.212)
@@ -1340,7 +1342,7 @@ expand_icon = true
 [node name="Sprite2D" type="Sprite2D" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow/apagarsave"]
 position = Vector2(252.261, 277.933)
 scale = Vector2(0.553549, 0.553549)
-texture = ExtResource("47_atovr")
+texture = ExtResource("36_m85bk")
 
 [node name="playsave" type="Button" parent="Menuprincipalcaixa/submenuTabcontainer/save_control/saveshowtabcontainer/saveshow3/saveshow"]
 custom_minimum_size = Vector2(400, 400)

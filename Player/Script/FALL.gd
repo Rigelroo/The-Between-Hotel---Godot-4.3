@@ -20,6 +20,7 @@ func update(delta):
 
 
 	Player.velocity.y += Player.gravity(delta)
+	Player.velocity.x = lerp(Player.prevVelocity.x, Player.velocity.x, Player.AIR_X_SMOOTHING)
 	player_movement(delta)
 
 
@@ -80,6 +81,7 @@ func enter_state():
 		can_slide = false
 		await get_tree().create_timer(0.2).timeout
 		can_slide = true
+	
 
 func exit_state():
 	glider_timer = false

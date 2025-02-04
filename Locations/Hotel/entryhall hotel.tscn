@@ -335,17 +335,18 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(4569, 2420)
 scale = Vector2(1.6, 1.6)
 showitem = NodePath("Showitemsprite")
+SPEED = 1210.0
 player_camera = NodePath("Camera2D")
 
 [node name="Showitemsprite" parent="Player" instance=ExtResource("22_n6i70")]
 
 [node name="Camera2D" parent="Player" instance=ExtResource("23_sbrgv")]
 position = Vector2(0.75, -23.5)
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.19, 0.19)
 limit_left = 0
-limit_top = 45
-limit_right = 4020
-limit_bottom = 1405
+limit_top = 115
+limit_right = 10170
+limit_bottom = 3510
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0

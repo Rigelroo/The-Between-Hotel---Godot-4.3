@@ -3,7 +3,7 @@ extends "state.gd"
 @onready var friction_particles: GPUParticles2D = $"../../Emitters/FrictionParticles"
 
 var saved_speed = 705.0
-
+@export_range(1, 5, 0.1) var particles_multiplier := 1.0
 
 func update(delta):
 	Player.velocity.y += Player.gravity(delta)
@@ -52,3 +52,9 @@ func enter_state():
 	Player.is_jumping = false
 	Player.can_dash = true
 	$"../../AnimationPlayer".play("run")
+	%Trayemmiter.amount *= particles_multiplier
+	print(%Trayemmiter.amount)
+
+func exit_state():
+	%Trayemmiter.amount /= particles_multiplier
+	print(%Trayemmiter.amount)

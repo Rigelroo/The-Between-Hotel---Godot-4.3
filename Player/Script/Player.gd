@@ -83,14 +83,18 @@ var SPRINT_SPEED : float = SPEED
 @export var inventoryc : Inventoryc
 @export var inv_dictionary : InventoryDictionary
 
-
+@export var AIR_HANG_MULTIPLIER = 0.95
+@export var AIR_HANG_THRESHOLD = 50
+@export var Y_SMOOTHING = 0.8
+@export var AIR_X_SMOOTHING = 0.10
 
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
+var prevVelocity = Vector2.ZERO
+var lastFloorMsec = 0
 #player input
 var movement_input = Vector2.ZERO
 
@@ -161,73 +165,6 @@ func load_player_state():
 			if pos_data.size() == 2:
 				position = Vector2(pos_data[0], pos_data[1])
 
-
-#func save():
-	## Salvar a cena atual
-	#var saved_scene = get_parent().scene_file_path
-	#var saved_scenename = get_parent().nome_cena
-	#SaveSys.saved_current_scene = saved_scene
-	#SaveSys.saved_current_scenename = saved_scenename
-	## Salvar posição atual do jogador
-	#pos = position
-	#SaveSys.pos_dict[name] = [pos.x, pos.y]
-#
-	## Salvar itens equipados
-	#inventoryequiped_array.clear()
-	#for slot in inventoryc.stampslots:
-		#if slot != null:
-			#if slot.item != null:
-				#pass
-				##inventoryequiped_array.append(slot.item.name)
-	##SaveSys.equiped_stamps = inventoryequiped_array
-#
-	#print("Player salvo:")
-	#print("\tCena:", saved_scene)
-	#print("\tPosição:", pos)
-	#print("\tItens Equipados:", inventoryequiped_array)
-#
-#
-
-#
-#func load_player_state():
-	## Carregar posição
-	#if SaveSys.pos_dict.has(name):
-		#var saved_pos = SaveSys.pos_dict[name]
-		#update_pos(Vector2(saved_pos[0], saved_pos[1]))
-#
-	## Carregar itens equipados
-	#if SaveSys.equiped_stamps.size() > 0:
-		#inventoryequiped_array.clear()
-		#for item_name in SaveSys.equiped_stamps:
-			##var item = inv_dictionary.invseals.find(item_name)
-			#var item = inv_dictionary.invseals[item_name]
-			#if item != null:
-				#inventoryequiped_array.append(item)
-				##emit_signal("sigload_equipstamp", item)  # Notifica os sistemas sobre os itens equipados.
-#
-	#print("Player carregado:")
-	#print("\tPosição:", position)
-	#print("\tItens Equipados:", inventoryequiped_array)
-#
-
-#
-#func save():
-	#var saved_scene = get_parent().scene_file_path
-	#print(saved_scene)
-	#
-	#inventoryequiped_array.append(inventoryc.stampslots)
-	#pos.append(position.x)
-	#pos.append(position.y)
-	#SaveSys.saved_current_scene = saved_scene
-	#SaveSys.equiped_stamps = inventoryequiped_array
-	#SaveSys.pos_dict[name] = pos
-	#
-#
-#func update_pos(p):
-	#position = p
-	#
-#func update_inv(equipedslots):
-	#pass
 
 
 func changegravity():
@@ -305,56 +242,10 @@ func _physics_process(delta):
 
 	$Label.text = str(current_state.get_name())
 	$SPEEDLabel.text = "SPEED: " + str(SPEED)
+
+	prevVelocity = velocity
 	move_and_slide()
-#
-#func gravity(delta):
-	#if is_on_floor():
-		#velocity.y = 0
-	#if not is_on_floor() && !is_skydiving:
-		#if(!is_in_water):
-			#velocity.y += gravity_value * delta
-			#
-		#else:
-			#velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
-	#if not is_on_floor() && is_skydiving:
-		#if(!is_in_water):
-			#velocity.y += gravity_value * delta -12
 
-#func gravity(delta):
-	#if is_on_floor():
-		#velocity.y = 0  # Zere a velocidade ao tocar o chão
-#
-	#if not is_on_floor() and !is_skydiving:
-		#if not is_in_water:
-			#velocity.y += gravity_value * delta
-		#else:
-			#velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
-#
-	#if not is_on_floor() and is_skydiving:
-		#if not is_in_water:
-			#velocity.y += (gravity_value / 2) * delta - 12  # Ajuste a gravidade para o skydiving
-
-#func gravity(delta):
-	#if is_on_floor():
-		#velocity.y = 0  # Zere a velocidade ao tocar o chão
-		#gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
-	##print(current_state.name)
-	#if not is_on_floor():
-		#if current_state.name == "FALL":
-			#velocity.y += (1.5 * gravity_value) * delta
-			#
-	#if not is_on_floor():
-		#if current_state.name != "HLEAF":
-			#
-			#if not is_in_water:
-				#velocity.y += gravity_value * delta
-				##velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed) * delta
-			#else:
-				#velocity.y = clampf(velocity.y + (gravity_value * delta * SWIN_GRAVITY), -10000, SWIN_VELOCITY_CAP)
-		#else:  # Skydiving
-			#if not is_in_water:
-				#velocity.y += (gravity_value + 100 / 2.5) * delta
-				##velocity.y = clamp(velocity.y, -max_fall_speed, max_fall_speed)
 func gravity(delta) -> float:
 	var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
 	var regravity = 0.0

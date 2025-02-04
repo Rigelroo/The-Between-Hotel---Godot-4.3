@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7pt042m2nxi2"]
+
+[ext_resource type="Texture2D" uid="uid://dd3vkja7tqwgo" path="res://Sprites/Effects/frost.png" id="1_pu6yd"]
+[ext_resource type="Material" uid="uid://cmmcvjqic7dj4" path="res://Diversos/walk_particle.tres" id="2_smgui"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ggwd4"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="FrictionParticles" type="GPUParticles2D"]
+modulate = Color(5, 3, 3, 0.552)
+material = SubResource("CanvasItemMaterial_ggwd4")
+emitting = false
+amount = 7
+amount_ratio = 0.7203
+texture = ExtResource("1_pu6yd")
+process_material = ExtResource("2_smgui")

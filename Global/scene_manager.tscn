@@ -1,16 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://bgy0idsyaaxgi"]
+[gd_scene load_steps=18 format=3 uid="uid://bgy0idsyaaxgi"]
 
 [ext_resource type="Script" uid="uid://cktrg3rhurnjf" path="res://Global/scene_managerdt.gd" id="1_27t4e"]
 [ext_resource type="Shader" uid="uid://bshbhxuu8yieo" path="res://Diversos/diamondtransition.gdshader" id="2_w24is"]
 [ext_resource type="Texture2D" uid="uid://waol4h18n8s" path="res://Inventory/gui/menuparallax.png" id="3_es5ce"]
 [ext_resource type="Texture2D" uid="uid://crq2jcj5uidtc" path="res://Sprites/Bettlebourough/npcs/pulg_walk0000.png" id="4_7f5oa"]
+[ext_resource type="Animation" uid="uid://87rodes22q0l" path="res://transition_in.res" id="4_w24is"]
 [ext_resource type="Texture2D" uid="uid://b716dktklkfvs" path="res://Sprites/Bettlebourough/npcs/pulg_walk0001.png" id="5_faopq"]
 [ext_resource type="Texture2D" uid="uid://cimhuri8qd512" path="res://Sprites/Bettlebourough/npcs/pulg_walk0002.png" id="6_nffys"]
 [ext_resource type="Texture2D" uid="uid://bqntcc5eeeeia" path="res://Sprites/Bettlebourough/npcs/pulg_walk0003.png" id="7_slvun"]
 [ext_resource type="Texture2D" uid="uid://cdhu1pm2egnyx" path="res://Sprites/Bettlebourough/npcs/pulg_walk0004.png" id="8_bd5aw"]
 [ext_resource type="FontFile" uid="uid://dbf30jmb03jwh" path="res://Fonts/Typewriter215FP-Heavyhanded.otf" id="9_k1480"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_htqbf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kj1ir"]
 shader = ExtResource("2_w24is")
 shader_parameter/progress = 0.0
 shader_parameter/size = 40.0
@@ -66,6 +67,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Parallax2D/Sprite2D:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_e4oby"]
 resource_name = "in"
@@ -104,6 +117,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Parallax2D/Sprite2D:material")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_kj1ir"), SubResource("ShaderMaterial_kj1ir")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Parallax2D/Sprite2D:material:shader_parameter/progress")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.98023e-08, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_bt68n"]
@@ -147,13 +184,50 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Parallax2D/Sprite2D:material")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_kj1ir"), SubResource("ShaderMaterial_kj1ir")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Parallax2D/Sprite2D:material:shader_parameter/progress")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.98023e-08, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Parallax2D/Sprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ebu1w"]
 _data = {
 &"RESET": SubResource("Animation_1i7qj"),
 &"in": SubResource("Animation_e4oby"),
 &"nada": SubResource("Animation_bt68n"),
-&"out": SubResource("Animation_ypvq7")
+&"out": SubResource("Animation_ypvq7"),
+&"transition_in": ExtResource("4_w24is")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bq1cn"]
@@ -184,7 +258,6 @@ layer = 10
 script = ExtResource("1_27t4e")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-visible = false
 scale = Vector2(0.75, 0.75)
 repeat_size = Vector2(739.845, 735.135)
 autoscroll = Vector2(20, 20)
@@ -193,12 +266,13 @@ ignore_camera_scroll = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 modulate = Color(0.513233, 0.513233, 0.513233, 1)
+material = SubResource("ShaderMaterial_kj1ir")
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_es5ce")
 centered = false
 
 [node name="Overlay" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_htqbf")
+visible = false
 anchors_preset = -1
 anchor_right = 1.003
 anchor_bottom = 1.002

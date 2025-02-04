@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn0exagwmxj8s"]
-
-[ext_resource type="PackedScene" uid="uid://dw7fr5yfile0r" path="res://scenes/entry_hallNode.tscn" id="1_hkofn"]
-[ext_resource type="Script" path="res://scenes/entry_hall.gd" id="1_v5jip"]
-
-[node name="EntryHall" type="Node2D"]
-script = ExtResource("1_v5jip")
-
-[node name="EntryHall" parent="." instance=ExtResource("1_hkofn")]

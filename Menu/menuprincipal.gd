@@ -181,7 +181,7 @@ func _unhandled_input(event):
 	if menuslots.size() == 0:
 		return
 
-	if event.is_action_pressed("Interact"):
+	if event.is_action_pressed("Run"):
 		_on_backbutton_pressed()
 	if !is_in_config_tab:
 		if event.is_action_pressed("selector_right") or event.is_action_pressed("selector_down"):
@@ -191,7 +191,7 @@ func _unhandled_input(event):
 			move_selector_U()
 			
 	if is_in_save_tab:
-		if event.is_action_pressed("Climb"):
+		if event.is_action_pressed("Delete"):
 			_on_apagarsave_pressed()
 
 			
