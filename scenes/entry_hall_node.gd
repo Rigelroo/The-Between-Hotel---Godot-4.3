@@ -42,24 +42,7 @@ var death_scene: String = "res://Tests/deadreplacer.tscn"
 @export_file("*.tscn") var next_scene: String
 @onready var manager : MainManager = preload("res://Global/Mainmanager.tres")
 
-var fastscenet : Node
-
 signal just_equip
-
-func world():
-	pass
-
-
-func detect_floor_hazards():
-	var tile_pos = $"Camada3 - Meio/meio".local_to_map(player.floor_target.global_position)
-	
-	var source_id : int = 0
-	
-	var tile_data : TileData = $"Camada3 - Meio/meio".get_cell_tile_data(tile_pos)
-	if tile_data:
-		var is_hazard_floor = tile_data.get_custom_data("RepositionHazard")
-		if is_hazard_floor:
-			return is_hazard_floor
 
 func _physics_process(delta: float) -> void:
 	pass

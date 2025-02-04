@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://cad058dvr1hb3"]
 
-[ext_resource type="Script" uid="uid://dp2ae6lup0in8" path="res://scenes/colorwater.gd" id="1_lqkjv"]
+[ext_resource type="Script" path="res://scenes/colorwater.gd" id="1_lqkjv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a082t"]
 size = Vector2(2641, 47.2975)
 
-[node name="Area2D2" type="Area2D" node_paths=PackedStringArray("marker")]
+[node name="Area2D2" type="Area2D" node_paths=PackedStringArray("world", "marker")]
 position = Vector2(1451, 800)
 script = ExtResource("1_lqkjv")
 color = Color(0.984314, 1, 0.505882, 1)
 colorx = 0.98
 colory = 1.0
 colorz = 0.5
+world = NodePath("")
 marker = NodePath("Marker2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

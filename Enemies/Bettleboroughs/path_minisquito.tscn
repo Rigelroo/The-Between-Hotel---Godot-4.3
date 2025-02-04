@@ -742,6 +742,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Attackcollision" type="CollisionShape2D" parent="Minisquito/Attackbox"]
 unique_name_in_owner = true
 position = Vector2(21.1142, 92.3862)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0iu8b")
 debug_color = Color(0.986317, 0.0702289, 0.2335, 0.42)
 

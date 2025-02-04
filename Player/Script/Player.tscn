@@ -1,4 +1,4 @@
-[gd_scene load_steps=255 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=256 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" uid="uid://810alopr4too" path="res://Player/Script/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://dknwb0q3tench" path="res://Player/Sprites/All/jump7.png" id="2_lumcb"]
@@ -186,7 +186,7 @@
 [ext_resource type="Texture2D" uid="uid://dgj3sog8evd5g" path="res://Player/Sprites/All/fallstart0003.png" id="156_da7wo"]
 [ext_resource type="Script" uid="uid://cmd2f3i41qbr7" path="res://Player/Script/HIT.gd" id="160_vgtc2"]
 [ext_resource type="PackedScene" uid="uid://chtv73gw0h0nt" path="res://scenes/magic_system/emitters/firebreathemitter.tscn" id="167_kde63"]
-[ext_resource type="Script" uid="uid://cht40njk8kvel" path="res://Player/Script/RUNNING.gd" id="173_gi434"]
+[ext_resource type="Script" uid="uid://cvsctdnjl2qrq" path="res://Player/Script/RUNNING.gd" id="173_gi434"]
 [ext_resource type="Script" uid="uid://dwb47xv8g8o8y" path="res://Player/Script/SLIDEH.gd" id="179_pv5yp"]
 [ext_resource type="Texture2D" uid="uid://dgc0c0tv27fgp" path="res://Sprites/Effects/subfrost.png" id="180_3drml"]
 [ext_resource type="Texture2D" uid="uid://dph53hjy2bofs" path="res://Sprites/Bettlebourough/fallingleaves2.png" id="182_ikjul"]
@@ -809,6 +809,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, -101)]
+}
 
 [sub_resource type="Animation" id="Animation_ht3sh"]
 resource_name = "balir"
@@ -1208,6 +1232,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("18_ayf5o")]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.85, 1.1)]
+}
 
 [sub_resource type="Animation" id="Animation_gi434"]
 resource_name = "fall_start"
@@ -1259,6 +1295,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("18_ayf5o")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.85, 1.1)]
 }
 
 [sub_resource type="Animation" id="Animation_tnnmm"]
@@ -1313,58 +1361,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0141266]
-}
-
-[sub_resource type="Animation" id="Animation_nbatq"]
-resource_name = "jump"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_5cb6f")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../PlayerHatCold:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.6, 1.8)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../PlayerHatCold:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.211076]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../PlayerHatCold:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("18_ayf5o")]
 }
 
 [sub_resource type="Animation" id="Animation_gk1s4"]
@@ -1488,7 +1484,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_i5vgc"]
 resource_name = "jump_start"
-length = 0.1
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1536,6 +1532,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("18_ayf5o")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.8), Vector2(0.85, 1.1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(13, -31), Vector2(13, -101)]
 }
 
 [sub_resource type="Animation" id="Animation_qqpwy"]
@@ -1921,6 +1941,158 @@ tracks/3/keys = {
 "values": [ExtResource("18_ayf5o")]
 }
 
+[sub_resource type="Animation" id="Animation_tvmui"]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_5cb6f")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PlayerHatCold:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1.6, 5.4), Vector2(1.6, 3.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerHatCold:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.211076]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PlayerHatCold:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_ayf5o")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.85, 1.1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, -101)]
+}
+
+[sub_resource type="Animation" id="Animation_jvtnp"]
+resource_name = "fall_end"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("156_da7wo"), ExtResource("4_hrs1f"), ExtResource("7_mpwet")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PlayerHatCold:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1.6, 5.4), Vector2(1.6, 3.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../PlayerHatCold:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.211076]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../PlayerHatCold:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_ayf5o")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.85, 1.1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, -101)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nqj7c"]
 _data = {
 &"AirSlash": SubResource("Animation_housx"),
@@ -1940,9 +2112,10 @@ _data = {
 &"default": SubResource("Animation_t3k2n"),
 &"doublejump": SubResource("Animation_txn51"),
 &"fall": SubResource("Animation_hjtcd"),
+&"fall_end": SubResource("Animation_jvtnp"),
 &"fall_start": SubResource("Animation_gi434"),
 &"idle": SubResource("Animation_tnnmm"),
-&"jump": SubResource("Animation_nbatq"),
+&"jump": SubResource("Animation_tvmui"),
 &"jump_end": SubResource("Animation_gk1s4"),
 &"jump_slide": SubResource("Animation_dyy8t"),
 &"jump_start": SubResource("Animation_i5vgc"),
@@ -2081,9 +2254,6 @@ inv_dictionary = ExtResource("5_dupda")
 [node name="ShowTarget" type="Marker2D" parent="."]
 position = Vector2(0, -103)
 
-[node name="FloorTarget" type="Marker2D" parent="."]
-position = Vector2(0, 271)
-
 [node name="JumpTarget" type="Marker2D" parent="."]
 position = Vector2(0, 240)
 
@@ -2094,8 +2264,6 @@ position = Vector2(0, 4.6)
 position = Vector2(0, -318)
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Hitbox"]]
-collision_layer = 65
-collision_mask = 65
 
 [node name="Hitboxcollision" type="CollisionShape2D" parent="Hitbox"]
 unique_name_in_owner = true
@@ -2141,8 +2309,8 @@ scale = Vector2(0.07, 0.07)
 
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(2.2, 2.8)
-rotation = 0.0141266
+position = Vector2(1.6, 3.2)
+rotation = 0.211076
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
 
@@ -2215,6 +2383,7 @@ script = ExtResource("132_uy4rk")
 
 [node name="RUNNING" parent="STATES" instance=ExtResource("5_d55dw")]
 script = ExtResource("173_gi434")
+particles_multiplier = 2.5
 
 [node name="SWIM" parent="STATES" instance=ExtResource("144_sn8ak")]
 script = ExtResource("145_fox38")
@@ -2417,7 +2586,6 @@ script = ExtResource("190_ltiup")
 [node name="ImunnityTimer" type="Timer" parent="Components/DamageComponent"]
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="STATES/IDLE" method="_on_animation_player_animation_finished"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="Emitters/Trayemmiter" method="_on_animation_player_current_animation_changed"]
