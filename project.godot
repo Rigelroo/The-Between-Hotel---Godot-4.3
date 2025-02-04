@@ -367,6 +367,8 @@ locale/locale_filter_mode=0
 2d_physics/layer_4="wall"
 2d_physics/layer_5="trigger"
 2d_physics/layer_6="player"
+2d_physics/layer_7="reposition_hazard"
+2d_physics/layer_8="hazard"
 
 [rendering]
 
