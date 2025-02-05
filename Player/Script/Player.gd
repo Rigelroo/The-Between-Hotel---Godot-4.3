@@ -65,6 +65,15 @@ signal inkChanged
 @export var JUMP_VELOCITY = -700.0 * 1.5
 @export var variable_jump_value = -300
 @export var max_fall_speed = -900.0 * 1.5
+
+@export var COYOTE_TIME = 140
+@export var AIR_HANG_MULTIPLIER = 0.95
+@export var AIR_HANG_THRESHOLD = 50
+@export var Y_SMOOTHING = 0.8
+@export var AIR_X_SMOOTHING = 0.10
+@export var JUMP_BUFFER_TIME = 100
+var lastJump_msec : int
+var lastFloorMsec = 0
 @export_range(1, 2000, 0.1) var slide_deceleration : int = 500
 @export var can_interact = false
 @export var can_move = true
@@ -83,18 +92,11 @@ var SPRINT_SPEED : float = SPEED
 @export var inventoryc : Inventoryc
 @export var inv_dictionary : InventoryDictionary
 
-@export var AIR_HANG_MULTIPLIER = 0.95
-@export var AIR_HANG_THRESHOLD = 50
-@export var Y_SMOOTHING = 0.8
-@export var AIR_X_SMOOTHING = 0.10
-
-
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var prevVelocity = Vector2.ZERO
-var lastFloorMsec = 0
+
 #player input
 var movement_input = Vector2.ZERO
 
@@ -207,7 +209,8 @@ func jump_particles():
 		new_node.global_position = $JumpTarget.global_position
 
 func _physics_process(delta):
-	
+	if is_on_floor():
+		lastFloorMsec = Time.get_ticks_msec()
 	player_input()
 	change_state(current_state.update(delta))
 	if %AnimationPlayer.current_animation != "jump_slide":
@@ -379,11 +382,12 @@ func player_input():
 			movement_input.y -= 1
 		if Input.is_action_pressed("MoveDown"):
 			movement_input.y += 1
-
+#or $STATES/JUMP/BufferTimer.time_left > 0 
 	# Jump handling
 	if not $STATES/SLIDE.is_sliding:
 		if !is_skydiving && !is_in_water && can_move && can_move_si:
-			if Input.is_action_just_pressed("Jump") or $STATES/JUMP/BufferTimer.time_left > 0:
+			var jumptime = Time.get_ticks_msec() - lastJump_msec
+			if Input.is_action_just_pressed("Jump"):
 				$STATES/JUMP/Jumptimer.start()
 				$STATES/JUMP/BufferTimer.stop()
 				print($STATES/JUMP/BufferTimer.time_left)

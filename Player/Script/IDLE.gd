@@ -15,7 +15,7 @@ func update(delta):
 		return STATES.RUNNING
 
 
-	if Player.jump_input_actuation:
+	if Player.jump_input_actuation or Time.get_ticks_msec() - Player.lastJump_msec < Player.JUMP_BUFFER_TIME:
 		if !Player.is_in_water:
 			$"../../AnimationPlayer".play("jump_start")
 			return STATES.JUMP

@@ -469,7 +469,7 @@ func _unhandled_input(event):
 			%Config.goto_options()
 		if Input.is_action_just_pressed("Attack"):
 			%Config.selectioned_press()
-		if Input.is_action_just_pressed("Interact"):
+		if Input.is_action_just_pressed("Jump"):
 			%Config.out_options()
 	
 	#var slot = slots[currently_selected]

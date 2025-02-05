@@ -58,9 +58,11 @@ func enter_state():
 	if wall_direction == Vector2.RIGHT:
 		if raycasts.buttom_right.is_colliding():
 			Player.position.x -= 3.0
+			%Sprite2D.position = Vector2(-27.0, -101)
 	elif wall_direction == Vector2.LEFT:
 		if raycasts.buttom_left.is_colliding():
 			Player.position.x += 3.0
+			%Sprite2D.position = Vector2(46.0, -101)
 	
 	$"../../AnimationPlayer".play("slide") 
 func exit_slide_state():
@@ -70,6 +72,7 @@ func exit_state():
 	slide_friction = .9
 	%FrictionParticles.process_material = load("res://Diversos/walk_particle.tres")
 	%FrictionParticles.emitting = false
+	%Sprite2D.position = Vector2(13, -101)
 
 func wall_jump():
 	if wall_direction == Vector2.RIGHT:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=118 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_ofkno"]
@@ -73,10 +73,12 @@
 [ext_resource type="Texture2D" uid="uid://ce7qusynwxnp1" path="res://Sprites/Bettlebourough/assets/asset_bettle2.png" id="54_ra0wf"]
 [ext_resource type="Texture2D" uid="uid://8msn6l8fpvpt" path="res://Sprites/Bettlebourough/assets/asset_bettle1.png" id="55_v3v54"]
 [ext_resource type="Texture2D" uid="uid://cuqbg8otjj64a" path="res://Sprites/Bettlebourough/fallingleaves1.png" id="58_uarki"]
+[ext_resource type="Texture2D" uid="uid://ccqxut7hpqq5m" path="res://Sprites/Bettlebourough/assets/asset_bettlep.png" id="72_lp6e7"]
 [ext_resource type="Texture2D" uid="uid://baw8sjkb6gb12" path="res://Sprites/Bettlebourough/water/waterline0000.png" id="72_v4f6o"]
 [ext_resource type="Texture2D" uid="uid://b0xnm0cfpkeyy" path="res://Sprites/Bettlebourough/water/waterline0001.png" id="73_fmy2g"]
 [ext_resource type="Texture2D" uid="uid://bdcqrmpu1xgo7" path="res://Sprites/Bettlebourough/water/waterline0002.png" id="74_1vyod"]
 [ext_resource type="Texture2D" uid="uid://bwj2q644wn32o" path="res://Sprites/Bettlebourough/water/waterline0003.png" id="75_gdh3p"]
+[ext_resource type="Texture2D" uid="uid://ddie16fqblj61" path="res://Sprites/Bettlebourough/assets/asset_bettle3.png" id="76_arjw4"]
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://Inventory/Selos/selo_1.tscn" id="78_rjvmj"]
 [ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="79_fyuwo"]
 [ext_resource type="Texture2D" uid="uid://bqm4fvvjrq1s6" path="res://Sprites/Bettlebourough/assets/asset_bettle8.png" id="80_nxn2n"]
@@ -1206,6 +1208,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ysgf2"]
+
 [sub_resource type="Environment" id="Environment_l1xbt"]
 background_mode = 3
 ambient_light_source = 3
@@ -1258,6 +1262,8 @@ scale_min = 0.2
 scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_32jfb")
 anim_offset_max = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qecoc"]
 
 [node name="world" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 script = ExtResource("1_07tvi")
@@ -1789,22 +1795,132 @@ frame_progress = 0.674872
 speed_scale = 0.16
 
 [node name="ParallaxB10" type="Parallax2D" parent="Camada 5"]
-scroll_scale = Vector2(1.2, 1)
+scroll_scale = Vector2(1.1, 1)
 scroll_offset = Vector2(-36.0001, -1240.19)
 
-[node name="AnthillParallaxasset4" type="Sprite2D" parent="Camada 5/ParallaxB10"]
-position = Vector2(1552, 1497)
-texture = ExtResource("40_totll")
+[node name="AssetBettlep" type="Sprite2D" parent="Camada 5/ParallaxB10"]
+position = Vector2(2618.46, 1899)
+scale = Vector2(5.95131, 1.88139)
+texture = ExtResource("72_lp6e7")
 
-[node name="AssetBettle1" type="Sprite2D" parent="Camada 5/ParallaxB10"]
-position = Vector2(3169, 1625)
-scale = Vector2(1.17532, 1.17532)
+[node name="AssetBettle1" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
+position = Vector2(-10.7041, -260.757)
+scale = Vector2(0.137674, 0.433422)
 texture = ExtResource("55_v3v54")
 
-[node name="Sprite2D" type="Sprite2D" parent="Camada 5/ParallaxB10"]
-position = Vector2(644, 1497)
-scale = Vector2(1.36997, 1.36997)
+[node name="AssetBettle2" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
+position = Vector2(-202.143, -17.8981)
+rotation = -1.5708
+scale = Vector2(0.364295, 0.147008)
+texture = ExtResource("55_v3v54")
+
+[node name="AssetBettle5" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
+position = Vector2(113.34, -222.129)
+scale = Vector2(0.152403, 0.518119)
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle4" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
+position = Vector2(189.199, -22.3754)
+rotation = -1.57079
+scale = Vector2(0.433422, 0.137674)
+skew = 4.1008e-05
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle6" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
+position = Vector2(-123.184, -218.282)
+scale = Vector2(0.137674, 0.433422)
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle7" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
+position = Vector2(137.02, 165.296)
+scale = Vector2(0.154694, 0.487004)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle9" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
+position = Vector2(-63.2958, 171.955)
+rotation = 3.14127
+scale = Vector2(0.137674, 0.481256)
+skew = 0.000291228
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle8" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
+position = Vector2(35.4167, 156.628)
+scale = Vector2(0.154694, 0.487004)
+texture = ExtResource("82_lp6e7")
+
+[node name="AnthillParallaxasset4" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
+show_behind_parent = true
+position = Vector2(-130.068, -318.405)
+scale = Vector2(0.102647, 0.290516)
+texture = ExtResource("40_totll")
+
+[node name="Polygon2D3" type="Polygon2D" parent="Camada 5/ParallaxB10"]
+material = SubResource("ShaderMaterial_ysgf2")
+position = Vector2(-7412.56, 1885.09)
+scale = Vector2(4.63512, 2.14346)
+color = Color(0.0745098, 0.0745098, 0.219608, 1)
+polygon = PackedVector2Array(-318.064, -173.613, -109.479, -202.878, 14.7108, -211.524, 25.0818, -241.239, 159.125, -227.793, 148.751, 146.325, -319.917, 176.777, -321.769, 13.4462)
+
+[node name="AssetBettle3" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(22.8591, -300.165)
+scale = Vector2(0.185244, 0.395474)
+texture = ExtResource("76_arjw4")
+
+[node name="AssetBettle4" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(114.184, -274.064)
+rotation = 3.04989
+scale = Vector2(0.185853, 0.395188)
+skew = 0.0715251
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle5" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(-70.3926, -238.471)
+scale = Vector2(0.201564, 0.449873)
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle2" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(-354.928, -4.74571)
+rotation = -1.54747
+scale = Vector2(0.395092, 0.186058)
+skew = 0.0826063
 texture = ExtResource("54_ra0wf")
+
+[node name="AssetBettle9" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(-239.677, -220.686)
+rotation = -0.0409416
+scale = Vector2(0.227374, 0.377502)
+texture = ExtResource("54_ra0wf")
+
+[node name="AssetBettle6" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(-271.938, 179.941)
+scale = Vector2(0.185244, 0.395474)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle7" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(-173.944, 192.991)
+scale = Vector2(0.185244, 0.395474)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle8" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(176.848, -53.1201)
+rotation = 1.57047
+scale = Vector2(0.453289, 0.272234)
+skew = -0.00116229
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle1" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(80.3958, 182.709)
+rotation = 3.12798
+scale = Vector2(0.138231, 0.29508)
+skew = 0.0106274
+texture = ExtResource("55_v3v54")
+
+[node name="AssetBettle10" type="Sprite2D" parent="Camada 5/ParallaxB10/Polygon2D3"]
+position = Vector2(-45.5702, 207.624)
+rotation = 3.12798
+scale = Vector2(0.138231, 0.29508)
+skew = 0.0106274
+texture = ExtResource("55_v3v54")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
@@ -1858,11 +1974,11 @@ scale = Vector2(2.5, 2.5)
 [node name="Parallax2D" type="Parallax2D" parent="."]
 modulate = Color(0.0392157, 0.00784314, 0.113725, 1)
 scale = Vector2(1.1, 1.1)
-scroll_scale = Vector2(1.2, 1)
+scroll_scale = Vector2(1.35, 1)
 scroll_offset = Vector2(-388, -552)
 
 [node name="AssetBettlep2" type="Polygon2D" parent="Parallax2D"]
-position = Vector2(5744.55, 2578.18)
+position = Vector2(4030.91, 2558.18)
 scale = Vector2(7.6802, 2.43957)
 color = Color(0.0745098, 0.0745098, 0.219608, 1)
 polygon = PackedVector2Array(-178.393, -182.335, 164.993, -179.354, 178.961, -154.759, 178.132, 68.8273, 170.202, 120.997, -180.997, 112.799)
@@ -1934,6 +2050,92 @@ texture = ExtResource("81_dwq2o")
 position = Vector2(35.4167, 156.628)
 scale = Vector2(0.154694, 0.487004)
 texture = ExtResource("82_lp6e7")
+
+[node name="Polygon2D" type="Polygon2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_qecoc")
+position = Vector2(9952.73, 2583.64)
+color = Color(0.0745098, 0.0745098, 0.219608, 1)
+polygon = PackedVector2Array(-299.091, 236.364, -86.3638, -37.2727, 35.4546, -450, 1203.64, -456.364, 1285.95, 151.399, 1462.73, 239.091, 3507.27, 202.728, 4020, -585.454, 5045.45, -852.727, 6876.36, -830.909, 7103.64, 414.545, -318.061, 424.68)
+
+[node name="AssetBettle1" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(552.25, -642.614)
+scale = Vector2(1.22552, 1.22552)
+texture = ExtResource("55_v3v54")
+
+[node name="AssetBettle10" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(4055.59, 170.198)
+scale = Vector2(1.1317, 1.1317)
+texture = ExtResource("80_nxn2n")
+hframes = 3
+vframes = 5
+
+[node name="AssetBettle6" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(1264.55, -54.5453)
+rotation = -1.39216
+scale = Vector2(1.26223, 1.26223)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle5" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(-113.636, -162.727)
+rotation = 2.44551
+scale = Vector2(1.31261, 1.31261)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle7" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(1465.45, -719.091)
+scale = Vector2(1.1317, 1.1317)
+texture = ExtResource("80_nxn2n")
+hframes = 3
+vframes = 5
+frame = 4
+
+[node name="AssetBettle16" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(3617.27, -143.64)
+rotation = 2.22122
+scale = Vector2(1.28487, 1.28487)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle17" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(4495.45, -716.37)
+rotation = 2.92952
+scale = Vector2(1.28487, 1.28487)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle18" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(6896.37, -575.46)
+rotation = -2.33963
+scale = Vector2(1.28487, 1.28487)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle19" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(6984.57, -5.45996)
+rotation = -2.33963
+scale = Vector2(1.28487, 1.28487)
+texture = ExtResource("82_lp6e7")
+
+[node name="AssetBettle20" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(3885.38, -680.16)
+scale = Vector2(1.29695, 1.29695)
+texture = ExtResource("76_arjw4")
+
+[node name="AssetBettle21" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(5329.09, -887.28)
+rotation = 0.0222109
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle22" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(6122.27, -889.8)
+rotation = 0.0222109
+scale = Vector2(1.09421, 1.02991)
+texture = ExtResource("81_dwq2o")
+
+[node name="AssetBettle12" type="Sprite2D" parent="Parallax2D/Polygon2D"]
+position = Vector2(5545.45, -1203.64)
+scale = Vector2(1.24221, 1.24221)
+texture = ExtResource("80_nxn2n")
+hframes = 3
+vframes = 5
+frame = 8
 
 [connection signal="area_entered" from="Camada 2/AssetsHouse3/Npc3/Area2D" to="Camada 2/AssetsHouse3/Npc3" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Camada 2/AssetsHouse3/Npc3/Area2D" to="Camada 2/AssetsHouse3/Npc3" method="_on_area_2d_area_exited"]

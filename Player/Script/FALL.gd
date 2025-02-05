@@ -62,11 +62,17 @@ func update(delta):
 
 	if Player.is_dealing_damage:
 		return STATES.HIT
-
+	
+	if Input.is_action_just_pressed("Jump"):
+		print("ticks_msec ",Time.get_ticks_msec()," - ","lastFloorMsec ", Player.lastFloorMsec," = ", Time.get_ticks_msec() - Player.lastFloorMsec," < ", Player.COYOTE_TIME)
+		if Time.get_ticks_msec() - Player.lastFloorMsec < Player.COYOTE_TIME:
+			return STATES.JUMP
+		else:
+			Player.lastJump_msec = Time.get_ticks_msec()
 	return null
 
 func enter_state():
-
+	
 	$"../../AnimationPlayer".play("fall_start")
 	print($"../../AnimationPlayer".current_animation)
 	# Configurar coyote time
@@ -87,6 +93,7 @@ func exit_state():
 	glider_timer = false
 	$"../../AnimationPlayer".stop()
 	Player.jump_particles()
+	%Sprite2D.scale = Vector2(1,1)
 
 
 func _on_coyote_timer_timeout():
