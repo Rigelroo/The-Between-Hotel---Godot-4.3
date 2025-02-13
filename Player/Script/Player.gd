@@ -15,6 +15,12 @@ signal inkChanged
 @onready var inout_label: Label = $INOUTLabel
 
 
+enum FloorHazards {  
+	Spikes,      
+	Instdeath,  
+	Poison  
+}  
+
 @onready var test2D = $Node2D
 @onready var splashdec = $Splashdetection
 @onready var hitbox = $Hitbox
@@ -209,6 +215,7 @@ func jump_particles():
 		new_node.global_position = $JumpTarget.global_position
 
 func _physics_process(delta):
+	
 	if is_on_floor():
 		lastFloorMsec = Time.get_ticks_msec()
 	player_input()
@@ -679,3 +686,9 @@ func _on_jumptimer_timeout() -> void:
 	else:
 		pass
 		#print("highjump")
+
+
+func _on_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body is TileMapLayer:
+		%TerrainComponent._process_tiledata(body, body_rid)
+		

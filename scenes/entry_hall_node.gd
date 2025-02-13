@@ -43,6 +43,14 @@ var death_scene: String = "res://Tests/deadreplacer.tscn"
 @onready var manager : MainManager = preload("res://Global/Mainmanager.tres")
 
 signal just_equip
+@onready var tilemap = $"Camada3 - Meio/meio"
+
+enum FloorHazards {  
+	Spikes,      
+	Instdeath,  
+	Poison  
+}  
+
 
 func _physics_process(delta: float) -> void:
 	pass

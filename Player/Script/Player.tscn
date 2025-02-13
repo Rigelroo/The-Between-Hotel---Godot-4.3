@@ -1,4 +1,4 @@
-[gd_scene load_steps=256 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=257 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" uid="uid://810alopr4too" path="res://Player/Script/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://dknwb0q3tench" path="res://Player/Sprites/All/jump7.png" id="2_lumcb"]
@@ -186,7 +186,7 @@
 [ext_resource type="Texture2D" uid="uid://dgj3sog8evd5g" path="res://Player/Sprites/All/fallstart0003.png" id="156_da7wo"]
 [ext_resource type="Script" uid="uid://cmd2f3i41qbr7" path="res://Player/Script/HIT.gd" id="160_vgtc2"]
 [ext_resource type="PackedScene" uid="uid://chtv73gw0h0nt" path="res://scenes/magic_system/emitters/firebreathemitter.tscn" id="167_kde63"]
-[ext_resource type="Script" uid="uid://cht40njk8kvel" path="res://Player/Script/RUNNING.gd" id="173_gi434"]
+[ext_resource type="Script" uid="uid://cvsctdnjl2qrq" path="res://Player/Script/RUNNING.gd" id="173_gi434"]
 [ext_resource type="Script" uid="uid://dwb47xv8g8o8y" path="res://Player/Script/SLIDEH.gd" id="179_pv5yp"]
 [ext_resource type="Texture2D" uid="uid://dgc0c0tv27fgp" path="res://Sprites/Effects/subfrost.png" id="180_3drml"]
 [ext_resource type="Texture2D" uid="uid://dph53hjy2bofs" path="res://Sprites/Bettlebourough/fallingleaves2.png" id="182_ikjul"]
@@ -200,9 +200,10 @@
 [ext_resource type="Script" uid="uid://jmnprw1gassv" path="res://Player/Script/damage_component.gd" id="190_ltiup"]
 [ext_resource type="Material" uid="uid://cmmcvjqic7dj4" path="res://Diversos/walk_particle.tres" id="196_gi434"]
 [ext_resource type="Texture2D" uid="uid://dd3vkja7tqwgo" path="res://Sprites/Effects/frost.png" id="197_vdqo1"]
+[ext_resource type="Script" uid="uid://dnl73u8bil4i5" path="res://Player/Script/terrain_component.gd" id="200_tvmui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7g5fq"]
-size = Vector2(212, 446)
+size = Vector2(212, 358)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pbia6"]
 animations = [{
@@ -2265,10 +2266,12 @@ position = Vector2(0, 4.6)
 position = Vector2(0, -318)
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Hitbox"]]
+collision_layer = 65
+collision_mask = 65
 
 [node name="Hitboxcollision" type="CollisionShape2D" parent="Hitbox"]
 unique_name_in_owner = true
-position = Vector2(9, 45)
+position = Vector2(9, 1)
 shape = SubResource("RectangleShape2D_7g5fq")
 debug_color = Color(0.789745, 0.429387, 7.70092e-07, 0.42)
 
@@ -2338,6 +2341,8 @@ autoplay = "inactive"
 
 [node name="sword1" type="Area2D" parent="." groups=["attackbox"]]
 position = Vector2(-0.999999, 24)
+collision_layer = 65
+collision_mask = 65
 
 [node name="sword_collider2" type="CollisionShape2D" parent="sword1"]
 position = Vector2(0.999999, 315.5)
@@ -2579,6 +2584,10 @@ script = ExtResource("189_85fpf")
 currentInk = 50
 currentFurypoints = 3
 
+[node name="TerrainComponent" type="Node2D" parent="Components"]
+unique_name_in_owner = true
+script = ExtResource("200_tvmui")
+
 [node name="DamageComponent" type="Node2D" parent="Components"]
 unique_name_in_owner = true
 visible = false
@@ -2587,6 +2596,7 @@ script = ExtResource("190_ltiup")
 [node name="ImunnityTimer" type="Timer" parent="Components/DamageComponent"]
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_shape_entered" from="Hitbox" to="." method="_on_hitbox_body_shape_entered"]
 [connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="STATES/IDLE" method="_on_animation_player_animation_finished"]
 [connection signal="current_animation_changed" from="AnimationPlayer" to="Emitters/Trayemmiter" method="_on_animation_player_current_animation_changed"]
