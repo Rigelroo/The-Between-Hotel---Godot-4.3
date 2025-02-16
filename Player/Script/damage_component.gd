@@ -26,10 +26,17 @@ func deal_damage(value: int, area: Area2D):
 		can_deal_damage = false
 	else:
 		pass
-	
-	
-	
-	
+
+func spikes_damage(value: int):
+	if can_deal_damage:
+		
+		%AnimationPlayer.play("Damage")
+		#Damagenumbers.display_number(value, damage_numbers_origin.global_position, damage[1])
+		%StatsComponent.currentHealth -= value
+		can_deal_damage = false
+		
+	else:
+		pass
 
 
 func deal_projectiledamage(value: int, area: Area2D):
@@ -38,11 +45,7 @@ func deal_projectiledamage(value: int, area: Area2D):
 	var is_critical = area.crit_chance > randf()
 	if is_critical:
 		damage_total = value * 2
-		
-	#currentHealth -= damage_total
-	#Damagenumbers.display_number(damage_total, damage_numbers_origin.global_position, is_critical)
-	#stats.updatehealth()d
-	#is_dealing_damage = true
+
 	%AnimationPlayer.play("Damage")
 	area.collide()
 

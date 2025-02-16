@@ -15,7 +15,7 @@
 [ext_resource type="Resource" uid="uid://cb7x44nqwgbui" path="res://Inventory/PlayerInventoryc.tres" id="4_s68tx"]
 [ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="5_a6y1r"]
 [ext_resource type="PackedScene" uid="uid://cd71drssnvm1d" path="res://Player/Script/MOVE.tscn" id="5_d55dw"]
-[ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://Inventory/Items/itemDictionary.tres" id="5_dupda"]
+[ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="5_dupda"]
 [ext_resource type="Texture2D" uid="uid://eeix75ovqyx1" path="res://Player/Sprites/All/jump4.png" id="6_5cb6f"]
 [ext_resource type="PackedScene" uid="uid://bu78omcona2ro" path="res://Player/Script/FALL.tscn" id="6_e0e8q"]
 [ext_resource type="Texture2D" uid="uid://od78s4al2ral" path="res://Player/Sprites/All/jump3.png" id="6_fa43o"]
@@ -2428,6 +2428,7 @@ player = NodePath("..")
 newitem = NodePath("../STATES/NEWITEM")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -140.0
 offset_top = -459.0
 offset_right = 153.0
@@ -2437,6 +2438,7 @@ text = "STATE"
 metadata/_edit_use_anchors_ = true
 
 [node name="SPEEDLabel" type="Label" parent="."]
+visible = false
 offset_left = -815.0
 offset_top = -465.0
 offset_right = -483.0
@@ -2446,6 +2448,7 @@ text = "SPEED:"
 metadata/_edit_use_anchors_ = true
 
 [node name="INOUTLabel" type="Label" parent="."]
+visible = false
 offset_left = -826.0
 offset_top = -594.0
 offset_right = -494.0

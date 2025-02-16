@@ -17,7 +17,7 @@ class_name StatsBar
 @onready var shake_2: Sprite2D = $Node2D/Shake2
 
 
-@onready var berserkcontainer: BerserkBar = %HBoxContainer
+#@onready var berserkcontainer: BerserkBar = %HBoxContainer
 
 
 @onready var player = null
@@ -55,32 +55,34 @@ func update_all(stats):
 
 
 func update_berserk(new_value):
-	berserkcontainer.update_stats(new_value)
+	pass
+	#berserkcontainer.update_stats(new_value)
 
 func update_health(new_value):
-	healthbar.value = new_value * 100 / player.components.stats_component.maxHealth
-	healthlabel.text = str(new_value)
-
-	if new_value > 10:
-		shake.visible = false
-		shake_2.visible = false
-
-
-	if new_value <= 10:
-		health_player.play("Danger")
-		shake.visible = true
-		shake_2.visible = true
-		
-	if new_value <= 0:
-		health_player.play("0")
-	if new_value >= 80 && player.components.stats_component.currentHealth <= 100:
-		health_player.play("80_100")
-	if new_value >= 60 && new_value < 80:
-		health_player.play("60_79")
-	if new_value >= 35 && new_value < 60:
-		health_player.play("35_59")
-	if new_value > 10 && new_value < 35:
-		health_player.play("20_34")
+	pass
+	#healthbar.value = new_value * 100 / player.components.stats_component.maxHealth
+	#healthlabel.text = str(new_value)
+#
+	#if new_value > 10:
+		#shake.visible = false
+		#shake_2.visible = false
+#
+#
+	#if new_value <= 10:
+		#health_player.play("Danger")
+		#shake.visible = true
+		#shake_2.visible = true
+		#
+	#if new_value <= 0:
+		#health_player.play("0")
+	#if new_value >= 80 && player.components.stats_component.currentHealth <= 100:
+		#health_player.play("80_100")
+	#if new_value >= 60 && new_value < 80:
+		#health_player.play("60_79")
+	#if new_value >= 35 && new_value < 60:
+		#health_player.play("35_59")
+	#if new_value > 10 && new_value < 35:
+		#health_player.play("20_34")
 
 
 func update_ink(new_value):

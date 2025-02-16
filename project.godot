@@ -92,6 +92,7 @@ text/input_action="Jump"
 
 [display]
 
+window/size/window_width_override=576
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://defdkxqsknv2i"
 

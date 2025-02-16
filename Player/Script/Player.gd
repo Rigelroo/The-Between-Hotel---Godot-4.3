@@ -8,7 +8,7 @@ func movable_entitie():
 
 signal death
 signal get_out_item
-signal healthChanged
+signal healthChanged(new_value)
 signal temporary
 signal inkChanged
 
@@ -32,6 +32,7 @@ enum FloorHazards {
 
 @onready var stats_component: Node2D = $Components/StatsComponent
 @onready var damage_component: Node2D = $Components/DamageComponent
+@onready var terrain_component: Node2D = %TerrainComponent
 
 
 @onready var STATES = $STATES

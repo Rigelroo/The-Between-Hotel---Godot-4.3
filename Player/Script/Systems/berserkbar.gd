@@ -31,14 +31,14 @@ func _on_inventory_gui_closed():
 	self.visible = true
 
 func _ready() -> void:
-	maxpoints = %HBoxContainer.get_children()
-	maxpoints_num = %HBoxContainer.get_child_count()
-	player = SignalManager.player
-	SignalManager.world_loaded.connect(world_ready)
-	maxpoints.max()
-	set_max_points(2)
-	
-	set_points()
+	#maxpoints = get_children()
+	#maxpoints_num = get_child_count()
+	#player = SignalManager.player
+	#SignalManager.world_loaded.connect(world_ready)
+	#maxpoints.max()
+	#set_max_points(2)
+	pass
+	#set_points()
 
 func world_ready() -> void:
 	player = SignalManager.player

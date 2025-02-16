@@ -16,7 +16,7 @@ func _process_tiledata(body: Node2D, body_rid: RID):
 func terrain_hazards(index):
 	match index:
 		1:
-			pass
+			owner.damage_component.spikes_damage(1)
 
 func fall_takeback():
 	pass

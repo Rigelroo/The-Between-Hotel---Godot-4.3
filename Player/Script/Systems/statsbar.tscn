@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c44xqs2w5caa1"]
+[gd_scene load_steps=33 format=3 uid="uid://c44xqs2w5caa1"]
 
 [ext_resource type="Script" uid="uid://cwwii6x6lb2lo" path="res://Player/Script/Systems/Healthbar.gd" id="1_gwffl"]
 [ext_resource type="Script" uid="uid://b3thcmatp8o3p" path="res://Player/Script/Systems/Statsbar.gd" id="1_q41hd"]
@@ -20,9 +20,7 @@
 [ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="19_kabt4"]
 [ext_resource type="Script" uid="uid://cllcmtywc4skj" path="res://Player/Script/Systems/berserkbar.gd" id="19_wlof0"]
 [ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="20_dcf2b"]
-[ext_resource type="PackedScene" uid="uid://vd1ogqthqioc" path="res://Player/Script/Systems/firstpointcontainer.tscn" id="21_qccyi"]
-[ext_resource type="PackedScene" uid="uid://bmot0qyj2qlmc" path="res://Player/Script/Systems/middlepointcontainer.tscn" id="22_smf5c"]
-[ext_resource type="PackedScene" uid="uid://b03ebqn7hj8rn" path="res://Player/Script/Systems/finalpointcontainer.tscn" id="23_vyg0t"]
+[ext_resource type="Script" uid="uid://oafy3ylj4hbf" path="res://Player/Script/Systems/healthbarcmp.gd" id="24_rfa2d"]
 
 [sub_resource type="Animation" id="Animation_mnay2"]
 resource_name = "0"
@@ -625,42 +623,28 @@ position = Vector2(-111.457, -26.7132)
 rotation = -1.27409
 scale = Vector2(0.4, 0.4)
 
-[node name="Berserkbar" type="Control" parent="."]
+[node name="Healthbar2" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(0.537118, 0.537118)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("24_rfa2d")
+containers = 2
+hpoints = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Berserkbar"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 25.134
-anchor_right = 11.225
-anchor_bottom = 28.709
-offset_left = 22.8211
-offset_top = 353.744
-offset_right = 34.8211
-offset_bottom = 353.744
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="Healthbar2"]
+layout_mode = 0
+theme_override_constants/separation = 35
+alignment = 1
 script = ExtResource("19_wlof0")
 manager = ExtResource("20_dcf2b")
 
-[node name="1Firstpointcontainer" parent="Berserkbar/HBoxContainer" instance=ExtResource("21_qccyi")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="2Middlepointcontainer" parent="Berserkbar/HBoxContainer" instance=ExtResource("22_smf5c")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="2Middlepointcontainer2" parent="Berserkbar/HBoxContainer" instance=ExtResource("22_smf5c")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="3Finalpointcontainer" parent="Berserkbar/HBoxContainer" instance=ExtResource("23_vyg0t")]
-layout_mode = 2
-
-[editable path="Berserkbar/HBoxContainer/1Firstpointcontainer"]
+[node name="Label" type="Label" parent="Healthbar2"]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 1566.0
+offset_right = 262.0
+offset_bottom = 1589.0
+theme_override_font_sizes/font_size = 91
+text = "7"
