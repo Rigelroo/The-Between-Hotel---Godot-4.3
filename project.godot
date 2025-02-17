@@ -92,7 +92,6 @@ text/input_action="Jump"
 
 [display]
 
-window/size/window_width_override=576
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://defdkxqsknv2i"
 
@@ -104,7 +103,7 @@ movie_writer/fps=30
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/better-terrain/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/SpritesheetGenerator/plugin.cfg", "res://addons/better-terrain/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [file_customization]
 

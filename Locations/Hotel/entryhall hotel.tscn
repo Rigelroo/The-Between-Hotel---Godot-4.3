@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://b3wiqgg03gaan"]
+[gd_scene load_steps=66 format=3 uid="uid://b3wiqgg03gaan"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_wl04x"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_sao3u"]
@@ -22,14 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://d2a4sq1sypjdc" path="res://Objects/showitemsprite.tscn" id="22_n6i70"]
 [ext_resource type="PackedScene" uid="uid://buw8duilnfqej" path="res://Diversos/camera_2d.tscn" id="23_sbrgv"]
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://Inventory/Selos/selo_1.tscn" id="25_pdg41"]
-[ext_resource type="Resource" uid="uid://bojqr7cp6eeiq" path="res://Inventory/Selos/selo_frozenheart.tres" id="26_y8lya"]
-[ext_resource type="Texture2D" uid="uid://dmymbqqyxrr5w" path="res://Inventory/Selos/selo_frozenheart.png" id="27_tqdh3"]
-[ext_resource type="Resource" uid="uid://dw24t6xttmdyt" path="res://Inventory/Selos/selo_hatintime.tres" id="28_qydd4"]
 [ext_resource type="Texture2D" uid="uid://dcilvlfcwyjy4" path="res://Inventory/Selos/selo_hattime.png" id="29_uycil"]
-[ext_resource type="Resource" uid="uid://bv8ujs5m68b51" path="res://Inventory/Selos/selo_crimsonbug.tres" id="30_nyokx"]
-[ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://Inventory/Selos/selo_crimsonbug.png" id="31_nqqxp"]
-[ext_resource type="Resource" uid="uid://e864yq4aeifi" path="res://Inventory/Selos/selo_fireflyemblem.tres" id="32_cravj"]
-[ext_resource type="Texture2D" uid="uid://ca7tu3todq1tf" path="res://Inventory/Selos/selo_fireflyemblem.png" id="33_pm5aw"]
 [ext_resource type="PackedScene" uid="uid://inthdth4l2ck" path="res://Player/Script/Systems/berserkbar.tscn" id="34_2wjie"]
 [ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://Player/Script/Systems/statsbar.tscn" id="35_cqg7p"]
 [ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="35_lpw7y"]
@@ -352,38 +345,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 editor_draw_limits = true
 
-[node name="Selo3" parent="." instance=ExtResource("25_pdg41")]
-position = Vector2(-1129, 763)
-itemRes = ExtResource("26_y8lya")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" parent="Selo3" index="1"]
-texture = ExtResource("27_tqdh3")
-
-[node name="Selo5" parent="." instance=ExtResource("25_pdg41")]
-position = Vector2(-1039, 763)
-itemRes = ExtResource("28_qydd4")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" parent="Selo5" index="1"]
-texture = ExtResource("29_uycil")
-
-[node name="Selo6" parent="." instance=ExtResource("25_pdg41")]
-position = Vector2(-1303, 765)
-itemRes = ExtResource("30_nyokx")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" parent="Selo6" index="1"]
-texture = ExtResource("31_nqqxp")
-
-[node name="Selo4" parent="." instance=ExtResource("25_pdg41")]
-position = Vector2(-1217, 764)
-itemRes = ExtResource("32_cravj")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" parent="Selo4" index="1"]
-texture = ExtResource("33_pm5aw")
-
 [node name="Berserklayer" parent="." instance=ExtResource("34_2wjie")]
 
 [node name="SaveStarter" parent="Berserklayer" instance=ExtResource("35_lpw7y")]
@@ -512,8 +473,4 @@ texture = ExtResource("29_uycil")
 [connection signal="area_entered" from="sofá/trampolim" to="sofá" method="_on_trampolim_area_entered"]
 [connection signal="body_entered" from="sofá/trampolim" to="sofá" method="_on_trampolim_body_entered"]
 
-[editable path="Selo3"]
-[editable path="Selo5"]
-[editable path="Selo6"]
-[editable path="Selo4"]
 [editable path="Selo7"]

@@ -1,0 +1,177 @@
+Caminho do Recurso,Tipo,Formato,Uso
+res://Menu/Sprites/menuprincipal_caixa.png,Texture,5608x2596 DXT5 RGBA8,13.88 MiB
+res://Inventory/Selos/selo_fireflyemblem.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Chaves/inkfruits.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Chaves/pacote.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Chaves/chave_quarto 3.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Selos/selo_crimsonbug.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Selos/selo_othereye.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Selos/selo_titagotchi.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Selos/selo_shadowdiver.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Chaves/inkbottle_item.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Chaves/chave_quarto 2.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Chaves/chave_quarto 1.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Selos/selo_ganancia.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Selos/selo_herculesleaf.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Selos/selo_frozenheart.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/Selos/selo_hattime.png,Texture,1500x1500 RGBA8,8.58 MiB
+res://Inventory/gui/menuparallax.png,Texture,2079x1155 RGB8,6.87 MiB
+res://Menu/Sprites/menuprincipal_fundo.png,Texture,4608x2592 DXT1 RGB8,5.69 MiB
+res://Menu/Sprites/persian_menu_todo.png,Texture,2839x1458 DXT5 RGBA8,3.95 MiB
+res://Menu/Sprites/menusave/menusaves_saveshow.png,Texture,1558x2041 DXT5 RGBA8,3.04 MiB
+Render Target (Internal),Texture,1280x820 RGB8,3.00 MiB
+Render Target (Internal),Texture,1280x820 RGB8,3.00 MiB
+Render Target (Internal),Texture,1365x768 RGB8,2.99 MiB
+Render Target (Internal),Texture,1365x768 RGB8,2.99 MiB
+,Texture,1365x768 RGB8,2.99 MiB
+,Texture,1365x768 RGB8,2.99 MiB
+res://Menu/Sprites/menuprincipal_titulob.png,Texture,2192x1250 DXT5 RGBA8,2.61 MiB
+Render Target (Internal),Texture,1191x678 RGB8,2.31 MiB
+Render Target (Internal),Texture,1191x678 RGB8,2.31 MiB
+,Texture,1024x1024 LumAlpha8,2.00 MiB
+,Texture,1024x1024 LumAlpha8,2.00 MiB
+,Texture,1024x1024 LumAlpha8,2.00 MiB
+,Texture,1024x1024 LumAlpha8,2.00 MiB
+,Texture,1024x1024 LumAlpha8,2.00 MiB
+,Texture,1024x1024 LumAlpha8,2.00 MiB
+,Texture,2060x225 RGBA8,1.76 MiB
+res://Menu/Sprites/menuprincipal_natal1.png,Texture,823x1812 DXT5 RGBA8,1.42 MiB
+res://Menu/Sprites/menunatalluzinha0003.png,Texture,593x2440 DXT5 RGBA8,1.38 MiB
+res://Menu/Sprites/menunatalluzinha0002.png,Texture,593x2440 DXT5 RGBA8,1.38 MiB
+res://Menu/Sprites/menunatalluzinha0001.png,Texture,593x2440 DXT5 RGBA8,1.38 MiB
+res://Menu/Sprites/menunatalluzinha0000.png,Texture,593x2440 DXT5 RGBA8,1.38 MiB
+res://Menu/Sprites/menusave/menusaves_slots.png,Texture,2601x476 DXT5 RGBA8,1.18 MiB
+res://Menu/Sprites/persian_menu_patinha0005.png,Texture,1344x576 DXT5 RGBA8,756.0 KiB
+res://Menu/Sprites/persian_menu_patinha0000.png,Texture,1344x576 DXT5 RGBA8,756.0 KiB
+res://Menu/Sprites/persian_menu_patinha0001.png,Texture,1344x576 DXT5 RGBA8,756.0 KiB
+res://Menu/Sprites/persian_menu_patinha0004.png,Texture,1344x576 DXT5 RGBA8,756.0 KiB
+res://Menu/Sprites/persian_menu_patinha0002.png,Texture,1344x576 DXT5 RGBA8,756.0 KiB
+res://Menu/Sprites/persian_menu_patinha0003.png,Texture,1344x576 DXT5 RGBA8,756.0 KiB
+res://Menu/Sprites/menuprincipal_botãosair.png,Texture,1280x536 DXT5 RGBA8,670.0 KiB
+res://Menu/Sprites/menusave/menusaves_saveshowfoto.png,Texture,1127x603 DXT5 RGBA8,665.3 KiB
+res://Menu/Sprites/menunatalluzinhacoisa.png,Texture,242x2721 DXT5 RGBA8,649.0 KiB
+res://Menu/Sprites/menuprincipal_botãooptions.png,Texture,1244x484 DXT5 RGBA8,587.9 KiB
+res://Menu/Sprites/menuprincipal_botãocarregar.png,Texture,1132x523 DXT5 RGBA8,579.2 KiB
+res://Inventory/gui/scroll.png,Texture,1032x130 RGBA8,524.0 KiB
+res://Inventory/slot usarselo.png,Texture,298x301 RGBA8,350.3 KiB
+res://Menu/Sprites/menusave/menusaves_lixeira.png,Texture,582x598 DXT5 RGBA8,342.1 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0004.png,Texture,309x264 RGBA8,318.6 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0003.png,Texture,309x264 RGBA8,318.6 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0002.png,Texture,309x264 RGBA8,318.6 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0001.png,Texture,309x264 RGBA8,318.6 KiB
+res://Sprites/Bettlebourough/npcs/pulg_walk0000.png,Texture,309x264 RGBA8,318.6 KiB
+res://Menu/Sprites/menusave/menusaves_playbutton.png,Texture,541x561 DXT5 RGBA8,299.6 KiB
+res://Inventory/gui/Selector/slot inventario - select_shadow.png,Texture,239x239 RGBA8,223.1 KiB
+res://Inventory/gui/Selector/slot inventario - select.png,Texture,239x239 RGBA8,223.1 KiB
+res://Missões/checkboxcheck.png,Texture,227x229 RGBA8,203.0 KiB
+res://Missões/checkbox.png,Texture,227x229 RGBA8,203.0 KiB
+res://Menu/Sprites/menuprincipal_hallow2.png,Texture,1082x187 DXT5 RGBA8,199.0 KiB
+res://Menu/Sprites/menusave/menusaves_back.png,Texture,478x350 DXT5 RGBA8,165.0 KiB
+res://Menu/Sprites/menusave/menusaves_saveshowname.png,Texture,873x190 DXT5 RGBA8,164.2 KiB
+res://Menu/Sprites/menuprincipal_botãocreditos.png,Texture,434x381 DXT5 RGBA8,163.5 KiB
+res://Inventory/gui/botão-maisdir.png,Texture,164x248 RGBA8,158.8 KiB
+res://Inventory/gui/botão-maisesq.png,Texture,164x248 RGBA8,158.8 KiB
+res://Sprites/Namebox.png,Texture,348x96 RGBA8,130.5 KiB
+res://Menu/Sprites/menusave/menusaves_3.png,Texture,312x340 DXT5 RGBA8,103.5 KiB
+res://Menu/Sprites/menusave/menusaves_2.png,Texture,312x294 DXT5 RGBA8,90.18 KiB
+res://Menu/Sprites/buttonsstuff/buttonshow_xbox_b.png,Texture,290x281 DXT5 RGBA8,80.98 KiB
+res://Menu/Sprites/buttonsstuff/buttonshow_xbox_a.png,Texture,290x281 DXT5 RGBA8,80.98 KiB
+res://Menu/Sprites/menusave/menusaves_1.png,Texture,312x255 DXT5 RGBA8,78.00 KiB
+res://Menu/Sprites/menusave/menusaves_vida.png,Texture,273x286 DXT5 RGBA8,77.62 KiB
+res://Menu/Sprites/persian_menu_rabinho0000.png,Texture,256x256 DXT5 RGBA8,64.00 KiB
+res://Menu/Sprites/persian_menu_rabinho0001.png,Texture,256x256 DXT5 RGBA8,64.00 KiB
+res://Menu/Sprites/persian_menu_rabinho0002.png,Texture,256x256 DXT5 RGBA8,64.00 KiB
+res://Menu/Sprites/persian_menu_rabinho0003.png,Texture,256x256 DXT5 RGBA8,64.00 KiB
+res://Menu/Sprites/persian_menu_rabinho0004.png,Texture,256x256 DXT5 RGBA8,64.00 KiB
+res://Menu/Sprites/menusave/menusaves_deaths.png,Texture,217x241 DXT5 RGBA8,52.42 KiB
+res://Menu/Sprites/menusave/menusaves_moeda.png,Texture,211x214 DXT5 RGBA8,44.71 KiB
+,Texture,800x6 RGBA8,18.75 KiB
+res://Inventory/gui/Selector/mouse.png,Texture,120x120 DXT5 RGBA8,14.06 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,32x16 RGBA8,2.00 KiB
+,Texture,16x32 RGBA8,2.00 KiB
+,Texture,8x48 RGBA8,1.50 KiB
+,Texture,48x8 RGBA8,1.50 KiB
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,16x16 RGBA8,1024 B
+,Texture,12x12 RGBA8,576 B
+,Texture,12x12 RGBA8,576 B
+,Texture,12x12 RGBA8,576 B
+,Texture,12x12 RGBA8,576 B
+,Texture,12x12 RGBA8,576 B
+,Texture,16x8 RGBA8,512 B
+,Texture,16x8 RGBA8,512 B
+,Texture,8x16 RGBA8,512 B
+,Texture,8x16 RGBA8,512 B
+,Texture,14x8 RGBA8,448 B
+,Texture,10x10 RGBA8,400 B
+,Texture,16x4 RGBA8,256 B
+,Texture,8x8 RGBA8,256 B
+,Texture,4x16 RGBA8,256 B
+,Texture,8x8 RGBA8,256 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B
+Render Target (Internal),Texture,4x4 RGBA8,64 B

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_pu0m5"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_4ti0g"]
-[ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://inventory/Items/itemDictionary.tres" id="3_qf857"]
+[ext_resource type="Resource" uid="uid://ryheeenq4emp" path="res://Inventory/Items/itemDictionary.tres" id="3_qf857"]
 [ext_resource type="Texture2D" uid="uid://rbhlxvbyc00c" path="res://Sprites/Bettlebourough/parallax/B-1.png" id="4_rqgbf"]
 [ext_resource type="Texture2D" uid="uid://c07kkgcca0477" path="res://Sprites/Bettlebourough/parallax/BB_parallax1.png" id="5_fuom3"]
 [ext_resource type="Texture2D" uid="uid://ckvuki40yfkrf" path="res://Sprites/Bettlebourough/parallax/BB_parallax3.png" id="6_hui8v"]
@@ -311,7 +311,6 @@ player_camera = NodePath("Camera2D")
 physics_interpolation_mode = 1
 position = Vector2(37.5, 147.12)
 scale = Vector2(1.25, 1.25)
-offset = Vector2(-0.358435, 0.282829)
 ignore_rotation = false
 zoom = Vector2(0.23, 0.23)
 limit_left = -125
@@ -335,6 +334,7 @@ texture = SubResource("GradientTexture2D_k4eyg")
 texture_scale = 1.14
 
 [node name="Label2" type="Label" parent="Camada3 - Meio/Player"]
+visible = false
 offset_left = 297.5
 offset_top = -445.0
 offset_right = 337.5
