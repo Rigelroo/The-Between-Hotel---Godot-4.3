@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bqk13nl6aiaan"]
+[gd_scene load_steps=23 format=3 uid="uid://bqk13nl6aiaan"]
 
 [ext_resource type="VideoStream" uid="uid://bm3f25a2rck5x" path="res://Tests/ssstwitter.com_1723257694465.ogv" id="1_h224c"]
 [ext_resource type="Shader" uid="uid://dd7rc2qjriqnf" path="res://Tests/deadreplacer.gdshader" id="1_ka0lj"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://vncfqutpqm55" path="res://Sprites/EntryHall/preto.png" id="3_237x2"]
 [ext_resource type="Texture2D" uid="uid://dl1pn2s2a86fr" path="res://Sprites/Namebox.png" id="3_bg2l1"]
 [ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="4_iid76"]
-[ext_resource type="Texture2D" uid="uid://dpxv80q6j4qek" path="res://Player/Sprites/Death/quadro0021.png" id="5_nb1wa"]
 [ext_resource type="Script" uid="uid://ckanqqelliwn3" path="res://Tests/buttons.gd" id="7_yffwq"]
 [ext_resource type="Script" uid="uid://dgsdurdtrnh18" path="res://scenes/gameoverlabel.gd" id="10_3idl7"]
 [ext_resource type="Texture2D" uid="uid://cdv3b8nl0p72f" path="res://Inventory/gui/Selector/slot inventario - select.png" id="12_3tmb2"]
@@ -62,8 +61,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4uhep"]
 _data = {
-&"new_animation": SubResource("Animation_7k07j"),
-&"RESET": SubResource("Animation_8hldr")
+&"RESET": SubResource("Animation_8hldr"),
+&"new_animation": SubResource("Animation_7k07j")
 }
 
 [sub_resource type="Animation" id="Animation_3iw3i"]
@@ -123,8 +122,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7nnbd"]
 _data = {
-&"new_animation": SubResource("Animation_3iw3i"),
-&"RESET": SubResource("Animation_x6au2")
+&"RESET": SubResource("Animation_x6au2"),
+&"new_animation": SubResource("Animation_3iw3i")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fjoxy"]
@@ -149,11 +148,6 @@ layout_mode = 0
 offset_right = 1148.0
 offset_bottom = 643.0
 texture = ExtResource("3_237x2")
-
-[node name="Quadro0021" type="Sprite2D" parent="Control"]
-position = Vector2(605, 287)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_nb1wa")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
 layout_mode = 0

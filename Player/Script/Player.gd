@@ -38,8 +38,8 @@ enum FloorHazards {
 @onready var STATES = $STATES
 @onready var Raycasts = $Raycasts
 @onready var all_interactions = []
-@onready var item_index = inv_dictionary.invsitems
-@onready var stamp_index = inv_dictionary.invseals
+@onready var item_index = null#inv_dictionary.invsitems
+@onready var stamp_index = null#inv_dictionary.invseals
 
 @export_subgroup("Magic System")
 @export var magic_abilities: Array[MagicResource]

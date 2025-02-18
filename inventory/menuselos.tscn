@@ -1,7 +1,6 @@
 [gd_scene load_steps=53 format=3 uid="uid://cr0rxd186uoyo"]
 
 [ext_resource type="Script" uid="uid://bwgom2de11ely" path="res://Inventory/Scripts/inventory_gui.gd" id="1_o6k50"]
-[ext_resource type="Texture2D" uid="uid://e3e0d4koc3eo" path="res://Player/Sprites/Death/submenu - Selos.png" id="1_xp6en"]
 [ext_resource type="PackedScene" uid="uid://cve3o3l3hjcop" path="res://Inventory/slot.tscn" id="2_lfo5f"]
 [ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_snvv0"]
 [ext_resource type="Script" uid="uid://cd0o4n5fwemc6" path="res://Inventory/Scripts/missionscontainer.gd" id="4_3xgf6"]
@@ -28,6 +27,7 @@
 [ext_resource type="Script" uid="uid://4k8quvajtlxo" path="res://Inventory/Scripts/selector.gd" id="19_4erax"]
 [ext_resource type="Texture2D" uid="uid://cu4msfw3k4rdl" path="res://Missões/checkbox.png" id="19_we7dv"]
 [ext_resource type="Texture2D" uid="uid://b4j0b3wgsgx5b" path="res://Inventory/submenu - config.png" id="23_3y771"]
+[ext_resource type="Texture2D" uid="uid://dnmyg5cwo7dlw" path="res://Inventory/submenu - Selos.png" id="23_g5kd3"]
 [ext_resource type="Texture2D" uid="uid://waol4h18n8s" path="res://Inventory/gui/menuparallax.png" id="23_k6usp"]
 [ext_resource type="FontFile" uid="uid://dbf30jmb03jwh" path="res://Fonts/Typewriter215FP-Heavyhanded.otf" id="24_3tohy"]
 [ext_resource type="Script" uid="uid://ckgugs35bfv83" path="res://Inventory/Scripts/configmenu.gd" id="24_ssnif"]
@@ -1021,7 +1021,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_cw2jj")
 [node name="Selos" type="NinePatchRect" parent="TabContainer"]
 visible = false
 layout_mode = 2
-texture = ExtResource("1_xp6en")
+texture = ExtResource("23_g5kd3")
 metadata/_tab_index = 2
 
 [node name="TabContainer" type="TabContainer" parent="TabContainer/Selos"]
