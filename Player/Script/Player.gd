@@ -410,11 +410,12 @@ func player_input():
 
 	if !is_in_water && can_move && can_move_si:
 	#climb
-		if manager.ffemblem_equiped or manager.frozenheart_equiped:
-			if Input.is_action_pressed("Magic"):
-				breath_input = true
-			else:
-				breath_input = false
+
+		if Input.is_action_just_pressed("Magic"):
+			print(inventoryc.stampslots[0].item.use())
+				#breath_input = true
+			#else:
+				#breath_input = false
 		if Input.is_action_pressed("Climb"):
 			climb_input = true
 		else: 

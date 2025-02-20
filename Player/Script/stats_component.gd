@@ -2,6 +2,7 @@ extends Node2D
 
 signal Changecontainers(new_value)
 signal healthChanged(new_value)
+signal JuiceChanged(new_value)
 
 @export var minInk = 0
 @export var maxInk = 100
@@ -17,6 +18,7 @@ signal healthChanged(new_value)
 	set(new_value):
 		var stats_type = "inkpoints"
 		currentInk = new_value
+		emit_signal("JuiceChanged", new_value)
 		SignalManager.emit_signal("stats_updated", [stats_type, new_value])
 
 @export var currentHealth = 3: 

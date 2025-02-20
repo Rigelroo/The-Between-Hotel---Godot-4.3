@@ -1,24 +1,21 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://e864yq4aeifi"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://e864yq4aeifi"]
 
-[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://Inventory/Scripts/inventoryItem.gd" id="1_lshhl"]
+[ext_resource type="Script" uid="uid://beqjiccuiqhve" path="res://Inventory/Scripts/InventorySeloProperties.gd" id="1_ildoq"]
 [ext_resource type="Texture2D" uid="uid://ca7tu3todq1tf" path="res://Inventory/Selos/selo_fireflyemblem.png" id="2_1w8se"]
 
 [resource]
-script = ExtResource("1_lshhl")
+script = ExtResource("1_ildoq")
 name = "selo_fireflyemblem"
 texture = ExtResource("2_1w8se")
-equipedtexture = "res://inventory/Selos/equiped/selo_hattime_equiped.png"
-textureaux = "res://inventory/Selos/selo_hattime.png"
+color = Color(0.231373, 0.188235, 0.4, 1)
 maxAmountInStack = 2
 max_amount = 0
 showname = "Emblema do Vagalume"
 description = "O símbolo de um verdadeiro guerreiro, aperte Y para soltar fogo."
-item_type = "Emblema"
-stamp_points = 2
-color = Color(0.54902, 0.713726, 0.156863, 1)
-color_x = 0.54
-color_y = 0.71
-color_z = 0.15
+scriptstr = ""
 first_item = 0
 itemactivate = 0
-scriptstr = "res://inventory/Selos/selo_fireflyemblem.gd"
+item_type = "Emblema"
+stamp_points = 0
+essence_cost_dropper = 0.0
+essence_cost = 0.0

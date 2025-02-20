@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Inventoryc" load_steps=9 format=3 uid="uid://cb7x44nqwgbui"]
+[gd_resource type="Resource" script_class="Inventoryc" load_steps=10 format=3 uid="uid://cb7x44nqwgbui"]
 
 [ext_resource type="Script" uid="uid://r8pcmwrn5nxb" path="res://Inventory/Scripts/inventoryc.gd" id="1_yq1ov"]
 [ext_resource type="Script" uid="uid://egv7yiqsdeje" path="res://Inventory/Scripts/inventorySlotc.gd" id="2_3a6ln"]
+[ext_resource type="Resource" uid="uid://dw24t6xttmdyt" path="res://Inventory/Selos/selo_hatintime.tres" id="3_w4jhx"]
 
 [sub_resource type="Resource" id="Resource_olpfo"]
 script = ExtResource("2_3a6ln")
-amount = 0
+item = ExtResource("3_w4jhx")
+amount = 1
 
 [sub_resource type="Resource" id="Resource_ukp7k"]
 script = ExtResource("2_3a6ln")

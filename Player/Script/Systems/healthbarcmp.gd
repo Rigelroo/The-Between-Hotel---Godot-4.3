@@ -69,7 +69,8 @@ func create_maxhealth_points(max_hpoints: int):
 		updateHearts(SignalManager.player.components.stats_component.currentHealth)
 
 func create_containers(max: int):
-	for i in range(max):
+
+	for i in range(max - h_box_container.get_child_count()):
 		var new_container = HEALTHCONTAINER.instantiate()
 		h_box_container.add_child(new_container)
 	print("hp",SignalManager.player.components.stats_component.currentHealth)

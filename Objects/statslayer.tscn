@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://fmverpyjrmdb"]
+
+[ext_resource type="Script" uid="uid://oafy3ylj4hbf" path="res://Player/Script/Systems/healthbarcmp.gd" id="1_6q1yq"]
+[ext_resource type="Script" uid="uid://c0kw13o4ocrnu" path="res://Objects/satisfaction_container.gd" id="1_7nebi"]
+[ext_resource type="Script" uid="uid://q2parivycdas" path="res://Objects/StatsComponent.gd" id="1_npct7"]
+[ext_resource type="Texture2D" uid="uid://dkqks3rmyvtrf" path="res://Sprites/Hud/essencebar_thing.png" id="1_p7cu5"]
+[ext_resource type="PackedScene" uid="uid://8q8mt06b422f" path="res://Objects/healthcontainer.tscn" id="2_p7cu5"]
+[ext_resource type="Texture2D" uid="uid://k7n1amwnvtar" path="res://Sprites/Hud/essencebar_under.png" id="2_pkjcr"]
+[ext_resource type="Texture2D" uid="uid://coi3yqm27ynkb" path="res://Sprites/Hud/essencebar_over2.png" id="3_7nebi"]
+[ext_resource type="Texture2D" uid="uid://bx7qp260cjgbr" path="res://Sprites/Hud/essencebar_fluid2.png" id="4_p7cu5"]
+[ext_resource type="Texture2D" uid="uid://br53jpo1r3c1y" path="res://Sprites/Hud/test.png" id="8_xkke8"]
+
+[node name="Statslayer3" type="CanvasLayer"]
+process_mode = 3
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+scale = Vector2(0.76, 0.76)
+transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
+
+[node name="SeloShadowdiver" type="Sprite2D" parent="."]
+position = Vector2(1367.1, 131.579)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("8_xkke8")
+
+[node name="Stats" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_npct7")
+Points_visible_t = null
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Stats"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 32.8947
+offset_top = 32.8947
+offset_right = 36.8947
+offset_bottom = 32.8947
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+
+[node name="SatisfactionContainer" type="Control" parent="Stats/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("1_7nebi")
+
+[node name="TextureRect" type="TextureRect" parent="Stats/HBoxContainer/SatisfactionContainer"]
+layout_mode = 2
+offset_left = -26.9737
+offset_top = 74.0132
+offset_right = 688.026
+offset_bottom = 279.013
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_p7cu5")
+
+[node name="CenterContainer" type="Control" parent="Stats/HBoxContainer/SatisfactionContainer"]
+anchors_preset = 0
+offset_right = 278.0
+offset_bottom = 400.0
+scale = Vector2(0.7, 0.7)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Stats/HBoxContainer/SatisfactionContainer/CenterContainer"]
+layout_mode = 2
+offset_top = 150.376
+offset_right = 278.0
+offset_bottom = 337.376
+max_value = 30.0
+step = 0.1
+value = 30.0
+fill_mode = 3
+texture_under = ExtResource("2_pkjcr")
+texture_progress = ExtResource("4_p7cu5")
+tint_progress = Color(1, 1, 0.538, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Stats/HBoxContainer/SatisfactionContainer/CenterContainer"]
+layout_mode = 2
+offset_right = 278.0
+offset_bottom = 400.0
+texture = ExtResource("3_7nebi")
+
+[node name="Healthbar" type="Control" parent="Stats/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("1_6q1yq")
+containers = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Stats/HBoxContainer/Healthbar"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 144.737
+offset_right = 704.0
+offset_bottom = 287.737
+scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Healthcontainer" parent="Stats/HBoxContainer/Healthbar/HBoxContainer" instance=ExtResource("2_p7cu5")]
+layout_mode = 2
+
+[node name="Healthcontainer2" parent="Stats/HBoxContainer/Healthbar/HBoxContainer" instance=ExtResource("2_p7cu5")]
+layout_mode = 2
+
+[node name="Healthcontainer3" parent="Stats/HBoxContainer/Healthbar/HBoxContainer" instance=ExtResource("2_p7cu5")]
+layout_mode = 2

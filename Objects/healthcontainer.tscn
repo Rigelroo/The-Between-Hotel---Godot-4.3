@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8q8mt06b422f"]
 
 [ext_resource type="Script" uid="uid://cnjp4njybqovj" path="res://Player/Script/Systems/pointcontainer.gd" id="1_fwv2h"]
-[ext_resource type="Texture2D" uid="uid://dkiys0p0mabgg" path="res://Sprites/Hud/sprite_sheet (2).png" id="2_fwv2h"]
+[ext_resource type="Texture2D" uid="uid://hdpben784xkx" path="res://Sprites/Hud/healthpointssheet.png" id="2_fwv2h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwv2h"]
 

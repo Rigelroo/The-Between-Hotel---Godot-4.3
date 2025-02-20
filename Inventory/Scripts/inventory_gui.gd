@@ -213,20 +213,22 @@ func update():
 
 
 func open():
+	SignalManager.inventoryopened.emit()
 	SignalManager.mouse_visible = true
 	SignalManager.can_showmouse = true
 	$Parallax2D.visible = true
 	visible = true
 	isOpen = true
-	SignalManager.inventoryopened.emit()
+	
 
 func close():
+	SignalManager.inventoryclosed.emit()
 	SignalManager.can_showmouse = false
 	SignalManager.mouse_visible = false
 	get_tree().paused = false
 	visible = false
 	isOpen = false
-	SignalManager.inventoryclosed.emit()
+	
 	%Config.saveconfigs()
 
 

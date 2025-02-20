@@ -1,24 +1,22 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dw24t6xttmdyt"]
+[gd_resource type="Resource" script_class="StampProperties" load_steps=3 format=3 uid="uid://dw24t6xttmdyt"]
 
-[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://Inventory/Scripts/inventoryItem.gd" id="1_v2ujl"]
+[ext_resource type="Script" uid="uid://beqjiccuiqhve" path="res://Inventory/Scripts/InventorySeloProperties.gd" id="1_idwjv"]
 [ext_resource type="Texture2D" uid="uid://dcilvlfcwyjy4" path="res://Inventory/Selos/selo_hattime.png" id="2_grdm8"]
 
 [resource]
-script = ExtResource("1_v2ujl")
+script = ExtResource("1_idwjv")
+test = "oi moço"
 name = "selo_hatintime"
 texture = ExtResource("2_grdm8")
-equipedtexture = "res://inventory/Selos/equiped/selo_hattime_equiped.png"
-textureaux = "res://inventory/Selos/selo_hattime.png"
+color = Color(0.678431, 0.372549, 0.635294, 1)
 maxAmountInStack = 2
 max_amount = 0
 showname = "Chapeu da hora"
 description = "Quem não gosta de chapéus, aperte Y para trocar seu novo estilo."
-item_type = "Tralha"
-stamp_points = 0
-color = Color(0.67451, 0.372549, 0.635294, 1)
-color_x = 0.67
-color_y = 0.37
-color_z = 0.63
+scriptstr = ""
 first_item = 0
 itemactivate = 0
-scriptstr = "res://inventory/Selos/selo_hatintime.gd"
+item_type = "Tralha"
+stamp_points = 0
+essence_cost_dropper = 0.0
+essence_cost = 0.0

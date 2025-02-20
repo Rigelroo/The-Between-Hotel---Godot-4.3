@@ -6,6 +6,7 @@ signal updated
 signal equip_item
 
 @export var slots: Array[InventorySlot]
+
 #@export var sealslots: Array[InventorySlot]
 
 

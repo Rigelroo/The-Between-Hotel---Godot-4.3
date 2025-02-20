@@ -1,24 +1,21 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bswf6hyyrao5a"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bswf6hyyrao5a"]
 
-[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://Inventory/Scripts/inventoryItem.gd" id="1_s0q1p"]
+[ext_resource type="Script" uid="uid://beqjiccuiqhve" path="res://Inventory/Scripts/InventorySeloProperties.gd" id="1_5t1sh"]
 [ext_resource type="Texture2D" uid="uid://iwumc0glngf5" path="res://Inventory/Selos/selo_herculesleaf.png" id="2_yr2ph"]
 
 [resource]
-script = ExtResource("1_s0q1p")
+script = ExtResource("1_5t1sh")
 name = "selo_herculesleaf"
 texture = ExtResource("2_yr2ph")
-equipedtexture = "res://inventory/Selos/equiped/selo_herculesleaf_equiped.png"
-textureaux = "res://inventory/Selos/selo_herculesleaf.png"
+color = Color(0.25098, 0.607843, 0.470588, 1)
 maxAmountInStack = 2
 max_amount = 0
 showname = "Folha de Hercules"
 description = "Um presente formidável. Permite planar por longas distâncias. "
-item_type = "Emblema"
-stamp_points = 2
-color = Color(0.172549, 0.588235, 0.388235, 1)
-color_x = 0.17
-color_y = 0.58
-color_z = 0.38
+scriptstr = ""
 first_item = 0
 itemactivate = 0
-scriptstr = "res://inventory/Selos/selo_herculesleaf.gd"
+item_type = "Emblema"
+stamp_points = 0
+essence_cost_dropper = 0.0
+essence_cost = 0.0

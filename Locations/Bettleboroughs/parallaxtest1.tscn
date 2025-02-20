@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=121 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_ofkno"]
@@ -41,7 +41,6 @@
 [ext_resource type="Texture2D" uid="uid://285hhmc46aur" path="res://Sprites/InteractionBox/InteractionBox - Talk0003.png" id="24_tq7q6"]
 [ext_resource type="Texture2D" uid="uid://dku86u2pvwgov" path="res://Sprites/Bettlebourough/plant6.png" id="25_05mql"]
 [ext_resource type="Material" uid="uid://c3s4d0jc4gm7v" path="res://shaders/entitie_outline.tres" id="25_rjvmj"]
-[ext_resource type="PackedScene" uid="uid://c44xqs2w5caa1" path="res://Player/Script/Systems/statsbar.tscn" id="25_vh4bb"]
 [ext_resource type="Texture2D" uid="uid://dd7rxyiiipec5" path="res://Sprites/Bettlebourough/npcs/npc_bb_10000.png" id="26_fyuwo"]
 [ext_resource type="Texture2D" uid="uid://c4iiam2xtfift" path="res://Sprites/Bettlebourough/plant5.png" id="26_j2h7n"]
 [ext_resource type="Texture2D" uid="uid://d0ix22dm2x8w" path="res://Sprites/Bettlebourough/npcs/npc_bb_10001.png" id="27_po3te"]
@@ -82,10 +81,11 @@
 [ext_resource type="PackedScene" uid="uid://blquosyq0150h" path="res://Inventory/Selos/selo_1.tscn" id="78_rjvmj"]
 [ext_resource type="PackedScene" uid="uid://d3violp4rphkp" path="res://Menu/Savesystem/save_starter.tscn" id="79_fyuwo"]
 [ext_resource type="Texture2D" uid="uid://46h8h8rv4qsu" path="res://Sprites/Hud/hudtest2.png" id="80_arjw4"]
-[ext_resource type="Script" uid="uid://oafy3ylj4hbf" path="res://Player/Script/Systems/healthbarcmp.gd" id="80_kmg1i"]
 [ext_resource type="Texture2D" uid="uid://bqm4fvvjrq1s6" path="res://Sprites/Bettlebourough/assets/asset_bettle8.png" id="80_nxn2n"]
+[ext_resource type="PackedScene" uid="uid://fmverpyjrmdb" path="res://Objects/statslayer.tscn" id="80_ysgf2"]
 [ext_resource type="Texture2D" uid="uid://dv5rbd3curfxu" path="res://Sprites/Bettlebourough/assets/asset_bettle5.png" id="81_dwq2o"]
 [ext_resource type="Texture2D" uid="uid://cg3xnv85a50n0" path="res://Sprites/Bettlebourough/assets/asset_bettle4.png" id="82_lp6e7"]
+[ext_resource type="Script" uid="uid://bvff501dpqvu4" path="res://Locations/Bettleboroughs/danger_zone.gd" id="86_ysgf2"]
 
 [sub_resource type="Gradient" id="Gradient_l1xbt"]
 colors = PackedColorArray(0.447059, 0.419608, 0.67451, 1, 0, 0, 0, 0)
@@ -1267,6 +1267,9 @@ anim_offset_max = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qecoc"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arjw4"]
+size = Vector2(1250, 961)
+
 [node name="world" type="Node2D" node_paths=PackedStringArray("objplayer") groups=["Worldscene"]]
 script = ExtResource("1_07tvi")
 background_music_array = Array[String](["res://Sound/Testmusic&sounds/Kirby 64_ The Crystal Shards - Quiet Forest.mp3"])
@@ -1713,7 +1716,7 @@ tile_map_data = PackedByteArray("AAD2//n/AAAOAAAAAAD2//r/AAAOAAEAAAD2//v/AAAOAAI
 tile_set = SubResource("TileSet_a4y80")
 
 [node name="Player" parent="." instance=ExtResource("12_njeaq")]
-position = Vector2(9459, 624)
+position = Vector2(9281, 616)
 scale = Vector2(0.6, 0.6)
 
 [node name="Camera2D" parent="Player" instance=ExtResource("13_5etxj")]
@@ -1951,40 +1954,7 @@ process_material = SubResource("ParticleProcessMaterial_ftn2t")
 
 [node name="PausemenuLayer" parent="." instance=ExtResource("22_ieecm")]
 
-[node name="Statslayer" type="CanvasLayer" parent="."]
-scale = Vector2(0.76, 0.76)
-transform = Transform2D(0.76, 0, 0, 0.76, 0, 0)
-
-[node name="Statsbar" parent="Statslayer" instance=ExtResource("25_vh4bb")]
-visible = false
-metadata/_edit_use_anchors_ = true
-
-[node name="Healthbar" type="Control" parent="Statslayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
-script = ExtResource("80_kmg1i")
-containers = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Statslayer/Healthbar"]
-layout_mode = 0
-offset_left = 202.0
-offset_top = 114.0
-offset_right = 202.0
-offset_bottom = 114.0
-theme_override_constants/separation = 35
-alignment = 1
-
-[node name="Label" type="Label" parent="Statslayer/Healthbar"]
-layout_mode = 0
-offset_left = 222.0
-offset_top = 1566.0
-offset_right = 262.0
-offset_bottom = 1589.0
-theme_override_font_sizes/font_size = 91
-text = "7"
+[node name="Statslayer3" parent="." instance=ExtResource("80_ysgf2")]
 
 [node name="Statslayer2" type="CanvasLayer" parent="."]
 scale = Vector2(0.76, 0.76)
@@ -2174,6 +2144,14 @@ hframes = 3
 vframes = 5
 frame = 8
 
+[node name="DangerZone" type="Area2D" parent="."]
+script = ExtResource("86_ysgf2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DangerZone"]
+position = Vector2(10486, 608.5)
+shape = SubResource("RectangleShape2D_arjw4")
+debug_color = Color(0.7, 0, 0.25105, 0.42)
+
 [connection signal="area_entered" from="Camada 2/AssetsHouse3/Npc3/Area2D" to="Camada 2/AssetsHouse3/Npc3" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Camada 2/AssetsHouse3/Npc3/Area2D" to="Camada 2/AssetsHouse3/Npc3" method="_on_area_2d_area_exited"]
 [connection signal="area_entered" from="Camada 2/Npc1/Area2D" to="Camada 2/Npc1" method="_on_area_2d_area_entered"]
@@ -2184,3 +2162,5 @@ frame = 8
 [connection signal="area_exited" from="Camada 2/Npc3/Area2D" to="Camada 2/Npc3" method="_on_area_2d_area_exited"]
 [connection signal="area_entered" from="Camada 4/Npc4/Area2D" to="Camada 4/Npc4" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Camada 4/Npc4/Area2D" to="Camada 4/Npc4" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="DangerZone" to="DangerZone" method="_on_area_entered"]
+[connection signal="area_exited" from="DangerZone" to="DangerZone" method="_on_area_exited"]

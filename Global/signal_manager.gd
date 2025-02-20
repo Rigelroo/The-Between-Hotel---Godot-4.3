@@ -26,6 +26,8 @@ signal no_correct_amount
 signal inventoryclosed
 signal inventoryopened
 
+signal showstats(hide, delay)
+
 signal update_quests
 signal point_update
 

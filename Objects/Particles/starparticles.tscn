@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://gfka2x5n0lrc"]
+
+[ext_resource type="Texture2D" uid="uid://u77sj25feow5" path="res://Sprites/Hud/star_particles.png" id="1_0pfcw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7nebi"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_p7cu5"]
+_data = [Vector2(0, 0.688716), 0.0, 0.0, 0, 0, Vector2(0.51676, 0.828794), 0.0, 0.0, 0, 0, Vector2(1, 0.206226), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7nebi"]
+curve = SubResource("Curve_p7cu5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xkke8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 100, 1)
+angle_min = -480.0
+angle_max = 514.3
+velocity_pivot = Vector3(1, 0, 0)
+direction = Vector3(1, 1, 0)
+spread = 33.529
+initial_velocity_max = 42.85
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 38.1
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.7
+alpha_curve = SubResource("CurveTexture_7nebi")
+anim_offset_max = 1.0
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+modulate = Color(1, 1, 1, 0.642)
+material = SubResource("CanvasItemMaterial_7nebi")
+amount_ratio = 0.7118
+texture = ExtResource("1_0pfcw")
+lifetime = 1.54
+process_material = SubResource("ParticleProcessMaterial_xkke8")

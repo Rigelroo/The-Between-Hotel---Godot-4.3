@@ -29,7 +29,7 @@ func update(_delta):
 		return STATES.INWATER
 	return null
 func enter_state():
-	
+	$GhostTimer.start()
 	if Player.facing_direction:
 		pass
 		#$"../../GPUParticles2D2".get_texture(Dash_spriteL)
@@ -45,14 +45,20 @@ func enter_state():
 	else:
 		dash_direction = Player.last_direction
 	Player.velocity = dash_direction.normalized() * Player.dash_speed
+
+
 func exit_state():
+	$GhostTimer.stop()
+	$DashDuration.stop()
 	dashing = false
 
 	pass # Replace with function body.
 func add_ghost():
 	var ghost = ghost_node.instantiate()
-	ghost.set_property($"../..".position,$"../../Sprite2D".scale)
-	get_tree().current_scene.add_child(ghost)
+	ghost.set_property(%Sprite2D.global_position, %Sprite2D.global_scale, %Sprite2D.flip_h)
+	owner.add_sibling(ghost)
+	print("aaa")
+	
 
 
 

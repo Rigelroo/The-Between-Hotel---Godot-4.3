@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj2tvkqjv2cp3"]
+
+[ext_resource type="Script" uid="uid://oafy3ylj4hbf" path="res://Player/Script/Systems/healthbarcmp.gd" id="1_iywrq"]
+[ext_resource type="PackedScene" uid="uid://8q8mt06b422f" path="res://Objects/healthcontainer.tscn" id="2_vii3e"]
+
+[node name="Healthbar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_iywrq")
+containers = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 114.0
+offset_right = 202.0
+offset_bottom = 114.0
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Healthcontainer" parent="HBoxContainer" instance=ExtResource("2_vii3e")]
+layout_mode = 2
+
+[node name="Healthcontainer2" parent="HBoxContainer" instance=ExtResource("2_vii3e")]
+layout_mode = 2
+
+[node name="Healthcontainer3" parent="HBoxContainer" instance=ExtResource("2_vii3e")]
+layout_mode = 2

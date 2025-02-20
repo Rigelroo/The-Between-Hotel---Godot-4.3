@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=165 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" uid="uid://810alopr4too" path="res://Player/Script/Player.gd" id="1_bvkld"]
 [ext_resource type="Script" uid="uid://48ds85a7jp7w" path="res://Diversos/MagicResource.gd" id="2_s83wp"]
@@ -39,7 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://bdbsrupatikq8" path="res://Player/Sprites/Attack2/quadro0006.png" id="33_no58c"]
 [ext_resource type="Texture2D" uid="uid://r1n0kysojmd" path="res://Player/Sprites/Attack2/quadro0007.png" id="34_qt3jv"]
 [ext_resource type="Texture2D" uid="uid://nwk6ne1hydiw" path="res://Player/Persian_actionssprites.png" id="35_57jqt"]
-[ext_resource type="PackedScene" uid="uid://c0tddqcdkk15m" path="res://scenes/ghost.tscn" id="51_r1s1v"]
 [ext_resource type="PackedScene" uid="uid://cafl5nwr060p8" path="res://Player/Script/SLASH.tscn" id="55_lke0m"]
 [ext_resource type="Texture2D" uid="uid://s601plolsful" path="res://Player/Sprites/Damage/quadro0000.png" id="72_c5jic"]
 [ext_resource type="Texture2D" uid="uid://ds85gk447mrfu" path="res://Player/Sprites/Damage/quadro0001.png" id="73_aa3e1"]
@@ -80,7 +79,6 @@
 [ext_resource type="Script" uid="uid://c27s3s2tt041l" path="res://Player/Script/SWIM.gd" id="145_fox38"]
 [ext_resource type="Script" uid="uid://dmsq2rjjijc7n" path="res://Player/Script/STATES.gd" id="145_om5h6"]
 [ext_resource type="PackedScene" uid="uid://bm1oandnfm0vi" path="res://Player/Script/BREATH.tscn" id="147_41pd1"]
-[ext_resource type="Texture2D" uid="uid://dchjonc5qvaa5" path="res://Player/Sprites/runchangeside.png" id="151_jne2n"]
 [ext_resource type="AudioStream" uid="uid://fr1oss5lodkh" path="res://Sound/baa1.wav" id="153_0yjdu"]
 [ext_resource type="Script" uid="uid://cmd2f3i41qbr7" path="res://Player/Script/HIT.gd" id="160_vgtc2"]
 [ext_resource type="PackedScene" uid="uid://chtv73gw0h0nt" path="res://scenes/magic_system/emitters/firebreathemitter.tscn" id="167_kde63"]
@@ -767,7 +765,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("151_jne2n")]
+"values": [ExtResource("76_ggwd4")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -2102,7 +2100,7 @@ texture = ExtResource("16_4vd0x")
 unique_name_in_owner = true
 material = ExtResource("20_fonbf")
 position = Vector2(13, -101)
-texture = ExtResource("151_jne2n")
+texture = ExtResource("76_ggwd4")
 hframes = 7
 vframes = 6
 frame = 24
@@ -2124,8 +2122,8 @@ scale = Vector2(0.07, 0.07)
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0.0705882, 0.0313726, 0.160784, 1)
-position = Vector2(3.4, -3)
-rotation = 0.0163368
+position = Vector2(2.2, 2.8)
+rotation = 0.0141266
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
 
@@ -2202,7 +2200,6 @@ script = ExtResource("145_fox38")
 [node name="FALL" parent="STATES" instance=ExtResource("6_e0e8q")]
 
 [node name="DASH" parent="STATES" instance=ExtResource("8_hxopg")]
-ghost_node = ExtResource("51_r1s1v")
 dash_duration = 0.35
 
 [node name="SLASH" parent="STATES" instance=ExtResource("55_lke0m")]

@@ -1,9 +1,3 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c3s4d0jc4gm7v"]
-
-[ext_resource type="Shader" uid="uid://clna0y4j438qa" path="res://Player/Script/outline.gdshader" id="1_ef74o"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c3s4d0jc4gm7v"]
 
 [resource]
-shader = ExtResource("1_ef74o")
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/progress = 0.224
-shader_parameter/width = 0.009

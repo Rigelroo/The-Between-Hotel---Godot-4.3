@@ -2,8 +2,8 @@ class_name GreedStamp extends InventoryItem
 
 @export var coin_multiplier: int = 2
 
-func use(_player: Player) -> void:
-	print("useitem")
+
+
 func activatestamp():
 	print("foi")
 	SignalManager.greed_equiped = true
