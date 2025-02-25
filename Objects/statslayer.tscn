@@ -29,11 +29,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_npct7")
-Points_visible_t = null
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Stats"]
-visible = false
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 32.8947
 offset_top = 32.8947

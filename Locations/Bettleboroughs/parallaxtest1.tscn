@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=4 uid="uid://cxoajdx05inhy"]
+[gd_scene load_steps=123 format=4 uid="uid://cxoajdx05inhy"]
 
 [ext_resource type="Script" uid="uid://ccqg0p8b1yd5e" path="res://scenes/entry_hall_node.gd" id="1_07tvi"]
 [ext_resource type="Resource" uid="uid://dekkp2c5lvf1n" path="res://Diversos/splashwater.tres" id="2_ofkno"]
@@ -86,6 +86,7 @@
 [ext_resource type="Texture2D" uid="uid://dv5rbd3curfxu" path="res://Sprites/Bettlebourough/assets/asset_bettle5.png" id="81_dwq2o"]
 [ext_resource type="Texture2D" uid="uid://cg3xnv85a50n0" path="res://Sprites/Bettlebourough/assets/asset_bettle4.png" id="82_lp6e7"]
 [ext_resource type="Script" uid="uid://bvff501dpqvu4" path="res://Locations/Bettleboroughs/danger_zone.gd" id="86_ysgf2"]
+[ext_resource type="Shader" uid="uid://d2iygc34knq60" path="res://Objects/test.gdshader" id="87_qecoc"]
 
 [sub_resource type="Gradient" id="Gradient_l1xbt"]
 colors = PackedColorArray(0.447059, 0.419608, 0.67451, 1, 0, 0, 0, 0)
@@ -1265,6 +1266,11 @@ scale_max = 0.3
 color_ramp = SubResource("GradientTexture1D_32jfb")
 anim_offset_max = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ttvqn"]
+shader = ExtResource("87_qecoc")
+shader_parameter/grain_amount = 0.09
+shader_parameter/grain_size = 0.4
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qecoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arjw4"]
@@ -1967,6 +1973,23 @@ visible = false
 position = Vector2(292.105, 118.421)
 scale = Vector2(0.23, 0.23)
 texture = ExtResource("80_arjw4")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Statslayer2"]
+z_index = 35
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_ttvqn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 128.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Statslayer2/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1765, 930)
+render_target_update_mode = 4
 
 [node name="Gameover" parent="." groups=["Gameover"] instance=ExtResource("28_icgh1")]
 process_mode = 3

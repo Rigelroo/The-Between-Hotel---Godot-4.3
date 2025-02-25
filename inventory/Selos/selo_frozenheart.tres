@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bojqr7cp6eeiq"]
+[gd_resource type="Resource" script_class="StampProperties" load_steps=2 format=3 uid="uid://bojqr7cp6eeiq"]
 
-[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://Inventory/Scripts/inventoryItem.gd" id="1_yonvy"]
-[ext_resource type="Texture2D" uid="uid://dmymbqqyxrr5w" path="res://Inventory/Selos/selo_frozenheart.png" id="2_qjtfh"]
+[ext_resource type="Script" uid="uid://beqjiccuiqhve" path="res://Inventory/Scripts/InventorySeloProperties.gd" id="1_cfope"]
 
 [resource]
-script = ExtResource("1_yonvy")
+script = ExtResource("1_cfope")
+test = "oi moço"
 name = "selo_frozenheart"
-texture = ExtResource("2_qjtfh")
 color = Color(0.156863, 0.458824, 0.760784, 1)
 maxAmountInStack = 2
 max_amount = 0

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://cve3o3l3hjcop" path="res://Inventory/slot.tscn" id="2_lfo5f"]
 [ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_snvv0"]
 [ext_resource type="Script" uid="uid://cd0o4n5fwemc6" path="res://Inventory/Scripts/missionscontainer.gd" id="4_3xgf6"]
-[ext_resource type="Texture2D" uid="uid://cxrga1teivoms" path="res://Inventory/submenu - inventário.png" id="4_5orts"]
 [ext_resource type="FontFile" uid="uid://ckwkgvh5vt53w" path="res://Fonts/Everlasting.ttf" id="5_2lpl4"]
 [ext_resource type="Script" uid="uid://c3nwd743vno3h" path="res://Inventory/Scripts/name_label.gd" id="5_kggpe"]
 [ext_resource type="Texture2D" uid="uid://jcfth6m4bc0m" path="res://Inventory/submenu - Missões.png" id="5_pgxi2"]
@@ -37,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://b5evayqyu6mby" path="res://Inventory/gui/desenhopersian2.png" id="28_yqqid"]
 [ext_resource type="Texture2D" uid="uid://dl1pn2s2a86fr" path="res://Sprites/Namebox.png" id="29_3lh8d"]
 [ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="29_s0oxi"]
+[ext_resource type="Texture2D" uid="uid://4a4roegu876x" path="res://Inventory/gui/submenu_test.png" id="34_g5kd3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hm3u"]
 
@@ -120,7 +120,7 @@ _data = {
 
 [node name="InventoryGui" type="Control"]
 process_mode = 3
-z_index = 35
+z_index = 20
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,11 +151,12 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 651.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8hm3u")
-current_tab = 0
+current_tab = 3
 tabs_visible = false
 
 [node name="Config" type="NinePatchRect" parent="TabContainer" node_paths=PackedStringArray("gui")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = ExtResource("23_3y771")
 axis_stretch_horizontal = 2
@@ -1274,9 +1275,8 @@ show_behind_parent = true
 texture = ExtResource("11_cakds")
 
 [node name="Inventário" type="NinePatchRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
-texture = ExtResource("4_5orts")
+texture = ExtResource("34_g5kd3")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 metadata/_tab_index = 3

@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bv8ujs5m68b51"]
+[gd_resource type="Resource" script_class="StampProperties" load_steps=2 format=3 uid="uid://bv8ujs5m68b51"]
 
-[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://Inventory/Scripts/inventoryItem.gd" id="1_dqn0c"]
-[ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://Inventory/Selos/selo_crimsonbug.png" id="2_findb"]
+[ext_resource type="Script" uid="uid://beqjiccuiqhve" path="res://Inventory/Scripts/InventorySeloProperties.gd" id="1_3r104"]
 
 [resource]
-script = ExtResource("1_dqn0c")
+script = ExtResource("1_3r104")
+test = "oi moço"
 name = "selo_crimsonbug"
-texture = ExtResource("2_findb")
 color = Color(0.756863, 0.121569, 0.454902, 1)
 maxAmountInStack = 2
 max_amount = 0

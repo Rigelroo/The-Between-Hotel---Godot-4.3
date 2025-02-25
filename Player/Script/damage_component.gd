@@ -1,4 +1,5 @@
-extends Node2D
+extends Node
+class_name DamageComponent
 
 @export var immunity_timer = 1.5
 @export var damage_value = 3

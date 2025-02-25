@@ -1,6 +1,6 @@
 extends Node2D
 
-
-@onready var stats_component: Node2D = $StatsComponent
-@onready var damage_component: Node2D = $DamageComponent
-@onready var terrain_component: Node2D = %TerrainComponent
+@onready var stats_component: StatsComponent = %StatsComponent
+@onready var stamps_component: StampComponent = %StampsComponent
+@onready var terrain_component: TerrainComponent = %TerrainComponent
+@onready var damage_component: DamageComponent = %DamageComponent

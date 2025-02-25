@@ -1,14 +1,14 @@
 @icon("res://Missões/npc icons/persian.png")
 extends CharacterBody2D
 
-class_name Player
+class_name Playercharacter
 
 func movable_entitie():
 	pass
 
 signal death
 signal get_out_item
-signal healthChanged(new_value)
+
 signal temporary
 signal inkChanged
 
@@ -30,9 +30,11 @@ enum FloorHazards {
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = %Sprite2D
 
-@onready var stats_component: Node2D = $Components/StatsComponent
-@onready var damage_component: Node2D = $Components/DamageComponent
-@onready var terrain_component: Node2D = %TerrainComponent
+@onready var stats_component: StatsComponent = %StatsComponent
+@onready var stamps_component: StampComponent = %StampsComponent
+@onready var terrain_component: TerrainComponent = %TerrainComponent
+@onready var damage_component: DamageComponent = %DamageComponent
+
 
 
 @onready var STATES = $STATES
@@ -88,12 +90,12 @@ var lastFloorMsec = 0
 var SPRINT_SPEED : float = SPEED
 
 @export_subgroup("Objects and Resources")
-@export var manager : MainManager
 @export var player_camera : Camera2D
 @export var target: Marker2D
 @export var player_target: Marker2D
 @export var show_target: Marker2D
 #@export var camera : Camera2D
+@export var manager : MainManager
 @export var inventory : Inventory
 @export var inventoryb : Inventoryb
 @export var inventoryc : Inventoryc

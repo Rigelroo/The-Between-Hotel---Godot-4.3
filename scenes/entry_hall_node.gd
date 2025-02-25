@@ -9,7 +9,7 @@ signal scene_ready
 
 @export_file("*.mp3") var background_music_array : Array[String]
 
-@export var objplayer : Player
+@export var objplayer : Playercharacter
 @export var splashw : SplashWater
 @export var scene_name : String
 @export var nome_cena : String

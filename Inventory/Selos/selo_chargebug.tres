@@ -1,21 +1,18 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dn8xgc0n28bso"]
+[gd_resource type="Resource" script_class="StampProperties" load_steps=2 format=3 uid="uid://dn8xgc0n28bso"]
 
-[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://Inventory/Scripts/inventoryItem.gd" id="1_0koua"]
-[ext_resource type="Texture2D" uid="uid://jthn80pnkdwi" path="res://Inventory/Selos/selo_chargebug.png" id="2_0koua"]
+[ext_resource type="Script" uid="uid://beqjiccuiqhve" path="res://Inventory/Scripts/InventorySeloProperties.gd" id="1_1oyfx"]
 
 [resource]
-script = ExtResource("1_0koua")
+script = ExtResource("1_1oyfx")
+test = "oi moço"
+essence_cost_dropper = 0.0
+essence_cost = 0.0
+item_type = ""
+stamp_points = 0
 name = "selo_chargebug"
-texture = ExtResource("2_0koua")
 color = Color(0.623529, 0.984314, 0.698039, 1)
 maxAmountInStack = 2
 max_amount = 0
 showname = "Carga"
 description = "Ele queima com fogo de mil formigas. Segure X com a fúria completa para um ataque explosivo."
-scriptstr = ""
-first_item = 0
-itemactivate = 0
-item_type = "Emblema"
-stamp_points = 0
-essence_cost_dropper = 0.0
-essence_cost = 0.0
+first_item = false

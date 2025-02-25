@@ -6,6 +6,10 @@
 [resource]
 script = ExtResource("1_idwjv")
 test = "oi moço"
+essence_cost_dropper = 0.0
+essence_cost = 0.0
+item_type = "Tralha"
+stamp_points = 0
 name = "selo_hatintime"
 texture = ExtResource("2_grdm8")
 color = Color(0.678431, 0.372549, 0.635294, 1)
@@ -13,10 +17,4 @@ maxAmountInStack = 2
 max_amount = 0
 showname = "Chapeu da hora"
 description = "Quem não gosta de chapéus, aperte Y para trocar seu novo estilo."
-scriptstr = ""
-first_item = 0
-itemactivate = 0
-item_type = "Tralha"
-stamp_points = 0
-essence_cost_dropper = 0.0
-essence_cost = 0.0
+first_item = false

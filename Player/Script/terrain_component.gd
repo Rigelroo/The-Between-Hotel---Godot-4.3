@@ -1,5 +1,5 @@
-extends Node2D
-
+extends Node
+class_name TerrainComponent
 
 func _process_tiledata(body: Node2D, body_rid: RID):
 	var tilemap = body

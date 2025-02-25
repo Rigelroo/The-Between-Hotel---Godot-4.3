@@ -1,12 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://cn5w1vi5yjg3u"]
+[gd_scene load_steps=26 format=3 uid="uid://cn5w1vi5yjg3u"]
 
 [ext_resource type="Script" uid="uid://bb60pyyexo3un" path="res://scenes/canvas_layer.gd" id="1_f1ums"]
 [ext_resource type="PackedScene" uid="uid://cr0rxd186uoyo" path="res://Inventory/menuselos.tscn" id="3_2ly1l"]
 [ext_resource type="Script" uid="uid://b8ohonjblhqyo" path="res://Inventory/Scripts/notificationsystem.gd" id="5_280g2"]
 [ext_resource type="FontFile" uid="uid://exj3c8h6l0tr" path="res://Fonts/Typewriter215FP-Bold.otf" id="7_as1ww"]
+[ext_resource type="Texture2D" uid="uid://btx3s65d1y0xh" path="res://Sprites/branco.png" id="8_6ktdg"]
 [ext_resource type="Script" uid="uid://bhe7fvbflarf5" path="res://Fonts/pivot.gd" id="8_dcl8t"]
+[ext_resource type="Script" uid="uid://bnmv3a6as4ptl" path="res://Diversos/Pausemenu.gd" id="8_lwp6w"]
 [ext_resource type="PackedScene" uid="uid://1uftutib1rsp" path="res://Missões/taskpanelnotif.tscn" id="9_g3huw"]
+[ext_resource type="Shader" uid="uid://d4nemjvhyypje" path="res://Diversos/blur.gdshader" id="9_lwp6w"]
 [ext_resource type="Script" uid="uid://l434js5cj2ls" path="res://Fonts/slinky.gd" id="9_robvp"]
+[ext_resource type="Texture2D" uid="uid://dwr1jqtb6h8q0" path="res://Sprites/Hud/testpausemenu.png" id="10_jij7p"]
 
 [sub_resource type="Animation" id="Animation_fkxa7"]
 length = 0.001
@@ -104,9 +108,176 @@ script = ExtResource("9_robvp")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eyv6i"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jij7p"]
+shader = ExtResource("9_lwp6w")
+shader_parameter/strength = 3.3
+shader_parameter/mix_percentage = 0.3
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jij7p"]
+texture = ExtResource("10_jij7p")
+
+[sub_resource type="Animation" id="Animation_6d4k4"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:material:shader_parameter/mix_percentage")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_dnd07"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Test:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.433333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(30, 0), Vector2(-500, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Test:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.366667, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:material:shader_parameter/strength")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(3.3, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.233333, 0.9)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:material:shader_parameter/mix_percentage")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.3, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.233333, 0.9)
+}
+
+[sub_resource type="Animation" id="Animation_lwp6w"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Test:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-500, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_djcmt"]
+resource_name = "show"
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Test:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.466667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 2,
+"values": [Vector2(-500, 0), Vector2(20, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Test:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:material:shader_parameter/blur_strength")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), 2.0]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:material:shader_parameter/strength")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0, 3.3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.1, 0.733333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect:material:shader_parameter/mix_percentage")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.1, 0.733333)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78qul"]
+_data = {
+&"RESET": SubResource("Animation_6d4k4"),
+&"hide": SubResource("Animation_dnd07"),
+&"new_animation": SubResource("Animation_lwp6w"),
+&"show": SubResource("Animation_djcmt")
+}
+
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("inventory")]
 process_mode = 3
-process_thread_group = 2
+process_thread_group = 1
 process_thread_group_order = 0
 process_thread_messages = 0
 script = ExtResource("1_f1ums")
@@ -170,3 +341,42 @@ offset_right = 341.0
 offset_bottom = 153.0
 
 [node name="Timer" type="Timer" parent="NotificationsSystem"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_lwp6w")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+material = SubResource("ShaderMaterial_jij7p")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_6ktdg")
+
+[node name="Test" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.425347
+anchor_right = 0.573695
+anchor_bottom = 0.999979
+offset_left = 490.0
+offset_right = 3964.1
+offset_bottom = 1956.01
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.248843, 0.248843)
+theme_override_styles/panel = SubResource("StyleBoxTexture_jij7p")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_78qul")
+}

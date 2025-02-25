@@ -1,4 +1,5 @@
-extends Node2D
+extends Node
+class_name StatsComponent
 
 signal Changecontainers(new_value)
 signal healthChanged(new_value)

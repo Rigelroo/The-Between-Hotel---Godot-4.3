@@ -1,21 +1,18 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://c7iikplev3bmk"]
+[gd_resource type="Resource" script_class="StampProperties" load_steps=2 format=3 uid="uid://c7iikplev3bmk"]
 
-[ext_resource type="Script" uid="uid://c6r3mxwxyl0rd" path="res://Inventory/Scripts/inventoryItem.gd" id="1_iamvs"]
-[ext_resource type="Texture2D" uid="uid://dwuhapn07yn8p" path="res://Inventory/Selos/selo_titagotchi.png" id="2_xq1dr"]
+[ext_resource type="Script" uid="uid://beqjiccuiqhve" path="res://Inventory/Scripts/InventorySeloProperties.gd" id="1_ot5h5"]
 
 [resource]
-script = ExtResource("1_iamvs")
+script = ExtResource("1_ot5h5")
+test = "oi moço"
+essence_cost_dropper = 0.0
+essence_cost = 0.0
+item_type = ""
+stamp_points = 0
 name = "selo_titagotchi"
-texture = ExtResource("2_xq1dr")
 color = Color(0.32549, 1, 1, 1)
 maxAmountInStack = 2
 max_amount = 0
 showname = "Heartgotchi"
 description = "Produto da HEART inc, \"Por favor cuide do Viti\". aumenta o máximo de vida"
-scriptstr = ""
-first_item = 0
-itemactivate = 0
-item_type = "Tralha"
-stamp_points = 0
-essence_cost_dropper = 0.0
-essence_cost = 0.0
+first_item = false

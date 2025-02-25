@@ -152,16 +152,17 @@ func stamp_equippedfunc(slots: Array,currently_selected: int, inventory: Invento
 		
 		#changetexture_equip()
 		var slot = slots[currently_selected]
-		var secondary = slot.itemStackGui.inventorySlot.item.scriptstr
-		var itemscript = load(secondary).new()
-		print("stamp equip: ",slot.itemStackGui.inventorySlot.item.name)
+		slot.itemStackGui.inventorySlot.item.use()
+		#var secondary = slot.itemStackGui.inventorySlot.item.scriptstr
+		#var itemscript = load(secondary).new()
+		#print("stamp equip: ",slot.itemStackGui.inventorySlot.item.name)
+		#
+		#slot = slots[currently_selected]
+		#secondary = slot.itemStackGui.inventorySlot.item.scriptstr
+		#itemscript = load(secondary).new()
 		
-		slot = slots[currently_selected]
-		secondary = slot.itemStackGui.inventorySlot.item.scriptstr
-		itemscript = load(secondary).new()
 		
-		
-		itemscript.activatestamp()
+		#itemscript.activatestamp()
 		#slots[currently_selected].modulateslot()
 		slot.itemStackGui.inventorySlot.amount = 0
 		print("é esse aqui ó -> ", slots[currently_selected].itemStackGui.inventorySlot.item.name, " num: ",currently_selected)
