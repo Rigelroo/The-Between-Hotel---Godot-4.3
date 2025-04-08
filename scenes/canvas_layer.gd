@@ -7,4 +7,5 @@ class_name Canvas
 @onready var control: Control = $Control
 
 func _physics_process(delta: float) -> void:
-	control.proc()
+	if control:
+		control.proc()

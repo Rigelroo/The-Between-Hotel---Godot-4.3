@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cr0rxd186uoyo"]
+[gd_scene load_steps=54 format=3 uid="uid://cr0rxd186uoyo"]
 
 [ext_resource type="Script" uid="uid://bwgom2de11ely" path="res://Inventory/Scripts/inventory_gui.gd" id="1_o6k50"]
 [ext_resource type="PackedScene" uid="uid://cve3o3l3hjcop" path="res://Inventory/slot.tscn" id="2_lfo5f"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://b5evayqyu6mby" path="res://Inventory/gui/desenhopersian2.png" id="28_yqqid"]
 [ext_resource type="Texture2D" uid="uid://dl1pn2s2a86fr" path="res://Sprites/Namebox.png" id="29_3lh8d"]
 [ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="29_s0oxi"]
+[ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://Inventory/Selos/selo_crimsonbug.png" id="29_t762j"]
 [ext_resource type="Texture2D" uid="uid://4a4roegu876x" path="res://Inventory/gui/submenu_test.png" id="34_g5kd3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hm3u"]
@@ -151,7 +152,7 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 651.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8hm3u")
-current_tab = 3
+current_tab = 2
 tabs_visible = false
 
 [node name="Config" type="NinePatchRect" parent="TabContainer" node_paths=PackedStringArray("gui")]
@@ -1020,17 +1021,16 @@ size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cw2jj")
 
 [node name="Selos" type="NinePatchRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("23_g5kd3")
 metadata/_tab_index = 2
 
 [node name="TabContainer" type="TabContainer" parent="TabContainer/Selos"]
 layout_mode = 0
-offset_left = 595.0
-offset_top = 371.0
-offset_right = 927.0
-offset_bottom = 566.0
+offset_left = 577.0
+offset_top = 343.0
+offset_right = 909.0
+offset_bottom = 538.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_18trn")
 current_tab = 0
 tabs_visible = false
@@ -1177,44 +1177,46 @@ script = ExtResource("5_kggpe")
 
 [node name="Description" type="RichTextLabel" parent="TabContainer/Selos"]
 layout_mode = 0
-offset_left = 728.0
-offset_top = 176.0
-offset_right = 902.0
-offset_bottom = 278.0
+offset_left = 743.0
+offset_top = 135.0
+offset_right = 881.0
+offset_bottom = 248.0
 theme_override_colors/default_color = Color(0.0823529, 0.0392157, 0.160784, 1)
 theme_override_fonts/normal_font = ExtResource("7_wekg0")
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 [node name="Typelabel" type="RichTextLabel" parent="TabContainer/Selos"]
 layout_mode = 0
-offset_left = 719.0
-offset_top = 145.0
-offset_right = 893.0
-offset_bottom = 174.0
-theme_override_colors/default_color = Color(0.779352, 6.10298e-05, 0.608905, 1)
+offset_left = 649.0
+offset_top = 267.0
+offset_right = 823.0
+offset_bottom = 296.0
+theme_override_colors/default_color = Color(0.988235, 0.933333, 0.827451, 1)
 theme_override_fonts/normal_font = ExtResource("5_2lpl4")
 theme_override_font_sizes/normal_font_size = 26
+text = "aaaaaaaaaaaaaa"
 
 [node name="ShowSprite" type="Sprite2D" parent="TabContainer/Selos"]
-position = Vector2(664, 199.375)
-scale = Vector2(0.0853333, 0.0853333)
+position = Vector2(643, 187)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("29_t762j")
 
 [node name="nextpage_right" type="Sprite2D" parent="TabContainer/Selos"]
 unique_name_in_owner = true
-position = Vector2(904, 547)
+position = Vector2(882.885, 534.542)
 scale = Vector2(0.190657, 0.190657)
 texture = ExtResource("11_g2khj")
 
 [node name="nextpage_left" type="Sprite2D" parent="TabContainer/Selos"]
 unique_name_in_owner = true
-position = Vector2(617, 547)
+position = Vector2(595.885, 534.542)
 scale = Vector2(0.190657, 0.190657)
 texture = ExtResource("11_g2khj")
 flip_h = true
 
 [node name="ShowStamppoint" type="Sprite2D" parent="TabContainer/Selos"]
-visible = false
-position = Vector2(627, 266)
-scale = Vector2(0.182203, 0.182203)
+position = Vector2(700, 224)
+scale = Vector2(0.19, 0.19)
 texture = ExtResource("12_mkaee")
 
 [node name="StamppointnameLabel" type="Label" parent="TabContainer/Selos/ShowStamppoint"]
@@ -1275,6 +1277,7 @@ show_behind_parent = true
 texture = ExtResource("11_cakds")
 
 [node name="Inventário" type="NinePatchRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("34_g5kd3")
 axis_stretch_horizontal = 2

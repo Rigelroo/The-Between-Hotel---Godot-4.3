@@ -1722,7 +1722,7 @@ tile_map_data = PackedByteArray("AAD2//n/AAAOAAAAAAD2//r/AAAOAAEAAAD2//v/AAAOAAI
 tile_set = SubResource("TileSet_a4y80")
 
 [node name="Player" parent="." instance=ExtResource("12_njeaq")]
-position = Vector2(9281, 616)
+position = Vector2(14206, 379)
 scale = Vector2(0.6, 0.6)
 
 [node name="Camera2D" parent="Player" instance=ExtResource("13_5etxj")]
@@ -1820,9 +1820,9 @@ scale = Vector2(0.137674, 0.433422)
 texture = ExtResource("55_v3v54")
 
 [node name="AssetBettle2" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
-position = Vector2(-202.143, -17.8981)
+position = Vector2(-202.143, -9.77124)
 rotation = -1.5708
-scale = Vector2(0.364295, 0.147008)
+scale = Vector2(0.379401, 0.147008)
 texture = ExtResource("55_v3v54")
 
 [node name="AssetBettle5" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
@@ -1848,14 +1848,14 @@ scale = Vector2(0.154694, 0.487004)
 texture = ExtResource("82_lp6e7")
 
 [node name="AssetBettle9" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
-position = Vector2(-63.2958, 171.955)
+position = Vector2(-103.401, 223.765)
 rotation = 3.14127
-scale = Vector2(0.137674, 0.481256)
+scale = Vector2(0.180843, 0.481256)
 skew = 0.000291228
 texture = ExtResource("81_dwq2o")
 
 [node name="AssetBettle8" type="Sprite2D" parent="Camada 5/ParallaxB10/AssetBettlep"]
-position = Vector2(35.4167, 156.628)
+position = Vector2(33.3608, 205.167)
 scale = Vector2(0.154694, 0.487004)
 texture = ExtResource("82_lp6e7")
 
