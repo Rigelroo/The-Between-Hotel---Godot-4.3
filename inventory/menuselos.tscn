@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cr0rxd186uoyo"]
+[gd_scene load_steps=58 format=3 uid="uid://cr0rxd186uoyo"]
 
 [ext_resource type="Script" uid="uid://bwgom2de11ely" path="res://Inventory/Scripts/inventory_gui.gd" id="1_o6k50"]
 [ext_resource type="PackedScene" uid="uid://cve3o3l3hjcop" path="res://Inventory/slot.tscn" id="2_lfo5f"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://c3nwd743vno3h" path="res://Inventory/Scripts/name_label.gd" id="5_kggpe"]
 [ext_resource type="Texture2D" uid="uid://jcfth6m4bc0m" path="res://Inventory/submenu - Missões.png" id="5_pgxi2"]
 [ext_resource type="PackedScene" uid="uid://bwtnff04la3ur" path="res://Inventory/invslot.tscn" id="6_fldmh"]
-[ext_resource type="Texture2D" uid="uid://c4l4b8igaw4cv" path="res://Inventory/coisinha.png" id="7_77bml"]
 [ext_resource type="FontFile" uid="uid://y17hqcwq1fqb" path="res://Fonts/Typewriter215FP.otf" id="7_wekg0"]
 [ext_resource type="Script" uid="uid://c6m2khxwctyv4" path="res://Inventory/Scripts/center_container.gd" id="9_7qamn"]
 [ext_resource type="Texture2D" uid="uid://cdv3b8nl0p72f" path="res://Inventory/gui/Selector/slot inventario - select.png" id="9_gyvsb"]
@@ -37,7 +36,11 @@
 [ext_resource type="Texture2D" uid="uid://dl1pn2s2a86fr" path="res://Sprites/Namebox.png" id="29_3lh8d"]
 [ext_resource type="PackedScene" uid="uid://btkw5onhopwc8" path="res://Tests/ichlabel.tscn" id="29_s0oxi"]
 [ext_resource type="Texture2D" uid="uid://bckgayttc5556" path="res://Inventory/Selos/selo_crimsonbug.png" id="29_t762j"]
-[ext_resource type="Texture2D" uid="uid://4a4roegu876x" path="res://Inventory/gui/submenu_test.png" id="34_g5kd3"]
+[ext_resource type="Texture2D" uid="uid://cxrga1teivoms" path="res://Inventory/submenu - inventário.png" id="35_g5kd3"]
+[ext_resource type="Script" uid="uid://clmk7hdki70kj" path="res://Inventory/Scripts/essencedisplayer.gd" id="37_02vx4"]
+[ext_resource type="Script" uid="uid://cmi5k35sgsbl" path="res://Inventory/Scripts/roachdisplayer.gd" id="39_02vx4"]
+[ext_resource type="Texture2D" uid="uid://dregeyai070ih" path="res://Inventory/InvAssets/Roachmilksprite.png" id="39_t1tm0"]
+[ext_resource type="Texture2D" uid="uid://dh4jlfk6ignrt" path="res://Inventory/InvAssets/Essencebottlessprite.png" id="40_t1tm0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hm3u"]
 
@@ -119,6 +122,8 @@ _data = {
 &"shake": SubResource("Animation_5nmiu")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3ylo"]
+
 [node name="InventoryGui" type="Control"]
 process_mode = 3
 z_index = 20
@@ -152,7 +157,7 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 651.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_8hm3u")
-current_tab = 2
+current_tab = 3
 tabs_visible = false
 
 [node name="Config" type="NinePatchRect" parent="TabContainer" node_paths=PackedStringArray("gui")]
@@ -174,10 +179,10 @@ anchor_left = 0.09
 anchor_top = 0.249
 anchor_right = 0.402
 anchor_bottom = 0.877
-offset_left = 12.32
-offset_top = -47.099
-offset_right = 930.896
-offset_bottom = 1214.07
+offset_left = 40.32
+offset_top = -66.099
+offset_right = 958.896
+offset_bottom = 1195.07
 scale = Vector2(0.268314, 0.268314)
 
 [node name="ButtonContinue" type="Button" parent="TabContainer/Config/VBoxContainer"]
@@ -1021,6 +1026,7 @@ size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_cw2jj")
 
 [node name="Selos" type="NinePatchRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("23_g5kd3")
 metadata/_tab_index = 2
@@ -1277,25 +1283,105 @@ show_behind_parent = true
 texture = ExtResource("11_cakds")
 
 [node name="Inventário" type="NinePatchRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
-texture = ExtResource("34_g5kd3")
+texture = ExtResource("35_g5kd3")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 metadata/_tab_index = 3
+
+[node name="Specialslots" type="Control" parent="TabContainer/Inventário"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CoinDisplayer" parent="TabContainer/Inventário/Specialslots" instance=ExtResource("16_wry48")]
+layout_mode = 1
+offset_left = 113.0
+offset_top = 240.0
+offset_right = 137.288
+offset_bottom = 195.68
+scale = Vector2(0.145, 0.145)
+item_name = "Moedas"
+flavor_text = "Moedas oficiais do Hotel Limiar, usado para compras em qualquer lugar."
+sprite_showscale_value = 0.35
+
+[node name="EmptyDisplayer" type="Button" parent="TabContainer/Inventário/Specialslots"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.656
+anchor_bottom = 1.108
+offset_left = 124.0
+offset_top = 134.0
+offset_right = 148.288
+offset_bottom = 89.68
+scale = Vector2(0.145, 0.145)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t3ylo")
+script = ExtResource("37_02vx4")
+item_name = " "
+flavor_text = " "
+
+[node name="sprite" type="Sprite2D" parent="TabContainer/Inventário/Specialslots/EmptyDisplayer"]
+position = Vector2(494, 231)
+scale = Vector2(1.75, 1.75)
+
+[node name="EssenceDisplayer" type="Button" parent="TabContainer/Inventário/Specialslots"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.656
+anchor_bottom = 1.108
+offset_left = 253.0
+offset_top = 134.0
+offset_right = 277.288
+offset_bottom = 89.68
+scale = Vector2(0.145, 0.145)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t3ylo")
+script = ExtResource("37_02vx4")
+item_name = "Frasco Coletor"
+flavor_text = "Jarra de essência de negativa, derrote inimigos e colete essência para convertê-la em poder mágico."
+sprite_showscale_value = 0.21
+
+[node name="sprite" type="Sprite2D" parent="TabContainer/Inventário/Specialslots/EssenceDisplayer"]
+position = Vector2(494, 231)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("40_t1tm0")
+
+[node name="RoachmilkDisplayer" type="Button" parent="TabContainer/Inventário/Specialslots"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.656
+anchor_bottom = 1.108
+offset_left = 388.0
+offset_top = 240.0
+offset_right = 412.288
+offset_bottom = 195.68
+scale = Vector2(0.145, 0.145)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t3ylo")
+script = ExtResource("39_02vx4")
+item_name = "Leite de Barata"
+flavor_text = "Importado do quarto dos insetos, bastante nutrivo. 
+Aperte B para curar.  
+
+Mas aqui... quem teve a ideia desse nome?"
+sprite_showscale_value = 0.45
+
+[node name="sprite" type="Sprite2D" parent="TabContainer/Inventário/Specialslots/RoachmilkDisplayer"]
+position = Vector2(494, 231)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("39_t1tm0")
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Inventário"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 124.0
-offset_top = 107.0
-offset_right = -698.0
-offset_bottom = -112.0
+offset_left = 141.0
+offset_top = 340.0
+offset_right = -589.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 4
+scale = Vector2(0.85, 0.85)
+columns = 5
 
 [node name="Panel" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
 layout_mode = 2
@@ -1342,58 +1428,32 @@ layout_mode = 2
 [node name="Panel15" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
 layout_mode = 2
 
-[node name="Panel16" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
-layout_mode = 2
-
-[node name="Panel17" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
-layout_mode = 2
-
-[node name="Panel18" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
-layout_mode = 2
-
-[node name="Panel19" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
-layout_mode = 2
-
-[node name="Panel20" parent="TabContainer/Inventário/GridContainer" instance=ExtResource("6_fldmh")]
-layout_mode = 2
-
-[node name="Coisinha" type="Sprite2D" parent="TabContainer/Inventário"]
-position = Vector2(131, 515)
-scale = Vector2(0.225432, 0.208)
-texture = ExtResource("7_77bml")
-
-[node name="Coisinha2" type="Sprite2D" parent="TabContainer/Inventário"]
-position = Vector2(131, 102)
-rotation = -4.71239
-scale = Vector2(0.225432, 0.208)
-texture = ExtResource("7_77bml")
-
 [node name="NameLabelb" type="Label" parent="TabContainer/Inventário"]
 layout_mode = 0
-offset_left = 608.0
-offset_top = 355.0
-offset_right = 916.0
-offset_bottom = 390.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 616.0
+offset_top = 280.0
+offset_right = 862.0
+offset_bottom = 312.0
+theme_override_colors/font_color = Color(0.984314, 0.929412, 0.823529, 1)
 theme_override_fonts/font = ExtResource("5_2lpl4")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 31
+text = "aaaaaaaaaaaa"
 horizontal_alignment = 1
 script = ExtResource("5_kggpe")
 
 [node name="Descriptionb" type="Label" parent="TabContainer/Inventário"]
 layout_mode = 0
-offset_left = 723.0
-offset_top = 393.0
-offset_right = 913.0
-offset_bottom = 541.0
+offset_left = 583.0
+offset_top = 364.0
+offset_right = 899.0
+offset_bottom = 507.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_wekg0")
 theme_override_font_sizes/font_size = 17
 autowrap_mode = 3
 
 [node name="ShowSpriteb" type="Sprite2D" parent="TabContainer/Inventário"]
-position = Vector2(663, 466)
-scale = Vector2(0.095, 0.095)
+position = Vector2(734, 191)
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Inventário"]
 custom_minimum_size = Vector2(80, 80)
@@ -1414,23 +1474,15 @@ texture = ExtResource("11_cakds")
 
 [node name="Label" type="Label" parent="TabContainer/Inventário"]
 layout_mode = 0
-offset_left = 665.0
-offset_top = 96.0
-offset_right = 839.0
-offset_bottom = 146.0
-theme_override_colors/font_color = Color(0.156863, 0.101961, 0.352941, 1)
+offset_left = 404.0
+offset_right = 645.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0.857536, 0.663466, 0.492683, 1)
+theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("5_2lpl4")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 90
 text = "items"
 horizontal_alignment = 1
-
-[node name="CoinDisplayer" parent="TabContainer/Inventário" instance=ExtResource("16_wry48")]
-layout_mode = 1
-offset_left = 810.0
-offset_top = 248.0
-offset_right = 834.288
-offset_bottom = 130.016
-scale = Vector2(0.145, 0.145)
 
 [node name="SFXplayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

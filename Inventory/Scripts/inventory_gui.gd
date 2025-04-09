@@ -128,7 +128,7 @@ func _ready():
 	slots = $TabContainer/Selos/TabContainer/GridContainer.get_children() + $TabContainer/Selos/TabContainer/GridContainer2.get_children()
 	sealslots = $TabContainer/Selos/Control.get_children()
 	uslots = $TabContainer/Selos/Control.get_children()
-	invslots = $"TabContainer/Inventário/GridContainer".get_children()
+	invslots = $"TabContainer/Inventário/Specialslots".get_children() + $"TabContainer/Inventário/GridContainer".get_children()
 	printa()
 	hat_for_selector()
 	connectSlots()
@@ -194,19 +194,20 @@ func update():
 		itemStackGuic.update()
 
 	for j in range(min(SignalManager.inventoryb.invslots.size(), invslots.size())):
-		var inventorySlotb: InventorySlotb = SignalManager.inventoryb.invslots[j]
-		
-		if !inventorySlotb.item:
-			invslots[j].clear()
-			continue
-		
-		var itemStackGuib: ItemStackGuib = invslots[j].itemStackGuib
-		
-		if !itemStackGuib:
-			itemStackGuib = SignalManager.ItemStackGuiClassb.instantiate()
-			invslots[j].insert(itemStackGuib)
-		itemStackGuib.inventorySlotb = inventorySlotb
-		itemStackGuib.update()
+		if !invslots[j].get_parent() == $"TabContainer/Inventário/Specialslots":
+			var inventorySlotb: InventorySlotb = SignalManager.inventoryb.invslots[j]
+			
+			if !inventorySlotb.item:
+				invslots[j].clear()
+				continue
+			
+			var itemStackGuib: ItemStackGuib = invslots[j].itemStackGuib
+			
+			if !itemStackGuib:
+				itemStackGuib = SignalManager.ItemStackGuiClassb.instantiate()
+				invslots[j].insert(itemStackGuib)
+			itemStackGuib.inventorySlotb = inventorySlotb
+			itemStackGuib.update()
 
 
 	
@@ -550,21 +551,24 @@ func set_selotype(slot):
 
 func show_itemb(invslot):
 		invslot = invslots
-		
-		if !invslots[next_selectedb].itemStackGuib == null:
-			nextEmpty = false
-		else: 
-			nextEmpty = true
-		if !invslots[previously_selectedb].itemStackGuib == null:
-			previousEmpty = false
-		else: 
-			previousEmpty = true
-		
-		if !invslots[currently_selectedb].itemStackGuib == null:
-			nameLabelb.set_text(invslot[currently_selectedb].itemStackGuib.inventorySlotb.item.showname)
-			descLabelb.set_text(invslot[currently_selectedb].itemStackGuib.inventorySlotb.item.description)
-			showSpriteb.texture = invslot[currently_selectedb].itemStackGuib.inventorySlotb.item.texture
-	
+		if !invslots[next_selectedb].get_parent() == $"TabContainer/Inventário/Specialslots":
+			if !invslots[next_selectedb].itemStackGuib == null:
+				nextEmpty = false
+			else: 
+				nextEmpty = true
+		if !invslots[previously_selectedb].get_parent() == $"TabContainer/Inventário/Specialslots":
+			if !invslots[previously_selectedb].itemStackGuib == null:
+				previousEmpty = false
+			else: 
+				previousEmpty = true
+		if !invslots[currently_selectedb].get_parent() == $"TabContainer/Inventário/Specialslots":
+			if !invslots[currently_selectedb].itemStackGuib == null:
+				nameLabelb.set_text(invslot[currently_selectedb].itemStackGuib.inventorySlotb.item.showname)
+				descLabelb.set_text(invslot[currently_selectedb].itemStackGuib.inventorySlotb.item.description)
+				showSpriteb.texture = invslot[currently_selectedb].itemStackGuib.inventorySlotb.item.texture
+		elif invslots[currently_selectedb].get_parent() == $"TabContainer/Inventário/Specialslots":
+			invslots[currently_selectedb].display_item(nameLabelb,descLabelb,showSpriteb)
+			
 func move_selector_R():
 	var islots = slots
 	currently_selected = (currently_selected + 1) % islots.size()
@@ -617,7 +621,7 @@ func move_selector_LB():
 	show_itemb(invslot)
 func move_selector_UB():
 	var invslot = invslots
-	currently_selectedb = (currently_selectedb - 4) % invslots.size()
+	currently_selectedb = (currently_selectedb - 5) % invslots.size()
 	next_selectedb = (currently_selectedb + 1) % invslots.size()
 	previously_selectedb = (currently_selectedb - 2) % invslots.size()
 	selectorb.global_position = invslots[currently_selectedb].global_position
@@ -626,7 +630,7 @@ func move_selector_UB():
 	show_itemb(invslot)
 func move_selector_DB():
 	var invslot = invslots
-	currently_selectedb = (currently_selectedb + 4) % invslots.size()
+	currently_selectedb = (currently_selectedb + 5) % invslots.size()
 	next_selectedb = (currently_selectedb + 1) % invslots.size()
 	previously_selectedb = (currently_selectedb - 2) % invslots.size()
 	selectorb.global_position = invslots[currently_selectedb].global_position

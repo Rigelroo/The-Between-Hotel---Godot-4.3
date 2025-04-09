@@ -1,25 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm7qaulq0t25e"]
+[gd_scene load_steps=6 format=3 uid="uid://cm7qaulq0t25e"]
 
-[ext_resource type="Script" uid="uid://n8wx15ttkk0i" path="res://Inventory/Scripts/coins.gd" id="1_rmjdq"]
+[ext_resource type="Script" uid="uid://n8wx15ttkk0i" path="res://Inventory/Scripts/coinsdisplayer.gd" id="1_rmjdq"]
 [ext_resource type="Resource" uid="uid://bly82l02028bd" path="res://Global/Mainmanager.tres" id="2_2kw8b"]
-[ext_resource type="Texture2D" uid="uid://dcli6om8ca0fu" path="res://Inventory/Moedas/itemmoeda.png" id="3_ibodx"]
+[ext_resource type="Texture2D" uid="uid://djs72ugca48nx" path="res://Inventory/InvAssets/Coinssprite.png" id="3_t3ylo"]
 [ext_resource type="FontFile" uid="uid://blcmq806vcp78" path="res://Sprites/Hud/Health/numberspritesheet.png" id="4_4ff0c"]
 
-[node name="CoinDisplayer" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3ylo"]
+
+[node name="CoinDisplayer" type="Button"]
+anchors_preset = -1
 anchor_right = 0.656
 anchor_bottom = 1.108
 offset_left = 4.0
 offset_top = -3.0
 offset_right = 0.287964
 offset_bottom = 0.0159912
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t3ylo")
 script = ExtResource("1_rmjdq")
 manager = ExtResource("2_2kw8b")
 
-[node name="Itemmoeda" type="Sprite2D" parent="."]
+[node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(494, 231)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_ibodx")
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("3_t3ylo")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -27,6 +30,7 @@ offset_left = 533.0
 offset_top = 286.0
 offset_right = 1131.0
 offset_bottom = 683.0
+scale = Vector2(0.660942, 0.660942)
 theme_override_colors/font_color = Color(1, 0.850467, 0.822425, 1)
 theme_override_fonts/font = ExtResource("4_4ff0c")
 theme_override_font_sizes/font_size = 241
