@@ -1,0 +1,63 @@
+{
+    "name": "Copiar_de_Agrupar_27",
+    "nodes": [
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Pintar_camada_25",
+            "node_path": "Pintar_camada_25",
+            "offset": [
+                -81.5,
+                377.0
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                0,
+                227
+            ],
+            "resource_path": "export\\Agrupar_30\\Copiar_de_Agrupar_27\\Pintar_camada_25.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -1
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Agrupar_22",
+            "node_path": "Agrupar_22",
+            "offset": [
+                -81.5,
+                377.0
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                4,
+                0
+            ],
+            "resource_path": "export\\Agrupar_30\\Copiar_de_Agrupar_27\\Agrupar_22.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": 0
+        }
+    ]
+}

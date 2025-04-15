@@ -1,0 +1,411 @@
+{
+    "name": "root",
+    "nodes": [
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Pintar_camada_200__colado__Mescladas",
+            "node_path": "Pintar_camada_200__colado__Mescladas",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                -76,
+                -404
+            ],
+            "resource_path": "export\\Pintar_camada_200__colado__Mescladas.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -13
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Pintar_camada_20_Mescladas",
+            "node_path": "Pintar_camada_20_Mescladas",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                676,
+                28
+            ],
+            "resource_path": "export\\Pintar_camada_20_Mescladas.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -12
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Pintar_camada_4",
+            "node_path": "Pintar_camada_4",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                0,
+                -380
+            ],
+            "resource_path": "export\\Pintar_camada_4.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -11
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Coinssprite.png",
+            "node_path": "Coinssprite.png",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                1056,
+                3773
+            ],
+            "resource_path": "export\\Coinssprite.png.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -10
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Roachmilksprite.png",
+            "node_path": "Roachmilksprite.png",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                72,
+                3904
+            ],
+            "resource_path": "export\\Roachmilksprite.png.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -9
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Pintar_camada_2",
+            "node_path": "Pintar_camada_2",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                2130,
+                3756
+            ],
+            "resource_path": "export\\Pintar_camada_2.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -8
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Pintar_camada_1",
+            "node_path": "Pintar_camada_1",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                -96,
+                1300
+            ],
+            "resource_path": "export\\Pintar_camada_1.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -7
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Pintar_camada_3_Mescladas",
+            "node_path": "Pintar_camada_3_Mescladas",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                326,
+                -442
+            ],
+            "resource_path": "export\\Pintar_camada_3_Mescladas.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -6
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "assets_house1.png",
+            "node_path": "assets_house1.png",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                2386,
+                -817
+            ],
+            "resource_path": "export\\assets_house1.png.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -5
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Agrupar_30",
+            "node_path": "Agrupar_30",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                0,
+                0
+            ],
+            "resource_path": "export\\Agrupar_30.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -4
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Background",
+            "node_path": "Background",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                3,
+                -316
+            ],
+            "resource_path": "export\\Background.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -3
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Pintar_camada_11",
+            "node_path": "Pintar_camada_11",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                3990,
+                205
+            ],
+            "resource_path": "export\\Pintar_camada_11.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -2
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "No_Name",
+            "node_path": "No_Name",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                0,
+                -380
+            ],
+            "resource_path": "export\\No_Name.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -1
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "decorations-wrapper-layer",
+            "node_path": "decorations-wrapper-layer",
+            "offset": [
+                -3554.0,
+                2284.5
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                0,
+                -380
+            ],
+            "resource_path": "export\\decorations-wrapper-layer.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": 0
+        }
+    ]
+}
