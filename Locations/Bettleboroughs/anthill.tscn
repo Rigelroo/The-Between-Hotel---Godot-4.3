@@ -1360,8 +1360,8 @@ material = SubResource("CanvasItemMaterial_2yn5m")
 position = Vector2(1728, 699)
 scale = Vector2(5, 5)
 amount = 35
-visibility_rect = Rect2(-500, -200, 1000, 400)
 texture = ExtResource("48_wrip0")
+visibility_rect = Rect2(-500, -200, 1000, 400)
 process_material = SubResource("ParticleProcessMaterial_ftn2t")
 
 [node name="Lanterna2" type="Sprite2D" parent="."]

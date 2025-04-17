@@ -2201,8 +2201,8 @@ scale = Vector2(0.07, 0.07)
 [node name="PlayerHatCold" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0.0705882, 0.0313726, 0.160784, 1)
-position = Vector2(2.2, 2.8)
-rotation = 0.0141266
+position = Vector2(3.4, -3)
+rotation = 0.0163368
 scale = Vector2(-0.07, 0.07)
 texture = ExtResource("18_ayf5o")
 

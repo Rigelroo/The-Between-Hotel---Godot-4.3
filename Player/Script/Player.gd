@@ -145,8 +145,19 @@ var inventoryequiped_array = []
 
 var saved_position = []
 
+var statusdict = {
+	"HP" : null,
+	"SP" : null,
+	"MONEY" : null
+}
+
 func save():
-	var position_array 
+	var position_array
+	statusdict = {
+	"HP" : stats_component.currentHealth,
+	"SP" :  stats_component.currentInk,
+	"MONEY" : SignalManager.coin_number
+	}
 	
 	var saved_scene = get_parent().scene_file_path
 	var saved_scenename = get_parent().nome_cena
@@ -161,6 +172,7 @@ func save():
 		position_array = [position.x, position.y]
 	var object_data = {
 		"position": position_array,  # Salva a posição
+		"status": statusdict
 	}
 	
 	# Salva no dicionário global de saves em SaveSys
@@ -175,6 +187,13 @@ func load_player_state():
 			pos_data = npc_data["position"]
 			if pos_data.size() == 2:
 				position = Vector2(pos_data[0], pos_data[1])
+		if npc_data.has("status"): 
+			var sts_data = npc_data["status"]
+			if sts_data.size() == 3:
+				stats_component.currentHealth = sts_data["HP"]
+				stats_component.currentInk = sts_data["SP"]
+				if SignalManager:
+					SignalManager.coin_number = sts_data["MONEY"]
 
 
 

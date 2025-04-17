@@ -34,8 +34,8 @@ func _ready() -> void:
 
 func world_ready() -> void:
 	player = SignalManager.player
-	player.healthChanged.connect(update_health)
-	player.inkChanged.connect(update_ink)
+	player.stats_component.healthChanged.connect(update_health)
+	player.stats_component.JuiceChanged.connect(update_ink)
 	update_health(player.components.stats_component.currentHealth)
 	update_ink(player.components.stats_component.currentInk)
 	update_berserk(player.components.stats_component.currentFurypoints)

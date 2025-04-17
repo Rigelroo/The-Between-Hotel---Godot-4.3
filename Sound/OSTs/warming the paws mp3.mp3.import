@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://l8wiw6ktmdxx"
+path="res://.godot/imported/warming the paws mp3.mp3-c3ec2f4cd21c2713fd8f2646cbc8e50f.mp3str"
+
+[deps]
+
+source_file="res://Sound/OSTs/warming the paws mp3.mp3"
+dest_files=["res://.godot/imported/warming the paws mp3.mp3-c3ec2f4cd21c2713fd8f2646cbc8e50f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

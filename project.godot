@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="The Between Hotel"
+config/name_localized={
+"pt_BR": "Hotel Limiar"
+}
 run/main_scene="res://Menu/logo.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+run/max_fps=60
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 0)
-config/icon="res://Menu/Sprites/icon.png"
+config/icon="uid://bufjhn6irewne"
 
 [audio]
 
@@ -362,7 +366,7 @@ pause={
 
 locale/language_filter=["en", "es", "pt"]
 locale/country_filter=["BR", "MX", "US"]
-locale/locale_filter_mode=0
+locale/locale_filter_mode=1
 
 [layer_names]
 

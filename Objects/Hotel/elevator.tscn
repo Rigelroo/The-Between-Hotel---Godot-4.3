@@ -38,7 +38,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ElevadorPortaesquerda:position")
+tracks/1/path = NodePath("fundo/ElevadorPortaesquerda:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -66,7 +66,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ElevadorPortaesquerda:position")
+tracks/1/path = NodePath("fundo/ElevadorPortaesquerda:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -93,7 +93,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ElevadorPortaesquerda:position")
+tracks/1/path = NodePath("fundo/ElevadorPortaesquerda:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -120,7 +120,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ElevadorPortaesquerda:position")
+tracks/1/path = NodePath("fundo/ElevadorPortaesquerda:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -191,13 +191,13 @@ position = Vector2(87.5, 104)
 shape = SubResource("RectangleShape2D_sujq4")
 debug_color = Color(0.745779, 0.451948, 0.276295, 0.42)
 
-[node name="ElevadorPortaesquerda" type="Sprite2D" parent="."]
-position = Vector2(-161, 108)
-texture = ExtResource("3_xop6b")
-
 [node name="fundo" type="Sprite2D" parent="."]
 clip_children = 2
 texture = ExtResource("1_tpb2x")
+
+[node name="ElevadorPortaesquerda" type="Sprite2D" parent="fundo"]
+position = Vector2(-161, 108)
+texture = ExtResource("3_xop6b")
 
 [node name="ElevadorPortadireita" type="Sprite2D" parent="fundo"]
 position = Vector2(160, 108)
